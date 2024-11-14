@@ -1,0 +1,101 @@
+\documentclass{exam}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+
+%\setlength{\topmargin}{-.5in} \setlength{\textheight}{9.25in}
+%\setlength{\oddsidemargin}{0in} \setlength{\textwidth}{6.8in}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\large
+
+\noindent{\bf Contrôle 3 -- 25min. \hfill Première générale \hfill 20/11/2024}
+
+\vspace{2mm}
+
+\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+\vspace{2mm}
+
+\begin{exercice}
+Écrire sous la forme $a^n$ avec $a, n \in \mathbb{N}$.
+    \begin{enumerate}
+        \item $3^3 \times 8^3$
+        \item $(6^4)^4$
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+        \vspace{5em}}}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}
+    Soit $(w_n)$ une suite définie pour tout $n \in \mathbb{N}$ par $w_n = \dfrac{8}{3^n}$.
+    
+    \begin{enumerate}
+        \item Quelle est la nature de cette suite ? Justifier.
+        \item Donner sa raison et son premier terme $w_0$.
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+        \vspace{12em}}}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}
+    On considère la suite définie par $u_n = -n^2 + n + 1$ pour tout $n \in \mathbb{N}$.
+    
+    \begin{enumerate}
+        \item Calculer $u_{n+1} - u_n$ pour tout $\mathbb{N}$.
+        \item En déduire les variations de la suite $(u_n)$ sur $\mathbb{N}$.
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+        \vspace{16em}}}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}
+    Résoudre l'équation suivante en calculant d'abord le discriminant $\Delta$ :
+    \[
+    x^2 - 2x + 1 = 0
+    \]
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+        \vspace{23em}}}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}
+    Factoriser le polynôme suivant en calculant d'abord le discriminant $\Delta$ :
+    \[
+    -x^2 - 3x + 4
+    \]
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+        \vspace{23em}}}
+    \end{center}
+\end{exercice}
+
+\end{document}

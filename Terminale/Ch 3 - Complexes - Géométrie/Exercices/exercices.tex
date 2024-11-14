@@ -1,0 +1,333 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 3 \\ Nombres complexes - propriétés géométriques
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+
+\begin{exercice}[title=Exercice 1 \quad$\star$\quad\ {[}Calculer{]}]{}{}
+Calculer le module et l’argument des nombres complexes suivants :
+\begin{enumerate}
+    \item \( z = 1 + i \)
+    \item \( z = 2\pi i \)
+    \item \( z = 2 - 2\sqrt{3}i \)
+    \item \( z = -5 - 5i \)
+    \item \( z = \sqrt{6} - \sqrt{2}i \)
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 2 \quad$\star$\quad\ {[}Calculer{]}]{}{}
+Déterminer la forme trigonométrique et la forme exponentielle des nombres complexes suivants :
+\begin{enumerate}
+    \item \( z = 2 + 2i \)
+    \item \( z = -3i \)
+    \item \( z = 1 + \sqrt{3}i \)
+    \item \( z = \frac{\sqrt{3}}{3} - \frac{1}{3}i \)
+    \item \( z = -\sqrt{5} - \sqrt{5}i \)
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 3 \quad$\star$\quad\ {[}Calculer{]}]{}{}
+Déterminer la forme algébrique de :
+\[
+(-1 + i)^{13}.
+\]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 4 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+Déterminer la forme exponentielle de :
+\[
+e^{i\frac{\pi}{4}} + e^{i\frac{\pi}{3}}.
+\]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 5 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+Calculer
+\[
+\int_{\frac{2\pi}{3}}^{0} \cos^3(t) \, dt.
+\]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 6 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+Calculer
+\[
+\int_{\frac{\pi}{4}}^{0} \cos^2(t) \sin^2(t) \, dt.
+\]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 7 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+À l’aide de la formule de Moivre, exprimer \( \cos(3x) \) et \( \sin(3x) \) en fonction de \( \cos(x) \) et \( \sin(x) \).
+\end{exercice}
+
+\begin{exercice}[title={Exercice 8 \quad$\star\star$\quad\ [Raisonner]}]{}{}
+Montrer que pour tout \( z \in \mathbb{U} \), il existe \( z' \in \mathbb{U} \) tel que \( zz' = 1 \).
+\end{exercice}
+
+\begin{exercice}[title=Exercice 9 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+Résoudre les équations suivantes dans \( \mathbb{C} \) :
+\begin{enumerate}
+    \item \( z^4 = -1 \)
+    \item \( z^3 = i \)
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 10 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+Soit \( n \geq 2 \). Résoudre l’équation suivante dans \( \mathbb{C} \) :
+\[
+z^n = \bar{z}.
+\]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 11 \quad$\star\star$\quad\ {[}Calculer{]}]{}{}
+Soit \( n \geq 2 \). Calculer le produit des racines \( n^{\text{e}} \) de l’unité.
+\end{exercice}
+
+\begin{exercice}[title={Exercice 12 \quad$\star\star$\quad\ {[}Calculer, Chercher{]}}]{}{}
+Déterminer tous les nombres complexes \( z \) tels que les points d’affixes \( z \), \( z^2 \) et \( z^4 \) soient alignés.
+\end{exercice}
+
+\begin{exercice}[title={Exercice 13 \quad$\star\star\star$\quad\ {[}Chercher, Représenter{]}}]{}{}
+Soient \( A_1, \dots, A_n \) des points du plan. Peut-on trouver \( n \) points \( B_1, \dots, B_n \) tels que \( A_1, \dots, A_n \) soient les milieux respectifs des segments \([B_1B_2]\), \([B_2B_3]\), \dots, \([B_nB_1]\) ?
+\end{exercice}
+
+\begin{exercice}[title={Exercice 14 \quad$\star\star\star$\quad\ {[}Représenter, Calculer, Chercher{]}}]{}{}
+Si \( A_1, \dots, A_n \) sont \( n \) points du plan complexe d’affixes respectives \( z_1, \dots, z_n \), on dit qu’un point \( M \) d’affixe \( z \) appartient à l’enveloppe convexe des \((A_k)_{1 \leq k \leq n}\) s’il existe \( \lambda_1, \dots, \lambda_n \in [0;1] \) tels que \( \sum_{k=1}^{n} \lambda_k = 1 \) et tels que :
+\[
+z = \sum_{k=1}^{n} \lambda_k z_k.
+\]
+On considère \( P \in \mathbb{C}[X] \). On note \( (a_i)_{1 \leq i \leq s} \) ses racines et, pour tout \( 0 \leq i < s \), \( A_i \) désigne le point d’affixe \( a_i \). Montrer que toutes les racines du polynôme \( P' \) sont contenues dans l’enveloppe convexe des \( (A_i)_{1 \leq i \leq s} \).
+\end{exercice}
+
+\begin{exercice}[title={Exercice 15 \quad$\star\star$\quad\ {[}Calculer, Représenter{]}}]{}{}
+Soit les nombres complexes :
+\( z_1 = \sqrt{2} + i\sqrt{6} \), \( z_2 = 2 + 2i \) et \( Z = \frac{z_1}{z_2} \).
+\begin{enumerate}
+    \item Écrire \( Z \) sous forme algébrique.
+    \item Donner les modules et arguments de \( z_1 \), \( z_2 \) et \( Z \).
+    \item En déduire les valeurs de \( \cos \left( \frac{\pi}{12} \right) \) et \( \sin \left( \frac{\pi}{12} \right) \).
+    \item Le plan est muni d’un repère orthonormal. On désigne par \( A \), \( B \) et \( C \) les points d’affixes respectives \( z_1 \), \( z_2 \) et \( Z \). Construire à la règle (non graduée) et au compas les points \( A \), \( B \) et \( C \).
+    \item Écrire sous forme algébrique le nombre complexe \( Z^{2022} \).
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title={Exercice 16 \quad$\star\star\star$\quad\ [Représenter]}]{}{}
+\begin{enumerate}
+    \item Déterminer l’expression de \( \cos(5x) \) en fonction de \( \cos(x) \).
+    \item En déduire la valeur de \( \cos \left( \frac{\pi}{5} \right) \), de \( \cos \left( \frac{2\pi}{5} \right) \) et de \( \cos \left( \frac{3\pi}{5} \right) \).
+    \item En déduire une construction à la règle (non graduée) et au compas d’un pentagone régulier inscrit dans le cercle trigonométrique.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title={Exercice 17 \quad$\star\star\star$\quad\ {[}Représenter, Calculer, Chercher{]}}]
+Dans un repère orthonormé, peut-on trouver un triangle équilatéral dont les trois sommets sont à coordonnées entières ?
+\end{exercice}
+
+\begin{exercice}[title={Exercice 18 \quad$\star\star\star$\quad\ {[}Représenter, Calculer, Raisonner{]}}]{}{}
+Soient \( A \), \( B \) et \( C \) trois points non alignés d’affixe \( a \), \( b \) et \( c \). On note \( j = e^{\frac{2i\pi}{3}} \).
+\begin{enumerate}
+    \item Montrer que le triangle \( ABC \) est équilatéral direct si, et seulement si,
+    \[
+    a + bj + cj^2 = 0.
+    \]
+    \item On ne suppose pas nécessairement que \( ABC \) est équilatéral. On construit à partir de \( ABC \) les trois triangles équilatéraux de base \([AB]\), \([AC]\) et \([BC]\) construits à l’extérieur de \( ABC \). Montrer que les centres de gravité de ces trois triangles forment un triangle équilatéral.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 19 \quad$\star\star$\quad\ ]{}{}
+Le plan complexe est muni d'un repère orthonormé \( (O ; \vec{u}, \vec{v}) \) et on considère les points \( A \), \( B \) et \( C \) d'affixes respectives :  
+\( z_A = \sqrt{2}e^{-\frac{3i\pi}{4}} \), \( z_B = 3 + 3i \) et \( z_C = 7 - i \).
+
+\begin{enumerate}
+    \item Déterminer la forme algébrique de \( z_A \) et une forme exponentielle de \( z_B \).
+    \item Quelle est la nature du triangle \( ABC \) ?
+    \item Démontrer qu'il existe un point \( D \) tel que le quadrilatère \( ABCD \) soit un carré. Déterminer l'affixe du point \( D \).
+    \item Déterminer l'affixe du centre du carré \( ABCD \).
+    \item On considère l'ensemble des points \( M \) du plan d'affixe \( z \) tels que \( |z - 3 + i| = 4 \). Démontrer que cet ensemble est le cercle circonscrit au triangle \( ABC \).
+\end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}[title=Exercice 20 \quad$\star\star$\quad\ ]{}{}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{schema_exo68.png}
+\end{center}
+En électricité, il est souvent nécessaire de réaliser la somme de tensions sinusoïdales de même pulsation \( \omega \).  
+On obtient \( v(t) = v_1(t) + v_2(t) \), avec \( v_1(t) = 3\sin\left(\omega t + \frac{\pi}{2}\right) \) et \( v_2(t) = 4\sin(\omega t) \).
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Déterminer \( |4 + 3i| \).
+        \item En utilisant la calculatrice, déterminer un argument de \( 4 + 3i \) à \( 10^{-3} \) près. En déduire une forme exponentielle de \( 4 + 3i \) et de \( 4 - 3i \).
+    \end{enumerate}
+    \item En utilisant les formules d'Euler, montrer que
+       \[
+       v(t) = \frac{1}{2i} \left(e^{i\omega t} (4 + 3i) - e^{-i\omega t} (4 - 3i)\right).
+       \]
+    \item En déduire que \( v(t) = V \sin(\omega t + \phi) \) où \( V \) et \( \phi \) sont deux réels qu'il faudra expliciter.
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}[title=Exercice 21 \quad$\star\star$\quad\ ]{}{}
+Soit \( z = x + iy \) un nombre complexe, où \( x \) et \( y \) sont des nombres réels.  
+À tout nombre complexe \( z \), on associe le nombre noté \( e^z \) défini par \( e^z = e^x (\cos(y) + i\sin(y)) \).
+
+\begin{enumerate}
+    \item Vérifier que pour tous nombres complexes \( z_1 \) et \( z_2 \), on a : \( e^{z_1} \times e^{z_2} = e^{z_1 + z_2} \).
+    \item Écrire la forme algébrique de \( e^{2 + 3i} \).
+    \item Déterminer une solution de l'équation \( e^z = 1 + i\sqrt{3} \). En existe-t-il d'autres ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 22 \quad$\star\star$\quad\ ]{}{}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{schema_exo65.png}
+\end{center}
+En électricité, en régime sinusoïdal utilisant un courant alternatif de pulsation \( \omega \), on utilise les nombres complexes pour représenter les tensions et intensités sinusoïdales.  
+On sait, grâce aux lois de l'électricité, que la tension complexe \( U_0 \) aux bornes de la résistance \( R \) est reliée à l'intensité complexe \( I \) par la relation \( U_0 = RI \) et que
+\[
+U_i = \frac{1}{iC\omega} I + U_0,
+\]
+où \( C \) est la capacité du condensateur.
+
+On cherche le gain du circuit : \( G = \frac{U_0}{U_i} \).
+
+\begin{enumerate}
+    \item Démontrer que
+       \[
+       G = \frac{iRC\omega}{1 + iRC\omega}.
+       \]
+    \item Quand \( R = 1000 \) ohms, \( C = 64 \times 10^{-6} \) farads et \( \omega = 60000 \) Hz, démontrer que le module de \( G \) est proche de 1.
+    \item Rechercher le sens de « circuit passe-haut ».
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}[title=Exercice 23 \quad$\star\star$\quad\ ]{}{}
+L'objectif est de déterminer la valeur exacte de
+\[
+I = \int_0^{\frac{\pi}{2}} \sin^4(x) \, dx.
+\]
+
+\begin{enumerate}
+    \item Développer \( (a + b)^4 \).
+    \item En utilisant une formule d'Euler, prouver que pour tout réel \( x \),
+       \[
+       \sin^4(x) = \frac{1}{8} ( \cos(4x) - 4\cos(2x) + 3 ).
+       \]
+    \item Conclure.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 24 \quad$\star\star$\quad\ ]{}{}
+\begin{enumerate}
+    \item En écrivant \( e^{i(\theta + \theta')} \) de deux manières différentes, retrouver les formules d'addition concernant \( \cos(\theta + \theta') \) et \( \sin(\theta + \theta') \).
+    \item En déduire que pour tout nombre réel \( \alpha \),
+       \[
+       \cos^2(\alpha) = \frac{1 + \cos(2\alpha)}{2}
+       \]
+       et donner une expression de \( \sin(2\alpha) \) en fonction de \( \cos(\alpha) \) et \( \sin(\alpha) \).
+    \item Calculer, à l'aide de la question 2, la valeur exacte de \( \cos\left(\frac{\pi}{8}\right) \), puis celle de \( \sin\left(\frac{\pi}{8}\right) \).  
+       Vérifier les résultats trouvés à l'aide d'une calculatrice.
+    \item Avec une calculatrice, on trouve :
+       \[
+       \tan\left(\frac{\pi}{12}\right) = 2 - \sqrt{3}.
+       \]
+       Démontrer ce résultat à l'aide de la question 2.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 25 \quad$\star$\quad\ ]{}{}
+Le plan complexe est muni d'un repère orthonormé direct \( (O ; \vec{u}, \vec{v}) \). On considère l'application \( f \) qui, à tout point d'affixe \( z \), associe le point \( M' \) d'affixe \( z' \) tel que \( z' = z^2 \).
+
+\begin{enumerate}
+    \item Déterminer l'ensemble des points \( M \) qui ont pour image eux-mêmes par \( f \).
+    \item En utilisant la forme exponentielle, déterminer la forme exponentielle de :
+       \begin{enumerate}
+           \item \( f(A) \), où \( A \) est le point d'affixe \( 1 - i \).
+           \item \( f(B) \), où \( B \) est le point d'affixe \( 2 + 2\sqrt{3}i \).
+           \item \( D \) est le point d'affixe \( \sqrt{2} + i\sqrt{2} \). On cherche les antécédents éventuels de \( D \) par \( f \), c'est-à-dire les points \( M \) tels que \( f(M) = D \).
+       \end{enumerate}
+    \item En écrivant l'affixe de \( M \) sous la forme \( z = re^{i\theta} \) (\( r > 0 \) et \( \theta \in \mathbb{R} \)), déterminer les valeurs possibles de \( r \) et de \( \theta \).
+       \begin{enumerate}
+           \item Conclure.
+       \end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 26 \quad$\star\star\star$\quad\ ]{}{}
+On considère un nombre réel \( x \) et un entier naturel non nul \( n \). On cherche à trouver une expression explicite des sommes :  
+\( C = 1 + \cos(x) + \cos(2x) + \dots + \cos(nx) \)  
+\( S = \sin(x) + \sin(2x) + \dots + \sin(nx) \)  
+
+\begin{enumerate}
+    \item Exprimer \( C + iS \) comme une somme d'exponentielles complexes.
+    \item En utilisant la somme des termes d'une suite géométrique, en déduire que, pour tout réel \( x \) ne s'écrivant pas sous la forme \( x = 2k\pi \) (k $\in \mathbb{Z}$),
+       \[
+       C + iS = \frac{1 - e^{i(n+1)x}}{1 - e^{ix}}.
+       \]
+    \item En factorisant respectivement par \( e^{i\frac{x}{2}} \) et par \( e^{i\frac{(n+1)x}{2}} \), démontrer que :  
+       \begin{enumerate}
+           \item \( 1 - e^{ix} = -2ie^{i\frac{x}{2}} \sin\left(\frac{x}{2}\right) \),
+           \item \( 1 - e^{i(n+1)x} = -2ie^{i\frac{(n+1)x}{2}} \sin\left(\frac{(n+1)x}{2}\right) \).
+       \end{enumerate}
+    \item Prouver que, pour tout réel \( x \) ne s'écrivant pas sous la forme \( x = 2k\pi \) (k entier relatif), on a
+       \[
+       C + iS = e^{i\frac{nx}{2}} \times \frac{\sin\left(\frac{(n+1)x}{2}\right)}{\sin\left(\frac{x}{2}\right)}.
+       \]
+    \item En remarquant que \( C \) est la partie réelle et \( S \) la partie imaginaire de \( C + iS \), en déduire la solution du problème.
+    \item Étudier le cas où \( x \) s'écrit sous la forme \( x = 2k\pi \) (k entier relatif).
+    \item Applications : \( n \) est un entier naturel supérieur ou égal à 2.
+       \begin{enumerate}
+           \item Calculer \( \cos\left(\frac{\pi}{n}\right) + \cos\left(\frac{2\pi}{n}\right) + \dots + \cos\left(\frac{(n-1)\pi}{n}\right) \).
+           \item Démontrer que
+           \(
+             \sin\left(\frac{\pi}{n}\right) + \sin\left(\frac{2\pi}{n}\right) + \dots + \sin\left(\frac{(n-1)\pi}{n}\right) = \frac{1}{\tan\left(\frac{\pi}{2n}\right)}.
+           \)
+       \end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\end{multicols}
+
+\end{document}

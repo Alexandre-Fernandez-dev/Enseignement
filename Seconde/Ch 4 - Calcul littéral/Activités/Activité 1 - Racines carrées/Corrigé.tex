@@ -1,0 +1,94 @@
+% Sujet en LaTeX
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{a4paper, margin=1.5cm}
+
+\title{Corrigé 1: Racines carrées et géométrie}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection*{Partie 1 : Rappel de la notion de racine carrée à travers les aires}
+
+\begin{enumerate}
+    \item \textbf{Construction de carrés :}
+    \begin{enumerate}
+        \item Les carrés ont les longueurs de côté suivantes :
+        \begin{itemize}
+            \item Pour une aire de $1~\text{cm}^2$, la longueur du côté est $\sqrt{1} = 1~\text{cm}$.
+            \item Pour une aire de $4~\text{cm}^2$, la longueur du côté est $\sqrt{4} = 2~\text{cm}$.
+            \item Pour une aire de $9~\text{cm}^2$, la longueur du côté est $\sqrt{9} = 3~\text{cm}$.
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Carrés d'aires non entières :}
+    \begin{enumerate}
+        \item Pour dessiner un carré d'aire $2~\text{cm}^2$, on construit un carré dont les côtés mesurent $\sqrt{2}~\text{cm}$.
+        \item Construction :
+        \begin{itemize}
+            \item Tracez un segment de $1~\text{cm}$.
+            \item À partir d'une extrémité, construisez un segment perpendiculaire de $1~\text{cm}$.
+            \item Reliez les extrémités pour former un triangle rectangle.
+            \item La longueur de l'hypoténuse sera $\sqrt{1^2 + 1^2} = \sqrt{2}~\text{cm}$.
+            \item Utilisez cette longueur pour construire le carré d'aire $2~\text{cm}^2$.
+        \end{itemize}
+        \item La longueur du côté de ce carré est $\sqrt{2}~\text{cm}$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Partie 2 : Lois de multiplication des racines carrées}
+
+\begin{enumerate}
+    \item \textbf{Multiplication géométrique :}
+    \begin{enumerate}
+        \item L'aire du rectangle est :
+        \[
+        \sqrt{2} \times \sqrt{8} = \sqrt{16} = 4~\text{cm}^2.
+        \]
+    \end{enumerate}
+    \item \textbf{Carré équivalent :}
+    \begin{enumerate}
+        \item La longueur du côté du carré équivalent est $\sqrt{4} = 2~\text{cm}$.
+        \item Comparaison :
+        \[
+        \sqrt{2} \times \sqrt{8} = \sqrt{16} = 4 \quad \text{et} \quad \sqrt{2 \times 8} = \sqrt{16} = 4.
+        \]
+        \item Conclusion : $\sqrt{2} \times \sqrt{8} = \sqrt{16}$, ce qui illustre la loi de multiplication des racines carrées.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Partie 3 : Exploration de l'inégalité $\sqrt{a + b} \leq \sqrt{a} + \sqrt{b}$}
+
+\begin{enumerate}
+    \item \textbf{Triangle rectangle :}
+    \begin{enumerate}
+        \item Avec $a = 9$ et $b = 16$ :
+        \begin{itemize}
+            \item $\sqrt{a} = \sqrt{9} = 3$.
+            \item $\sqrt{b} = \sqrt{16} = 4$.
+            \item $\sqrt{a + b} = \sqrt{25} = 5$.
+        \end{itemize}
+        \item Construction d'un triangle rectangle avec des côtés de $3~\text{cm}$ et $4~\text{cm}$.
+        \item Longueur de l'hypoténuse :
+        \[
+        c = \sqrt{(\sqrt{a})^2 + (\sqrt{b})^2} = \sqrt{9 + 16} = \sqrt{25} = 5~\text{cm}.
+        \]
+    \end{enumerate}
+    \item \textbf{Analyse de l'inégalité :}
+    \begin{enumerate}
+        \item Calcul de la somme :
+        \[
+        \sqrt{a} + \sqrt{b} = 3 + 4 = 7.
+        \]
+        \item Comparaison :
+        \[
+        \sqrt{a + b} = 5 \leq 7 = \sqrt{a} + \sqrt{b}.
+        \]
+        \item Conclusion : L'inégalité $\sqrt{a + b} \leq \sqrt{a} + \sqrt{b}$ est vérifiée pour $a = 9$ et $b = 16$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

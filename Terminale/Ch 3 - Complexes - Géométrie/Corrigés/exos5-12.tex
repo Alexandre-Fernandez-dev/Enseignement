@@ -1,0 +1,451 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pagestyle{empty}
+
+\geometry{left=1cm, right=1cm, top=1cm, bottom=1cm}
+
+\title{Exercices de Nombres Complexes}
+\author{}
+\date{}
+
+% Style de boîte pour les exercices
+\tcbset{
+    colframe=purple!70,
+    colback=white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    sharp corners,
+    boxrule=0.5mm,
+    colbacktitle=purple!20!white,
+    center title,
+    boxsep=4pt,
+}
+
+% Style de boîte pour les solutions
+\newtcolorbox{solutionbox}[1][]{
+    colframe=green!70,
+    colback=white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    sharp corners,
+    boxrule=0.5mm,
+    colbacktitle=green!20!white,
+    title=Solution,
+    boxsep=4pt,
+    breakable,
+    #1
+}
+
+\begin{document}
+
+\begin{tcolorbox}[title=Exercice 5 - {[}Calculer{]}]
+Calculer
+\[
+\int_{\frac{2\pi}{3}}^{0} \cos^3(t) \, dt.
+\]
+\end{tcolorbox}
+
+\begin{solutionbox}
+Utilisons les expressions exponentielles des fonctions trigonométriques :
+\[
+\cos t = \dfrac{e^{it} + e^{-it}}{2}.
+\]
+
+Donc :
+\[
+\cos^3 t = \left( \dfrac{e^{it} + e^{-it}}{2} \right)^3 = \dfrac{1}{8} \left( e^{it} + e^{-it} \right)^3.
+\]
+
+Développons :
+\[
+\left( e^{it} + e^{-it} \right)^3 = e^{3it} + 3e^{it} + 3e^{-it} + e^{-3it}.
+\]
+
+Ainsi :
+\[
+\cos^3 t = \dfrac{1}{8} \left( e^{3it} + 3e^{it} + 3e^{-it} + e^{-3it} \right).
+\]
+
+Regroupons en utilisant les identités :
+\[
+e^{a} + e^{-a} = 2\cosh(a), \quad \text{mais ici } a \text{ est imaginaire pur}, \quad e^{ia} + e^{-ia} = 2\cos(a).
+\]
+
+Donc :
+\[
+\cos^3 t = \dfrac{1}{8} \left( 2\cos(3t) + 6\cos(t) \right) = \dfrac{1}{4} \cos(3t) + \dfrac{3}{4} \cos t.
+\]
+
+Ainsi, l'intégrale devient :
+\[
+\int_{\frac{2\pi}{3}}^{0} \cos^3 t \, dt = \dfrac{1}{4} \int_{\frac{2\pi}{3}}^{0} \cos(3t) \, dt + \dfrac{3}{4} \int_{\frac{2\pi}{3}}^{0} \cos t \, dt.
+\]
+
+Calculons les intégrales :
+\[
+\int \cos(3t) \, dt = \dfrac{1}{3} \sin(3t) + C, \quad \int \cos t \, dt = \sin t + C.
+\]
+
+En appliquant les bornes :
+\begin{align*}
+\int_{\frac{2\pi}{3}}^{0} \cos^3 t \, dt &= \dfrac{1}{4} \left[ \dfrac{1}{3} \sin(3t) \right]_{\frac{2\pi}{3}}^{0} + \dfrac{3}{4} \left[ \sin t \right]_{\frac{2\pi}{3}}^{0} \\
+&= \dfrac{1}{4} \left( \dfrac{1}{3} \sin(0) - \dfrac{1}{3} \sin\left( 3 \times \dfrac{2\pi}{3} \right) \right) + \dfrac{3}{4} \left( \sin 0 - \sin \dfrac{2\pi}{3} \right).
+\end{align*}
+
+Calculons les valeurs numériques :
+\[
+\sin(0) = 0, \quad \sin\left( 2\pi \right) = 0, \quad \sin\left( \dfrac{2\pi}{3} \right) = \dfrac{\sqrt{3}}{2}.
+\]
+
+Ainsi :
+\begin{align*}
+\int_{\frac{2\pi}{3}}^{0} \cos^3 t \, dt &= \dfrac{1}{4} \left( 0 - \dfrac{1}{3} \times 0 \right) + \dfrac{3}{4} \left( 0 - \dfrac{\sqrt{3}}{2} \right) \\
+&= 0 + \dfrac{3}{4} \left( -\dfrac{\sqrt{3}}{2} \right) \\
+&= -\dfrac{3\sqrt{3}}{8}.
+\end{align*}
+
+\textbf{Conclusion} : La valeur de l'intégrale est \( -\dfrac{3\sqrt{3}}{8} \).
+\end{solutionbox}
+
+\begin{tcolorbox}[title=Exercice 6 - {[}Calculer{]}]
+Calculer
+\[
+\int_{\frac{\pi}{4}}^{0} \cos^2(t) \sin^2(t) \, dt.
+\]
+\end{tcolorbox}
+
+\begin{solutionbox}
+Utilisons les expressions exponentielles :
+\[
+\cos t = \dfrac{e^{it} + e^{-it}}{2}, \quad \sin t = \dfrac{e^{it} - e^{-it}}{2i}.
+\] 
+
+Donc :
+\[
+\cos^2 t = \left( \dfrac{e^{it} + e^{-it}}{2} \right)^2 = \dfrac{e^{2it} + 2 + e^{-2it}}{4},
+\]
+\[
+\sin^2 t = \left( \dfrac{e^{it} - e^{-it}}{2i} \right)^2 = \dfrac{-e^{2it} + 2 - e^{-2it}}{4}.
+\]
+
+Ainsi, le produit :
+\begin{align*}
+\cos^2 t \sin^2 t &= \left( \dfrac{e^{2it} + 2 + e^{-2it}}{4} \right) \left( \dfrac{-e^{2it} + 2 - e^{-2it}}{4} \right) \\
+\end{align*}
+
+Simplifions le numérateur :
+\begin{align*}
+(e^{2it} + 2 + e^{-2it})(-e^{2it} + 2 - e^{-2it}) &= -e^{-4it} - e^{4it} +2.
+\end{align*}
+
+
+Ainsi :
+$$
+    \cos^2t\sin^2t = \dfrac{-2\cos(4t) + 2}{16}\\
+    = \dfrac{1 - \cos(4t)}{8}
+$$
+\end{solutionbox}
+
+\begin{tcolorbox}[title=Exercice 7 - {[}Calculer{]}]
+À l’aide de la formule de Moivre, exprimer \( \cos(3x) \) et \( \sin(3x) \) en fonction de \( \cos(x) \) et \( \sin(x) \).
+\end{tcolorbox}
+
+\begin{solutionbox}
+La formule de Moivre stipule que :
+\[
+\left( \cos x + i\sin x \right)^n = \cos(nx) + i\sin(nx)
+\]
+
+Pour \( n = 3 \) :
+\[
+\left( \cos x + i\sin x \right)^3 = \cos(3x) + i\sin(3x)
+\]
+
+Développons le membre de gauche :
+\[
+\left( \cos x + i\sin x \right)^3 = \cos^3 x + 3i\cos^2 x \sin x - 3\cos x \sin^2 x - i\sin^3 x
+\]
+
+Regroupons les parties réelles et imaginaires :
+
+\textbf{Partie réelle} :
+\[
+\cos^3 x - 3\cos x \sin^2 x
+\]
+
+\textbf{Partie imaginaire} :
+\[
+3\cos^2 x \sin x - \sin^3 x
+\]
+
+Ainsi, on a :
+\[
+\cos(3x) = \cos^3 x - 3\cos x \sin^2 x
+\]
+\[
+\sin(3x) = 3\cos^2 x \sin x - \sin^3 x
+\]
+
+On peut également exprimer \( \sin^2 x \) et \( \cos^2 x \) en fonction de l'autre pour simplifier davantage si nécessaire.
+\end{solutionbox}
+
+\begin{tcolorbox}[title={Exercice 8 - [Raisonner]}]
+Montrer que pour tout \( z \in \mathbb{U} \), il existe \( z' \in \mathbb{U} \) tel que \( zz' = 1 \).
+\end{tcolorbox}
+
+\begin{solutionbox}
+Si \( z \in \mathbb{U} \), alors \( |z| = 1 \).
+
+Considérons \( z' = \dfrac{1}{z} \).
+
+Comme \( |z| = 1 \), on a \( |z'| = \left| \dfrac{1}{z} \right| = \dfrac{1}{|z|} = 1 \), donc \( z' \in \mathbb{U} \).
+
+De plus, \( zz' = z \times \dfrac{1}{z} = 1 \).
+
+Ainsi, pour tout \( z \in \mathbb{U} \), il existe \( z' = \dfrac{1}{z} \in \mathbb{U} \) tel que \( zz' = 1 \).
+\end{solutionbox}
+
+\begin{tcolorbox}[title=Exercice 9 - {[}Calculer{]}]
+Résoudre les équations suivantes dans \( \mathbb{C} \) :
+\begin{enumerate}
+    \item \( z^4 = -1 \)
+    \item \( z^3 = i \)
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{solutionbox}
+\begin{enumerate}
+    \item Résoudre \( z^4 = -1 \)
+
+    Écrivons \( -1 \) en forme exponentielle :
+    \[
+    -1 = e^{i\pi + 2k\pi i}, \quad k \in \mathbb{Z}
+    \]
+
+    Donc :
+    \[
+    z = \left( e^{i\pi + 2k\pi i} \right)^{\frac{1}{4}} = e^{i\left( \frac{\pi}{4} + \dfrac{k\pi}{2} \right)}, \quad k = 0, 1, 2, 3
+    \]
+
+    Les solutions sont donc :
+    \[
+    z_0 = e^{i\frac{\pi}{4}}, \quad z_1 = e^{i\frac{3\pi}{4}}, \quad z_2 = e^{i\frac{5\pi}{4}}, \quad z_3 = e^{i\frac{7\pi}{4}}
+    \]
+
+    \item Résoudre \( z^3 = i \)
+
+    Écrivons \( i \) en forme exponentielle :
+    \[
+    i = e^{i\frac{\pi}{2} + 2k\pi i}, \quad k \in \mathbb{Z}
+    \]
+
+    Donc :
+    \[
+    z = \left( e^{i\left( \frac{\pi}{2} + 2k\pi \right)} \right)^{\frac{1}{3}} = e^{i\left( \dfrac{\pi}{6} + \dfrac{2k\pi}{3} \right)}, \quad k = 0, 1, 2
+    \]
+
+    Les solutions sont :
+    \[
+    z_0 = e^{i\frac{\pi}{6}}, \quad z_1 = e^{i\frac{\pi}{6} + \frac{2\pi}{3}}, \quad z_2 = e^{i\frac{\pi}{6} + \frac{4\pi}{3}}
+    \]
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 10
+\begin{tcolorbox}[title=Exercice 10 - {[}Calculer{]}]
+Soit \( n \geq 2 \). Résoudre l’équation suivante dans \( \mathbb{C} \) :
+\[
+z^n = \bar{z}.
+\]
+\end{tcolorbox}
+
+\begin{solutionbox}
+Soit \( z \in \mathbb{C} \) tel que \( z^n = \bar{z} \).
+
+Écrivons \( z \) sous forme exponentielle :
+\[
+z = r e^{i\theta}, \quad r \geq 0, \theta \in \mathbb{R}.
+\]
+Alors, son conjugué est :
+\[
+\bar{z} = r e^{-i\theta}.
+\]
+
+L'équation devient :
+\[
+(z)^n = \bar{z} \quad \Rightarrow \quad (r e^{i\theta})^n = r e^{-i\theta}.
+\]
+
+Simplifions :
+\[
+r^n e^{in\theta} = r e^{-i\theta}.
+\]
+
+Divisons les deux membres par \( r \) (supposé non nul) :
+\[
+r^{n-1} e^{in\theta} = e^{-i\theta}.
+\]
+
+Égalité des modules :
+\[
+r^{n-1} = 1 \quad \Rightarrow \quad r = 1.
+\]
+
+Égalité des arguments :
+\[
+n\theta = -\theta + 2k\pi, \quad k \in \mathbb{Z}.
+\]
+
+Cela donne :
+\[
+n\theta + \theta = 2k\pi \quad \Rightarrow \quad (n + 1)\theta = 2k\pi.
+\]
+
+Donc :
+\[
+\theta = \dfrac{2k\pi}{n+1}, \quad k \in \mathbb{Z}.
+\]
+
+Comme \( \theta \) est défini modulo \( 2\pi \), les valeurs distinctes de \( \theta \) sont :
+\[
+\theta_k = \dfrac{2k\pi}{n+1}, \quad k = 0, 1, 2, \dots, n.
+\]
+
+Ainsi, les solutions sont :
+\[
+z_k = e^{i\theta_k} = e^{i\frac{2k\pi}{n+1}}, \quad k = 0, 1, 2, \dots, n.
+\]
+
+\textbf{Conclusion} : Les solutions de l'équation sont les racines \((n+1)\)-ièmes de l'unité.
+\end{solutionbox}
+
+% Exercice 11
+\begin{tcolorbox}[title=Exercice 11 - {[}Calculer{]}]
+Soit \( n \geq 2 \). Calculer le produit des racines \( n^{\text{e}} \) de l’unité.
+\end{tcolorbox}
+
+\begin{solutionbox}
+Les racines \( n \)-ièmes de l'unité sont les nombres complexes de la forme :
+\[
+z_k = e^{i\frac{2k\pi}{n}}, \quad k = 0, 1, 2, \dots, n-1.
+\]
+
+Le produit de ces racines est :
+\[
+P = \prod_{k=0}^{n-1} z_k = \prod_{k=0}^{n-1} e^{i\frac{2k\pi}{n}} = e^{i\frac{2\pi}{n} \sum_{k=0}^{n-1} k}.
+\]
+
+Calculons la somme :
+\[
+\sum_{k=0}^{n-1} k = \dfrac{(n-1)n}{2}.
+\]
+
+Donc :
+\[
+P = e^{i\frac{2\pi}{n} \cdot \dfrac{(n-1)n}{2}} = e^{i\pi(n-1)}.
+\]
+
+Comme \( e^{i\pi(n-1)} = (-1)^{n-1} \), on obtient :
+\[
+P = (-1)^{n-1}.
+\]
+
+\textbf{Conclusion} : Le produit des racines \( n \)-ièmes de l'unité est \( (-1)^{n-1} \).
+\end{solutionbox}
+
+% Exercice 12
+\begin{tcolorbox}[title={Exercice 12 - {[}Calculer, Chercher{]}}]
+Déterminer tous les nombres complexes \( z \) tels que les points d’affixes \( z \), \( z^2 \) et \( z^4 \) soient alignés.
+\end{tcolorbox}
+
+\begin{solutionbox}
+Pour que les points d'affixes \( z \), \( z^2 \) et \( z^4 \) soient alignés, il faut que les vecteurs \( \overrightarrow{z z^2} \) et \( \overrightarrow{z z^4} \) soient colinéaires.
+
+Les vecteurs \( \overrightarrow{z z^2} \) et \( \overrightarrow{z z^4} \) sont colinéaires si, et seulement si, les nombres complexes \( z^2 - z \) et \( z^4 - z \) sont colinéaires, c'est-à-dire s'il existe un réel \( \mu \) tel que :
+\[
+\dfrac{z^2 - z}{z^4 - z} \in \mathbb{R}
+\]
+Calculons ce quotient :
+\[
+\dfrac{z^2 - z}{z^4 - z} = \dfrac{z(z - 1)}{z(z^3 - 1)} = \dfrac{z - 1}{z^3 - 1}
+\]
+Donc, la condition est que le nombre complexe :
+\[
+Q = \dfrac{z - 1}{z^3 - 1}
+\]
+soit réel.
+
+Notons que :
+\[
+z^3 - 1 = (z - 1)(z^2 + z + 1)
+\]
+Ainsi :
+\[
+Q = \dfrac{z - 1}{(z - 1)(z^2 + z + 1)} = \dfrac{1}{z^2 + z + 1}
+\]
+Donc :
+\[
+Q = \dfrac{1}{z^2 + z + 1}
+\]
+Ainsi, \( Q \) est réel si, et seulement si, \( z^2 + z + 1 \) est réel et \( Q \in \mathbb{R} \).
+
+Donc, il faut que \( z^2 + z + 1 \) soit réel.
+
+\textbf{Soit \( z = x + i y \)} avec \( x, y \in \mathbb{R} \).
+
+Calculons \( z^2 + z + 1 \) :
+\[
+z^2 + z + 1 = (x + i y)^2 + (x + i y) + 1
+\]
+Développons :
+\[
+(x^2 - y^2 + 2i x y) + (x + i y) + 1 = (x^2 - y^2 + x + 1) + i (2 x y + y)
+\]
+Pour que \( z^2 + z + 1 \) soit réel, il faut que la partie imaginaire soit nulle :
+\[
+2 x y + y = y (2 x + 1) = 0
+\]
+Deux cas possibles :
+
+\textbf{Cas 1 :} \( y = 0 \)
+
+Donc \( z \in \mathbb{R} \)
+
+\textbf{Cas 2 :} \( 2 x + 1 = 0 \Rightarrow x = -\dfrac{1}{2} \)
+
+Donc \( z = -\dfrac{1}{2} + i y \)
+
+Alors, \( z^2 + z + 1 \) est réel.
+
+Vérifions que \( Q \) est réel dans ce cas.
+
+Calculons \( z^2 + z + 1 \) :
+
+Pour \( x = -\dfrac{1}{2} \), on a :
+\[
+x^2 - y^2 + x + 1 = \left( \dfrac{1}{4} - y^2 \right) - \dfrac{1}{2} + 1 = \dfrac{3}{4} - y^2
+\]
+La partie réelle est \( \dfrac{3}{4} - y^2 \)
+
+Comme \( z^2 + z + 1 \) est réel, et \( Q = \dfrac{1}{z^2 + z + 1} \), \( Q \) est réel si \( z = -\dfrac{1}{2} + i y \).
+
+Ainsi, les valeurs de \( z \) pour lesquelles les points \( z \), \( z^2 \) et \( z^4 \) sont alignés sont :
+
+- Les nombres réels \( z \) (avec \( y = 0 \)).
+
+- Les nombres complexes \( z = -\dfrac{1}{2} + i y \), avec \( y \in \mathbb{R} \).
+
+\textbf{Conclusion :} Les nombres complexes \( z \) tels que \( z \in \mathbb{R} \) ou \( z = -\dfrac{1}{2} + i y \) avec \( y \in \mathbb{R} \) sont tels que les points \( z \), \( z^2 \) et \( z^4 \) sont alignés.
+
+\end{solutionbox}
+
+
+\end{document}
+
+\end{document}

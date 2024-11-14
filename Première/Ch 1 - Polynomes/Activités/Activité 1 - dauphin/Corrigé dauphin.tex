@@ -1,0 +1,47 @@
+\documentclass{article}
+\pagestyle{empty}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, margin=1.5cm}
+%\title{Activité : Nourrir les dauphins}
+\date{}
+\begin{document}
+
+\begin{center}
+\section*{Corrigé 1: Étude du saut d'un dauphin}
+\end{center}
+\bigskip
+\bigskip
+
+\begin{enumerate}
+    \item Résolution de l'équation $f(t) = 0$ :
+       $$
+       f(t) = a (t - t_1)(t - t_2) = 0
+       $$
+       Pour que $f(t) = 0$, il faut que l'un des deux facteurs soit égal à zéro, ce qui implique :
+       $$
+       (t - t_1) = 0 \quad \text{ou} \quad (t - t_2) = 0.
+       $$
+       Cela signifie que $t = t_1$ ou $t = t_2$. Dans le contexte du saut du dauphin, les moments où le dauphin est à la surface de l’eau (hauteur 0) sont au début du saut, soit $t = 0$, et à la fin du saut, soit $t = 6$. Par conséquent, $t_1 = 0$ et $t_2 = 6$.
+
+    \item Détermination du coefficient $a$ :
+       $$
+       f(1) = a \cdot 1 \cdot (1 - 6) = 1,5.
+       $$
+       Simplifions :
+       $$
+       1,5 = a \cdot (-5),
+       $$
+       donc
+       $$
+       a = -\frac{1,5}{5} = -0,3.
+       $$
+
+    \item Développement de $f(t)$ pour obtenir la forme $ax^2 + bx + c$ :
+       $$
+       f(t) = -0,3 t^2 + 1,8 t.
+       $$
+       Cette expression montre la forme développée du polynôme, avec $a = -0,3$, $b = 1,8$, et $c = 0$.
+\end{enumerate}
+
+\end{document}

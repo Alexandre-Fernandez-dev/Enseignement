@@ -1,0 +1,311 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+
+\begin{document}
+
+\section*{Exercice 1 \textbf{[Calculer]}}
+
+Calculer le \textbf{discriminant} de chaque polynôme ci-dessous.
+\begin{enumerate}
+    \item $3x^2 + 2x + 1$
+    \item $2x^2 - 2x - 4$
+    \item $-3x^2 + 2x - 5$
+    \item $x^2 + x + 1$
+    \item $x^2 - 7$
+    \item $x - x^2 + 3$
+    \item $7x - 3 + x^2$
+    \item $1 - 3x^2$
+\end{enumerate}
+
+\textbf{Corrigé}
+
+\begin{enumerate}
+    \item $3x^2 + 2x + 1$
+
+    Le discriminant est $D = b^2 - 4ac$ avec $a = 3$, $b = 2$, $c = 1$.
+
+    \[
+    D = (2)^2 - 4 \times 3 \times 1 = 4 - 12 = -8.
+    \]
+
+    \item $2x^2 - 2x - 4$
+
+    Ici, $a = 2$, $b = -2$, $c = -4$.
+
+    \[
+    D = (-2)^2 - 4 \times 2 \times (-4) = 4 + 32 = 36.
+    \]
+
+    \item $-3x^2 + 2x - 5$
+
+    Avec $a = -3$, $b = 2$, $c = -5$.
+
+    \[
+    D = (2)^2 - 4 \times (-3) \times (-5) = 4 - 60 = -56.
+    \]
+
+    \item $x^2 + x + 1$
+
+    $a = 1$, $b = 1$, $c = 1$.
+
+    \[
+    D = (1)^2 - 4 \times 1 \times 1 = 1 - 4 = -3.
+    \]
+
+    \item $x^2 - 7$
+
+    C'est équivalent à $x^2 + 0x - 7$, donc $a = 1$, $b = 0$, $c = -7$.
+
+    \[
+    D = (0)^2 - 4 \times 1 \times (-7) = 0 + 28 = 28.
+    \]
+
+    \item $x - x^2 + 3$
+
+    Réécrit en $-x^2 + x + 3$, donc $a = -1$, $b = 1$, $c = 3$.
+
+    \[
+    D = (1)^2 - 4 \times (-1) \times 3 = 1 + 12 = 13.
+    \]
+
+    \item $7x - 3 + x^2$
+
+    Réécrit en $x^2 + 7x - 3$, $a = 1$, $b = 7$, $c = -3$.
+
+    \[
+    D = (7)^2 - 4 \times 1 \times (-3) = 49 + 12 = 61.
+    \]
+
+    \item $1 - 3x^2$
+
+    Réécrit en $-3x^2 + 0x + 1$, $a = -3$, $b = 0$, $c = 1$.
+
+    \[
+    D = (0)^2 - 4 \times (-3) \times 1 = 0 + 12 = 12.
+    \]
+\end{enumerate}
+
+\section*{Exercice 2 \textbf{[Calculer]}}
+
+Déterminer la forme factorisée, lorsqu'elle existe, des polynômes suivants.
+\begin{enumerate}
+    \item $x^2 + 3x - 4$
+    \item $2x^2 - 4x - 12$
+    \item $-3x^2 + x - 5$
+    \item $x^2 + x + 1$
+    \item $x^2 - 2x + 1$
+    \item $x - 4x^2 + 2$
+\end{enumerate}
+
+\textbf{Corrigé}
+
+\begin{enumerate}
+    \item $x^2 + 3x - 4$
+
+    Discriminant: $D = (3)^2 - 4 \times 1 \times (-4) = 9 + 16 = 25$.
+
+    Racines: $x = \dfrac{-3 \pm 5}{2}$.
+
+    \[
+    x_1 = \dfrac{-3 + 5}{2} = 1,\quad x_2 = \dfrac{-3 - 5}{2} = -4.
+    \]
+
+    Forme factorisée: $(x - 1)(x + 4)$.
+
+    \item $2x^2 - 4x - 12$
+
+    $D = (-4)^2 - 4 \times 2 \times (-12) = 16 + 96 = 112$.
+
+    Racines: $x = \dfrac{4 \pm \sqrt{112}}{4} = \dfrac{4 \pm 4\sqrt{7}}{4} = 1 \pm \sqrt{7}$.
+
+    Forme factorisée: $2\left(x - (1 + \sqrt{7})\right)\left(x - (1 - \sqrt{7})\right)$.
+
+    \item $-3x^2 + x - 5$
+
+    $D = (1)^2 - 4 \times (-3) \times (-5) = 1 - 60 = -59$.
+
+    Pas de forme factorisée réelle car $D < 0$.
+
+    \item $x^2 + x + 1$
+
+    $D = (1)^2 - 4 \times 1 \times 1 = -3$.
+
+    Pas de forme factorisée réelle.
+
+    \item $x^2 - 2x + 1$
+
+    $D = (-2)^2 - 4 \times 1 \times 1 = 0$.
+
+    Racine double: $x = 1$.
+
+    Forme factorisée: $(x - 1)^2$.
+
+    \item $x - 4x^2 + 2$
+
+    Réécrit en $-4x^2 + x + 2$.
+
+    $D = (1)^2 - 4 \times (-4) \times 2 = 1 + 32 = 33$.
+
+    Racines: $x = \dfrac{-1 \pm \sqrt{33}}{-8} = \dfrac{1 \mp \sqrt{33}}{8}$.
+
+    Forme factorisée: $-4\left(x - \dfrac{1 + \sqrt{33}}{8}\right)\left(x - \dfrac{1 - \sqrt{33}}{8}\right)$.
+\end{enumerate}
+
+\section*{Exercice 3 \textbf{[Calculer]}}
+
+Résoudre dans $\mathbb{R}$ les équations suivantes.
+\begin{enumerate}
+    \item $x^2 + x - 4 = 0$
+    \item $3x^2 - x - 6 = 0$
+    \item $x^2 - 10x + 25 = 0$
+    \item $x^2 - 3x + 3 = 0$
+    \item $x^2 - 1 = 0$
+    \item $x - 4x^2 + 7 = 0$
+\end{enumerate}
+
+\textbf{Corrigé}
+
+\begin{enumerate}
+    \item $x^2 + x - 4 = 0$
+
+    $D = (1)^2 - 4 \times 1 \times (-4) = 1 + 16 = 17$.
+
+    \[
+    x = \dfrac{-1 \pm \sqrt{17}}{2}.
+    \]
+
+    \item $3x^2 - x - 6 = 0$
+
+    $D = (-1)^2 - 4 \times 3 \times (-6) = 1 + 72 = 73$.
+
+    \[
+    x = \dfrac{1 \pm \sqrt{73}}{6}.
+    \]
+
+    \item $x^2 - 10x + 25 = 0$
+
+    $D = (-10)^2 - 4 \times 1 \times 25 = 0$.
+
+    Racine double: $x = \dfrac{10}{2} = 5$.
+
+    \item $x^2 - 3x + 3 = 0$
+
+    $D = (-3)^2 - 4 \times 1 \times 3 = -3$.
+
+    Pas de solution réelle.
+
+    \item $x^2 - 1 = 0$
+
+    Factorisation: $(x - 1)(x + 1) = 0$.
+
+    Solutions: $x = 1$ et $x = -1$.
+
+    \item $x - 4x^2 + 7 = 0$
+
+    Réécrit en $-4x^2 + x + 7 = 0$.
+
+    $D = (1)^2 - 4 \times (-4) \times 7 = 1 + 112 = 113$.
+
+    \[
+    x = \dfrac{-1 \pm \sqrt{113}}{-8} = \dfrac{1 \mp \sqrt{113}}{8}.
+    \]
+\end{enumerate}
+
+\section*{Exercice 4 \textbf{[Calculer]}}
+
+Déterminer les racines des polynômes suivants.
+\begin{enumerate}
+    \item $x^2 - x - 1$
+    \item $x^2 - x$
+    \item $-5x^2 + 7x + 12$
+    \item $-3x - x^2 + 4$
+    \item $3x^2 - 6x + 3$
+    \item $-x + x^2 + 7$
+\end{enumerate}
+
+\textbf{Corrigé}
+
+\begin{enumerate}
+    \item $x^2 - x - 1$
+
+    $D = (-1)^2 - 4 \times 1 \times (-1) = 1 + 4 = 5$.
+
+    \[
+    x = \dfrac{1 \pm \sqrt{5}}{2}.
+    \]
+
+    \item $x^2 - x$
+
+    Factorisation: $x(x - 1) = 0$.
+
+    Solutions: $x = 0$ ou $x = 1$.
+
+    \item $-5x^2 + 7x + 12$
+
+    Multipliant par $-1$: $5x^2 - 7x - 12 = 0$.
+
+    $D = (-7)^2 - 4 \times 5 \times (-12) = 49 + 240 = 289$.
+
+    \[
+    x = \dfrac{7 \pm 17}{10}.
+    \]
+
+    Solutions: $x = -1$ et $x = \dfrac{12}{5}$.
+
+    \item $-3x - x^2 + 4$
+
+    Réécrit en $-x^2 - 3x + 4 = 0$.
+
+    Multipliant par $-1$: $x^2 + 3x - 4 = 0$.
+
+    Factorisation: $(x + 4)(x - 1) = 0$.
+
+    Solutions: $x = -4$ ou $x = 1$.
+
+    \item $3x^2 - 6x + 3$
+
+    $D = (-6)^2 - 4 \times 3 \times 3 = 36 - 36 = 0$.
+
+    Racine double: $x = \dfrac{6}{6} = 1$.
+
+    \item $-x + x^2 + 7$
+
+    Réécrit en $x^2 - x + 7 = 0$.
+
+    $D = (-1)^2 - 4 \times 1 \times 7 = -27$.
+
+    Pas de racines réelles.
+\end{enumerate}
+
+\section*{Exercice 5 \textbf{[Calculer, Raisonner]}}
+
+Soit $m \in \mathbb{R}$. On considère l'équation $x^2 - mx + m + 2 = 0$. Pour quelles valeurs de $m$ l'équation admet-elle une unique solution ?
+
+\textbf{Corrigé}
+
+L'équation admet une unique solution lorsque son discriminant est nul.
+
+Calcul du discriminant:
+\[
+D = (-m)^2 - 4 \times 1 \times (m + 2) = m^2 - 4m - 8.
+\]
+
+Posons $D = 0$:
+\[
+m^2 - 4m - 8 = 0.
+\]
+
+Résolution de l'équation:
+\[
+\Delta = (-4)^2 - 4 \times 1 \times (-8) = 16 + 32 = 48.
+\]
+\[
+m = \dfrac{4 \pm \sqrt{48}}{2} = \dfrac{4 \pm 4\sqrt{3}}{2} = 2 \pm 2\sqrt{3}.
+\]
+
+Ainsi, les valeurs de $m$ sont:
+\[
+m = 2 + 2\sqrt{3} \quad \text{ou} \quad m = 2 - 2\sqrt{3}.
+\]
+
+\end{document}

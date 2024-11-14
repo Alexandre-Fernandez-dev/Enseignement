@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 3 \\ Devoir maison 1
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+
+
+\begin{document}
+
+\maketitle
+
+% Exercice 18
+\begin{exercice}[title={Exercice 18 - {[}Représenter, Calculer, Raisonner{]}}]{}{}
+\begin{enumerate}
+    \item On dit qu'un triangle équilatéral $ABC$ est direct si et seulement si $(\overrightarrow{AB}; \overrightarrow{AC}) = \frac{\pi}{3}$.
+    Soient \( A \), \( B \) et \( C \) trois points non alignés d’affixe \( a \), \( b \) et \( c \). On note \( j = e^{\frac{2i\pi}{3}} \).
+    \begin{enumerate}
+        \item \begin{enumerate}
+            \item Vérifier que $1, j$ et $j^2$ sont les solutions de l'équation $z^3 = 1$.
+            \item Calculer $(1-j)(1 + j + j^2)$. En déduire que $1 + j + j^2 = 0$.
+            \item Vérifier que
+            $$e^{i\frac{\pi}{3}} + j^2 = 0$$
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item Démontrer que le triangle $ABC$ est équilatéral direct si et seulement si :
+            $$\frac{c - a}{b - a} = e^{i\frac{\pi}{3}}$$
+            \item Montrer que le triangle \( ABC \) est équilatéral direct si, et seulement si,
+            \[
+            a + bj + cj^2 = 0.
+            \]
+        \end{enumerate}
+    \end{enumerate}
+    \item Soit le centre de gravité d'un ensemble de $n$ points d'affixes $z_1, \dots z_n$ le point d'affixe
+    $$\dfrac{z_1 + \dots + z_n}{n}$$ 
+    \begin{enumerate}
+        \item On ne suppose pas nécessairement que \( ABC \) est équilatéral. On construit à partir de \( ABC \) les trois triangles équilatéraux de base \([AB]\), \([AC]\) et \([BC]\) construits à l’extérieur de \( ABC \). Montrer que les centres de gravité de ces trois triangles forment un triangle équilatéral.
+    \end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\end{document}

@@ -1,0 +1,340 @@
+% @see : https://coopmaths.fr/alea/?uuid=28997&id=2F20-4&n=1&d=10&s=2&s2=8&s3=false&alea=Oplj&cd=1&uuid=c9382&id=3F10-5&n=1&d=10&s=3&s2=1&s3=1&alea=IauN&cd=1&uuid=c9382&id=3F10-5&n=1&d=10&s=3&s2=2&s3=1&alea=ihNZ&cd=1&uuid=bc1e4&id=2N60-4&n=1&d=10&s=true&s2=4&alea=HYDq&cd=1&uuid=e31d1&id=can2N02&n=1&d=10&alea=wvqa&cd=1&v=latex
+\documentclass[a4paper,11pt,fleqn]{article}
+\usepackage{ProfMaquette}
+\setKVdefault[Boulot]{CorrigeFin=false}
+\usepackage{etoolbox}
+\newbool{dys}
+\setbool{dys}{false}          
+\ifbool{dys}{
+% POLICE DYS
+\newcommand{\choiceFontsDys}[1]{
+\ifstrequal{#1}{Fira}{%
+  % Fira Sans + Fira Math
+  % Description : Fira Sans est une police moderne, et Fira Math est une version mathématique compatible qui maintient le style sans-serif.
+  % Utilisation : Fonctionne bien avec XeLaTeX et LuaLaTeX.
+  \usepackage{fontspec}
+  \setmainfont{Fira Sans}
+  \setsansfont{Fira Sans}
+  \usepackage{unicode-math}
+  \setmathfont{Fira Math}
+}{}
+\ifstrequal{#1}{lmodern}{%
+  % Latin Modern Sans
+  % Description : Une version sans-serif de la célèbre police Latin Modern, qui est compatible avec mathastext.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX et LuaLaTeX.
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+\ifstrequal{#1}{tgheros}{%
+  % TeX Gyre Heros + mathastext
+  % Description : TeX Gyre Heros est une alternative à Helvetica, et le package mathastext permet d'utiliser la même police pour les mathématiques.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX, ou LuaLaTeX.
+  \usepackage{tgheros}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+}
+% Fira ou lmodern ou tgheros
+\choiceFontsDys{Fira}
+
+%\usepackage{unicode-math}
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Schola}
+%\setsansfont{TeX Gyre Schola}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmainfont{OpenDyslexic}[Scale=1.0]
+%\setsansfont{OpenDyslexic}[Scale=1.0]
+%\setmathfont{OpenDyslexic}[Scale=1.0,range=up/{Latin,latin,num}]
+\usepackage[fontsize=14]{scrextend}
+\usepackage{setspace}
+\setstretch{1.7}
+% Une valeur d'environ 1.2 à 1.7 est souvent recommandée. Cela permet d'augmenter l'espace entre les lignes tout en offrant un léger espacement entre les mots.
+\setlength{\spaceskip}{1.2em}  
+% Une valeur d'environ 1.2em à 1.5em est couramment conseillée. Cela crée un espace plus ample entre les mots, ce qui peut aider à réduire la fatigue visuelle et à améliorer la fluidité de la lecture.
+}{
+% POLICE STANDARD
+\usepackage{fontenc}
+\usepackage[scaled=1]{helvet}
+\usepackage[fontsize=12]{scrextend}
+}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0pt}
+\setlength{\headheight}{18pt}
+%%%%%% Style Fiche
+\tcbset{%
+  userfiche/.style={%
+    %move upwards=-1cm,colback=red!75%
+    top=5pt, left=5pt, right=5pt, colback=red!5!white%
+  }%
+}%
+\tcbset{%
+  userfichecor/.style={%
+    %spread upwards=-1cm,colback=gray!5%
+    top=5pt, left=5pt, right=5pt, colback=red!5!white%
+  }%
+}%
+
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\setlength{\parindent}{0cm}
+% loadPackagesFromContent
+\usepackage[table,svgnames]{xcolor}
+\usepackage{needspace}
+\usepackage{amsfonts}
+\newcommand\R{\mathbb{R}}
+\newcommand{\e}{\text{e}}
+\usepackage{amssymb}
+\begin{document}
+\begin{Maquette}[Fiche]{Niveau=Seconde,Classe=2GT3 ,Date=20/11/2024   ,Theme=Contrôle}
+
+% @see : https://coopmaths.fr/alea?uuid=28997&id=2F20-4&n=1&d=10&s=2&s2=8&s3=false&alea=Oplj&cd=1&cols=1
+\needspace{10\baselineskip}
+\begin{exercice}
+
+
+ On considère les fonctions $c$ et $s$ définies sur $\R$ et dont on a représenté ci-dessous une partie de leurs courbes respectives.
+
+\medskip
+Résoudre graphiquement l'inéquation $c(x){\color{black}\boldsymbol{\leqslant}}s(x)$ sur [$-8;$3].\\\begin{tikzpicture}[baseline, scale=0.8]
+
+    \tikzset{
+      point/.style={
+        thick,
+        draw,
+        cross out,
+        inner sep=0pt,
+        minimum width=5pt,
+        minimum height=5pt,
+      },
+    }
+    \clip (-11.25,-6.07637489132294) rectangle (3.7,9.32362510867706);
+    	\draw[color ={black},>=latex,->] (-8.2,0)--(2.2,0);
+	\draw[color ={black},>=latex,->] (0,-4.57637489132294)--(0,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-8.2,1)--(2.2,1);
+	\draw[color ={black},opacity = 0.4] (-8.2,2)--(2.2,2);
+	\draw[color ={black},opacity = 0.4] (-8.2,3)--(2.2,3);
+	\draw[color ={black},opacity = 0.4] (-8.2,4)--(2.2,4);
+	\draw[color ={black},opacity = 0.4] (-8.2,5)--(2.2,5);
+	\draw[color ={black},opacity = 0.4] (-8.2,6)--(2.2,6);
+	\draw[color ={black},opacity = 0.4] (-8.2,7)--(2.2,7);
+	\draw[color ={black},opacity = 0.4] (-8.2,-1)--(2.2,-1);
+	\draw[color ={black},opacity = 0.4] (-8.2,-2)--(2.2,-2);
+	\draw[color ={black},opacity = 0.4] (-8.2,-3)--(2.2,-3);
+	\draw[color ={black},opacity = 0.4] (-8.2,-4)--(2.2,-4);
+	\draw[color ={black},opacity = 0.4] (1,-4.57637489132294)--(1,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (2,-4.57637489132294)--(2,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-1,-4.57637489132294)--(-1,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-2,-4.57637489132294)--(-2,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-3,-4.57637489132294)--(-3,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-4,-4.57637489132294)--(-4,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-5,-4.57637489132294)--(-5,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-6,-4.57637489132294)--(-6,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-7,-4.57637489132294)--(-7,7.82362510867706);
+	\draw[color ={black},opacity = 0.4] (-8,-4.57637489132294)--(-8,7.82362510867706);
+	\draw[color ={gray},opacity = 0.1] (-8,0)--(2,0);
+	\draw[color ={gray},opacity = 0.1] (-8,0.2)--(2,0.2);
+	\draw[color ={gray},opacity = 0.1] (-8,0.4)--(2,0.4);
+	\draw[color ={gray},opacity = 0.1] (-8,0.6000000000000001)--(2,0.6000000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,0.8)--(2,0.8);
+	\draw[color ={gray},opacity = 0.1] (-8,1.2)--(2,1.2);
+	\draw[color ={gray},opacity = 0.1] (-8,1.4)--(2,1.4);
+	\draw[color ={gray},opacity = 0.1] (-8,1.5999999999999999)--(2,1.5999999999999999);
+	\draw[color ={gray},opacity = 0.1] (-8,1.7999999999999998)--(2,1.7999999999999998);
+	\draw[color ={gray},opacity = 0.1] (-8,2.1999999999999997)--(2,2.1999999999999997);
+	\draw[color ={gray},opacity = 0.1] (-8,2.4)--(2,2.4);
+	\draw[color ={gray},opacity = 0.1] (-8,2.6)--(2,2.6);
+	\draw[color ={gray},opacity = 0.1] (-8,2.8000000000000003)--(2,2.8000000000000003);
+	\draw[color ={gray},opacity = 0.1] (-8,3.2000000000000006)--(2,3.2000000000000006);
+	\draw[color ={gray},opacity = 0.1] (-8,3.400000000000001)--(2,3.400000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,3.600000000000001)--(2,3.600000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,3.800000000000001)--(2,3.800000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,4.200000000000001)--(2,4.200000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,4.400000000000001)--(2,4.400000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,4.600000000000001)--(2,4.600000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,4.800000000000002)--(2,4.800000000000002);
+	\draw[color ={gray},opacity = 0.1] (-8,5.200000000000002)--(2,5.200000000000002);
+	\draw[color ={gray},opacity = 0.1] (-8,5.400000000000002)--(2,5.400000000000002);
+	\draw[color ={gray},opacity = 0.1] (-8,5.600000000000002)--(2,5.600000000000002);
+	\draw[color ={gray},opacity = 0.1] (-8,5.8000000000000025)--(2,5.8000000000000025);
+	\draw[color ={gray},opacity = 0.1] (-8,6.200000000000003)--(2,6.200000000000003);
+	\draw[color ={gray},opacity = 0.1] (-8,6.400000000000003)--(2,6.400000000000003);
+	\draw[color ={gray},opacity = 0.1] (-8,6.600000000000003)--(2,6.600000000000003);
+	\draw[color ={gray},opacity = 0.1] (-8,6.800000000000003)--(2,6.800000000000003);
+	\draw[color ={gray},opacity = 0.1] (-8,7.200000000000004)--(2,7.200000000000004);
+	\draw[color ={gray},opacity = 0.1] (-8,7.400000000000004)--(2,7.400000000000004);
+	\draw[color ={gray},opacity = 0.1] (-8,7.600000000000004)--(2,7.600000000000004);
+	\draw[color ={gray},opacity = 0.1] (-8,0)--(2,0);
+	\draw[color ={gray},opacity = 0.1] (-8,-0.2)--(2,-0.2);
+	\draw[color ={gray},opacity = 0.1] (-8,-0.4)--(2,-0.4);
+	\draw[color ={gray},opacity = 0.1] (-8,-0.6000000000000001)--(2,-0.6000000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,-0.8)--(2,-0.8);
+	\draw[color ={gray},opacity = 0.1] (-8,-1.2)--(2,-1.2);
+	\draw[color ={gray},opacity = 0.1] (-8,-1.4)--(2,-1.4);
+	\draw[color ={gray},opacity = 0.1] (-8,-1.5999999999999999)--(2,-1.5999999999999999);
+	\draw[color ={gray},opacity = 0.1] (-8,-1.7999999999999998)--(2,-1.7999999999999998);
+	\draw[color ={gray},opacity = 0.1] (-8,-2.1999999999999997)--(2,-2.1999999999999997);
+	\draw[color ={gray},opacity = 0.1] (-8,-2.4)--(2,-2.4);
+	\draw[color ={gray},opacity = 0.1] (-8,-2.6)--(2,-2.6);
+	\draw[color ={gray},opacity = 0.1] (-8,-2.8000000000000003)--(2,-2.8000000000000003);
+	\draw[color ={gray},opacity = 0.1] (-8,-3.2000000000000006)--(2,-3.2000000000000006);
+	\draw[color ={gray},opacity = 0.1] (-8,-3.400000000000001)--(2,-3.400000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,-3.600000000000001)--(2,-3.600000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,-3.800000000000001)--(2,-3.800000000000001);
+	\draw[color ={gray},opacity = 0.1] (-8,-4.200000000000001)--(2,-4.200000000000001);
+	\draw[color ={gray},opacity = 0.1] (0,-4.37637489132294)--(0,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (0.2,-4.37637489132294)--(0.2,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (0.4,-4.37637489132294)--(0.4,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (0.6000000000000001,-4.37637489132294)--(0.6000000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (0.8,-4.37637489132294)--(0.8,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (1.2,-4.37637489132294)--(1.2,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (1.4,-4.37637489132294)--(1.4,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (1.5999999999999999,-4.37637489132294)--(1.5999999999999999,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (1.7999999999999998,-4.37637489132294)--(1.7999999999999998,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (0,-4.37637489132294)--(0,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-0.2,-4.37637489132294)--(-0.2,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-0.4,-4.37637489132294)--(-0.4,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-0.6000000000000001,-4.37637489132294)--(-0.6000000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-0.8,-4.37637489132294)--(-0.8,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-1.2,-4.37637489132294)--(-1.2,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-1.4,-4.37637489132294)--(-1.4,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-1.5999999999999999,-4.37637489132294)--(-1.5999999999999999,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-1.7999999999999998,-4.37637489132294)--(-1.7999999999999998,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-2.1999999999999997,-4.37637489132294)--(-2.1999999999999997,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-2.4,-4.37637489132294)--(-2.4,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-2.6,-4.37637489132294)--(-2.6,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-2.8000000000000003,-4.37637489132294)--(-2.8000000000000003,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-3.0000000000000004,-4.37637489132294)--(-3.0000000000000004,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-3.2000000000000006,-4.37637489132294)--(-3.2000000000000006,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-3.400000000000001,-4.37637489132294)--(-3.400000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-3.600000000000001,-4.37637489132294)--(-3.600000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-3.800000000000001,-4.37637489132294)--(-3.800000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-4.000000000000001,-4.37637489132294)--(-4.000000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-4.200000000000001,-4.37637489132294)--(-4.200000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-4.400000000000001,-4.37637489132294)--(-4.400000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-4.600000000000001,-4.37637489132294)--(-4.600000000000001,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-4.800000000000002,-4.37637489132294)--(-4.800000000000002,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-5.000000000000002,-4.37637489132294)--(-5.000000000000002,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-5.200000000000002,-4.37637489132294)--(-5.200000000000002,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-5.400000000000002,-4.37637489132294)--(-5.400000000000002,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-5.600000000000002,-4.37637489132294)--(-5.600000000000002,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-5.8000000000000025,-4.37637489132294)--(-5.8000000000000025,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-6.000000000000003,-4.37637489132294)--(-6.000000000000003,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-6.200000000000003,-4.37637489132294)--(-6.200000000000003,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-6.400000000000003,-4.37637489132294)--(-6.400000000000003,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-6.600000000000003,-4.37637489132294)--(-6.600000000000003,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-6.800000000000003,-4.37637489132294)--(-6.800000000000003,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-7.0000000000000036,-4.37637489132294)--(-7.0000000000000036,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-7.200000000000004,-4.37637489132294)--(-7.200000000000004,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-7.400000000000004,-4.37637489132294)--(-7.400000000000004,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-7.600000000000004,-4.37637489132294)--(-7.600000000000004,7.62362510867706);
+	\draw[color ={gray},opacity = 0.1] (-7.800000000000004,-4.37637489132294)--(-7.800000000000004,7.62362510867706);
+	\draw[color ={black},line width = 1.2] (1,-0.13)--(1,0.13);
+	\draw[color ={black},line width = 1.2] (-1,-0.13)--(-1,0.13);
+	\draw[color ={black},line width = 1.2] (-2,-0.13)--(-2,0.13);
+	\draw[color ={black},line width = 1.2] (-3,-0.13)--(-3,0.13);
+	\draw[color ={black},line width = 1.2] (-4,-0.13)--(-4,0.13);
+	\draw[color ={black},line width = 1.2] (-5,-0.13)--(-5,0.13);
+	\draw[color ={black},line width = 1.2] (-6,-0.13)--(-6,0.13);
+	\draw[color ={black},line width = 1.2] (-7,-0.13)--(-7,0.13);
+	\draw[color ={black},line width = 1.2] (-0.13,1)--(0.13,1);
+	\draw[color ={black},line width = 1.2] (-0.13,2)--(0.13,2);
+	\draw[color ={black},line width = 1.2] (-0.13,3)--(0.13,3);
+	\draw[color ={black},line width = 1.2] (-0.13,4)--(0.13,4);
+	\draw[color ={black},line width = 1.2] (-0.13,5)--(0.13,5);
+	\draw[color ={black},line width = 1.2] (-0.13,6)--(0.13,6);
+	\draw[color ={black},line width = 1.2] (-0.13,-1)--(0.13,-1);
+	\draw[color ={black},line width = 1.2] (-0.13,-2)--(0.13,-2);
+	\draw[color ={black},line width = 1.2] (-0.13,-3)--(0.13,-3);
+	\draw (1,-0.4) node[anchor = center] {\scriptsize \color{black}{$1$}};
+	\draw (2,-0.4) node[anchor = center] {\scriptsize \color{black}{$2$}};
+	\draw (-1,-0.4) node[anchor = center] {\scriptsize \color{black}{$-1$}};
+	\draw (-2,-0.4) node[anchor = center] {\scriptsize \color{black}{$-2$}};
+	\draw (-3,-0.4) node[anchor = center] {\scriptsize \color{black}{$-3$}};
+	\draw (-4,-0.4) node[anchor = center] {\scriptsize \color{black}{$-4$}};
+	\draw (-5,-0.4) node[anchor = center] {\scriptsize \color{black}{$-5$}};
+	\draw (-6,-0.4) node[anchor = center] {\scriptsize \color{black}{$-6$}};
+	\draw (-7,-0.4) node[anchor = center] {\scriptsize \color{black}{$-7$}};
+	\draw (-8,-0.4) node[anchor = center] {\scriptsize \color{black}{$-8$}};
+	\draw (-0.5,1.1) node[anchor = center] {\footnotesize \color{black}{$1$}};
+	\draw (-0.5,2.1) node[anchor = center] {\footnotesize \color{black}{$2$}};
+	\draw (-0.5,3.1) node[anchor = center] {\footnotesize \color{black}{$3$}};
+	\draw (-0.5,4.1) node[anchor = center] {\footnotesize \color{black}{$4$}};
+	\draw (-0.5,5.1) node[anchor = center] {\footnotesize \color{black}{$5$}};
+	\draw (-0.5,6.1) node[anchor = center] {\footnotesize \color{black}{$6$}};
+	\draw (-0.5,7.1) node[anchor = center] {\footnotesize \color{black}{$7$}};
+	\draw (-0.5,-0.9) node[anchor = center] {\footnotesize \color{black}{$-1$}};
+	\draw (-0.5,-1.9) node[anchor = center] {\footnotesize \color{black}{$-2$}};
+	\draw (-0.5,-2.9) node[anchor = center] {\footnotesize \color{black}{$-3$}};
+	\draw (-0.5,-3.9) node[anchor = center] {\footnotesize \color{black}{$-4$}};
+	
+	\draw[color={blue},line width = 2] (-8,-1.58)--(-7.8,-1.39)--(-7.6,-1.21)--(-7.4,-1.03)--(-7.2,-0.86)--(-7,-0.7)--(-6.8,-0.55)--(-6.6,-0.4)--(-6.4,-0.26)--(-6.2,-0.13)--(-6,0)--(-5.8,0.12)--(-5.6,0.23)--(-5.4,0.33)--(-5.2,0.43)--(-5,0.52)--(-4.8,0.6)--(-4.6,0.67)--(-4.4,0.74)--(-4.2,0.8)--(-4,0.85)--(-3.8,0.89)--(-3.6,0.93)--(-3.4,0.96)--(-3.2,0.98)--(-3,1)--(-2.8,1.01)--(-2.6,1.01)--(-2.4,1)--(-2.2,0.99)--(-2,0.97)--(-1.8,0.94)--(-1.6,0.9)--(-1.4,0.86)--(-1.2,0.81)--(-1,0.75)--(-0.8,0.68)--(-0.6,0.61)--(-0.4,0.53)--(-0.2,0.44)--(0,0.35)--(0.2,0.25)--(0.4,0.14)--(0.6,0.02)--(0.8,-0.1)--(1,-0.23)--(1.2,-0.37)--(1.4,-0.52)--(1.6,-0.67)--(1.8,-0.83)--(2,-1);
+	
+	\draw[color={red},line width = 2] (-7,-5.05)--(-6.8,-3.78)--(-6.6,-2.64)--(-6.4,-1.64)--(-6.2,-0.76)--(-6,0)--(-5.8,0.65)--(-5.6,1.18)--(-5.4,1.62)--(-5.2,1.96)--(-5,2.21)--(-4.8,2.37)--(-4.6,2.46)--(-4.4,2.47)--(-4.2,2.42)--(-4,2.3)--(-3.8,2.13)--(-3.6,1.91)--(-3.4,1.64)--(-3.2,1.34)--(-3,1)--(-2.8,0.64)--(-2.6,0.25)--(-2.4,-0.15)--(-2.2,-0.55)--(-2,-0.97)--(-1.8,-1.38)--(-1.6,-1.78)--(-1.4,-2.17)--(-1.2,-2.53)--(-1,-2.88)--(-0.8,-3.19)--(-0.6,-3.46)--(-0.4,-3.69)--(-0.2,-3.87)--(0,-4)--(0.2,-4.07)--(0.4,-4.07)--(0.6,-4)--(0.8,-3.85)--(1,-3.62)--(1.2,-3.3)--(1.4,-2.88)--(1.6,-2.36)--(1.8,-1.74)--(2,-1);
+	\draw[color ={blue},line width = 2] (-7,6.62362510867706)--(-6,6.62362510867706);
+	\draw[color ={red},line width = 2] (-7,5.62362510867706)--(-6,5.62362510867706);
+	\draw (-7.5,6.62362510867706) node[anchor = center] {\normalsize \color{blue}{$\mathscr{C}_c$}};
+	\draw (-7.5,5.62362510867706) node[anchor = center] {\normalsize \color{red}{$\mathscr{C}_s$}};
+
+\end{tikzpicture}\\
+\end{exercice}
+
+\begin{Solution}
+ Pour trouver l'ensemble des solutions de l'inéquation $c(x){\color{black}\boldsymbol{\leqslant}}s(x)$ sur [$-8;$3] , on regarde les portions où la courbe ${\color{blue}\boldsymbol{\mathscr{C}_c}}$ est située en dessous de la  courbe ${\color{red}\boldsymbol{\mathscr{C}_s}}$.\\On lit les intervalles correspondants sur l'axe des abscisses : ${\color[HTML]{f15929}\boldsymbol{ [-6;-3]}}$.
+\end{Solution}
+
+% @see : https://coopmaths.fr/alea?uuid=c9382&id=3F10-5&n=1&d=10&s=3&s2=1&s3=1&alea=IauN&cd=1&cols=1
+\begin{exercice}
+
+
+ Soit $f: x \longmapsto 2x+4$. \,\,\,\,\, Quelle est l'image de $6$ ?\\
+\end{exercice}
+
+\begin{Solution}
+ $f(x)=2x+4$ donc ici on a : $f(6)=2\times 6+4=12+4=16$\\$f(6)={\color[HTML]{f15929}\boldsymbol{16}}$
+\end{Solution}
+
+% @see : https://coopmaths.fr/alea?uuid=c9382&id=3F10-5&n=1&d=10&s=3&s2=2&s3=1&alea=ihNZ&cd=1&cols=1
+\begin{exercice}
+
+
+ Soit $f: x \longmapsto -2x+3$. \,\,\,\,\, Quel est l'antécédent de $19$ ?\\
+\end{exercice}
+
+\begin{Solution}
+ $f(x)=-2x+3$ donc ici on a : $-2x+3=19$ \\Soit $x=\dfrac{(19-3)}{-2}=-8$\\$f({\color[HTML]{f15929}\boldsymbol{-8}})=19$
+\end{Solution}
+
+% @see : https://coopmaths.fr/alea?uuid=bc1e4&id=2N60-4&n=1&d=10&s=true&s2=4&alea=HYDq&cd=1&cols=1
+\begin{exercice}
+
+Résoudre l'inéquation suivante.
+ $-8x-3\leqslant7$\\
+\end{exercice}
+
+\begin{Solution}
+ $-8x-3\leqslant7$\\On ajoute $3$ aux deux membres.\\$-8x-3{\color{blue}\boldsymbol{+3}}
+          \leqslant7{\color{blue}\boldsymbol{+3}}$\\$-8x\leqslant10$\\On divise les deux membres par $-8$.\\Comme $-8$ est négatif, l'inégalité change de sens.\\$-8x{\color{blue}\boldsymbol{\div(-8)\geqslant}}10{\color{blue}\boldsymbol{\div(-8)}}$\\$x\geqslant\dfrac{10}{-8}$\\$x\geqslant-\dfrac{5}{4}$\\ $[\dfrac{10}{-8};+\infty[$L'ensemble de solutions de l'inéquation est $S =  {\color[HTML]{f15929}\boldsymbol{\left[ -\dfrac{5}{4}\,;\,+\infty \right[ }}$.
+\end{Solution}
+
+% @see : https://coopmaths.fr/alea?uuid=e31d1&id=can2N02&n=1&d=10&alea=wvqa&cd=1&cols=1
+\begin{exercice}
+
+
+ Parmi $\mathbb{R}$, $\mathbb{Q}$, $\mathbb{D}$, $\mathbb{Z}$ et $\mathbb{N}$, quel est le plus petit ensemble de nombres auquel appartient $-\sqrt{\dfrac{25}{16}}$ ?
+\end{exercice}
+
+\begin{Solution}
+ $-\sqrt{\dfrac{25}{16}}=-\dfrac{5}{4}=-1{,}25$ est  un nombre décimal. On a donc $-\sqrt{\dfrac{25}{16}}\in \mathbb{D}$.
+              
+\end{Solution}
+
+\end{Maquette}
+\clearpage
+\end{document}

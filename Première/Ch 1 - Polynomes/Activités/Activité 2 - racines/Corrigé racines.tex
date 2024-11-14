@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=1.5cm}
+
+\title{Étude des Polynômes du Second Degré}
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{center}
+\section*{Corrigé 2: Étude des polynômes du second degré}
+\end{center}
+\bigskip
+\bigskip
+
+
+\begin{enumerate}
+    \item On fixe $a = 1$, $b = 0$, et $c = -1$.
+    \begin{enumerate}
+        \item En faisant varier $c$, la courbe de $f$ se déplace verticalement.
+        \item La courbe coupe l'axe des ordonnées en $c$, soit $f(0) = c$.
+        \item Recherche des points d'intersection avec l'axe des abscisses :
+        \begin{enumerate}
+            \item Lorsque $c = -4$, on trouve graphiquement les valeurs de $x$ où la courbe coupe l'axe des abscisses.
+            \item Cela correspond à l'équation $f(x) = 0$, soit $x^2 = -c$.
+            \item Quand $c < 0$, les solutions de cette équation sont $x_1 = \sqrt{-c}$ et $x_2 = -\sqrt{-c}$.
+            \item Pour $x_1 = x_2$, il faut que $c = 0$.
+            \item L'équation n'admet pas de solutions pour $c > 0$.
+        \end{enumerate}
+    \end{enumerate}
+
+    \item On fixe $a = 1$, $b = 0$, et $c = -4$.
+    \begin{enumerate}
+        \item En faisant varier $a$, la parabole s'affine, s'élargit et peut se retourner.
+        \item La courbe coupe toujours les ordonnées en $c$.
+        \item Recherche des points d'intersection avec l'axe des abscisses :
+        \begin{enumerate}
+            \item Cela correspond à l'équation $x^2 = -\frac{c}{a}$.
+            \item L'équation admet des solutions lorsque $-\frac{c}{a} > 0$, soit $c$ et $a$ de signes opposés.
+        \end{enumerate}
+    \end{enumerate}
+
+    \item On fixe $a = -0.5$.
+    \begin{enumerate}
+        \item En faisant varier $b$, la parabole se décale horizontalement ; $b$ est situé entre les deux racines.
+        \item Ici, $b$ correspond à l'abscisse du maximum de la parabole.
+        \item Pour d'autres valeurs de $a$, $b$ déplace la parabole horizontalement, mais n'est plus l'abscisse du maximum ou minimum.
+    \end{enumerate}
+    \item Recherche des points d'intersection avec l'axe des abscisses :
+        \begin{enumerate}
+            \item Cela correspond à l'équation $ax^2 + bx + c = 0$.
+            \item En complétant le carré, on obtient :
+\[
+            ax^2 + bx + c = 0
+\]
+\[
+            x^2 + \frac{b}{a} x + \frac{c}{a} = 0
+\]
+\[
+            x^2 + 2\left(\frac{b}{2a}\right)x + \left(\frac{b}{2a}\right)^2 = -\frac{c}{a} + \left(\frac{b}{2a}\right)^2
+\]
+\[
+            \left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}
+\]
+            \item Pour que cette équation ait des solutions, il faut que $\Delta = b^2 - 4ac \geq 0$.
+            \item Les solutions de l'équation sont alors :
+\[
+            x = \frac{-b \pm \sqrt{\Delta}}{2a}
+\]
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
