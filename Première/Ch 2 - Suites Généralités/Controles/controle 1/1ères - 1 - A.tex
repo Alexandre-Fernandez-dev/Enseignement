@@ -1,0 +1,161 @@
+\documentclass{exam}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+
+\setlength{\topmargin}{-.5in} \setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0in} \setlength{\textwidth}{6.8in}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\Large
+
+\noindent{\bf Contrôle 1 (A) -- 1h. \hfill Première générale -- Groupe 1 \hfill 20/09/2024}
+\vspace{5mm}
+\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Répondez dans les espaces fournis. Si vous n'avez plus de place, continuez sur le verso.}}}
+\end{center}
+
+~\\
+
+
+
+\medskip\hrule
+
+\begin{exercice}[Calculer]
+    \begin{enumerate}
+    \item Pour chacune des suites suivantes, indiquer si elle est définie par une formule explicite ou par récurrence:
+    \begin{enumerate}
+        \item $u_n = 3n - 2$
+
+        \hrulefill
+        \item $v_{n} = v_{n-1} + 1$
+
+        \hrulefill
+        \item $w_{n} + 1 = n$
+        
+        \hrulefill
+        \item $r_{n+1} = -r_n$
+
+        \hrulefill
+    \end{enumerate}
+    
+    \item Dans chaque cas, calculer les 3 premiers termes. Si la suite est définie par récurrence, prendre $-1$ pour valeur du premier terme. Par exemple, prendre $u_0 = -1$ si $(u_n)$ est définie par récurrence.
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{ \centering{\underline{Réponse:}}
+        \vspace{18em}
+        }}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}[Modéliser]
+    Soit $w_n$ la suite définie par son premier terme $w_0 = 1$ et les autres termes sont obtenus en déduisant $1$ du carré du terme précédent. Donner la relation de récurrence entre $w_{n+1}$ et $w_n$.
+\end{exercice}
+\begin{center}
+    \framebox[1\linewidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+    \vspace{2em}
+    }}
+\end{center}
+
+\begin{exercice}[Calculer]
+    Dans chaque cas, déterminer, si possible, le sens de variation de la suite $(u_n)$ sur $\mathbb{N}$.
+
+    \begin{enumerate}
+        \item $u_n = -3n + 7$
+        \item $u_n = -2n^2 + n + 1$
+        \item $u_n = \frac{n}{n+1}$
+        \item $u_0 = 3, u_{n+1} = -\frac{1}{2}u_n$
+    \end{enumerate}
+\end{exercice}
+
+\begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{ \centering
+    \underline{Réponse:}
+    \vspace{29em}
+    }}
+\end{center}
+
+\begin{exercice}[Modéliser]
+    Un certain placement financier rapporte des intérêts annuels à hauteur de $3\%$. On place 50€ de cette manière. Donner l'expression de la suite $u_n$ représentant la somme accumulée après $n$ années.
+
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{ \centering \underline{Réponse:}
+        \vspace{4em}
+        }}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}[Calculer]
+    Pour chaque suite $(u_n)$ suivante, exprimez $u_{n+2}$ en fonction de $n$ lorsqu'elle est définie explicitement ou en fonction de $u_n$ lorsqu'elle est définie par récurrence.
+    \begin{enumerate}
+        \item $u_n = 2^{3n} - 3n$
+        \item $\begin{cases} u_0 = 1\\ u_{n+1} = 11 u_n - 3\end{cases}$
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{ \centering \underline{Réponse:}
+        \vspace{25em}
+        }}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}[Raisonner]
+    On considère la suite $u$ définie par $u_n = 10 - n$ pour tout $n \in \mathbb{N}$.
+    \begin{enumerate}
+        \item Calculer $u_0, u_1, u_2$.
+        \item Montrer que la suite $u$ vérifie la relation de récurrence suivante: pour tout $n \in \mathcal{N}, u_{n+1} = u_n - 1$.
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{ \centering
+        \underline{Réponse:}
+        \vspace{17em}
+        }}
+    \end{center}
+\end{exercice}
+
+\begin{exercice}[\textbf{Bonus}, Modéliser]
+    $A_1, A_2, \dots, A_n$ sont $n$ points d'un cercle.
+
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{Screenshot from 2024-09-16 14-51-14.png}
+    \end{center}
+
+    \noindent
+    On note $u_n$ le nombre de segments qui ont pour extrémité deux de ces points.
+
+    \begin{enumerate}
+        \item Montrez que $u_1 = 0$, $u_2 = 1$, et $u_3 = 3$. Vous pouvez vous aider de dessins.
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\linewidth]{\parbox{5.5in}{\centering \underline{Réponse:}
+        \vspace{44em}
+        }}
+    \end{center}
+    \begin{enumerate}[resume]
+        \item Trouvez une relation de récurrence entre $u_{n+1}$ et $u_n$. Justifiez votre réponse.
+    \end{enumerate}
+    \begin{center}
+        \framebox[1\linewidth]{\parbox{5.5in}{ \centering \underline{Réponse:}
+        \vspace{44em}
+        }}
+    \end{center}
+\end{exercice}
+
+\end{document} 

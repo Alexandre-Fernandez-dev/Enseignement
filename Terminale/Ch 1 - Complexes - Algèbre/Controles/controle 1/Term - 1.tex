@@ -1,0 +1,92 @@
+\documentclass{exam}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+
+\setlength{\topmargin}{-.5in} \setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0in} \setlength{\textwidth}{6.8in}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\Large
+
+\noindent{\bf Contrôle 1 -- 1h. \hfill Terminales -- Math expertes \hfill 02/10/2024}
+
+\medskip\hrule
+\vspace{2em}
+
+\begin{exercice}Exprimer les nombres complexes suivants sous leur forme algébrique:
+    \begin{enumerate}
+        \item $3-(2+3i)(4+i)$,
+        \item $\frac{3+i}{2-i}$.
+    \end{enumerate}
+\end{exercice}
+
+\vspace{1em}
+
+\begin{exercice}\ 
+    
+    \begin{enumerate}
+        \item Résoudre l'équation  $z + 2i \overline{z} = 1 - i$ dans $\mathbb{C}$.
+        \item Résoudre l'équation $z^2 - \overline{z} + 1 = 0$ dans $\mathbb{C}$.
+        \item Décrire l'ensemble des solutions complexes de $\overline{z} + iz = 0$. À quelle figure géométrique correspond-t-il ?
+    \end{enumerate}
+    
+\end{exercice}
+
+\vspace{1em}
+
+\begin{exercice}
+    Soit $Z= \frac{z+i}{z-i}$ pour tout $z\neq i$.
+    \begin{enumerate}
+        \item Exprimer $\overline{Z}$.
+        \item En déduire tous les nombres complexes $z$ tels que $Z$ soit réel.
+    \end{enumerate}
+\end{exercice}
+
+\vspace{1em}
+
+\begin{exercice}
+    On considère la fonction $f$ qui a tout $z \in \mathbb{C}$ associe $f(z) = z^2+2z+9$.
+    \begin{enumerate}
+        \item Calculer l'image de $-1+i\sqrt{3}$ par $f$.
+        \item On pose $z = x + iy$, donner l'écriture sous forme algébrique de $f(z)$.
+        \item Quels sont les nombres complexes qui possèdent un image réelle par $f$ ?
+    \end{enumerate}
+\end{exercice}
+
+\vspace{1em}
+
+\begin{exercice}\ 
+    \begin{enumerate}
+        \item Donner la forme algébrique de $(2+3i)^4$ à l'aide du binôme de newton.
+        \item Écrire une formule inspirée du binôme de newton pour $(a-b)^n$.
+        \item En déduire que $\sum_{k=0}^{n} (-1)^k \binom{n}{k} = 0$.
+    \end{enumerate}
+\end{exercice}
+
+\vspace{1em}
+
+\begin{exercice}
+    On considère la suite $u_n = i^n$ définie pour tout $n \in \mathbb{N}$.
+    \begin{enumerate}
+        \item Quelle est la nature de cette suite ?
+        \item En déduire la forme algébrique de $z = \sum_{k=0}^{2021} i^k$.
+    \end{enumerate}
+\end{exercice}
+
+\end{document}

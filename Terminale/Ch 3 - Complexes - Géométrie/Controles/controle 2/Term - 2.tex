@@ -1,0 +1,107 @@
+\documentclass{exam}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+
+\setlength{\topmargin}{-.5in} \setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0in} \setlength{\textwidth}{6.8in}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\Large
+
+\noindent{\bf Contrôle 2 -- 1h15. \hfill Terminales -- Math expertes \hfill }
+
+\medskip\hrule
+\vspace{2em}
+
+\begin{exercice}[2 points, 5 min]
+Soit $z = 1 - i$, calculez son module et un argument, puis écrivez-le sous sa forme trigonométrique.
+\end{exercice}
+
+\begin{exercice}[2 points, 5 min]
+On considère \( z = e^{i\frac{\pi}{6}} \). Donnez la forme algébrique de $z$ et $z^{12}$.
+\end{exercice}
+
+\begin{exercice}[2 points, 5 min]
+Résoudre dans \( \mathbb{C} \) l'équation \( z^{4} = 16 \).
+\end{exercice}
+
+% Exercice 23
+\begin{exercice}[4 points, 15 min]
+\begin{enumerate}
+    \item Développer \( (a + b)^4 \).
+    \item En utilisant une formule d'Euler, prouver que pour tout réel \( x \),
+       \[
+       \sin^4(x) = \dfrac{1}{8} \left( \cos(4x) - 4\cos(2x) + 3 \right).
+       \]
+\end{enumerate}
+\end{exercice}
+
+% Exercice 24
+\begin{exercice}[4 points, 15 min]
+\begin{enumerate}
+    \item En écrivant \( e^{i(\theta + \theta')} \) de deux manières différentes, retrouver les formules d'addition concernant \( \cos(\theta + \theta') \) et \( \sin(\theta + \theta') \).
+    \item En déduire que pour tout nombre réel \( \alpha \),
+       \[
+       \cos^2 \alpha = \dfrac{1 + \cos 2\alpha}{2}
+       \]
+       et donner une expression de \( \sin 2\alpha \) en fonction de \( \cos \alpha \) et \( \sin \alpha \).
+    \item Calculer, à l'aide de la question 2, la valeur de \( \cos\left( \dfrac{\pi}{8} \right) \), puis celle de \( \sin\left( \dfrac{\pi}{8} \right) \).
+    %\item Avec une calculatrice, on trouve :
+    %   \[
+    %   \tan\left( \dfrac{\pi}{12} \right) = 2 - \sqrt{3}.
+    %   \]
+    %   Démontrer ce résultat à l'aide de la question 2.
+\end{enumerate}
+\end{exercice}
+
+% Exercice 18
+\begin{exercice}[6 points, 25 min]
+On dit qu'un triangle équilatéral $ABC$ est direct si et seulement si $(\overrightarrow{AB}; \overrightarrow{AC}) = \frac{\pi}{3}$.
+Soient \( A \), \( B \) et \( C \) trois points non alignés d’affixe \( a \), \( b \) et \( c \). On note \( j = e^{\frac{2i\pi}{3}} \).
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Vérifier que $1, j$ et $j^2$ sont les solutions de l'équation $z^3 = 1$.
+        \item Calculer $(1-j)(1 + j + j^2)$. En déduire que $1 + j + j^2 = 0$.
+        \item Vérifier que $e^{i\frac{\pi}{3}} + j^2 = 0$.
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item Démontrer que le triangle $ABC$ est équilatéral direct si et seulement si : $\frac{c - a}{b - a} = e^{i\frac{\pi}{3}}$.
+        \item Montrer que le triangle \( ABC \) est équilatéral direct si, et seulement si,
+        \[
+        a + bj + cj^2 = 0.
+        \]
+    \end{enumerate}
+    \item \textbf{(Bonus)} On ne suppose pas nécessairement que \( ABC \) est équilatéral. On construit à partir de \( ABC \) les trois triangles équilatéraux de base \([AB]\), \([AC]\) et \([BC]\) construits à l’extérieur de \( ABC \). Montrer que les centres de gravité de ces trois triangles forment un triangle équilatéral.
+\end{enumerate}
+\end{exercice}
+
+%% Exercice 19
+%\begin{exercice}
+%Le plan complexe est muni d'un repère orthonormé \( (O ; \vec{u}, \vec{v}) \) et on considère les points \( A \), \( B \) et \( C \) d'affixes respectives :  
+%\( z_A = \sqrt{2}e^{-\frac{3i\pi}{4}} \), \( z_B = 3 + 3i \) et \( z_C = 7 - i \).
+%
+%\begin{enumerate}
+%    \item Déterminer la forme algébrique de \( z_A \) et une forme exponentielle de \( z_B \).
+%    \item Quelle est la nature du triangle \( ABC \) ?
+%    \item Démontrer qu'il existe un point \( D \) tel que le quadrilatère \( ABCD \) soit un carré. Déterminer l'affixe du point \( D \).
+%    \item Déterminer l'affixe du centre du carré \( ABCD \).
+%    \item On considère l'ensemble des points \( M \) du plan d'affixe \( z \) tels que \( |z - (3 - i)| = 4 \). Démontrer que cet ensemble est le cercle circonscrit au triangle \( ABC \).
+%\end{enumerate}
+%\end{exercice}
+\end{document}
