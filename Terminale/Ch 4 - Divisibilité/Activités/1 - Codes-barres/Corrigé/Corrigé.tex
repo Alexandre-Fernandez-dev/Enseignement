@@ -1,0 +1,149 @@
+% Sujet en LaTeX
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage[
+%paperheight=16cm, paperwidth=12cm,% Set the height and width of the paper
+includehead,
+%nomarginpar,% We don't want any margin paragraphs
+%textwidth=10cm,% Set \textwidth to 10cm
+headheight=10mm,% Set \headheight to 10mm
+]{geometry}
+\usepackage{amsmath}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage[french]{babel}
+\input{def.tex}
+\geometry{a4paper, margin=1.5cm}
+
+\title{\Document\ \Titre \Type}
+\author{}
+\date{}
+
+\begin{document}
+\pagestyle{fancy}
+%... then configure it.
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\Structure}
+\fancyhead[L]{\Niveau}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+
+%first page
+\fancypagestyle{plain}{%
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\Structure}
+\fancyhead[L]{\Niveau}
+\fancyhead[C]{\Chapitre}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+}
+%\setlength{\headsep}{0pt}
+
+\maketitle
+\vspace{-4em}
+
+Dans un code-barres EAN13 (à 13 chiffres), le dernier chiffre représente le caractère de contrôle, permettant de déterminer la validité du code à l’aide d’un algorithme.
+
+\begin{enumerate}
+    \item On a programmé en Python la fonction \texttt{Codebarre} qui prend en argument une liste composée des 13 chiffres du code EAN13 à contrôler.
+    \begin{enumerate}
+        \item \textbf{Expliquer le calcul de $S$ à la cinquième ligne.}
+
+        À la cinquième ligne du code, la variable $S$ est calculée en additionnant, pour chaque itération $i$ de 0 à 5, le chiffre situé à l'indice $2i$ de la liste $L$ et trois fois le chiffre situé à l'indice $2i + 1$. Cela correspond à la formule :
+        \[
+        S = \sum_{i=0}^{5} \left( L_{2i} + 3 \times L_{2i+1} \right)
+        \]
+        Cette formule calcule la somme des chiffres en positions paires (indices pairs) ajoutée à trois fois la somme des chiffres en positions impaires (indices impairs) jusqu'à l'indice 11.
+
+        \item \textbf{Que renvoie $S \% 10$ en Python ? Expliquer comment la clé de contrôle est calculée.}
+
+        En Python, l'opérateur \texttt{\%} calcule le reste de la division entière. Ainsi, $S \% 10$ donne le chiffre des unités de $S$. La clé de contrôle est calculée en prenant le complément à 10 du reste obtenu :
+        \[
+        \text{clé} = \begin{cases}
+            0 & \text{si } S \% 10 = 0 \\
+            10 - (S \% 10) & \text{sinon}
+        \end{cases}
+        \]
+        Cette clé est ensuite comparée au 13\up{e} chiffre du code-barres pour vérifier sa validité.
+
+        \item \textbf{Effectuer à la main la vérification du code-barres ci-dessus.}
+
+        Supposons que le code-barres est le suivant (extrait de l'image) :
+        \[
+        L = [9, 7, 8, 0, 2, 0, 1, 3, 7, 9, 6, 2, 4]
+        \]
+        Calcul de $S$ :
+        \begin{align*}
+        S &= L_0 + 3 \times L_1 + L_2 + 3 \times L_3 + L_4 + 3 \times L_5 + L_6 + 3 \times L_7 + L_8 + 3 \times L_9 + L_{10} + 3 \times L_{11} \\
+        &= 9 + 3 \times 7 + 8 + 3 \times 0 + 2 + 3 \times 0 + 1 + 3 \times 3 + 7 + 3 \times 9 + 6 + 3 \times 2 \\
+        &= 9 + 21 + 8 + 0 + 2 + 0 + 1 + 9 + 7 + 27 + 6 + 6 \\
+        &= 96
+        \end{align*}
+        Calcul de la clé :
+        \[
+        S \% 10 = 96 \% 10 = 6 \\
+        \text{clé} = 10 - 6 = 4
+        \]
+        Comparaison avec le dernier chiffre du code-barres ($L_{12} = 4$) :
+        \[
+        \text{clé} = L_{12} \Rightarrow \text{le code-barres est valide.}
+        \]
+
+    \end{enumerate}
+
+    \item On a tapé les deux instructions suivantes dans la console en commettant à chaque fois une erreur sur une valeur du code :
+    \begin{verbatim}
+>>> Codebarre([9,6,8,0,2,0,1,3,7,9,6,2,4])
+False
+>>> Codebarre([9,7,8,0,4,0,1,3,7,9,6,2,4])
+False
+    \end{verbatim}
+
+    \textbf{Détecter les erreurs commises et justifier le résultat renvoyé ; peut-on affirmer que la présence d’une seule erreur peut toujours être détectée ?}
+
+    \textbf{Solution :}
+
+    - **Premier cas :** L'erreur est sur le deuxième chiffre ($L_1$), qui est 6 au lieu de 7.
+    - **Deuxième cas :** L'erreur est sur le cinquième chiffre ($L_4$), qui est 4 au lieu de 2.
+
+    Dans les deux cas, la fonction \texttt{Codebarre} renvoie \texttt{False} car le calcul de la clé ne correspond plus au dernier chiffre du code-barres après l'erreur. Cependant, on ne peut pas affirmer que la présence d'une seule erreur sera toujours détectée. Certaines erreurs, comme l'inversion de deux chiffres spécifiques, peuvent ne pas être détectées par cet algorithme.
+
+    \item \textbf{Trouver un exemple d’erreur qui ne sera pas détecté par l’algorithme.}
+
+    \textbf{Solution :}
+
+    Une erreur qui ne sera pas détectée est celle où deux chiffres sont permutés de telle sorte que la somme $S$ reste inchangée. Par exemple, permuter un chiffre en position paire avec un autre en position paire, ou en position impaire avec un autre en position impaire. Prenons le code-barres original :
+    \[
+    L = [9, 7, 8, 0, 2, 0, 1, 3, 7, 9, 6, 2, 4]
+    \]
+    Échangeons les chiffres en positions 2 et 4 (indices 2 et 4) :
+    \[
+    L' = [9, 7, 2, 0, 8, 0, 1, 3, 7, 9, 6, 2, 4]
+    \]
+    Recalculons $S$ :
+    \begin{align*}
+    S' &= 9 + 3 \times 7 + 2 + 3 \times 0 + 8 + 3 \times 0 + 1 + 3 \times 3 + 7 + 3 \times 9 + 6 + 3 \times 2 \\
+    &= 96
+    \end{align*}
+    La clé reste donc 4, et le code-barres est considéré comme valide par l'algorithme, malgré l'erreur.
+
+\end{enumerate}
+
+\section*{Code Python}
+
+\begin{lstlisting}[language=Python]
+def Codebarre(L):
+    S = 0
+    clé = 0
+    for i in range(6):
+        S = S + L[2 * i] + 3 * L[2 * i + 1]
+    if S % 10 != 0:
+        clé = 10 - S % 10
+    return clé == L[12]
+\end{lstlisting}
+
+%\includegraphics[width=\textwidth]{codebarre_image.png}
+
+\end{document}
+

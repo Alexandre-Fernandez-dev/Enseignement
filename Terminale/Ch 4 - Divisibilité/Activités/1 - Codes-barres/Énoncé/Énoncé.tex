@@ -1,0 +1,119 @@
+% Sujet en LaTeX
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage[
+%paperheight=16cm, paperwidth=12cm,% Set the height and width of the paper
+%includehead,
+%nomarginpar,% We don't want any margin paragraphs
+%textwidth=10cm,% Set \textwidth to 10cm
+%headheight=10mm,% Set \headheight to 10mm
+]{geometry}
+\usepackage{amsmath}
+\usepackage[abspath]{currfile}
+\usepackage{fancyhdr}
+\input{def.tex}
+\geometry{a4paper, margin=1.5cm}
+\usepackage{graphicx}
+\def\getabsolutepath#1{\input{|kpsewhich "#1"}}
+
+\graphicspath{{../../../Images}}
+
+%\title{\Document\ \Titre \Type}
+\author{}
+\date{}
+
+\begin{document}
+\pagestyle{empty}
+% \pagestyle{fancy}
+% %... then configure it.
+% \fancyhead{} % clear all header fields
+% \fancyhead[R]{\Structure}
+% \fancyhead[L]{\Niveau}
+% \fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\thepage}
+% 
+% %first page
+% \fancypagestyle{plain}{%
+% \fancyhead{} % clear all header fields
+% \fancyhead[R]{\Structure}
+% \fancyhead[L]{\Niveau}
+% \fancyhead[C]{\Chapitre}
+% \fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\thepage}
+% }
+%\setlength{\headsep}{0pt}
+
+%\maketitle
+% \vspace{-4em}
+
+\section*{\Document\ \Titre \Type}
+
+
+\begin{minipage}{0.7\textwidth}
+    Dans un code-barres EAN13 (à 13 chiffres), le dernier chiffre représente le caractère de contrôle, permettant de déterminer la validité du code à l'aide d'un algorithme.
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+    \includegraphics[width=1\linewidth]{code_barre-1.png}
+\end{minipage}
+
+\begin{enumerate}
+    \item On a programmé en Python la fonction \texttt{Codebarre} qui prend en argument une liste composée des 13 chiffres du code EAN13 à contrôler.\\
+    \begin{minipage}{0.55\textwidth}
+        \begin{enumerate}
+            \item Expliquer le calcul de $S$ à la cinquième ligne.
+            \item Que renvoie $S \% 10$ en Python ? \\
+            Expliquer comment la clé de contrôle est calculée.
+            \item Effectuer à la main la vérification du code-barres ci-dessus.
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}{0.35\textwidth}
+        \includegraphics[width=1\linewidth]{code_barre-2.png}
+    \end{minipage}
+
+    \item On a tapé les deux instructions suivantes dans la console en commettant à chaque fois une erreur sur une valeur du code.
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{code_barre-3.png}
+    \end{center}
+    Détecter les erreurs commises et justifier le résultat renvoyé ; peut-on affirmer que la présence d'une seule erreur peut toujours être détectée ?
+
+    \item Trouver un exemple d'erreur qui ne sera pas détecté par l'algorithme.
+\end{enumerate}
+
+\hrule
+
+\section*{\Document\ \Titre \Type}
+
+
+\begin{minipage}{0.7\textwidth}
+    Dans un code-barres EAN13 (à 13 chiffres), le dernier chiffre représente le caractère de contrôle, permettant de déterminer la validité du code à l'aide d'un algorithme.
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+    \includegraphics[width=1\linewidth]{code_barre-1.png}
+\end{minipage}
+
+\begin{enumerate}
+    \item On a programmé en Python la fonction \texttt{Codebarre} qui prend en argument une liste composée des 13 chiffres du code EAN13 à contrôler.\\
+    \begin{minipage}{0.55\textwidth}
+        \begin{enumerate}
+            \item Expliquer le calcul de $S$ à la cinquième ligne.
+            \item Que renvoie $S \% 10$ en Python ? \\
+            Expliquer comment la clé de contrôle est calculée.
+            \item Effectuer à la main la vérification du code-barres ci-dessus.
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}{0.35\textwidth}
+        \includegraphics[width=1\linewidth]{code_barre-2.png}
+    \end{minipage}
+
+    \item On a tapé les deux instructions suivantes dans la console en commettant à chaque fois une erreur sur une valeur du code.
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{code_barre-3.png}
+    \end{center}
+    Détecter les erreurs commises et justifier le résultat renvoyé ; peut-on affirmer que la présence d'une seule erreur peut toujours être détectée ?
+
+    \item Trouver un exemple d'erreur qui ne sera pas détecté par l'algorithme.
+\end{enumerate}
+
+%\includegraphics[width=\textwidth]{image3.png}
+
+\end{document}

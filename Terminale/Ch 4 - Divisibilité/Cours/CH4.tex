@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[export]{adjustbox}
-\graphicspath{ {../images/} }
+\graphicspath{ {../Images/} }
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -29,6 +29,11 @@
 \definecolor{RedMet}{HTML}{cd5556}
 \definecolor{BrownHist}{HTML}{8b5a2b}
 \definecolor{BlackSav}{HTML}{000000}
+
+\newcommand{\hideM}[1]{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}
+\newcommand{\hide}[1]{\colorbox{gray!50}{\phantom{#1}}}
+%\newcommand{\hideM}[1]{#1}
+%\newcommand{\hide}[1]{#1}
 
 \newtcbtheorem
   []% init options
@@ -142,7 +147,7 @@ Chapitre 4 \\ Arithmétique: Divisibilité dans $\mathbb{Z}$
 \section{Relation de divisibilité dans $\mathbb{Z}$}
 \subsection{Définition et premières propriétés}
 \begin{definition}{}{}
-    Soient $a, b \in \mathbb{Z}$. On dit que $a$ divise $b$ lorsqu'il existe $k \in \mathbb{Z}$ tel que $b=a k$. On dit aussi que $a$ est un diviseur de $b$ et que $b$ est un multiple de $a$. On note $a \mid b$.
+    Soient $a, b \in \mathbb{Z}$. On dit que $a$ divise $b$ lorsqu'il existe $k \in \mathbb{Z}$ tel que $\hideM{b=a k}$. On dit aussi que $a$ est un diviseur de $b$ et que $b$ est un multiple de $a$. On note $a \mid b$.
 \end{definition}
 
 \begin{example}
@@ -152,7 +157,7 @@ Chapitre 4 \\ Arithmétique: Divisibilité dans $\mathbb{Z}$
 \begin{proposition}{}{}
     Soit $b$ un entier non nul.
     \begin{itemize}[noitemsep,topsep=0pt]
-      \item Si $a \mid b$ alors $|a| \leqslant|b|$.
+      \item Si $\hideM{a \mid b}$ alors $\hideM{|a| \leqslant|b|}$.
       \item L'entier $b$ admet donc un nombre fini de diviseurs.
     \end{itemize}
 \end{proposition}
@@ -161,7 +166,7 @@ Chapitre 4 \\ Arithmétique: Divisibilité dans $\mathbb{Z}$
     Soient $a, b \in \mathbb{Z}$. Alors,
     
     $$
-    a|b \Longleftrightarrow-a| b \Longleftrightarrow a|-b \Longleftrightarrow-a|-b
+    a|b \Longleftrightarrow \hideM{-a| b }\Longleftrightarrow \hideM{ a|-b }\Longleftrightarrow \hideM{-a|-b}
     $$
 \end{proposition}
 
@@ -175,7 +180,7 @@ Chapitre 4 \\ Arithmétique: Divisibilité dans $\mathbb{Z}$
 \subsection{Propriétés de la divisibilité}
 \begin{proposition}{Transitivité}{}
     Soient $a, b, c \in \mathbb{Z}$.\\
-    Si $a \mid b$ et $b \mid c$, alors $a \mid c$.
+    Si $a \mid b$ et $b \mid c$, alors $\hideM{a \mid c}$.
 \end{proposition}
 
 \begin{demo}
@@ -191,8 +196,8 @@ Chapitre 4 \\ Arithmétique: Divisibilité dans $\mathbb{Z}$
     Soient $a, b, c \in \mathbb{Z}$ tels que $a \mid b$ et $a \mid c$.
     
     \begin{itemize}[noitemsep,topsep=0pt]
-      \item Pour tous $m, n \in Z, a \mid(m b+n c)$.
-      \item En particulier, $a \mid(b+c)$ et $a \mid(b-c)$.
+      \item Pour tous $m, n \in Z, \hideM{a \mid(m b+n c)}$.
+      \item En particulier, $\hideM{a \mid(b+c)$ et $a \mid(b-c)}$.
     \end{itemize}
 \end{proposition}
 
@@ -243,7 +248,7 @@ $$
 \subsection{Division euclidienne}
 \begin{proposition}{Division euclidienne dans $\mathbb{N}$}{}
     Soient $a \in \mathbb{N}$ et $b \in \mathbb{N} \backslash\{0\}$.\\
-    Il existe un unique couple $(q, r) \in \mathbb{N} \times \mathbb{N}$ tels que $a=b q+r$ et $0 \leqslant r<b$. L'entier $q$ est appelé le quotient de la division de $a$ par $b$ et $r$ le reste.
+    Il existe un unique couple $(q, r) \in \mathbb{N} \times \mathbb{N}$ tels que $\hideM{a=b q+r}$ et $\hideM{0 \leqslant r<b}$. L'entier $q$ est appelé le quotient de la division de $a$ par $b$ et $r$ le reste.
 \end{proposition}
 
 \begin{remark}
@@ -270,7 +275,7 @@ $$
 
 \begin{proposition}{Division euclidienne dans $\mathbb{Z}$ (admise)}{}
     Soient $a, \in \mathbb{Z}$ et $b, \in \mathbb{Z} \backslash\{0\}$.\\
-    Il existe un unique couple $(q, r) \in \mathbb{Z} \times \mathbb{N}$ tels que $a=b q+r$ et $0 \leqslant r<|b|$.
+    Il existe un unique couple $(q, r) \in \mathbb{Z} \times \mathbb{N}$ tels que $\hideM{a=b q+r}$ et $\hideM{0 \leqslant r<|b|}$.
 \end{proposition}
 
 \begin{example}
@@ -301,7 +306,7 @@ $$
 \begin{definition}{}{}
     Soit $m \in \mathbb{N}^{*}$ et $a, b \in \mathbb{Z}$.\\
     On dit que $a$ et $b$ sont congrus modulo $\mathbf{m}$ s'ils ont le même reste dans la division euclidienne par $m$.\\
-    On note $a \equiv b[m]$ ou $a \equiv b \bmod m$.
+    On note $\hideM{a \equiv b[m]}$ ou $\hideM{a \equiv b \bmod m}$.
 \end{definition}
 
 \begin{example}
@@ -311,7 +316,7 @@ $$
 \begin{proposition}{}{}
     Soit $m \in \mathbb{N}^{*}$ et $a, b \in \mathbb{Z}$.
     $$
-    a \equiv b[m] \Longleftrightarrow m \mid(b-a)
+    \hideM{a \equiv b[m]} \Longleftrightarrow \hideM{m \mid(b-a)}
     $$
 \end{proposition}
 
@@ -355,7 +360,7 @@ $$
 \begin{proposition}{Transitivité}{}
     Soit $m \in \mathbb{N}^{*}$ et $a, b, c \in \mathbb{Z}$.
     \begin{center}
-        Si $a \equiv b[m]$ et $b \equiv c[m]$ alors $a \equiv c[m]$
+        Si $\hideM{a \equiv b[m]}$ et $\hideM{b \equiv c[m]}$ alors $\hideM{a \equiv c[m]}$
     \end{center}
 \end{proposition}
 
@@ -367,11 +372,11 @@ $$
     Soit $m \in \mathbb{N}^{*}$ et $a, b, c, d \in \mathbb{Z}$.
     \begin{itemize}[noitemsep,topsep=0pt]
         \item \textbf{Compatibilité avec l'addition :}\\
-        Si $a \equiv b[m]$ et $c \equiv d[m]$, alors $a+c \equiv b+d[m]$
+        Si $a \equiv b[m]$ et $c \equiv d[m]$, alors $\hideM{a+c \equiv b+d[m]}$
         \item \textbf{Compatibilité avec la multiplication :}\\
-        Si $a \equiv b[m]$ et $c \equiv d[m]$, alors $a \times c \equiv b \times d[m]$
+        Si $a \equiv b[m]$ et $c \equiv d[m]$, alors $\hideM{a \times c \equiv b \times d[m]}$
         \item \textbf{Compatibilité avec les puissances :}\\
-        Si $a \equiv b[m]$, alors pour tout $p \in \mathbb{N}^{*}, a^{p} \equiv b^{p}[m]$
+        Si $a \equiv b[m]$, alors pour tout $p \in \mathbb{N}^{*}, \hideM{a^{p} \equiv b^{p}[m]}$
     \end{itemize}
 \end{proposition}
 
@@ -419,7 +424,7 @@ Ainsi, dans tous les cas, $2 n(n+1)(n+5) \equiv 0[3]$ ce qui signifie exactement
 \subsection{Inverse modulo $m$}
 \begin{definition}{}{}
     Soient $m \in \mathbb{Z}^{*}$ et $a \in \mathbb{Z}$.\\
-    On dit que $a$ est inversible modulo $m$ lorsqu'il existe un entier $b$ tel que $a \times b \equiv 1[m]$. De plus, l'entier $b$ est appelé \textbf{inverse de $\boldsymbol{a}$ modulo $\boldsymbol{m}$}.
+    On dit que $a$ est inversible modulo $m$ lorsqu'il existe un entier $b$ tel que $\hideM{a \times b \equiv 1[m]}$. De plus, l'entier $b$ est appelé \textbf{inverse de $\boldsymbol{a}$ modulo $\boldsymbol{m}$}.
 \end{definition}
 
 \begin{example}
@@ -428,7 +433,7 @@ Ainsi, dans tous les cas, $2 n(n+1)(n+5) \equiv 0[3]$ ce qui signifie exactement
 
 \begin{proposition}{Unicité de l'inverse}{}
     Soient $m \in \mathbb{Z}^{*}$ et $a \in \mathbb{Z}$.\\
-    Si $a$ est inversible modulo $m$ alors l'inverse est unique modulo $m$.
+    Si $a$ est inversible modulo $m$ alors \hide{l'inverse est unique modulo $m$}.
 \end{proposition}
 
 \begin{demo}
@@ -481,7 +486,7 @@ Ainsi, dans tous les cas, $2 n(n+1)(n+5) \equiv 0[3]$ ce qui signifie exactement
 Dans cette partie, on se servira du fait que tout nombre entier $N$ peut s'écrire sous la forme $N=\sum_{k=0}^{n} a_{k} 10^{k}$, où pour tout $k \in\{1, \ldots, n\}, 0 \leqslant a_{k} \leqslant 9$ et $a_{n} \neq 0$.
 
 \begin{proposition}{}{}
-    Un nombre entier $N$ est divisible par 10 si, et seulement si, son chiffre des unités est 0 .
+    Un nombre entier $N$ est divisible par 10 si, et seulement si, \hide{son chiffre des unités est 0}.
 \end{proposition}
 
 \begin{demo}
@@ -490,7 +495,7 @@ Dans cette partie, on se servira du fait que tout nombre entier $N$ peut s'écri
 \end{demo}
 
 \begin{proposition}{}{}
-    Un nombre entier $N=\sum_{k=0}^{n} a_{k} 10^{k}$ est divisible par 3 si, et seulement si, $a_{0}+a_{1}+\ldots+a_{n}$ est divisible par 3 .
+    Un nombre entier $N=\sum_{k=0}^{n} a_{k} 10^{k}$ est divisible par 3 si, et seulement si, $\hideM{a_{0}+a_{1}+\ldots+a_{n}}$ est divisible par 3 .
 \end{proposition}
 
 \begin{demo}

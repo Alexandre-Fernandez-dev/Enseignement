@@ -1,16 +1,46 @@
 % Sujet en LaTeX
 \documentclass{article}
 \usepackage{hyperref}
-\usepackage{geometry}
+\usepackage[
+%paperheight=16cm, paperwidth=12cm,% Set the height and width of the paper
+includehead,
+%nomarginpar,% We don't want any margin paragraphs
+%textwidth=10cm,% Set \textwidth to 10cm
+headheight=10mm,% Set \headheight to 10mm
+]{geometry}
 \usepackage{amsmath}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\input{def.tex}
 \geometry{a4paper, margin=1.5cm}
 
-\title{Activité 1: Racines carrées et géométrie}
+\title{\Document\ \Titre \Type}
 \author{}
 \date{}
 
 \begin{document}
+\pagestyle{fancy}
+%... then configure it.
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\Structure}
+\fancyhead[L]{\Niveau}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+
+%first page
+\fancypagestyle{plain}{%
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\Structure}
+\fancyhead[L]{\Niveau}
+\fancyhead[C]{\Chapitre}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+}
+
+\setlength{\headsep}{0pt}
+
 \maketitle
+\vspace{-4em}
 
 \subsection*{Partie 1 : Rappel de la notion de racine carrée à travers les aires}
 

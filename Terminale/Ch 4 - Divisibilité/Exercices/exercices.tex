@@ -1,0 +1,325 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 3 \\ Divisibilité - Exercices
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+% Exercice 1
+\begin{exercice}[title=Exercice 1 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer les diviseurs positifs des nombres suivants :
+    15 ; 27 ; 23 ; 51 ; 11132.
+    \end{exercice}
+    
+    % Exercice 2
+    \begin{exercice}[title=Exercice 2 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer les entiers naturels $n$ tels que $7$ divise $n + 3$.
+    \end{exercice}
+    
+    % Exercice 3
+    \begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer les entiers naturels $n$ tels que $11$ divise $2n + 5$.
+    \end{exercice}
+    
+    % Exercice 4
+    \begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer les entiers naturels $n$ tels que $2$ divise $4n - 3$.
+    \end{exercice}
+    
+    % Exercice 5
+    \begin{exercice}[title=Exercice 5 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Montrer que pour tout $n \in \mathbb{N}$, $17^n - 2^n$ est divisible par $5$.
+    \end{exercice}
+    
+    % Exercice 6
+    \begin{exercice}[title=Exercice 6 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Déterminer l’ensemble des entiers naturels $a$ tels que $a^2 - 24$ soit le carré d’un entier naturel.
+    \end{exercice}
+    
+    % Exercice 7
+    \begin{exercice}[title=Exercice 7 $\quad \star \star \quad$ { [Chercher, Représenter] }]{}{}
+    Soit $f$ la fonction définie sur $\mathbb{R} \setminus \{1\}$ par $f(x) = \frac{12}{x - 1}$. Déterminer l’ensemble des points de la courbe représentative de $f$ qui sont à coordonnées entières.
+    \end{exercice}
+    
+    % Exercice 8
+    \begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer l’ensemble des entiers relatifs $n$ tels que $2n + 5$ divise $7n + 3$.
+    \end{exercice}
+    
+    % Exercice 9
+    \begin{exercice}[title=Exercice 9 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer l’ensemble des entiers relatifs $n$ tels que $n + 7$ soit divisible par $n$.
+    \end{exercice}
+    
+    % Exercice 10
+    \begin{exercice}[title=Exercice 10 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer l’ensemble des entiers relatifs $n$ tels que $n + 3$ divise $2n + 5$.
+    \end{exercice}
+    
+    % Exercice 11
+    \begin{exercice}[title=Exercice 11 $\quad \star \quad$ { [Calculer] }]{}{}
+    Déterminer l’ensemble des entiers relatifs $n$ tels que $4n + 3$ soit divisible par $3n + 4$.
+    \end{exercice}
+    
+    % Exercice 12
+    \begin{exercice}[title=Exercice 12 $\quad \star \quad$ { [Calculer, Chercher] }]{}{}
+    Déterminer tous les entiers naturels $a$ et $b$ tels que $a^2 - 9b^2 = 24$.
+    \end{exercice}
+    
+    % Exercice 13
+    \begin{exercice}[title=Exercice 13 $\quad \star \star \quad$ { [Calculer, Chercher] }]{}{}
+    Déterminer tous les entiers naturels $x$ et $y$ tels que $x + y = xy$.
+    \end{exercice}
+    
+    % Exercice 14
+    \begin{exercice}[title=Exercice 14 $\quad \star \quad$ { [Calculer] }]{}{}
+    Dans chaque cas, déterminer le quotient et le reste de la division de $m$ par $n$.
+    \begin{enumerate}
+        \item $m = 103$ et $n = 7$
+        \item $m = 13$ et $n = 17$
+        \item $m = -60$ et $n = 11$
+        \item $m = -33$ et $n = -4$
+        \item $m = -33$ et $n = 44$
+    \end{enumerate}
+    \end{exercice}
+
+% Exercice 15
+\begin{exercice}[title=Exercice 15 $\quad \star \star \quad$ { [Calculer, Communiquer] }]{}{}
+    Dans tout l'exercice, $n$ et $m$ désignent des entiers naturels. Répondre par Vrai ou Faux. Justifier.
+    
+    \begin{enumerate}
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $4$ et le reste de la division euclidienne de $m$ par $7$ est $2$, alors le reste de la division euclidienne de $n + m$ par $7$ est $6$.
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $4$ et le reste de la division euclidienne de $m$ par $7$ est $2$, alors le reste de la division euclidienne de $n \times m$ par $7$ est $8$.
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $5$ et le reste de la division euclidienne de $m$ par $10$ est $5$, alors le reste de la division euclidienne de $n \times m$ par $17$ est $5$.
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $0$ et le reste de la division euclidienne de $m$ par $5$ est $0$, alors le reste de la division euclidienne de $n + m$ par $12$ est $0$.
+        \item Si le reste de la division euclidienne de $n$ par $12$ est $1$ et le reste de la division euclidienne de $m$ par $4$ est $2$, alors le reste de la division euclidienne de $n + m$ par $4$ est $3$.
+        \item Si le reste de la division euclidienne de $n$ par $15$ est $3$ et le reste de la division euclidienne de $m$ par $5$ est $2$, alors le reste de la division euclidienne de $n + m$ par $15$ est $5$.
+    \end{enumerate}
+    \end{exercice}
+    
+    
+    % Exercice 16
+    \begin{exercice}[title=Exercice 16 $\quad \star \star \quad$ { [Chercher, Calculer] }]{}{}
+    Déterminer le reste de la division de $335^{112}$ par $7$.
+    \end{exercice}
+    
+    % Exercice 17
+    \begin{exercice}[title=Exercice 17 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Montrer que pour tout entier naturel $n$, l’entier $n(n+1)(2n+1)$ est divisible par $6$.
+    \end{exercice}
+    
+    % Exercice 18
+    \begin{exercice}[title=Exercice 18 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Montrer que pour tout entier naturel $n$, l’entier $n(n+7)(3n+1)$ est divisible par $3$.
+    \end{exercice}
+    
+    % Exercice 19
+    \begin{exercice}[title=Exercice 19 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Déterminer l’ensemble des entiers naturels $n$ tels que $5n^2 + 3$ soit divisible par $4$.
+    \end{exercice}
+    
+    % Exercice 20
+    \begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $p$ un nombre premier supérieur ou égal à $5$. Montrer que $p^2 - 1$ est divisible par $24$.
+    \end{exercice}
+    
+    % Exercice 21
+    \begin{exercice}[title=Exercice 21 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $(u_n)_{n \in \mathbb{N}}$ la suite définie par $u_n = 7n - 5$. Déterminer le nombre de carrés parfaits parmi les $2022$ premiers termes de la suite.
+    \end{exercice}
+
+    % Exercice 22
+\begin{exercice}[title=Exercice 22 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $p$ un nombre premier impair. Montrer qu’il existe $n \in \mathbb{N}^*$ tel que $p$ divise $2^n - 1$.
+    \end{exercice}
+    
+    % Exercice 23
+    \begin{exercice}[title=Exercice 23 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $n$ un carré parfait dont le chiffre des unités est $5$. Déterminer son chiffre des dizaines. La condition établie sur les chiffres des unités est-elle une condition nécessaire et suffisante ?
+    \end{exercice}
+    
+    % Exercice 24
+    \begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]{}{}
+    Dans chaque cas, déterminer si $a$ est inversible modulo $n$ et déterminer l’inverse le cas échéant.
+    \begin{enumerate}
+        \item $a = 3$ et $n = 7$
+        \item $a = 3$ et $n = 10$
+        \item $a = 4$ et $n = 12$
+        \item $a = 6$ et $n = 9$
+        \item $a = 9$ et $n = 16$
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 25
+    \begin{exercice}[title=Exercice 25 $\quad \star \quad$ { [Calculer] }]{}{}
+    Résoudre dans $\mathbb{Z}$ les équations suivantes :
+    \begin{enumerate}
+        \item $3x \equiv 1 \; [11]$
+        \item $3x \equiv 4 \; [12]$
+        \item $5x \equiv 7 \; [14]$
+        \item $5x \equiv 6 \; [8]$
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 26
+    \begin{exercice}[title=Exercice 26 $\quad \star \star \quad$ { [Communiquer, Raisonner] }]{}{}
+    \begin{enumerate}
+        \item Énoncer la règle de divisibilité par $5$ puis la démontrer.
+        \item Énoncer la règle de divisibilité par $3$ puis la démontrer.
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 27
+    \begin{exercice}[title=Exercice 27 $\quad \star \star \star \quad$ { [Raisonner, Communiquer, Chercher] }]{}{}
+    La propriété de décomposition d’un entier naturel $n$ en base $10$ s’énonce ainsi :
+    Pour tout $n \in \mathbb{N}$, il existe un unique $r \in \mathbb{N}$ et des entiers uniques $a_0, a_1, \ldots, a_r$ tels que
+    \[
+    0 \leq a_i \leq 9, \quad a_r \neq 0
+    \]
+    et 
+    \[
+    n = \sum_{k=0}^r a_k 10^k.
+    \]
+    \begin{enumerate}
+        \item Énoncer de manière similaire la propriété de décomposition d’un entier naturel $n$ en base $2$.
+        \item Démontrer la propriété énoncée à la question 1.
+        \item Décomposer l’entier $113$ en base $2$.
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 28
+\begin{exercice}[title=Exercice 28 $\quad \star \star \quad$ { [Communiquer, Calculer] }]{}{}
+    Les entiers $1 ; 11 ; 111 ; \dots$ sont appelés des reps-units. On note $N_p$ le rep-unit comprenant $p$ fois le chiffre $1$, c’est-à-dire 
+    \[
+    N_p = \sum_{k=0}^{p-1} 10^k.
+    \]
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}
+            \item Montrer que $N_p = \frac{10^p - 1}{9}$.
+            \item En déduire que, pour tout $p \geq 1$, $9$ divise $10^p - 1$.
+        \end{enumerate}
+        \item 
+        \begin{enumerate}
+            \item Déterminer le reste de la division de $10^p$ par $7$ suivant les valeurs de $p$.
+            \item En déduire les valeurs de $p$ pour lesquelles $N_p$ est divisible par $7$.
+        \end{enumerate}
+        \item Montrer que si $p$ est pair, $N_p$ est divisible par $11$.
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 29
+    \begin{exercice}[title=Exercice 29 $\quad \star \star \quad$ { [Modéliser, Chercher] }]{}{}
+    En informatique, un octet est composé de huit bits ($0$ ou $1$). Plus précisément, il est composé de sept bits contenant l’information à transmettre auquel on ajoute un bit de parité de la façon suivante : on calcule la somme $s$ des sept bits constituant l’octet et on prend $m$ tel que $s + m \equiv 0 \; [2]$.
+    \begin{enumerate}
+        \item Déterminer le bit de parité de $1011101$.
+        \item Démontrer que si un seul des sept bits contenant l’information est modifié, le bit de parité détecte l’erreur.
+        \item Dans quel cas les erreurs de transmission seront-elles détectées ? Justifier.
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 30
+    \begin{exercice}[title=Exercice 30 $\quad \star \star \quad$ { [Calculer, Modéliser] }]{}{}
+    On souhaite chiffrer un message. On procède de la manière suivante :
+    \begin{itemize}
+        \item Chaque lettre du texte à chiffrer est associée à un entier $x$ entre $0$ et $25$ selon la correspondance suivante :
+        \[
+        \begin{array}{ccccccccccccc}
+        A & B & C & D & E & F & G & H & I & J \\
+        0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        \end{array}
+        \]
+        \[
+        \begin{array}{cccccccccccc}
+         K & L & M & N & O & P & Q & R & S \\
+         10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 \\
+        \end{array}
+        \]
+        \[
+        \begin{array}{ccccccc}
+        T & U & V & W & X & Y & Z \\
+        19 & 20 & 21 & 22 & 23 & 24 & 25 \\
+        \end{array}
+        \]
+        \item À chaque entier $x$, on associe l’entier $y$ tel que $y = 21x + 2 \; [26]$ avec $0 \leq y < 25$.
+        \item On remplace la lettre du message par la lettre correspondant au nombre $y$.
+    \end{itemize}
+    \begin{enumerate}
+        \item Montrer que le mot MATHS est chiffré par le mot UCLTQ.
+        \item L’objectif de cette question est de déchiffrer le mot suivant :
+        \[
+        \text{LGVOPY}
+        \]
+        \begin{enumerate}
+            \item Montrer que si $x$ est un entier et $y$ l’entier qui lui est associé par chiffrement, alors $x = 5y - 10 \; [26]$.
+            \item En déduire le message clair correspondant à LGVOPY.
+        \end{enumerate}
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 31
+    \begin{exercice}[title=Exercice 31 $\quad \star \star \star \quad$ { [Modéliser, Chercher] }]{}{}
+    Le numéro INSEE d’une personne est inscrit sur sa carte vitale. Il est composé de $13$ chiffres correspondant à :
+    \begin{itemize}
+        \item le sexe ($1$ pour un homme et $2$ pour une femme) ;
+        \item l’année de naissance (deux chiffres) ;
+        \item le mois de naissance (deux chiffres) ;
+        \item le lieu de naissance (cinq chiffres correspondant au département et à la commune) ;
+        \item le numéro d’ordre d’inscription des naissances dans la commune (trois chiffres).
+    \end{itemize}
+    Une clé de contrôle à deux chiffres complète le numéro INSEE. On calcule la clé avec la méthode suivante : on calcule le reste $r$ de la division du nombre à $13$ chiffres de la carte par $97$ et la clé est alors égale à $97 - r$.
+    \begin{enumerate}
+        \item Déterminer la clé de contrôle correspondant au numéro INSEE suivant : $254025002500522$.
+        \item On suppose que lors d’une saisie d’un code INSEE, une erreur est commise.
+        \begin{enumerate}
+            \item Montrer que si un seul chiffre est erroné, l’erreur est détectée par la clé.
+            \item Montrer que si l’on intervertit les deux premiers chiffres, l’erreur est détectée par la clé.
+        \end{enumerate}
+    \end{enumerate}
+    \end{exercice}    
+
+    % Exercice 32
+    \begin{exercice}[title=Exercice 32 $\quad \star \star \star \quad$ { [Modéliser, Chercher, Communiquer] }]{}{}
+    Faire une recherche sur le système EAN-13 utile pour les codes-barres et montrer que le système permet de détecter certaines erreurs.
+    \end{exercice}
+
+\end{multicols}
+
+\end{document}

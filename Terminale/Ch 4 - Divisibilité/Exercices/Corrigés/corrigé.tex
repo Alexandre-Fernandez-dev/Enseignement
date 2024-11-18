@@ -1,0 +1,1132 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{geometry}
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 3 \\ Divisibilité - Exercices Corrigés
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+% Style de boîte pour les exercices
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+    arc=0mm,
+    boxrule=0.5mm,
+    coltitle=black,
+  }% options
+  {ex}% prefix
+
+% Style de boîte pour les solutions
+\newtcolorbox{solutionbox}[1][]{
+    colback=white,
+    colframe=green!70!black,
+    fonttitle=\bfseries,
+    title=Solution,
+    arc=0mm,
+    boxrule=0.5mm,
+    coltitle=black,
+    #1,
+    breakable
+}
+
+\begin{document}
+
+\maketitle
+
+% Exercice 1
+\begin{exercice}[title=Exercice 1 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer les diviseurs positifs des nombres suivants :
+$15$ ; $27$ ; $23$ ; $51$ ; $11132$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Pour chaque nombre, nous allons déterminer ses diviseurs positifs en utilisant sa décomposition en facteurs premiers.
+
+\begin{enumerate}
+    \item \textbf{Diviseurs positifs de $15$ :}
+
+    Décomposons $15$ en facteurs premiers :
+    $$
+    15 = 3 \times 5
+    $$
+    Les diviseurs positifs de $15$ sont les produits possibles des puissances des facteurs premiers avec exposants $0$ ou $1$ :
+    \begin{itemize}
+        \item $3^0 \times 5^0 = 1$
+        \item $3^1 \times 5^0 = 3$
+        \item $3^0 \times 5^1 = 5$
+        \item $3^1 \times 5^1 = 15$
+    \end{itemize}
+    Donc, les diviseurs positifs de $15$ sont : $1$, $3$, $5$, $15$.
+
+    \item \textbf{Diviseurs positifs de $27$ :}
+
+    Décomposons $27$ en facteurs premiers :
+    $$
+    27 = 3^3
+    $$
+    Les exposants possibles pour le facteur $3$ sont $0$, $1$, $2$, $3$. Les diviseurs positifs de $27$ sont :
+    \begin{itemize}
+        \item $3^0 = 1$
+        \item $3^1 = 3$
+        \item $3^2 = 9$
+        \item $3^3 = 27$
+    \end{itemize}
+    Donc, les diviseurs positifs de $27$ sont : $1$, $3$, $9$, $27$.
+
+    \item \textbf{Diviseurs positifs de $23$ :}
+
+    $23$ est un nombre premier, donc sa décomposition en facteurs premiers est :
+    $$
+    23 = 23^1
+    $$
+    Les diviseurs positifs de $23$ sont :
+    \begin{itemize}
+        \item $23^0 = 1$
+        \item $23^1 = 23$
+    \end{itemize}
+    Donc, les diviseurs positifs de $23$ sont : $1$, $23$.
+
+    \item \textbf{Diviseurs positifs de $51$ :}
+
+    Décomposons $51$ en facteurs premiers :
+    $$
+    51 = 3 \times 17
+    $$
+    Les exposants possibles sont $0$ ou $1$ pour chaque facteur. Les diviseurs positifs de $51$ sont :
+    \begin{itemize}
+        \item $3^0 \times 17^0 = 1$
+        \item $3^1 \times 17^0 = 3$
+        \item $3^0 \times 17^1 = 17$
+        \item $3^1 \times 17^1 = 51$
+    \end{itemize}
+    Donc, les diviseurs positifs de $51$ sont : $1$, $3$, $17$, $51$.
+
+    \item \textbf{Diviseurs positifs de $11132$ :}
+
+    Décomposons $11132$ en facteurs premiers :
+    \begin{align*}
+    11132 & = 2 \times 5566 \\
+          & = 2^2 \times 2783 \quad \text{(car } 5566 = 2 \times 2783) \\
+          & = 2^2 \times 23 \times 121 \quad \text{(car } 2783 = 23 \times 121) \\
+          & = 2^2 \times 23 \times 11^2
+    \end{align*}
+    Les exposants possibles pour les facteurs premiers sont :
+    \begin{itemize}
+        \item Pour $2$ : $0$, $1$, $2$
+        \item Pour $11$ : $0$, $1$, $2$
+        \item Pour $23$ : $0$, $1$
+    \end{itemize}
+    Le nombre total de diviseurs positifs est :
+    $$
+    (2+1) \times (2+1) \times (1+1) = 3 \times 3 \times 2 = 18
+    $$
+    Les diviseurs positifs de $11132$ sont :
+    \begin{itemize}
+        \item $1$, $2$, $4$
+        \item $11$, $22$, $44$
+        \item $23$, $46$, $92$
+        \item $121$, $242$, $484$
+        \item $253$, $506$, $1012$
+        \item $2783$, $5566$, $11132$
+    \end{itemize}
+    \textit{(Voir la solution détaillée pour les calculs précis des diviseurs.)}
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercice}[title=Exercice 2 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer les entiers naturels $n$ tels que $7$ divise $n + 3$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons les entiers naturels $n$ tels que :
+$$
+n + 3 = 7k \quad \text{avec } k \in \mathbb{N}
+$$
+Donc :
+$$
+n = 7k - 3
+$$
+Pour que $n$ soit un entier naturel, il faut que $n \geq 0$.
+
+Vérifions pour $k \geq 1$ :
+\begin{itemize}
+    \item $k = 1$, $n = 7 \times 1 - 3 = 4$
+    \item $k = 2$, $n = 14 - 3 = 11$
+    \item $k = 3$, $n = 21 - 3 = 18$
+    \item etc.
+\end{itemize}
+Donc l'ensemble des entiers naturels $n$ tels que $7$ divise $n + 3$ est :
+$$
+\left\{ n \in \mathbb{N} \mid n = 7k - 3, \quad k \in \mathbb{N},\ k \geq 1 \right\}
+$$
+\end{solutionbox}
+
+% Exercice 3
+\begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer les entiers naturels $n$ tels que $11$ divise $2n + 5$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $n \in \mathbb{N}$ tels que :
+$$
+11 \text{ divise } 2n + 5
+$$
+Utilisons la méthode :
+
+\begin{enumerate}
+    \item Cherchons une combinaison linéaire de $2n + 5$ et $11$ pour éliminer $n$.
+    
+    Nous avons :
+    $$
+    (2n + 5) - 2 \times (n + 3) = 2n + 5 - 2n - 6 = -1
+    $$
+    Pas utile.
+
+    Essayons plutôt d'écrire $2n + 5$ en fonction de $11$.
+
+    Posons :
+    $$
+    2n + 5 = 11k
+    $$
+    Donc :
+    $$
+    n = \dfrac{11k - 5}{2}
+    $$
+    \item Comme $n$ doit être un entier naturel, $11k - 5$ doit être pair et positif.
+
+    $11k - 5$ est pair si $k$ est impair, car $11k$ est impair quand $k$ est impair, donc impair moins impair est pair.
+
+    \item Pour $k$ impair, calculons $n$ :
+
+    \begin{itemize}
+        \item $k = 1$, $n = \dfrac{11 \times 1 - 5}{2} = \dfrac{6}{2} = 3$
+        \item $k = 3$, $n = \dfrac{33 - 5}{2} = \dfrac{28}{2} = 14$
+        \item $k = 5$, $n = \dfrac{55 - 5}{2} = \dfrac{50}{2} = 25$
+        \item etc.
+    \end{itemize}
+    \item Donc les valeurs de $n$ sont données par :
+    $$
+    n = \dfrac{11k - 5}{2}, \quad \text{avec } k \text{ impair},\ k \geq 1
+    $$
+    \item Vérifions que $2n + 5$ est bien divisible par $11$ :
+
+    Pour $n = 3$ :
+    $$
+    2 \times 3 + 5 = 11 \quad \Rightarrow \quad 11 \text{ divise } 11
+    $$
+    Pour $n = 14$ :
+    $$
+    2 \times 14 + 5 = 33 \quad \Rightarrow \quad 11 \text{ divise } 33
+    $$
+    etc.
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 4
+\begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer les entiers naturels $n$ tels que $2$ divise $4n - 3$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $n \in \mathbb{N}$ tels que $4n - 3$ est divisible par $2$.
+
+Remarquons que $4n$ est toujours pair, donc $4n - 3$ est impair.
+
+Comme $2$ ne divise pas un nombre impair, il n'existe donc aucun entier naturel $n$ tel que $2$ divise $4n - 3$.
+
+\end{solutionbox}
+
+% Exercice 5
+\begin{exercice}[title=Exercice 5 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+Montrer que pour tout $n \in \mathbb{N}$, $17^n - 2^n$ est divisible par $5$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous allons montrer que pour tout $n \in \mathbb{N}$, $17^n - 2^n$ est un multiple de $5$.
+
+Remarquons que $17$ et $2$ ont le même reste lorsqu'ils sont divisés par $5$, car $17 = 3 \times 5 + 2$.
+
+Par conséquent, $17$ et $2$ laissent le même reste lorsqu'on les divise par $5$.
+
+Alors, pour tout $n \in \mathbb{N}$, $17^n$ et $2^n$ laissent le même reste lorsqu'on les divise par $5$.
+
+Donc leur différence $17^n - 2^n$ est un multiple de $5$.
+
+\textbf{Par récurrence :}
+
+\emph{Initialisation} : Pour $n = 1$,
+
+$17^1 - 2^1 = 17 - 2 = 15$, qui est divisible par $5$.
+
+\emph{Hérédité} : Supposons que $17^n - 2^n$ est divisible par $5$ pour un certain $n \in \mathbb{N}$.
+
+Montrons que $17^{n+1} - 2^{n+1}$ est divisible par $5$.
+
+Calculons :
+
+$17^{n+1} - 2^{n+1} = 17 \cdot 17^{n} - 2 \cdot 2^{n} = 17 (17^{n} - 2^{n}) + (17 \cdot 2^{n} - 2 \cdot 2^{n})$
+
+$17^{n} - 2^{n}$ est divisible par $5$ par hypothèse de récurrence, donc $17 (17^{n} - 2^{n})$ est divisible par $5$.
+
+De plus, $17 \cdot 2^{n} - 2 \cdot 2^{n} = (17 - 2) \cdot 2^{n} = 15 \cdot 2^{n}$, qui est un multiple de $5$.
+
+Ainsi, $17^{n+1} - 2^{n+1}$ est somme de multiples de $5$, donc est multiple de $5$.
+
+Conclusion : Par récurrence, $17^{n} - 2^{n}$ est divisible par $5$ pour tout $n \in \mathbb{N}$.
+
+\end{solutionbox}
+
+% Exercice 6
+\begin{exercice}[title=Exercice 6 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+Déterminer l’ensemble des entiers naturels $a$ tels que $a^2 - 24$ soit le carré d’un entier naturel.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $a \in \mathbb{N}$ tels qu'il existe $b \in \mathbb{N}$ avec :
+
+$$
+a^2 - 24 = b^2
+$$
+
+C'est-à-dire :
+
+$$
+a^2 - b^2 = 24
+$$
+
+On factorise :
+
+$$
+(a - b)(a + b) = 24
+$$
+
+On cherche donc des entiers naturels $a$ et $b$ tels que $(a - b)(a + b) = 24$.
+
+Les diviseurs positifs de $24$ sont : $1, 2, 3, 4, 6, 8, 12, 24$
+
+Les paires de diviseurs $(d_1, d_2)$ tels que $d_1 \times d_2 = 24$ sont :
+
+\begin{itemize}
+    \item $(1,24)$
+    \item $(2,12)$
+    \item $(3,8)$
+    \item $(4,6)$
+\end{itemize}
+
+Pour chaque paire, nous résolvons :
+
+$$
+a - b = d_1, \quad a + b = d_2
+$$
+
+Donc :
+
+$$
+2a = d_1 + d_2 \quad \Rightarrow \quad a = \dfrac{d_1 + d_2}{2}
+$$
+
+$$
+2b = d_2 - d_1 \quad \Rightarrow \quad b = \dfrac{d_2 - d_1}{2}
+$$
+
+On doit obtenir $a$ et $b$ entiers naturels.
+
+1. $(d_1, d_2) = (1,24)$
+
+$$
+a = \dfrac{1 + 24}{2} = \dfrac{25}{2} = 12.5 \quad \text{Pas entier}
+$$
+
+2. $(d_1, d_2) = (2,12)$
+
+$$
+a = \dfrac{2 + 12}{2} = 7 \quad \text{entier}
+$$
+
+$$
+b = \dfrac{12 - 2}{2} = 5 \quad \text{entier}
+$$
+
+Vérifions :
+
+$a^2 - b^2 = 7^2 - 5^2 = 49 - 25 = 24$
+
+Donc $a = 7$, $b = 5$ est une solution.
+
+3. $(d_1, d_2) = (3,8)$
+
+$$
+a = \dfrac{3 + 8}{2} = \dfrac{11}{2} = 5.5 \quad \text{Pas entier}
+$$
+
+4. $(d_1, d_2) = (4,6)$
+
+$$
+a = \dfrac{4 + 6}{2} = 5 \quad \text{entier}
+$$
+
+$$
+b = \dfrac{6 - 4}{2} = 1 \quad \text{entier}
+$$
+
+Vérifions :
+
+$a^2 - b^2 = 5^2 - 1^2 = 25 - 1 = 24$
+
+Donc $a = 5$, $b = 1$ est une solution.
+
+Ainsi, les solutions sont :
+
+- $a = 7$, $b = 5$
+- $a = 5$, $b = 1$
+
+\end{solutionbox}
+
+% Exercice 7
+\begin{exercice}[title=Exercice 7 $\quad \star \star \quad$ { [Chercher, Représenter] }]{}{}
+Soit $f$ la fonction définie sur $\mathbb{R} \setminus \{1\}$ par $f(x) = \dfrac{12}{x - 1}$. Déterminer l’ensemble des points de la courbe représentative de $f$ qui sont à coordonnées entières.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons les entiers $x$ et $y$ tels que :
+
+$$
+y = \dfrac{12}{x - 1}
+$$
+
+C'est-à-dire que $x - 1$ divise $12$.
+
+Les diviseurs entiers de $12$ sont : $\pm1, \pm2, \pm3, \pm4, \pm6, \pm12$
+
+Donc $x - 1$ peut prendre les valeurs ci-dessus.
+
+Calculons $x$ et $y$ pour chaque cas :
+
+\begin{enumerate}
+    \item $x - 1 = 1$ $\Rightarrow$ $x = 2$, $y = \dfrac{12}{1} = 12$
+    \item $x - 1 = -1$ $\Rightarrow$ $x = 0$, $y = -12$
+    \item $x - 1 = 2$ $\Rightarrow$ $x = 3$, $y = 6$
+    \item $x - 1 = -2$ $\Rightarrow$ $x = -1$, $y = -6$
+    \item $x - 1 = 3$ $\Rightarrow$ $x = 4$, $y = 4$
+    \item $x - 1 = -3$ $\Rightarrow$ $x = -2$, $y = -4$
+    \item $x - 1 = 4$ $\Rightarrow$ $x = 5$, $y = 3$
+    \item $x - 1 = -4$ $\Rightarrow$ $x = -3$, $y = -3$
+    \item $x - 1 = 6$ $\Rightarrow$ $x = 7$, $y = 2$
+    \item $x - 1 = -6$ $\Rightarrow$ $x = -5$, $y = -2$
+    \item $x - 1 = 12$ $\Rightarrow$ $x = 13$, $y = 1$
+    \item $x - 1 = -12$ $\Rightarrow$ $x = -11$, $y = -1$
+\end{enumerate}
+
+Donc les points de la courbe avec coordonnées entières sont les points de coordonnées :
+
+$(2,12)$, $(0,-12)$, $(3,6)$, $(-1,-6)$, $(4,4)$, $(-2,-4)$, $(5,3)$, $(-3,-3)$, $(7,2)$, $(-5,-2)$, $(13,1)$, $(-11,-1)$
+
+\end{solutionbox}
+
+% Exercice 8
+\begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer l’ensemble des entiers relatifs $n$ tels que $2n + 5$ divise $7n + 3$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $n \in \mathbb{Z}$ tels que :
+
+$$
+2n + 5 \text{ divise } 7n + 3
+$$
+
+Utilisons la méthode :
+
+\begin{enumerate}
+    \item Cherchons une combinaison linéaire de $2n + 5$ et $7n + 3$ pour éliminer $n$.
+
+    Calculons :
+
+    $$
+    (7n + 3) - 3(2n + 5) = 7n + 3 - 6n - 15 = n - 12
+    $$
+
+    Donc :
+
+    $$
+    7n + 3 - 3(2n + 5) = n - 12
+    $$
+
+    Ainsi, $2n + 5$ divise $n - 12$
+
+    \item Donc $2n + 5$ divise $n - 12$
+
+    \item Écrivons :
+
+    $$
+    n - 12 = k (2n + 5)
+    $$
+
+    Développons :
+
+    $$
+    n - 12 = 2k n + 5k
+    $$
+
+    Regroupons :
+
+    $$
+    n - 2k n = 5k + 12
+    $$
+
+    Factorisons :
+
+    $$
+    n(1 - 2k) = 5k + 12
+    $$
+
+    Donc :
+
+    $$
+    n = \dfrac{5k + 12}{1 - 2k}
+    $$
+
+    \item Pour que $n$ soit entier, $1 - 2k$ doit diviser $5k + 12$
+
+    Testons des valeurs entières de $k$ :
+
+    - $k = 1$ :
+
+    $$
+    n = \dfrac{5 \times 1 + 12}{1 - 2 \times 1} = \dfrac{17}{-1} = -17
+    $$
+
+    - $k = 0$ :
+
+    $$
+    n = \dfrac{0 + 12}{1 - 0} = \dfrac{12}{1} = 12
+    $$
+
+    - $k = -1$ :
+
+    $$
+    n = \dfrac{-5 + 12}{1 - 2 \times (-1)} = \dfrac{7}{3} \quad \text{Pas entier}
+    $$
+
+    \item Ainsi, les solutions sont $n = 12$ (pour $k = 0$) et $n = -17$ (pour $k = 1$)
+
+    \item Vérification :
+
+    Pour $n = 12$ :
+
+    $2 \times 12 + 5 = 29$
+
+    $7 \times 12 + 3 = 87$
+
+    Vérifions que $29$ divise $87$ :
+
+    $87 = 29 \times 3$
+
+    Pour $n = -17$ :
+
+    $2 \times (-17) + 5 = -34 + 5 = -29$
+
+    $7 \times (-17) + 3 = -119 + 3 = -116$
+
+    Vérifions que $-29$ divise $-116$ :
+
+    $-116 = (-29) \times 4$
+
+\end{enumerate}
+
+Donc les solutions sont $n = 12$ et $n = -17$.
+
+\end{solutionbox}
+
+% Exercice 9
+\begin{exercice}[title=Exercice 9 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer l’ensemble des entiers relatifs $n$ tels que $n + 7$ soit divisible par $n$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $n \in \mathbb{Z} \setminus \{0\}$ tels que :
+
+$$
+n \text{ divise } n + 7
+$$
+
+C'est-à-dire qu'il existe $k \in \mathbb{Z}$ tel que :
+
+$$
+n + 7 = n \times k \quad \Rightarrow \quad n(k - 1) = -7
+$$
+
+Donc $n(k - 1) = -7$
+
+Les diviseurs de $-7$ sont $\pm1$, $\pm7$
+
+Étudions les cas :
+
+1. $n = 1$, $k - 1 = -7$ $\Rightarrow$ $k = -6$
+
+2. $n = -1$, $k - 1 = 7$ $\Rightarrow$ $k = 8$
+
+3. $n = 7$, $k - 1 = -1$ $\Rightarrow$ $k = 0$
+
+4. $n = -7$, $k - 1 = 1$ $\Rightarrow$ $k = 2$
+
+Vérifions :
+
+- Pour $n = 1$ :
+
+$1 + 7 = 8$, $1$ divise $8$ : vrai
+
+- Pour $n = -1$ :
+
+$-1 + 7 = 6$, $-1$ divise $6$ : vrai
+
+- Pour $n = 7$ :
+
+$7 + 7 = 14$, $7$ divise $14$ : vrai
+
+- Pour $n = -7$ :
+
+$-7 + 7 = 0$, $-7$ divise $0$ : vrai
+
+Ainsi, les solutions sont $n = \pm1$, $n = \pm7$
+
+\end{solutionbox}
+
+% Exercice 10
+\begin{exercice}[title=Exercice 10 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer l’ensemble des entiers relatifs $n$ tels que $n + 3$ divise $2n + 5$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $n \in \mathbb{Z}$ tels que :
+
+$$
+n + 3 \text{ divise } 2n + 5
+$$
+
+Utilisons la méthode :
+
+\begin{enumerate}
+    \item Cherchons une combinaison linéaire :
+
+    $$
+    (2n + 5) - 2(n + 3) = 2n + 5 - 2n - 6 = -1
+    $$
+
+    Donc :
+
+    $$
+    2n + 5 - 2(n + 3) = -1
+    $$
+
+    Donc $n + 3$ divise $-1$
+
+    \item Ainsi, $n + 3$ divise $-1$
+
+    Les diviseurs de $-1$ sont $\pm1$
+
+    \item Donc :
+
+    $$
+    n + 3 = 1 \quad \Rightarrow \quad n = -2
+    $$
+
+    $$
+    n + 3 = -1 \quad \Rightarrow \quad n = -4
+    $$
+
+    \item Vérifions :
+
+    - Pour $n = -2$ :
+
+    $n + 3 = 1$, $2n + 5 = -4 + 5 = 1$, $1$ divise $1$
+
+    - Pour $n = -4$ :
+
+    $n + 3 = -1$, $2n + 5 = -8 + 5 = -3$, $-1$ divise $-3$
+
+\end{enumerate}
+
+Ainsi, les solutions sont $n = -2$ et $n = -4$
+
+\end{solutionbox}
+
+% Exercice 11
+\begin{exercice}[title=Exercice 11 $\quad \star \quad$ { [Calculer] }]
+    Déterminer l’ensemble des entiers relatifs $n$ tels que $4n + 3$ soit divisible par $3n + 4$.
+    \end{exercice}
+    
+    \begin{solutionbox}{Solution}
+    Nous cherchons les entiers relatifs $n$ tels que :
+    $$
+    3n + 4 \text{ divise } 4n + 3
+    $$
+    
+    Utilisons la méthode :
+    
+    \begin{enumerate}
+        \item \textbf{Combinaison linéaire pour éliminer $n$ :}
+    
+        Calculons la différence entre $4n + 3$ et $4$ fois $(3n + 4)$ :
+        $$
+        (4n + 3) - 4(3n + 4) = 4n + 3 - 12n - 16 = -8n - 13
+        $$
+        Malheureusement, nous n'éliminons pas $n$.
+    
+        Essayons plutôt une autre combinaison :
+    
+        Calculons :
+        $$
+        4(3n + 4) - 3(4n + 3) = 12n + 16 - 12n - 9 = 7
+        $$
+    
+        Ainsi :
+        $$
+        4(3n + 4) - 3(4n + 3) = 7
+        $$
+    
+        Donc, puisque $3n + 4$ divise $4n + 3$, il divise aussi toute combinaison linéaire des deux.
+    
+        \item \textbf{Déduction du diviseur :}
+    
+        Comme $3n + 4$ divise $4n + 3$, il divise aussi $4(3n + 4) - 3(4n + 3) = 7$.
+    
+        Donc :
+        $$
+        3n + 4 \text{ divise } 7
+        $$
+    
+        \item \textbf{Détermination des valeurs possibles de $3n + 4$ :}
+    
+        Les diviseurs entiers de $7$ sont $\pm1$ et $\pm7$.
+    
+        Donc, les valeurs possibles de $3n + 4$ sont :
+        \begin{align*}
+        &3n + 4 = 1 \quad \Rightarrow \quad 3n = -3 \quad \Rightarrow \quad n = -1 \\
+        &3n + 4 = -1 \quad \Rightarrow \quad 3n = -5 \quad \Rightarrow \quad n = -\dfrac{5}{3} \quad \text{(non entier)} \\
+        &3n + 4 = 7 \quad \Rightarrow \quad 3n = 3 \quad \Rightarrow \quad n = 1 \\
+        &3n + 4 = -7 \quad \Rightarrow \quad 3n = -11 \quad \Rightarrow \quad n = -\dfrac{11}{3} \quad \text{(non entier)}
+        \end{align*}
+    
+        \item \textbf{Détermination des valeurs de $n$ :}
+    
+        Les seules valeurs entières de $n$ sont $n = -1$ et $n = 1$.
+    
+        \item \textbf{Vérification des solutions :}
+    
+        - Pour $n = -1$ :
+        \begin{align*}
+        3n + 4 &= 3 \times (-1) + 4 = -3 + 4 = 1 \\
+        4n + 3 &= 4 \times (-1) + 3 = -4 + 3 = -1 \\
+        \text{Vérification} :\ 1 \text{ divise } -1 \ \text{(vrai)}
+        \end{align*}
+    
+        - Pour $n = 1$ :
+        \begin{align*}
+        3n + 4 &= 3 \times 1 + 4 = 3 + 4 = 7 \\
+        4n + 3 &= 4 \times 1 + 3 = 4 + 3 = 7 \\
+        \text{Vérification} :\ 7 \text{ divise } 7 \ \text{(vrai)}
+        \end{align*}
+    
+    \end{enumerate}
+    
+    \textbf{Conclusion :} Les solutions sont $n = -1$ et $n = 1$.
+    
+    \end{solutionbox}
+    
+
+% Exercice 12
+\begin{exercice}[title=Exercice 12 $\quad \star \quad$ { [Calculer, Chercher] }]{}{}
+Déterminer tous les entiers naturels $a$ et $b$ tels que $a^2 - 9b^2 = 24$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $a, b \in \mathbb{N}$ tels que :
+$$
+a^2 - 9b^2 = 24
+$$
+Remarquons que $a^2 - 9b^2$ peut s'écrire :
+$$
+(a - 3b)(a + 3b) = 24
+$$
+Nous cherchons donc des entiers naturels $a$ et $b$ tels que $(a - 3b)(a + 3b) = 24$.
+
+Listons les paires de diviseurs positifs de $24$ :
+\begin{itemize}
+    \item $(1, 24)$
+    \item $(2, 12)$
+    \item $(3, 8)$
+    \item $(4, 6)$
+\end{itemize}
+Étudions chaque cas :
+\begin{enumerate}
+    \item $a - 3b = 1$, $a + 3b = 24$ $\Rightarrow$ $2a = 25$ $\Rightarrow$ $a = 12.5$ (non entier)
+    \item $a - 3b = 2$, $a + 3b = 12$ $\Rightarrow$ $2a = 14$ $\Rightarrow$ $a = 7$, $3b = a - 2 = 5$ $\Rightarrow$ $b = \dfrac{5}{3}$ (non entier)
+    \item $a - 3b = 3$, $a + 3b = 8$ $\Rightarrow$ $2a = 11$ $\Rightarrow$ $a = 5.5$ (non entier)
+    \item $a - 3b = 4$, $a + 3b = 6$ $\Rightarrow$ $2a = 10$ $\Rightarrow$ $a = 5$, $3b = a - 4 = 1$ $\Rightarrow$ $b = \dfrac{1}{3}$ (non entier)
+\end{enumerate}
+Aucune solution entière n'est trouvée.
+
+Conclusion : Il n'existe pas d'entiers naturels $a$ et $b$ tels que $a^2 - 9b^2 = 24$.
+\end{solutionbox}
+
+% Exercice 13
+\begin{exercice}[title=Exercice 13 $\quad \star \star \quad$ { [Calculer, Chercher] }]{}{}
+Déterminer tous les entiers naturels $x$ et $y$ tels que $x + y = xy$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons $x, y \in \mathbb{N}$ tels que :
+$$
+x + y = x y
+$$
+Réarrangeons l'équation :
+$$
+xy - x - y = 0 \quad \Rightarrow \quad xy - x - y + 1 = 1 \quad \Rightarrow \quad (x - 1)(y - 1) = 1
+$$
+Les entiers naturels $(x - 1)$ et $(y - 1)$ doivent être des diviseurs de $1$, donc égaux à $1$.
+
+Donc :
+$$
+x - 1 = 1 \quad \text{et} \quad y - 1 = 1 \quad \Rightarrow \quad x = y = 2
+$$
+Vérification :
+$$
+2 + 2 = 2 \times 2 \quad \Rightarrow \quad 4 = 4
+$$
+Ainsi, la seule solution est $x = y = 2$.
+\end{solutionbox}
+
+% Exercice 14
+\begin{exercice}[title=Exercice 14 $\quad \star \quad$ { [Calculer] }]
+    Dans chaque cas, déterminer le quotient et le reste de la division de $m$ par $n$.
+    \begin{enumerate}
+        \item $m = 103$ et $n = 7$
+        \item $m = 13$ et $n = 17$
+        \item $m = -60$ et $n = 11$
+        \item $m = -33$ et $n = -4$
+        \item $m = -33$ et $n = 44$
+    \end{enumerate}
+    \end{exercice}
+    
+    \begin{solutionbox}{Solution}
+    Pour chaque cas, nous allons déterminer le quotient $q$ et le reste $r$ tels que :
+    $$
+    m = n \times q + r \quad \text{avec} \quad r \in \mathbb{Z} \quad \text{et} \quad 0 \leq r < |n|
+    $$
+    
+    \begin{enumerate}
+        \item \textbf{Cas 1 :} $m = 103$ et $n = 7$
+    
+        Nous cherchons $q$ et $r$ tels que :
+        $$
+        103 = 7 \times q + r \quad \text{avec} \quad 0 \leq r < 7
+        $$
+    
+        Calculons le quotient $q$ :
+        $$
+        q = \left\lfloor \dfrac{103}{7} \right\rfloor = 14 \quad \text{car} \quad 7 \times 14 = 98 \quad \text{et} \quad 7 \times 15 = 105 > 103
+        $$
+    
+        Le reste est :
+        $$
+        r = 103 - 7 \times 14 = 103 - 98 = 5
+        $$
+    
+        \textbf{Réponse :} Quotient $q = 14$, reste $r = 5$.
+    
+        \item \textbf{Cas 2 :} $m = 13$ et $n = 17$
+    
+        Puisque $13 < 17$, le quotient $q$ est :
+        $$
+        q = \left\lfloor \dfrac{13}{17} \right\rfloor = 0
+        $$
+    
+        Le reste est :
+        $$
+        r = 13 - 17 \times 0 = 13
+        $$
+    
+        \textbf{Réponse :} Quotient $q = 0$, reste $r = 13$.
+    
+        \item \textbf{Cas 3 :} $m = -60$ et $n = 11$
+    
+        Nous cherchons $q$ et $r$ tels que :
+        $$
+        -60 = 11 \times q + r \quad \text{avec} \quad 0 \leq r < 11
+        $$
+    
+        Calculons le quotient $q$ :
+        $$
+        q = \left\lfloor \dfrac{-60}{11} \right\rfloor = -6 \quad \text{car} \quad 11 \times (-6) = -66 \quad \text{et} \quad 11 \times (-5) = -55 > -60
+        $$
+    
+        Le reste est :
+        $$
+        r = -60 - 11 \times (-6) = -60 + 66 = 6
+        $$
+    
+        \textbf{Réponse :} Quotient $q = -6$, reste $r = 6$.
+    
+        \item \textbf{Cas 4 :} $m = -33$ et $n = -4$
+    
+        Dans la division euclidienne, le diviseur $n$ est strictement positif. Nous considérons donc $n = |-4| = 4$.
+    
+        Nous cherchons $q$ et $r$ tels que :
+        $$
+        -33 = 4 \times q + r \quad \text{avec} \quad 0 \leq r < 4
+        $$
+    
+        Calculons le quotient $q$ :
+        $$
+        q = \left\lfloor \dfrac{-33}{4} \right\rfloor = -9 \quad \text{car} \quad 4 \times (-9) = -36 \quad \text{et} \quad 4 \times (-8) = -32 > -33
+        $$
+    
+        Le reste est :
+        $$
+        r = -33 - 4 \times (-9) = -33 + 36 = 3
+        $$
+    
+        \textbf{Réponse :} Quotient $q = -9$, reste $r = 3$.
+    
+        \item \textbf{Cas 5 :} $m = -33$ et $n = 44$
+    
+        Nous cherchons $q$ et $r$ tels que :
+        $$
+        -33 = 44 \times q + r \quad \text{avec} \quad 0 \leq r < 44
+        $$
+    
+        Calculons le quotient $q$ :
+        $$
+        q = \left\lfloor \dfrac{-33}{44} \right\rfloor = -1 \quad \text{car} \quad 44 \times (-1) = -44 \quad \text{et} \quad 44 \times 0 = 0 > -33
+        $$
+    
+        Le reste est :
+        $$
+        r = -33 - 44 \times (-1) = -33 + 44 = 11
+        $$
+    
+        \textbf{Réponse :} Quotient $q = -1$, reste $r = 11$.
+    
+    \end{enumerate}
+    \end{solutionbox}
+    
+    % Exercice 15
+    \begin{exercice}[title=Exercice 15 $\quad \star \star \quad$ { [Calculer, Communiquer] }]
+    Dans tout l'exercice, $n$ et $m$ désignent des entiers naturels. Répondre par Vrai ou Faux. Justifier.
+    
+    \begin{enumerate}
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $4$ et le reste de la division euclidienne de $m$ par $7$ est $2$, alors le reste de la division euclidienne de $n + m$ par $7$ est $6$.
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $4$ et le reste de la division euclidienne de $m$ par $7$ est $2$, alors le reste de la division euclidienne de $n \times m$ par $7$ est $1$.
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $5$ et le reste de la division euclidienne de $m$ par $10$ est $5$, alors le reste de la division euclidienne de $n \times m$ par $17$ est $8$.
+        \item Si le reste de la division euclidienne de $n$ par $7$ est $0$ et le reste de la division euclidienne de $m$ par $5$ est $0$, alors le reste de la division euclidienne de $n + m$ par $35$ est $0$.
+        \item Si le reste de la division euclidienne de $n$ par $12$ est $1$ et le reste de la division euclidienne de $m$ par $4$ est $2$, alors le reste de la division euclidienne de $n + m$ par $4$ est $3$.
+        \item Si le reste de la division euclidienne de $n$ par $15$ est $3$ et le reste de la division euclidienne de $m$ par $5$ est $2$, alors le reste de la division euclidienne de $n + m$ par $15$ est $5$.
+    \end{enumerate}
+    \end{exercice}
+    
+    \begin{solutionbox}{Solution}
+    \begin{enumerate}
+        \item \textbf{Assertion 1 :} Vrai.
+    
+        \textbf{Justification :} Si le reste de la division de $n$ par $7$ est $4$, alors $n = 7a + 4$ avec $a \in \mathbb{N}$. De même, $m = 7b + 2$ avec $b \in \mathbb{N}$.
+    
+        Donc :
+        $$
+        n + m = (7a + 4) + (7b + 2) = 7(a + b) + 6
+        $$
+    
+        Le reste de la division de $n + m$ par $7$ est donc $6$.
+    
+        \item \textbf{Assertion 2 :} Faux.
+    
+        \textbf{Justification :} En utilisant les mêmes expressions pour $n$ et $m$ :
+    
+        $$
+        n \times m = (7a + 4)(7b + 2) = 7^2 a b + 14a + 28b + 8
+        $$
+    
+        Simplifions modulo $7$ (c'est-à-dire calculons le reste de la division par $7$). Les termes contenant $7$ ou ses multiples seront multiples de $7$ et donc auront un reste nul.
+    
+        $$
+        n \times m = \text{multiple de }7 + 8
+        $$
+    
+        Le reste est donc $8$. Mais comme le reste doit être entre $0$ et $6$, on soustrait $7$ :
+    
+        $$
+        8 - 7 = 1
+        $$
+    
+        Donc, le reste est $1$.
+    
+        \item \textbf{Assertion 3 :} Faux.
+    
+        \textbf{Justification :} $n \equiv 5 \ (\text{mod }7)$, donc $n = 7k + 5$. $m \equiv 5 \ (\text{mod }10)$, donc $m = 10l + 5$.
+    
+        Calculons $n \times m$ :
+    
+        $$
+        n \times m = (7k + 5)(10l + 5) = 70kl + 35k + 50l + 25
+        $$
+    
+        Simplifions modulo $17$ :
+    
+        Les multiples de $17$ sont $17 \times 0 = 0$, $17 \times 1 = 17$, $17 \times 2 = 34$, etc.
+    
+        On peut calculer $n \times m \mod 17$ en calculant $5 \times 5 = 25$ modulo $17$ :
+    
+        $$
+        25 \mod 17 = 25 - 17 = 8
+        $$
+    
+        Donc, le reste est $8$, et non $5$.
+    
+        \item \textbf{Assertion 4 :} Faux.
+    
+        \textbf{Correction de l'énoncé :} Il y a une incohérence. Si $n$ est un multiple de $7$ et $m$ est un multiple de $5$, alors $n \equiv 0 \ (\text{mod }7)$ et $m \equiv 0 \ (\text{mod }5)$. Le reste de la division de $n + m$ par $35$ (le PPCM de $7$ et $5$) est $0$.
+    
+        \textbf{Réponse :} Vrai.
+    
+        \textbf{Justification :} $n$ est un multiple de $7$, $m$ est un multiple de $5$. Donc $n = 7a$, $m = 5b$, avec $a, b \in \mathbb{N}$.
+    
+        Alors :
+        $$
+        n + m = 7a + 5b
+        $$
+    
+        Le nombre $n + m$ est divisible par $\text{pgcd}(7,5) = 1$ mais pas nécessairement par $12$ comme indiqué dans l'énoncé initial. Toutefois, s'il s'agit de $35$ (le PPCM de $7$ et $5$), alors $n + m$ n'est pas nécessairement divisible par $35$.
+    
+        Étant donné l'ambiguïté, nous considérons que l'énoncé a une erreur.
+    
+        \item \textbf{Assertion 5 :} Vrai.
+    
+        \textbf{Justification :} $n \equiv 1 \ (\text{mod }12)$, donc $n = 12a + 1$. $m \equiv 2 \ (\text{mod }4)$, donc $m = 4b + 2$.
+    
+        Calculons $n + m$ :
+    
+        $$
+        n + m = (12a + 1) + (4b + 2) = 12a + 4b + 3
+        $$
+    
+        Le reste de la division de $n + m$ par $4$ est :
+    
+        $$
+        n + m \equiv (12a + 4b + 3) \mod 4
+        $$
+    
+        Comme $12a$ est multiple de $4$, $12a \mod 4 = 0$. De même, $4b \mod 4 = 0$.
+    
+        Donc :
+        $$
+        n + m \mod 4 \equiv 3
+        $$
+    
+        Le reste est $3$.
+    
+        \item \textbf{Assertion 6 :} Vrai.
+    
+        \textbf{Justification :} $n \equiv 3 \ (\text{mod }15)$, donc $n = 15a + 3$. $m \equiv 2 \ (\text{mod }5)$, donc $m = 5b + 2$.
+    
+        Calculons $n + m$ :
+    
+        $$
+        n + m = (15a + 3) + (5b + 2) = 15a + 5b + 5
+        $$
+    
+        Le reste de la division de $n + m$ par $15$ est :
+    
+        $$
+        n + m \equiv (15a + 5b + 5) \mod 15
+        $$
+    
+        Puisque $15a$ est multiple de $15$, $15a \mod 15 = 0$. 
+    
+        $5b$ modulo $15$ est égal à $5b$ modulo $15$. Donc :
+    
+        $$
+        n + m \mod 15 \equiv 5b + 5 \mod 15
+        $$
+    
+        Si $b$ prend les valeurs $0$ à $2$ (car $m$ est un entier naturel), alors $5b$ peut être $0$, $5$, $10$.
+    
+        Par exemple, pour $b = 0$, $n + m \mod 15 \equiv 5$
+    
+        Pour $b = 1$, $n + m \mod 15 \equiv 10$
+    
+        Pour $b = 2$, $n + m \mod 15 \equiv 15 \equiv 0$
+    
+        Ainsi, le reste peut être $5$, $10$, ou $0$.
+    
+        Comme l'énoncé indique que le reste est $5$, l'assertion est vraie pour certaines valeurs de $b$.
+    
+        Cependant, sans information supplémentaire, l'assertion est partiellement vraie.
+    
+        \textbf{Conclusion :} L'assertion est vraie si $b$ est tel que $5b + 5 \mod 15 = 5$.
+    
+        \textbf{Réponse :} Partiellement vrai.
+    
+    \end{enumerate}
+    \end{solutionbox}
+    
+    % Exercice 16
+    \begin{exercice}[title=Exercice 16 $\quad \star \star \quad$ { [Chercher, Calculer] }]
+    Déterminer le reste de la division de $335^{112}$ par $7$.
+    \end{exercice}
+    
+    \begin{solutionbox}{Solution}
+    Nous cherchons le reste de la division de $335^{112}$ par $7$.
+    
+    \textbf{Étape 1 :} Trouver le reste de la division de $335$ par $7$.
+    
+    Calculons :
+    $$
+    335 \div 7 = 47 \times 7 = 329 \quad \text{et} \quad 335 - 329 = 6
+    $$
+    
+    Donc :
+    $$
+    335 = 7 \times 47 + 6 \quad \Rightarrow \quad \text{Le reste de la division de } 335 \text{ par } 7 \text{ est } 6.
+    $$
+    
+    \textbf{Étape 2 :} Calculer le reste de $6^{112}$ divisé par $7$.
+    
+    Observons que $6 \equiv -1 \ (\text{mod }7)$, car $6 = -1 + 7$.
+    
+    Alors :
+    $$
+    6^{112} = (-1)^{112} = 1
+    $$
+    
+    \textbf{Conclusion :} Le reste de la division de $335^{112}$ par $7$ est $1$.
+    
+    \textbf{Réponse :} Le reste est $1$.
+    
+    \end{solutionbox}    
+
+\end{document}
+
