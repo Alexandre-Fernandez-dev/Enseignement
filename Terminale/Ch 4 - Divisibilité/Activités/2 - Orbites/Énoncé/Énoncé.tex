@@ -1,0 +1,118 @@
+% Sujet en LaTeX
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage[
+%paperheight=16cm, paperwidth=12cm,% Set the height and width of the paper
+%includehead,
+%nomarginpar,% We don't want any margin paragraphs
+%textwidth=10cm,% Set \textwidth to 10cm
+%headheight=10mm,% Set \headheight to 10mm
+]{geometry}
+\usepackage{amsmath}
+\usepackage[abspath]{currfile}
+\usepackage{fancyhdr}
+\input{def.tex}
+\geometry{a4paper, margin=1.5cm}
+\usepackage{graphicx}
+\def\getabsolutepath#1{\input{|kpsewhich "#1"}}
+
+\graphicspath{{../../../Images}}
+
+%\title{\Document\ \Titre \Type}
+\author{}
+\date{}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+\pagestyle{empty}
+% \pagestyle{fancy}
+% %... then configure it.
+% \fancyhead{} % clear all header fields
+% \fancyhead[R]{\Structure}
+% \fancyhead[L]{\Niveau}
+% \fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\thepage}
+% 
+% %first page
+% \fancypagestyle{plain}{%
+% \fancyhead{} % clear all header fields
+% \fancyhead[R]{\Structure}
+% \fancyhead[L]{\Niveau}
+% \fancyhead[C]{\Chapitre}
+% \fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\thepage}
+% }
+%\setlength{\headsep}{0pt}
+
+%\maketitle
+% \vspace{-4em}
+
+
+\section*{\Document\ \Titre \Type}
+
+
+
+% Activité : Contrôler une régularité
+Un satellite artificiel d'observation de la Terre a été placé sur une orbite parallèle à l'équateur à 12 000 km au-dessus de la surface du globe.
+
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{orbite.png}
+\end{center}
+
+On considère que sa trajectoire est un cercle dont le centre est le centre de la Terre, que sa vitesse est constante et que sa période de révolution est de 7 heures, c’est-à-dire que le satellite met 7 heures pour faire un tour complet de la Terre.
+
+Le 1\textsuperscript{er} janvier 2020 à 0~h~00, le satellite passe au-dessus de la Colombie et deux heures plus tard, il survole le Kenya.
+
+\begin{enumerate}
+    \item Combien de fois le satellite survole-t-il la Colombie le 1\textsuperscript{er} janvier 2020~?
+    \item 
+    \begin{enumerate}
+        \item Donner les horaires de passage du satellite au-dessus du Kenya le 2 janvier.
+        \item Le satellite survolera-t-il le Kenya un jour à 0~h~00~?
+    \end{enumerate}
+    \item Le 8 janvier à 10~h, le satellite passe au-dessus de l’Indonésie.
+    \begin{enumerate}
+        \item Déterminer l’horaire de son premier passage au-dessus de l’Indonésie en 2020.
+        \item Combien de fois durant le mois de janvier survolera-t-il l’Indonésie à 10~h~?
+    \end{enumerate}
+    \item Où se situe le satellite le 30 janvier à 6~h~00 du matin~?
+\end{enumerate}
+
+\hfill
+
+\hrule
+
+\hfill 
+
+\section*{\Document\ \Titre \Type}
+
+% Activité : Contrôler une régularité
+Un satellite artificiel d'observation de la Terre a été placé sur une orbite parallèle à l'équateur à 12 000 km au-dessus de la surface du globe.
+
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{orbite.png}
+\end{center}
+
+On considère que sa trajectoire est un cercle dont le centre est le centre de la Terre, que sa vitesse est constante et que sa période de révolution est de 7 heures, c’est-à-dire que le satellite met 7 heures pour faire un tour complet de la Terre.
+
+Le 1\textsuperscript{er} janvier 2020 à 0~h~00, le satellite passe au-dessus de la Colombie et deux heures plus tard, il survole le Kenya.
+
+\begin{enumerate}
+    \item Combien de fois le satellite survole-t-il la Colombie le 1\textsuperscript{er} janvier 2020~?
+    \item 
+    \begin{enumerate}
+        \item Donner les horaires de passage du satellite au-dessus du Kenya le 2 janvier.
+        \item Le satellite survolera-t-il le Kenya un jour à 0~h~00~?
+    \end{enumerate}
+    \item Le 8 janvier à 10~h, le satellite passe au-dessus de l’Indonésie.
+    \begin{enumerate}
+        \item Déterminer l’horaire de son premier passage au-dessus de l’Indonésie en 2020.
+        \item Combien de fois durant le mois de janvier survolera-t-il l’Indonésie à 10~h~?
+    \end{enumerate}
+    \item Où se situe le satellite le 30 janvier à 6~h~00 du matin~?
+\end{enumerate}
+
+\hfill 
+    
+\end{document}

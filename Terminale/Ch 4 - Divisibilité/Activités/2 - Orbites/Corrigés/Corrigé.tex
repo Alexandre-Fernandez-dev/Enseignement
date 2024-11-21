@@ -1,0 +1,240 @@
+% Sujet en LaTeX
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage[
+%paperheight=16cm, paperwidth=12cm,% Set the height and width of the paper
+%includehead,
+%nomarginpar,% We don't want any margin paragraphs
+%textwidth=10cm,% Set \textwidth to 10cm
+%headheight=10mm,% Set \headheight to 10mm
+]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[abspath]{currfile}
+\usepackage{fancyhdr}
+\input{def.tex}
+\geometry{a4paper, margin=1.5cm}
+\usepackage{graphicx}
+\def\getabsolutepath#1{\input{|kpsewhich "#1"}}
+
+\graphicspath{{../../../Images}}
+
+%\title{\Document\ \Titre \Type}
+\author{}
+\date{}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+\pagestyle{empty}
+% \pagestyle{fancy}
+% %... then configure it.
+% \fancyhead{} % clear all header fields
+% \fancyhead[R]{\Structure}
+% \fancyhead[L]{\Niveau}
+% \fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\thepage}
+% 
+% %first page
+% \fancypagestyle{plain}{%
+% \fancyhead{} % clear all header fields
+% \fancyhead[R]{\Structure}
+% \fancyhead[L]{\Niveau}
+% \fancyhead[C]{\Chapitre}
+% \fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\thepage}
+% }
+%\setlength{\headsep}{0pt}
+
+%\maketitle
+% \vspace{-4em}
+
+
+\section*{\Document\ \Titre \Type}
+
+\begin{enumerate}
+    \item \textbf{Nombre de survols de la Colombie le 1\textsuperscript{er} janvier 2020 :}
+    
+    Le satellite passe au-dessus de la Colombie le 1\textsuperscript{er} janvier à 0~h~00. Comme sa période est de 7 heures, il survole la Colombie toutes les 7 heures.
+
+    Les horaires de passage au-dessus de la Colombie le 1\textsuperscript{er} janvier sont donc :
+    \begin{itemize}
+        \item 0~h~00
+        \item 0~h~00 $+$ 7~h $=$ 7~h~00
+        \item 7~h~00 $+$ 7~h $=$ 14~h~00
+        \item 14~h~00 $+$ 7~h $=$ 21~h~00
+    \end{itemize}
+    Ainsi, le satellite survole la Colombie \textbf{4 fois} le 1\textsuperscript{er} janvier 2020.
+    
+    \item
+    \begin{enumerate}
+        \item \textbf{Horaires de passage du satellite au-dessus du Kenya le 2 janvier :}
+        
+        Le satellite passe au-dessus du Kenya le 1\textsuperscript{er} janvier à 2~h~00 (deux heures après être passé au-dessus de la Colombie). Il survole donc le Kenya toutes les 7 heures à partir de 2~h~00.
+
+        Calculons les horaires de passage successifs :
+        \begin{itemize}
+            \item 1\textsuperscript{er} janvier, 2~h~00
+            \item 1\textsuperscript{er} janvier, 2~h~00 $+$ 7~h $=$ 9~h~00
+            \item 1\textsuperscript{er} janvier, 9~h~00 $+$ 7~h $=$ 16~h~00
+            \item 1\textsuperscript{er} janvier, 16~h~00 $+$ 7~h $=$ 23~h~00
+            \item 1\textsuperscript{er} janvier, 23~h~00 $+$ 7~h $=$ 30~h~00
+        \end{itemize}
+        Comme 30~h~00 correspond à 6~h~00 le lendemain (30~h~00 $-$ 24~h~00 $=$ 6~h~00), nous obtenons :
+        \begin{itemize}
+            \item 2 janvier, 6~h~00
+            \item 2 janvier, 6~h~00 $+$ 7~h $=$ 13~h~00
+            \item 2 janvier, 13~h~00 $+$ 7~h $=$ 20~h~00
+        \end{itemize}
+        Les horaires de passage du satellite au-dessus du Kenya le 2 janvier sont donc :
+        \begin{itemize}
+            \item 6~h~00
+            \item 13~h~00
+            \item 20~h~00
+        \end{itemize}
+        
+        \item \textbf{Le satellite survolera-t-il le Kenya un jour à 0~h~00~?}
+
+        Nous voulons savoir s'il existe un jour où le satellite passera au-dessus du Kenya à 0~h~00.
+
+        Le satellite passe au-dessus du Kenya à des horaires donnés par :
+        \[
+        \text{Heure de passage} = 2~\text{h} + 7n~\text{h} \quad \text{avec } n \in \mathbb{N}
+        \]
+
+        Nous cherchons un entier $n$ tel que cette heure corresponde à 0~h~00, soit un multiple de 24 heures. Ainsi :
+        \[
+        2 + 7n \equiv 0 \quad \text{(nombre de heures sur un cycle de 24 heures)}
+        \]
+
+        Autrement dit, nous cherchons $n$ tel que $2 + 7n$ soit un multiple de 24. On peut exprimer cela en utilisant la notion de \textbf{congruence modulo 24}, qui signifie que deux nombres ont le même reste dans la division par 24.
+
+        Nous avons donc :
+        \[
+        2 + 7n \equiv 0 \ (\text{mod}\ 24)
+        \]
+        Ce qui équivaut à :
+        \[
+        7n \equiv -2 \ (\text{mod}\ 24)
+        \]
+        Sachant que $-2 \equiv 22 \ (\text{mod}\ 24)$, nous obtenons :
+        \[
+        7n \equiv 22 \ (\text{mod}\ 24)
+        \]
+
+        Cherchons un entier $n$ vérifiant cette congruence. Calculons $7n$ modulo 24 pour plusieurs valeurs de $n$ :
+
+        \begin{tabular}{l|l}
+        $n$ & $7n$ mod 24 \\
+        \hline
+        1 & 7 \\
+        2 & 14 \\
+        3 & 21 \\
+        4 & 28 $\equiv$ 4 \\
+        5 & 35 $\equiv$ 11 \\
+        6 & 42 $\equiv$ 18 \\
+        7 & 49 $\equiv$ 1 \\
+        8 & 56 $\equiv$ 8 \\
+        9 & 63 $\equiv$ 15 \\
+        10 & 70 $\equiv$ 22 \\
+        \end{tabular}
+
+        On constate que pour $n = 10$, $7n \equiv 22 \ (\text{mod}\ 24)$.
+
+        Donc, le satellite passera au-dessus du Kenya à :
+        \[
+        2~\text{h} + 7 \times 10~\text{h} = 2~\text{h} + 70~\text{h} = 72~\text{h}
+        \]
+        Comme 72~h correspond à 3 jours (72~h $=$ 3 $\times$ 24~h), le satellite survolera le Kenya à 0~h~00 le :
+        \[
+        1\textsuperscript{er}~\text{janvier},\ 2~\text{h} + 3~\text{jours} = 4~\text{janvier},\ 2~\text{h}
+        \]
+        Mais comme 72~h $=$ 3 jours $\times$ 24~h, l'heure correspondante est 0~h~00 le 4 janvier (puisque 2~h + 72~h = 2~h + 3 $\times$ 24~h = 2~h + 72~h = 74~h, ce qui revient à 0~h~00 après avoir enlevé 3 $\times$ 24~h).
+
+        \textbf{Réponse :} Oui, le satellite survolera le Kenya à 0~h~00 le 4 janvier 2020.
+
+    \end{enumerate}
+    
+    \item
+    \begin{enumerate}
+        \item \textbf{Déterminer l’horaire de son premier passage au-dessus de l’Indonésie en 2020 :}
+
+        Le satellite passe au-dessus de l'Indonésie le 8 janvier à 10~h~00.
+
+        Pour trouver le premier passage de l'année, nous allons calculer combien de tours de 7 heures le satellite a effectués entre le 1\textsuperscript{er} janvier à 0~h~00 et le 8 janvier à 10~h~00.
+
+        \textbf{Calcul du temps écoulé :}
+        \[
+        \text{Du 1\textsuperscript{er} janvier 0~h~00 au 8 janvier 0~h~00 : } 7~\text{jours} \times 24~\text{h} = 168~\text{h}
+        \]
+        \[
+        \text{Ajout de 10~h : } 168~\text{h} + 10~\text{h} = 178~\text{h}
+        \]
+
+        \textbf{Nombre de tours complets effectués :}
+        \[
+        n = \left\lfloor \dfrac{178~\text{h}}{7~\text{h}} \right\rfloor = 25~\text{tours}
+        \]
+        \textbf{Heure du premier passage :}
+        \[
+        \text{Heure} = 8~\text{janvier},\ 10~\text{h} - 25 \times 7~\text{h} = 8~\text{janvier},\ 10~\text{h} - 175~\text{h} = 1\textsuperscript{er}~\text{janvier},\ 3~\text{h}
+        \]
+
+        Ainsi, le premier passage au-dessus de l'Indonésie en 2020 a eu lieu le \textbf{1\textsuperscript{er} janvier à 3~h~00}.
+
+        \item \textbf{Combien de fois durant le mois de janvier survolera-t-il l’Indonésie à 10~h~?}
+
+        Le satellite passe au-dessus de l'Indonésie à 10~h~00 le 8 janvier. Comme sa période est de 7 heures, les passages suivants à 10~h~00 auront lieu tous les multiples de $k$ tels que :
+        \[
+        10~\text{h} + 7k~\text{h} \equiv 10~\text{h} \ (\text{mod}\ 24~\text{h})
+        \]
+        Ce qui revient à :
+        \[
+        7k~\text{h} \equiv 0 \ (\text{mod}\ 24~\text{h})
+        \]
+        Nous cherchons donc les entiers $k$ tels que $7k$ est un multiple de 24.
+
+        Or, comme 7 et 24 sont premiers entre eux, le plus petit multiple commun est $7 \times 24 = 168$~h, soit 7 jours.
+
+        Ainsi, le satellite passera au-dessus de l'Indonésie à 10~h~00 tous les 168~h, c'est-à-dire tous les 7 jours.
+
+        \textbf{Dates des passages à 10~h~00 en janvier :}
+        \begin{itemize}
+            \item 8 janvier à 10~h~00
+            \item 15 janvier à 10~h~00
+            \item 22 janvier à 10~h~00
+            \item 29 janvier à 10~h~00
+        \end{itemize}
+
+        Le satellite survolera donc l'Indonésie à 10~h~00 \textbf{4 fois} durant le mois de janvier.
+
+    \end{enumerate}
+
+    \item \textbf{Où se situe le satellite le 30 janvier à 6~h~00 du matin~?}
+
+    Calculons le temps écoulé depuis le 1\textsuperscript{er} janvier à 0~h~00 jusqu'au 30 janvier à 6~h~00 :
+
+    \[
+    \text{Du 1\textsuperscript{er} janvier au 30 janvier à 0~h~00 : } 29~\text{jours} \times 24~\text{h} = 696~\text{h}
+    \]
+    \[
+    \text{Ajout de 6~h~00 : } 696~\text{h} + 6~\text{h} = 702~\text{h}
+    \]
+
+    \textbf{Nombre de tours effectués :}
+    \[
+    n = \dfrac{702~\text{h}}{7~\text{h}} = 100.2857...
+    \]
+    Le satellite a donc effectué 100 tours complets et il lui reste $702~\text{h} - 700~\text{h} = 2~\text{h}$ dans le 101\textsuperscript{e} tour.
+
+    Comme le satellite était au-dessus de la \textbf{Colombie} le 1\textsuperscript{er} janvier à 0~h~00, il repasse au-dessus de la Colombie toutes les 7 heures.
+
+    \textbf{Position du satellite :}
+
+    Deux heures après avoir survolé la Colombie, le satellite se trouve au-dessus du \textbf{Kenya} (puisqu'il survole le Kenya 2 heures après la Colombie).
+
+    \textbf{Réponse :} Le satellite se situe au-dessus du \textbf{Kenya} le 30 janvier à 6~h~00 du matin.
+
+\end{enumerate}
+    
+\end{document}
