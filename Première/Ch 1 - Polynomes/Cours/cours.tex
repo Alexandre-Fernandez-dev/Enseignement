@@ -391,6 +391,54 @@ $\Delta<0$ (pas de racine) & \includegraphics[max width=0.25\textwidth]{Screensh
 \end{center}
 \end{remark}
 
+\begin{proposition}{Calcul de $\beta = f(\alpha)$.}{}
+  Soit $\beta = f(\alpha)$ le maximum (ou minimum) du polynome $f(x)$. On peut aussi calculer $\beta$ de la manière suivante:
+  $$
+    \beta = - \frac{\Delta}{4a}
+  $$
+\end{proposition}
+\begin{proof}
+  Calculons $\beta$:
+  \begin{align*}
+    \beta = f(\alpha)
+    = f\left(-\frac{b}{2a}\right)
+    &= a\left(-\frac{b}{2a}\right)^2 + b\left(-\frac{b}{2a}\right) + c\\
+    &= a\left(\frac{b^2}{4a^2}\right) - \frac{b^2}{2a} + c\\
+    %&= \frac{b^2}{4a} - \frac{b^2}{2a} + c\\
+    &= \frac{b^2}{4a} - \frac{2b^2}{4a} + c\\
+    &= -\frac{b^2}{4a} + \frac{4ac}{4a}\\
+    &= -\frac{\Delta}{4a}
+  \end{align*}
+\end{proof}
+
+\begin{definition}{Forme canonique}{}
+  Soit une fonction polynomiale du second degré $f(x) = ax^2 + bx + c$ (avec $a \neq 0$). Soit $\beta = f(\alpha)$. La fonction $f$ peut toujours s'écrire sous la forme:
+  $$f(x) = a(x - \alpha)^2 + \beta$$
+  Cette expression est appelée la forme canonique du polynôme.
+\end{definition}
+
+\begin{proof}
+  On utilise la complétion du carré avec l'identité remarquable $(a-b)^2$:
+  \begin{align*}
+    ax^2 + bx + c = % a\left(x^2 + \frac{b}{a} x\right) + c
+    %&=
+    a\left(x^2 - 2\left(-\frac{b}{2a}\right)x\right) + c
+    &= a\left(x^2 - 2\alpha x\right) + c\\
+    %&= a\left(x^2 - 2\alpha x + \alpha^2 - \alpha^2\right) + c\\
+    &= a\left(x^2 - 2\alpha x + \alpha^2\right) - a\alpha^2 + c\\
+    &= a\left(x-\alpha\right)^2 - a\alpha^2 + c\\
+    %&= a\left(x-\alpha\right)^2 - a\left(-\frac{b}{2a}\right)^2 + c\\
+    &= a\left(x-\alpha\right)^2 - a\left(\frac{b^2}{4a^2}\right)+ c\\
+    &= a\left(x-\alpha\right)^2 - \frac{b^2}{4a} + \frac{4ac}{4a}\\
+    &= a\left(x-\alpha\right)^2 - \beta\\
+  \end{align*}
+\end{proof}
+
+\begin{example}
+  Soit $f(x) = 3x^2 -x + 1$. On a $\alpha d= \dfrac{1}{6}$ et $\beta = \dfrac{11}{12}$ donc $f(x) = 3\left(x - \dfrac{1}{6}\right)^2 + \dfrac{11}{12}$.
+\end{example}
+
+
 \section{Complément sur les équations de degré supérieur}
 \subsection{Équations de degré 3}
 La résolution générale des équations de degré 3 n'est pas au programme de première. En revanche, il est possible de résoudre une équation de degré 3 lorsqu'on connaît déjà une des solutions.
@@ -506,6 +554,7 @@ Finalement, l'ensemble des solutions de $(E)$ est $\mathcal{S}=\left\{\sqrt{\dfr
   \item Factoriser une fonction polynôme du second degré.
   \item Déterminer le signe d'une fonction polynôme du second degré.
   \item Déterminer les variations d'une fonction polynôme du second degré.
+  \item Savoir utiliser la forme canonique pour lire les variations d'un polynome du second degré.
   \item Résoudre une équation de degré 3 lorsque l'on connaît une racine évidente.
   \item Résoudre une équation bicarrée (de degré 4).
   \item Déterminer une fonction polynôme du second degré passant par trois points donnés du plan.
