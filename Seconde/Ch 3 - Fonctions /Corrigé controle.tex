@@ -1,0 +1,370 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+\title{Corrigé du Contrôle 3}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercice 1}
+
+\begin{enumerate}
+    \item \textbf{Quel est son ensemble de définition ?} \\
+    Le graphe de \( f \) est définit sur l'intervalle \([-5 ; 5]\). \\
+    %\textbf{Réponse :} \( D_f = [-5 ; 5] \).
+
+    \item \textbf{Quelle est l’image de \( 0 \) par \( f \) ?} \\
+    Sur le graphe, on observe que \( f(0) = 3 \). \\
+    %\textbf{Réponse :} \( f(0) = 3 \).
+
+    \item \textbf{Déterminer les antécédents de \( 0 \) par \( f \).} \\
+    Les antécédents de \( 0 \) sont les points où le graphe coupe l'axe \( x \). \\
+    \textbf{Réponse :} \( f(x) = 0 \iff x \in \{-3,5\ ;\ 2\ ;\ 4\} \).
+
+    \item \textbf{Dresser le tableau de signes de la fonction \( f \).} \\
+
+    \[
+    \begin{array}{|c|ccccccccc|}
+    \hline
+    x & -5 & & -3,5 & & 2 & & 4 & & 5 \\
+    \hline
+    f(x) & & - & 0 & + & 0 & - & 0 & + & \\
+    \hline
+    \end{array}
+    \]
+
+    \item \textbf{Déterminer les solutions des équations suivantes :}
+    \begin{enumerate}
+        \item \( f(x) = 4 \) \\
+        \( x = -2 \), \( x = -1 \) et $x = 5$. \\
+        \item \( f(x) = -2 \) \\
+        \( x = -4 \) et \( x = 3 \). \\
+        \item \( f(x) = 5 \) \\
+        Aucune solution : \( f(x) < 5 \) pour tout \( x \).
+    \end{enumerate}
+
+    \item \textbf{Déterminer les solutions des inéquations suivantes :}
+    \begin{enumerate}
+        \item \( f(x) < 0 \) \\ $x \in \left[-5;\ 3,5\right[ \cup \left] 2;\ 4 \right[$
+        %\( -4 < x < -2 \) ou \( 2 < x < 4 \).
+        \item \( f(x) \geq -2 \) \\ $x \in \left[-4;\ 5\right]$
+        %\( -5 \leq x \leq -3 \cup -3 \leq x \leq 5 \).
+        \item \( f(x) \leq 4 \) \\
+        $x \in \left[-5;\ -2\right] \cup \left[ -1;\ 5 \right]$.
+    \end{enumerate}
+\end{enumerate}
+
+
+\section*{Correction de l'exercice 2}
+
+\textit{On a tracé un triangle rectangle $ABC$ rectangle en $A$ tel que $AB = 16\,\text{cm}$ et $AC = 6\,\text{cm}$. Sur les côtés $[AB]$ et $[AC]$, on place deux points $D$ et $E$ qui vérifient : $BD = AE = x$.}
+
+\textit{On appelle $f$ la fonction qui exprime l’aire grisée en fonction de $x$ et $g$ la fonction qui exprime l’aire blanche en fonction de $x$.}
+
+\subsection*{Partie A}
+
+\subsubsection*{1. a. Déterminer l’aire du triangle $ABC$.}
+
+Le triangle $ABC$ est rectangle en $A$, donc son aire est donnée par :
+
+\[
+\text{Aire}_{ABC} = \dfrac{1}{2} \times AB \times AC
+\]
+
+En remplaçant les valeurs :
+
+\[
+\text{Aire}_{ABC} = \dfrac{1}{2} \times 16 \times 6 = 48\,\text{cm}^2
+\]
+
+\textbf{Réponse :} L'aire du triangle $ABC$ est de $48\,\text{cm}^2$.
+
+\bigskip
+
+\subsubsection*{1. b. Lorsqu’on aura déterminé la valeur de $x$ qui répond au problème, que vaudra l’aire grisée et que vaudra l’aire blanche ?}
+
+Puisque l'on cherche la valeur de $x$ pour laquelle l'aire grisée est égale à l'aire blanche, et que l'aire totale du triangle $ABC$ est $48\,\text{cm}^2$, on a :
+
+\[
+\text{Aire grisée} = \text{Aire blanche} = \dfrac{48}{2} = 24\,\text{cm}^2
+\]
+
+%\textbf{Réponse :} L'aire grisée et l'aire blanche vaudront chacune $24\,\text{cm}^2$.
+
+\bigskip
+
+\subsubsection*{2. Sur quel intervalle varie $x$ ?}
+
+Sur le segment $[AB]$, le point $D$ se déplace de $B$ vers $A$ :
+
+\begin{itemize}
+    \item Lorsque $D$ est en $B$, $BD = x = 0$.
+    \item Lorsque $D$ est en $A$, $BD = x = AB = 16\,\text{cm}$.
+\end{itemize}
+
+Sur le segment $[AC]$, le point $E$ se déplace de $A$ vers $C$ :
+
+\begin{itemize}
+    \item Lorsque $E$ est en $A$, $AE = x = 0$.
+    \item Lorsque $E$ est en $C$, $AE = x = AC = 6\,\text{cm}$.
+\end{itemize}
+
+Ainsi, $x$ doit satisfaire les deux conditions simultanément, donc :
+
+\[
+x \in [0\,;6]
+\]
+
+%\textbf{Réponse :} $x$ varie dans l'intervalle $[0\,;6]$.
+
+\bigskip
+
+\subsubsection*{3. Donner l'expression de $f(x)$.}
+
+L'aire grisée correspond à l'aire du triangle $AED$.
+
+Calcul des longueurs :
+
+\begin{itemize}
+    \item $AD = AB - BD = 16 - x$
+    \item $AE = x$
+\end{itemize}
+
+Le triangle $AED$ est rectangle en $A$, donc son aire est :
+
+\[
+f(x) = \dfrac{1}{2} \times AD \times AE = \dfrac{1}{2} \times (16 - x) \times x
+\]
+
+En développant :
+
+\[
+f(x) = \dfrac{1}{2} (16x - x^2) = 8x - \dfrac{1}{2} x^2
+\]
+
+%\textbf{Réponse :} $f(x) = 8x - \dfrac{1}{2} x^2$.
+
+\bigskip
+
+\subsubsection*{4. Montrer que l'expression de $g(x)$ est : $g(x) = \dfrac{1}{2} x^2 - 8x + 48$.}
+
+L'aire blanche correspond à l'aire du quadrilatère $BCED$. Or :
+
+\[
+g(x) = \text{Aire}_{ABC} - f(x)
+\]
+
+On sait que :
+
+\[
+\text{Aire}_{ABC} = 48\,\text{cm}^2
+\]
+
+Donc :
+
+\[
+g(x) = 48 - \left(8x - \dfrac{1}{2} x^2\right) = 48 - 8x + \dfrac{1}{2} x^2
+\]
+
+En réarrangeant les termes :
+
+\[
+g(x) = \dfrac{1}{2} x^2 - 8x + 48
+\]
+
+%\textbf{Conclusion :} L'expression de $g(x)$ est bien $g(x) = \dfrac{1}{2} x^2 - 8x + 48$.
+
+\bigskip
+
+\subsubsection*{5. Justifier que les courbes correspondent bien aux fonctions indiquées dessus.}
+
+%Les fonctions $f$ et $g$ sont des fonctions polynomiales du second degré (fonctions quadratiques).
+%
+%\begin{itemize}
+%    \item La fonction $f(x) = 8x - \dfrac{1}{2} x^2$ peut être écrite sous la forme $f(x) = -\dfrac{1}{2} x^2 + 8x$, ce qui est une parabole ouverte vers le bas (car le coefficient de $x^2$ est négatif).
+%    \item La fonction $g(x) = \dfrac{1}{2} x^2 - 8x + 48$ est une parabole ouverte vers le haut (coefficient de $x^2$ positif).
+%\end{itemize}
+
+Sur l'intervalle $[0\,;6]$, calculons quelques images pour vérifier :
+
+\medskip
+
+Pour $x = 0$ :
+\[
+f(0) = -\dfrac{1}{2} \times 0 + 8 \times 0 = 0 \quad \text{et} \quad g(0) = \dfrac{1}{2} \times 0 - 8 \times 0 + 48 = 48
+\]
+
+%Pour $x = 6$ :
+%\[
+%f(6) = -\dfrac{1}{2} \times 6^2 + 8 \times 6 = -18 + 48 = 30 \quad \text{et} \quad g(6) = \dfrac{1}{2} \times 6^2 - 8 \times 6 + 48 = 18 - 48 + 48 = 18
+%\]
+
+Ainsi, le point $(0\,;0)$ appartient à la courbe de $f$, et les points $(0\,;48)$ appartient à la courbe de $g$. Ces valeurs correspondent bien aux courbes représentées.
+
+%\textbf{Réponse :} Les courbes correspondent bien aux fonctions $f$ et $g$ car les images calculées correspondent aux points des courbes tracées.
+
+\bigskip
+
+\subsubsection*{6. Quelle est la valeur de $x$ qui répond au problème ?}
+
+Nous cherchons la valeur de $x$ telle que l’aire grisée est égale à l’aire blanche, c'est-à-dire $f(x) = g(x)$.
+
+%Comme $\text{Aire}_{ABC} = 48\,\text{cm}^2$ et que $f(x) + g(x) = 48$, l'égalité $f(x) = g(x)$ revient à :
+%\[
+%f(x) = 24
+%\]
+%
+%Avec $f(x) = 8x - \dfrac{1}{2} x^2$, on résout :
+%\[
+%8x - \dfrac{1}{2} x^2 = 24
+%\]
+%Multipliant par 2 :
+%\[
+%16x - x^2 = 48
+%\]
+%Réarrangeant :
+%\[
+%-x^2 + 16x - 48 = 0
+%\]
+%Multipliant par $-1$ :
+%\[
+%x^2 - 16x + 48 = 0
+%\]
+%Calcul du discriminant :
+%\[
+%\Delta = (-16)^2 - 4 \times 1 \times 48 = 256 - 192 = 64
+%\]
+%Les solutions sont :
+%\[
+%x = \dfrac{16 \pm \sqrt{64}}{2} = \dfrac{16 \pm 8}{2}
+%\]
+%Donc :
+%\[
+%x_1 = \dfrac{24}{2} = 12 \quad \text{et} \quad x_2 = \dfrac{8}{2} = 4
+%\]
+Cela correspond à l'abscisse du point d'intersection des deux courbes, soit $x = 4$.
+
+%\textbf{Réponse :} La valeur de $x$ qui répond au problème est $x = 4$.
+
+\bigskip
+
+\subsubsection*{7. Donner l’ensemble des valeurs de $x$ pour lesquelles l’aire grisée est strictement plus grande que l’aire blanche.}
+
+Nous cherchons les $x$ tels que :
+\[
+f(x) > g(x)
+\]
+%Comme $f(x) + g(x) = 48$, cela équivaut à :
+%\[
+%f(x) > 24
+%\]
+%On résout donc :
+%\[
+%8x - \dfrac{1}{2} x^2 > 24
+%\]
+%Multipliant par 2 :
+%\[
+%16x - x^2 > 48
+%\]
+%Réécrivant :
+%\[
+%-x^2 + 16x - 48 > 0
+%\]
+%Multipliant par $-1$ (en inversant le sens de l'inégalité) :
+%\[
+%x^2 - 16x + 48 < 0
+%\]
+%Résolvons l'équation :
+%\[
+%x^2 - 16x + 48 = 0
+%\]
+%Nous avons déjà trouvé les racines $x = 4$ et $x = 12$.
+%
+%Le tableau de signes du trinôme montre que :
+%\[
+%x^2 - 16x + 48 < 0 \quad \text{pour} \quad x \in ]4\,;12[
+%\]
+%Comme $x \in [0\,;6]$, l'ensemble des solutions est :
+%\[
+%x \in ]4\,;6]
+%\]
+
+Il faut chercher l'intervalle pour lequel la courbe de $f$ est supérieure à la courbe de $g$.
+L'intervalle correspondant est $x \in ]4\,;6]$, on exclu $4$ car en $x=4$ on a $f(x) = g(x)$.
+
+%\textbf{Réponse :} L'ensemble des valeurs de $x$ pour lesquelles l’aire grisée est strictement plus grande que l’aire blanche est $x \in ]4\,;6]$.
+
+\bigskip
+
+\subsection*{Partie B}
+
+Dans cette partie, on étudie la fonction $g(x) = 0{,}5x^2 - 8x + 48$.
+
+\subsubsection*{1. Déterminer $g(2)$ puis $g(-2)$.}
+
+Calcul de $g(2)$ :
+\[
+g(2) = 0{,}5 \times 2^2 - 8 \times 2 + 48 = 0{,}5 \times 4 - 16 + 48 = 2 - 16 + 48 = 34
+\]
+
+Calcul de $g(-2)$ :
+\[
+g(-2) = 0{,}5 \times (-2)^2 - 8 \times (-2) + 48 = 0{,}5 \times 4 + 16 + 48 = 2 + 16 + 48 = 66
+\]
+
+\textbf{Réponse :} $g(2) = 34$ et $g(-2) = 66$.
+
+\bigskip
+
+\subsubsection*{2. Montrer que $g(x) = (0{,}5x - 2)(x - 12) + 24$.}
+
+Calculons :
+\[
+(0{,}5x - 2)(x - 12) + 24 = \left(0{,}5x \times x - 0{,}5x \times 12 - 2 \times x + 2 \times 12\right) + 24
+\]
+\[
+= \left(0{,}5x^2 - 6x - 2x + 24\right) + 24
+\]
+\[
+= \left(0{,}5x^2 - 8x + 24\right) + 24 = 0{,}5x^2 - 8x + 48
+\]
+Ainsi, on retrouve bien $g(x)$.
+
+%\textbf{Réponse :} En développant, on obtient $g(x) = 0{,}5x^2 - 8x + 48$, donc $g(x) = (0{,}5x - 2)(x - 12) + 24$.
+
+\bigskip
+
+\subsubsection*{3. Résoudre l’équation $g(x) = 24$ et retrouver la solution déterminée à la partie A.}
+
+On a :
+\[
+g(x) = 24
+\]
+D'après la question précédente :
+\[
+(0{,}5x - 2)(x - 12) + 24 = 24
+\]
+En soustrayant 24 :
+\[
+(0{,}5x - 2)(x - 12) = 0
+\]
+Un produit est nul si et seulement si au moins un des facteurs est nul.
+
+Donc :
+\begin{itemize}
+    \item $0{,}5x - 2 = 0 \implies x = 4$
+    \item $x - 12 = 0 \implies x = 12$
+\end{itemize}
+Comme $x \in [0\,;6]$, seule la valeur $x = 4$ est acceptable.
+
+%\textbf{Réponse :} Les solutions de l'équation $g(x) = 24$ sont $x = 4$ et $x = 12$. Ainsi, on retrouve la solution $x = 4$ déterminée à la partie A.
+
+\end{document}

@@ -676,7 +676,7 @@ Ainsi, les solutions sont $n = -2$ et $n = -4$
 \end{solutionbox}
 
 % Exercice 11
-\begin{exercice}[title=Exercice 11 $\quad \star \quad$ { [Calculer] }]
+\begin{exercice}[title=Exercice 11 $\quad \star \quad$ { [Calculer] }]{}{}
     Déterminer l’ensemble des entiers relatifs $n$ tels que $4n + 3$ soit divisible par $3n + 4$.
     \end{exercice}
     
@@ -1094,7 +1094,7 @@ Ainsi, la seule solution est $x = y = 2$.
     \end{solutionbox}
     
     % Exercice 16
-    \begin{exercice}[title=Exercice 16 $\quad \star \star \quad$ { [Chercher, Calculer] }]
+    \begin{exercice}[title=Exercice 16 $\quad \star \star \quad$ { [Chercher, Calculer] }]{}{}
     Déterminer le reste de la division de $335^{112}$ par $7$.
     \end{exercice}
     
@@ -1128,5 +1128,311 @@ Ainsi, la seule solution est $x = y = 2$.
     
     \end{solutionbox}    
 
-\end{document}
+
+    % Exercice 17
+    \begin{exercice}[title=Exercice 17 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Montrer que pour tout entier naturel $n$, l’entier $n(n+1)(2n+1)$ est divisible par $6$.
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Pour tout $n \in \mathbb{N}$, nous devons montrer que $n(n+1)(2n+1)$ est divisible par $6$.
+
+    \textbf{Divisibilité par 2 :}
+
+    Parmi deux entiers consécutifs $n$ et $n+1$, l'un d'eux est pair. Donc, le produit $n(n+1)$ est divisible par $2$.
+
+    Ainsi, $n(n+1)(2n+1)$ est divisible par $2$.
+
+    \textbf{Divisibilité par 3 :}
+
+    Considérons les valeurs possibles de $n$ modulo $3$ :
+
+    \begin{itemize}
+        \item Si $n \equiv 0 \mod 3$, alors $n$ est multiple de $3$, donc $n(n+1)(2n+1)$ est divisible par $3$.
+        \item Si $n \equiv 1 \mod 3$, alors $n+1 \equiv 2 \mod 3$, et $2n+1 \equiv 2 \times 1 + 1 \equiv 3 \mod 3$, donc $2n+1$ est divisible par $3$.
+        \item Si $n \equiv 2 \mod 3$, alors $n+1 \equiv 0 \mod 3$, donc $n+1$ est multiple de $3$.
+    \end{itemize}
+
+    Dans tous les cas, l'un des facteurs $n$, $n+1$ ou $2n+1$ est divisible par $3$.
+
+    \textbf{Conclusion :}
+
+    Comme $n(n+1)(2n+1)$ est divisible par $2$ et par $3$, il est divisible par $6$.
+
+    \end{solutionbox}
+
+    % Exercice 18
+    \begin{exercice}[title=Exercice 18 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Montrer que pour tout entier naturel $n$, l’entier $n(n+7)(3n+1)$ est divisible par $3$.
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Nous devons montrer que $n(n+7)(3n+1)$ est divisible par $3$ pour tout $n \in \mathbb{N}$.
+
+    Considérons les valeurs possibles de $n$ modulo $3$ :
+
+    \begin{itemize}
+        \item Si $n \equiv 0 \mod 3$, alors $n$ est multiple de $3$, donc $n(n+7)(3n+1)$ est divisible par $3$.
+        \item Si $n \equiv 1 \mod 3$, alors $n+7 \equiv 1 + 7 \equiv 8 \equiv 2 \mod 3$, et $3n+1 \equiv 3 \times 1 + 1 \equiv 4 \equiv 1 \mod 3$. Aucun des facteurs n'est divisible par $3$.
+        \item Si $n \equiv 2 \mod 3$, alors $n+7 \equiv 2 + 7 \equiv 9 \equiv 0 \mod 3$, donc $n+7$ est multiple de $3$.
+    \end{itemize}
+
+    Ainsi, pour $n \not\equiv 1 \mod 3$, le produit est divisible par $3$.
+
+    Pour $n \equiv 1 \mod 3$, le produit $n(n+7)(3n+1)$ n'est pas divisible par $3$.
+
+    Cependant, en vérifiant les valeurs de $n$ de $0$ à $5$ :
+
+    \begin{itemize}
+        \item $n = 0$: $0 \times 7 \times 1 = 0$, divisible par $3$.
+        \item $n = 1$: $1 \times 8 \times 4 = 32$, non divisible par $3$.
+        \item $n = 2$: $2 \times 9 \times 7 = 126$, divisible par $3$.
+        \item $n = 3$: $3 \times 10 \times 10 = 300$, divisible par $3$.
+        \item $n = 4$: $4 \times 11 \times 13 = 572$, divisible par $3$ (car $572 \div 3 = 190.\overline{6}$, donc non divisible par $3$).
+    \end{itemize}
+
+    Il apparaît que l'affirmation est fausse, car pour $n = 1$, le produit n'est pas divisible par $3$.
+
+    \textbf{Conclusion :}
+
+    L'énoncé est incorrect. Il n'est pas vrai que $n(n+7)(3n+1)$ est divisible par $3$ pour tout $n \in \mathbb{N}$.
+
+    \end{solutionbox}
+
+    % Exercice 19
+    \begin{exercice}[title=Exercice 19 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+    Déterminer l’ensemble des entiers naturels $n$ tels que $5n^2 + 3$ soit divisible par $4$.
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Nous cherchons les entiers naturels $n$ tels que $5n^2 + 3$ soit divisible par $4$, c'est-à-dire $5n^2 + 3 \equiv 0 \mod 4$.
+
+    Considérons les différentes valeurs possibles de $n$ modulo $4$ :
+
+    \begin{enumerate}
+        \item Si $n \equiv 0 \mod 4$, alors $n = 4k$.
+        \[
+        5n^2 + 3 = 5(16k^2) + 3 = 80k^2 + 3 \equiv 3 \mod 4
+        \]
+        Donc, $5n^2 + 3 \not\equiv 0 \mod 4$.
+
+        \item Si $n \equiv 1 \mod 4$, alors $n = 4k + 1$.
+        \[
+        n^2 = (4k + 1)^2 = 16k^2 + 8k + 1
+        \]
+        \[
+        5n^2 + 3 = 5(16k^2 + 8k + 1) + 3 = 80k^2 + 40k + 5 + 3 = 80k^2 + 40k + 8
+        \]
+        Comme $80k^2 + 40k$ est multiple de $4$, et $8 \equiv 0 \mod 4$, donc $5n^2 + 3 \equiv 0 \mod 4$.
+
+        \item Si $n \equiv 2 \mod 4$, alors $n = 4k + 2$.
+        \[
+        n^2 = (4k + 2)^2 = 16k^2 + 16k + 4
+        \]
+        \[
+        5n^2 + 3 = 5(16k^2 + 16k + 4) + 3 = 80k^2 + 80k + 20 + 3 = 80k^2 + 80k + 23
+        \]
+        $80k^2 + 80k \equiv 0 \mod 4$, $23 \equiv 3 \mod 4$, donc $5n^2 + 3 \equiv 3 \mod 4$.
+
+        \item Si $n \equiv 3 \mod 4$, alors $n = 4k + 3$.
+        \[
+        n^2 = (4k + 3)^2 = 16k^2 + 24k + 9
+        \]
+        \[
+        5n^2 + 3 = 5(16k^2 + 24k + 9) + 3 = 80k^2 + 120k + 45 + 3 = 80k^2 + 120k + 48
+        \]
+        $80k^2 + 120k \equiv 0 \mod 4$, $48 \equiv 0 \mod 4$, donc $5n^2 + 3 \equiv 0 \mod 4$.
+    \end{enumerate}
+
+    \textbf{Conclusion :}
+
+    Les entiers naturels $n$ tels que $5n^2 + 3$ est divisible par $4$ sont ceux tels que $n \equiv 1 \mod 4$ ou $n \equiv 3 \mod 4$, c'est-à-dire les entiers impairs.
+
+    \end{solutionbox}
+
+    % Exercice 20
+    \begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $p$ un nombre premier supérieur ou égal à $5$. Montrer que $p^2 - 1$ est divisible par $24$.
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Nous voulons montrer que $p^2 - 1$ est divisible par $24$ pour tout nombre premier $p \geq 5$.
+
+    \textbf{Décomposition :}
+
+    \[
+    p^2 - 1 = (p - 1)(p + 1)
+    \]
+
+    \textbf{Divisibilité par 2 et 4 :}
+
+    Puisque $p$ est impair ($p \geq 5$), $p$ est impair, donc $p - 1$ et $p + 1$ sont pairs.
+
+    De plus, parmi deux nombres pairs consécutifs, l'un est divisible par $4$.
+
+    Donc, $(p - 1)(p + 1)$ est divisible par $2 \times 4 = 8$.
+
+    \textbf{Divisibilité par 3 :}
+
+    Un nombre premier $p \geq 5$ est tel que $p \equiv 1 \mod 3$ ou $p \equiv 2 \mod 3$ (puisque $p$ n'est pas divisible par $3$).
+
+    - Si $p \equiv 1 \mod 3$, alors $p - 1 \equiv 0 \mod 3$, donc $p - 1$ est multiple de $3$.
+    - Si $p \equiv 2 \mod 3$, alors $p + 1 \equiv 0 \mod 3$, donc $p + 1$ est multiple de $3$.
+
+    Dans les deux cas, $(p - 1)(p + 1)$ est divisible par $3$.
+
+    \textbf{Conclusion :}
+
+    Comme $(p - 1)(p + 1)$ est divisible par $8$ et par $3$, il est donc divisible par $8 \times 3 = 24$.
+
+    Ainsi, $p^2 - 1$ est divisible par $24$ pour tout nombre premier $p \geq 5$.
+
+    \end{solutionbox}
+
+    % Exercice 21
+    \begin{exercice}[title=Exercice 21 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $(u_n)_{n \in \mathbb{N}}$ la suite définie par $u_n = 7n - 5$. Déterminer le nombre de carrés parfaits parmi les $2022$ premiers termes de la suite.
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Nous cherchons le nombre de $n \in \{1, 2, ..., 2022\}$ tels que $u_n = 7n - 5$ soit un carré parfait.
+
+    Posons $u_n = k^2$, avec $k \in \mathbb{N}$.
+
+    Donc :
+    \[
+    7n - 5 = k^2 \quad \Rightarrow \quad n = \dfrac{k^2 + 5}{7}
+    \]
+
+    Pour que $n$ soit entier, $k^2 + 5$ doit être divisible par $7$.
+
+    Ainsi :
+    \[
+    k^2 + 5 \equiv 0 \mod 7 \quad \Rightarrow \quad k^2 \equiv -5 \mod 7
+    \]
+
+    Or, $-5 \equiv 2 \mod 7$.
+
+    Donc :
+    \[
+    k^2 \equiv 2 \mod 7
+    \]
+
+    Calculons $k^2 \mod 7$ pour $k$ de $0$ à $6$ :
+    \begin{itemize}
+        \item $k = 0$, $k^2 \equiv 0$
+        \item $k = 1$, $k^2 \equiv 1$
+        \item $k = 2$, $k^2 \equiv 4$
+        \item $k = 3$, $k^2 \equiv 2$
+        \item $k = 4$, $k^2 \equiv 2$
+        \item $k = 5$, $k^2 \equiv 4$
+        \item $k = 6$, $k^2 \equiv 1$
+    \end{itemize}
+
+    Les valeurs de $k$ telles que $k^2 \equiv 2 \mod 7$ sont $k \equiv 3$ ou $k \equiv 4$.
+
+    Donc, $k = 7m + 3$ ou $k = 7m + 4$, avec $m \in \mathbb{N}$.
+
+    Calculons $n$ :
+    \begin{itemize}
+        \item Si $k = 7m + 3$ :
+        \[
+        n = \dfrac{(7m + 3)^2 + 5}{7} = \dfrac{49m^2 + 42m + 9 + 5}{7} = 7m^2 + 6m + 2
+        \]
+        \item Si $k = 7m + 4$ :
+        \[
+        n = \dfrac{(7m + 4)^2 + 5}{7} = \dfrac{49m^2 + 56m + 16 + 5}{7} = 7m^2 + 8m + 3
+        \]
+    \end{itemize}
+
+    Nous devons trouver le nombre de valeurs entières de $n$ inférieures ou égales à $2022$.
+
+    Pour $m$ allant de $0$ à $16$ :
+
+    \begin{tabular}{c|c|c}
+    $m$ & $n = 7m^2 + 6m + 2$ & $n = 7m^2 + 8m + 3$ \\
+    \hline
+    $0$ & $2$ & $3$ \\
+    $1$ & $15$ & $18$ \\
+    $2$ & $42$ & $47$ \\
+    $3$ & $83$ & $90$ \\
+    $4$ & $138$ & $147$ \\
+    $5$ & $207$ & $218$ \\
+    $6$ & $290$ & $303$ \\
+    $7$ & $387$ & $402$ \\
+    $8$ & $498$ & $515$ \\
+    $9$ & $623$ & $642$ \\
+    $10$ & $762$ & $783$ \\
+    $11$ & $915$ & $938$ \\
+    $12$ & $1082$ & $1119$ \\
+    $13$ & $1263$ & $1306$ \\
+    $14$ & $1458$ & $1507$ \\
+    $15$ & $1667$ & $1722$ \\
+    $16$ & $1890$ & $1923$ \\
+    \end{tabular}
+
+    Les valeurs de $n$ restent inférieures ou égales à $2022$ pour $m \leq 16$.
+
+    Pour $m = 17$, $n$ dépasse $2022$.
+
+    Il y a donc $17$ valeurs de $n$ pour chaque expression, soit $34$ valeurs au total.
+
+    \textbf{Conclusion :}
+
+    Il y a $34$ carrés parfaits parmi les $2022$ premiers termes de la suite $(u_n)$.
+
+    \end{solutionbox}
+
+    % Exercice 22
+    \begin{exercice}[title=Exercice 22 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $p$ un nombre premier impair. Montrer qu’il existe $n \in \mathbb{N}^*$ tel que $p$ divise $2^n - 1$.
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Par le petit théorème de Fermat, pour tout nombre premier $p$ et tout entier $a$ non divisible par $p$, on a :
+    \[
+    a^{p-1} \equiv 1 \mod p
+    \]
+
+    Prenons $a = 2$, qui n'est pas divisible par $p$ (puisque $p$ est impair).
+
+    Alors :
+    \[
+    2^{p-1} \equiv 1 \mod p
+    \]
+
+    Donc, $p$ divise $2^{p-1} - 1$.
+
+    \textbf{Conclusion :}
+
+    Pour $n = p - 1$, $p$ divise $2^n - 1$.
+
+    \end{solutionbox}
+
+    % Exercice 23
+    \begin{exercice}[title=Exercice 23 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+    Soit $n$ un carré parfait dont le chiffre des unités est $5$. Déterminer son chiffre des dizaines. La condition établie sur les chiffres des unités est-elle une condition nécessaire et suffisante ?
+    \end{exercice}
+
+    \begin{solutionbox}{Solution}
+    Considérons les nombres se terminant par $5$ : $n = k^2$, avec $k$ se terminant par $5$.
+
+    Écrivons $k = 10a + 5$, avec $a \in \mathbb{N}$.
+
+    Calculons $n$ :
+    \[
+    n = k^2 = (10a + 5)^2 = 100a^2 + 100a + 25
+    \]
+
+    Donc, les deux derniers chiffres de $n$ sont $25$, c'est-à-dire que le chiffre des unités est $5$ et le chiffre des dizaines est $2$.
+
+    \textbf{Conclusion :}
+
+    Le chiffre des dizaines de $n$ est toujours $2$ si le chiffre des unités est $5$.
+
+    La condition sur le chiffre des unités étant $5$ est nécessaire et suffisante pour que le chiffre des dizaines du carré parfait soit $2$.
+
+    \end{solutionbox}
+
+    \end{document}
 

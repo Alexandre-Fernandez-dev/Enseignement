@@ -1,0 +1,505 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Correction du Contrôle 2 (B)}
+\rhead{Première Spécialité Mathématiques}
+\cfoot{\thepage}
+
+\begin{document}
+
+\section*{Correction du Contrôle 2 (B)}
+
+\subsection*{Exercice 1 (6 points)}
+
+\textbf{1. Pour chacune des suites suivantes, indiquer si elle est arithmétique ou géométrique, et préciser pourquoi. Justifier si elle ne l'est pas.}
+
+\begin{enumerate}[label=\alph*)]
+
+\item \( u_0 = 2, \quad u_{n+1} = \dfrac{4 u_n}{3} \)
+
+\textbf{Correction :}
+
+Calculons le quotient de deux termes consécutifs :
+
+\[ \dfrac{u_{n+1}}{u_n} = \dfrac{\dfrac{4 u_n}{3}}{u_n} = \dfrac{4}{3} \]
+
+Le quotient est constant, donc la suite est \textbf{géométrique} de raison \( q = \dfrac{4}{3} \).
+
+\bigskip
+
+\item \( u_n = 1{,}5 \times \left( \dfrac{2}{3} \right)^n \)
+
+\textbf{Correction :}
+
+La suite est donnée sous forme explicite avec une puissance de \( q = \dfrac{2}{3} \), donc c'est une suite \textbf{géométrique} de raison \( q = \dfrac{2}{3} \).
+
+\bigskip
+
+\item \( u_1 = 2, \quad u_{n+1} = u_n + \dfrac{5}{3} \)
+
+\textbf{Correction :}
+
+Calculons la différence entre deux termes consécutifs :
+
+\[ u_{n+1} - u_n = \dfrac{5}{3} \]
+
+La différence est constante, donc la suite est \textbf{arithmétique} de raison \( r = \dfrac{5}{3} \).
+
+\bigskip
+
+\item \( u_n = n^2 - 8n \)
+
+\textbf{Correction :}
+
+La différence \( u_{n+1} - u_n \) et le quotient \( \dfrac{u_{n+1}}{u_n} \) dépendent de \( n \) et ne sont pas constants.
+
+Donc, la suite n'est \textbf{ni arithmétique ni géométrique}.
+
+\bigskip
+
+\item \( u_n = 7 - \pi n \)
+
+\textbf{Correction :}
+
+Calculons la différence entre deux termes consécutifs :
+
+\[ u_{n+1} - u_n = [7 - \pi(n+1)] - [7 - \pi n] = -\pi \]
+
+La différence est constante, donc la suite est \textbf{arithmétique} de raison \( r = -\pi \).
+
+\bigskip
+
+\item \( u_0 = 1, \quad u_{n+1} = 3n u_n \)
+
+\textbf{Correction :}
+
+La différence \( u_{n+1} - u_n \) et le quotient \( \dfrac{u_{n+1}}{u_n} \) dépendent de \( n \).
+
+Donc, la suite n'est \textbf{ni arithmétique ni géométrique}.
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{2. Pour chaque suite, déterminer ses variations (croissante, décroissante) sur \( \mathbb{N} \).}
+
+\begin{enumerate}[label=\alph*)]
+
+\item Suite géométrique de raison \( q = \dfrac{4}{3} > 1 \).
+
+Donc, la suite est \textbf{strictement croissante}.
+
+\bigskip
+
+\item Suite géométrique de raison \( q = \dfrac{2}{3} \) avec \( 0 < q < 1 \).
+
+Donc, la suite est \textbf{strictement décroissante}.
+
+\bigskip
+
+\item Suite arithmétique de raison \( r = \dfrac{5}{3} > 0 \).
+
+Donc, la suite est \textbf{strictement croissante}.
+
+\bigskip
+
+\item \( u_n = n^2 - 8n \)
+
+Calculons la différence \( u_{n+1} - u_n \) :
+
+\[ u_{n+1} - u_n = (n+1)^2 - 8(n+1) - [n^2 - 8n] = 2n - 7 \]
+
+- Pour \( n \leq 3 \), \( u_{n+1} - u_n \leq -1 \), la suite est \textbf{décroissante}.
+- Pour \( n = 4 \), \( u_{5} - u_{4} = 2 \times 4 - 7 = 1 > 0 \), la suite commence à \textbf{croître}.
+- Pour \( n \geq 4 \), \( u_{n+1} - u_n \geq 1 \), la suite est \textbf{croissante}.
+
+Donc, la suite est \textbf{décroissante} pour \( n \leq 3 \), atteint un minimum à \( n = 4 \), puis est \textbf{croissante} pour \( n \geq 4 \).
+
+\bigskip
+
+\item Suite arithmétique de raison \( r = -\pi < 0 \).
+
+Donc, la suite est \textbf{strictement décroissante}.
+
+\bigskip
+
+\item Calculons les premiers termes :
+
+\begin{itemize}
+    \item \( u_0 = 1 \)
+    \item \( u_1 = 3 \times 0 \times u_0 = 0 \)
+    \item Pour \( n \geq 1 \), \( u_n = 0 \) car \( u_{n+1} = 3n u_n = 3n \times 0 = 0 \).
+\end{itemize}
+
+La suite décroît de \( u_0 = 1 \) à \( u_1 = 0 \), puis reste \textbf{constante} égale à 0.
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{3. Lorsque c'est possible, exprimer chaque suite de manière explicite et calculer son 100\ieme{} terme.}
+
+\begin{enumerate}[label=\alph*)]
+
+\item Suite géométrique de premier terme \( u_0 = 2 \) et raison \( q = \dfrac{4}{3} \).
+
+La formule explicite est :
+
+\[ u_n = u_0 \times q^n = 2 \times \left( \dfrac{4}{3} \right)^n \]
+
+Calcul du 100\ieme{} terme :
+
+\[ u_{100} = 2 \times \left( \dfrac{4}{3} \right)^{100} \]
+
+\bigskip
+
+\item Suite géométrique donnée explicitement :
+
+\[ u_n = 1{,}5 \times \left( \dfrac{2}{3} \right)^n \]
+
+Calcul du 100\ieme{} terme :
+
+\[ u_{100} = 1{,}5 \times \left( \dfrac{2}{3} \right)^{100} \]
+
+\bigskip
+
+\item Suite arithmétique de premier terme \( u_1 = 2 \) et raison \( r = \dfrac{5}{3} \).
+
+La formule explicite est :
+
+\[ u_n = u_1 + (n - 1) r = 2 + (n - 1) \times \dfrac{5}{3} \]
+
+Calcul du 100\ieme{} terme :
+
+\[ u_{100} = 2 + 99 \times \dfrac{5}{3} = 2 + \dfrac{495}{3} = 2 + 165 = 167 \]
+
+\bigskip
+
+\item La suite est déjà définie explicitement :
+
+\[ u_n = n^2 - 8n \]
+
+Calcul du 100\ieme{} terme :
+
+\[ u_{100} = 100^2 - 8 \times 100 = 10\,000 - 800 = 9\,200 \]
+
+\bigskip
+
+\item La suite est déjà définie explicitement :
+
+\[ u_n = 7 - \pi n \]
+
+Calcul du 100\ieme{} terme :
+
+\[ u_{100} = 7 - 100 \pi \]
+
+\bigskip
+
+\item Il n'est pas possible d'exprimer cette suite de manière explicite simple.
+
+Cependant, comme \( u_n = 0 \) pour \( n \geq 1 \), on a :
+
+\[ u_{100} = 0 \]
+
+\end{enumerate}
+
+\bigskip
+
+\subsection*{Exercice 2 (4 points)}
+
+\textbf{1. Calculer les sommes suivantes :}
+
+\begin{enumerate}[label=\alph*)]
+
+\item \( S = 1 + \dfrac{1}{5} + \dfrac{1}{25} + \dots + \dfrac{1}{15\,625} \)
+
+\textbf{Correction :}
+
+Il s'agit d'une suite géométrique de premier terme \( u_0 = 1 \) et raison \( q = \dfrac{1}{5} \).
+
+Le terme général est :
+
+\[ u_n = u_0 \times q^n = \left( \dfrac{1}{5} \right)^n \]
+
+Trouvons le nombre de termes \( n \) :
+
+Sachant que \( 5^6 = 15\,625 \), donc \( \left( \dfrac{1}{5} \right)^6 = \dfrac{1}{15\,625} \).
+
+Ainsi, \( n = 6 \).
+
+La somme des termes est donnée par :
+
+\[ S = u_0 \times \dfrac{1 - q^{n+1}}{1 - q} \]
+
+\[ S = 1 \times \dfrac{1 - \left( \dfrac{1}{5} \right)^{7}}{1 - \dfrac{1}{5}} = \dfrac{1 - \dfrac{1}{78\,125}}{\dfrac{4}{5}} = \dfrac{5}{4} \left( 1 - \dfrac{1}{78\,125} \right) \]
+
+Comme \( \dfrac{1}{78\,125} \) est très petit, on peut approximer :
+
+\[ S \approx \dfrac{5}{4} \]
+
+\bigskip
+
+\item \( S = 5 + 9 + 13 + \dots + 493 \)
+
+\textbf{Correction :}
+
+Il s'agit d'une suite arithmétique de premier terme \( u_1 = 5 \) et raison \( r = 4 \).
+
+Trouvons le nombre de termes \( n \) :
+
+\[ u_n = u_1 + (n - 1) r \]
+
+\[ 493 = 5 + (n - 1) \times 4 \]
+
+\[ 493 - 5 = 4(n - 1) \]
+
+\[ 488 = 4(n - 1) \]
+
+\[ n - 1 = \dfrac{488}{4} = 122 \]
+
+\[ n = 123 \]
+
+La somme des termes est donnée par :
+
+\[ S = \dfrac{n(u_1 + u_n)}{2} \]
+
+\[ S = \dfrac{123(5 + 493)}{2} = \dfrac{123 \times 498}{2} = 61{,}5 \times 498 = 30\,657 \]
+
+\bigskip
+
+\item \( S = \dfrac{4}{3} + \dfrac{4}{9} + \dfrac{4}{27} + \dots + \dfrac{4}{6\,561} \)
+
+\textbf{Correction :}
+
+Il s'agit d'une suite géométrique de premier terme \( u_1 = \dfrac{4}{3} \) et raison \( q = \dfrac{1}{3} \).
+
+Le terme général est :
+
+\[ u_n = u_1 \times q^{n - 1} \]
+
+Trouvons le nombre de termes \( n \) tel que :
+
+\[ u_n = \dfrac{4}{6\,561} = \dfrac{4}{3} \times \dfrac{1}{2\,187} \]
+
+Sachant que \( 3^7 = 2\,187 \), donc \( \left( \dfrac{1}{3} \right)^{7} = \dfrac{1}{2\,187} \). Ainsi, \( n - 1 = 7 \), donc \( n = 8 \).
+
+La somme des termes est donnée par :
+
+\[ S = u_1 \times \dfrac{1 - q^n}{1 - q} \]
+
+\[ S = \dfrac{4}{3} \times \dfrac{1 - \left( \dfrac{1}{3} \right)^8}{1 - \dfrac{1}{3}} = \dfrac{4}{3} \times \dfrac{1 - \dfrac{1}{6\,561}}{\dfrac{2}{3}} \]
+
+\[ S = 2 \left( 1 - \dfrac{1}{6\,561} \right) \]
+
+Comme \( \dfrac{1}{6\,561} \) est très petit, on peut approximer :
+
+\[ S \approx 2 \]
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{2. Exprimer la somme \( \displaystyle \sum_{k=2}^{10} (6k + 2) \) sous la forme \( a + b + \dots + c \).}
+
+\textbf{Correction :}
+
+Calculons les termes pour \( k \) de 2 à 10 :
+
+\begin{align*}
+k = 2 &\Rightarrow 6 \times 2 + 2 = 14 \\
+k = 3 &\Rightarrow 6 \times 3 + 2 = 20 \\
+k = 4 &\Rightarrow 6 \times 4 + 2 = 26 \\
+k = 5 &\Rightarrow 6 \times 5 + 2 = 32 \\
+k = 6 &\Rightarrow 6 \times 6 + 2 = 38 \\
+k = 7 &\Rightarrow 6 \times 7 + 2 = 44 \\
+k = 8 &\Rightarrow 6 \times 8 + 2 = 50 \\
+k = 9 &\Rightarrow 6 \times 9 + 2 = 56 \\
+k = 10 &\Rightarrow 6 \times 10 + 2 = 62 \\
+\end{align*}
+
+Donc, la somme est :
+
+\[ 14 + 20 + 26 + 32 + 38 + 44 + 50 + 56 + 62 \]
+
+\bigskip
+
+\subsection*{Exercice 3 (4 points)}
+
+\textbf{1. Dans chaque cas, on donne deux termes d'une suite arithmétique ou géométrique \( (u_n) \). Déterminer la raison et le premier terme \( u_0 \) de cette suite.}
+
+\begin{enumerate}[label=\alph*)]
+
+\item Suite arithmétique, \( u_7 = 31 \) et \( u_{20} = 45 \)
+
+\textbf{Correction :}
+
+La formule générale d'une suite arithmétique est :
+
+\[ u_n = u_0 + n r \]
+
+On a :
+
+\begin{align*}
+u_7 &= u_0 + 7 r = 31 \\
+u_{20} &= u_0 + 20 r = 45
+\end{align*}
+
+En soustrayant les deux équations :
+
+\begin{alignat}{2}
+    && (u_{20} - u_7) &= 45 - 31\\
+    \iff && (20 r - 7 r) &= 14\\
+    \iff && 13r &= 14
+\end{alignat}
+
+Donc :
+
+\[ r = \dfrac{14}{13} \]
+
+Ensuite, on calcule \( u_0 \) :
+
+\[ u_0 = u_7 - 7 r = 31 - 7 \times \dfrac{14}{13} = 31 - \dfrac{98}{13} = \dfrac{403}{13} - \dfrac{98}{13} = \dfrac{305}{13} \]
+
+\bigskip
+
+\item Suite géométrique, \( u_3 = 27 \) et \( u_{6} = 729 \)
+
+\textbf{Correction :}
+
+La formule générale d'une suite géométrique est :
+
+\[ u_n = u_0 \times q^n \]
+
+On a :
+
+\begin{align*}
+u_3 &= u_0 \times q^3 = 27 \\
+u_6 &= u_0 \times q^6 = 729
+\end{align*}
+
+En divisant les deux équations :
+
+\[ \dfrac{u_6}{u_3} = \dfrac{u_0 q^6}{u_0 q^3} = q^3 = \dfrac{729}{27} = 27 \]
+
+Donc :
+
+\[ q^3 = 27 \]
+
+\[ q = \sqrt[3]{27} = 3 \]
+
+Ensuite, on calcule \( u_0 \) :
+
+\[ u_3 = u_0 \times q^3 \]
+
+\[ u_0 = \dfrac{u_3}{q^3} = \dfrac{27}{3^3} = \dfrac{27}{27} = 1 \]
+
+\end{enumerate}
+
+\bigskip
+
+\subsection*{Exercice 4 (6 points)}
+
+\textbf{1. En numérotant les étages de haut en bas à partir de \( 0 \), soit \( u_n \) le nombre de cartes à l'étage \( n \), avec \( u_0 = 3 \).}
+
+\begin{enumerate}[label=\alph*)]
+
+\item \textbf{Donner \( u_1 \) et \( u_2 \).}
+
+\textbf{Correction :}
+
+Chaque étage comporte \( 3 \times (n + 1) \) cartes.
+
+- Pour \( n = 1 \) : \( u_1 = 3 \times (1 + 1) = 3 \times 2 = 6 \)
+- Pour \( n = 2 \) : \( u_2 = 3 \times (2 + 1) = 3 \times 3 = 9 \)
+
+\bigskip
+
+\item \textbf{Déterminer l'expression de \( u_n \).}
+
+\textbf{Correction :}
+
+\[ u_n = 3 \times (n + 1) \]
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{2. On cherche à calculer le nombre total de cartes \( s_n \) présentes dans un château ayant \( n \) étages.}
+
+\begin{enumerate}[label=\alph*)]
+
+\item \textbf{Donner \( s_0 \), \( s_1 \) et \( s_2 \).}
+
+\textbf{Correction :}
+
+\begin{itemize}
+    \item \( s_0 = u_0 = 3 \)
+    \item \( s_1 = u_0 + u_1 = 3 + 6 = 9 \)
+    \item \( s_2 = u_0 + u_1 + u_2 = 3 + 6 + 9 = 18 \)
+\end{itemize}
+
+\bigskip
+
+\item \textbf{Déterminer l'expression de \( s_n \).}
+
+\textbf{Correction :}
+
+\[ s_n = \sum_{k=0}^{n} u_k = \sum_{k=0}^{n} 3(k + 1) = 3 \sum_{k=0}^{n} (k + 1) \]
+
+\[ \sum_{k=0}^{n} (k + 1) = \sum_{k=1}^{n+1} k = \dfrac{(n + 1)(n + 2)}{2} \]
+
+Donc :
+
+\[ s_n = 3 \times \dfrac{(n + 1)(n + 2)}{2} = \dfrac{3(n + 1)(n + 2)}{2} \]
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{3. On dispose de 315 cartes. Combien d'étages peut-on construire ?}
+
+\textbf{Correction :}
+
+On cherche le plus grand \( n \) tel que :
+
+\[ s_n \leq 315 \]
+
+\[ \dfrac{3(n + 1)(n + 2)}{2} \leq 315 \]
+
+\[ (n + 1)(n + 2) \leq \dfrac{315 \times 2}{3} = 210 \]
+
+Donc :
+
+\[ (n + 1)(n + 2) \leq 210 \]
+
+Testons des valeurs entières pour \( n \) :
+
+\begin{itemize}
+    \item Pour \( n = 12 \) :
+
+    \[ (12 + 1)(12 + 2) = 13 \times 14 = 182 \leq 210 \]
+
+    \item Pour \( n = 13 \) :
+
+    \[ (13 + 1)(13 + 2) = 14 \times 15 = 210 \]
+
+    \item Pour \( n = 14 \) :
+
+    \[ (14 + 1)(14 + 2) = 15 \times 16 = 240 > 210 \]
+\end{itemize}
+
+Donc, le nombre maximal d'étages est \( n = 13 \).
+
+\textbf{Réponse :} On peut construire \textbf{13 étages} avec 315 cartes.
+
+\end{document}
