@@ -1,0 +1,105 @@
+\documentclass{exam}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\newenvironment{clist}{\begin{center}\begin{inparaenum}}{\end{inparaenum}\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\large
+
+\noindent{\bf Contrôle 4 (B) -- 55min. \hfill Seconde générale \hfill 26/11/2024}% 
+
+\vspace{2mm}
+
+\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+\vspace{2mm}
+
+\begin{exercice}
+Développer les expressions suivantes :
+\begin{tasks}(2)
+    \task $(3x - 5)^2$
+    %\task $(3x - 2)(x + 4)$
+    \task $3(x + 2)(2x - 3)$
+\end{tasks}
+\begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{11em}}}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Factoriser les expressions suivantes :
+\begin{tasks}(2)
+    \task $x(x + 2) + 4x$
+    %\task $x(2x + 4) - x(x + 1)$
+    \task $x(x + 2) + (x + 2)(x - 5)$
+\end{tasks}
+\begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{11em}}}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Résoudre les équations suivantes :
+\begin{tasks}(3)
+    \task $(2x + 6)(x - 2) = 0$
+    \task $5x^2 - 20 = 0$
+    \task $(2x^2 - 4)(2x - 5) = 0$
+\end{tasks}
+\begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{20em}}}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Écrire les expressions suivantes sous la forme $a\sqrt{b}$ :
+\begin{tasks}(3)
+    \task $\sqrt{192}$
+    \task $\sqrt{27} + \sqrt{75} - \sqrt{12} $
+    \task $\dfrac{\sqrt{162}}{\sqrt{3
+    }}$
+\end{tasks}
+\begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{20em}}}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Écrire les expressions suivantes avec un dénominateur entier :
+\begin{tasks}(2)
+    \task $\dfrac{2}{\sqrt{3}}$
+    \task $\dfrac{2}{\sqrt{3} + 1}$
+\end{tasks}
+\begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{10em}}}
+\end{center}
+\end{exercice}
+
+\end{document}
