@@ -106,7 +106,7 @@
 \centering
 \tcbset{colframe=BlackSav,colback=GrayBG}
 \tcbox[tikznode]{
-Chapitre 10 \\Nombre dérivé et Fonction dérivée
+Chapitre 4 \\Nombre dérivé et Fonction dérivée
 }
 }
 
@@ -126,10 +126,10 @@ Chapitre 10 \\Nombre dérivé et Fonction dérivée
 
 \tableofcontents
 
-%\newcommand{\hideM}[1]{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}
-%\newcommand{\hide}[1]{\colorbox{gray!50}{\phantom{#1}}}
-\newcommand{\hideM}[1]{#1}
-\newcommand{\hide}[1]{#1}
+\newcommand{\hideM}[1]{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}
+\newcommand{\hide}[1]{\colorbox{gray!50}{\phantom{#1}}}
+%\newcommand{\hideM}[1]{#1}
+%\newcommand{\hide}[1]{#1}
 
 
 \newpage
@@ -139,11 +139,11 @@ Dans toute la suite de ce chapitre, $f: I \longrightarrow \mathbb{R}$ désigne u
 \subsection{Définition du nombre dérivé en un point}
 \begin{definition}{}{}
   \begin{itemize}
-    \item Pour tout $h \neq 0$ tel que $a+h \in I$, la quantité $\dfrac{f(a+h)-f(a)}{h}$ est appelée taux d'accroissement de $f$ entre $a$ et $a+h$.
+    \item Pour tout $h \neq 0$ tel que $a+h \in I$, la quantité $\hideM{\dfrac{f(a+h)-f(a)}{h}}$ est appelée taux d'accroissement de $f$ entre $a$ et $a+h$.
     \item Si le taux d'accroissement tend vers un réel, lorsque $h$ tend vers 0 (avec $h \neq 0$ ), on dit que $f$ est dérivable en $a$ et on appelle \textbf{nombre dérivé} de $f$ en $a$ ce réel. On le note $f^{\prime}(a)$.\\
     On écrit :
     $$
-    \lim _{h \rightarrow 0} \frac{f(a+h)-f(a)}{h}=f^{\prime}(a) .
+    \hideM{\lim _{h \rightarrow 0} \frac{f(a+h)-f(a)}{h}=f^{\prime}(a).}
     $$
   \end{itemize}
 \end{definition}
@@ -179,7 +179,7 @@ Attention! $f^{\prime}(a)$ n'existe pas toujours. Pour certaines fonctions, et p
 
 \subsection{Tangente à une courbe en un point}
 \begin{definition}{}{}
-Si $f$ est dérivable en $a$, on appelle \textbf{tangente} à la courbe $\mathcal{C}_{f}$ au point d'abscisse $a$ la droite $T$ passant par le point A $(a ; f(a))$ et de coefficient directeur $f^{\prime}(a)$.
+Si $f$ est dérivable en $a$, on appelle \textbf{tangente} à la courbe $\mathcal{C}_{f}$ au point d'abscisse $a$ la droite $T$ passant par le point A $\hideM{(a ; f(a))}$ et de coefficient directeur $\hideM{f^{\prime}(a)}$.
 \end{definition}
 
 \begin{remark}
@@ -190,7 +190,7 @@ Attention! Si $f$ n'est pas dérivable en $a$, il n'est \textit{a priori} pas po
 Soit $f$ une fonction dérivable en $a$.\\
 L'équation de la tangente $T$ à $\mathcal{C}_{f}$ au point d'abscisse $a$ est :
 $$
-y=f^{\prime}(a)(x-a)+f(a)
+\hideM{y=f^{\prime}(a)(x-a)+f(a)}
 $$
 \end{proposition}
 
@@ -307,17 +307,17 @@ Le tableau suivant donne les formules de dérivation pour les fonctions de réf�
   \hline
   Fonction & $\mathcal{D}_{f}$ & $f(x)=\ldots$ & dérivable pour $a \in \ldots$ & $f^{\prime}(a)=\ldots$ &\\
   \hline
-  constante & $\mathbb{R}$ & $k$ & $\mathbb{R}$ & 0 &\\
+  constante & $\mathbb{R}$ & $k$ & $\mathbb{R}$ & \hide{0} &\\
   \hline
-  identité & $\mathbb{R}$ & $x$ & $\mathbb{R}$ & 1 &\\
+  identité & $\mathbb{R}$ & $x$ & $\mathbb{R}$ & \hide{1} &\\
   \hline
-  carrée & $\mathbb{R}$ & $x^{2}$ & $\mathbb{R}$ & $2 a$ &\\
+  carrée & $\mathbb{R}$ & $x^{2}$ & $\mathbb{R}$ & $\hideM{2 a}$ &\\
   \hline
-  puissance & $\mathbb{R}$ & $x^{n}$ & $\mathbb{R}$ & $n a^{n-1}$ &\\
+  puissance & $\mathbb{R}$ & $x^{n}$ & $\mathbb{R}$ & $\hideM{n a^{n-1}}$ &\\
   \hline
-  inverse & $\mathbb{R}^{*}$ & $\frac{1}{x}$ & $\mathbb{R}^{*}$ & $-\dfrac{1}{a^{2}}$ &\\
+  inverse & $\mathbb{R}^{*}$ & $\frac{1}{x}$ & $\mathbb{R}^{*}$ & $\hideM{-\dfrac{1}{a^{2}}}$ &\\
   \hline
-  racine carrée & $\mathbb{R}_{+}$ & $\sqrt{x}$  & $\mathbb{R}_{+}^{*}$ & $\dfrac{1}{2 \sqrt{a}}$ &\\
+  racine carrée & $\mathbb{R}_{+}$ & $\sqrt{x}$  & $\mathbb{R}_{+}^{*}$ & $\hideM{\dfrac{1}{2 \sqrt{a}}}$ &\\
   \hline
   \end{tabular}
 \end{center}
@@ -401,7 +401,7 @@ Si $f$ est dérivable en tout nombre $a \in I$, on dit que $f$ est dérivable su
 \end{definition}
 
 \begin{definition}{}{}
-Si $f$ est dérivable sur $I$, la fonction qui a tout réel $x \in I$ associe $f^{\prime}(x)$ est appelée fonction dérivée de $f$ et elle est notée $f^{\prime}$.
+Si $f$ est dérivable sur $I$, la fonction qui a tout réel $x \in I$ associe $\hideM{f^{\prime}(x)}$ est appelée fonction dérivée de $f$ et elle est notée $\hideM{f^{\prime}}$.
 \end{definition}
 
 Les formules du tableau de la Proposition 2 (page 6) peuvent être reformulées de la façon suivante en l'exprimant avec les fonctions dérivées.
@@ -415,17 +415,17 @@ Les formules du tableau de la Proposition 2 (page 6) peuvent être reformulées 
   \hline
   Fonction & $\mathcal{D}_{f}$ & $f(x)=$ & Ensemble de dérivabilité & $f^{\prime}(x)=$ &\\
   \hline
-  constante & $\mathbb{R}$ & $k$ & $\mathbb{R}$ & 0 &\\
+  constante & $\mathbb{R}$ & $k$ & $\mathbb{R}$ & \hide{0} &\\
   \hline
-  identité & $\mathbb{R}$ & $x$ & $\mathbb{R}$ & 1 &\\
+  identité & $\mathbb{R}$ & $x$ & $\mathbb{R}$ & \hide{1} &\\
   \hline
-  carrée & $\mathbb{R}$ & $x^{2}$ & $\mathbb{R}$ & $2 x$ &\\
+  carrée & $\mathbb{R}$ & $x^{2}$ & $\mathbb{R}$ & $\hideM{2 x}$ &\\
   \hline
-  puissance & $\mathbb{R}$ & $x^{n}$ & $\mathbb{R}$ & $n x^{n-1}$ &\\
+  puissance & $\mathbb{R}$ & $x^{n}$ & $\mathbb{R}$ & $\hideM{n x^{n-1}}$ &\\
   \hline
-  inverse & $\mathbb{R}^{*}$ & $\frac{1}{x}$ & $\mathbb{R}^{*}$ & $-\dfrac{1}{x^{2}}$ &\\[20pt]
+  inverse & $\mathbb{R}^{*}$ & $\frac{1}{x}$ & $\mathbb{R}^{*}$ & $\hideM{-\dfrac{1}{x^{2}}}$ &\\
   \hline
-  racine carrée & $\mathbb{R}_{+}$ & $\sqrt{x}$ & $\mathbb{R}_{+}^{*}$ & $\dfrac{1}{2 \sqrt{x}}$ &\\
+  racine carrée & $\mathbb{R}_{+}$ & $\sqrt{x}$ & $\mathbb{R}_{+}^{*}$ & $\hideM{\dfrac{1}{2 \sqrt{x}}}$ &\\
   \hline
   \end{tabular}
 \end{center}
@@ -444,15 +444,15 @@ Soient $u$ et $v$ deux fonctions dérivables sur un intervalle $I$. Soit $\lambd
   Type d'opération & Fonction à dériver & Fonction dérivée \\
   %Fonction & $\mathcal{D}_{f}$ & $f(x)=$ & Ensemble de dérivabilité & $f^{\prime}(x)=$ &\\
   \hline
-  \makecell{Dérivée d'une somme\\ de fonctions} & $u+v$ & $(u+v)^{\prime}=u^{\prime}+v^{\prime}$ &\\
+  \makecell{Dérivée d'une somme\\ de fonctions} & $u+v$ & $\hideM{(u+v)^{\prime}=u^{\prime}+v^{\prime}}$ &\\
   \hline
-  \makecell{Dérivée du produit d'une fonction $u$ \\ par une constante $\lambda$} & $\lambda \times u$ & $(\lambda \times u)^{\prime}=\lambda \times u^{\prime}$ & \\
+  \makecell{Dérivée du produit d'une fonction $u$ \\ par une constante $\lambda$} & $\lambda \times u$ & $\hideM{(\lambda \times u)^{\prime}=\lambda \times u^{\prime}}$ & \\
   \hline
-  \makecell{Dérivée d'un produit \\ de fontions} & $u \times v$ & $(uv)^{\prime}=u'v + uv'$ & \\
+  \makecell{Dérivée d'un produit \\ de fontions} & $u \times v$ & $\hideM{(uv)^{\prime}=u'v + uv'}$ & \\
   \hline
-  \makecell{Dérivée d'un quotient \\ de fontions} & \makecell{$\dfrac{u}{v}$ avec $v(x) \neq 0$ \\ pour tout $x \in I$} & $\left(\dfrac{u}{v}\right)'=\dfrac{u^{\prime} v-u v^{\prime}}{v^{2}}$ & \\
+  \makecell{Dérivée d'un quotient \\ de fontions} & \makecell{$\dfrac{u}{v}$ avec $v(x) \neq 0$ \\ pour tout $x \in I$} & $\hideM{\left(\dfrac{u}{v}\right)'=\dfrac{u^{\prime} v-u v^{\prime}}{v^{2}}}$ & \\
   \hline
-  \makecell{Dérivée de l'inverse \\ d'une fonction} & \makecell{$\frac{1}{v}$ avec $v(x) \neq 0$ \\ pour tout $x \in I$} & $\left(\dfrac{1}{v}\right)'=-\dfrac{v'}{v^{2}}$ & \\
+  \makecell{Dérivée de l'inverse \\ d'une fonction} & \makecell{$\frac{1}{v}$ avec $v(x) \neq 0$ \\ pour tout $x \in I$} & $\hideM{\left(\dfrac{1}{v}\right)'=-\dfrac{v'}{v^{2}}}$ & \\
   \hline
  \end{tabular}
 \end{center}
@@ -587,7 +587,7 @@ Solution :
 Soit $g$ une fonction dérivable sur $I$ et soient $a$ et $b$ deux réels. Soit $J$ un intervalle tel que pour tout $x \in J, a x+b \in I$. La fonction $f$ définie sur $J$ par $f(x)=g(a x+b)$ est dérivable sur $J$ et
 
 $$
-f^{\prime}(x)=a \times g^{\prime}(a x+b)
+\hideM{f^{\prime}(x)=a \times g^{\prime}(a x+b)}
 $$
 
 \end{proposition}

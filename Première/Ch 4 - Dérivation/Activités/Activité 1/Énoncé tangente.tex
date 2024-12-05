@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\input{def.tex}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{polyglossia}
+
+\pagestyle{empty}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+
+\newtcbtheorem
+  []% init options
+  {bilan}% name
+  {Bilan}% title
+  {%
+    colback=GrayBG,
+    colframe=BlueDef,
+    fonttitle=\bfseries,
+  }% options
+  {bilan}% prefix
+
+\newtcbtheorem
+  []% init options
+  {activite}% name
+  {Activité}% title
+  {%
+    colback=GrayBG,
+    colframe=GreenProp,
+    fonttitle=\bfseries,
+  }% options
+  {act}% prefix
+
+\newtcbtheorem
+  []% init options
+  {method}% name
+  {Méthode}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=RedMet,
+    fonttitle=\bfseries,
+  }% options
+  {met}% prefix
+  
+\newtcbtheorem
+  []% init options
+  {savoir}% name
+  {Savoir-faire du chapitre}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=BlackSav,
+    fonttitle=\bfseries,
+  }% options
+  {sav}% prefix
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+}{%
+  \end{proof}
+}
+
+%\setmainlanguage{french}
+\begin{document}
+
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document}}
+}
+
+{
+
+\begin{activite*}{Nombre dérivé}{}
+    \textbf{Objectif :} Comprendre comment déterminer graphiquement le coefficient directeur de la tangente à une courbe.
+\end{activite*}
+
+\noindent
+\textbf{Lien Geogebra :} \url{https://www.geogebra.org/m/e9vmgdsf}
+
+\noindent
+À l’aide du logiciel Geogebra, tracer la courbe de la fonction $f$ définie par $f(x) = x^2$. Placer ensuite les points $A$ et $B$ appartenant à la courbe et d’abscisses respectives 1 et 3 puis tracer la droite $(AB)$. En utilisant l’outil \textit{pente}, demander à Geogebra de déterminer le coefficient directeur de la droite $(AB)$.
+
+\begin{enumerate}
+    \item Quel est le coefficient directeur de la droite $(AB)$ ?
+    \item Déplacer le point $B$ sur la courbe afin qu’il se rapproche du point $A$. Vers quelle valeur le coefficient directeur se rapproche-t-il ?
+\end{enumerate}
+
+\begin{bilan*}{}{}
+    Si on appelle \textit{tangente} à la courbe au point $A$ la droite épousant le mieux la courbe au voisinage de $A$, décrire le procédé permettant de déterminer le coefficient directeur de cette tangente.
+\end{bilan*}
+}
+
+\vfill
+\hrule
+\vfill
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document}}
+}
+
+{
+
+\begin{activite*}{Nombre dérivé}{}
+    \textbf{Objectif :} Comprendre comment déterminer graphiquement le coefficient directeur de la tangente à une courbe.
+\end{activite*}
+
+\noindent
+\textbf{Lien Geogebra :} \url{https://www.geogebra.org/m/e9vmgdsf}
+
+\noindent
+À l’aide du logiciel Geogebra, tracer la courbe de la fonction $f$ définie par $f(x) = x^2$. Placer ensuite les points $A$ et $B$ appartenant à la courbe et d’abscisses respectives 1 et 3 puis tracer la droite $(AB)$. En utilisant l’outil \textit{pente}, demander à Geogebra de déterminer le coefficient directeur de la droite $(AB)$.
+
+\begin{enumerate}
+    \item Quel est le coefficient directeur de la droite $(AB)$ ?
+    \item Déplacer le point $B$ sur la courbe afin qu’il se rapproche du point $A$. Vers quelle valeur le coefficient directeur se rapproche-t-il ?
+\end{enumerate}
+
+\begin{bilan*}{}{}
+    Si on appelle \textit{tangente} à la courbe au point $A$ la droite épousant le mieux la courbe au voisinage de $A$, décrire le procédé permettant de déterminer le coefficient directeur de cette tangente.
+\end{bilan*}
+}
+
+\end{document}
