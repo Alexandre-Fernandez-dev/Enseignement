@@ -1,0 +1,168 @@
+% @see : https://coopmaths.fr/alea/?uuid=3b7ee&id=2N41-3&n=1&d=10&s=2&s2=true&alea=ZRM1&cd=1&uuid=3d2f9&id=2N41-1&n=1&d=10&s=1&s2=3&alea=0Hm0&cd=1&uuid=55cc0&id=2N32-1&n=1&d=10&s=1&alea=Ziol&cd=1&uuid=26f3b&id=can2G10&alea=1TAO&uuid=d2b57&id=2G23-1&n=1&d=10&s=1&alea=c9LA&uuid=6cf42&id=2G21-2&alea=8BOV&v=latex
+\documentclass{exam}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\setlength{\parindent}{0cm}
+
+\usepackage{multicol}
+\newenvironment{clist}{\begin{center}\begin{inparaenum}}{\end{inparaenum}\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\large
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document\ (A) -- 30min}}
+}
+
+\vspace{2mm}
+
+\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+\vspace{2mm}
+
+\begin{exercice}
+
+Développer et réduire l'expression suivante.
+ $A = (5c-9)(5c+9)$
+\end{exercice}
+
+\begin{exercice}
+
+Factoriser l'expression suivante.\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth} $A = 3(x+1)+x(x+1)$ \end{minipage}
+\end{multicols}
+\end{exercice}
+
+\begin{exercice}
+
+ Le nombre proposé existe-t-il ? Justifier.\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth} $\sqrt{2-\pi}$ \end{minipage}
+\end{multicols}
+\end{exercice}
+
+\begin{exercice}
+
+
+ Écrire à l'aide d'un seul vecteur :
+        $\overrightarrow{EF}+\overrightarrow{FE}=$
+\end{exercice}
+
+\begin{exercice}
+
+
+ Sans justifier, donner l'image du point $O$ par la translation de vecteur $\overrightarrow{HB}$.
+ 
+ \begin{tikzpicture}[baseline,scale = 0.5]
+
+    \tikzset{
+      point/.style={
+        thick,
+        draw,
+        cross out,
+        inner sep=0pt,
+        minimum width=5pt,
+        minimum height=5pt,
+      },
+    }
+    \clip (-1,-1) rectangle (12,5);
+    	\draw[color ={{black}},line width = 0.625,opacity = 0.8] (-0.1875,4.1875)--(0.1875,3.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (-0.1875,3.8125)--(0.1875,4.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (1.8125,4.1875)--(2.1875,3.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (1.8125,3.8125)--(2.1875,4.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (3.8125,4.1875)--(4.1875,3.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (3.8125,3.8125)--(4.1875,4.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (5.8125,4.1875)--(6.1875,3.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (5.8125,3.8125)--(6.1875,4.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (7.8125,4.1875)--(8.1875,3.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (7.8125,3.8125)--(8.1875,4.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (9.8125,4.1875)--(10.1875,3.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (9.8125,3.8125)--(10.1875,4.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (-0.1875,2.1875)--(0.1875,1.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (-0.1875,1.8125)--(0.1875,2.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (1.8125,2.1875)--(2.1875,1.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (1.8125,1.8125)--(2.1875,2.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (3.8125,2.1875)--(4.1875,1.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (3.8125,1.8125)--(4.1875,2.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (5.8125,2.1875)--(6.1875,1.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (5.8125,1.8125)--(6.1875,2.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (7.8125,2.1875)--(8.1875,1.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (7.8125,1.8125)--(8.1875,2.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (9.8125,2.1875)--(10.1875,1.8125);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (9.8125,1.8125)--(10.1875,2.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (-0.1875,0.1875)--(0.1875,-0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (-0.1875,-0.1875)--(0.1875,0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (1.8125,0.1875)--(2.1875,-0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (1.8125,-0.1875)--(2.1875,0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (3.8125,0.1875)--(4.1875,-0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (3.8125,-0.1875)--(4.1875,0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (5.8125,0.1875)--(6.1875,-0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (5.8125,-0.1875)--(6.1875,0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (7.8125,0.1875)--(8.1875,-0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (7.8125,-0.1875)--(8.1875,0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (9.8125,0.1875)--(10.1875,-0.1875);\draw[color ={{black}},line width = 0.625,opacity = 0.8] (9.8125,-0.1875)--(10.1875,0.1875);
+	\draw [color={black}] (0,4.5) node[anchor = center,scale=1, rotate = 0] {A};
+	\draw [color={black}] (2,4.5) node[anchor = center,scale=1, rotate = 0] {B};
+	\draw [color={black}] (4,4.5) node[anchor = center,scale=1, rotate = 0] {C};
+	\draw [color={black}] (6,4.5) node[anchor = center,scale=1, rotate = 0] {D};
+	\draw [color={black}] (8,4.5) node[anchor = center,scale=1, rotate = 0] {E};
+	\draw [color={black}] (10,4.5) node[anchor = center,scale=1, rotate = 0] {F};
+	\draw [color={black}] (-0.5,2) node[anchor = center,scale=1, rotate = 0] {G};
+	\draw [color={black}] (1.5,1.5) node[anchor = center,scale=1, rotate = 0] {H};
+	\draw [color={black}] (3.5,1.5) node[anchor = center,scale=1, rotate = 0] {I};
+	\draw [color={black}] (5.5,1.5) node[anchor = center,scale=1, rotate = 0] {J};
+	\draw [color={black}] (7.5,1.5) node[anchor = center,scale=1, rotate = 0] {K};
+	\draw [color={black}] (10.5,2) node[anchor = center,scale=1, rotate = 0] {L};
+	\draw [color={black}] (0,-0.5) node[anchor = center,scale=1, rotate = 0] {M};
+	\draw [color={black}] (2,-0.5) node[anchor = center,scale=1, rotate = 0] {N};
+	\draw [color={black}] (4,-0.5) node[anchor = center,scale=1, rotate = 0] {O};
+	\draw [color={black}] (6,-0.5) node[anchor = center,scale=1, rotate = 0] {P};
+	\draw [color={black}] (8,-0.5) node[anchor = center,scale=1, rotate = 0] {Q};
+	\draw [color={black}] (10,-0.5) node[anchor = center,scale=1, rotate = 0] {R};
+	
+	\draw[color ={gray},opacity = 0.4] (0,0)--(0,4);
+	\draw[color ={gray},opacity = 0.4] (1,0)--(1,4);
+	\draw[color ={gray},opacity = 0.4] (2,0)--(2,4);
+	\draw[color ={gray},opacity = 0.4] (3,0)--(3,4);
+	\draw[color ={gray},opacity = 0.4] (4,0)--(4,4);
+	\draw[color ={gray},opacity = 0.4] (5,0)--(5,4);
+	\draw[color ={gray},opacity = 0.4] (6,0)--(6,4);
+	\draw[color ={gray},opacity = 0.4] (7,0)--(7,4);
+	\draw[color ={gray},opacity = 0.4] (8,0)--(8,4);
+	\draw[color ={gray},opacity = 0.4] (9,0)--(9,4);
+	\draw[color ={gray},opacity = 0.4] (10,0)--(10,4);
+	\draw[color ={gray},opacity = 0.4] (0,0)--(10,0);
+	\draw[color ={gray},opacity = 0.4] (0,1)--(10,1);
+	\draw[color ={gray},opacity = 0.4] (0,2)--(10,2);
+	\draw[color ={gray},opacity = 0.4] (0,3)--(10,3);
+	\draw[color ={gray},opacity = 0.4] (0,4)--(10,4);
+	\draw[color ={{blue}},line width = 1.25,opacity = 0.8] (3.8125,0.1875)--(4.1875,-0.1875);\draw[color ={{blue}},line width = 1.25,opacity = 0.8] (3.8125,-0.1875)--(4.1875,0.1875);
+
+\end{tikzpicture}\\
+\end{exercice}
+
+\begin{exercice}
+
+\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth} Construire le point $H$ tel que $\overrightarrow{EH} = \vec{u} + \vec{v}$.\\ \end{minipage}
+\end{multicols}
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{cflash_6_b.png}
+\end{center}
+\end{exercice}
+
+\newpage
+\begin{exercice}
+	En utilisant la figure, donner un représentant des sommes de vecteurs suivantes :
+	\begin{enumerate}
+		\item $\overrightarrow{CO} + \overrightarrow{DF}$
+		\item $\overrightarrow{BE} + \overrightarrow{CF}$
+		\item $\overrightarrow{OB} - \overrightarrow{EB}$
+		\item $\overrightarrow{AE} + \overrightarrow{AD} + \overrightarrow{OC}$
+	\end{enumerate}
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{cflash_7.png}
+	\end{center}
+\end{exercice}
+
+
+\end{document}
