@@ -1,0 +1,533 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+% Couleurs pour les box
+\definecolor{SolutionColor}{HTML}{F0F8FF}
+\definecolor{ExerciseColor}{HTML}{E6E6FA}
+
+% Environnements stylisés
+\newtcolorbox{solutionbox}[1]{
+    colback=SolutionColor,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{exercice}[1][]{
+    colback=ExerciseColor,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\begin{document}
+
+% Exercice 7
+\begin{exercice}[Exercice 7 $\quad \star \quad$ { [Représenter]}]{}
+Pour chaque fonction, tracer la courbe $C_f$ à l'aide de la calculatrice puis déterminer graphiquement l'équation de la tangente à $C_f$ au point d'abscisse $a$.
+
+\begin{enumerate}
+    \item $f(x) = -x^3 + 5x + 7$ et $a = 2$,
+    \item $f(x) = \dfrac{x}{3 + 8x}$ et $a = 1$,
+    \item $f(x) = \sqrt{3x + 7}$ et $a = 3$,
+    \item $f(x) = \dfrac{2x + 7}{\sqrt{x}}$ et $a = 2$.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+L'idée est de déterminer le nombre dérivé au point $a$ en utilisant le taux d'accroissement, c’est-à-dire la limite du taux :
+\[
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}.
+\]
+
+Puis, l'équation de la tangente au point $A$ d'abscisse $a$ est :
+\[
+y = f(a) + f'(a)(x - a).
+\]
+
+\textbf{1. Pour } $f(x) = -x^3 + 5x + 7$ et $a = 2$ :
+
+Calculons le nombre dérivé par le taux d'accroissement :
+\[
+f(a) = f(2) = -(2)^3 + 5 \cdot 2 + 7 = -8 + 10 + 7 = 9.
+\]
+
+\[
+f'(2) = \lim_{h \to 0} \frac{f(2+h) - f(2)}{h} = \lim_{h \to 0} \frac{[-(2+h)^3 + 5(2+h) + 7] - 9}{h}.
+\]
+
+Développons :
+\[
+(2+h)^3 = 8 + 12h + 6h^2 + h^3.
+\]
+\[
+f(2+h) = -(8 + 12h + 6h^2 + h^3) + 5(2+h) + 7.
+\]
+\[
+f(2+h) = -8 -12h -6h^2 - h^3 + 10 + 5h + 7 = 9 -7h -6h^2 - h^3.
+\]
+
+Donc :
+\[
+\frac{f(2+h)-f(2)}{h} = \frac{[9 -7h -6h^2 - h^3] - 9}{h} = \frac{-7h -6h^2 - h^3}{h} = -7 - 6h - h^2.
+\]
+
+En faisant tendre $h \to 0$ :
+\[
+f'(2) = -7.
+\]
+
+L'équation de la tangente :
+\[
+y = f(2) + f'(2)(x - 2) = 9 - 7(x - 2) = 9 - 7x + 14 = -7x + 23.
+\]
+
+\textbf{Tangente : } $y = -7x + 23$.
+
+\textbf{2. Pour } $f(x) = \dfrac{x}{3 + 8x}$ et $a = 1$ :
+
+\[
+f(1) = \frac{1}{3 + 8} = \frac{1}{11}.
+\]
+
+Calcul du nombre dérivé :
+\[
+f'(1) = \lim_{h \to 0} \frac{f(1+h) - f(1)}{h} = \lim_{h \to 0} \frac{\frac{1+h}{3 + 8(1+h)} - \frac{1}{11}}{h}.
+\]
+
+Simplifions le dénominateur de $f(1+h)$ :
+\[
+3+8(1+h)=3+8+8h=11+8h.
+\]
+Donc :
+\[
+f(1+h)=\frac{1+h}{11+8h}.
+\]
+
+\[
+f(1+h)-f(1) = \frac{1+h}{11+8h} - \frac{1}{11}.
+\]
+
+Mettons au même dénominateur :
+\[
+\frac{1+h}{11+8h} - \frac{1}{11} = \frac{11(1+h) - (11+8h)}{11(11+8h)} = \frac{11+11h - 11 -8h}{11(11+8h)} = \frac{3h}{11(11+8h)}.
+\]
+
+\[
+\frac{f(1+h)-f(1)}{h} = \frac{3h}{h \cdot 11(11+8h)} = \frac{3}{11(11+8h)}.
+\]
+
+En faisant $h \to 0$ :
+\[
+f'(1) = \frac{3}{11 \cdot 11} = \frac{3}{121}.
+\]
+
+L'équation de la tangente au point $(1;1/11)$ :
+\[
+y = \frac{1}{11} + \frac{3}{121}(x - 1).
+\]
+
+\textbf{Tangente : } $y = \frac{1}{11} + \frac{3}{121}(x - 1)$.
+
+\textbf{3. Pour } $f(x)=\sqrt{3x+7}$ et $a=3$ :
+
+\[
+f(3)=\sqrt{3 \cdot 3+7}=\sqrt{16}=4.
+\]
+
+\[
+f'(3)=\lim_{h \to 0}\frac{f(3+h)-f(3)}{h}=\lim_{h \to 0}\frac{\sqrt{3(3+h)+7}-4}{h}.
+\]
+
+\[
+3(3+h)+7=9+3h+7=16+3h.
+\]
+\[
+f(3+h)=\sqrt{16+3h}.
+\]
+
+\[
+\frac{f(3+h)-f(3)}{h}=\frac{\sqrt{16+3h}-4}{h}.
+\]
+
+Pour calculer cette limite, on peut utiliser l'astuce de la conjugaison :
+\[
+\sqrt{16+3h}-4 = \frac{(\sqrt{16+3h}-4)(\sqrt{16+3h}+4)}{\sqrt{16+3h}+4} = \frac{16+3h-16}{h(\sqrt{16+3h}+4)}=\frac{3h}{h(\sqrt{16+3h}+4)}.
+\]
+
+\[
+f'(3)=\lim_{h \to 0}\frac{3}{\sqrt{16+3h}+4}=\frac{3}{4+4}= \frac{3}{8}.
+\]
+
+Tangente en $(3;4)$ :
+\[
+y=4+\frac{3}{8}(x-3).
+\]
+
+\textbf{Tangente : } $y=4+\frac{3}{8}(x-3)$.
+
+\textbf{4. Pour } $f(x)=\frac{2x+7}{\sqrt{x}}$ et $a=2$ :
+
+\[
+f(2)=\frac{2 \cdot 2+7}{\sqrt{2}}=\frac{11}{\sqrt{2}}.
+\]
+
+% \[
+% f'(2)=\lim_{h \to 0}\frac{f(2+h)-f(2)}{h}.
+% \]
+% 
+% \[
+% f(2+h)=\frac{2(2+h)+7}{\sqrt{2+h}}=\frac{4+2h+7}{\sqrt{2+h}}=\frac{11+2h}{\sqrt{2+h}}.
+% \]
+% 
+% \[
+% f(2+h)-f(2)=\frac{11+2h}{\sqrt{2+h}} - \frac{11}{\sqrt{2}}.
+% \]
+% 
+% Mettons sous un dénominateur commun $\sqrt{2+h}\sqrt{2}$ :
+% \[
+% =\frac{(11+2h)\sqrt{2} - 11\sqrt{2+h}}{\sqrt{2+h}\sqrt{2}}.
+% \]
+% 
+% En posant $h=0$, c'est compliqué, utilisons la conjugaison ou le développement en $h$ petit.
+% 
+% Approche simplifiée : On peut tenter de factoriser par $h$.
+% 
+% Au voisinage de $h=0$, $\sqrt{2+h}=\sqrt{2}\sqrt{1+\frac{h}{2}} \approx \sqrt{2}(1+\frac{h}{4}-...)$.
+% 
+% \[
+% f(2+h)=\frac{11+2h}{\sqrt{2+h}} \approx \frac{11+2h}{\sqrt{2}(1+\frac{h}{4})}.
+% \]
+% Approximons en linéaire :
+% \[
+% \frac{1}{1+\frac{h}{4}} \approx 1 - \frac{h}{4}.
+% \]
+% 
+% \[
+% f(2+h)\approx\frac{11+2h}{\sqrt{2}}(1 - \frac{h}{4})=\frac{11+2h}{\sqrt{2}} - \frac{11+2h}{4\sqrt{2}}h.
+% \]
+% 
+% C'est un peu lourd sans la dérivée connue. Alternativement, essayons de réécrire $f(x)$ :
+
+\[
+f(x)=\frac{2x+7}{\sqrt{x}}=\frac{2x}{\sqrt{x}}+\frac{7}{\sqrt{x}}=2\sqrt{x}+\frac{7}{\sqrt{x}}.
+\]
+
+Calculons le taux d'accroissement entre $2$ et $2+h$ :
+
+\[
+f(2+h)-f(2)=2\sqrt{2+h}+ \frac{7}{\sqrt{2+h}} - \left(2\sqrt{2}+\frac{7}{\sqrt{2}}\right).
+\]
+
+Utilisons la dérivée connue des fonctions racine et inverse, mais en mode taux :
+
+Pour gagner du temps :
+- $\sqrt{x}$ dérivée en $2$ est $\frac{1}{2\sqrt{2}}$.
+- $\frac{7}{\sqrt{x}}=7x^{-1/2}$ dérivée en $2$ est $7(-\frac{1}{2})2^{-3/2}= -\frac{7}{2 \cdot 2^{3/2}}=-\frac{7}{4\sqrt{2}}$.
+
+Somme des dérivées en $2$ :
+\[
+f'(2)=2 \cdot \frac{1}{2\sqrt{2}} + (-\frac{7}{4\sqrt{2}}) = \frac{1}{\sqrt{2}} - \frac{7}{4\sqrt{2}}=\frac{4-7}{4\sqrt{2}}=\frac{-3}{4\sqrt{2}}.
+\]
+
+Tangente en $(2; \frac{11}{\sqrt{2}})$ :
+\[
+y=\frac{11}{\sqrt{2}}+\frac{-3}{4\sqrt{2}}(x-2).
+\]
+
+\textbf{Tangente :} $y=\frac{11}{\sqrt{2}} - \frac{3}{4\sqrt{2}}(x-2)$.
+
+\end{solutionbox}
+
+% Exercice 8
+\begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer]}]
+Soit $f$ une fonction définie et dérivable sur $\mathbb{R}$ telle que $f(2)=5$ et le nombre dérivé $f'(2)=-3$. Déterminer l'équation de la tangente à la courbe $C_f$ au point d'abscisse $2$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Le nombre dérivé $f'(2)=-3$ est déjà donné. Au point $a=2$, $f(2)=5$.
+
+L’équation de la tangente :
+\[
+y=f(2)+f'(2)(x-2)=5-3(x-2)=5-3x+6=11-3x.
+\]
+
+\textbf{Tangente : } $y=-3x+11$.
+
+\end{solutionbox}
+
+% Exercice 9
+\begin{exercice}[title=Exercice 9 $\quad \star \quad$ { [Calculer]}]
+Soit $f$ définie sur $\mathbb{R}_+^*$ par $f(x)=\sqrt{x}$. On admet que $f$ est dérivable en $2$ et que le nombre dérivé $f'(2)=\frac{1}{4}$. Déterminer l’équation de la tangente à $C_f$ au point d’abscisse $2$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+On sait $f(2)=\sqrt{2}$ et $f'(2)=\frac{1}{4}$.
+
+Tangente :
+\[
+y = f(2)+f'(2)(x-2)=\sqrt{2}+\frac{1}{4}(x-2).
+\]
+
+\textbf{Tangente : } $y=\sqrt{2}+\frac{1}{4}(x-2)$.
+
+\end{solutionbox}
+
+% Exercice 10
+\begin{exercice}[title=Exercice 10 $\quad \star \star \quad$ { [Calculer, Représenter]}]
+Soit $f$ définie sur $\mathbb{R}_+^*$ par $f(x)=\frac{1}{x}$.
+\begin{enumerate}
+    \item En calculant le taux de variation, montrer que $f$ est dérivable en $1$ et calculer $f'(1)$.
+    \item En déduire l'équation de la tangente $T_1$ à $C_f$ au point d'abscisse $1$.
+    \item Étudier la position relative de $T_1$ par rapport à $C_f$.
+    \item En procédant comme précédemment, déterminer l'équation de la tangente $T_{-1}$ à $C_f$ au point d’abscisse $-1$. Que peut-on dire des droites $T_1$ et $T_{-1}$ ?
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Calcul du nombre dérivé en 1 :}
+
+\[
+f'(1)=\lim_{h \to 0}\frac{f(1+h)-f(1)}{h}=\lim_{h \to 0}\frac{\frac{1}{1+h}-1}{h}.
+\]
+
+\[
+f(1)=1.
+\]
+
+\[
+\frac{1}{1+h}-1=\frac{1-(1+h)}{1+h}=\frac{-h}{1+h}.
+\]
+
+\[
+\frac{f(1+h)-f(1)}{h}=\frac{-h/(1+h)}{h}=\frac{-1}{1+h}.
+\]
+
+En faisant $h \to 0$ :
+\[
+f'(1)=-1.
+\]
+
+\textbf{2. Tangente en $x=1$:}
+
+$f(1)=1$ et $f'(1)=-1$.
+
+Tangente :
+\[
+y=1-1(x-1)=1-(x-1)=2 - x.
+\]
+
+\textbf{Tangente $T_1$: } $y=-x+2$.
+
+\textbf{3. Position de $T_1$ par rapport à $C_f$:}
+
+$f(x)=\frac{1}{x}$ et $T_1(y)=2 - x$.
+
+Comparons $f(x)$ et $2 - x$ pour $x>0$ :
+\[
+\frac{1}{x} \quad \text{et} \quad 2-x.
+\]
+
+Pour $x>0$, si $x<1$, $2-x>1$, mais $1/x>1$ aussi. Vérifions en détail :
+
+À $x=1$, $f(1)=1$ et $T_1(1)=1$ se touchent.
+
+Pour $x<1$, $2-x>1$, et $1/x>1$ mais $1/x$ grandit en descendant $x$, on peut tester $x=1/2$ :
+$f(1/2)=2$, $T_1(1/2)=2-0.5=1.5$, donc $f(x)>T_1(x)$ pour $x=1/2$.
+
+Pour $x>1$, par exemple $x=2$: 
+$f(2)=0.5$, $T_1(2)=0$, donc $f(x)>T_1(x)$ ? Non, ici $f(2)=0.5$ et $T_1(2)=0$ c'est $f(x)>T_1(x)$.
+
+En fait, pour $x>1$, $2-x<1$, mais $1/x<1$, il faut voir lequel est plus grand. À $x=2$, $1/2=0.5$ et $2-2=0$, $f(2)>T_1(2)$.
+
+On constate que pour $x>1$, $f(x)$ descend plus vite. En réalité, la tangente est une corde "approchante" : Comme $f'(1)=-1$, la tangente est sous la courbe si la courbe descend moins vite.
+
+Test $x=0.5$: $f(0.5)=2$, $T_1(0.5)=1.5$, $f>T_1$.  
+$x=2$: $f(2)=0.5$, $T_1(2)=0$, $f>T_1$.
+
+Partout, $f(x)>T_1(x)$ sauf en $x=1$ où ils sont égaux.
+
+\textbf{4. Tangente en $x=-1$:}
+
+On refait le même processus :
+
+\[
+f'( -1)=\lim_{h \to 0}\frac{f(-1+h)-f(-1)}{h}=\lim_{h \to 0}\frac{\frac{1}{-1+h}-\frac{1}{-1}}{h}.
+\]
+
+\[
+f(-1)=-1, \quad \frac{1}{-1}= -1.
+\]
+
+\[
+\frac{1}{-1+h}-\frac{1}{-1}=\frac{-1}{-1+h} - (-1)=\frac{-1}{-1+h}+1=\frac{-1+(-1+h)}{-1+h}=\frac{h}{-1+h}.
+\]
+
+\[
+\frac{f(-1+h)-f(-1)}{h}=\frac{h/(-1+h)}{h}=\frac{1}{-1+h}.
+\]
+
+En faisant $h \to 0$ :
+\[
+f'(-1)=\frac{1}{-1+0}=\frac{1}{-1}=-1.
+\]
+
+Tangente en $x=-1$:
+$f(-1)=f(-1)=\frac{1}{-1}=-1$.
+$f'(-1)=-1$.
+
+Tangente :
+\[
+y=f(-1)+f'(-1)(x+1)=-1-1(x+1)=-1-(x+1)=-x-2.
+\]
+
+\textbf{Tangente $T_{-1}$ :} $y=-x-2$.
+
+Remarquons que $T_1$ : $y=-x+2$ et $T_{-1}$ : $y=-x-2$. Ces deux droites sont parallèles (même coefficient directeur) et distantes l'une de l'autre.
+
+\end{solutionbox}
+
+% Exercice 16
+\begin{exercice}[title=Exercice 16 $\quad \star \star \quad$ { [Représenter, Calculer]}]
+Soit $f(x)=ax^2+bx+c$ un polynôme du second degré. On note $C_f$ sa courbe et on considère deux points $A$ et $B$ de $C_f$ d’abscisses $\alpha$ et $\beta$.
+\begin{enumerate}
+    \item[(a)] Démontrer que l’équation de la tangente à $C_f$ au point $A$ est :
+    \[
+    y = (2a\alpha + b)x + c - a\alpha^2.
+    \]
+    \item[(b)] Déterminer l’équation de la tangente à $C_f$ au point $B$.
+    \item Démontrer que ces tangentes se coupent en un point d’abscisse $\frac{\alpha + \beta}{2}$.
+    \item Vérifier que :
+    \[
+    f(\beta) - f(\alpha) = (\beta - \alpha) f'\left(\frac{\alpha + \beta}{2}\right).
+    \]
+    \item En déduire que la tangente à $C_f$ au point d’abscisse $\dfrac{\alpha + \beta}{2}$ est parallèle à la droite $(AB)$.
+    \item Faire une figure illustrant le résultat.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{Idée générale :} Le nombre dérivé de $f$ en $x=\alpha$ se calcule par le taux d'accroissement:
+\[
+f'(\alpha)=\lim_{h \to 0}\frac{f(\alpha+h)-f(\alpha)}{h}.
+\]
+
+Pour un polynôme $f(x)=ax^2+bx+c$ :
+\[
+f(\alpha)=a\alpha^2+b\alpha+c.
+\]
+
+\[
+f(\alpha+h)=a(\alpha+h)^2+b(\alpha+h)+c = a(\alpha^2+2\alpha h +h^2)+b(\alpha + h)+c.
+\]
+
+\[
+f(\alpha+h)-f(\alpha)= a(\alpha^2+2\alpha h +h^2)+b(\alpha + h)+c - (a\alpha^2+b\alpha+c).
+\]
+
+Simplifions :
+\[
+= a(2\alpha h + h^2)+ b h = 2a\alpha h + ah^2 + bh.
+\]
+
+\[
+\frac{f(\alpha+h)-f(\alpha)}{h} = 2a\alpha + ah + b.
+\]
+
+En faisant $h \to 0$ :
+\[
+f'(\alpha)=2a\alpha + b.
+\]
+
+\textbf{(a)} Équation de la tangente en $A(\alpha; f(\alpha))$ :
+Le coefficient directeur est $f'(\alpha)=2a\alpha + b$.
+\[
+y=f(\alpha)+f'(\alpha)(x-\alpha)=(a\alpha^2+b\alpha+c)+(2a\alpha+b)(x-\alpha).
+\]
+
+Développons :
+\[
+y=a\alpha^2+b\alpha+c+(2a\alpha+b)x - (2a\alpha+b)\alpha
+\]
+
+\[
+y=a\alpha^2+b\alpha+c+(2a\alpha+b)x - (2a\alpha^2+b\alpha)
+\]
+
+Simplifions :
+\[
+y=(2a\alpha+b)x + [a\alpha^2+b\alpha+c -2a\alpha^2 - b\alpha]
+\]
+
+\[
+y=(2a\alpha+b)x + (c - a\alpha^2)
+\]
+
+\textbf{(b)} De même, la tangente en $B(\beta;f(\beta))$ a pour équation :
+\[
+y=(2a\beta+b)x + c - a\beta^2.
+\]
+
+\textbf{(c)} Pour trouver le point d'intersection des deux tangentes, résolvons:
+\[
+(2a\alpha+b)x + c - a\alpha^2 = (2a\beta+b)x + c - a\beta^2.
+\]
+
+\[
+(2a\alpha+b)x - (2a\beta+b)x = -a\beta^2 + a\alpha^2
+\]
+
+\[
+(2a\alpha - 2a\beta)x + (b-b)x = a(\alpha^2 - \beta^2)
+\]
+
+\[
+2a(\alpha-\beta)x = a(\alpha+\beta)(\alpha-\beta)
+\]
+
+\[
+2a(\alpha-\beta)x = a(\alpha-\beta)(\alpha+\beta)
+\]
+
+Si $\alpha \neq \beta$, on simplifie par $(\alpha-\beta)$:
+\[
+2a x = a(\alpha+\beta)
+\]
+
+\[
+x=\frac{\alpha+\beta}{2}.
+\]
+
+\textbf{(d)} Vérifions la relation:
+\[
+f(\beta)-f(\alpha)=(\beta-\alpha)f'\left(\frac{\alpha+\beta}{2}\right).
+\]
+
+Calculons $f(\beta)-f(\alpha)$:
+\[
+f(\beta)=a\beta^2+b\beta+c,\quad f(\alpha)=a\alpha^2+b\alpha+c.
+\]
+
+\[
+f(\beta)-f(\alpha)=a(\beta^2-\alpha^2)+b(\beta-\alpha) = (\beta-\alpha)(a(\beta+\alpha)+b).
+\]
+
+Or, $f'\left(\frac{\alpha+\beta}{2}\right)=2a\cdot\frac{\alpha+\beta}{2}+b=a(\alpha+\beta)+b$.
+
+Donc :
+\[
+f(\beta)-f(\alpha)=(\beta-\alpha)(a(\alpha+\beta)+b) = (\beta-\alpha)f'\left(\frac{\alpha+\beta}{2}\right).
+\]
+
+\textbf{(e)} Interprétons ce résultat: $(AB)$ est la sécante joignant $(\alpha,f(\alpha))$ et $(\beta,f(\beta))$. Le résultat montre que le coefficient directeur de cette sécante est $f'\left(\frac{\alpha+\beta}{2}\right)$. Donc la tangente en $\frac{\alpha+\beta}{2}$ a le même coefficient directeur et est donc parallèle à $(AB)$.
+
+\textbf{(f)} Faire une figure : On dessinera une parabole, deux points $A$ et $B$ dessus, la sécante $(AB)$, et la tangente au point d'abscisse $\frac{\alpha+\beta}{2}$ montrant qu'elle est parallèle à $(AB)$.
+
+\end{solutionbox}
+
+\end{document}
