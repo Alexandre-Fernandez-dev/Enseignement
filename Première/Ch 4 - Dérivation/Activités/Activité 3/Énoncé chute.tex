@@ -1,0 +1,194 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\input{def.tex}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{polyglossia}
+
+\geometry{a4paper, margin=1.5cm}
+
+\pagestyle{empty}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+
+\newtcbtheorem
+  []% init options
+  {bilan}% name
+  {Bilan}% title
+  {%
+    colback=GrayBG,
+    colframe=BlueDef,
+    fonttitle=\bfseries,
+  }% options
+  {bilan}% prefix
+
+\newtcbtheorem
+  []% init options
+  {activite}% name
+  {Activité}% title
+  {%
+    colback=GrayBG,
+    colframe=GreenProp,
+    fonttitle=\bfseries,
+  }% options
+  {act}% prefix
+
+\newtcbtheorem
+  []% init options
+  {method}% name
+  {Méthode}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=RedMet,
+    fonttitle=\bfseries,
+  }% options
+  {met}% prefix
+  
+\newtcbtheorem
+  []% init options
+  {savoir}% name
+  {Savoir-faire du chapitre}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=BlackSav,
+    fonttitle=\bfseries,
+  }% options
+  {sav}% prefix
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+}{%
+  \end{proof}
+}
+
+%\setmainlanguage{french}
+\begin{document}
+
+\small
+
+
+\vfill
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document}}
+}
+
+%\section*{Du nombre dérivé à la fonction dérivée}
+\begin{activite*}{Fonction dérivée}{}
+    \textbf{Objectif :} Comprendre la notion de fonction dérivée pour étudier la vitesse d'un objet en chute libre.
+\end{activite*}
+
+\noindent
+Un solide est lâché sans vitesse initiale depuis une certaine altitude dans le référentiel terrestre. À chaque instant $t$ exprimé en seconde, la distance parcourue par le solide est donnée par la fonction $d(t) = t^2$ exprimée en mètre.
+
+% \begin{figure}[h]
+%     \centering
+%     %\includegraphics[width=0.3\linewidth]{image_solid_chute.png}
+% \end{figure}
+
+\begin{enumerate}
+    \item \textbf{Combien de mètres aura parcouru le solide après 10 s de chute ?}
+
+    \item \textbf{À l’aide du taux de variation $\frac{d(10 + h) - d(10)}{h}$, calculer le nombre dérivé de $d$ en $10$, noté $d'(10)$.} \\
+    Ce nombre est également appelé \textbf{vitesse instantanée} du solide à l’instant $t = 10$. Cette vitesse est ici exprimée en m $\cdot$ s$^{-1}$.
+
+    \item \textbf{En répartissant le travail dans la classe, recopier et compléter à l'aide du taux de variation, le tableau suivant.}
+
+    \[
+    \begin{array}{|c|c|c|c|c|c|}
+    \hline
+    t & 10 & 15 & 20 & 25 & 30 \\
+    \hline
+    d'(t) & 20 &   &   &   &   \\
+    \hline
+    \end{array}
+    \]
+
+    \item \textbf{Conjecturer au vu des résultats précédents une expression de $d'(t)$ en fonction de $t$.}
+
+    \item \textbf{Démontrer la conjecture en s’appuyant sur le calcul de $\frac{d(t + h) - d(t)}{h}$.}
+
+    \item \textbf{Déterminer la vitesse instantanée du solide à l’instant $t = 100$.}
+\end{enumerate}
+
+\vfill
+
+\hrule
+
+\vfill
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document}}
+}
+
+\begin{activite*}{Fonction dérivée}{}
+    \textbf{Objectif :} Comprendre la notion de fonction dérivée pour étudier la vitesse d'un objet en chute libre.
+\end{activite*}
+
+\noindent
+Un solide est lâché sans vitesse initiale depuis une certaine altitude dans le référentiel terrestre. À chaque instant $t$ exprimé en seconde, la distance parcourue par le solide est donnée par la fonction $d(t) = t^2$ exprimée en mètre.
+
+% \begin{figure}[h]
+%     \centering
+%     %\includegraphics[width=0.3\linewidth]{image_solid_chute.png}
+% \end{figure}
+
+\begin{enumerate}
+    \item \textbf{Combien de mètres aura parcouru le solide après 10 s de chute ?}
+
+    \item \textbf{À l’aide du taux de variation $\frac{d(10 + h) - d(10)}{h}$, calculer le nombre dérivé de $d$ en $10$, noté $d'(10)$.} \\
+    Ce nombre est également appelé \textbf{vitesse instantanée} du solide à l’instant $t = 10$. Cette vitesse est ici exprimée en m $\cdot$ s$^{-1}$.
+
+    \item \textbf{En répartissant le travail dans la classe, recopier et compléter à l'aide du taux de variation, le tableau suivant.}
+
+    \[
+    \begin{array}{|c|c|c|c|c|c|}
+    \hline
+    t & 10 & 15 & 20 & 25 & 30 \\
+    \hline
+    d'(t) & 20 &   &   &   &   \\
+    \hline
+    \end{array}
+    \]
+
+    \item \textbf{Conjecturer au vu des résultats précédents une expression de $d'(t)$ en fonction de $t$.}
+
+    \item \textbf{Démontrer la conjecture en s’appuyant sur le calcul de $\frac{d(t + h) - d(t)}{h}$.}
+
+    \item \textbf{Déterminer la vitesse instantanée du solide à l’instant $t = 100$.}
+\end{enumerate}
+
+\vfill
+
+
+\end{document}
