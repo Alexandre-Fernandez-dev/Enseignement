@@ -1250,192 +1250,331 @@ Chapitre 3 \\ Divisibilité - Exercices Corrigés
 % 
 %     \end{solutionbox}
 
-    % Exercice 20
-    \begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
-    Soit $p$ un nombre premier supérieur ou égal à $5$. Montrer que $p^2 - 1$ est divisible par $24$.
-    \end{exercice}
-
-    \begin{solutionbox}{Solution}
-    Nous voulons montrer que $p^2 - 1$ est divisible par $24$ pour tout nombre premier $p \geq 5$.
-
-    \textbf{Décomposition :}
-
-    \[
-    p^2 - 1 = (p - 1)(p + 1)
-    \]
-
-    \textbf{Divisibilité par 2 et 4 :}
-
-    Puisque $p$ est impair ($p \geq 5$), $p$ est impair, donc $p - 1$ et $p + 1$ sont pairs.
-
-    De plus, parmi deux nombres pairs consécutifs, l'un est divisible par $4$.
-
-    Donc, $(p - 1)(p + 1)$ est divisible par $2 \times 4 = 8$.
-
-    \textbf{Divisibilité par 3 :}
-
-    Un nombre premier $p \geq 5$ est tel que $p \equiv 1 \mod 3$ ou $p \equiv 2 \mod 3$ (puisque $p$ n'est pas divisible par $3$).
-
-    - Si $p \equiv 1 \mod 3$, alors $p - 1 \equiv 0 \mod 3$, donc $p - 1$ est multiple de $3$.
-    - Si $p \equiv 2 \mod 3$, alors $p + 1 \equiv 0 \mod 3$, donc $p + 1$ est multiple de $3$.
-
-    Dans les deux cas, $(p - 1)(p + 1)$ est divisible par $3$.
-
-    \textbf{Conclusion :}
-
-    Comme $(p - 1)(p + 1)$ est divisible par $8$ et par $3$, il est donc divisible par $8 \times 3 = 24$.
-
-    Ainsi, $p^2 - 1$ est divisible par $24$ pour tout nombre premier $p \geq 5$.
-
-    \end{solutionbox}
-
-    % Exercice 21
-    \begin{exercice}[title=Exercice 21 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
-    Soit $(u_n)_{n \in \mathbb{N}}$ la suite définie par $u_n = 7n - 5$. Déterminer le nombre de carrés parfaits parmi les $2022$ premiers termes de la suite.
-    \end{exercice}
-
-    \begin{solutionbox}{Solution}
-    Nous cherchons le nombre de $n \in \{1, 2, ..., 2022\}$ tels que $u_n = 7n - 5$ soit un carré parfait.
-
-    Posons $u_n = k^2$, avec $k \in \mathbb{N}$.
-
-    Donc :
-    \[
-    7n - 5 = k^2 \quad \Rightarrow \quad n = \dfrac{k^2 + 5}{7}
-    \]
-
-    Pour que $n$ soit entier, $k^2 + 5$ doit être divisible par $7$.
-
-    Ainsi :
-    \[
-    k^2 + 5 \equiv 0 \mod 7 \quad \Rightarrow \quad k^2 \equiv -5 \mod 7
-    \]
-
-    Or, $-5 \equiv 2 \mod 7$.
-
-    Donc :
-    \[
-    k^2 \equiv 2 \mod 7
-    \]
-
-    Calculons $k^2 \mod 7$ pour $k$ de $0$ à $6$ :
-    \begin{itemize}
-        \item $k = 0$, $k^2 \equiv 0$
-        \item $k = 1$, $k^2 \equiv 1$
-        \item $k = 2$, $k^2 \equiv 4$
-        \item $k = 3$, $k^2 \equiv 2$
-        \item $k = 4$, $k^2 \equiv 2$
-        \item $k = 5$, $k^2 \equiv 4$
-        \item $k = 6$, $k^2 \equiv 1$
-    \end{itemize}
-
-    Les valeurs de $k$ telles que $k^2 \equiv 2 \mod 7$ sont $k \equiv 3$ ou $k \equiv 4$.
-
-    Donc, $k = 7m + 3$ ou $k = 7m + 4$, avec $m \in \mathbb{N}$.
-
-    Calculons $n$ :
-    \begin{itemize}
-        \item Si $k = 7m + 3$ :
-        \[
-        n = \dfrac{(7m + 3)^2 + 5}{7} = \dfrac{49m^2 + 42m + 9 + 5}{7} = 7m^2 + 6m + 2
-        \]
-        \item Si $k = 7m + 4$ :
-        \[
-        n = \dfrac{(7m + 4)^2 + 5}{7} = \dfrac{49m^2 + 56m + 16 + 5}{7} = 7m^2 + 8m + 3
-        \]
-    \end{itemize}
-
-    Nous devons trouver le nombre de valeurs entières de $n$ inférieures ou égales à $2022$.
-
-    Pour $m$ allant de $0$ à $16$ :
-
-    \begin{tabular}{c|c|c}
-    $m$ & $n = 7m^2 + 6m + 2$ & $n = 7m^2 + 8m + 3$ \\
-    \hline
-    $0$ & $2$ & $3$ \\
-    $1$ & $15$ & $18$ \\
-    $2$ & $42$ & $47$ \\
-    $3$ & $83$ & $90$ \\
-    $4$ & $138$ & $147$ \\
-    $5$ & $207$ & $218$ \\
-    $6$ & $290$ & $303$ \\
-    $7$ & $387$ & $402$ \\
-    $8$ & $498$ & $515$ \\
-    $9$ & $623$ & $642$ \\
-    $10$ & $762$ & $783$ \\
-    $11$ & $915$ & $938$ \\
-    $12$ & $1082$ & $1119$ \\
-    $13$ & $1263$ & $1306$ \\
-    $14$ & $1458$ & $1507$ \\
-    $15$ & $1667$ & $1722$ \\
-    $16$ & $1890$ & $1923$ \\
-    \end{tabular}
-
-    Les valeurs de $n$ restent inférieures ou égales à $2022$ pour $m \leq 16$.
-
-    Pour $m = 17$, $n$ dépasse $2022$.
-
-    Il y a donc $17$ valeurs de $n$ pour chaque expression, soit $34$ valeurs au total.
-
-    \textbf{Conclusion :}
-
-    Il y a $34$ carrés parfaits parmi les $2022$ premiers termes de la suite $(u_n)$.
-
-    \end{solutionbox}
-
-    % % Exercice 22
-    % \begin{exercice}[title=Exercice 22 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
-    % Soit $p$ un nombre premier impair. Montrer qu’il existe $n \in \mathbb{N}^*$ tel que $p$ divise $2^n - 1$.
-    % \end{exercice}
-
-    % \begin{solutionbox}{Solution}
-    % Par le petit théorème de Fermat, pour tout nombre premier $p$ et tout entier $a$ non divisible par $p$, on a :
-    % \[
-    % a^{p-1} \equiv 1 \mod p
-    % \]
-
-    % Prenons $a = 2$, qui n'est pas divisible par $p$ (puisque $p$ est impair).
-
-    % Alors :
-    % \[
-    % 2^{p-1} \equiv 1 \mod p
-    % \]
-
-    % Donc, $p$ divise $2^{p-1} - 1$.
-
-    % \textbf{Conclusion :}
-
-    % Pour $n = p - 1$, $p$ divise $2^n - 1$.
-
-    % \end{solutionbox}
-
-    % Exercice 23
-    \begin{exercice}[title=Exercice 23 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
-    Soit $n$ un carré parfait dont le chiffre des unités est $5$. Déterminer son chiffre des dizaines. La condition établie sur les chiffres des unités est-elle une condition nécessaire et suffisante ?
-    \end{exercice}
-
-    \begin{solutionbox}{Solution}
-    Considérons les nombres se terminant par $5$ : $n = k^2$, avec $k$ se terminant par $5$.
-
-    Écrivons $k = 10a + 5$, avec $a \in \mathbb{N}$.
-
-    Calculons $n$ :
-    \[
-    n = k^2 = (10a + 5)^2 = 100a^2 + 100a + 25
-    \]
-
-    Donc, les deux derniers chiffres de $n$ sont $25$, c'est-à-dire que le chiffre des unités est $5$ et le chiffre des dizaines est $2$.
-
-    \textbf{Conclusion :}
-
-    Le chiffre des dizaines de $n$ est toujours $2$ si le chiffre des unités est $5$.
-
-    La condition sur le chiffre des unités étant $5$ est nécessaire et suffisante pour que le chiffre des dizaines du carré parfait soit $2$.
-
-    \end{solutionbox}
+%     % Exercice 20
+%     \begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+%     Soit $p$ un nombre premier supérieur ou égal à $5$. Montrer que $p^2 - 1$ est divisible par $24$.
+%     \end{exercice}
+% 
+%     \begin{solutionbox}{Solution}
+%     Nous voulons montrer que $p^2 - 1$ est divisible par $24$ pour tout nombre premier $p \geq 5$.
+% 
+%     \textbf{Décomposition :}
+% 
+%     \[
+%     p^2 - 1 = (p - 1)(p + 1)
+%     \]
+% 
+%     \textbf{Divisibilité par 2 et 4 :}
+% 
+%     Puisque $p$ est impair ($p \geq 5$), $p$ est impair, donc $p - 1$ et $p + 1$ sont pairs.
+% 
+%     De plus, parmi deux nombres pairs consécutifs, l'un est divisible par $4$.
+% 
+%     Donc, $(p - 1)(p + 1)$ est divisible par $2 \times 4 = 8$.
+% 
+%     \textbf{Divisibilité par 3 :}
+% 
+%     Un nombre premier $p \geq 5$ est tel que $p \equiv 1 \mod 3$ ou $p \equiv 2 \mod 3$ (puisque $p$ n'est pas divisible par $3$).
+% 
+%     - Si $p \equiv 1 \mod 3$, alors $p - 1 \equiv 0 \mod 3$, donc $p - 1$ est multiple de $3$.
+%     - Si $p \equiv 2 \mod 3$, alors $p + 1 \equiv 0 \mod 3$, donc $p + 1$ est multiple de $3$.
+% 
+%     Dans les deux cas, $(p - 1)(p + 1)$ est divisible par $3$.
+% 
+%     \textbf{Conclusion :}
+% 
+%     Comme $(p - 1)(p + 1)$ est divisible par $8$ et par $3$, il est donc divisible par $8 \times 3 = 24$.
+% 
+%     Ainsi, $p^2 - 1$ est divisible par $24$ pour tout nombre premier $p \geq 5$.
+% 
+%     \end{solutionbox}
+% 
+%     % Exercice 21
+%     \begin{exercice}[title=Exercice 21 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+%     Soit $(u_n)_{n \in \mathbb{N}}$ la suite définie par $u_n = 7n - 5$. Déterminer le nombre de carrés parfaits parmi les $2022$ premiers termes de la suite.
+%     \end{exercice}
+% 
+%     \begin{solutionbox}{Solution}
+%     Nous cherchons le nombre de $n \in \{1, 2, ..., 2022\}$ tels que $u_n = 7n - 5$ soit un carré parfait.
+% 
+%     Posons $u_n = k^2$, avec $k \in \mathbb{N}$.
+% 
+%     Donc :
+%     \[
+%     7n - 5 = k^2 \quad \Rightarrow \quad n = \dfrac{k^2 + 5}{7}
+%     \]
+% 
+%     Pour que $n$ soit entier, $k^2 + 5$ doit être divisible par $7$.
+% 
+%     Ainsi :
+%     \[
+%     k^2 + 5 \equiv 0 \mod 7 \quad \Rightarrow \quad k^2 \equiv -5 \mod 7
+%     \]
+% 
+%     Or, $-5 \equiv 2 \mod 7$.
+% 
+%     Donc :
+%     \[
+%     k^2 \equiv 2 \mod 7
+%     \]
+% 
+%     Calculons $k^2 \mod 7$ pour $k$ de $0$ à $6$ :
+%     \begin{itemize}
+%         \item $k = 0$, $k^2 \equiv 0$
+%         \item $k = 1$, $k^2 \equiv 1$
+%         \item $k = 2$, $k^2 \equiv 4$
+%         \item $k = 3$, $k^2 \equiv 2$
+%         \item $k = 4$, $k^2 \equiv 2$
+%         \item $k = 5$, $k^2 \equiv 4$
+%         \item $k = 6$, $k^2 \equiv 1$
+%     \end{itemize}
+% 
+%     Les valeurs de $k$ telles que $k^2 \equiv 2 \mod 7$ sont $k \equiv 3$ ou $k \equiv 4$.
+% 
+%     Donc, $k = 7m + 3$ ou $k = 7m + 4$, avec $m \in \mathbb{N}$.
+% 
+%     Calculons $n$ :
+%     \begin{itemize}
+%         \item Si $k = 7m + 3$ :
+%         \[
+%         n = \dfrac{(7m + 3)^2 + 5}{7} = \dfrac{49m^2 + 42m + 9 + 5}{7} = 7m^2 + 6m + 2
+%         \]
+%         \item Si $k = 7m + 4$ :
+%         \[
+%         n = \dfrac{(7m + 4)^2 + 5}{7} = \dfrac{49m^2 + 56m + 16 + 5}{7} = 7m^2 + 8m + 3
+%         \]
+%     \end{itemize}
+% 
+%     Nous devons trouver le nombre de valeurs entières de $n$ inférieures ou égales à $2022$.
+% 
+%     Pour $m$ allant de $0$ à $16$ :
+% 
+%     \begin{tabular}{c|c|c}
+%     $m$ & $n = 7m^2 + 6m + 2$ & $n = 7m^2 + 8m + 3$ \\
+%     \hline
+%     $0$ & $2$ & $3$ \\
+%     $1$ & $15$ & $18$ \\
+%     $2$ & $42$ & $47$ \\
+%     $3$ & $83$ & $90$ \\
+%     $4$ & $138$ & $147$ \\
+%     $5$ & $207$ & $218$ \\
+%     $6$ & $290$ & $303$ \\
+%     $7$ & $387$ & $402$ \\
+%     $8$ & $498$ & $515$ \\
+%     $9$ & $623$ & $642$ \\
+%     $10$ & $762$ & $783$ \\
+%     $11$ & $915$ & $938$ \\
+%     $12$ & $1082$ & $1119$ \\
+%     $13$ & $1263$ & $1306$ \\
+%     $14$ & $1458$ & $1507$ \\
+%     $15$ & $1667$ & $1722$ \\
+%     $16$ & $1890$ & $1923$ \\
+%     \end{tabular}
+% 
+%     Les valeurs de $n$ restent inférieures ou égales à $2022$ pour $m \leq 16$.
+% 
+%     Pour $m = 17$, $n$ dépasse $2022$.
+% 
+%     Il y a donc $17$ valeurs de $n$ pour chaque expression, soit $34$ valeurs au total.
+% 
+%     \textbf{Conclusion :}
+% 
+%     Il y a $34$ carrés parfaits parmi les $2022$ premiers termes de la suite $(u_n)$.
+% 
+%     \end{solutionbox}
+% 
+%     % % Exercice 22
+%     % \begin{exercice}[title=Exercice 22 $\quad \star \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+%     % Soit $p$ un nombre premier impair. Montrer qu’il existe $n \in \mathbb{N}^*$ tel que $p$ divise $2^n - 1$.
+%     % \end{exercice}
+% 
+%     % \begin{solutionbox}{Solution}
+%     % Par le petit théorème de Fermat, pour tout nombre premier $p$ et tout entier $a$ non divisible par $p$, on a :
+%     % \[
+%     % a^{p-1} \equiv 1 \mod p
+%     % \]
+% 
+%     % Prenons $a = 2$, qui n'est pas divisible par $p$ (puisque $p$ est impair).
+% 
+%     % Alors :
+%     % \[
+%     % 2^{p-1} \equiv 1 \mod p
+%     % \]
+% 
+%     % Donc, $p$ divise $2^{p-1} - 1$.
+% 
+%     % \textbf{Conclusion :}
+% 
+%     % Pour $n = p - 1$, $p$ divise $2^n - 1$.
+% 
+%     % \end{solutionbox}
+% 
+%     % Exercice 23
+%     \begin{exercice}[title=Exercice 23 $\quad \star \star \quad$ { [Chercher, Raisonner] }]{}{}
+%     Soit $n$ un carré parfait dont le chiffre des unités est $5$. Déterminer son chiffre des dizaines. La condition établie sur les chiffres des unités est-elle une condition nécessaire et suffisante ?
+%     \end{exercice}
+% 
+%     \begin{solutionbox}{Solution}
+%     Considérons les nombres se terminant par $5$ : $n = k^2$, avec $k$ se terminant par $5$.
+% 
+%     Écrivons $k = 10a + 5$, avec $a \in \mathbb{N}$.
+% 
+%     Calculons $n$ :
+%     \[
+%     n = k^2 = (10a + 5)^2 = 100a^2 + 100a + 25
+%     \]
+% 
+%     Donc, les deux derniers chiffres de $n$ sont $25$, c'est-à-dire que le chiffre des unités est $5$ et le chiffre des dizaines est $2$.
+% 
+%     \textbf{Conclusion :}
+% 
+%     Le chiffre des dizaines de $n$ est toujours $2$ si le chiffre des unités est $5$.
+% 
+%     La condition sur le chiffre des unités étant $5$ est nécessaire et suffisante pour que le chiffre des dizaines du carré parfait soit $2$.
+% 
+%     \end{solutionbox}
+% 
+%     % Exercice 24
+%     \begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]
+%     Dans chaque cas, déterminer si $a$ est inversible modulo $n$ et déterminer l’inverse le cas échéant.
+%     \begin{enumerate}
+%         \item $a = 3$ et $n = 7$
+%         \item $a = 3$ et $n = 10$
+%         \item $a = 4$ et $n = 12$
+%         \item $a = 6$ et $n = 9$
+%         \item $a = 9$ et $n = 16$
+%     \end{enumerate}
+%     \end{exercice}
+% 
+%     \begin{solutionbox}{Solution}
+%     Pour qu’un entier $a$ soit inversible modulo $n$, il faut que $a$ et $n$ soient premiers entre eux (c’est-à-dire $\gcd(a,n)=1$).
+% 
+%     \begin{enumerate}
+%         \item $a = 3$, $n = 7$ : 
+%         
+%         $\gcd(3,7)=1$, donc $3$ est inversible modulo $7$.  
+%         Pour trouver l’inverse de $3$ modulo $7$, on cherche un entier $x$ tel que $3x \equiv 1 \pmod{7}$.  
+%         Par essais : $3 \times 5 = 15 \equiv 1 \pmod{7}$.  
+%         L’inverse de $3$ modulo $7$ est donc $5$.
+% 
+%         \item $a = 3$, $n = 10$ :
+%         
+%         $\gcd(3,10)=1$, donc $3$ est inversible modulo $10$.  
+%         Cherchons $x$ tel que $3x \equiv 1 \pmod{10}$.  
+%         $3 \times 7 = 21 \equiv 1 \pmod{10}$.  
+%         L’inverse de $3$ modulo $10$ est $7$.
+% 
+%         \item $a = 4$, $n = 12$ :
+%         
+%         $\gcd(4,12)=4 \neq 1$, donc $4$ n’est pas inversible modulo $12$.
+% 
+%         \item $a = 6$, $n = 9$ :
+%         
+%         $\gcd(6,9)=3 \neq 1$, donc $6$ n’est pas inversible modulo $9$.
+% 
+%         \item $a = 9$, $n = 16$ :
+%         
+%         $\gcd(9,16)=1$, donc $9$ est inversible modulo $16$.  
+%         Cherchons $x$ tel que $9x \equiv 1 \pmod{16}$.  
+%         Par essais : $9 \times 9 = 81 \equiv 1 \pmod{16}$ (car $81 - 1 = 80$ est multiple de $16$).  
+%         L’inverse de $9$ modulo $16$ est $9$.
+% 
+%     \end{enumerate}
+%     \end{solutionbox}
+% 
+%     % Exercice 25
+%     \begin{exercice}[title=Exercice 25 $\quad \star \quad$ { [Calculer] }]{}{}
+%     Résoudre dans $\mathbb{Z}$ les équations suivantes :
+%     \begin{enumerate}
+%         \item $3x \equiv 1 \; [11]$
+%         \item $3x \equiv 4 \; [12]$
+%         \item $5x \equiv 7 \; [14]$
+%         \item $5x \equiv 6 \; [8]$
+%     \end{enumerate}
+%     \end{exercice}
+% 
+%     \begin{solutionbox}{Solution}
+% 
+%     \begin{enumerate}
+%         \item $3x \equiv 1 \; [11]$
+% 
+%         $\gcd(3,11)=1$, donc l’équation a une solution.  
+%         L’inverse de $3$ modulo $11$ est $4$ (car $3 \times 4 = 12 \equiv 1 \pmod{11}$).  
+%         Donc $x \equiv 4 \times 1 = 4 \pmod{11}$.  
+%         \textbf{Solution :} $x \equiv 4 \pmod{11}$.
+% 
+%         \item $3x \equiv 4 \; [12]$
+% 
+%         $\gcd(3,12)=3$. Pour qu’une solution existe, $3$ doit diviser $4$. Ce n’est pas le cas.  
+%         \textbf{Conclusion :} Pas de solution.
+% 
+%         \item $5x \equiv 7 \; [14]$
+% 
+%         $\gcd(5,14)=1$. L’inverse de $5$ modulo $14$ est à déterminer.  
+%         Par essais : $5 \times 3 = 15 \equiv 1 \pmod{14}$.  
+%         Donc l’inverse de $5$ modulo $14$ est $3$.  
+%         Ainsi, $x \equiv 3 \times 7 = 21 \equiv 7 \pmod{14}$.  
+%         \textbf{Solution :} $x \equiv 7 \pmod{14}$.
+% 
+%         \item $5x \equiv 6 \; [8]$
+% 
+%         $\gcd(5,8)=1$. L’inverse de $5$ modulo $8$ est $5$ (car $5 \times 5 = 25 \equiv 1 \pmod{8}$).  
+%         Donc $x \equiv 5 \times 6 = 30 \equiv 6 \pmod{8}$.  
+%         \textbf{Solution :} $x \equiv 6 \pmod{8}$.
+%     \end{enumerate}
+%     \end{solutionbox}
+% 
+%     % Exercice 26
+%     \begin{exercice}[title=Exercice 26 $\quad \star \star \quad$ { [Communiquer, Raisonner] }]{}{}
+%     \begin{enumerate}
+%         \item Énoncer la règle de divisibilité par $5$ puis la démontrer.
+%         \item Énoncer la règle de divisibilité par $3$ puis la démontrer.
+%     \end{enumerate}
+%     \end{exercice}
+% 
+%     \begin{solutionbox}{Solution}
+%     \begin{enumerate}
+%         \item \textbf{Règle de divisibilité par 5 :}
+% 
+%         \underline{Énoncé :} Un entier est divisible par 5 si et seulement si son chiffre des unités est 0 ou 5.
+% 
+%         \underline{Démonstration :}
+%         Soit un entier $N$. Écrivons-le en base 10 :
+%         \[
+%         N = 10q + d
+%         \]
+%         où $d$ est le chiffre des unités de $N$ (donc $0 \leq d \leq 9$).
+% 
+%         Si $N$ est divisible par 5, alors $10q + d$ est divisible par 5.  
+%         Or, $10q$ est toujours divisible par 5, car $10 = 2 \times 5$.  
+%         Donc, pour que $10q + d$ soit divisible par 5, il faut que $d$ soit divisible par 5.  
+%         Les chiffres divisibles par 5 sont $0$ et $5$.  
+%         Ainsi, $d = 0$ ou $d = 5$.
+% 
+%         \item \textbf{Règle de divisibilité par 3 :}
+% 
+%         \underline{Énoncé :} Un entier est divisible par 3 si et seulement si la somme de ses chiffres (en base 10) est divisible par 3.
+% 
+%         \underline{Démonstration :}
+%         Écrivons un entier $N$ en base 10, supposons qu’il a $k+1$ chiffres $a_0, a_1, \dots, a_k$ :
+%         \[
+%         N = a_0 + 10a_1 + 10^2 a_2 + \dots + 10^k a_k
+%         \]
+% 
+%         Remarquons que $10 \equiv 1 \pmod{3}$, donc $10^m \equiv 1 \pmod{3}$ pour tout entier $m$.
+% 
+%         Par conséquent :
+%         \[
+%         N \equiv a_0 + a_1 + a_2 + \dots + a_k \pmod{3}
+%         \]
+% 
+%         Ainsi, $N$ est divisible par 3 si et seulement si $a_0 + a_1 + \dots + a_k$ est divisible par 3.
+% 
+%     \end{enumerate}
+%     \end{solutionbox}
 
     % Exercice 24
-    \begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]
+    \begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]{}{}
     Dans chaque cas, déterminer si $a$ est inversible modulo $n$ et déterminer l’inverse le cas échéant.
     \begin{enumerate}
         \item $a = 3$ et $n = 7$
@@ -1445,43 +1584,52 @@ Chapitre 3 \\ Divisibilité - Exercices Corrigés
         \item $a = 9$ et $n = 16$
     \end{enumerate}
     \end{exercice}
-
+    
     \begin{solutionbox}{Solution}
-    Pour qu’un entier $a$ soit inversible modulo $n$, il faut que $a$ et $n$ soient premiers entre eux (c’est-à-dire $\gcd(a,n)=1$).
-
+    Pour être inversible modulo $n$, il faut que $\gcd(a,n) = 1$.
+    
     \begin{enumerate}
-        \item $a = 3$, $n = 7$ : 
-        
-        $\gcd(3,7)=1$, donc $3$ est inversible modulo $7$.  
-        Pour trouver l’inverse de $3$ modulo $7$, on cherche un entier $x$ tel que $3x \equiv 1 \pmod{7}$.  
-        Par essais : $3 \times 5 = 15 \equiv 1 \pmod{7}$.  
-        L’inverse de $3$ modulo $7$ est donc $5$.
-
-        \item $a = 3$, $n = 10$ :
-        
-        $\gcd(3,10)=1$, donc $3$ est inversible modulo $10$.  
-        Cherchons $x$ tel que $3x \equiv 1 \pmod{10}$.  
-        $3 \times 7 = 21 \equiv 1 \pmod{10}$.  
-        L’inverse de $3$ modulo $10$ est $7$.
-
-        \item $a = 4$, $n = 12$ :
-        
-        $\gcd(4,12)=4 \neq 1$, donc $4$ n’est pas inversible modulo $12$.
-
-        \item $a = 6$, $n = 9$ :
-        
-        $\gcd(6,9)=3 \neq 1$, donc $6$ n’est pas inversible modulo $9$.
-
-        \item $a = 9$, $n = 16$ :
-        
-        $\gcd(9,16)=1$, donc $9$ est inversible modulo $16$.  
-        Cherchons $x$ tel que $9x \equiv 1 \pmod{16}$.  
-        Par essais : $9 \times 9 = 81 \equiv 1 \pmod{16}$ (car $81 - 1 = 80$ est multiple de $16$).  
-        L’inverse de $9$ modulo $16$ est $9$.
-
+        \item $(a,n)=(3,7)$ :
+    
+        $\gcd(3,7)=1$, donc 3 est inversible modulo 7.
+    
+        Trouvons $x$ tel que $3x \equiv 1 \pmod{7}$. Par essais :
+        $3 \times 5 =15 \equiv 1 \pmod{7}$.
+    
+        \textbf{Inverse de 3 mod 7: } 5.
+    
+        \item $(a,n)=(3,10)$ :
+    
+        $\gcd(3,10)=1$, donc 3 est inversible modulo 10.
+    
+        Trouvons $x$ tel que $3x \equiv 1 \pmod{10}$ :
+        $3 \times 7=21 \equiv 1 \pmod{10}$.
+    
+        \textbf{Inverse de 3 mod 10 : } 7.
+    
+        \item $(a,n)=(4,12)$ :
+    
+        $\gcd(4,12)=4 \neq 1$, 4 n’est pas inversible modulo 12.
+    
+        \textbf{Pas d’inverse.}
+    
+        \item $(a,n)=(6,9)$ :
+    
+        $\gcd(6,9)=3 \neq 1$, 6 n’est pas inversible modulo 9.
+    
+        \textbf{Pas d’inverse.}
+    
+        \item $(a,n)=(9,16)$ :
+    
+        $\gcd(9,16)=1$, donc 9 est inversible modulo 16.
+    
+        Trouvons $x$ tel que $9x \equiv 1 \pmod{16}$ :
+        $9 \times 9=81 \equiv 1 \pmod{16}$ (car 81-1=80 multiple de 16).
+    
+        \textbf{Inverse de 9 mod 16 : } 9.
     \end{enumerate}
     \end{solutionbox}
-
+    
     % Exercice 25
     \begin{exercice}[title=Exercice 25 $\quad \star \quad$ { [Calculer] }]{}{}
     Résoudre dans $\mathbb{Z}$ les équations suivantes :
@@ -1492,85 +1640,49 @@ Chapitre 3 \\ Divisibilité - Exercices Corrigés
         \item $5x \equiv 6 \; [8]$
     \end{enumerate}
     \end{exercice}
-
-    \begin{solutionbox}{Solution}
-
-    \begin{enumerate}
-        \item $3x \equiv 1 \; [11]$
-
-        $\gcd(3,11)=1$, donc l’équation a une solution.  
-        L’inverse de $3$ modulo $11$ est $4$ (car $3 \times 4 = 12 \equiv 1 \pmod{11}$).  
-        Donc $x \equiv 4 \times 1 = 4 \pmod{11}$.  
-        \textbf{Solution :} $x \equiv 4 \pmod{11}$.
-
-        \item $3x \equiv 4 \; [12]$
-
-        $\gcd(3,12)=3$. Pour qu’une solution existe, $3$ doit diviser $4$. Ce n’est pas le cas.  
-        \textbf{Conclusion :} Pas de solution.
-
-        \item $5x \equiv 7 \; [14]$
-
-        $\gcd(5,14)=1$. L’inverse de $5$ modulo $14$ est à déterminer.  
-        Par essais : $5 \times 3 = 15 \equiv 1 \pmod{14}$.  
-        Donc l’inverse de $5$ modulo $14$ est $3$.  
-        Ainsi, $x \equiv 3 \times 7 = 21 \equiv 7 \pmod{14}$.  
-        \textbf{Solution :} $x \equiv 7 \pmod{14}$.
-
-        \item $5x \equiv 6 \; [8]$
-
-        $\gcd(5,8)=1$. L’inverse de $5$ modulo $8$ est $5$ (car $5 \times 5 = 25 \equiv 1 \pmod{8}$).  
-        Donc $x \equiv 5 \times 6 = 30 \equiv 6 \pmod{8}$.  
-        \textbf{Solution :} $x \equiv 6 \pmod{8}$.
-    \end{enumerate}
-    \end{solutionbox}
-
-    % Exercice 26
-    \begin{exercice}[title=Exercice 26 $\quad \star \star \quad$ { [Communiquer, Raisonner] }]{}{}
-    \begin{enumerate}
-        \item Énoncer la règle de divisibilité par $5$ puis la démontrer.
-        \item Énoncer la règle de divisibilité par $3$ puis la démontrer.
-    \end{enumerate}
-    \end{exercice}
-
+    
     \begin{solutionbox}{Solution}
     \begin{enumerate}
-        \item \textbf{Règle de divisibilité par 5 :}
-
-        \underline{Énoncé :} Un entier est divisible par 5 si et seulement si son chiffre des unités est 0 ou 5.
-
-        \underline{Démonstration :}
-        Soit un entier $N$. Écrivons-le en base 10 :
-        \[
-        N = 10q + d
-        \]
-        où $d$ est le chiffre des unités de $N$ (donc $0 \leq d \leq 9$).
-
-        Si $N$ est divisible par 5, alors $10q + d$ est divisible par 5.  
-        Or, $10q$ est toujours divisible par 5, car $10 = 2 \times 5$.  
-        Donc, pour que $10q + d$ soit divisible par 5, il faut que $d$ soit divisible par 5.  
-        Les chiffres divisibles par 5 sont $0$ et $5$.  
-        Ainsi, $d = 0$ ou $d = 5$.
-
-        \item \textbf{Règle de divisibilité par 3 :}
-
-        \underline{Énoncé :} Un entier est divisible par 3 si et seulement si la somme de ses chiffres (en base 10) est divisible par 3.
-
-        \underline{Démonstration :}
-        Écrivons un entier $N$ en base 10, supposons qu’il a $k+1$ chiffres $a_0, a_1, \dots, a_k$ :
-        \[
-        N = a_0 + 10a_1 + 10^2 a_2 + \dots + 10^k a_k
-        \]
-
-        Remarquons que $10 \equiv 1 \pmod{3}$, donc $10^m \equiv 1 \pmod{3}$ pour tout entier $m$.
-
-        Par conséquent :
-        \[
-        N \equiv a_0 + a_1 + a_2 + \dots + a_k \pmod{3}
-        \]
-
-        Ainsi, $N$ est divisible par 3 si et seulement si $a_0 + a_1 + \dots + a_k$ est divisible par 3.
-
+        \item $3x \equiv 1 \pmod{11}$ :
+    
+        $\gcd(3,11)=1$, donc l’équation a une solution.
+    
+        Inverse de 3 modulo 11 est 4 (car $3 \times 4=12 \equiv 1 \pmod{11}$).
+    
+        $x \equiv 4 \times 1 = 4 \pmod{11}$.
+    
+        \textbf{Solution : } $x \equiv 4 \pmod{11}$.
+    
+        \item $3x \equiv 4 \pmod{12}$ :
+    
+        $\gcd(3,12)=3$. Pour qu’une solution existe, 3 doit diviser 4, ce n’est pas le cas.
+    
+        \textbf{Pas de solution.}
+    
+        \item $5x \equiv 7 \pmod{14}$ :
+    
+        $\gcd(5,14)=1$, donc l’inverse de 5 modulo 14 existe.
+    
+        Cherchons l’inverse de 5 mod14 :
+        $5 \times 3=15 \equiv 1 \pmod{14}$.
+    
+        Inverse de 5 mod14: 3.
+    
+        $x \equiv 3 \times 7=21 \equiv 7 \pmod{14}$.
+    
+        \textbf{Solution : } $x \equiv 7 \pmod{14}$.
+    
+        \item $5x \equiv 6 \pmod{8}$ :
+    
+        $\gcd(5,8)=1$, inverse de 5 mod8 ?
+        $5 \times 5=25 \equiv 1 \pmod{8}$, inverse:5.
+    
+        $x \equiv 5 \times 6=30 \equiv 6 \pmod{8}$.
+    
+        \textbf{Solution : } $x \equiv 6 \pmod{8}$.
     \end{enumerate}
-    \end{solutionbox}
+    \end{solutionbox}    
+
+
     \end{document}
 
