@@ -1572,117 +1572,373 @@ Chapitre 3 \\ Divisibilité - Exercices Corrigés
 % 
 %     \end{enumerate}
 %     \end{solutionbox}
+% 
+%    % Exercice 24
+%    \begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]{}{}
+%    Dans chaque cas, déterminer si $a$ est inversible modulo $n$ et déterminer l’inverse le cas échéant.
+%    \begin{enumerate}
+%        \item $a = 3$ et $n = 7$
+%        \item $a = 3$ et $n = 10$
+%        \item $a = 4$ et $n = 12$
+%        \item $a = 6$ et $n = 9$
+%        \item $a = 9$ et $n = 16$
+%    \end{enumerate}
+%    \end{exercice}
+%    
+%    \begin{solutionbox}{Solution}
+%    Pour être inversible modulo $n$, il faut que $\gcd(a,n) = 1$.
+%    
+%    \begin{enumerate}
+%        \item $(a,n)=(3,7)$ :
+%    
+%        $\gcd(3,7)=1$, donc 3 est inversible modulo 7.
+%    
+%        Trouvons $x$ tel que $3x \equiv 1 \pmod{7}$. Par essais :
+%        $3 \times 5 =15 \equiv 1 \pmod{7}$.
+%    
+%        \textbf{Inverse de 3 mod 7: } 5.
+%    
+%        \item $(a,n)=(3,10)$ :
+%    
+%        $\gcd(3,10)=1$, donc 3 est inversible modulo 10.
+%    
+%        Trouvons $x$ tel que $3x \equiv 1 \pmod{10}$ :
+%        $3 \times 7=21 \equiv 1 \pmod{10}$.
+%    
+%        \textbf{Inverse de 3 mod 10 : } 7.
+%    
+%        \item $(a,n)=(4,12)$ :
+%    
+%        $\gcd(4,12)=4 \neq 1$, 4 n’est pas inversible modulo 12.
+%    
+%        \textbf{Pas d’inverse.}
+%    
+%        \item $(a,n)=(6,9)$ :
+%    
+%        $\gcd(6,9)=3 \neq 1$, 6 n’est pas inversible modulo 9.
+%    
+%        \textbf{Pas d’inverse.}
+%    
+%        \item $(a,n)=(9,16)$ :
+%    
+%        $\gcd(9,16)=1$, donc 9 est inversible modulo 16.
+%    
+%        Trouvons $x$ tel que $9x \equiv 1 \pmod{16}$ :
+%        $9 \times 9=81 \equiv 1 \pmod{16}$ (car 81-1=80 multiple de 16).
+%    
+%        \textbf{Inverse de 9 mod 16 : } 9.
+%    \end{enumerate}
+%    \end{solutionbox}
+%    
+%    % Exercice 25
+%    \begin{exercice}[title=Exercice 25 $\quad \star \quad$ { [Calculer] }]{}{}
+%    Résoudre dans $\mathbb{Z}$ les équations suivantes :
+%    \begin{enumerate}
+%        \item $3x \equiv 1 \; [11]$
+%        \item $3x \equiv 4 \; [12]$
+%        \item $5x \equiv 7 \; [14]$
+%        \item $5x \equiv 6 \; [8]$
+%    \end{enumerate}
+%    \end{exercice}
+%    
+%    \begin{solutionbox}{Solution}
+%    \begin{enumerate}
+%        \item $3x \equiv 1 \pmod{11}$ :
+%    
+%        $\gcd(3,11)=1$, donc l’équation a une solution.
+%    
+%        Inverse de 3 modulo 11 est 4 (car $3 \times 4=12 \equiv 1 \pmod{11}$).
+%    
+%        $x \equiv 4 \times 1 = 4 \pmod{11}$.
+%    
+%        \textbf{Solution : } $x \equiv 4 \pmod{11}$.
+%    
+%        \item $3x \equiv 4 \pmod{12}$ :
+%    
+%        $\gcd(3,12)=3$. Pour qu’une solution existe, 3 doit diviser 4, ce n’est pas le cas.
+%    
+%        \textbf{Pas de solution.}
+%    
+%        \item $5x \equiv 7 \pmod{14}$ :
+%    
+%        $\gcd(5,14)=1$, donc l’inverse de 5 modulo 14 existe.
+%    
+%        Cherchons l’inverse de 5 mod14 :
+%        $5 \times 3=15 \equiv 1 \pmod{14}$.
+%    
+%        Inverse de 5 mod14: 3.
+%    
+%        $x \equiv 3 \times 7=21 \equiv 7 \pmod{14}$.
+%    
+%        \textbf{Solution : } $x \equiv 7 \pmod{14}$.
+%    
+%        \item $5x \equiv 6 \pmod{8}$ :
+%    
+%        $\gcd(5,8)=1$, inverse de 5 mod8 ?
+%        $5 \times 5=25 \equiv 1 \pmod{8}$, inverse:5.
+%    
+%        $x \equiv 5 \times 6=30 \equiv 6 \pmod{8}$.
+%    
+%        \textbf{Solution : } $x \equiv 6 \pmod{8}$.
+%    \end{enumerate}
+%    \end{solutionbox}    
+%
+%
+% Exercice 26
+\begin{exercice}[title=Exercice 26 $\quad \star \star \quad$ { [Communiquer, Raisonner]}]{}{}
+\begin{enumerate}
+    \item Énoncer la règle de divisibilité par $5$ puis la démontrer.
+    \item Énoncer la règle de divisibilité par $3$ puis la démontrer.
+\end{enumerate}
+\end{exercice}
 
-    % Exercice 24
-    \begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]{}{}
-    Dans chaque cas, déterminer si $a$ est inversible modulo $n$ et déterminer l’inverse le cas échéant.
-    \begin{enumerate}
-        \item $a = 3$ et $n = 7$
-        \item $a = 3$ et $n = 10$
-        \item $a = 4$ et $n = 12$
-        \item $a = 6$ et $n = 9$
-        \item $a = 9$ et $n = 16$
-    \end{enumerate}
-    \end{exercice}
-    
-    \begin{solutionbox}{Solution}
-    Pour être inversible modulo $n$, il faut que $\gcd(a,n) = 1$.
-    
-    \begin{enumerate}
-        \item $(a,n)=(3,7)$ :
-    
-        $\gcd(3,7)=1$, donc 3 est inversible modulo 7.
-    
-        Trouvons $x$ tel que $3x \equiv 1 \pmod{7}$. Par essais :
-        $3 \times 5 =15 \equiv 1 \pmod{7}$.
-    
-        \textbf{Inverse de 3 mod 7: } 5.
-    
-        \item $(a,n)=(3,10)$ :
-    
-        $\gcd(3,10)=1$, donc 3 est inversible modulo 10.
-    
-        Trouvons $x$ tel que $3x \equiv 1 \pmod{10}$ :
-        $3 \times 7=21 \equiv 1 \pmod{10}$.
-    
-        \textbf{Inverse de 3 mod 10 : } 7.
-    
-        \item $(a,n)=(4,12)$ :
-    
-        $\gcd(4,12)=4 \neq 1$, 4 n’est pas inversible modulo 12.
-    
-        \textbf{Pas d’inverse.}
-    
-        \item $(a,n)=(6,9)$ :
-    
-        $\gcd(6,9)=3 \neq 1$, 6 n’est pas inversible modulo 9.
-    
-        \textbf{Pas d’inverse.}
-    
-        \item $(a,n)=(9,16)$ :
-    
-        $\gcd(9,16)=1$, donc 9 est inversible modulo 16.
-    
-        Trouvons $x$ tel que $9x \equiv 1 \pmod{16}$ :
-        $9 \times 9=81 \equiv 1 \pmod{16}$ (car 81-1=80 multiple de 16).
-    
-        \textbf{Inverse de 9 mod 16 : } 9.
-    \end{enumerate}
-    \end{solutionbox}
-    
-    % Exercice 25
-    \begin{exercice}[title=Exercice 25 $\quad \star \quad$ { [Calculer] }]{}{}
-    Résoudre dans $\mathbb{Z}$ les équations suivantes :
-    \begin{enumerate}
-        \item $3x \equiv 1 \; [11]$
-        \item $3x \equiv 4 \; [12]$
-        \item $5x \equiv 7 \; [14]$
-        \item $5x \equiv 6 \; [8]$
-    \end{enumerate}
-    \end{exercice}
-    
-    \begin{solutionbox}{Solution}
-    \begin{enumerate}
-        \item $3x \equiv 1 \pmod{11}$ :
-    
-        $\gcd(3,11)=1$, donc l’équation a une solution.
-    
-        Inverse de 3 modulo 11 est 4 (car $3 \times 4=12 \equiv 1 \pmod{11}$).
-    
-        $x \equiv 4 \times 1 = 4 \pmod{11}$.
-    
-        \textbf{Solution : } $x \equiv 4 \pmod{11}$.
-    
-        \item $3x \equiv 4 \pmod{12}$ :
-    
-        $\gcd(3,12)=3$. Pour qu’une solution existe, 3 doit diviser 4, ce n’est pas le cas.
-    
-        \textbf{Pas de solution.}
-    
-        \item $5x \equiv 7 \pmod{14}$ :
-    
-        $\gcd(5,14)=1$, donc l’inverse de 5 modulo 14 existe.
-    
-        Cherchons l’inverse de 5 mod14 :
-        $5 \times 3=15 \equiv 1 \pmod{14}$.
-    
-        Inverse de 5 mod14: 3.
-    
-        $x \equiv 3 \times 7=21 \equiv 7 \pmod{14}$.
-    
-        \textbf{Solution : } $x \equiv 7 \pmod{14}$.
-    
-        \item $5x \equiv 6 \pmod{8}$ :
-    
-        $\gcd(5,8)=1$, inverse de 5 mod8 ?
-        $5 \times 5=25 \equiv 1 \pmod{8}$, inverse:5.
-    
-        $x \equiv 5 \times 6=30 \equiv 6 \pmod{8}$.
-    
-        \textbf{Solution : } $x \equiv 6 \pmod{8}$.
-    \end{enumerate}
-    \end{solutionbox}    
+\begin{solutionbox}{Solution}
+\begin{enumerate}
+    \item \textbf{Règle de divisibilité par 5 :}
 
+    \underline{Énoncé :} Un entier est divisible par 5 si et seulement si son chiffre des unités est 0 ou 5.
 
-    \end{document}
+    \underline{Preuve :}  
+    Soit un entier $N$. On l’écrit en base 10 :  
+    \[
+    N = 10q + d
+    \]
+    où $d$ est le chiffre des unités ($0 \leq d \leq 9$).
+
+    $10q$ est toujours divisible par 5, car $10 = 2 \times 5$. Pour que $N$ soit divisible par 5, il faut que $d$ soit divisible par 5. Les seuls chiffres divisibles par 5 sont 0 et 5.
+
+    Donc $N$ est divisible par 5 si et seulement si $d=0$ ou $d=5$.
+
+    \item \textbf{Règle de divisibilité par 3 :}
+
+    \underline{Énoncé :} Un entier est divisible par 3 si et seulement si la somme de ses chiffres en base 10 est divisible par 3.
+
+    \underline{Preuve :}  
+    Écrivons $N$ en base 10 :
+    \[
+    N = a_0 + 10a_1 + 10^2 a_2 + \dots + 10^k a_k
+    \]
+    Comme $10 \equiv 1 \pmod{3}$, chaque $10^m \equiv 1 \pmod{3}$.  
+    Donc $N \equiv a_0 + a_1 + \dots + a_k \pmod{3}$.
+
+    $N$ est divisible par 3 si et seulement si la somme $a_0+a_1+\cdots+a_k$ est divisible par 3.
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 27
+\begin{exercice}[title=Exercice 27 $\quad \star \star \star \quad$ { [Raisonner, Communiquer, Chercher]}]{}{}
+La propriété de décomposition d’un entier $n$ en base 10 s'énonce :
+Pour tout $n \in \mathbb{N}$, il existe un unique $r \in \mathbb{N}$ et des entiers uniques $a_0,\dots,a_r$ tels que $0 \leq a_i \leq 9$, $a_r \neq 0$ et 
+\[
+n = \sum_{k=0}^r a_k 10^k.
+\]
+\begin{enumerate}
+    \item Énoncer la propriété de décomposition en base 2.
+    \item Démontrer la propriété énoncée à la question 1.
+    \item Décomposer 113 en base 2.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\begin{enumerate}
+    \item \textbf{Propriété de décomposition en base 2 :}
+
+    Pour tout $n \in \mathbb{N}$, il existe un unique $r \in \mathbb{N}$ et des entiers $b_0,b_1,\ldots,b_r$ tels que $b_i \in \{0,1\}$, $b_r=1$, et
+    \[
+    n=\sum_{k=0}^r b_k 2^k.
+    \]
+
+    \item \textbf{Démonstration :}
+
+    On procède par division par 2.  
+    Pour un entier $n$, on divise par 2 :  
+    - Le reste est $b_0 \in \{0,1\}$.
+    - Le quotient est $q_1$.  
+    On répète avec $q_1$ jusqu’à obtenir un quotient final $q_r=0$ et un reste final $b_r=1$.
+
+    L'unicité vient de l’unicité de la division euclidienne.
+
+    \item \textbf{Décomposer 113 en base 2 :}
+
+    Divisons 113 par 2 :
+    \[
+    113 \div 2 = 56 \text{ reste } 1
+    \]
+    $b_0=1$.
+
+    $56 \div 2 = 28$ reste 0, $b_1=0$.
+
+    $28 \div 2=14$ reste 0, $b_2=0$.
+
+    $14 \div 2=7$ reste 0, $b_3=0$.
+
+    $7 \div 2=3$ reste 1, $b_4=1$.
+
+    $3 \div 2=1$ reste 1, $b_5=1$.
+
+    $1 \div 2=0$ reste 1, $b_6=1$.
+
+    Donc $113=(1)(2^6)+(1)(2^5)+(1)(2^4)+(0)(2^3)+(0)(2^2)+(0)(2^1)+(1)(2^0)$.
+
+    En base 2 : $113_{10}=1110001_2$.
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 28
+\begin{exercice}[title=Exercice 28 $\quad \star \star \quad$ { [Communiquer, Calculer]}]{}{}
+Les entiers $1,11,111,\dots$ sont les reps-units. On note $N_p$ le rep-unit avec $p$ fois le chiffre 1:
+\[
+N_p=\sum_{k=0}^{p-1}10^k.
+\]
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Montrer que $N_p=\frac{10^p -1}{9}$.
+        \item En déduire que pour tout $p \geq 1$, $9$ divise $10^p -1$.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Déterminer le reste de la division de $10^p$ par $7$ suivant $p$.
+        \item En déduire les $p$ pour lesquels $N_p$ est divisible par $7$.
+    \end{enumerate}
+    \item Montrer que si $p$ est pair, $N_p$ est divisible par $11$.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\begin{enumerate}
+    \item (a) 
+    \[
+    N_p=1+10+10^2+\dots+10^{p-1}
+    \]
+    C’est une somme géométrique :
+    \[
+    N_p=\frac{10^p -1}{10-1}=\frac{10^p -1}{9}.
+    \]
+
+    (b) Pour $p\geq 1$, comme $N_p=\frac{10^p -1}{9}$ est un entier, $9$ divise $10^p-1$.
+
+    \item (a)
+    Calculons $10^p \pmod{7}$ :
+    \[
+    10 \equiv 3 \pmod{7}.
+    \]
+    Donc $10^2=100\equiv 2 \pmod{7}$,  
+    $10^3=1000 \equiv 10 \times 100 \equiv 3 \times 2=6 \pmod{7}$,
+    $10^4=10 \times 10^3=10 \times 6=60 \equiv 4 \pmod{7}$,
+    $10^5=10 \times 4=40\equiv 5 \pmod{7}$,
+    $10^6=10 \times 5=50\equiv 1 \pmod{7}$.
+
+    Le cycle est de longueur 6 : $(10^p \mod 7)$ suit $(3,2,6,4,5,1)$ puis recommence.
+
+    (b) 
+    \[
+    N_p=\frac{10^p -1}{9}.
+    \]
+    $N_p$ divisible par 7 si $7 \mid 10^p-1$.
+
+    On cherche $p$ tel que $10^p \equiv 1 \pmod{7}$.  
+    Du cycle, $10^6 \equiv 1 \pmod{7}$.
+    Donc $10^p\equiv 1$ si $p$ est multiple de 6.
+
+    $N_p$ divisible par 7 si $p$ multiple de 6.
+
+    \item Si $p$ est pair,  
+    $N_p=\frac{10^p -1}{9}$.
+
+    On sait que $10 \equiv -1 \pmod{11}$.
+    Donc $10^p \equiv (-1)^p$. Si $p$ est pair, $10^p \equiv 1 \pmod{11}$.
+
+    Donc $10^p -1 \equiv 0 \pmod{11}$,  
+    et $N_p=\frac{10^p -1}{9}$ est multiple de 11 si $9$ est prime à 11 (ce qui est vrai).
+
+    Conclusion: Si $p$ est pair, $N_p$ est divisible par 11.
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 29
+\begin{exercice}[title=Exercice 29 $\quad \star \star \quad$ { [Modéliser, Chercher]}]{}{}
+En informatique, un octet est composé de 7 bits d’information plus 1 bit de parité $m$ tel que $s+m \equiv 0[2]$ où $s$ est la somme des 7 bits.
+\begin{enumerate}
+    \item Déterminer le bit de parité de $1011101$.
+    \item Démontrer que si un seul des sept bits est modifié, le bit de parité détecte l’erreur.
+    \item Dans quel cas les erreurs ne sont pas détectées ?
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\begin{enumerate}
+    \item Pour $1011101$, la somme $s=1+0+1+1+1+0+1=5$.
+    On veut $s+m \equiv 0 \pmod{2}$.  
+    Comme $5 \equiv 1 \pmod{2}$, il faut $m=1$ pour que $5+1=6$ soit pair.
+
+    \textbf{Bit de parité :} $m=1$.
+
+    \item Si un seul bit parmi les 7 est modifié, la somme $s$ change de 1.  
+    Si initialement $s+m$ était pair (0 mod2), après modification d’un bit, $s$ devient $s' = s \pm 1$.  
+    Donc $s' + m$ est devenu impair, ce qui ne vaut plus 0 mod2.  
+    Le bit de parité détecte l’erreur.
+
+    \item Les erreurs non détectées se produisent si un nombre pair de bits est modifié, car la somme $s$ change d’un nombre pair, gardant $s+m$ pair, donc le bit de parité ne signale pas d’erreur.
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 30
+\begin{exercice}[title=Exercice 30 $\quad \star \star \quad$ { [Calculer, Modéliser]}]{}{}
+On chiffre un message : chaque lettre associée à $x \in [0,25]$, on calcule $y$ tel que $y=21x+2[26]$.
+\begin{enumerate}
+    \item Montrer que MATHS se chiffre en UCLTQ.
+    \item Déchiffrer LGVOPY.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{Correspondance :} A=0,B=1,C=2,...,Z=25.
+
+\begin{enumerate}
+    \item M=12, A=0, T=19, H=7, S=18.
+
+    On calcule $y=(21x+2) \mod 26$:
+    \begin{itemize}
+    \item Pour M(12): $21 \times12=252$, $252+2=254$, $254 \mod26=254-(9\times26)=254-234=20$ (20=U).
+    \item A(0): $21 \times0+2=2$ (2=C)
+    \item T(19):$21 \times19=399, 399+2=401$, $401\mod26=401-(15\times26)=401-390=11$ (11=L)
+    \item H(7):$21\times7=147, +2=149$, $149\mod26=149-(5\times26)=149-130=19$ (19=T)
+    \item S(18):$21\times18=378, +2=380$, $380\mod26=380-(14\times26)=380-364=16$ (16=Q)
+    \end{itemize}
+
+    MATHS -> UCLTQ.
+
+    \item Pour déchiffrer, on doit inverser la relation. On a $y=21x+2[26]$.
+
+    On sait que $21$ est inversible mod26. Inverse de 21 mod26?
+    $\gcd(21,26)=1$.
+
+    Cherchons inverse : $21\times5=105\equiv 105-(4\times26)=105-104=1$, donc inverse de 21=5.
+
+    \begin{align*}
+        y&=21x+2\\
+        21x&=y-2\\
+        x&=5(y-2) \mod 26\\
+        x&=5y-10 \mod 26
+    \end{align*}
+
+    On a la relation de déchiffrement: $x \equiv 5y -10 \pmod{26}$.
+
+    Le mot à déchiffrer: L(11),G(6),V(21),O(14),P(15),Y(24).
+
+    \begin{itemize}
+        \item L(11): $x=5*11 -10=55-10=45 \mod26=45-(1\times26)=19$ (19=T)
+        \item G(6): $x=5*6-10=30-10=20 \mod26=20$ (20=U)
+        \item V(21): $x=5*21-10=105-10=95$, $95\mod26=95-(3\times26)=95-78=17$ (17=R)
+        \item O(14):$x=5*14-10=70-10=60$, $60\mod26=60-(2\times26)=60-52=8$ (8=I)
+        \item P(15):$5*15-10=75-10=65$, $65\mod26=65-(2\times26)=65-52=13$(13=N)
+        \item Y(24):$5*24-10=120-10=110$, $110\mod26=110-(4\times26)=110-104=6$(6=G)
+    \end{itemize}
+
+    LGVOPY -> T U R I N G (TURING).
+
+\end{enumerate}
+\end{solutionbox}
+\end{document}
 
