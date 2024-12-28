@@ -1,15 +1,55 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\graphicspath{ {../Images/} }
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 5 \\Dérivation et applications
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
 % Exercice 1
 \begin{exercice}[title=Exercice 1 $\quad \star \quad$ { [Représenter] }]{}{}
 On donne le tableau de signes de la dérivée $f'$ d'une fonction $f$ définie et dérivable sur $\mathbb{R}$.
-\[
-\begin{array}{|c|c|c|c|c|}
-\hline
-x & -\infty & -5 & 1 & +\infty \\
-\hline
-f'(x) & + & 0 & - & + \\
-\hline
-\end{array}
-\]
+\begin{center}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
+\end{center}
 Déterminer les variations de la fonction $f$.
 \end{exercice}
 
@@ -17,7 +57,7 @@ Déterminer les variations de la fonction $f$.
 \begin{exercice}[title=Exercice 2 $\quad \star \quad$ { [Représenter] }]{}{}
 On considère la fonction $f$ définie sur $\mathbb{R}$ dont la courbe est représentée ci-dessous.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 Parmi les trois représentations graphiques ci-contre, laquelle est susceptible de représenter la fonction $f'$, fonction dérivée de la fonction $f$ sur $\mathbb{R}$ ?
 \end{exercice}
@@ -27,7 +67,7 @@ Parmi les trois représentations graphiques ci-contre, laquelle est susceptible 
 Chaque courbe est la représentation graphique de la fonction dérivée $f'$. Dans chaque cas, tracer une courbe susceptible de représenter $f$.  
 Remarque : les trois premières fonctions sont définies et dérivables sur $\mathbb{R}$ alors que la quatrième est définie et dérivable sur $\mathbb{R}^*$.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 \end{exercice}
 
@@ -172,7 +212,7 @@ On considère un carré $ABCD$ de côté $AB = 1$. $EFGH$ est un carré tel que 
   \item $AE = BF = CG = DH = x$ avec $0 \leq x \leq 1$.
 \end{itemize}
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 Déterminer la valeur de $x$ pour laquelle l'aire du carré $EFGH$ est minimale.
 \end{exercice}
@@ -181,7 +221,7 @@ Déterminer la valeur de $x$ pour laquelle l'aire du carré $EFGH$ est minimale.
 \begin{exercice}[title=Exercice 26 $\quad \star \star \quad$ { [Modéliser, Calculer] }]{}{}
 On dispose d’une feuille A4 cartonnée $(210 \times 297 \, \text{mm})$ avec laquelle on souhaite fabriquer une boîte. On découpe la feuille au niveau des pointillés et on relève les rabats afin d’obtenir une boîte sans couvercle. On note $x$ la hauteur de la boîte en mm et $\mathcal{V}(x)$ son volume en mm$^3$.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 Déterminer la valeur de $x$ telle que le volume de la boîte soit maximal.
 \end{exercice}
@@ -200,7 +240,7 @@ Un éditeur doit produire un livre avec les contraintes suivantes : sur chaque p
 \begin{exercice}[title=Exercice 29 $\quad \star \star \star \quad$ { [Chercher, Modéliser, Calculer] }]{}{}
 On souhaite construire une autoroute entre deux villes $A$ et $D$. La partie $[AC]$ existe déjà, mais doit subir une rénovation entre $A$ et $B$ qui coûte $2$ millions d’euros par kilomètre pour être utilisable. Le tronçon $[BD]$ est à construire neuf et coûte $4$ millions d’euros par km. Où doit-on placer le point $B$ sur le segment $[AC]$ afin que le coût de construction de l’autoroute soit minimal ?
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 \end{exercice}
 
@@ -208,7 +248,7 @@ On souhaite construire une autoroute entre deux villes $A$ et $D$. La partie $[A
 \begin{exercice}[title=Exercice 30 $\quad \star \star \star \quad$ { [Chercher, Modéliser, Calculer] }]{}{}
 Dans un disque en carton de rayon $10 \, \text{cm}$, on découpe un secteur d’angle $\alpha$ (en radians). Avec ce secteur, on souhaite fabriquer un cône de révolution.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 Quelle doit être la valeur de $\alpha$ pour que le volume du cône soit maximal ?
 \end{exercice}
@@ -222,7 +262,7 @@ Démontrer que parmi les losanges d'aire $S$ donnée, le carré est celui dont l
 \begin{exercice}[title=Exercice 32 $\quad \star \star \star \quad$ { [Chercher, Modéliser, Calculer] }]{}{}
 $ABC$ est un triangle quelconque, $M$ un point de $[BC]$ à partir duquel on construit le parallélogramme $MQAP$ comme ici-dessous.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 Comment choisir $M$ de sorte que l'aire de ce parallélogramme soit maximale ?
 \end{exercice}
@@ -281,7 +321,7 @@ Une urne contient $3$ boules rouges, $4$ boules bleues et $n$ boules vertes. Les
 \begin{exercice}[title=Exercice 36 $\quad \star \star \quad$ { [Modéliser, Calculer, Raisonner] }]{}{}
 Un automobiliste parcourt une distance de $240$ km sur une autoroute où la vitesse est limitée à $130 \ \text{km.h}^{-1}$. La distance parcourue en fonction du temps (en heures) est représentée ci-dessous.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 \begin{enumerate}
     \item Que pensez-vous du raisonnement suivant ? « L’automobiliste a parcouru les $240$ km en $2$ h, soit une moyenne de $130 \ \text{km.h}^{-1}$, il ne recevra donc pas d’amende ».
@@ -296,7 +336,7 @@ Un automobiliste parcourt une distance de $240$ km sur une autoroute où la vite
 \begin{exercice}[title=Exercice 37 $\quad \star \star \quad$ { [Modéliser, Calculer, Représenter] }]{}{}
 L'objectif de cet exercice est d'étudier la vitesse de propagation d'une maladie. Le nombre de malades en fonction du temps $t$, exprimé en jours, peut-être modélisé par la fonction $f$, définie et dérivable sur l'intervalle $[0; 30]$ par $f(t) = -t^3 + 30t^2$. La courbe représentative de $f$ est donnée ci-dessous.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 On note $v(t)$ la vitesse de propagation de la maladie au temps $t$ c’est-à-dire le nombre de malades supplémentaires par jour (si le nombre de malades diminue, la vitesse devient alors négative).
 \begin{enumerate}
@@ -318,7 +358,7 @@ On réalise deux expériences : une première en plaçant de l'eau oxygénée se
 
 Pour chaque expérience, on représente la quantité de matière d'oxygène qui s'est formée (en mol) en fonction du temps (en min). Les croix correspondent à l'expérience en présence de fer tandis que les points correspondent à l'expérience sans fer.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{placeholder.png}
+%\includegraphics[width=0.8\linewidth]{placeholder.png}
 \end{center}
 \begin{enumerate}
     \item Quelle est la réaction chimique la plus rapide ?
@@ -326,3 +366,7 @@ Pour chaque expérience, on représente la quantité de matière d'oxygène qui 
     \item On peut voir qu'au bout de $60$ min, la quantité de matière d'oxygène n'est pas la même dans les deux expériences. Expliquer.
 \end{enumerate}
 \end{exercice}
+
+\end{multicols}
+
+\end{document}
