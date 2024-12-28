@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\input{def.tex}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{polyglossia}
+
+\pagestyle{empty}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+
+\newtcbtheorem
+  []% init options
+  {bilan}% name
+  {Bilan}% title
+  {%
+    colback=GrayBG,
+    colframe=BlueDef,
+    fonttitle=\bfseries,
+  }% options
+  {bilan}% prefix
+
+\newtcbtheorem
+  []% init options
+  {activite}% name
+  {Activité}% title
+  {%
+    colback=GrayBG,
+    colframe=GreenProp,
+    fonttitle=\bfseries,
+  }% options
+  {act}% prefix
+
+\newtcbtheorem
+  []% init options
+  {method}% name
+  {Méthode}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=RedMet,
+    fonttitle=\bfseries,
+  }% options
+  {met}% prefix
+  
+\newtcbtheorem
+  []% init options
+  {savoir}% name
+  {Savoir-faire du chapitre}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=BlackSav,
+    fonttitle=\bfseries,
+  }% options
+  {sav}% prefix
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+}{%
+  \end{proof}
+}
+
+%\setmainlanguage{french}
+\begin{document}
+
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document}}
+}
+
+\begin{activite*}{Arbre de probabilité}{}
+    \textbf{Objectif :} Appliquer dans un cas concrêt la notion d'arbre de probabilité ainsi que les autres notions vues en cours.
+\end{activite*}
+
+Un jeu de hasard consiste à lancer une pièce de monnaie équilibrée :
+\begin{itemize}
+    \item Si la pièce tombe sur Pile, le joueur perd 1€.
+    \item Si la pièce tombe sur Face, le joueur gagne 1€.
+\end{itemize}
+
+Un joueur commence avec une mise de \( N \) euros (\( N \) étant un entier positif), il effectue plusieurs lancers. On note \( S \) la somme dont il dispose à la fin du jeu. On admet que le jeu s’arrête si le joueur perd la totalité de sa mise. Lorsque la mise est perdue, on dit que le joueur est ruiné. Par exemple, si \( N = 3 \), et qu’il obtient Face, Pile, Pile, Pile, Pile, alors il est ruiné.
+
+\subsection*{Partie A - On suppose dans cette partie que \( N = 4 \).}
+\begin{enumerate}
+    \item Combien de lancers le joueur peut-il effectuer au maximum pour avoir la garantie de ne pas être ruiné ?
+    \item Un joueur décide de s’arrêter au bout du troisième lancer.
+    \begin{enumerate}
+        \item Représenter cette situation par un arbre.
+        \item Déterminer la probabilité d’avoir \( 1€ \) après les 3 lancers. \( 4€ \) ? \( 6€ \) ?
+    \end{enumerate}
+    \item Il décide finalement de poursuivre jusqu’au cinquième lancer. Quelle est la probabilité qu’il soit ruiné ?
+\end{enumerate}
+
+\subsection*{Partie B - On suppose dans cette partie que \( N = 6 \).}
+Un joueur décide d’effectuer jusqu’à huit lancers. Par exemple, un tirage obtenu pour les huit lancers serait : \( P \, F \, F \, P \, P \, F \, F \, F \), pour une somme finale de \( 8€ \).
+\begin{enumerate}
+    \item Quelle est la somme maximale dont peut disposer le joueur à l’issue de ce jeu ? Donner le(s) tirage(s) offrant cette somme maximale.
+    \item Quelle est la probabilité que le joueur soit ruiné après 6 lancers ?
+    \item 
+    \begin{enumerate}
+        \item Lister les tirages menant à la ruine.
+        \item Déterminer la probabilité que le joueur soit ruiné à la fin du jeu.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Est-il possible que la somme finale \( S \) soit égale à \( 10€ \) ? Si oui, donner un tirage possible menant à cette somme, et déterminer le nombre total de tels tirages.
+        \item Quelle est la probabilité que la somme \( S \) soit égale à \( 13€ \) ?
+        \item Quelle est la probabilité que le joueur dispose, à l’issue du jeu, d’une somme paire ?
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

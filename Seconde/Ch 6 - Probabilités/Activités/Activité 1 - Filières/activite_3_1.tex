@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\input{def.tex}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{polyglossia}
+
+\pagestyle{empty}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+
+\newtcbtheorem
+  []% init options
+  {bilan}% name
+  {Bilan}% title
+  {%
+    colback=GrayBG,
+    colframe=BlueDef,
+    fonttitle=\bfseries,
+  }% options
+  {bilan}% prefix
+
+\newtcbtheorem
+  []% init options
+  {activite}% name
+  {Activité}% title
+  {%
+    colback=GrayBG,
+    colframe=GreenProp,
+    fonttitle=\bfseries,
+  }% options
+  {act}% prefix
+
+\newtcbtheorem
+  []% init options
+  {method}% name
+  {Méthode}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=RedMet,
+    fonttitle=\bfseries,
+  }% options
+  {met}% prefix
+  
+\newtcbtheorem
+  []% init options
+  {savoir}% name
+  {Savoir-faire du chapitre}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=BlackSav,
+    fonttitle=\bfseries,
+  }% options
+  {sav}% prefix
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+}{%
+  \end{proof}
+}
+
+%\setmainlanguage{french}
+\begin{document}
+
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document}}
+}
+
+\begin{activite*}{Intersection, Union, Complémentaire}{}
+    \textbf{Objectif :} Appliquer dans un cas concrêt les notions d'intersections, d'unions et de complémentaires d'évènements probabilistes.
+\end{activite*}
+
+Dans un lycée, 200 élèves sont en terminale.
+\begin{itemize}
+    \item 30 \% d’entre eux sont en filière Générale.
+    \item 40 \% en filière ST2S et le reste en STI2D.
+    \item 80 \% des élèves de ST2S sont des filles.
+    \item 75 \% des élèves de STI2D sont des garçons.
+    \item En filière Générale, il y a autant de filles que de garçons.
+\end{itemize}
+
+\textbf{1. Compléter le tableau d’effectifs ci-dessous.}
+
+\[
+\begin{array}{|c|c|c|c|c|}
+\hline
+ & \textbf{Générale} & \textbf{ST2S} & \textbf{STI2D} & \textbf{Total} \\
+\hline
+\textbf{Garçons} & & & & \\
+\hline
+\textbf{Filles} & & & & \\
+\hline
+\textbf{Total} & & & & 200 \\
+\hline
+\end{array}
+\]
+
+\textbf{2. On sélectionne au hasard un élève de terminale parmi tous ces élèves.}
+
+On donne des noms à certains événements :
+\begin{itemize}
+    \item $A$ : « L’élève est en filière Générale »
+    \item $B$ : « L’élève est en ST2S »
+    \item $C$ : « L’élève est en STI2D »
+    \item $F$ : « L’élève est une fille »
+\end{itemize}
+
+\textbf{Questions :}
+\begin{enumerate}
+    \item Exprimer les événements $A \cap F$, $B \cap \overline{F}$ et $\overline{A}$ par des phrases.
+    \item Déterminer $P(A)$ et $P(B)$.
+    \item Déterminer la probabilité que la personne choisie soit une fille.
+    \item Déterminer $P(A \cap F)$ et interpréter dans le contexte de l'exercice.
+    \item Déterminer $P(A \cup F)$ et interpréter dans le contexte de l'exercice.
+    \item Déterminer la probabilité que la personne choisie soit une fille ou soit en ST2S.
+    \item Déterminer la probabilité que la personne interrogée ne soit pas en Générale.
+    \item Cette fois, on choisit une fille au hasard parmi les filles. Quelle est la probabilité que cette élève soit en filière ST2S ?
+\end{enumerate}
+
+\end{document}
