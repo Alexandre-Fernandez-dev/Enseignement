@@ -1,0 +1,168 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\graphicspath{ {../Images/} }
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 5 \\Dérivation et applications
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+\begin{exercice}[title=Exercice 1 $\quad \star \quad$ { [Calculer] }]{}{}
+Dans chaque cas, déterminer le PGCD de $n$ et $m$.
+\begin{enumerate}
+    \item $n = 15$ et $m = 37$
+    \item $n = 32$ et $m = 36$
+    \item $n = 40$ et $m = 8$
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 2 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer l’ensemble des entiers naturels $n \leq 100$ tels que $\text{PGCD}(n; 100) = 20$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Modéliser, Calculer] }]{}{}
+Un fleuriste possède $105$ roses rouges et $63$ roses blanches. Il souhaite composer des bouquets tous identiques.  
+En utilisant toutes les fleurs, quel est le plus grand nombre de bouquets qu’il pourra créer ?
+\end{exercice}
+
+\begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Modéliser, Calculer] }]{}{}
+En astronomie, on observe deux étoiles $A$ et $B$ une même nuit. L’étoile $A$ apparaît périodiquement tous les $35$ jours tandis que l’étoile $B$ apparaît périodiquement tous les $77$ jours.  
+Combien de jours faudra-t-il attendre pour pouvoir observer les étoiles $A$ et $B$ simultanément ?
+\end{exercice}
+
+\begin{exercice}[title=Exercice 5 $\quad \star \quad$ { [Modéliser, Calculer] }]{}{}
+Une association organise une compétition sportive ; $144$ filles et $252$ garçons se sont inscrits. L’association désire répartir les inscrits en équipes mixtes. Le nombre de filles et de garçons doivent être les mêmes dans chaque équipe. Tous les inscrits doivent être dans une des équipes.  
+\begin{enumerate}
+    \item Quel est le nombre maximum d’équipes que cette association peut former ?
+    \item Quelle est alors la composition de chaque équipe ?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 6 $\quad \star \star \star \quad$ { [Calculer, Chercher, Raisonner] }]{}{}
+Soit $n$ un entier naturel impair. Déterminer $\text{PGCD}(n^2 + 2n - 3 ; n^2 + 4n + 3)$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 7 $\quad \star \quad$ { [Calculer] }]{}{}
+Dans chaque cas, déterminer à l’aide de l’algorithme d’Euclide le PGCD de $n$ et $m$.
+\begin{enumerate}
+    \item $n = 150$ et $m = 357$
+    \item $n = 72$ et $m = 448$
+    \item $n = 300$ et $m = 2880$
+    \item $n = 1027$ et $m = 1032$
+\end{enumerate}
+\end{exercice}
+
+% Exercice 8
+\begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]{}{}
+    \begin{enumerate}
+        \item Montrer que la fraction $\frac{1510}{503}$ est irréductible.
+        \item Réduire la fraction $\frac{4389}{5544}$ en fraction irréductible.
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 9
+    \begin{exercice}[title=Exercice 9 $\quad \star \quad$ { [Calculer] }]{}{}
+    Dans chaque cas, déterminer une identité de Bézout entre $n$ et $m$.
+    \begin{enumerate}
+        \item $n = 17$ et $m = 5$
+        \item $n = 25$ et $m = 72$
+        \item $n = 36$ et $m = 300$
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 10
+    \begin{exercice}[title=Exercice 10 $\quad \star \star \quad$ { [Calculer, Raisonner, Chercher] }]{}{}
+    Soit $n \geq 1$ un entier naturel. Déterminer $\text{PGCD}(7n + 9 ; n + 1)$.
+    \end{exercice}
+    
+    % Exercice 11
+    \begin{exercice}[title=Exercice 11 $\quad \star \star \quad$ { [Calculer, Raisonner, Chercher] }]{}{}
+    Montrer que pour tout entier naturel $n \geq 1$, la fraction $\frac{n}{n^2 + 1}$ est irréductible.
+    \end{exercice}
+    
+    % Exercice 12
+    \begin{exercice}[title=Exercice 12 $\quad \star \star \quad$ { [Représenter, Raisonner] }]{}{}
+    Déterminer le PGCD de :
+    \begin{enumerate}
+        \item deux nombres entiers consécutifs ;
+        \item deux nombres entiers pairs consécutifs ;
+        \item deux nombres entiers impairs consécutifs.
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 13
+    \begin{exercice}[title=Exercice 13 $\quad \star \star \quad$ { [Calculer, Chercher] }]{}{}
+    Déterminer tous les couples $(x ; y)$ d'entiers naturels tels que $x + y = 42$ et $\text{PGCD}(x ; y) = 6$.
+    \end{exercice}
+    
+    % Exercice 14
+    \begin{exercice}[title=Exercice 14 $\quad \star \star \quad$ { [Calculer, Chercher] }]{}{}
+    Déterminer tous les couples $(x ; y)$ d'entiers naturels tels que $xy = 100$ et $\text{PGCD}(x ; y) = 5$.
+    \end{exercice}
+    
+    % Exercice 15
+    \begin{exercice}[title=Exercice 15 $\quad \star \star \quad$ { [Calculer, Chercher] }]{}{}
+    Déterminer tous les couples $(x ; y)$ d'entiers naturels tels que $xy = 439230$ et $\text{PGCD}(x ; y) = 121$.
+    \end{exercice}
+    
+    % Exercice 16
+    \begin{exercice}[title=Exercice 16 $\quad \star \star \star \quad$ { [Calculer, Chercher] }]{}{}
+    Dans chaque cas, montrer que pour tout $n \in \mathbb{N}$, $u_n$ et $u_{n+1}$ sont premiers entre eux.
+    \begin{enumerate}
+        \item Suite de Fibonacci : $u_0 = 0$, $u_1 = 1$ et pour tout $n \geq 2$, $u_{n+2} = u_{n+1} + u_n$.
+        \item Nombres de Mersenne : pour tout $n \geq 1$, $u_n = 2^n - 1$.
+        \item Nombres de Fermat : pour tout $n \geq 1$, $u_n = 2^{2^n} + 1$.
+    \end{enumerate}
+    Indication : pour la question 3, on pourra commencer par calculer $u_{n+1} - (u_n - 2) \times u_n$.
+    \end{exercice}
+    
+    % Exercice 17
+    \begin{exercice}[title=Exercice 17 $\quad \star \star \quad$ { [Raisonner, Chercher] }]{}{}
+    Montrer que pour tout entier naturel $n$ non nul, la fraction $\frac{n(2n+1)}{n+1}$ est irréductible.
+    \end{exercice}
+    
+    % Exercice 18
+    \begin{exercice}[title=Exercice 18 $\quad \star \star \star \quad$ { [Raisonner, Chercher] }]{}{}
+    Soient $a$ et $b$ des entiers naturels non nuls. Montrer que si $\frac{a}{b}$ est une fraction irréductible, alors $\frac{ab}{a+b}$ est irréductible.
+    \end{exercice}    
+
+\end{multicols}
+
+\end{document}
