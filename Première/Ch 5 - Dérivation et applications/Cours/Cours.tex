@@ -114,8 +114,11 @@ Chapitre 5 \\Dérivation et applications
 \date{}
 
 \setlength\parindent{0pt}
-\setlist[itemize]{noitemsep}
-\setlist[enumerate]{noitemsep}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
@@ -126,10 +129,12 @@ Chapitre 5 \\Dérivation et applications
 
 \tableofcontents
 
-%\newcommand{\hideM}[1]{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}
-%\newcommand{\hide}[1]{\colorbox{gray!50}{\phantom{#1}}}
-\newcommand{\hideM}[1]{#1}
-\newcommand{\hide}[1]{#1}
+%  %\newcommand{\hideM}[1]{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}
+%  %\newcommand{\hide}[1]{\colorbox{gray!50}{\phantom{#1}}}
+%\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+%\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
 
 \newpage 
 
@@ -138,9 +143,9 @@ Chapitre 5 \\Dérivation et applications
 Soit $f$ une fonction dérivable sur un intervalle I.
 
 \begin{itemize}
-  \item $f$ est croissante sur I si, et seulement si, $f^{\prime}$ est positive sur I.
-  \item $f$ est décroissante sur I si, et seulement si, $f^{\prime}$ est négative sur I.
-  \item $f$ est constante sur I si, et seulement si, $f^{\prime}$ est nulle sur I.
+  \item $f$ est \hide{croissante} sur I si, et seulement si, $f^{\prime}$ est \hide{positive} sur I.
+  \item $f$ est \hide{décroissante} sur I si, et seulement si, $f^{\prime}$ est \hide{négative} sur I.
+  \item $f$ est \hide{constante} sur I si, et seulement si, $f^{\prime}$ est \hide{nulle} sur I.
 \end{itemize}
 \end{proposition}
 
@@ -148,8 +153,8 @@ Soit $f$ une fonction dérivable sur un intervalle I.
 Soit $f$ une fonction dérivable sur un intervalle I.
 
 \begin{itemize}
-  \item Si $f^{\prime}$ est strictement positive sur I sauf pour un nombre fini de réels où elle s'annule, alors $f$ est strictement croissante.
-  \item Si $f^{\prime}$ est strictement négative sur I sauf pour un nombre fini de réels où elle s'annule, alors $f$ est strictement décroissante.
+  \item Si $f^{\prime}$ est \hide{strictement positive} sur I sauf pour un nombre fini de réels où elle s'annule, alors $f$ est \hide{strictement croissante}.
+  \item Si $f^{\prime}$ est \hide{strictement négative} sur I sauf pour un nombre fini de réels où elle s'annule, alors $f$ est \hide{strictement décroissante}.
 \end{itemize}
 \end{proposition}
 
@@ -206,16 +211,15 @@ $$
 \section{Étude des extrema}
 \begin{definition}{(Rappel)}{}
 Soit I un intervalle et $c$ un réel de I . On considère une fonction $f$ définie sur I.\\
-On dit que $f(c)$ est un \textbf{maximum global} sur I lorsque pour tout $x \in I, f(x) \leqslant f(c)$.\\
-On dit que $f(c)$ est un \textbf{minimum global} sur I lorsque pour tout $x \in I, f(x) \geqslant f(c)$.
+On dit que $f(c)$ est un \hide{\textbf{maximum global}} sur I lorsque pour tout $x \in I, \hideM{f(x) \leqslant f(c)}$.
+On dit que $f(c)$ est un \hide{\textbf{minimum global}} sur I lorsque pour tout $x \in I, \hideM{f(x) \geqslant f(c)}$.
 \end{definition}
 
 \begin{definition}{}{}
-Soit I un intervalle et $c$ un réel de I . On considère une fonction $f$ définie sur I .
-
+Soit I un intervalle et $c$ un réel de I . On considère une fonction $f$ définie sur I.
 \begin{itemize}
-  \item Dire que $f(c)$ est un \textbf{maximum local} (respectivement \textbf{minimum local}) de $f$ signifie qu'il existe un intervalle $] a ; b[$ contenant $c($ avec $a \neq b)$ et tel que pour tout $x \in] a ; b[, f(x) \leqslant f(c)$ (respectivement $f(x) \geqslant f(c)$ ).
-  \item Un \textbf{extremum local} est un maximum local ou un minimum local.\\
+  \item Dire que $f(c)$ est un \textbf{maximum local} (respectivement \textbf{minimum local}) de $f$ signifie qu'il existe un intervalle $] a ; b[$ contenant $c$ (avec $a \neq b$) et tel que pour tout $x \in] a ; b[, \hideM{f(x) \leqslant f(c)}$ (respectivement $f(x) \geqslant f(c)$).
+  \item Un \textbf{extremum local}   est un maximum local ou un minimum local.
 \end{itemize}
 \end{definition}
 
@@ -227,8 +231,8 @@ Soit I un intervalle et $c$ un réel de I . On considère une fonction $f$ défi
 Soit $f$ une fonction définie sur un intervalle I et $c$ un réel de I .
 
 \begin{itemize}
-  \item Si $f(c)$ est un maximum global, alors $f(c)$ est un maximum local.
-  \item Si $f(c)$ est un minimum global, alors $f(c)$ est un minimum local.
+  \item Si $f(c)$ est un maximum \hide{global}, alors $f(c)$ est un maximum \hide{local}.
+  \item Si $f(c)$ est un minimum \hide{global}, alors $f(c)$ est un minimum \hide{local}.
 \end{itemize}
 \end{proposition}
 
@@ -244,8 +248,8 @@ Pour s'en convaincre, il suffit de considérer la fonction dont la courbe est re
 Soit $f$ une fonction dérivable sur un intervalle ouvert I et $c$ un réel de I.
 
 \begin{itemize}
-  \item Si $f(c)$ est un extremum local, alors $f^{\prime}(c)=0$.
-  \item Si $f^{\prime}$ s'annule en changeant de signes alors $f(c)$ est un extremum local de $f$.
+  \item Si $f(c)$ est un extremum local, alors $\hideM{f^{\prime}(c)=0}$.
+  \item Si $f^{\prime}$ s'annule en changeant de signes alors $f(c)$ est un \hide{extremum local} de $f$.
 \end{itemize}
 \end{proposition}
 
