@@ -1,0 +1,233 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tasks}
+\graphicspath{ {../Images/} }
+\hyphenpenalty=100000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 6 \\Trigonométrie
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+    breakable=true
+  }% options
+  {ex}% prefix
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+
+% Exercice 1
+\begin{exercice}[title=Exercice 1 $\quad \star \quad$ { [Représenter] }]{}{}
+Pour chacun des réels suivants, dire dans quel quadrant il se trouvera lors de l’enroulement de la droite numérique.
+\begin{center}
+  %\includegraphics[width=0.6\textwidth]{placeholder.png}
+\end{center}
+\begin{tasks}[style=itemize](2)
+    \task $\dfrac{\pi}{5}$
+    \task $\dfrac{7\pi}{3}$
+    \task $-\dfrac{\pi}{4}$
+    \task $-\dfrac{11\pi}{6}$
+    \task $\dfrac{8\pi}{9}$
+    \task $-\dfrac{7\pi}{300}$
+\end{tasks}
+\end{exercice}
+
+% Exercice 2
+\begin{exercice}[title=Exercice 2 $\quad \star \quad$ { [Représenter] }]{}{}
+Tracer le cercle trigonométrique et placer le plus précisément possible les points images des réels suivants :
+\begin{tasks}[style=itemize](2)
+    \task $\dfrac{\pi}{2}$
+    \task $\dfrac{3\pi}{2}$
+    \task $\dfrac{\pi}{4}$
+    \task $\dfrac{5\pi}{6}$
+    \task $\dfrac{\pi}{3}$
+    \task $\dfrac{7\pi}{6}$
+    \task $\dfrac{\pi}{6}$
+    \task $\dfrac{-2\pi}{3}$
+    \task $-\dfrac{\pi}{6}$
+    \task $-\dfrac{4\pi}{3}$
+\end{tasks}
+\end{exercice}
+
+% Exercice 3
+\begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Calculer] }]{}{}
+Pour chacun des nombres suivants, déterminer deux autres réels ayant le même point image lors de l’enroulement de la droite numérique.
+\begin{tasks}[style=itemize](2)
+    \task $\pi$
+    \task $-\dfrac{\pi}{7}$
+    \task $\dfrac{\pi}{4}$
+    \task $\dfrac{5\pi}{6}$
+    \task $\dfrac{3\pi}{2}$
+    \task $\dfrac{7\pi}{10}$.
+\end{tasks}
+\end{exercice}
+
+% Exercice 4
+\begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Représenter] }]{}{}
+Déterminer la mesure en radian de tous les angles d’un triangle équilatéral et d’un triangle isocèle rectangle.
+\end{exercice}
+
+% Exercice 5
+\begin{exercice}[title=Exercice 5 $\quad \star \quad$ { [Calculer] }]{}{}
+\begin{enumerate}
+    \item Convertir les angles suivants en degré:
+    \begin{tasks}[style=itemize](2)
+        \task $\dfrac{\pi}{4}$ rad
+        \task $1$ rad
+        \task $\dfrac{\pi}{5}$ rad
+        \task $\dfrac{5\pi}{60}$ rad
+        \task $\dfrac{3\pi}{7}$ rad.
+        \task $\dfrac{\pi}{12}$ rad.
+    \end{tasks}
+    \item Convertir les angles suivants en radian:
+    \begin{tasks}[style=itemize](2)
+        \task $30^\circ$
+        \task $1^\circ$
+        \task $60^\circ$
+        \task $150^\circ$
+        \task $50^\circ$
+        \task $430^\circ$
+    \end{tasks}
+\end{enumerate}
+\end{exercice}
+
+% Exercice 6
+\begin{exercice}[title=Exercice 6 $\quad \star \quad$ { [Calculer] }]{}{}
+Déterminer la mesure principale des angles suivants :
+    \begin{tasks}[style=itemize](2)
+      \task $\dfrac{7\pi}{4}$
+      \task $-\dfrac{33\pi}{12}$
+      \task $\dfrac{22\pi}{5}$
+      \task $\dfrac{236\pi}{3}$
+      \task $-\dfrac{\pi}{7}$
+      \task $-\dfrac{151\pi}{6}$
+    \end{tasks}
+\end{exercice}
+
+% Exercice 7
+\begin{exercice}[title=Exercice 7 $\quad \star\star \quad$ { [Représenter] }]{}{}
+Écrire une fonction algorithmique en langage Python prenant en entrée la mesure d’un angle et renvoyant, en sortie, la mesure principale de cet angle. Implémenter cet algorithme puis le tester pour quelques valeurs.
+\end{exercice}
+
+% Exercice 8
+\begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Chercher] }]{}{}
+On considère un triangle équilatéral ABC de sens direct et on note $O$ le centre du triangle. Déterminer la mesure en radian des angles orientés suivants :
+    \begin{tasks}[style=itemize](2)
+    \task $(\overrightarrow{AB};\overrightarrow{AO})$
+    \task $(\overrightarrow{OA};\overrightarrow{OB})$
+    \task $(\overrightarrow{AC};\overrightarrow{AO})$
+    \task $(\overrightarrow{BO};\overrightarrow{CO})$
+    \end{tasks}
+\end{exercice}
+
+% Exercice 9
+\begin{exercice}[title=Exercice 9 $\quad \star\star \quad$ { [Chercher] }]{}{}
+On considère un pentagone régulier $ABCDE$ de sens direct et on note $O$ le centre du pentagone. Déterminer la mesure en radian et en degré de l’angle $\widehat{AOB}$ puis de l’angle $\widehat{CBA}$.
+\end{exercice}
+
+% Exercice 10
+\begin{exercice}[title=Exercice 10 $\quad \star\star \quad$ { [Représenter, Calculer] }]{}{}
+Sur la figure ci-dessous, $C$ est le cercle de centre $O$ et de rayon $OA = 3$. On sait de plus que $\widehat{AOB} = 57^\circ$. Déterminer la longueur de l’arc de cercle $\overset{\frown}{AB}$. Arrondir le résultat à $10^{-2}$ près.
+\begin{center}
+%\includegraphics[width=0.5\textwidth]{placeholder.png}
+\end{center}
+\end{exercice}
+
+% Exercice 11
+\begin{exercice}[title=Exercice 1 $\quad \star\star \quad$ { [Représenter] }]{}{}
+Si l’on représentait une boussole par un cercle trigonométrique, à quel angle radian correspondrait la position Sud-Ouest ?
+\end{exercice}
+
+% Exercice 12
+\begin{exercice}[title=Exercice 12 $\quad \star\star \quad$ { [Modéliser] }]{}{}
+  Une minute d’arc est une unité de mesure des angles égale à un soixantième de degré. On a donc :
+  \[
+  1' \text{ (minute d’arc) } = \left(\frac{1}{60}\right)^\circ.
+  \]
+  \begin{enumerate}
+      \item Déterminer la mesure en radian d’un angle d’une minute d’arc.
+      \item Le mille marin est défini comme la distance à parcourir à la surface de la Terre correspondant à un arc de cercle d’une minute d’arc. En considérant la Terre comme une sphère de rayon $R = 6370\,\text{km}$, calculer la longueur d’un mille marin en mètre. Arrondir le résultat à $10$ mètres près.
+  \end{enumerate}
+  \end{exercice}
+  
+  % Exercice 13
+  \begin{exercice}[title=Exercice 13 $\quad \star \quad$ { [Représenter] }]{}{}
+  Soient $\vec{u}$ et $\vec{v}$ tels que $(\vec{u}; \vec{v}) = \frac{\pi}{5}$. Déterminer les mesures des angles orientés suivants :
+  \begin{tasks}[style=itemize]
+      \task $({v}; \vec{u})$
+      \task $(-\vec{u}; \vec{v})$
+      \task $(-\vec{u}; -\vec{v})$
+      \task $(-\vec{v}; \vec{u})$
+      \task $(-\vec{v}; -\vec{u})$
+  \end{tasks}
+  \end{exercice}
+  
+  % Exercice 14
+  \begin{exercice}[title=Exercice 14 $\quad \star\star \quad$ { [Raisonner] }]{}{}
+  Pour chaque question, indiquer si la proposition est vraie ou fausse. Énoncer ensuite la réciproque de la proposition et indiquer si la réciproque est vraie ou fausse.
+  \begin{enumerate}
+      \item Si $ABC$ est un triangle rectangle en $A$, alors $(\overrightarrow{AB}; \overrightarrow{AC}) = \dfrac{\pi}{2}$.
+      \item Soient $\vec{u}$ et $\vec{v}$ deux vecteurs. Si $(\vec{u}; \vec{v}) = -(\vec{v}; \vec{u})$, alors $\vec{u}$ et $\vec{v}$ sont colinéaires et de même sens.
+      \item Soient $\vec{u}_1$, $\vec{u}_2$ et $\vec{v}_2$ des vecteurs. Si $\vec{u}_1$ et $\vec{v}_1$ sont colinéaires et $\vec{u}_2$ et $\vec{v}_2$ sont colinéaires, alors $(\vec{u}_1; \vec{v}_1) = (\vec{u}_2; \vec{v}_2)$.
+  \end{enumerate}
+  \end{exercice}
+  
+  % Exercice 15
+  \begin{exercice}[title=Exercice 15 $\quad \star \quad$ { [Calculer, Représenter] }]{}{}
+  Dans chaque question, le triangle $ABC$ est rectangle en $A$. Dans chaque cas, déterminer à l’aide de la calculatrice la mesure des trois angles du triangle. On arrondira à $0,1^\circ$ près.
+  \begin{enumerate}
+      \item $AB = 5\,\text{cm}$ et $BC = 7\,\text{cm}$
+      \item $AB = 2\,\text{cm}$ et $AC = 2\,\text{cm}$
+      \item $AC = 2\,\text{cm}$ et $BC = 4\,\text{cm}$
+  \end{enumerate}
+  \end{exercice}
+  
+  % Exercice 16
+  \begin{exercice}[title=Exercice 16 $\quad \star \quad$ { [Calculer, Représenter] }]{}{}
+  Dans chaque question, le triangle $KLM$ est rectangle en $K$. Dans chaque cas, déterminer à l’aide de la calculatrice la longueur des trois côtés du triangle. On arrondira à $0,1$ près.
+  \begin{enumerate}
+      \item $KL = 5\,\text{cm}$ et $\widehat{KLM} = 25^\circ$
+      \item $KL = 3\,\text{cm}$ et $\widehat{KLM} = 37^\circ$
+      \item $LM = 10\,\text{cm}$ et $\widehat{KLM} = 41^\circ$
+  \end{enumerate}
+  \end{exercice}
+  
+  % Exercice 17
+  \begin{exercice}[title=Exercice 17 $\quad \star \quad$ { [Calculer] }]{}{}
+  Soit $ABC$ un triangle rectangle en $A$ tel que $\cos(\widehat{ABC}) = \dfrac{1}{2}$. Déterminer la valeur exacte de $\sin(\widehat{ABC})$.
+  \end{exercice}  
+
+\end{multicols}
+
+\end{document}

@@ -1,0 +1,253 @@
+
+\documentclass{exam}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\setlength{\parindent}{0cm}
+
+\usepackage{multicol}
+\newenvironment{clist}{\begin{center}\begin{inparaenum}}{\end{inparaenum}\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+\makeatletter
+\def\gap#1{%
+  \setbox\@tempboxa\hbox{{\color{white}#1}}%
+  \@tempdima\wd\@tempboxa
+  \rlap{\unhbox\@tempboxa}%
+  \hb@xt@\@tempdima{\dotfill}%
+}
+\makeatother   
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+    \large
+
+    \vfill
+
+    \noindent{
+    \makebox[0pt][l]{\textbf{\Niveau}}%
+    \makebox[\textwidth][c]{\textbf{\ChapitreCourt}}%
+    \makebox[0pt][r]{\textbf{\Document\ (B) -- 45min}}
+    }
+
+    \vspace{2mm}
+
+    %\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+    \vspace{2mm}
+    % Exercice 4, 11, 19, 24, 25, 26, 29
+% % Exercice 1
+% \begin{exercice}[title=Exercice 1 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+% Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = x^2$.
+% \begin{enumerate}
+%     \item Montrer que $f$ est dérivable en $1$ et calculer $f'(1)$.
+%     \item Montrer que $f$ est dérivable en $-2$ et calculer $f'(-2)$.
+%     \item Tracer la courbe $C_f$ à la calculatrice et vérifier graphiquement les résultats des questions précédentes.
+% \end{enumerate}
+% \end{exercice}
+
+% % Exercice 2
+% \begin{exercice}[title=Exercice 2 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+% Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = x^2 + 3x - 5$.
+% \begin{enumerate}
+%     \item Montrer que $f$ est dérivable en $-1$ et calculer $f'(-1)$.
+%     \item Tracer la courbe $C_f$ à la calculatrice et vérifier graphiquement le résultat de la question précédente.
+% \end{enumerate}
+% \end{exercice}
+
+% % Exercice 3
+% \begin{exercice}[title=Exercice 3 $\quad \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+% Soit $f$ la fonction définie sur $\mathbb{R}^+$ par
+% $$f(x) = \dfrac{3}{x + 1}$$
+% \begin{enumerate}
+%     \item Montrer que $f$ est dérivable en $3$ et calculer $f'(3)$.
+%     \item Tracer la courbe $C_f$ à la calculatrice et vérifier graphiquement le résultat de la question précédente.
+% \end{enumerate}
+% \end{exercice}
+
+% % Exercice 4
+% \begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Représenter] }]{}{}
+% Soit $f$ une fonction définie sur $\mathbb{R}$, dérivable en $a = 0$ et $a = 2$. On donne ci-dessous la courbe $C_f$ ainsi que la tangente à $C_f$ au point d'abscisse $0$ (en rouge) et la tangente à $C_f$ au point d'abscisse $2$ (en vert).
+% \begin{center}
+% \includegraphics[width=0.9\linewidth]{swappy-20241202_172204.png}
+% \end{center}
+% Déterminer graphiquement $f'(0)$ et $f'(2)$.
+% \end{exercice}
+
+% Exercice 5
+\begin{exercice}
+Soit $f$ une fonction définie sur $\mathbb{R}$, dérivable en $a = -1$ et $a = 1$. On donne ci-dessous la courbe $C_f$ ainsi que la tangente $T_1$ à $C_f$ au point d'abscisse $1$ (en orange) et la tangente $T_2$ à $C_f$ au point d'abscisse $2$ (en vert).
+\begin{center}
+\includegraphics[width=0.6\linewidth]{functionB}
+\end{center}
+Déterminer graphiquement les équations des tangentes $T_1$ et $T_2$ à $C_f$.
+\end{exercice}
+
+% % Exercice 6
+% \begin{exercice}[title=Exercice 6 $\quad \star \quad$ { [Représenter] }]{}{}
+% Soit $f$ une fonction définie sur $\mathbb{R}$, dérivable en $a = -1$ et $a = 1$. On donne ci-dessous la courbe $C_f$ ainsi que les tangentes à la courbe $C_f$ respectivement aux points d'abscisses $-2$, $0$ et $1$.
+% \begin{center}
+% \includegraphics[width=0.9\linewidth]{swappy-20241202_172226.png}
+% \end{center}
+% Déterminer graphiquement les équations des tangentes à la courbe $C_f$ respectivement aux points d'abscisses $-2$, $0$ et $1$.
+% \end{exercice}
+
+% % Exercice 7
+% \begin{exercice}[title=Exercice 7 $\quad \star \quad$ { [Représenter] }]{}{}
+% Pour chaque fonction, tracer la courbe $C_f$ à l'aide de la calculatrice puis déterminer graphiquement l'équation de la tangente à $C_f$ au point d'abscisse $a$.
+% \begin{enumerate}
+%     \item $f(x) = -x^3 + 5x + 7$ et $a = 2$,
+%     \item $f(x) = \dfrac{x}{3 + 8x}$ et $a = 1$,
+%     \item $f(x) = \sqrt{3x + 7}$ et $a = 3$,
+%     \item $f(x) = \dfrac{2x + 7}{\sqrt{x}}$ et $a = 2$.
+% \end{enumerate}
+% \end{exercice}
+
+% % Exercice 8
+% \begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]{}{}
+% Soit $f$ une fonction définie et dérivable sur $\mathbb{R}$ telle que $f(2) = 5$ et $f'(2) = -3$. Déterminer l'équation de la tangente à la courbe $C_f$ au point d'abscisse $2$.
+% \end{exercice}
+
+% % Exercice 9
+% \begin{exercice}[title=Exercice 9 $\quad \star \quad$ { [Calculer] }]{}{}
+% Soit la fonction $f$ définie sur $\mathbb{R}_+^*$ par $f(x) = \sqrt{x}$. On admet que $f$ est dérivable en $2$ et que $f'(2) = \dfrac{1}{4}$. Déterminer l'équation de la tangente à $C_f$ au point d'abscisse $2$.
+% \end{exercice}
+
+% % Exercice 10
+% \begin{exercice}[title=Exercice 10 $\quad \star \star \quad$ { [Calculer, Représenter] }]{}{}
+% Soit la fonction $f$ définie sur $\mathbb{R}_+^*$ par $f(x) = \dfrac{1}{x}$.
+% \begin{enumerate}
+%     \item En calculant le taux de variation, montrer que $f$ est dérivable en $1$ et calculer $f'(1)$.
+%     \item En déduire l'équation de la tangente $T_1$ à $C_f$ au point d'abscisse $1$.
+%     \item Étudier la position relative de la tangente $T_1$ par rapport à $C_f$.
+%     \item En procédant comme précédemment, déterminer l'équation de la tangente $T_{-1}$ à $C_f$ au point d'abscisse $-1$. Que peut-on dire des droites $T_1$ et $T_{-1}$ ?
+% \end{enumerate}
+% \end{exercice}
+
+% % Exercice 11
+% \begin{exercice}[title=Exercice 11 $\quad \star \star \quad$ { [Représenter] }]{}{}
+% On considère une fonction $f$ définie sur $[-3; 3]$ et dérivable pour tout réel $x$ de l’intervalle $[-3; 3]$ dont on donne le tableau de valeurs suivant :
+% 
+% \begin{equation*}\arraycolsep=3pt\def\arraystretch{2}
+% \begin{array}{|c|c|c|c|c|c|c|}
+%     \hline
+%     x & -3 & -1 & 0.5 & 2 & 3 \\
+%     \hline
+%     f(x) & 0 & 1 & 0.5 & 3 & -2 \\
+%     \hline
+%     f'(x) & 2 & 0 & -1 & -1 & 0 \\
+%     \hline
+% \end{array}
+% \end{equation*}
+% Dessiner avec le plus de précision possible la courbe $\mathbf{C}(f)$ sur l'intervalle $[-3; 3]$.
+% \end{exercice}
+
+% Exercice 12
+\begin{exercice}
+    Pour chaque fonction $f$, justifier qu’elle est dérivable en $a$ et déterminer l’équation de la tangente à $C_f$ au point d’abscisse $a$.
+    \begin{enumerate}
+        %\item $f(x) = \dfrac{1}{x}$ et $a = -2$
+        %\item $f(x) = \sqrt{x}$ et $a = 4$
+        %\item $f(x) = x^4$ et $a = 3$
+        \item $f(x) = \sqrt{x}$ et $a = 3$
+        \item $f(x) = \dfrac{1}{x}$ et $a = -6$
+        \item $f(x) = x^3$ et $a = 5$
+    \end{enumerate}
+    \end{exercice}
+    
+    % Exercice 13
+    \begin{exercice}
+    Pour chaque fonction $f$, déterminer son ensemble de définition, son ensemble de dérivabilité en justifiant, puis calculer $f'(x)$ en simplifiant au maximum.
+    \begin{enumerate}
+        % \item $f(x) = 2x^2 - x$
+        % \item $f(x) = \dfrac{x^3}{3} + \dfrac{3}{x}$
+        % \item $f(x) = \dfrac{3\sqrt{x}+1}{5}$
+        % \item $f(x) = \dfrac{x}{\sqrt{x} - 1}$
+        % \item $f(x) = \sqrt{2x - 4}$
+        \item $f(x) = -5x^2 + 5$
+        \item $f(x) = \dfrac{5}{x} - \dfrac{x^4}{4}$
+        \item $f(x) = \dfrac{2x^3-1}{5}$
+        \item $f(x) = \dfrac{\sqrt{x}}{x + 1}$
+        \item $f(x) = \sqrt{-2x + 1}$
+    \end{enumerate}
+    \end{exercice}
+    
+%     % Exercice 16
+%     \begin{exercice}[title=Exercice 16 $\quad \star \star \quad$ { [Représenter, Calculer] }]{}{}
+%     Soit $f$ une fonction polynôme du second degré définie par $f(x) = ax^2 + bx + c$ (avec $a \neq 0$). On note $C_f$ sa courbe représentative dans un repère. On considère par ailleurs deux points $A$ et $B$ de $C_f$ d’abscisses respectives $\alpha$ et $\beta$ telles que $\alpha \neq \beta$.
+%     \begin{enumerate}
+%         \item[(a)] Démontrer que l’équation de la tangente à $C_f$ au point $A$ est :
+%         \[
+%         y = (2a\alpha + b)x + c - a\alpha^2.
+%         \]
+%         \item[(b)] Déterminer de même l’équation de la tangente à $C_f$ au point $B$.
+%         \item Démontrer que ces tangentes se coupent en un point d’abscisse $\frac{\alpha + \beta}{2}$.
+%         \item Vérifier que :
+%         \[
+%         f(\beta) - f(\alpha) = (\beta - \alpha) f'\left(\frac{\alpha + \beta}{2}\right).
+%         \]
+%         \item En déduire que la tangente à $C_f$ au point d’abscisse $\dfrac{\alpha + \beta}{2}$ est parallèle à la droite $(AB)$.
+%         \item Faire une figure illustrant le résultat démontré dans cet exercice.
+%     \end{enumerate}
+%     \end{exercice}    
+
+    % Exercice 17
+\begin{exercice}
+    Soit $f$ la fonction définie sur $\mathbb{R}^+$ par $f(x) = (x+1)\sqrt{x+1}$.
+    \begin{enumerate}
+        \item Justifier que $f$ est dérivable sur $\left]1; +\infty\right[$ et calculer $f'(x)$ pour tout $x \in \left]1; +\infty\right[$.
+        \item En calculant la limite du taux d'accroissement, montrer que $f$ est dérivable en $1$ puis en déduire $f'(1)$.
+        %\item D’après le cours, si $f$ et $g$ sont deux fonctions dérivables en $a$, alors $f \times g$ est dérivable en $a$. La réciproque de cette propriété est-elle vraie ? Justifier.
+    \end{enumerate}
+    \end{exercice}
+    
+    % % Exercice 18
+    % \begin{exercice}[title=Exercice 18 $\quad \star \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+    % Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = |x + 6|$. Étudier la dérivabilité de $f$ en tout point de $\mathbb{R}$.
+    % \end{exercice}
+    
+    % % Exercice 19
+    % \begin{exercice}[title=Exercice 19 $\quad \star \star \star \quad$ { [Calculer, Représenter] }]{}{}
+    % On considère la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = x^3 + x^2 - 7x - 4$. La courbe représentative de $f$ admet-elle des tangentes parallèles à la droite d’équation $y = x + 4$ ? Si oui, préciser en quel(s) point(s).
+    % \end{exercice}
+    
+    % % Exercice 20
+    % \begin{exercice}[title=Exercice 20 $\quad \star \star \star \quad$ { [Calculer, Raisonner] }]{}{}
+    % Soit $f$ la fonction définie sur $\mathbb{R}$ par \\$f(x) = x^2 - 5x + 6$.
+    % \begin{enumerate}
+    %     \item Factoriser le polynôme $f(x)$.
+    %     \item On définit, pour tout $x \in \mathbb{R}$, $$g(x) = |f(x)|.$$
+    %     \begin{enumerate}
+    %         \item Justifier que $g$ est dérivable sur $]-\infty; -3[\ \cup\ ]2; +\infty[$ puis calculer $g'(x)$ pour tout $x$ appartenant à cet intervalle.
+    %         \item Justifier que $g$ est dérivable sur $]-3; 2[$ puis calculer $g'(x)$ pour tout $x$ appartenant à cet intervalle.
+    %         \item Étudier la dérivabilité de $g$ en $-3$ et en $2$.
+    %     \end{enumerate}
+    % \end{enumerate}
+    % \end{exercice}
+    
+    % % Exercice 21
+    % \begin{exercice}[title=Exercice 21 $\quad \star \star \star \quad$ { [Chercher, Calculer, Représenter] }]{}{}
+    % On note $f$ la fonction carrée et $g$ la fonction inverse. Déterminer les tangentes communes aux courbes $C_f$ et $C_g$.
+    % \end{exercice}
+    
+\end{document}

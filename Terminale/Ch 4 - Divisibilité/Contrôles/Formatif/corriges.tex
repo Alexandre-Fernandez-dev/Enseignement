@@ -1,0 +1,390 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+% Couleurs
+\definecolor{SolutionColor}{HTML}{F0F8FF}
+\definecolor{ExerciseColor}{HTML}{E6E6FA}
+
+% Environnements stylisés
+\newtcolorbox{solutionbox}[1]{
+    colback=SolutionColor,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+\newtcolorbox{exercice}[1][]{
+    colback=ExerciseColor,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\begin{document}
+
+% Exercice 1
+\begin{exercice}[title=Exercice 1 $\quad \star \star \quad$ { [Calculer] }]
+Déterminer les entiers naturels \( n \) tels que \( 5 \) divise \( 4n - 3 \).
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons les entiers naturels \( n \) tels que :
+\[
+5 \mid (4n - 3)
+\]
+Cela signifie que \( 4n - 3 \) est divisible par \( 5 \), c’est-à-dire :
+\[
+4n - 3 \equiv 0 \pmod{5}
+\]
+Résolvons cette congruence :
+\[
+4n - 3 \equiv 0 \pmod{5} \\
+4n \equiv 3 \pmod{5}
+\]
+Pour trouver \( n \), nous devons isoler \( n \). Calculons l’inverse de \( 4 \) modulo \( 5 \). Nous cherchons un entier \( k \) tel que :
+\[
+4k \equiv 1 \pmod{5}
+\]
+Essayons \( k = 4 \) :
+\[
+4 \times 4 = 16 \equiv 1 \pmod{5}
+\]
+Donc, \( 4^{-1} \equiv 4 \pmod{5} \).
+
+Multipliant les deux côtés de la congruence \( 4n \equiv 3 \pmod{5} \) par \( 4 \), nous obtenons :
+\[
+n \equiv 4 \times 3 \equiv 12 \equiv 2 \pmod{5}
+\]
+Ainsi, les entiers naturels \( n \) satisfaisant la condition sont ceux de la forme :
+\[
+n = 5k + 2 \quad \text{avec} \quad k \in \mathbb{N}
+\]
+\textbf{Réponse :} Tous les entiers naturels \( n \) tels que \( n \equiv 2 \pmod{5} \), c’est-à-dire \( n = 5k + 2 \) où \( k \) est un entier naturel.
+\end{solutionbox}
+
+% Exercice 2
+\begin{exercice}[title=Exercice 2 $\quad \star \star \quad$ { [Calculer] }]
+Déterminer l’ensemble des entiers relatifs \( n \) tels que \( 3n + 4 \) soit divisible par \( 4n + 3 \).
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons les entiers \( n \) tels que :
+\[
+4n + 3 \mid 3n + 4
+\]
+Cela signifie qu’il existe un entier \( k \) tel que :
+\[
+3n + 4 = k(4n + 3)
+\]
+Développons et réorganisons l’équation :
+\[
+3n + 4 = 4kn + 3k \\
+3n - 4kn = 3k - 4 \\
+n(3 - 4k) = 3k - 4 \\
+n = \frac{3k - 4}{3 - 4k}
+\]
+Pour que \( n \) soit entier, le dénominateur \( 3 - 4k \) doit diviser le numérateur \( 3k - 4 \).
+
+Analysons les cas possibles en essayant des valeurs entières pour \( k \) :
+
+1. **Pour \( k = 1 \) :**
+   \[
+   n = \frac{3(1) - 4}{3 - 4(1)} = \frac{-1}{-1} = 1
+   \]
+   
+2. **Pour \( k = -1 \) :**
+   \[
+   n = \frac{3(-1) - 4}{3 - 4(-1)} = \frac{-7}{7} = -1
+   \]
+   
+3. **Pour \( k = 0 \) :**
+   \[
+   n = \frac{3(0) - 4}{3 - 4(0)} = \frac{-4}{3} \quad (\text{non entier})
+   \]
+   
+4. **Pour \( k = 2 \) :**
+   \[
+   n = \frac{3(2) - 4}{3 - 4(2)} = \frac{2}{-5} \quad (\text{non entier})
+   \]
+   
+5. **Pour \( k = -2 \) :**
+   \[
+   n = \frac{3(-2) - 4}{3 - 4(-2)} = \frac{-10}{11} \quad (\text{non entier})
+   \]
+   
+Aucune autre valeur de \( k \) ne donne un \( n \) entier.
+
+\textbf{Réponse :} Les entiers \( n \) sont \( n = 1 \) et \( n = -1 \).
+\end{solutionbox}
+
+% Exercice 3
+\begin{exercice}[title=Exercice 3 $\quad \star \star \quad$ { [Calculer] }]
+Déterminer l’ensemble des entiers naturels \( n \) tels que \( 7n^2 + 2 \) soit divisible par \( 3 \).
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous cherchons les entiers naturels \( n \) tels que :
+\[
+3 \mid (7n^2 + 2)
+\]
+Cela signifie que :
+\[
+7n^2 + 2 \equiv 0 \pmod{3}
+\]
+Simplifions l'expression modulo 3 :
+\[
+7n^2 + 2 \equiv (7 \mod 3) \times n^2 + (2 \mod 3) \equiv 1 \times n^2 + 2 \equiv n^2 + 2 \pmod{3}
+\]
+Nous devons donc résoudre :
+\[
+n^2 + 2 \equiv 0 \pmod{3} \\
+\Rightarrow n^2 \equiv 1 \pmod{3}
+\]
+Quels sont les carrés modulo 3 ?
+
+Calculons \( n^2 \mod 3 \) pour \( n = 0, 1, 2 \) (les classes modulo 3) :
+\[
+0^2 \equiv 0 \pmod{3} \\
+1^2 \equiv 1 \pmod{3} \\
+2^2 \equiv 4 \equiv 1 \pmod{3}
+\]
+Ainsi, \( n^2 \equiv 1 \pmod{3} \) si et seulement si \( n \equiv 1 \pmod{3} \) ou \( n \equiv 2 \pmod{3} \).
+
+**Conclusion :**
+\[
+n \equiv 1 \pmod{3} \quad \text{ou} \quad n \equiv 2 \pmod{3}
+\]
+Autrement dit, \( n \) n'est pas multiple de 3.
+
+\textbf{Réponse :} Tous les entiers naturels \( n \) tels que \( n \equiv 1 \pmod{3} \) ou \( n \equiv 2 \pmod{3} \), c’est-à-dire \( n \) n'est pas multiple de 3.
+\end{solutionbox}
+
+% Exercice 4
+\begin{exercice}[title=Exercice 4 $\quad \star \star \quad$ { [Calculer] }]
+Déterminer si \( a \) est inversible modulo \( n \) et déterminer l’inverse le cas échéant.
+\begin{enumerate}
+    \item \( a = 3 \) et \( n = 7 \)
+    \item \( a = 6 \) et \( n = 9 \)
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Pour déterminer si un entier \( a \) est inversible modulo \( n \), il faut que \( a \) et \( n \) soient premiers entre eux, c’est-à-dire que \( \gcd(a, n) = 1 \).
+
+\begin{enumerate}
+    \item **Pour \( a = 3 \) et \( n = 7 \) :**
+    
+    Calculons le PGCD de \( 3 \) et \( 7 \) :
+    \[
+    \gcd(3, 7) = 1
+    \]
+    Donc, \( 3 \) est inversible modulo \( 7 \).
+    
+    **Trouvons l'inverse de \( 3 \) modulo \( 7 \) :**
+    
+    Nous cherchons un entier \( x \) tel que :
+    \[
+    3x \equiv 1 \pmod{7}
+    \]
+    Essayons les valeurs de \( x \) de \( 1 \) à \( 6 \) :
+    \[
+    3 \times 1 = 3 \equiv 3 \pmod{7} \\
+    3 \times 2 = 6 \equiv 6 \pmod{7} \\
+    3 \times 3 = 9 \equiv 2 \pmod{7} \\
+    3 \times 4 = 12 \equiv 5 \pmod{7} \\
+    3 \times 5 = 15 \equiv 1 \pmod{7}
+    \]
+    Donc, \( x = 5 \) est l'inverse de \( 3 \) modulo \( 7 \).
+    
+    **Réponse :**
+    \( 3 \) est inversible modulo \( 7 \) et son inverse est \( 5 \).
+    
+    \item **Pour \( a = 6 \) et \( n = 9 \) :**
+    
+    Calculons le PGCD de \( 6 \) et \( 9 \) :
+    \[
+    \gcd(6, 9) = 3
+    \]
+    Comme \( \gcd(6, 9) = 3 \neq 1 \), \( 6 \) n'est pas inversible modulo \( 9 \).
+    
+    **Réponse :**
+    \( 6 \) n’est pas inversible modulo \( 9 \).
+\end{enumerate}
+\end{solutionbox}
+
+% Exercice 5
+\begin{exercice}[title=Exercice 5 $\quad \star \star \quad$ { [Calculer] }]
+Résoudre dans \( \mathbb{Z} \) l'équation \( 5x \equiv 7 \; [14] \).
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+Nous devons résoudre l'équation congruentielle :
+\[
+5x \equiv 7 \pmod{14}
+\]
+Premièrement, déterminons si \( 5 \) est inversible modulo \( 14 \).
+
+Calculons \( \gcd(5, 14) \) :
+\[
+\gcd(5, 14) = 1
+\]
+Comme le PGCD est \( 1 \), \( 5 \) est inversible modulo \( 14 \).
+
+**Trouvons l’inverse de \( 5 \) modulo \( 14 \) :**
+
+Nous cherchons un entier \( y \) tel que :
+\[
+5y \equiv 1 \pmod{14}
+\]
+Essayons les valeurs de \( y \) de \( 1 \) à \( 13 \) :
+\[
+5 \times 1 = 5 \equiv 5 \pmod{14} \\
+5 \times 2 = 10 \equiv 10 \pmod{14} \\
+5 \times 3 = 15 \equiv 1 \pmod{14}
+\]
+Donc, \( y = 3 \) est l'inverse de \( 5 \) modulo \( 14 \).
+
+**Résolution de l'équation :**
+\[
+x \equiv 3 \times 7 \equiv 21 \pmod{14}
+\]
+Simplifions :
+\[
+21 \equiv 7 \pmod{14}
+\]
+Ainsi, \( x \equiv 7 \pmod{14} \).
+
+**Réponse :**
+Les solutions sont tous les entiers \( x \) tels que :
+\[
+x = 7 + 14k \quad \text{avec} \quad k \in \mathbb{Z}
+\]
+\end{solutionbox}
+
+% Exercice 6
+\begin{exercice}[title=Exercice 6 $\quad \star \star \quad$ { [Communiquer, Démontrer] }]
+Énoncer la règle de divisibilité par \( 3 \) puis la démontrer.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+**Règle de Divisibilité par 3 :**
+
+Un entier est divisible par \( 3 \) si et seulement si la somme de ses chiffres en base \( 10 \) est divisible par \( 3 \).
+
+**Démonstration :**
+
+Soit un entier \( N \) écrit en base \( 10 \) comme suit :
+\[
+N = a_k a_{k-1} \dots a_1 a_0
+\]
+où \( a_i \) sont les chiffres de \( N \).
+
+Nous pouvons exprimer \( N \) de la manière suivante :
+\[
+N = a_0 \times 10^0 + a_1 \times 10^1 + a_2 \times 10^2 + \dots + a_k \times 10^k
+\]
+Simplifions chaque terme modulo \( 3 \) :
+\[
+10 \equiv 1 \pmod{3} \quad \Rightarrow \quad 10^i \equiv 1^i \equiv 1 \pmod{3}
+\]
+Ainsi, chaque terme \( a_i \times 10^i \) est congruent à \( a_i \times 1 = a_i \) modulo \( 3 \).
+
+Par conséquent, :
+\[
+N \equiv a_0 + a_1 + a_2 + \dots + a_k \pmod{3}
+\]
+Cela signifie que \( N \) est divisible par \( 3 \) si et seulement si la somme de ses chiffres \( a_0 + a_1 + \dots + a_k \) est divisible par \( 3 \).
+
+**Exemple :**
+
+Prenons \( N = 123 \).
+
+La somme des chiffres est \( 1 + 2 + 3 = 6 \).
+
+Comme \( 6 \) est divisible par \( 3 \), \( 123 \) est divisible par \( 3 \).
+
+\textbf{Conclusion :} La somme des chiffres d'un entier permet de déterminer sa divisibilité par \( 3 \).
+\end{solutionbox}
+
+% Exercice 7
+\begin{exercice}[title=Exercice 7 $\quad \star \star \quad$ { [Communiquer, Démontrer] }]
+En informatique, un octet est composé de huit bits (0 ou 1). Plus précisément, il est composé de sept bits contenant l’information à transmettre auquel on ajoute un bit de parité de la façon suivante : on calcule la somme \( s \) des sept bits constituant l’octet et on prend \( m \) tel que \( s + m \equiv 0 \pmod{2} \).
+
+\begin{enumerate}
+    \item Déterminer le bit de parité de \( 1011001 \).
+    \item Démontrer que si un seul des sept bits contenant l’information est modifié, le bit de parité détecte l’erreur.
+    \item Dans quel cas les erreurs de transmission seront-elles détectées ? Justifier.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\begin{enumerate}
+    \item **Déterminer le bit de parité de \( 1011001 \).**
+    
+    **Analyse :**
+    
+    - Les sept bits d’information sont : \( 1, 0, 1, 1, 0, 0, 1 \).
+    - Calculons la somme \( s \) de ces bits :
+      \[
+      s = 1 + 0 + 1 + 1 + 0 + 0 + 1 = 4
+      \]
+    - Nous voulons trouver le bit de parité \( m \) tel que :
+      \[
+      s + m \equiv 0 \pmod{2}
+      \]
+      Sachant que \( 4 \equiv 0 \pmod{2} \), nous avons :
+      \[
+      0 + m \equiv 0 \pmod{2} \Rightarrow m \equiv 0 \pmod{2}
+      \]
+      Donc, \( m = 0 \).
+    
+    **Réponse :**
+    
+    Le bit de parité de \( 1011001 \) est \( 0 \).
+    
+    \item **Démontrer que si un seul des sept bits contenant l’information est modifié, le bit de parité détecte l’erreur.**
+    
+    **Analyse :**
+    
+    - Supposons qu’un seul bit d’information soit modifié. Cela signifie que la somme \( s \) des bits d’information change de \( \pm 1 \) (si un bit passe de 0 à 1 ou de 1 à 0).
+    - Originalement, \( s + m \equiv 0 \pmod{2} \).
+    - Après la modification d’un bit, la nouvelle somme \( s' = s \pm 1 \).
+    - Ainsi, \( s' + m \equiv (s \pm 1) + m \equiv (s + m) \pm 1 \equiv 0 \pm 1 \equiv 1 \pmod{2} \).
+    - La nouvelle somme \( s' + m \) est donc impair, alors que la parité attendait une somme paire.
+    
+    **Conclusion :**
+    
+    Le bit de parité détecte une erreur car la parité de la somme change.
+    
+    **Réponse :**
+    
+    Si un seul des sept bits est modifié, la somme \( s \) change de parité, rendant \( s + m \) impair. Ainsi, l’erreur est détectée par le bit de parité.
+    
+    \item **Dans quel cas les erreurs de transmission seront-elles détectées ? Justifier.**
+    
+    **Analyse :**
+    
+    - **Cas 1 :** Un nombre impair de bits d’information est modifié.
+      - La somme \( s \) change de parité.
+      - Ainsi, \( s + m \) passe de pair à impair ou vice versa.
+      - L’erreur est détectée.
+    
+    - **Cas 2 :** Un nombre pair de bits d’information est modifié.
+      - La somme \( s \) ne change pas de parité (car un changement pair de bits revient à un changement net de parité pair).
+      - Ainsi, \( s + m \) reste pair.
+      - L’erreur **n’est pas détectée**.
+    
+    **Conclusion :**
+    
+    Les erreurs de transmission sont détectées lorsqu'un nombre impair de bits d’information est modifié.
+    
+    **Réponse :**
+    
+    Les erreurs de transmission sont détectées lorsque le nombre de bits modifiés est impair. Si un nombre pair de bits est modifié, la parité reste inchangée et l’erreur n’est pas détectée.
+\end{enumerate}
+\end{solutionbox}
+
+\end{document}
