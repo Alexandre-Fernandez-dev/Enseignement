@@ -30,8 +30,8 @@
 \definecolor{BrownHist}{HTML}{8b5a2b}
 \definecolor{BlackSav}{HTML}{000000}
 
-\newcommand{\hideM}[1]{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}
-\newcommand{\hide}[1]{\colorbox{gray!50}{\phantom{#1}}}
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
 %\newcommand{\hideM}[1]{#1}
 %\newcommand{\hide}[1]{#1}
 
@@ -142,7 +142,7 @@ Chapitre 5 \\ Arithmétique PGCD et applications
 \begin{definition}{}{}
 Soient $a, b \in \mathbb{Z}$ tels que $(a ; b) \neq(0,0)$.\\
 L'ensemble des diviseurs communs à $a$ et à $b$ admet un plus grand élément appelé \textbf{Plus\\
-Grand Commun Diviseur de a et b}, noté $\operatorname{PGCD}(a ; b)$.
+Grand Commun Diviseur de a et b}, noté \hide{$\operatorname{PGCD}(a ; b)$}.
 \end{definition}
 
 \begin{demo}
@@ -161,15 +161,15 @@ L'ensemble des diviseurs communs à $a$ et à $b$ admet un plus grand élément 
 Soient $a, b \in \mathbb{Z}$ tels que $(a ; b) \neq(0 ; 0)$.
 
 $$
-\operatorname{PGCD}(a ; b)=\operatorname{PGCD}(|a| ;|b|)
+\operatorname{PGCD}(a ; b)=\hideM{\operatorname{PGCD}(|a| ;|b|)}
 $$
 \end{proposition}
 
 \begin{proposition}{}{}
 Soient $a, b \in \mathbb{N}$ tels que $a \neq 0$.
 \begin{itemize}[noitemsep,topsep=0pt]
-  \item $\operatorname{PGCD}(a ; b) \geqslant 1$;
-  \item $a \mid b \Longleftrightarrow \operatorname{PGCD}(a ; b)=a$;
+  \item $\operatorname{PGCD}(a ; b) \geqslant \hideM{1}$;
+  \item $a \mid b \Longleftrightarrow \operatorname{PGCD}(a ; b)=\hideM{a}$;
 \end{itemize}
 \end{proposition}
 
@@ -179,7 +179,7 @@ Soient $a, b \in \mathbb{N}$ tels que $a \neq 0$.
 Soient $a, b \in \mathbb{N}^{*}$ tels que $a>b$. On note $q$ et $r$ le quotient et le reste de la division euclidienne de $a$ par $b$. Alors,
 
 $$
-\operatorname{PGCD}(a ; b)=\operatorname{PGCD}(b ; r)
+\operatorname{PGCD}(a ; b)=\hideM{\operatorname{PGCD}(b ; r)}
 $$
 \end{proposition}
 
@@ -210,11 +210,11 @@ On définit par récurrence la suite d'entiers naturels $\left(r_{n}\right)_{n \
 
 \begin{itemize}[noitemsep,topsep=0pt]
   \item $r_{0}$ est le reste de la division euclidienne de $a$ par $b$.
-  \item $\rightarrow$ Si $r_{0}=0$, on pose $r_{1}=0$;\\
-$\rightarrow$ Sinon $r_{1}$ est le reste de la division euclidienne de $b$ par $r_{0}$.
+  \item $\rightarrow$ Si $r_{0}=0$, on pose $r_{1}=\hideM{0}$;\\
+$\rightarrow$ Sinon $r_{1}$ est le reste de la division euclidienne de $\hideM{b}$ par $ \hideM{r_{0}}$.
   \item pour tout $n \geqslant 1$ :\\
-$\rightarrow$ Si $r_{n}=0$, on pose $r_{n+1}=0$.\\
-$\rightarrow$ Sinon, $r_{n+1}$ est le reste de la division euclidienne de $r_{n-1}$ par $r_{n}$.
+$\rightarrow$ Si $r_{n}=0$, on pose $r_{n+1}=\hideM{0}$.\\
+$\rightarrow$ Sinon, $r_{n+1}$ est le reste de la division euclidienne de $\hideM{r_{n-1}}$ par $\hideM{r_{n}}$.
 \end{itemize}
 Alors, cette suite d'entiers est nulle à partir d'un certain rang et la dernière valeur non nulle prise par cette suite est le PGCD de $a$ et $b$.
 \end{proposition}
@@ -271,7 +271,7 @@ L'algorithme d'Euclide a été présenté dans Les Éléments vers l'an 300 av. 
 Pour tous $a, b \in \mathbb{N}^{*}$ et $d \in \mathbb{N}$ :
 
 $$
-d \mid a \text { et } d|b \Longleftrightarrow d| \operatorname{PGCD}(a ; b)
+d \mid a \text { et } d|b \Longleftrightarrow \hideM{d| \operatorname{PGCD}(a ; b)}
 $$
 \end{proposition}
 
@@ -286,7 +286,7 @@ En procédant par récurrence, on montre finalement que $E$ est l'ensemble des d
 Pour tous $a, b \in \mathbb{N}$ et $k \in \mathbb{N}$,
 
 $$
-\operatorname{PGCD}(k a ; k b)=k \times \operatorname{PGCD}(a ; b)
+\operatorname{PGCD}(k a ; k b)=\hideM{k \times \operatorname{PGCD}(a ; b)}
 $$
 \end{proposition}
 
@@ -296,12 +296,12 @@ Pour calculer $\operatorname{PGCD}(k a ; k b)$, toutes les étapes de l'algorith
 
 \begin{definition}{}{}
 Soient $a, b \in \mathbb{N}$ et $k \in \mathbb{Z}^{*}$.\\
-On dit que $a$ et $b$ sont premiers entre eux lorsque $\operatorname{PGCD}(a ; b)=1$.
+On dit que $a$ et $b$ sont premiers entre eux lorsque $\hideM{\operatorname{PGCD}(a ; b)=1}$.
 \end{definition}
 
 \begin{proposition}{}{}
 Soient $a, b \in \mathbb{N}^{*}$ et avec $d=\operatorname{PGCD}(a ; b)$.\\
-Il existe des entiers premiers entre eux $a^{\prime}$ et $b^{\prime}$ tels que $\left\{\begin{array}{l}a=d a^{\prime} \\ b=d b^{\prime}\end{array}\right.$
+Il existe des entiers premiers entre eux $a^{\prime}$ et $b^{\prime}$ tels que $\left\{\begin{array}{l}a=\hideM{d a^{\prime}} \\ b=\hideM{d b^{\prime}}\end{array}\right.$
 \end{proposition}
 
 \begin{demo}
@@ -324,7 +324,7 @@ Soient $a, b \in \mathbb{N}^{*}$.\\
 Il existe des entiers relatifs $u$ et $v$ tels que
 
 $$
-a u+b v=\operatorname{PGCD}(a ; b)
+\hideM{a u+b v}=\operatorname{PGCD}(a ; b)
 $$
 \end{proposition}
 
@@ -421,7 +421,7 @@ Ainsi, $896 u+259 v=7$ avec $u=-13$ et $v=45$.
 Soient $a, b \in \mathbb{Z}^{*}$. Les entiers $a$ et $b$ sont premiers entre eux si, et seulement si, il existe des entiers relatifs $u$ et $v$ tels que
 
 $$
-a u+b v=1
+a u+b v=\hideM{1}
 $$
 \end{proposition}
 
@@ -447,7 +447,7 @@ $$
 \subsection{Théorème de Gauss}
 \begin{proposition}{Théorème de Gauss}{}
 Soient $a, b, c \in \mathbb{Z}^{*}$.\\
-Si $a \mid b c$ et si $a$ et $b$ sont premiers entre eux, alors $a \mid c$.
+Si $a \mid b c$ et si $a$ et $b$ sont premiers entre eux, alors $\hideM{a \mid c}$.
 \end{proposition}
 
 \begin{demo}
@@ -483,7 +483,7 @@ En effet, 9 divise $6 \times 15=90$ et pourtant 9 ne divise ni 6 , ni 15 .
 
 \subsection{Corollaire du théorème de Gauss}
 \begin{proposition}{(Corollaire)}{}
-Soient $a, b, c \in \mathbb{Z}^{*}$ tels que $b|a, c| a$ et tels que $\operatorname{PGCD}(b ; c)=1$, alors $b c \mid a$.
+Soient $a, b, c \in \mathbb{Z}^{*}$ tels que $b|a, c| a$ et tels que $\operatorname{PGCD}(b ; c)=1$, alors $\hideM{b c \mid a}$.
 \end{proposition}
 
 \begin{demo}
@@ -502,10 +502,10 @@ Soient $a, b, c \in \mathbb{Z}^{*}$.
 $$
 \left\{
 \begin{array}{rl}
-& a \equiv 0[b] \\
-& a \equiv 0[c] \\
-& \operatorname{PGCD}(b ; c)=1
-\end{array} \Longrightarrow a \equiv 0[b c] .
+& a \equiv \hideM{0}[b] \\
+& a \equiv \hideM{0}[c] \\
+& \operatorname{PGCD}(b ; c)=\hideM{1}
+\end{array} \Longrightarrow a \equiv \hideM{0}[b c] .
 \right.
 $$
 \end{proposition}
@@ -580,8 +580,8 @@ Ainsi, cela prouve que pour tout $p \geqslant 5,3 \mid p^{2}-1$.
 Soit $a \in \mathbb{Z}$. Alors,
 
 \begin{itemize}[noitemsep,topsep=0pt]
-  \item $a$ est pair $\Longleftrightarrow a^{2}$ est pair.
-  \item $a$ est impair $\Longleftrightarrow a^{2}$ est impair.
+  \item $a$ est pair $\Longleftrightarrow a^{2}$ est \hide{pair}.
+  \item $a$ est impair $\Longleftrightarrow a^{2}$ est \hide{impair}.
 \end{itemize}
 \end{proposition}
 
@@ -613,7 +613,7 @@ En fait, si $a$ était impair, on a montré que $a^{2}$ serait impair, ce qui se
 \end{demo}
 
 \begin{proposition}{}{}
-Le nombre réel $\sqrt{2}$ est irrationnel.
+Le nombre réel $\sqrt{2}$ est \hide{irrationnel}.
 \end{proposition}
 
 \begin{demo}
@@ -633,7 +633,7 @@ Finalement, $a$ et $b$ sont tous les deux pairs, ce qui est absurde car ils ont 
 
 \subsection{Détermination d'un inverse modulo $n$}
 \begin{proposition}{}{}
-Soint $n \geqslant 2$. Alors $a \in \mathbb{N}$ est inversible modulo $n$ si, et seulement si, $\operatorname{PGCD}(a ; n)=1$.
+Soint $n \geqslant 2$. Alors $a \in \mathbb{N}$ est inversible modulo $n$ si, et seulement si, $\hideM{\operatorname{PGCD}(a ; n)=1}$.
 \end{proposition}
 
 \begin{demo}
@@ -740,7 +740,7 @@ Finalement, on a montré que $\mathcal{S}=\{(5 k ; 4 k), k \in \mathbb{Z}\}$.
 \subsubsection{Résolution d'équations de la forme $a x+b y=k$}
 \begin{proposition}{}{}
 Soient $a, b \in \mathbb{Z}^{*}$ et $k \in \mathbb{Z}^{*}$.\\
-L'équation $a x+b y=k$ (d'inconnues $x$ et $y$ ) admet des solutions entières si, et seulement si, $\operatorname{PGCD}(a ; b) \mid k$.
+L'équation $a x+b y=k$ (d'inconnues $x$ et $y$ ) admet des solutions entières si, et seulement si, $\hideM{\operatorname{PGCD}(a ; b) \mid k}$.
 \end{proposition}
 
 \begin{demo}
