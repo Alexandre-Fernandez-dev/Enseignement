@@ -1,0 +1,72 @@
+\documentclass{exam}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tasks}
+\input{def.tex}
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+
+\usepackage{geometry}
+\geometry{left=1cm, right=1cm, top=0.5cm, bottom=0.5cm}
+
+\title{\Document\ \Titre \Type}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\large
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\ChapitreCourt}}%
+\makebox[0pt][r]{\textbf{\Document\ -- 5min}}
+}
+\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+\begin{exercice}
+    Soit $f(x) = (18 + 3x)^5$, déterminer :
+    \begin{tasks}[style=enumerate](3)
+        \task Son ensemble de définition.
+        \task Son ensemble de dérivation.
+        \task L'expression de sa dérivée $f'$.
+    \end{tasks}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{
+            %\centering \underline{Réponse:}
+        \vspace{24em}}}
+    \end{center}
+\end{exercice}
+
+\hrule
+
+\vspace{1em}
+\setcounter{exercice}{0}
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\ChapitreCourt}}%
+\makebox[0pt][r]{\textbf{\Document\ -- 5min}}
+}
+\noindent{\makebox[\textwidth]{Nom et prénom:\enspace\hrulefill}}
+
+\begin{exercice}
+    Soit $f(x) = (7 - 2x)^6$, déterminer :
+    \begin{tasks}[style=enumerate](3)
+        \task Son ensemble de définition.
+        \task Son ensemble de dérivation.
+        \task L'expression de sa dérivée $f'$.
+    \end{tasks}
+    \begin{center}
+        \framebox[1\textwidth]{\parbox{5.5in}{
+            %\centering \underline{Réponse:}
+        \vspace{24em}}}
+    \end{center}
+\end{exercice}
+
+\end{document}
