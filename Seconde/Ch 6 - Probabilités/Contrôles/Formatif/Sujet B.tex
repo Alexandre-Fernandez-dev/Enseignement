@@ -1,0 +1,135 @@
+\documentclass{exam}
+
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{tasks}
+
+\pagestyle{empty}
+\graphicspath{{../../Images/}}
+\input{def.tex}
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document\ (B) -- 30min}}
+}
+
+\vspace{2mm}
+\noindent
+\makebox[\textwidth]{\textbf{Nom et prénom :}\enspace\hrulefill}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCICE 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}
+
+On lance \textbf{une seule fois} un dé cubique équilibré à 6 faces (numérotées de 1 à 6).
+
+\begin{enumerate}
+  \item Définir l'univers \(\Omega\) sous forme d'ensemble.
+  \item On définit les événements :
+  \[
+    A : \text{ « Le résultat est impair »},\quad
+    B : \text{ « Le résultat est supérieur ou égal à 4 »}.
+  \]
+    \begin{tasks}(2)
+      \task Exprimer \(A\) et \(B\) sous forme d'ensembles.
+      \task Calculer \(P(A)\) et \(P(B)\).
+      %\item Déterminer l'événement \(A \cup B\), puis calculer \(P(A \cup B)\).
+      %\item Déterminer l'événement \(A \cap B\), puis calculer \(P(A \cap B)\).
+    \end{tasks}
+\end{enumerate}
+
+\begin{center}
+    \framebox[1\textwidth]{\parbox{0.92\linewidth}{
+        \vspace{6em}
+    }}
+\end{center}
+\end{exercice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCICE 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}
+
+On lance \textbf{deux fois} de suite un dé à 6 faces et on note le couple \((X,Y)\) des résultats.
+
+\begin{enumerate}
+  \item Combien d'issues contient l'univers \(\Omega\)?
+  \item Soit \(S_8\) l'événement : « La somme des deux résultats est égale à 8 ».
+  \begin{tasks}(2)
+    \task Exprimer \(S_8\) sous forme d'ensemble.
+    \task Calculer \(P(S_8)\).
+  \end{tasks}
+  %\item Définir l'événement \(D\) : « Les deux résultats sont différents ». Calculer \(P(D)\).
+  %\item Comparer les probabilités de \(S_7\) et de \(D\). Lequel est le plus probable ?
+\end{enumerate}
+
+\begin{center}
+    \framebox[1\textwidth]{\parbox{0.92\linewidth}{
+        \vspace{8em}
+    }}
+\end{center}
+\end{exercice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCICE 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}
+
+On tire \textbf{une seule carte} au hasard dans un jeu de 52 cartes 
+(13 cartes par couleur : Pique, Cœur, Carreau, Trèfle). On définit :
+\begin{itemize}
+	\item F : \text{ « La carte tirée est une figure (Valet, Dame ou Roi) »},\quad
+  \item C : \text{ « La carte tirée est un Carreau »}.
+\end{itemize}
+\begin{enumerate}
+  \item Déterminer \(P(F \cup C)\) et \(P(F \cap C)\).
+  \item Quel est l'événement complémentaire de \(F\) ? Donner sa probabilité.
+\end{enumerate}
+
+\begin{center}
+    \framebox[1\textwidth]{\parbox{0.92\linewidth}{
+        \vspace{9em}
+    }}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Soient deux événements \(A\) et \(B\) tels que 
+\[
+P(A) = 0{,}5\quad P(B) = 0{,}6\quad P(A \cap B) = 0{,}3
+\]
+Déterminer :
+\begin{tasks}[style=enumerate](4)
+  \task $P(\overline{A})$
+  \task $\quad P(\overline{B})$
+  \task $\quad P(A \cup B)$
+  \task $\quad P\bigl(\overline{A \cup B}\bigr)$
+\end{tasks}
+
+\begin{center}
+\framebox[1\textwidth]{\parbox{0.92\linewidth}{
+  \vspace{9em}
+}}
+\end{center}
+\end{exercice}
+
+\end{document}

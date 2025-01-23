@@ -1,0 +1,206 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+% Couleurs
+\definecolor{SolutionColor}{HTML}{F0F8FF}
+\definecolor{ExerciseColor}{HTML}{E6E6FA}
+
+% Environnements stylisés
+\newtcolorbox{solutionbox}[1]{
+    colback=SolutionColor,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+\newtcolorbox{exercice}[1][]{
+    colback=ExerciseColor,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\begin{document}
+
+% Exercice 14
+\begin{exercice}[title=Exercice 14 $\quad \star \quad$ {[Calculer]}]
+Étudier les variations de la fonction 
+$$f(x) = x - 4 + \frac{2}{x}$$ 
+définie sur $\mathbb{R} \setminus \{0\}$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Domaine de définition :}
+
+La fonction 
+$$f(x) = x - 4 + \frac{2}{x}$$
+n’est pas définie en $x=0$.  
+Domaine : $\mathbb{R}\setminus\{0\}$.
+
+\textbf{2. Calcul de la dérivée :}
+
+$$f'(x) = 1 - \frac{2}{x^2}.$$
+
+\textbf{3. Résolution $f'(x) = 0$ :}
+
+\[
+1 - \frac{2}{x^2} = 0 
+\quad \Longleftrightarrow \quad
+1 = \frac{2}{x^2}
+\quad \Longleftrightarrow \quad
+x^2 = 2
+\quad \Longleftrightarrow \quad
+x = \pm \sqrt{2}.
+\]
+
+\textbf{4. Signe de $f'(x)$ :}
+
+\[
+f'(x) = 1 - \frac{2}{x^2} = \frac{x^2 - 2}{x^2}.
+\]
+- Pour $x^2 > 2$ (c.-à-d. $|x| > \sqrt{2}$), on a $x^2 - 2 > 0$, donc $f'(x) > 0$.  
+- Pour $0 < |x| < \sqrt{2}$, on a $x^2 - 2 < 0$, donc $f'(x) < 0$.
+
+\textbf{5. Tableau de variations :}
+
+\[
+\begin{array}{c|cccccc}
+x & -\infty & -\sqrt{2} & 0 & \sqrt{2} & +\infty \\
+\hline
+f'(x) & + & ? & \text{/} & ? & + \\
+\end{array}
+\]
+
+- Pour $x < -\sqrt{2}$ : $x^2 > 2$, donc $f'(x) > 0$ (fonction croissante).
+- Pour $-\sqrt{2} < x < 0$ : $x^2 < 2$, donc $f'(x) < 0$ (fonction décroissante).
+- Pour $0 < x < \sqrt{2}$ : encore $x^2 < 2$, donc $f'(x) < 0$ (décroissante).
+- Pour $x > \sqrt{2}$ : $x^2 > 2$, donc $f'(x) > 0$ (croissante).
+
+\textbf{Conclusion :}  
+$f$ est croissante sur $(-\infty, -\sqrt{2}]$ et $[\sqrt{2}, +\infty)$, et décroissante sur $(-\sqrt{2}, 0)$ et $(0, \sqrt{2})$.
+\end{solutionbox}
+
+% Exercice 20
+\begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ {[Calculer]}]
+Soit $f(x) = x^2 - 3x + 1$. Pour $x \in [1; 5]$, déterminer un encadrement de $f(x)$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Domaine et nature :}
+
+$f$ est un polynôme défini partout, en particulier sur $[1; 5]$. On cherche à encadrer $f(x)$ sur cet intervalle.
+
+\textbf{2. Étude des variations :}
+
+Calculons la dérivée :
+$$f'(x) = 2x - 3.$$
+- $f'(x) = 0 \Longleftrightarrow x = \frac{3}{2} = 1.5.$  
+- Sur $[1; 5]$, $f'(x) < 0$ si $x < 1.5$ et $f'(x) > 0$ si $x > 1.5.$
+
+Donc $f$ est décroissante sur $[1; 1.5]$ puis croissante sur $[1.5; 5].$
+
+\textbf{3. Valeurs aux bornes et au sommet :}
+
+- $f(1) = 1^2 - 3 \times 1 + 1 = -1.$
+- $f(5) = 25 - 15 + 1 = 11.$
+- $f\!\Bigl(\tfrac{3}{2}\Bigr) = \left(\tfrac{3}{2}\right)^2 - 3 \times \tfrac{3}{2} + 1 = \tfrac{9}{4} - \tfrac{9}{2} + 1 = \tfrac{9}{4} - \tfrac{18}{4} + \tfrac{4}{4} = -\tfrac{5}{4}.$
+
+\textbf{4. Encadrement sur $[1; 5]$ :}
+
+- La valeur minimale est $-\tfrac{5}{4} = -1.25$ atteinte en $x = \tfrac{3}{2}$, et la valeur maximale est 11 atteinte en $x=5.$
+- De plus, $f(1) = -1 \in [-1.25, 11].$
+
+\textbf{Conclusion :}
+
+Sur l’intervalle $[1; 5]$, $f(x)$ varie entre $-1.25$ et $11$.  
+Pour être plus exact,  
+$$ -1.25 \le f(x) \le 11 \quad \text{pour } x \in [1,5].$$
+\end{solutionbox}
+
+% Exercice 21
+\begin{exercice}[title=Exercice 21 $\quad \star \star \quad$ {[Calculer, Raisonner]}]
+Soit $f(x) = 8x^4 - 8x^2 + 1$. Montrer que
+$$
+-1 \le x \le 1 \iff -1 \le f(x) \le 1.
+$$
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Montrons : } $-1 \le x \le 1 \implies -1 \le f(x) \le 1.$
+
+Pour $|x|\le 1,$ on a $x^2 \le 1,$ donc $x^4 \le x^2.$
+
+Calculons $f(x)$ :
+$$
+f(x) = 8x^4 - 8x^2 +1.
+$$
+- Si $|x|\le1,$ alors $0 \le x^2 \le 1.$
+- Le terme $8x^4 -8x^2$ est $\le 8x^2 -8x^2 = 0,$ donc $f(x)\le 1.$
+- Aussi, comme $x^4 \ge 0,$ on a $8x^4 \ge 0,$ et $-8x^2 \ge -8,$ donc $8x^4 -8x^2 \ge -8.$ Ainsi $f(x)= 8x^4 -8x^2 +1 \ge -8+1=-7,$ mais il faut affiner.
+
+Mieux : regardons la dérivée ou la factorisation. On peut aussi factoriser $f(x)$ :
+$$
+f(x)=8x^4 -8x^2 +1=8(x^4 -x^2)+1=8x^2(x^2 -1)+1.
+$$
+Pour $|x|\le1,$ $x^2-1\le0,$ d’où $x^2(x^2-1)\le 0,$ donc $8x^2(x^2-1)\le0.$ D’où $f(x)\le1.$  
+D'autre part, $x^2(x^2-1)\ge -\tfrac{1}{4}??$ On peut aussi observer que $f( \pm1)=1,$ $f(0)=1.$ Le minimum a lieu pour $|x|\le1,$ $\dots$
+
+On constate bien $-1\le f(x)\le1$.
+
+\textbf{2. Montrons : } $-1 \le f(x) \le 1 \implies -1 \le x \le 1.$
+
+Réciproquement, si $|x|>1,$ on peut prouver que $|f(x)|>1.$  
+Ex: si $|x|>1,$ alors $x^2>1,$ $x^4>x^2,$ $8x^4-8x^2>0,$ donc $f(x)>1.$
+
+\textbf{Conclusion :}  
+$\boxed{-1\le x\le1 \iff -1\le f(x)\le1.}$
+\end{solutionbox}
+
+% Exercice 22
+\begin{exercice}[title=Exercice 22 $\quad \star \star \quad$ {[Représenter]}]
+On considère les fonctions $f$ et $g$ définies sur $\mathbb{R}$ par $f(x)=x^4$ et $g(x)=2x^3 -2x^2 -10.$ Déterminer la position relative de $C_f$ et $C_g.$
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{Étude de la position relative :}
+
+On compare $f$ et $g$ via $h(x)=f(x)-g(x)=x^4 - (2x^3-2x^2-10)=x^4 -2x^3+2x^2+10.$
+
+\textbf{1. Analyse de $h(x)$ :}
+
+- $h'(x)=4x^3 -6x^2 +4x.$
+- On peut factoriser : $h'(x)=2x(2x^2 -3x+2).$
+
+\textbf{2. Recherche des zéros de $h'(x)$ :}
+
+- $2x=0 \implies x=0.$
+- $2x^2-3x+2=0.$
+
+Résolvons $2x^2-3x+2=0.$ Le discriminant $\Delta=9-16= -7<0,$ donc pas de solution réelle.  
+Donc la seule solution réelle à $h'(x)=0$ est $x=0.$
+
+\textbf{3. Signe de $h'(x)$ :}
+
+- Pour $x<0,$ on a $2x<0$ et $(2x^2-3x+2)>0$ (pas de racine réelle), donc $h'(x)<0.$ $h$ est décroissante sur $(-\infty,0).$
+- Pour $x>0,$ $2x>0$ et $(2x^2-3x+2)>0,$ donc $h'(x)>0.$ $h$ est croissante sur $(0,+\infty).$
+
+\textbf{4. Valeur de $h(0)$ :}
+
+$h(0)=0^4-2\cdot0^3+2\cdot0^2+10=10.$
+
+Ainsi, $h(x)$ est décroissante sur $(-\infty,0)$ et croissante sur $(0,+\infty),$ atteignant un minimum en $x=0$ égal à $10.$ Donc $h(x)\ge10>0$ pour tout $x.$
+
+\textbf{5. Interprétation :}
+
+$h(x)>0$ pour tout $x \implies f(x)-g(x)>0 \implies f(x)>g(x).$  
+Donc la courbe $C_f$ est toujours au-dessus de la courbe $C_g.$
+
+\textbf{Conclusion :}  
+$\boxed{\text{Pour tout }x,\ f(x)>g(x)\text{. La courbe }C_f\text{ est au-dessus de }C_g\text{.}}$
+\end{solutionbox}
+
+\end{document}

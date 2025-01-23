@@ -1,0 +1,302 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+% Couleurs
+\definecolor{SolutionColor}{HTML}{F0F8FF}
+\definecolor{ExerciseColor}{HTML}{E6E6FA}
+
+% Environnements stylisés
+\newtcolorbox{solutionbox}[1]{
+    colback=SolutionColor,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+\newtcolorbox{exercice}[1][]{
+    colback=ExerciseColor,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\begin{document}
+
+% Exercice 3
+\begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Modéliser, Calculer] }]
+Un fleuriste possède 105 roses rouges et 63 roses blanches. Il souhaite composer des bouquets tous identiques.  
+En utilisant toutes les fleurs, quel est le plus grand nombre de bouquets qu’il pourra créer ?
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{Idée :} Pour composer le plus grand nombre de bouquets identiques en utilisant toutes les fleurs, il faut déterminer le PGCD (plus grand commun diviseur) de 105 et 63.
+
+- Calculons $\mathrm{PGCD}(105,63)$ :  
+  \[
+  105 = 63 \times 1 + 42
+  \]
+  \[
+  63 = 42 \times 1 + 21
+  \]
+  \[
+  42 = 21 \times 2 + 0
+  \]
+  Le PGCD est donc $21$.
+
+\textbf{Interprétation :}  
+Le fleuriste pourra créer $\mathrm{PGCD}(105,63) = 21$ bouquets identiques.
+
+\textbf{Réponse :}  
+$\boxed{21 \text{ bouquets}}$
+\end{solutionbox}
+
+% Exercice 4
+\begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Modéliser, Calculer] }]
+En astronomie, on observe deux étoiles $A$ et $B$ une même nuit. L’étoile $A$ apparaît périodiquement tous les 35 jours tandis que l’étoile $B$ apparaît périodiquement tous les 77 jours.  
+Combien de jours faudra-t-il attendre pour pouvoir observer les étoiles $A$ et $B$ simultanément ?
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{Idée :} Pour déterminer la première date où $A$ et $B$ réapparaissent simultanément, on cherche le PPCM (plus petit commun multiple) de 35 et 77.
+
+\textbf{Étapes :}
+- Facteurs de 35 : $35 = 5 \times 7$
+- Facteurs de 77 : $77 = 7 \times 11$
+
+Le PPCM de 35 et 77 est $5 \times 7 \times 11 = 385$.
+
+\textbf{Conclusion :}  
+Au bout de $\mathrm{PPCM}(35,77)=385$ jours, on observera $A$ et $B$ simultanément.
+
+\textbf{Réponse :}  
+$\boxed{385 \text{ jours}}$
+\end{solutionbox}
+
+% Exercice 5
+\begin{exercice}[title=Exercice 5 $\quad \star \quad$ { [Modéliser, Calculer] }]
+Une association organise une compétition sportive ; 144 filles et 252 garçons se sont inscrits. L’association désire répartir les inscrits en équipes mixtes. Le nombre de filles et de garçons doivent être les mêmes dans chaque équipe. Tous les inscrits doivent être dans une des équipes.  
+\begin{enumerate}
+    \item Quel est le nombre maximum d’équipes que cette association peut former ?
+    \item Quelle est alors la composition de chaque équipe ?
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Nombre maximal d’équipes :}
+
+On cherche le plus grand nombre $k$ d’équipes pour répartir 144 filles et 252 garçons, avec la même proportion filles/garçons dans chaque équipe.
+
+Cela revient à chercher le plus grand $k$ tel que 144 et 252 soient divisibles par $k$.  
+En d’autres termes, on calcule $\mathrm{PGCD}(144,252)$ :
+
+\[
+252 = 144 \times 1 + 108
+\]
+\[
+144 = 108 \times 1 + 36
+\]
+\[
+108 = 36 \times 3 + 0
+\]
+Donc PGCD est $36$.
+
+Le nombre maximum d’équipes est $\mathrm{PGCD}(144,252)=36$.
+
+\textbf{2. Composition de chaque équipe :}
+
+- Chaque équipe aura $\frac{144}{36} = 4$ filles.
+- Chaque équipe aura $\frac{252}{36} = 7$ garçons.
+
+\textbf{Réponses :}
+- $\boxed{36 \text{ équipes maximum}}$
+- Composition : $\boxed{4 \text{ filles et }7\text{ garçons par équipe}}$
+\end{solutionbox}
+
+% Exercice 6
+\begin{exercice}[title=Exercice 6 $\quad \star \star \star \quad$ { [Calculer, Chercher, Raisonner] }]
+Soit $n$ un entier naturel impair. Déterminer $\mathrm{PGCD}(n^2 + 2n - 3 ; n^2 + 4n + 3)$.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Expression des deux polynômes :}
+
+- $A(n) = n^2 + 2n -3$
+- $B(n) = n^2 +4n +3$
+
+\textbf{2. Calcul par soustraction :}
+\[
+B(n) - A(n) = (n^2 +4n +3) - (n^2 +2n -3) = 2n +6 = 2(n+3).
+\]
+Le PGCD de $A(n)$ et $B(n)$ est le même que le PGCD de $A(n)$ et $2(n+3)$.
+
+\textbf{3. Étude de $n$ impair :}
+Si $n$ est impair, $n+3$ est également impair.  
+On peut essayer d’évaluer $\mathrm{PGCD}(n^2+2n-3, n+3)$ :
+
+- Remarquons que $n^2+2n-3= (n+3)(n-1) +0$ ?? Testons :
+
+\[
+(n+3)(n-1)=n^2 +3n -n -3 =n^2+2n-3.
+\]
+Donc $n^2+2n-3=(n+3)(n-1)$.
+
+D’où $\mathrm{PGCD}(n^2+2n-3, n+3)= \mathrm{PGCD}((n+3)(n-1), n+3)$.
+
+Ce PGCD vaut $|n+3|$ si $n+3 \mid (n+3)(n-1)$, toujours vrai, ou $|n+3|=1$?? Pas nécessairement. On utilise la propriété suivante : PGCD$(ab,a)=$ PGCD$(a,b)\cdot \dots$? En fait $\mathrm{PGCD}(ab,a)=|a|\cdot \mathrm{PGCD}(b,1)=|a|$ si $a \neq 0$. Oui, plus simplement, $\mathrm{PGCD}(a\cdot m,a)=|a|\mathrm{PGCD}(m,1)=|a|$. 
+
+Donc $\mathrm{PGCD}((n+3)(n-1), n+3)= |n+3|$.
+
+Ensuite, on compare $\mathrm{PGCD}(n^2+2n-3,2(n+3))$. Comme $n+3$ est impair, 2 et $n+3$ sont premiers entre eux. Donc 
+$\mathrm{PGCD}((n+3)(n-1),2(n+3))= (n+3)\times\mathrm{PGCD}(n-1,2).$
+
+- Enfin, $n$ est impair, donc $n-1$ est pair, alors $\mathrm{PGCD}(n-1,2)=2.$
+
+Conclusion : $\mathrm{PGCD}(A(n),B(n))=\mathrm{PGCD}(n^2+2n-3,n^2+4n+3) = 2(n+3).$
+
+\textbf{Réponse :} 
+$\boxed{\mathrm{PGCD}(n^2+2n-3,\ n^2+4n+3)=2(n+3),\ \text{pour }n\text{ impair}.}$
+\end{solutionbox}
+
+% Exercice 7
+\begin{exercice}[title=Exercice 7 $\quad \star \quad$ { [Calculer] }]
+Dans chaque cas, déterminer à l’aide de l’algorithme d’Euclide le PGCD de $n$ et $m$.
+\begin{enumerate}
+    \item $n = 150$ et $m = 357$
+    \item $n = 72$ et $m = 448$
+    \item $n = 300$ et $m = 2880$
+    \item $n = 1027$ et $m = 1032$
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Cas $n=150$, $m=357$:}  
+Algorithme d’Euclide:  
+\[
+357 = 150 \times 2 +57
+\]
+\[
+150 = 57 \times 2 +36
+\]
+\[
+57=36\times1+21
+\]
+\[
+36=21\times1+15
+\]
+\[
+21=15\times1+6
+\]
+\[
+15=6\times2+3
+\]
+\[
+6=3\times2+0
+\]
+PGCD=$3$.
+
+\textbf{2. Cas $n=72$, $m=448$:}  
+\[
+448=72\times6+16
+\]
+\[
+72=16\times4+8
+\]
+\[
+16=8\times2+0
+\]
+PGCD=$8$.
+
+\textbf{3. Cas $n=300$, $m=2880$:}  
+\[
+2880=300\times9+180
+\]
+\[
+300=180\times1+120
+\]
+\[
+180=120\times1+60
+\]
+\[
+120=60\times2+0
+\]
+PGCD=$60$.
+
+\textbf{4. Cas $n=1027$, $m=1032$:}  
+\[
+1032=1027\times1+5
+\]
+\[
+1027=5\times205+2
+\]
+\[
+5=2\times2+1
+\]
+\[
+2=1\times2+0
+\]
+PGCD=$1$.
+
+\textbf{Réponses :}
+1) $3$, 2) $8$, 3) $60$, 4) $1$.
+\end{solutionbox}
+
+% Exercice 8
+\begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]
+\begin{enumerate}
+    \item Montrer que la fraction $\frac{1510}{503}$ est irréductible.
+    \item Réduire la fraction $\frac{4389}{5544}$ en fraction irréductible.
+\end{enumerate}
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+\textbf{1. Irréductibilité de $\tfrac{1510}{503}$ :}
+
+Pour montrer qu’elle est irréductible, on vérifie que $\mathrm{PGCD}(1510,503)=1$.
+
+- Algorithme d’Euclide:
+\[
+1510=503\times3+1
+\]
+\[
+503=1\times503+0
+\]
+PGCD est $1.$ Donc la fraction est irréductible.
+
+\textbf{2. Réduire $\tfrac{4389}{5544}$ :}
+
+Calculons $\mathrm{PGCD}(4389,5544)$.
+
+- Effectuons l’algorithme:
+\[
+5544=4389\times1+1155
+\]
+\[
+4389=1155\times3+ \dots?
+\]
+\[
+4389=1155\times3+924?? \text{ Non, let's do properly: }4389-3\times1155=4389-3465=924
+\]
+\[
+1155=924\times1+231
+\]
+\[
+924=231\times4+0
+\]
+Donc PGCD=$231$.
+
+Réduisons:
+- Numérateur: $4389\div231=19$
+- Dénominateur: $5544\div231=24$
+
+Fraction irréductible: $\tfrac{19}{24}$.
+
+\textbf{Réponses :}
+1) $\tfrac{1510}{503}$ est irréductible.  
+2) $\tfrac{4389}{5544} = \tfrac{19}{24}$.
+\end{solutionbox}
+
+\end{document}

@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}   % Encodage des caractères en UTF-8
+\usepackage[T1]{fontenc}      % Encodage de la police
+\usepackage{amsmath,amssymb}  % Symboles mathématiques
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\begin{document}
+
+\section*{Contrôle - Chiffrement affine en Python.}
+
+\textbf{Contexte :}  
+Nous souhaitons chiffrer un message en utilisant un chiffrement affine, où pour chaque caractère
+(on le représente par un entier \texttt{x}), on calcule :
+
+\[
+y \equiv a \times x + b \pmod{m}.
+\]
+
+Le déchiffrement utilise l’inverse de \texttt{a} modulo \texttt{m}, noté \texttt{a\(^{-1}\)}, de sorte que :
+
+\[
+x \equiv a^{-1} \times (y - b) \pmod{m}.
+\]
+
+%Les questions suivantes concernent :
+%
+%\begin{itemize}
+%  \item La modification du message à chiffrer,
+%  \item L’adaptation de la plage de caractères (en excluant ou non certains codes ASCII),
+%  \item Les formules de chiffrement et de déchiffrement,
+%  \item Les tests de validité (inversibilité, portée des caractères, etc.).
+%\end{itemize}
+
+\begin{enumerate}
+
+  \item \textbf{Changer le message à chiffrer.}\\
+  Dans le code Python fourni, expliquez comment remplacer le message par un autre.  
+  Quels sont les endroits (variables, lignes) qui doivent être modifiés afin de définir un nouveau texte à chiffrer ?
+
+  % \item \textbf{Conversion d’une liste de codes ASCII en chaîne de caractères.}\\
+  % On dispose d’une liste de valeurs entières issues d’un chiffrement, par exemple \verb=[100, 107, 98, ...]=.  
+  % Comment la convertir en une chaîne de caractères, par exemple \verb="dkbf..."= ?  
+  % (Référence : fonctions \texttt{chr}, \texttt{join}, et boucles \texttt{for}.)
+  % % TODO indiquer qu'il peuvent seulement expliquer et non coder
+
+  \item \textbf{Test d’inversibilité de \texttt{a} modulo \texttt{m}.}\\
+  On souhaite vérifier que \texttt{a} est bien inversible modulo \texttt{m}.  
+  Proposez un code Python minimal utilisant la fonction \texttt{find\_inverse(a, m)}.  
+  Affichez \texttt{"OK"} si \texttt{a} est inversible, ou \texttt{"BAD"} sinon.
+  % TODO: donner un exemple de if else.
+
+  \item \textbf{Vérification d’une liste chiffrée.}\\
+  On reçoit une liste \verb|liste_chiffree| supposée contenir des valeurs comprises entre 0 et \texttt{m-1}.
+  \begin{enumerate}
+    \item Écrivez un code pour :
+      \begin{itemize}
+        \item Parcourir cette liste,
+        \item Afficher \texttt{"OK"} si l’élément courant est bien dans l’intervalle \texttt{[0 .. m-1]},
+        \item Afficher \texttt{"BAD"} sinon.
+      \end{itemize}
+    \item On souhaite simplifier l'affichage et afficher \texttt{"OK"} si tout les éléments de la liste sont dans l'intervalle \texttt{[0 .. m-1]} et \texttt{"BAD"} sinon. Expliquez une manière de procéder.
+  \end{enumerate}
+
+
+  \item \textbf{Se restreindre au codes ascii affichable.}\\
+  On choisi de travailler sur la plage ASCII de 32 (inclus) à 255 (inclus).
+  Pour cela on se ramène à des nombres entre 0 et 223 et on travaille modulo $m'=224$.
+  \begin{enumerate}
+    \item Donner un nouveau $a$ inversible modulo $m'$.
+    \item On va appliquer le chiffrement affine modulo $m'$.
+    Ainsi lorsqu'on a le code ascii d'un caractère à chiffrer on lui soustrait 32.
+    Après le chiffrement on ajoute 32 pour obtenir un code affichable.
+    \begin{enumerate}
+        \item Expliquez clairement pourquoi on \emph{décale de 32} lors du chiffrement, puis on \emph{réajoute 32} pour l’affichage.
+        \item Écrivez la formule de chiffrement. Puis écrire le code python réalisant ce calcul.
+        % :
+        %\[
+        %  y \;=\; 32 + \bigl(a \times (c - 32) + b \bigr)\bmod m',
+        %\]
+        %où \texttt{c} est le code ASCII du caractère à chiffrer (entre 32 et 255).
+        \item Écrivez la formule de déchiffrement.% (en supposant que \texttt{a} est inversible modulo \texttt{m'} et que \texttt{a\(^{-1}\)} est son inverse).
+        %\item Indiquez quelles lignes du code Python doivent être modifiées pour utiliser ce nouveau module \texttt{m'} et réaliser correctement les opérations de décalage.
+    \end{enumerate}
+  \end{enumerate}
+  % TODO Joindre code ascii
+
+
+  
+
+  % \item \textbf{Restriction au ``ASCII de base'' (32 à 126).}\\
+  % On souhaite maintenant se limiter aux caractères dont le code ASCII est compris entre 32 (espace) et 126 (tilde \textasciitilde), soit 95 caractères.
+  % \begin{enumerate}
+  %   \item Montrez que la taille du nouvel ensemble de caractères est \texttt{m'} = 95.
+  %   \item Proposez un entier \texttt{a} qui soit inversible modulo 95. (Autrement dit, $\gcd(a,95)=1$.)
+  %   \item Écrivez la formule de chiffrement :
+  %   \[
+  %     y \;=\; 32 + \bigl(a \times (c - 32) + b \bigr)\bmod 95,
+  %   \]
+  %   et la formule de déchiffrement correspondante (en utilisant l’inverse de \texttt{a} modulo 95).
+  %   \item Expliquez une nouvelle fois quelles modifications (décalages, calculs \texttt{\% 95}, etc.) sont nécessaires dans le code Python.
+  % \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
