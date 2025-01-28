@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{geometry}
 
 \geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
@@ -15,7 +15,8 @@
     colback=SolutionColor,
     colframe=blue!75!black,
     title=#1,
-    fonttitle=\bfseries
+    fonttitle=\bfseries,
+    breakable
 }
 \newtcolorbox{exercice}[1][]{
     colback=ExerciseColor,
@@ -26,181 +27,435 @@
 
 \begin{document}
 
-% Exercice 14
-\begin{exercice}[title=Exercice 14 $\quad \star \quad$ {[Calculer]}]
-Étudier les variations de la fonction 
-$$f(x) = x - 4 + \frac{2}{x}$$ 
-définie sur $\mathbb{R} \setminus \{0\}$.
+% % Exercice 14
+% \begin{exercice}[title=Exercice 14 $\quad \star \quad$ {[Calculer]}]
+% Étudier les variations de la fonction 
+% $$f(x) = x - 4 + \frac{2}{x}$$ 
+% définie sur $\mathbb{R} \setminus \{0\}$.
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Domaine de définition :}
+% 
+% La fonction 
+% $$f(x) = x - 4 + \frac{2}{x}$$
+% n’est pas définie en $x=0$.  
+% Domaine : $\mathbb{R}\setminus\{0\}$.
+% 
+% \textbf{2. Calcul de la dérivée :}
+% 
+% $$f'(x) = 1 - \frac{2}{x^2}.$$
+% 
+% \textbf{3. Résolution $f'(x) = 0$ :}
+% 
+% \[
+% 1 - \frac{2}{x^2} = 0 
+% \quad \Longleftrightarrow \quad
+% 1 = \frac{2}{x^2}
+% \quad \Longleftrightarrow \quad
+% x^2 = 2
+% \quad \Longleftrightarrow \quad
+% x = \pm \sqrt{2}.
+% \]
+% 
+% \textbf{4. Signe de $f'(x)$ :}
+% 
+% \[
+% f'(x) = 1 - \frac{2}{x^2} = \frac{x^2 - 2}{x^2}.
+% \]
+% - Pour $x^2 > 2$ (c.-à-d. $|x| > \sqrt{2}$), on a $x^2 - 2 > 0$, donc $f'(x) > 0$.  
+% - Pour $0 < |x| < \sqrt{2}$, on a $x^2 - 2 < 0$, donc $f'(x) < 0$.
+% 
+% \textbf{5. Tableau de variations :}
+% 
+% \[
+% \begin{array}{c|cccccc}
+% x & -\infty & -\sqrt{2} & 0 & \sqrt{2} & +\infty \\
+% \hline
+% f'(x) & + & ? & \text{/} & ? & + \\
+% \end{array}
+% \]
+% 
+% - Pour $x < -\sqrt{2}$ : $x^2 > 2$, donc $f'(x) > 0$ (fonction croissante).
+% - Pour $-\sqrt{2} < x < 0$ : $x^2 < 2$, donc $f'(x) < 0$ (fonction décroissante).
+% - Pour $0 < x < \sqrt{2}$ : encore $x^2 < 2$, donc $f'(x) < 0$ (décroissante).
+% - Pour $x > \sqrt{2}$ : $x^2 > 2$, donc $f'(x) > 0$ (croissante).
+% 
+% \textbf{Conclusion :}  
+% $f$ est croissante sur $(-\infty, -\sqrt{2}]$ et $[\sqrt{2}, +\infty)$, et décroissante sur $(-\sqrt{2}, 0)$ et $(0, \sqrt{2})$.
+% \end{solutionbox}
+% 
+% % Exercice 20
+% \begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ {[Calculer]}]
+% Soit $f(x) = x^2 - 3x + 1$. Pour $x \in [1; 5]$, déterminer un encadrement de $f(x)$.
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Domaine et nature :}
+% 
+% $f$ est un polynôme défini partout, en particulier sur $[1; 5]$. On cherche à encadrer $f(x)$ sur cet intervalle.
+% 
+% \textbf{2. Étude des variations :}
+% 
+% Calculons la dérivée :
+% $$f'(x) = 2x - 3.$$
+% - $f'(x) = 0 \Longleftrightarrow x = \frac{3}{2} = 1.5.$  
+% - Sur $[1; 5]$, $f'(x) < 0$ si $x < 1.5$ et $f'(x) > 0$ si $x > 1.5.$
+% 
+% Donc $f$ est décroissante sur $[1; 1.5]$ puis croissante sur $[1.5; 5].$
+% 
+% \textbf{3. Valeurs aux bornes et au sommet :}
+% 
+% - $f(1) = 1^2 - 3 \times 1 + 1 = -1.$
+% - $f(5) = 25 - 15 + 1 = 11.$
+% - $f\!\Bigl(\tfrac{3}{2}\Bigr) = \left(\tfrac{3}{2}\right)^2 - 3 \times \tfrac{3}{2} + 1 = \tfrac{9}{4} - \tfrac{9}{2} + 1 = \tfrac{9}{4} - \tfrac{18}{4} + \tfrac{4}{4} = -\tfrac{5}{4}.$
+% 
+% \textbf{4. Encadrement sur $[1; 5]$ :}
+% 
+% - La valeur minimale est $-\tfrac{5}{4} = -1.25$ atteinte en $x = \tfrac{3}{2}$, et la valeur maximale est 11 atteinte en $x=5.$
+% - De plus, $f(1) = -1 \in [-1.25, 11].$
+% 
+% \textbf{Conclusion :}
+% 
+% Sur l’intervalle $[1; 5]$, $f(x)$ varie entre $-1.25$ et $11$.  
+% Pour être plus exact,  
+% $$ -1.25 \le f(x) \le 11 \quad \text{pour } x \in [1,5].$$
+% \end{solutionbox}
+% 
+% % Exercice 21
+% \begin{exercice}[title=Exercice 21 $\quad \star \star \quad$ {[Calculer, Raisonner]}]
+% Soit $f(x) = 8x^4 - 8x^2 + 1$. Montrer que
+% $$
+% -1 \le x \le 1 \iff -1 \le f(x) \le 1.
+% $$
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Montrons : } $-1 \le x \le 1 \implies -1 \le f(x) \le 1.$
+% 
+% Pour $|x|\le 1,$ on a $x^2 \le 1,$ donc $x^4 \le x^2.$
+% 
+% Calculons $f(x)$ :
+% $$
+% f(x) = 8x^4 - 8x^2 +1.
+% $$
+% - Si $|x|\le1,$ alors $0 \le x^2 \le 1.$
+% - Le terme $8x^4 -8x^2$ est $\le 8x^2 -8x^2 = 0,$ donc $f(x)\le 1.$
+% - Aussi, comme $x^4 \ge 0,$ on a $8x^4 \ge 0,$ et $-8x^2 \ge -8,$ donc $8x^4 -8x^2 \ge -8.$ Ainsi $f(x)= 8x^4 -8x^2 +1 \ge -8+1=-7,$ mais il faut affiner.
+% 
+% Mieux : regardons la dérivée ou la factorisation. On peut aussi factoriser $f(x)$ :
+% $$
+% f(x)=8x^4 -8x^2 +1=8(x^4 -x^2)+1=8x^2(x^2 -1)+1.
+% $$
+% Pour $|x|\le1,$ $x^2-1\le0,$ d’où $x^2(x^2-1)\le 0,$ donc $8x^2(x^2-1)\le0.$ D’où $f(x)\le1.$  
+% D'autre part, $x^2(x^2-1)\ge -\tfrac{1}{4}??$ On peut aussi observer que $f( \pm1)=1,$ $f(0)=1.$ Le minimum a lieu pour $|x|\le1,$ $\dots$
+% 
+% On constate bien $-1\le f(x)\le1$.
+% 
+% \textbf{2. Montrons : } $-1 \le f(x) \le 1 \implies -1 \le x \le 1.$
+% 
+% Réciproquement, si $|x|>1,$ on peut prouver que $|f(x)|>1.$  
+% Ex: si $|x|>1,$ alors $x^2>1,$ $x^4>x^2,$ $8x^4-8x^2>0,$ donc $f(x)>1.$
+% 
+% \textbf{Conclusion :}  
+% $\boxed{-1\le x\le1 \iff -1\le f(x)\le1.}$
+% \end{solutionbox}
+% 
+% % Exercice 22
+% \begin{exercice}[title=Exercice 22 $\quad \star \star \quad$ {[Représenter]}]
+% On considère les fonctions $f$ et $g$ définies sur $\mathbb{R}$ par $f(x)=x^4$ et $g(x)=2x^3 -2x^2 -10.$ Déterminer la position relative de $C_f$ et $C_g.$
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{Étude de la position relative :}
+% 
+% On compare $f$ et $g$ via $h(x)=f(x)-g(x)=x^4 - (2x^3-2x^2-10)=x^4 -2x^3+2x^2+10.$
+% 
+% \textbf{1. Analyse de $h(x)$ :}
+% 
+% - $h'(x)=4x^3 -6x^2 +4x.$
+% - On peut factoriser : $h'(x)=2x(2x^2 -3x+2).$
+% 
+% \textbf{2. Recherche des zéros de $h'(x)$ :}
+% 
+% - $2x=0 \implies x=0.$
+% - $2x^2-3x+2=0.$
+% 
+% Résolvons $2x^2-3x+2=0.$ Le discriminant $\Delta=9-16= -7<0,$ donc pas de solution réelle.  
+% Donc la seule solution réelle à $h'(x)=0$ est $x=0.$
+% 
+% \textbf{3. Signe de $h'(x)$ :}
+% 
+% - Pour $x<0,$ on a $2x<0$ et $(2x^2-3x+2)>0$ (pas de racine réelle), donc $h'(x)<0.$ $h$ est décroissante sur $(-\infty,0).$
+% - Pour $x>0,$ $2x>0$ et $(2x^2-3x+2)>0,$ donc $h'(x)>0.$ $h$ est croissante sur $(0,+\infty).$
+% 
+% \textbf{4. Valeur de $h(0)$ :}
+% 
+% $h(0)=0^4-2\cdot0^3+2\cdot0^2+10=10.$
+% 
+% Ainsi, $h(x)$ est décroissante sur $(-\infty,0)$ et croissante sur $(0,+\infty),$ atteignant un minimum en $x=0$ égal à $10.$ Donc $h(x)\ge10>0$ pour tout $x.$
+% 
+% \textbf{5. Interprétation :}
+% 
+% $h(x)>0$ pour tout $x \implies f(x)-g(x)>0 \implies f(x)>g(x).$  
+% Donc la courbe $C_f$ est toujours au-dessus de la courbe $C_g.$
+% 
+% \textbf{Conclusion :}  
+% $\boxed{\text{Pour tout }x,\ f(x)>g(x)\text{. La courbe }C_f\text{ est au-dessus de }C_g\text{.}}$
+% \end{solutionbox}
+
+% Exercice 27
+\begin{exercice}[title=Exercice 27 -- {[Modéliser, Calculer]}]
+On souhaite fabriquer une casserole de 2 L (2 litres). Quelles doivent être les dimensions de la casserole afin que la quantité de métal utilisé soit minimale ?
 \end{exercice}
 
 \begin{solutionbox}{Solution}
-\textbf{1. Domaine de définition :}
+\textbf{But:} Minimiser la surface d'une casserole cylindrique de volume 2 L.  
 
-La fonction 
-$$f(x) = x - 4 + \frac{2}{x}$$
-n’est pas définie en $x=0$.  
-Domaine : $\mathbb{R}\setminus\{0\}$.
+\textbf{1. Modélisation géométrique:}  
+Supposons la casserole est un cylindre de hauteur $h$ et de rayon $r$ (interne). Le volume vaut  
+$$
+\pi r^2 \cdot h = 2\text{ L} = 2000\text{ cm}^3
+\quad\text{(ou toute autre unité, si on prend cm, 1 L=1000 cm}^3\text{).}
+$$
 
-\textbf{2. Calcul de la dérivée :}
+\textbf{2. Expression de la surface:}  
+La casserole a un fond et des parois latérales (éventuellement un couvercle, mais l’énoncé ne le mentionne pas, on suppose pas de couvercle?).  
+La surface métallique $S$ est:  
+$$
+S = \text{surface du fond} + \text{surface latérale}
+= \pi r^2 + 2\pi r \,h.
+$$
 
-$$f'(x) = 1 - \frac{2}{x^2}.$$
+\textbf{3. Contraintes et variables:}  
+On a 
+$$
+\pi r^2 h = 2000.
+$$
+On veut exprimer $S$ en fonction d’une seule variable (par ex. $r$).  
+De la contrainte,  
+$$
+h = \frac{2000}{\pi r^2}.
+$$
+Donc  
+$$
+S(r) = \pi r^2 + 2\pi r \cdot \frac{2000}{\pi r^2}
+= \pi r^2 + \frac{4000}{r}.
+$$
 
-\textbf{3. Résolution $f'(x) = 0$ :}
+\textbf{4. Étude de $S(r)$:}  
+- Domaine: $r>0$.  
+- Calcul de la dérivée:  
+$$
+S'(r)=2\pi r - 4000\,r^{-2}
+=2\pi r - \frac{4000}{r^2}.
+$$
 
-\[
-1 - \frac{2}{x^2} = 0 
-\quad \Longleftrightarrow \quad
-1 = \frac{2}{x^2}
-\quad \Longleftrightarrow \quad
-x^2 = 2
-\quad \Longleftrightarrow \quad
-x = \pm \sqrt{2}.
-\]
+\textbf{5. Résolution $S'(r)=0$:}  
+$$
+2\pi r = \frac{4000}{r^2}
+\quad\Longleftrightarrow\quad
+2\pi r^3 =4000
+\quad\Longleftrightarrow\quad
+r^3 = \frac{4000}{2\pi}=\frac{2000}{\pi}.
+$$
+Donc
+$$
+r= \sqrt[3]{\frac{2000}{\pi}}.
+$$
+Ensuite, la hauteur $h$:
 
-\textbf{4. Signe de $f'(x)$ :}
+$$
+h = \frac{2000}{\pi r^2}
+= \frac{2000}{\pi \left(\sqrt[3]{\frac{2000}{\pi}}\right)^2}
+= \frac{2000}{\pi}\,\biggl(\frac{\pi}{2000}\biggr)^{\tfrac{2}{3}}
+= \left(\frac{2000}{\pi}\right)^{1 - \frac{2}{3}}= \left(\frac{2000}{\pi}\right)^{\tfrac{1}{3}}.
+$$
 
-\[
-f'(x) = 1 - \frac{2}{x^2} = \frac{x^2 - 2}{x^2}.
-\]
-- Pour $x^2 > 2$ (c.-à-d. $|x| > \sqrt{2}$), on a $x^2 - 2 > 0$, donc $f'(x) > 0$.  
-- Pour $0 < |x| < \sqrt{2}$, on a $x^2 - 2 < 0$, donc $f'(x) < 0$.
+On constate que $h$ et $r$ ont la même forme: 
+$$
+h= \sqrt[3]{\frac{2000}{\pi}}.
+$$
 
-\textbf{5. Tableau de variations :}
+\textbf{6. Conclusion:}  
+Pour minimiser la surface, le cylindre "optimal" vérifie
+$$
+r= h= \sqrt[3]{\frac{2000}{\pi}}.
+$$
 
-\[
-\begin{array}{c|cccccc}
-x & -\infty & -\sqrt{2} & 0 & \sqrt{2} & +\infty \\
-\hline
-f'(x) & + & ? & \text{/} & ? & + \\
-\end{array}
-\]
-
-- Pour $x < -\sqrt{2}$ : $x^2 > 2$, donc $f'(x) > 0$ (fonction croissante).
-- Pour $-\sqrt{2} < x < 0$ : $x^2 < 2$, donc $f'(x) < 0$ (fonction décroissante).
-- Pour $0 < x < \sqrt{2}$ : encore $x^2 < 2$, donc $f'(x) < 0$ (décroissante).
-- Pour $x > \sqrt{2}$ : $x^2 > 2$, donc $f'(x) > 0$ (croissante).
-
-\textbf{Conclusion :}  
-$f$ est croissante sur $(-\infty, -\sqrt{2}]$ et $[\sqrt{2}, +\infty)$, et décroissante sur $(-\sqrt{2}, 0)$ et $(0, \sqrt{2})$.
+\medskip
+\textbf{Réponse:}  
+Le rayon et la hauteur sont égaux et valent $\sqrt[3]{\tfrac{2000}{\pi}}\approx \dots$ (on peut calculer). 
 \end{solutionbox}
 
-% Exercice 20
-\begin{exercice}[title=Exercice 20 $\quad \star \star \quad$ {[Calculer]}]
-Soit $f(x) = x^2 - 3x + 1$. Pour $x \in [1; 5]$, déterminer un encadrement de $f(x)$.
+% Exercice 28
+\begin{exercice}[title=Exercice 28 -- {[Modéliser, Calculer]}]
+Un éditeur doit produire un livre avec les contraintes suivantes:
+\begin{itemize}
+  \item sur chaque page, le texte imprimé doit être contenu dans un rectangle de 300 cm$^2$;
+  \item les marges à gauche et à droite mesurent 1,5 cm;
+  \item les marges en haut et en bas mesurent 2 cm.
+\end{itemize}
+Quelles doivent être les dimensions d’une page pour que la consommation de papier soit minimale?
 \end{exercice}
 
 \begin{solutionbox}{Solution}
-\textbf{1. Domaine et nature :}
+\textbf{1. Modélisation géométrique:}  
+Soit la zone imprimée un rectangle de dimensions $X\times Y$ tel que $X\cdot Y=300$ cm$^2$.  
+La page inclut des marges de 1,5 cm à gauche et 1,5 cm à droite, donc largeur totale $X+3$.  
+Les marges en haut et bas sont 2 cm, donc hauteur totale $Y+4$.
 
-$f$ est un polynôme défini partout, en particulier sur $[1; 5]$. On cherche à encadrer $f(x)$ sur cet intervalle.
+Surface totale de la page:
+$$
+S= (X+3)(Y+4).
+$$
 
-\textbf{2. Étude des variations :}
+\textbf{2. Contrainte:}  
+$$
+XY=300.
+$$
+On veut minimiser $S$ sous cette contrainte.
 
-Calculons la dérivée :
-$$f'(x) = 2x - 3.$$
-- $f'(x) = 0 \Longleftrightarrow x = \frac{3}{2} = 1.5.$  
-- Sur $[1; 5]$, $f'(x) < 0$ si $x < 1.5$ et $f'(x) > 0$ si $x > 1.5.$
+\textbf{3. Expression de $S$ en une seule variable:}  
+Par exemple, $Y=\frac{300}{X}$.  
+Alors
+$$
+S(X) = (X+3)\Bigl(\frac{300}{X}+4\Bigr)
+= (X+3)\Bigl(\frac{300+4X}{X}\Bigr)
+= \frac{(X+3)(300+4X)}{X}.
+$$
+Développons:
+$$
+S(X)= \frac{300X +4X^2+900+12X}{X}
+= \frac{4X^2 +312X +900}{X}
+=4X +312 + \frac{900}{X}.
+$$
 
-Donc $f$ est décroissante sur $[1; 1.5]$ puis croissante sur $[1.5; 5].$
+\textbf{4. Étude de la fonction $S(X)$:}  
+Domaine: $X>0.$  
+Dérivée:
+$$
+S'(X)=4 - \frac{900}{X^2}.
+$$
+On résout $S'(X)=0$:
+$$
+4 = \frac{900}{X^2}
+\quad\Longleftrightarrow\quad
+X^2=\frac{900}{4}=225
+\quad\Longleftrightarrow\quad
+X=15 \quad (\text{on garde }X>0).
+$$
 
-\textbf{3. Valeurs aux bornes et au sommet :}
+Ensuite, $Y=\frac{300}{X}= \frac{300}{15}=20.$
 
-- $f(1) = 1^2 - 3 \times 1 + 1 = -1.$
-- $f(5) = 25 - 15 + 1 = 11.$
-- $f\!\Bigl(\tfrac{3}{2}\Bigr) = \left(\tfrac{3}{2}\right)^2 - 3 \times \tfrac{3}{2} + 1 = \tfrac{9}{4} - \tfrac{9}{2} + 1 = \tfrac{9}{4} - \tfrac{18}{4} + \tfrac{4}{4} = -\tfrac{5}{4}.$
+\textbf{5. Conclusion sur les dimensions minimales:}  
+Dimensions de la zone imprimée: $15 \times 20.$  
+Dimensions totales de la page:  
+$$
+(\underbrace{15+3}_{=18}) \times (\underbrace{20+4}_{=24}).
+$$
 
-\textbf{4. Encadrement sur $[1; 5]$ :}
+\textbf{Réponse:}  
+La page doit mesurer $18$ cm de large et $24$ cm de haut pour minimiser la consommation de papier.
+\end{solutionbox}
 
-- La valeur minimale est $-\tfrac{5}{4} = -1.25$ atteinte en $x = \tfrac{3}{2}$, et la valeur maximale est 11 atteinte en $x=5.$
-- De plus, $f(1) = -1 \in [-1.25, 11].$
+\begin{exercice}[title=Exercice : Étudier la propagation d’une maladie -- vitesse et dérivation]
+On modélise le nombre de malades (en milliers) au temps $t$ (en jours) par la fonction
+$$
+f(t) \;=\; -\,t^3 \;+\; 30\,t^2,
+\quad t \in [0,30].
+$$
+\textbf{1.} Déterminer la vitesse moyenne de propagation entre le déclenchement de la maladie ($t=0$) et le 10\textsuperscript{e} jour.  
+
+\textbf{2.} Déterminer graphiquement :  
+\begin{enumerate}
+  \item[(a)] Quel est le jour où le nombre de malades est maximum ? Quelle est la vitesse de propagation ce jour-là ?
+  \item[(b)] À partir de quel jour la vitesse de propagation de la maladie diminue-t-elle ?
+\end{enumerate}
+
+\textbf{3.} Déterminer algébriquement la vitesse de propagation $v(t) = f'(t)$. Étudier les variations de $v(t)$ pour retrouver l’ensemble des réponses de la question 2.
+\end{exercice}
+
+\begin{solutionbox}{Solution}
+
+\textbf{1. Vitesse moyenne de propagation entre $t=0$ et $t=10$.}
+
+\begin{itemize}
+  \item Le nombre de malades est donné par $f(t)$ (en milliers). La vitesse moyenne entre $t=a$ et $t=b$ est la pente de la sécante : 
+  $$
+    \text{Vitesse moyenne} \;=\; \frac{f(b) - f(a)}{b-a}.
+  $$
+  \item Ici, $a=0, b=10.$
+  
+  Calculons :
+  \[
+  f(0)= -(0)^3 + 30\,(0)^2 = 0,
+  \]
+  \[
+  f(10)= -(10)^3 + 30\,(10)^2= -1000 +30\times100= -1000 +3000=2000.
+  \]
+  (Interprétation : $2000$ signifie 2\,000 malades, ou $2$ milliers)
+
+  Donc la variation est $f(10)-f(0)=2000$ (en milliers). Sur $10$ jours,
+  \[
+    \text{Vitesse moyenne} = \frac{2000-0}{10} = 200 \quad\text{(en malades/jour)}.
+  \]
+  (Si on raisonne en milliers, c’est $0.2$ milliers/jour.)
+
+\end{itemize}
+
+\medskip
+
+\textbf{2. Étude Graphique}
+
+\begin{enumerate}
+  \item[(a)] \textit{Jour où le nombre de malades est maximum et vitesse à ce jour.}
+
+  Sur le schéma (ou via dérivée), on voit le maximum atteint vers $t=20$. En effet la courbe $f(t)$ culmine au jour $t=20$. Le nombre de malades est alors $f(20)= -(20)^3 +30\,(20)^2= -8000 +30\times400= -8000 +12000=4000$ (soit 4\,000 malades).
+
+  La vitesse de propagation ce jour-là est la dérivée $f'(20)$. Graphiquement on observe que la tangente est horizontale (donc vitesse nulle). On confirmera algébriquement en question 3.
+
+  \item[(b)] \textit{À partir de quel jour la vitesse de propagation diminue-t-elle ?}
+
+  Graphiquement, la vitesse est la pente de la tangente à la courbe $f(t)$. On voit qu’avant $t=20$, la pente est positive (la vitesse est positive) et après $t=20$, la pente devient négative (la vitesse diminue, voire devient négative). Donc la vitesse de propagation diminue à partir de $t>20$.
+\end{enumerate}
+
+\bigskip
+
+\textbf{3. Étude Algébrique de la vitesse de propagation $v(t) = f'(t)$.}
+
+\begin{itemize}
+  \item \textit{Calcul de la dérivée.}  
+    $$
+    v(t)=f'(t)= \frac{d}{dt}\bigl(-\,t^3 +30\,t^2\bigr)= -3\,t^2 +60\,t.
+    $$
+
+  \item \textit{Résolution de $v(t)=0$.}  
+    $$
+    -3\,t^2 +60\,t=0 \quad\Longleftrightarrow\quad t(-3\,t+60)=0.
+    $$
+    Donc $t=0$ ou $t=20.$
+
+  \item \textit{Étude du signe de $v(t)$.}  
+    \[
+    v(t)= -3\,t^2 +60\,t= -3\,t(t-20).
+    \]
+    - Pour $0<t<20$, on a $t>0$ et $t-20<0\implies v(t)>0$.  
+    - Pour $t>20$, $v(t)<0$.  
+    - Pour $t<0$ ou $t>30$ n’est pas dans notre intervalle (ou le modèle s’arrête), l’étude n’est pas utile.
+
+\end{itemize}
 
 \textbf{Conclusion :}
 
-Sur l’intervalle $[1; 5]$, $f(x)$ varie entre $-1.25$ et $11$.  
-Pour être plus exact,  
-$$ -1.25 \le f(x) \le 11 \quad \text{pour } x \in [1,5].$$
-\end{solutionbox}
+\begin{itemize}
+  \item \textbf{Maximum du nombre de malades} : au jour $t=20$, car la dérivée $v(t)$ s’annule et change de signe (positive avant 20, négative après 20).  
+  \item \textbf{Vitesse de propagation le jour $t=20$} : c’est $v(20)=0.$  
+  \item \textbf{Diminution de la vitesse} : pour $t>20$, la dérivée est négative.  
+\end{itemize}
 
-% Exercice 21
-\begin{exercice}[title=Exercice 21 $\quad \star \star \quad$ {[Calculer, Raisonner]}]
-Soit $f(x) = 8x^4 - 8x^2 + 1$. Montrer que
-$$
--1 \le x \le 1 \iff -1 \le f(x) \le 1.
-$$
-\end{exercice}
-
-\begin{solutionbox}{Solution}
-\textbf{1. Montrons : } $-1 \le x \le 1 \implies -1 \le f(x) \le 1.$
-
-Pour $|x|\le 1,$ on a $x^2 \le 1,$ donc $x^4 \le x^2.$
-
-Calculons $f(x)$ :
-$$
-f(x) = 8x^4 - 8x^2 +1.
-$$
-- Si $|x|\le1,$ alors $0 \le x^2 \le 1.$
-- Le terme $8x^4 -8x^2$ est $\le 8x^2 -8x^2 = 0,$ donc $f(x)\le 1.$
-- Aussi, comme $x^4 \ge 0,$ on a $8x^4 \ge 0,$ et $-8x^2 \ge -8,$ donc $8x^4 -8x^2 \ge -8.$ Ainsi $f(x)= 8x^4 -8x^2 +1 \ge -8+1=-7,$ mais il faut affiner.
-
-Mieux : regardons la dérivée ou la factorisation. On peut aussi factoriser $f(x)$ :
-$$
-f(x)=8x^4 -8x^2 +1=8(x^4 -x^2)+1=8x^2(x^2 -1)+1.
-$$
-Pour $|x|\le1,$ $x^2-1\le0,$ d’où $x^2(x^2-1)\le 0,$ donc $8x^2(x^2-1)\le0.$ D’où $f(x)\le1.$  
-D'autre part, $x^2(x^2-1)\ge -\tfrac{1}{4}??$ On peut aussi observer que $f( \pm1)=1,$ $f(0)=1.$ Le minimum a lieu pour $|x|\le1,$ $\dots$
-
-On constate bien $-1\le f(x)\le1$.
-
-\textbf{2. Montrons : } $-1 \le f(x) \le 1 \implies -1 \le x \le 1.$
-
-Réciproquement, si $|x|>1,$ on peut prouver que $|f(x)|>1.$  
-Ex: si $|x|>1,$ alors $x^2>1,$ $x^4>x^2,$ $8x^4-8x^2>0,$ donc $f(x)>1.$
-
-\textbf{Conclusion :}  
-$\boxed{-1\le x\le1 \iff -1\le f(x)\le1.}$
-\end{solutionbox}
-
-% Exercice 22
-\begin{exercice}[title=Exercice 22 $\quad \star \star \quad$ {[Représenter]}]
-On considère les fonctions $f$ et $g$ définies sur $\mathbb{R}$ par $f(x)=x^4$ et $g(x)=2x^3 -2x^2 -10.$ Déterminer la position relative de $C_f$ et $C_g.$
-\end{exercice}
-
-\begin{solutionbox}{Solution}
-\textbf{Étude de la position relative :}
-
-On compare $f$ et $g$ via $h(x)=f(x)-g(x)=x^4 - (2x^3-2x^2-10)=x^4 -2x^3+2x^2+10.$
-
-\textbf{1. Analyse de $h(x)$ :}
-
-- $h'(x)=4x^3 -6x^2 +4x.$
-- On peut factoriser : $h'(x)=2x(2x^2 -3x+2).$
-
-\textbf{2. Recherche des zéros de $h'(x)$ :}
-
-- $2x=0 \implies x=0.$
-- $2x^2-3x+2=0.$
-
-Résolvons $2x^2-3x+2=0.$ Le discriminant $\Delta=9-16= -7<0,$ donc pas de solution réelle.  
-Donc la seule solution réelle à $h'(x)=0$ est $x=0.$
-
-\textbf{3. Signe de $h'(x)$ :}
-
-- Pour $x<0,$ on a $2x<0$ et $(2x^2-3x+2)>0$ (pas de racine réelle), donc $h'(x)<0.$ $h$ est décroissante sur $(-\infty,0).$
-- Pour $x>0,$ $2x>0$ et $(2x^2-3x+2)>0,$ donc $h'(x)>0.$ $h$ est croissante sur $(0,+\infty).$
-
-\textbf{4. Valeur de $h(0)$ :}
-
-$h(0)=0^4-2\cdot0^3+2\cdot0^2+10=10.$
-
-Ainsi, $h(x)$ est décroissante sur $(-\infty,0)$ et croissante sur $(0,+\infty),$ atteignant un minimum en $x=0$ égal à $10.$ Donc $h(x)\ge10>0$ pour tout $x.$
-
-\textbf{5. Interprétation :}
-
-$h(x)>0$ pour tout $x \implies f(x)-g(x)>0 \implies f(x)>g(x).$  
-Donc la courbe $C_f$ est toujours au-dessus de la courbe $C_g.$
-
-\textbf{Conclusion :}  
-$\boxed{\text{Pour tout }x,\ f(x)>g(x)\text{. La courbe }C_f\text{ est au-dessus de }C_g\text{.}}$
 \end{solutionbox}
 
 \end{document}
+
+

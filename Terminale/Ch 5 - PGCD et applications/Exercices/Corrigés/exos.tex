@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{amsmath, amssymb}
 \usepackage{xcolor}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{geometry}
 
 \geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
@@ -15,7 +15,8 @@
     colback=SolutionColor,
     colframe=blue!75!black,
     title=#1,
-    fonttitle=\bfseries
+    fonttitle=\bfseries,
+    breakable=true
 }
 \newtcolorbox{exercice}[1][]{
     colback=ExerciseColor,
@@ -26,277 +27,737 @@
 
 \begin{document}
 
-% Exercice 3
-\begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Modéliser, Calculer] }]
-Un fleuriste possède 105 roses rouges et 63 roses blanches. Il souhaite composer des bouquets tous identiques.  
-En utilisant toutes les fleurs, quel est le plus grand nombre de bouquets qu’il pourra créer ?
-\end{exercice}
+% % Exercice 3
+% \begin{exercice}[title=Exercice 3 $\quad \star \quad$ { [Modéliser, Calculer] }]
+% Un fleuriste possède 105 roses rouges et 63 roses blanches. Il souhaite composer des bouquets tous identiques.  
+% En utilisant toutes les fleurs, quel est le plus grand nombre de bouquets qu’il pourra créer ?
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{Idée :} Pour composer le plus grand nombre de bouquets identiques en utilisant toutes les fleurs, il faut déterminer le PGCD (plus grand commun diviseur) de 105 et 63.
+% 
+% - Calculons $\mathrm{PGCD}(105,63)$ :  
+%   \[
+%   105 = 63 \times 1 + 42
+%   \]
+%   \[
+%   63 = 42 \times 1 + 21
+%   \]
+%   \[
+%   42 = 21 \times 2 + 0
+%   \]
+%   Le PGCD est donc $21$.
+% 
+% \textbf{Interprétation :}  
+% Le fleuriste pourra créer $\mathrm{PGCD}(105,63) = 21$ bouquets identiques.
+% 
+% \textbf{Réponse :}  
+% $\boxed{21 \text{ bouquets}}$
+% \end{solutionbox}
+% 
+% % Exercice 4
+% \begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Modéliser, Calculer] }]
+% En astronomie, on observe deux étoiles $A$ et $B$ une même nuit. L’étoile $A$ apparaît périodiquement tous les 35 jours tandis que l’étoile $B$ apparaît périodiquement tous les 77 jours.  
+% Combien de jours faudra-t-il attendre pour pouvoir observer les étoiles $A$ et $B$ simultanément ?
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{Idée :} Pour déterminer la première date où $A$ et $B$ réapparaissent simultanément, on cherche le PPCM (plus petit commun multiple) de 35 et 77.
+% 
+% \textbf{Étapes :}
+% - Facteurs de 35 : $35 = 5 \times 7$
+% - Facteurs de 77 : $77 = 7 \times 11$
+% 
+% Le PPCM de 35 et 77 est $5 \times 7 \times 11 = 385$.
+% 
+% \textbf{Conclusion :}  
+% Au bout de $\mathrm{PPCM}(35,77)=385$ jours, on observera $A$ et $B$ simultanément.
+% 
+% \textbf{Réponse :}  
+% $\boxed{385 \text{ jours}}$
+% \end{solutionbox}
+% 
+% % Exercice 5
+% \begin{exercice}[title=Exercice 5 $\quad \star \quad$ { [Modéliser, Calculer] }]
+% Une association organise une compétition sportive ; 144 filles et 252 garçons se sont inscrits. L’association désire répartir les inscrits en équipes mixtes. Le nombre de filles et de garçons doivent être les mêmes dans chaque équipe. Tous les inscrits doivent être dans une des équipes.  
+% \begin{enumerate}
+%     \item Quel est le nombre maximum d’équipes que cette association peut former ?
+%     \item Quelle est alors la composition de chaque équipe ?
+% \end{enumerate}
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Nombre maximal d’équipes :}
+% 
+% On cherche le plus grand nombre $k$ d’équipes pour répartir 144 filles et 252 garçons, avec la même proportion filles/garçons dans chaque équipe.
+% 
+% Cela revient à chercher le plus grand $k$ tel que 144 et 252 soient divisibles par $k$.  
+% En d’autres termes, on calcule $\mathrm{PGCD}(144,252)$ :
+% 
+% \[
+% 252 = 144 \times 1 + 108
+% \]
+% \[
+% 144 = 108 \times 1 + 36
+% \]
+% \[
+% 108 = 36 \times 3 + 0
+% \]
+% Donc PGCD est $36$.
+% 
+% Le nombre maximum d’équipes est $\mathrm{PGCD}(144,252)=36$.
+% 
+% \textbf{2. Composition de chaque équipe :}
+% 
+% - Chaque équipe aura $\frac{144}{36} = 4$ filles.
+% - Chaque équipe aura $\frac{252}{36} = 7$ garçons.
+% 
+% \textbf{Réponses :}
+% - $\boxed{36 \text{ équipes maximum}}$
+% - Composition : $\boxed{4 \text{ filles et }7\text{ garçons par équipe}}$
+% \end{solutionbox}
+% 
+% % Exercice 6
+% \begin{exercice}[title=Exercice 6 $\quad \star \star \star \quad$ { [Calculer, Chercher, Raisonner] }]
+% Soit $n$ un entier naturel impair. Déterminer $\mathrm{PGCD}(n^2 + 2n - 3 ; n^2 + 4n + 3)$.
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Expression des deux polynômes :}
+% 
+% - $A(n) = n^2 + 2n -3$
+% - $B(n) = n^2 +4n +3$
+% 
+% \textbf{2. Calcul par soustraction :}
+% \[
+% B(n) - A(n) = (n^2 +4n +3) - (n^2 +2n -3) = 2n +6 = 2(n+3).
+% \]
+% Le PGCD de $A(n)$ et $B(n)$ est le même que le PGCD de $A(n)$ et $2(n+3)$.
+% 
+% \textbf{3. Étude de $n$ impair :}
+% Si $n$ est impair, $n+3$ est également impair.  
+% On peut essayer d’évaluer $\mathrm{PGCD}(n^2+2n-3, n+3)$ :
+% 
+% - Remarquons que $n^2+2n-3= (n+3)(n-1) +0$ ?? Testons :
+% 
+% \[
+% (n+3)(n-1)=n^2 +3n -n -3 =n^2+2n-3.
+% \]
+% Donc $n^2+2n-3=(n+3)(n-1)$.
+% 
+% D’où $\mathrm{PGCD}(n^2+2n-3, n+3)= \mathrm{PGCD}((n+3)(n-1), n+3)$.
+% 
+% Ce PGCD vaut $|n+3|$ si $n+3 \mid (n+3)(n-1)$, toujours vrai, ou $|n+3|=1$?? Pas nécessairement. On utilise la propriété suivante : PGCD$(ab,a)=$ PGCD$(a,b)\cdot \dots$? En fait $\mathrm{PGCD}(ab,a)=|a|\cdot \mathrm{PGCD}(b,1)=|a|$ si $a \neq 0$. Oui, plus simplement, $\mathrm{PGCD}(a\cdot m,a)=|a|\mathrm{PGCD}(m,1)=|a|$. 
+% 
+% Donc $\mathrm{PGCD}((n+3)(n-1), n+3)= |n+3|$.
+% 
+% Ensuite, on compare $\mathrm{PGCD}(n^2+2n-3,2(n+3))$. Comme $n+3$ est impair, 2 et $n+3$ sont premiers entre eux. Donc 
+% $\mathrm{PGCD}((n+3)(n-1),2(n+3))= (n+3)\times\mathrm{PGCD}(n-1,2).$
+% 
+% - Enfin, $n$ est impair, donc $n-1$ est pair, alors $\mathrm{PGCD}(n-1,2)=2.$
+% 
+% Conclusion : $\mathrm{PGCD}(A(n),B(n))=\mathrm{PGCD}(n^2+2n-3,n^2+4n+3) = 2(n+3).$
+% 
+% \textbf{Réponse :} 
+% $\boxed{\mathrm{PGCD}(n^2+2n-3,\ n^2+4n+3)=2(n+3),\ \text{pour }n\text{ impair}.}$
+% \end{solutionbox}
+% 
+% % Exercice 7
+% \begin{exercice}[title=Exercice 7 $\quad \star \quad$ { [Calculer] }]
+% Dans chaque cas, déterminer à l’aide de l’algorithme d’Euclide le PGCD de $n$ et $m$.
+% \begin{enumerate}
+%     \item $n = 150$ et $m = 357$
+%     \item $n = 72$ et $m = 448$
+%     \item $n = 300$ et $m = 2880$
+%     \item $n = 1027$ et $m = 1032$
+% \end{enumerate}
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Cas $n=150$, $m=357$:}  
+% Algorithme d’Euclide:  
+% \[
+% 357 = 150 \times 2 +57
+% \]
+% \[
+% 150 = 57 \times 2 +36
+% \]
+% \[
+% 57=36\times1+21
+% \]
+% \[
+% 36=21\times1+15
+% \]
+% \[
+% 21=15\times1+6
+% \]
+% \[
+% 15=6\times2+3
+% \]
+% \[
+% 6=3\times2+0
+% \]
+% PGCD=$3$.
+% 
+% \textbf{2. Cas $n=72$, $m=448$:}  
+% \[
+% 448=72\times6+16
+% \]
+% \[
+% 72=16\times4+8
+% \]
+% \[
+% 16=8\times2+0
+% \]
+% PGCD=$8$.
+% 
+% \textbf{3. Cas $n=300$, $m=2880$:}  
+% \[
+% 2880=300\times9+180
+% \]
+% \[
+% 300=180\times1+120
+% \]
+% \[
+% 180=120\times1+60
+% \]
+% \[
+% 120=60\times2+0
+% \]
+% PGCD=$60$.
+% 
+% \textbf{4. Cas $n=1027$, $m=1032$:}  
+% \[
+% 1032=1027\times1+5
+% \]
+% \[
+% 1027=5\times205+2
+% \]
+% \[
+% 5=2\times2+1
+% \]
+% \[
+% 2=1\times2+0
+% \]
+% PGCD=$1$.
+% 
+% \textbf{Réponses :}
+% 1) $3$, 2) $8$, 3) $60$, 4) $1$.
+% \end{solutionbox}
+% 
+% % Exercice 8
+% \begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]
+% \begin{enumerate}
+%     \item Montrer que la fraction $\frac{1510}{503}$ est irréductible.
+%     \item Réduire la fraction $\frac{4389}{5544}$ en fraction irréductible.
+% \end{enumerate}
+% \end{exercice}
+% 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Irréductibilité de $\tfrac{1510}{503}$ :}
+% 
+% Pour montrer qu’elle est irréductible, on vérifie que $\mathrm{PGCD}(1510,503)=1$.
+% 
+% - Algorithme d’Euclide:
+% \[
+% 1510=503\times3+1
+% \]
+% \[
+% 503=1\times503+0
+% \]
+% PGCD est $1.$ Donc la fraction est irréductible.
+% 
+% \textbf{2. Réduire $\tfrac{4389}{5544}$ :}
+% 
+% Calculons $\mathrm{PGCD}(4389,5544)$.
+% 
+% - Effectuons l’algorithme:
+% \[
+% 5544=4389\times1+1155
+% \]
+% \[
+% 4389=1155\times3+ \dots?
+% \]
+% \[
+% 4389=1155\times3+924?? \text{ Non, let's do properly: }4389-3\times1155=4389-3465=924
+% \]
+% \[
+% 1155=924\times1+231
+% \]
+% \[
+% 924=231\times4+0
+% \]
+% Donc PGCD=$231$.
+% 
+% Réduisons:
+% - Numérateur: $4389\div231=19$
+% - Dénominateur: $5544\div231=24$
+% 
+% Fraction irréductible: $\tfrac{19}{24}$.
+% 
+% \textbf{Réponses :}
+% 1) $\tfrac{1510}{503}$ est irréductible.  
+% 2) $\tfrac{4389}{5544} = \tfrac{19}{24}$.
+% \end{solutionbox}
 
-\begin{solutionbox}{Solution}
-\textbf{Idée :} Pour composer le plus grand nombre de bouquets identiques en utilisant toutes les fleurs, il faut déterminer le PGCD (plus grand commun diviseur) de 105 et 63.
-
-- Calculons $\mathrm{PGCD}(105,63)$ :  
-  \[
-  105 = 63 \times 1 + 42
-  \]
-  \[
-  63 = 42 \times 1 + 21
-  \]
-  \[
-  42 = 21 \times 2 + 0
-  \]
-  Le PGCD est donc $21$.
-
-\textbf{Interprétation :}  
-Le fleuriste pourra créer $\mathrm{PGCD}(105,63) = 21$ bouquets identiques.
-
-\textbf{Réponse :}  
-$\boxed{21 \text{ bouquets}}$
-\end{solutionbox}
-
-% Exercice 4
-\begin{exercice}[title=Exercice 4 $\quad \star \quad$ { [Modéliser, Calculer] }]
-En astronomie, on observe deux étoiles $A$ et $B$ une même nuit. L’étoile $A$ apparaît périodiquement tous les 35 jours tandis que l’étoile $B$ apparaît périodiquement tous les 77 jours.  
-Combien de jours faudra-t-il attendre pour pouvoir observer les étoiles $A$ et $B$ simultanément ?
-\end{exercice}
-
-\begin{solutionbox}{Solution}
-\textbf{Idée :} Pour déterminer la première date où $A$ et $B$ réapparaissent simultanément, on cherche le PPCM (plus petit commun multiple) de 35 et 77.
-
-\textbf{Étapes :}
-- Facteurs de 35 : $35 = 5 \times 7$
-- Facteurs de 77 : $77 = 7 \times 11$
-
-Le PPCM de 35 et 77 est $5 \times 7 \times 11 = 385$.
-
-\textbf{Conclusion :}  
-Au bout de $\mathrm{PPCM}(35,77)=385$ jours, on observera $A$ et $B$ simultanément.
-
-\textbf{Réponse :}  
-$\boxed{385 \text{ jours}}$
-\end{solutionbox}
-
-% Exercice 5
-\begin{exercice}[title=Exercice 5 $\quad \star \quad$ { [Modéliser, Calculer] }]
-Une association organise une compétition sportive ; 144 filles et 252 garçons se sont inscrits. L’association désire répartir les inscrits en équipes mixtes. Le nombre de filles et de garçons doivent être les mêmes dans chaque équipe. Tous les inscrits doivent être dans une des équipes.  
+% Exercice 9
+\begin{exercice}[title=Exercice 9 $\quad \star \quad$ {[Calculer]}]
+Dans chaque cas, déterminer une identité de Bézout entre $n$ et $m$.
 \begin{enumerate}
-    \item Quel est le nombre maximum d’équipes que cette association peut former ?
-    \item Quelle est alors la composition de chaque équipe ?
+    \item $n = 17$ et $m = 5$
+    \item $n = 25$ et $m = 72$
+    \item $n = 36$ et $m = 300$
 \end{enumerate}
 \end{exercice}
 
 \begin{solutionbox}{Solution}
-\textbf{1. Nombre maximal d’équipes :}
+\textbf{Rappel :} Une identité de Bézout entre deux entiers $n$ et $m$ est une égalité de la forme :
+$$
+\mathrm{PGCD}(n,m) = an + bm,
+$$
+où $a$ et $b$ sont des entiers.
 
-On cherche le plus grand nombre $k$ d’équipes pour répartir 144 filles et 252 garçons, avec la même proportion filles/garçons dans chaque équipe.
+\begin{enumerate}
+    \item \textbf{Cas } $n = 17$ et $m = 5.$
+    
+    - Calcul de la PGCD : $\mathrm{PGCD}(17,5)$ via Euclide :
+      $$
+      17 = 5 \times 3 + 2,\quad 5 = 2 \times 2 +1,\quad 2=1\times2+0.
+      $$
+      Donc $\mathrm{PGCD}(17,5)=1.$
 
-Cela revient à chercher le plus grand $k$ tel que 144 et 252 soient divisibles par $k$.  
-En d’autres termes, on calcule $\mathrm{PGCD}(144,252)$ :
+    - Remontons l'algorithme pour exprimer 1 en combinaison linéaire de 17 et 5 :
+      $$
+      1 = 5 -2\times2
+      $$
+      Or $2=17 -5\times3,$ donc
+      $$
+      1=5 -2(17 -5\times3)=5 -2\times17 +6\times5=7\times5 -2\times17.
+      $$
+      Final : $1=(-2)\times17 +7\times5.$
+    
+    \item \textbf{Cas } $n =25$ et $m=72.$
+    
+    - PGCD : via algorithme
+      $$
+      72=25\times2 +22,\quad 25=22\times1+3,\quad 22=3\times7+1,\quad 3=1\times3+0.
+      $$
+      PGCD=$1.$
+    
+    - Remontons :
+      \[
+      1=22-3\times7.
+      \]
+      \[
+      3=25-22\times1,\quad\therefore1=22 -7(25-22)=22-7\times25+7\times22=8\times22 -7\times25.
+      \]
+      \[
+      22=72-25\times2,\quad1=8(72-25\times2)-7\times25=8\times72-16\times25-7\times25=8\times72-23\times25.
+      \]
+      Final : $1=(-23)\times25 +8\times72.$
 
-\[
-252 = 144 \times 1 + 108
-\]
-\[
-144 = 108 \times 1 + 36
-\]
-\[
-108 = 36 \times 3 + 0
-\]
-Donc PGCD est $36$.
-
-Le nombre maximum d’équipes est $\mathrm{PGCD}(144,252)=36$.
-
-\textbf{2. Composition de chaque équipe :}
-
-- Chaque équipe aura $\frac{144}{36} = 4$ filles.
-- Chaque équipe aura $\frac{252}{36} = 7$ garçons.
-
-\textbf{Réponses :}
-- $\boxed{36 \text{ équipes maximum}}$
-- Composition : $\boxed{4 \text{ filles et }7\text{ garçons par équipe}}$
+    \item \textbf{Cas } $n=36$ et $m=300.$
+    
+    - PGCD : 
+      $$
+      300=36\times8+12,\quad36=12\times3+0.
+      $$
+      PGCD=$12.$
+    
+    - On veut $12=a\times36 +b\times300.$
+      Remontons Euclide :
+      $$
+      12=300 -36\times8.
+      $$
+      Du coup l'identité de Bézout est $12=(-8)\times36 +1\times300.$
+    
+\end{enumerate}
 \end{solutionbox}
 
-% Exercice 6
-\begin{exercice}[title=Exercice 6 $\quad \star \star \star \quad$ { [Calculer, Chercher, Raisonner] }]
-Soit $n$ un entier naturel impair. Déterminer $\mathrm{PGCD}(n^2 + 2n - 3 ; n^2 + 4n + 3)$.
+% Exercice 10
+\begin{exercice}[title=Exercice 10 $\quad \star \star \quad$ {[Calculer, Raisonner, Chercher]}]
+Soit $n\ge1$ un entier naturel. Déterminer $\mathrm{PGCD}(7n +9,\ n+1).$
 \end{exercice}
+\begin{solutionbox}
+    
+Pour déterminer $\gcd(7n+9,\ n+1)$, on va utiliser la propriété suivante de la $\gcd$ (algorithme d'Euclide):  
+\[
+\gcd(a + k\,b,\ b) = \gcd(a,\ b)\quad\text{pour tout }k\in\mathbb{Z}.
+\]
+
+\medskip
+
+\textbf{1. Réécriture de $7n + 9$:}
+
+On remarque que
+$$
+7n + 9 = 7(n+1) + 2.
+$$
+
+\textbf{2. Application de la propriété de Bézout / Euclide :}
+
+Considérons
+$$
+\gcd\bigl(7(n+1) + 2,\ n+1\bigr).
+$$
+
+D’après la propriété $\gcd(a + kb,\ b) = \gcd(a,\ b)$ (avec $a = 2$ et $b = n+1$), on obtient
+$$
+\gcd\bigl(7(n+1)+2,\ n+1\bigr) = \gcd(2,\ n+1).
+$$
+
+\textbf{3. Conclusion sur le $\gcd$:}
+
+Ainsi,
+$$
+\gcd(7n+9,\ n+1) = \gcd(2,\ n+1).
+$$
+
+\medskip
+
+\textbf{Interprétation :}
+- Si $n+1$ est pair, alors $\gcd(2,\ n+1) = 2.$
+- Si $n+1$ est impair, alors $\gcd(2,\ n+1) = 1.$
+
+\medskip
+
+\textbf{Réponse finale :}
+$$
+\gcd(7n + 9,\ n+1) =
+\begin{cases}
+2, & \text{si $n+1$ est pair (c.-à-d. $n$ impair)},\\
+1, & \text{si $n+1$ est impair (c.-à-d. $n$ pair)}.
+\end{cases}
+$$
+\end{solutionbox}
+
+% \begin{solutionbox}{Solution}
+% \textbf{Idée :} On peut tenter de manipuler $7n+9$ et $n+1$ pour extraire un PGCD.
+% 
+% - Observons :
+%   $$
+%   7n +9=7(n+1)+2,
+%   $$
+%   donc $\mathrm{PGCD}(7n+9,n+1)=\mathrm{PGCD}(7(n+1)+2,n+1).$
+% 
+% - On sait que $\mathrm{PGCD}(a+kb,a)=\mathrm{PGCD}(b,a)$ en général. Donc
+%   $$
+%   \mathrm{PGCD}(7(n+1)+2,n+1)=\mathrm{PGCD}(2,n+1).
+%   $$
+% 
+% Conclusion : $\mathrm{PGCD}(7n+9,n+1)=\mathrm{PGCD}(2,n+1).$
+% 
+% - Si $n+1$ est pair, PGCD=2.  
+% - Si $n+1$ est impair, PGCD=1.
+% 
+% \textbf{Réponse :}
+% 
+% $$
+% \mathrm{PGCD}(7n+9,\ n+1)=
+% \begin{cases}
+% 2,\quad \text{si }n+1\text{ est pair, i.e. } n\text{ est impair},\\
+% 1,\quad \text{si }n+1\text{ est impair, i.e. } n\text{ est pair}.
+% \end{cases}
+% $$
+% \end{solutionbox}
+
+% Exercice 11
+\begin{exercice}[title=Exercice 11 $\quad \star \star \quad$ {[Calculer, Raisonner, Chercher]}]
+Montrer que pour tout entier naturel $n\ge1,$ la fraction $\frac{n}{n^2+1}$ est irréductible.
+\end{exercice}
+\begin{solutionbox}{Solution}
+    Pour prouver que la fraction $\frac{n}{n^2+1}$ est irréductible, il suffit de montrer que
+    $$
+    \gcd(n,\;n^2+1) = 1.
+    $$
+    
+    \textbf{1. Interprétation de l'irréductibilité:}
+    
+    Si $\gcd(n,\,n^2+1)=d>1$, alors $d$ serait un diviseur commun de $n$ et de $n^2+1$. Nous allons contredire cette possibilité.
+    
+    \textbf{2. Calcul via Bézout (Algorithme d'Euclide):}
+    
+    Observons l'expression
+    $$
+    n^2+1 - n\cdot n = 1.
+    $$
+    En termes de la propriété de Bézout ou de l'algorithme d'Euclide, nous utilisons:
+    $$
+    \gcd(a,\;b) = \gcd\bigl(a,\;b - k\,a\bigr)\quad\text{pour tout entier }k.
+    $$
+    Prenons $a=n$ et $b=n^2+1$, ainsi que $k=n$:
+    $$
+    \gcd\bigl(n,\;n^2+1\bigr)
+    \;=\;
+    \gcd\Bigl(n,\;(n^2+1)-n\cdot n\Bigr)
+    \;=\;
+    \gcd\bigl(n,\;1\bigr).
+    $$
+    
+    \textbf{3. Conclusion:}
+    
+    On sait que $\gcd(n,\,1)=1$. Donc $\gcd(n,\,n^2+1)=1$. Cela signifie que $n$ et $n^2+1$ n'ont pas de diviseur commun autre que 1.
+    
+    \textbf{Conséquence sur la fraction:}
+    
+    La fraction
+    $$
+    \frac{n}{n^2+1}
+    $$
+    est irréductible, puisque son numérateur et son dénominateur sont premiers entre eux.
+    
+    \medskip
+    \textbf{Réponse:}
+    $$
+    \gcd\bigl(n,\;n^2+1\bigr)=1\quad\Longrightarrow\quad \frac{n}{n^2+1}\text{ est irréductible.}
+    $$
+    \end{solutionbox}
+% \begin{solutionbox}{Solution}
+% \textbf{Idée :} On veut montrer $\mathrm{PGCD}(n, n^2+1)=1$ pour $n\ge1.$
+% 
+% - Calcul :
+%   $$
+%   \mathrm{PGCD}(n,n^2+1)=\mathrm{PGCD}\bigl(n,\ n^2+1 -n\times n\bigr)=\mathrm{PGCD}\bigl(n,1\bigr)=1.
+%   $$
+%   (car $n^2+1 -n\times n=1.$)
+% 
+% \textbf{Conclusion :} Le PGCD est 1, donc $\frac{n}{n^2+1}$ est irréductible pour tout $n\ge1.$
+% \end{solutionbox}
 
 \begin{solutionbox}{Solution}
-\textbf{1. Expression des deux polynômes :}
+    Pour prouver que la fraction \(\tfrac{n}{n^2 + 1}\) est irréductible, il suffit de montrer que
+    \[
+    \gcd(n,\ n^2 + 1) = 1.
+    \]
+    
+    \textbf{1. Utilisation d’une manipulation de la PGCD :}
+     
+    Rappelons une propriété de l’algorithme d’Euclide:  
+    \[
+    \gcd(a,\ b) \;=\; \gcd(a,\ b - k\,a)
+    \quad\text{pour tout entier }k.
+    \]
+    Appliquons cela avec \(a = n\) et \(b = n^2 + 1\). Prenons \(k = n\) :
+    
+    \[
+    \gcd\bigl(n,\ n^2 + 1\bigr)
+    =\gcd\Bigl(n,\ n^2 + 1 - n\times n\Bigr)
+    =\gcd\bigl(n,\ 1\bigr).
+    \]
+    
+    \textbf{2. Conclusion sur la PGCD :}
+    
+    \(\gcd(n,\,1)=1\) car tout entier n’a de diviseurs communs avec 1 que 1 lui-même.  
+    
+    Ainsi \(\gcd(n,\ n^2 + 1)=1.\)
+    
+    \medskip
+    
+    \textbf{Conséquence sur la fraction :}
+    
+    Puisque le numérateur \(n\) et le dénominateur \(n^2 + 1\) sont premiers entre eux, la fraction 
+    \[
+    \frac{n}{n^2 + 1}
+    \]
+    est irréductible pour tout entier \(n \ge 1\).
+    
+    \textbf{Réponse :}  
+    La fraction \(\tfrac{n}{n^2+1}\) est irréductible, car \(\gcd(n,n^2+1)=1.\)
+    \end{solutionbox}
 
-- $A(n) = n^2 + 2n -3$
-- $B(n) = n^2 +4n +3$
-
-\textbf{2. Calcul par soustraction :}
-\[
-B(n) - A(n) = (n^2 +4n +3) - (n^2 +2n -3) = 2n +6 = 2(n+3).
-\]
-Le PGCD de $A(n)$ et $B(n)$ est le même que le PGCD de $A(n)$ et $2(n+3)$.
-
-\textbf{3. Étude de $n$ impair :}
-Si $n$ est impair, $n+3$ est également impair.  
-On peut essayer d’évaluer $\mathrm{PGCD}(n^2+2n-3, n+3)$ :
-
-- Remarquons que $n^2+2n-3= (n+3)(n-1) +0$ ?? Testons :
-
-\[
-(n+3)(n-1)=n^2 +3n -n -3 =n^2+2n-3.
-\]
-Donc $n^2+2n-3=(n+3)(n-1)$.
-
-D’où $\mathrm{PGCD}(n^2+2n-3, n+3)= \mathrm{PGCD}((n+3)(n-1), n+3)$.
-
-Ce PGCD vaut $|n+3|$ si $n+3 \mid (n+3)(n-1)$, toujours vrai, ou $|n+3|=1$?? Pas nécessairement. On utilise la propriété suivante : PGCD$(ab,a)=$ PGCD$(a,b)\cdot \dots$? En fait $\mathrm{PGCD}(ab,a)=|a|\cdot \mathrm{PGCD}(b,1)=|a|$ si $a \neq 0$. Oui, plus simplement, $\mathrm{PGCD}(a\cdot m,a)=|a|\mathrm{PGCD}(m,1)=|a|$. 
-
-Donc $\mathrm{PGCD}((n+3)(n-1), n+3)= |n+3|$.
-
-Ensuite, on compare $\mathrm{PGCD}(n^2+2n-3,2(n+3))$. Comme $n+3$ est impair, 2 et $n+3$ sont premiers entre eux. Donc 
-$\mathrm{PGCD}((n+3)(n-1),2(n+3))= (n+3)\times\mathrm{PGCD}(n-1,2).$
-
-- Enfin, $n$ est impair, donc $n-1$ est pair, alors $\mathrm{PGCD}(n-1,2)=2.$
-
-Conclusion : $\mathrm{PGCD}(A(n),B(n))=\mathrm{PGCD}(n^2+2n-3,n^2+4n+3) = 2(n+3).$
-
-\textbf{Réponse :} 
-$\boxed{\mathrm{PGCD}(n^2+2n-3,\ n^2+4n+3)=2(n+3),\ \text{pour }n\text{ impair}.}$
-\end{solutionbox}
-
-% Exercice 7
-\begin{exercice}[title=Exercice 7 $\quad \star \quad$ { [Calculer] }]
-Dans chaque cas, déterminer à l’aide de l’algorithme d’Euclide le PGCD de $n$ et $m$.
+% Exercice 12
+\begin{exercice}[title=Exercice 12 $\quad \star \star \quad$ {[Représenter, Raisonner]}]
+Déterminer le PGCD de :
 \begin{enumerate}
-    \item $n = 150$ et $m = 357$
-    \item $n = 72$ et $m = 448$
-    \item $n = 300$ et $m = 2880$
-    \item $n = 1027$ et $m = 1032$
+    \item deux nombres entiers consécutifs,
+    \item deux nombres entiers pairs consécutifs,
+    \item deux nombres entiers impairs consécutifs.
 \end{enumerate}
 \end{exercice}
 
 \begin{solutionbox}{Solution}
-\textbf{1. Cas $n=150$, $m=357$:}  
-Algorithme d’Euclide:  
-\[
-357 = 150 \times 2 +57
-\]
-\[
-150 = 57 \times 2 +36
-\]
-\[
-57=36\times1+21
-\]
-\[
-36=21\times1+15
-\]
-\[
-21=15\times1+6
-\]
-\[
-15=6\times2+3
-\]
-\[
-6=3\times2+0
-\]
-PGCD=$3$.
+    \begin{enumerate}
+      \item \textbf{Deux entiers consécutifs}
+    
+      Soient $n$ et $n+1$.  
+      Leur différence est $(n+1) - n = 1$.  
+      Tout diviseur commun des deux doit aussi diviser leur différence 1.  
+      Le seul diviseur possible est 1.  
+      Par conséquent, $\mathrm{PGCD}(n, n+1) = 1$.
+    
+      \item \textbf{Deux entiers pairs consécutifs}
+    
+      Soient $2k$ et $2k+2$.  
+      On peut factoriser $2k+2 = 2(k+1)$.  
+      Ces deux nombres sont multiples de 2. Pour trouver leur PGCD, on peut écrire:
+      \[
+      \mathrm{PGCD}(2k, 2(k+1)) = 2 \cdot \mathrm{PGCD}(k, k+1).
+      \]
+      Mais $k$ et $k+1$ sont consécutifs, donc $\mathrm{PGCD}(k, k+1)=1$.  
+      Finalement, $\mathrm{PGCD}(2k, 2k+2) = 2$.
+    
+      \item \textbf{Deux entiers impairs consécutifs}
+    
+      Soient $2k+1$ et $2k+3$.  
+      Leur différence est $(2k+3) - (2k+1) = 2$.  
+      S'ils étaient tous deux multiples de 2, ils seraient pairs, ce qui est contraire au fait qu'ils sont impairs.  
+      Le seul diviseur possible supérieur à 1 pour deux nombres impairs serait un diviseur de 2, mais il est impossible pour deux nombres impairs d'être multiples de 2.  
+      Par conséquent, $\mathrm{PGCD}(2k+1, 2k+3) = 1$.
+    \end{enumerate}
+    
+    \textbf{Conclusion:}
+    \begin{itemize}
+      \item Deux entiers consécutifs: PGCD = 1
+      \item Deux entiers pairs consécutifs: PGCD = 2
+      \item Deux entiers impairs consécutifs: PGCD = 1
+    \end{itemize}
+    
+    \end{solutionbox}
 
-\textbf{2. Cas $n=72$, $m=448$:}  
-\[
-448=72\times6+16
-\]
-\[
-72=16\times4+8
-\]
-\[
-16=8\times2+0
-\]
-PGCD=$8$.
+% \begin{solutionbox}{Solution}
+% \textbf{1. Deux entiers consécutifs :}  
+% Soient $n$ et $n+1.$  
+% $\mathrm{PGCD}(n,n+1)=1.$  
+% En effet, $(n+1)-n=1,$ donc tout diviseur commun doit diviser 1, donc c’est 1.
+% 
+% \textbf{2. Deux entiers pairs consécutifs :}  
+% Soient $2k$ et $2k+2.$  
+% On peut factoriser : $2k+2=2(k+1).$  
+% Le PGCD est $2\times\mathrm{PGCD}(k,k+1)=2\times1=2.$
+% 
+% \textbf{3. Deux entiers impairs consécutifs :}  
+% Soient $2k+1$ et $(2k+1)+2=2k+3.$  
+% Le PGCD de deux nombres impairs consécutifs ?  
+% On peut faire $(2k+3)-(2k+1)=2.$ Comme ils sont tous deux impairs, si un entier $d>1$ les divisait, il diviserait leur différence $2.$ Or s’ils sont tous deux multiples de 2, ils seraient pairs, contradiction.  
+% Donc la seule possibilité de $d$>1 est exclue. Conclusion $\mathrm{PGCD}(2k+1,2k+3)=1.$
+% 
+% \textbf{Réponses :}
+% 1) $1,$\quad 2) $2,$\quad 3) $1.$
+% \end{solutionbox}
 
-\textbf{3. Cas $n=300$, $m=2880$:}  
-\[
-2880=300\times9+180
-\]
-\[
-300=180\times1+120
-\]
-\[
-180=120\times1+60
-\]
-\[
-120=60\times2+0
-\]
-PGCD=$60$.
-
-\textbf{4. Cas $n=1027$, $m=1032$:}  
-\[
-1032=1027\times1+5
-\]
-\[
-1027=5\times205+2
-\]
-\[
-5=2\times2+1
-\]
-\[
-2=1\times2+0
-\]
-PGCD=$1$.
-
-\textbf{Réponses :}
-1) $3$, 2) $8$, 3) $60$, 4) $1$.
-\end{solutionbox}
-
-% Exercice 8
-\begin{exercice}[title=Exercice 8 $\quad \star \quad$ { [Calculer] }]
-\begin{enumerate}
-    \item Montrer que la fraction $\frac{1510}{503}$ est irréductible.
-    \item Réduire la fraction $\frac{4389}{5544}$ en fraction irréductible.
-\end{enumerate}
+% Exercice 13
+\begin{exercice}[title=Exercice 13 $\quad \star \star \quad$ {[Calculer, Chercher]}]
+Déterminer tous les couples $(x,y)$ d'entiers naturels tels que $x+y=42$ et $\mathrm{PGCD}(x,y)=6.$
 \end{exercice}
 
+% \begin{solutionbox}{Solution}
+% \textbf{1. Interprétation :}  
+% On veut $x+y=42$ et un PGCD de 6.  
+% Cela signifie qu’il existe $a,b$ entiers coprimes tels que $x=6a$ et $y=6b,$ avec $\mathrm{PGCD}(a,b)=1.$  
+% Ensuite $6a+6b=42 \implies a+b=7.$
+% 
+% \textbf{2. Recherche des couples $(a,b)$ coprimes avec $a+b=7.$}
+% 
+% Liste des paires $(a,b)$ en entiers naturels dont la somme est 7 :  
+% $(0,7),(1,6),(2,5),(3,4),(4,3),(5,2),(6,1),(7,0).$  
+% Mais $a,b$ doivent être $\ge1$ si on veut $x=6a,y=6b$ non-nuls ? Non, on pourrait avoir $x$=0 ? L’énoncé dit entiers naturels, parfois on exclut 0 ? Souvent on inclut 0. Clarifions la convention. Si “naturels” = $\{0,1,2,\dots\}$, alors 0 est autorisé.  
+% On doit vérifier $\mathrm{PGCD}(a,b)=1.$
+% 
+% - $(1,6):$ $\mathrm{PGCD}(1,6)=1.$  
+% - $(2,5):$ $\mathrm{PGCD}(2,5)=1.$  
+% - $(3,4):$ $\mathrm{PGCD}(3,4)=1.$  
+% - $(4,3):$ idem.  
+% - $(5,2):$ idem.  
+% - $(6,1):$ idem.  
+% - $(0,7)$ et $(7,0),$ $\mathrm{PGCD}(0,7)=7,\mathrm{PGCD}(7,0)=7\neq1.$
+% 
+% Donc les paires coprimes $(a,b)$ parmi celles s’additionnant à 7 sont $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1).$  
+% 
+% \textbf{3. Conclusion en $(x,y)$ :}  
+% $x=6a,y=6b,$ donc $x+y=6(a+b)=6\times7=42.$
+% 
+% Les couples $(x,y)$ solutions :
+% 
+% 1) $(6,36)$  
+% 2) $(12,30)$  
+% 3) $(18,24)$  
+% 4) $(24,18)$  
+% 5) $(30,12)$  
+% 6) $(36,6)$  
+% 
+% \textbf{Réponse :}  
+% Les couples $(x,y)$ d'entiers naturels vérifiant $x+y=42$ et $\mathrm{PGCD}(x,y)=6$ sont $\{(6,36),(12,30),(18,24),(24,18),(30,12),(36,6)\}.$
+% \end{solutionbox}
+
 \begin{solutionbox}{Solution}
-\textbf{1. Irréductibilité de $\tfrac{1510}{503}$ :}
-
-Pour montrer qu’elle est irréductible, on vérifie que $\mathrm{PGCD}(1510,503)=1$.
-
-- Algorithme d’Euclide:
-\[
-1510=503\times3+1
-\]
-\[
-503=1\times503+0
-\]
-PGCD est $1.$ Donc la fraction est irréductible.
-
-\textbf{2. Réduire $\tfrac{4389}{5544}$ :}
-
-Calculons $\mathrm{PGCD}(4389,5544)$.
-
-- Effectuons l’algorithme:
-\[
-5544=4389\times1+1155
-\]
-\[
-4389=1155\times3+ \dots?
-\]
-\[
-4389=1155\times3+924?? \text{ Non, let's do properly: }4389-3\times1155=4389-3465=924
-\]
-\[
-1155=924\times1+231
-\]
-\[
-924=231\times4+0
-\]
-Donc PGCD=$231$.
-
-Réduisons:
-- Numérateur: $4389\div231=19$
-- Dénominateur: $5544\div231=24$
-
-Fraction irréductible: $\tfrac{19}{24}$.
-
-\textbf{Réponses :}
-1) $\tfrac{1510}{503}$ est irréductible.  
-2) $\tfrac{4389}{5544} = \tfrac{19}{24}$.
-\end{solutionbox}
+    \begin{enumerate}
+      \item \textbf{Reformulation du Problème}
+    
+      Nous voulons trouver tous les couples d'entiers naturels $(x,y)$ satisfaisant:
+      \[
+      x + y = 42
+      \quad\text{et}\quad
+      \gcd(x,y)=6.
+      \]
+    
+      \item \textbf{Paramétrisation via le PGCD}
+    
+      Puisque $\gcd(x,y)=6,$ il existe des entiers naturels $a$ et $b$ tels que:
+      \[
+      x = 6a,\quad y=6b,\quad \gcd(a,b)=1.
+      \]
+      La condition $x + y=42$ devient:
+      \[
+      6a + 6b = 42 \quad\Longleftrightarrow\quad a + b = 7.
+      \]
+      Nous devons donc trouver des couples $(a,b)$ d'entiers naturels dont la somme est 7 et qui sont premiers entre eux (i.e. $\gcd(a,b)=1$).
+    
+      \item \textbf{Liste des Paires $(a,b)$ avec $a+b=7$}
+    
+      Les paires $(a,b)$ d'entiers naturels (en supposant que l'ensemble des naturels inclut 0 ou pas, mais nous allons vérifier) telles que $a+b=7$ sont:
+      \[
+      (0,7),\, (1,6),\, (2,5),\, (3,4),\, (4,3),\, (5,2),\, (6,1),\, (7,0).
+      \]
+      Puisque $x=6a$ et $y=6b$ doivent être des entiers naturels (généralement $0$ est autorisé ou non selon la convention, mais la plupart du temps on prend $\mathbb{N}=\{1,2,\dots\}$), on vérifie:
+    
+      \begin{itemize}
+        \item Si $a=0$ ou $b=0,$ alors $x=0$ ou $y=0,$ qui peut être exclu s'il n'y a pas d'inscrit de valeur 0. Si le problème admet 0 en tant que naturel, on peut garder ces solutions. Sinon, on les rejette.  
+        \item Nous devons aussi imposer $\gcd(a,b)=1.$
+      \end{itemize}
+    
+      \item \textbf{Recherche des Couples Coprimes}
+    
+      Examinons les paires $(a,b)$ avec $a+b=7$ et $a,b>0.$
+      \[
+       (1,6),\,(2,5),\,(3,4),\,(4,3),\,(5,2),\,(6,1).
+      \]
+      Vérifions la coprimalité:
+      \[
+      \gcd(1,6)=1,\quad \gcd(2,5)=1,\quad \gcd(3,4)=1,\quad \gcd(4,3)=1,\quad \gcd(5,2)=1,\quad \gcd(6,1)=1.
+      \]
+      Toutes ces paires sont coprimes.
+    
+      \item \textbf{Construction des Couples $(x,y)$}
+    
+      Rappel: $x=6a,y=6b.$  
+      Pour chaque $(a,b)$ ci-dessus, on obtient un couple $(x,y)$:
+    
+      \[
+      (a,b)=(1,6) \;\Longrightarrow\; (x,y)=(6,36).
+      \]
+      \[
+      (a,b)=(2,5) \;\Longrightarrow\; (x,y)=(12,30).
+      \]
+      \[
+      (a,b)=(3,4) \;\Longrightarrow\; (x,y)=(18,24).
+      \]
+      \[
+      (a,b)=(4,3) \;\Longrightarrow\; (x,y)=(24,18).
+      \]
+      \[
+      (a,b)=(5,2) \;\Longrightarrow\; (x,y)=(30,12).
+      \]
+      \[
+      (a,b)=(6,1) \;\Longrightarrow\; (x,y)=(36,6).
+      \]
+    
+      \item \textbf{Conclusion}
+    
+      Si l'on exclut l'éventualité $x=0$ ou $y=0,$ alors les couples $(x,y)$ vérifiant $x+y=42$ et $\gcd(x,y)=6$ sont exactement:
+      \[
+      \boxed{(6,36),\,(12,30),\,(18,24),\,(24,18),\,(30,12),\,(36,6)}.
+      \]
+    \end{enumerate}
+    \end{solutionbox}
 
 \end{document}
