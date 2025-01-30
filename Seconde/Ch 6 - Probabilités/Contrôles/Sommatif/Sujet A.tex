@@ -1,0 +1,151 @@
+\documentclass{exam}
+
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{tasks}
+\usepackage{tcolorbox}
+
+\pagestyle{empty}
+\graphicspath{{../../Images/}}
+\input{def.tex}
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\large
+
+\noindent{
+\makebox[0pt][l]{\textbf{\Niveau}}%
+\makebox[\textwidth][c]{\textbf{\Chapitre}}%
+\makebox[0pt][r]{\textbf{\Document\ (A) -- 50min}}
+}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\vspace{2mm}
+\noindent
+\makebox[\textwidth]{\textbf{Nom et prénom :}\enspace\hrulefill}
+\large
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCICE 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}
+
+Une enquête de satisfaction portant sur 8000 visiteurs d'un site internet marchand a montré que 7200 visiteurs étaient satisfaits de l'ergonomie du site. De plus, 1600 clients satisfaits de l'ergonomie du site ont effectué un achat, alors que seulement 400 clients non satisfaits ont effectué un achat.
+
+\bigskip
+
+\textbf{1. Compléter le tableau suivant :}
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & \textbf{Ont effectué un achat} & \textbf{N'ont pas effectué d'achat} & \textbf{Total} \\
+\hline
+\textbf{Satisfaits de l'ergonomie} & & & \\
+\hline
+\textbf{Non satisfaits de l'ergonomie} & & & \\
+\hline
+\textbf{Total} & & & 8000 \\
+\hline
+\end{tabular}
+\end{center}
+
+\medskip
+
+On choisit une personne au hasard parmi les visiteurs du site. On considère les événements suivants :
+\[
+A : \text{``Le visiteur est satisfait de l'ergonomie du site''}
+\quad,\quad
+B : \text{``Le visiteur a effectué un achat''}.
+\]
+
+Dans la suite, si besoin, les probabilités seront arrondies au millième.
+
+\begin{enumerate}
+  \item[2.] Déterminer les probabilités de $A$ et de $B$.
+  \item[3.] Décrire par une phrase l'événement $\overline{A}$, puis déterminer la probabilité de $\overline{A}$.
+  \item[4.] Décrire par une phrase l'événement $A \cap B$, puis déterminer la probabilité de $A \cap B$.
+  \item[5.] Décrire par une phrase l'événement $A \cup B$, puis déterminer la probabilité de $A \cup B$.
+  \item[6.] On choisit au hasard une personne parmi celles qui sont satisfaites de l'ergonomie du site. Quelle est la probabilité que cette personne n'ait pas effectué d'achat ?
+\end{enumerate}
+
+\end{exercice}
+
+\vfill
+
+\begin{tcolorbox}
+    \Large
+    \begin{center}
+        \underline{Pensez à tourner la page !}
+    \end{center}
+\end{tcolorbox}
+
+
+\newpage
+
+\begin{exercice}
+
+Un jeu consiste à jouer à pile ou face 3 fois de suite. À chaque fois que le joueur tombe sur pile, il gagne 1€ et à chaque fois qu'il tombe sur face il perd 1€. S'il a par exemple obtenu «~Pile, Pile, Face~», il aura gagné 1€.
+
+On a représenté la situation par l'arbre ci-dessous (chaque embranchement ``P'' ou ``F'' représente un lancer):
+
+\begin{center}
+\includegraphics[width=0.7\linewidth]{swappy-20250130_162357.png} % Remplacer par votre propre image ou diagramme TikZ
+\end{center}
+
+\begin{enumerate}
+  \item[1.] Quelles sont les sommes que le joueur peut avoir gagnées ou perdues après les trois lancers ?
+\end{enumerate}
+
+\vspace{1em}
+
+On considère les événements suivants :
+\begin{itemize}
+  \item $A$ : ``Le joueur a gagné 1€ après les trois lancers''
+  \item $B$ : ``Le joueur a gagné 3€ après les trois lancers''.
+\end{itemize}
+
+\vspace{1em}
+
+\begin{enumerate}
+  \item[2.] Déterminer les probabilités de $A$ et de $B$.
+  \item[3.] Déterminer la probabilité de $A \cup B$.
+  \item[4.] Déterminer la probabilité que le joueur ait perdu de l'argent à l'issue des trois lancers.
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}
+
+Un joueur lance une fléchette sur la cible carrée représentée ci-dessous, composée d'une partie blanche et d'une partie grisée ayant la forme d'un demi-cercle de rayon~1, dont le centre est le même que le centre du carré :
+
+\begin{center}
+\includegraphics[width=0.3\linewidth]{swappy-20250130_162415.png} % Remplacer par votre propre image
+\end{center}
+
+On suppose que la fléchette atterrit aléatoirement dans la cible. Quelle est la probabilité que celle-ci tombe dans la zone grisée ?
+\emph{Toute trace de recherche sera prise en compte.}
+
+\end{exercice}
+
+\end{document}
