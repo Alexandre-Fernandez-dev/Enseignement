@@ -1,0 +1,280 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BrownHist}{HTML}{8b5a2b}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+Chapitre 5 \\ PGCD et applications
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+  []% init options
+  {history}% name
+  {Histoire}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=BrownHist,
+    fonttitle=\bfseries,
+  }% options
+  {hist}% prefix
+
+\newtcbtheorem
+  []% init options
+  {exercice}% name
+  {Exercice}% title
+  {%
+    colback=GrayEx,
+    colframe=PurpleEx,
+    fonttitle=\bfseries,
+  }% options
+  {ex}% prefix
+
+
+% Définition d'un environnement de preuve "Corrigé"
+\newenvironment{corrige}[1][Corrigé]{%
+  \par\noindent\textbf{#1.}%
+  \begin{itshape}}%
+  {\end{itshape}\par}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 20
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[title=Exercice 20 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+Montrer que pour tout entier naturel $n$, $6$ divise $n(n+1)(n+2)$.
+\end{exercice}
+
+\begin{corrige}
+Soit $n\in \mathbb{N}$. Considérons les trois entiers consécutifs $n$, $n+1$, et $n+2$. Parmi ces trois entiers :
+\begin{itemize}
+    \item Au moins l’un d’eux est pair, ce qui fournit un facteur $2$.
+    \item Parmi trois entiers consécutifs, l’un est divisible par $3$, ce qui fournit un facteur $3$.
+\end{itemize}
+Ainsi, le produit $n(n+1)(n+2)$ est divisible par $2 \times 3 = 6$.
+\end{corrige}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 21
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[title=Exercice 21 $\quad \star \quad$ { [Calculer, Raisonner] }]{}{}
+Montrer que pour tout entier naturel $n$, $120$ divise $n(n^2-1)(n^2-4)$.
+\end{exercice}
+
+\begin{corrige}
+On commence par remarquer que
+\[
+n(n^2-1)(n^2-4) = n (n-1)(n+1)(n-2)(n+2),
+\]
+ce qui est le produit de cinq entiers consécutifs (dans un ordre quelconque).
+
+Parmi cinq entiers consécutifs, on sait que :
+\begin{itemize}
+    \item Il existe un entier divisible par $5$.
+    \item Il existe au moins un entier divisible par $3$.
+    \item Concernant les facteurs $2$, on remarque que :
+    \begin{itemize}
+        \item Si $n$ est pair, alors parmi ces cinq entiers, trois seront pairs.
+        \item Si $n$ est impair, alors exactement deux des entiers $(n-1)$ et $(n+1)$ sont pairs, et l’un d’eux est divisible par $4$ (car deux entiers pairs consécutifs, l’un est multiple de $4$).
+    \end{itemize}
+\end{itemize}
+Dans tous les cas, le produit contient au moins trois facteurs $2$, un facteur $3$ et un facteur $5$, c'est-à-dire
+\[
+2^3\times 3\times 5 = 120.
+\]
+Ainsi, $120$ divise $n(n^2-1)(n^2-4)$.
+\end{corrige}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 22
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[title=Exercice 22 $\quad \star\star \quad$ { [Raisonner] }]{}{}
+Montrer que $\sqrt{3}$ est un nombre irrationnel.
+\end{exercice}
+
+\begin{corrige}
+Supposons, par l'absurde, que $\sqrt{3}$ soit rationnel. Alors, il existe des entiers $p$ et $q\neq 0$ premiers entre eux tels que
+\[
+\sqrt{3} = \frac{p}{q}.
+\]
+En élevant au carré, on obtient
+\[
+3 = \frac{p^2}{q^2} \quad \Longrightarrow \quad p^2 = 3q^2.
+\]
+Ainsi, $3$ divise $p^2$, ce qui implique, d'après un résultat classique de divisibilité, que $3$ divise $p$. On peut écrire $p=3k$ pour un certain entier $k$. Remplaçons dans l'équation :
+\[
+(3k)^2 = 3q^2 \quad \Longrightarrow \quad 9k^2 = 3q^2 \quad \Longrightarrow \quad q^2 = 3k^2.
+\]
+Ainsi, $3$ divise également $q^2$, et donc $q$. Cela contredit le fait que $p$ et $q$ soient premiers entre eux. On conclut donc que $\sqrt{3}$ est irrationnel.
+\end{corrige}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 23
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[title=Exercice 23 $\quad \star\star\star \quad$ { [Chercher, Raisonner, Communiquer] }]{}{}
+Soit $n \in \mathbb{N}$. Montrer que $\sqrt{n}$ est un entier naturel ou un irrationnel.
+\end{exercice}
+
+\begin{corrige}
+Il s'agit de montrer que si $\sqrt{n}$ est rationnel, alors il est nécessairement entier.
+
+Supposons que $\sqrt{n}$ soit rationnel. Il existe donc des entiers $a$ et $b\ge 1$, avec $\gcd(a,b)=1$, tels que
+\[
+\sqrt{n} = \frac{a}{b}.
+\]
+En élevant au carré, on obtient :
+\[
+n = \frac{a^2}{b^2} \quad \Longrightarrow \quad a^2 = n\, b^2.
+\]
+Si $b\ge 2$, alors $b^2$ divise le côté droit de l'équation. Par le théorème fondamental de l'arithmétique, cela implique que $b^2$ divise $a^2$, donc que $b$ divise $a$. Ceci contredit l'hypothèse que $a$ et $b$ sont premiers entre eux. Il faut donc que $b=1$, ce qui donne
+\[
+\sqrt{n} = a,
+\]
+c'est-à-dire un entier naturel.
+
+En conclusion, si $\sqrt{n}$ n'est pas entier, il ne peut pas être rationnel, et il est alors irrationnel.
+\end{corrige}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 24
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[title=Exercice 24 $\quad \star \quad$ { [Calculer] }]{}{}
+    Dans chaque cas, indiquer si $a$ est inversible modulo $n$ et, dans le cas échéant, déterminer son inverse.
+    \begin{enumerate}
+        \item $a = 15$ et $n = 31$
+        \item $a = 84$ et $n = 291$
+        \item $a = 286$ et $n = 315$
+    \end{enumerate}
+    \end{exercice}
+    
+    \begin{corrige}
+    \begin{enumerate}
+        \item \textbf{Pour $a=15$ et $n=31$:}  
+        On vérifie que $\gcd(15,31)=1$ (31 étant premier et ne divisant pas 15). Ainsi, $15$ est inversible modulo $31$.  
+        Pour trouver son inverse, cherchons un entier $x$ tel que :
+        \[
+        15x \equiv 1 \pmod{31}.
+        \]
+        On utilise la méthode de l'algorithme d'Euclide étendu. On constate que :
+        \[
+        31 = 15 \times 2 + 1 \quad \Longrightarrow \quad 1 = 31 - 15 \times 2.
+        \]
+        Ainsi, $x=-2$, ce qui est équivalent à $x=29$ modulo $31$.  
+        \medskip
+    
+        \item \textbf{Pour $a=84$ et $n=291$:}  
+        On calcule :
+        \[
+        \gcd(84,291) \,:
+        \]
+        \[
+        291 = 84 \times 3 + 39,\quad 84 = 39 \times 2 + 6,\quad 39 = 6 \times 6 + 3,\quad 6 = 3 \times 2.
+        \]
+        On obtient $\gcd(84,291)=3\neq 1$, donc $84$ n'est pas inversible modulo $291$.  
+        \medskip
+    
+        \item \textbf{Pour $a=286$ et $n=315$:}  
+        Vérifions d'abord que $\gcd(286,315)=1$. En appliquant l'algorithme d'Euclide :
+        \[
+        315 = 286 \times 1 + 29,\quad 286 = 29 \times 9 + 25,\quad 29 = 25 \times 1 + 4,\quad 25 = 4 \times 6 + 1,
+        \]
+        puis $4 = 1 \times 4$, on conclut que $\gcd(286,315)=1$, et donc $286$ est inversible modulo $315$.  
+        Pour déterminer son inverse, on remonte l'algorithme :
+        \[
+        25 = 286 - 29 \times 9,
+        \]
+        \[
+        4 = 29 - 25 \quad \Longrightarrow \quad 1 = 25 - 4 \times 6.
+        \]
+        Remplaçons $4$ :
+        \[
+        1 = 25 - 6(29 - 25) = 7\,25 - 6\,29.
+        \]
+        Ensuite, remplaçons $25$ par son expression :
+        \[
+        25 = 286 - 29 \times 9 \quad \Longrightarrow \quad 1 = 7(286 - 29 \times 9) - 6\,29 = 7\,286 - 69\,29.
+        \]
+        Or, comme $29 = 315 - 286$, on a :
+        \[
+        1 = 7\,286 - 69(315 - 286) = (7+69)\,286 - 69\,315 = 76\,286 - 69\,315.
+        \]
+        Cela montre que $76\,286 \equiv 1 \pmod{315}$, et l'inverse de $286$ modulo $315$ est donc $76$.
+    \end{enumerate}
+    \end{corrige}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Exercice 25
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercice}[title=Exercice 25 $\quad \star\star \quad$ { [Calculer, Raisonner] }]{}{}
+    Déterminer l'ensemble des entiers $n$ tels que $19n-1$ est divisible par $71$.
+    \end{exercice}
+    
+    \begin{corrige}
+    La condition se traduit par :
+    \[
+    71 \mid (19n-1) \quad \Longrightarrow \quad 19n \equiv 1 \pmod{71}.
+    \]
+    Puisque $\gcd(19,71)=1$ (71 étant premier et ne divisant pas 19), 19 est inversible modulo 71. Cherchons un entier $x$ tel que :
+    \[
+    19x \equiv 1 \pmod{71}.
+    \]
+    \medskip
+    
+    \textbf{Recherche de l'inverse de 19 modulo 71 :}  
+    On applique l'algorithme d'Euclide :
+    \[
+    71 = 19 \times 3 + 14,\quad 19 = 14 \times 1 + 5,\quad 14 = 5 \times 2 + 4,\quad 5 = 4 \times 1 + 1.
+    \]
+    En remontant :
+    \[
+    1 = 5 - 4 \times 1,
+    \]
+    mais $4 = 14 - 5 \times 2$, donc :
+    \[
+    1 = 5 - (14 - 5 \times 2) = 3\,5 - 14.
+    \]
+    Puis, comme $5 = 19 - 14$, on obtient :
+    \[
+    1 = 3(19 - 14) - 14 = 3\,19 - 4\,14.
+    \]
+    Enfin, puisque $14 = 71 - 19 \times 3$, on a :
+    \[
+    1 = 3\,19 - 4(71 - 19 \times 3) = 15\,19 - 4\,71.
+    \]
+    Ainsi, l'inverse de 19 modulo 71 est $15$.
+    \medskip
+    
+    La congruence s'écrit donc :
+    \[
+    n \equiv 15 \pmod{71}.
+    \]
+    L'ensemble des solutions est :
+    \[
+    \{\,n\in \mathbb{Z} \mid n = 15 + 71k,\; k\in \mathbb{Z}\,\}.
+    \]
+    \end{corrige}
+    
+    \end{document}
+

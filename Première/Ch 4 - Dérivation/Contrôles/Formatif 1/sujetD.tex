@@ -99,7 +99,7 @@
 
 % Exercice 5
 \begin{exercice}{(5 min)}
-Soit $f$ une fonction définie et dérivable sur $\mathbb{R}$. On donne ci-dessous la courbe $C_f$ ainsi que la tangente $T_1$ à $C_f$ au point d'abscisse $\frac{3}{2}$ (en orange) et la tangente $T_2$ à $C_f$ au point d'abscisse $2$ (en vert).
+Soit $f$ une fonction définie et dérivable sur $\mathbb{R}$. On donne ci-dessous la courbe $C_f$ ainsi que la tangente $T_1$ à $C_f$ au point d'abscisse $\dfrac{3}{2}$ (en orange) et la tangente $T_2$ à $C_f$ au point d'abscisse $2$ (en vert).
 \begin{center}
 \includegraphics[width=0.6\linewidth]{functionD}
 \end{center}
@@ -253,14 +253,159 @@ Déterminer graphiquement les équations des tangentes $T_1$ et $T_2$ à $C_f$.
     % On note $f$ la fonction carrée et $g$ la fonction inverse. Déterminer les tangentes communes aux courbes $C_f$ et $C_g$.
     % \end{exercice}
     
-    \begin{tcolorbox}
-        \Large
-        \begin{center}
-            \underline{Attention :}
-        \end{center}
-        \vspace{-0.5em}
-        Indiquez la version (A ou B) sur votre copie. \underline{Joignez-y votre sujet} en ayant renseigné vos \underline{nom et prénom}.\\
-        Tout \underline{oubli} pourra être considéré comme une \underline{tentative de triche}.
-    \end{tcolorbox}
     
+\newpage
+
+\begin{center}
+    \LARGE
+    \textbf{\underline{Corrigé}}
+\end{center}
+\setcounter{exercice}{0}
+
+\begin{exercice}
+    \begin{enumerate}
+        \item[]
+        \item $T_1$ a pour équation $y = \dfrac{1}{2}$:\\
+        \\
+        \underline{Justification :}\\
+        $T_1$ est horizontale donc son coefficient directeur est $0$.\\
+        On a donc $T_1: y = 0x + b$.\\
+        Comme tout point de $T_1$ (ex: $A\left(0;\; \dfrac{1}{2}\right)$) a pour ordonnée $\dfrac{1}{2}$ on a $b = \dfrac{1}{2}$, en effet pour $A$:
+        $$
+            T_1(0) = \dfrac{1}{2} \iff b = \dfrac{1}{2}
+        $$
+        Donc $T_1: y = \dfrac{1}{2}$.
+        \item $T_2$ a pour équation $y = -2x + 4$:\\
+        \\
+        \underline{Justification :}\\
+        En prenant deux points par exemple $A\left(\dfrac{3}{2};\; 0\right)$ et $B\left(2;\; 1\right)$ on calcule le coefficient directeur:
+        $$
+            \frac{y_B - y_A}{x_B - x_A} = \dfrac{1 - 0}{2 - \dfrac{3}{2}} = \dfrac{2 - 0}{4 - 3} = 2
+        $$
+        Donc le coefficient directeur de $T_2$ est $f'(2) = 2$.\\
+        L'équation de $T_2$ est donc $f'(2)(x-2) + f(2)$. Par lecture on trouve $f(2) = 1$.
+        Donc $T_2: y = 2(x-2) + 1 = 2x -3$.
+    \end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}
+    \begin{enumerate}
+        \item[]
+        \item L'ensemble de dérivabilité de $f(x) = \sqrt{x}$ est $\mathbb{R}_+$. Comme $a = 9 \in \mathbb{R}_+$, $f$ est bien dérivable en $a$.\\
+        $f$ est la fonction racine et a donc pour dérivée:
+        $$
+            f'(x) = \frac{1}{2\sqrt{x}}
+        $$
+        Donc
+        \begin{align*}
+            f'(9) &= \frac{1}{2\sqrt{9}}\\
+            &= \frac{1}{6}
+        \end{align*}
+        L'équation de la tangente est donc:
+        \begin{align*}
+            T_4:\ & y = \frac{1}{6}(x - 9) + f(9)\\
+            & y = \frac{x}{6} - \dfrac{9}{6} + \sqrt{9}\\
+            & y = \frac{x}{6} + \dfrac{3}{2}
+        \end{align*}
+        \item L'ensemble de dérivabilité de $f(x) = x^5$ est $\mathbb{R}$. Comme $a = 3 \in \mathbb{R}$, $f$ est bien dérivable en $a$.\\
+        $f$ est la fonction puissance et a donc pour dérivée:
+        $$
+            f'(x) = 5x^4
+        $$
+        Donc
+        \begin{align*}
+            f'(3) &= 5\times3^4\\
+            &= 5\times81\\
+            &= 405
+        \end{align*}
+        L'équation de la tangente est donc:
+        \begin{align*}
+            T_3:\ & y = 405(x - 3) + f(3)\\
+            & y = 405x - 1215 + 3^5\\
+            & y = 405x - 972
+        \end{align*}
+    \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+    \begin{enumerate}
+        \item[]
+        \item Considérons les différents termes de la fonction:
+        \begin{itemize}
+            \item On a $\sqrt{x}$ dans la fonction qui est définie sur $\mathbb{R}_+$ et dérivable sur $\mathbb{R}_+^\star$.
+            \item On a $\sqrt{x} + 1$ au dénominateur. On doit donc avoir $\sqrt{x} + 1 \neq 0$, soit $x \neq - 1$.
+        \end{itemize}
+        Donc $f$ est définie sur $\mathbb{R}_+$ et dérivable sur $\mathbb{R}_+^\star$.\\
+        Pour calculer sa dérivée on observe que:
+        $$
+        f(x) = \dfrac{u}{v}
+        $$
+        avec
+        \begin{align*}
+        \begin{cases}
+            u = x & u' = 1\\
+            v = \sqrt{x} + 1 & v' = \dfrac{1}{2\sqrt{x}}
+        \end{cases}
+        \end{align*}
+        Sa dérivée est donc:
+        \begin{align*}
+            f'\left(x\right) &= \dfrac{u'v - uv'}{v^2} \qquad \text{(produit de deux fonctions $(uv)'$)}\\
+            &= \dfrac{1\left(\sqrt{x} + 1\right) - x\left(\dfrac{1}{2\sqrt{x}}\right)}{\left(\sqrt{x} + 1\right)^2}\\
+            &= \dfrac{\sqrt{x} + 1 - \dfrac{x}{2\sqrt{x}}}{\left(\sqrt{x} + 1\right)^2}\\
+            &= \dfrac{\sqrt{x} + 1 - \dfrac{\sqrt{x}}{2}}{\left(\sqrt{x} + 1\right)^2}\\
+            &= \dfrac{\dfrac{\sqrt{x}}{2} + 1}{\left(\sqrt{x} + 1\right)^2}\\
+            &= \dfrac{\sqrt{x} + 2}{2\left(\sqrt{x} + 1\right)^2}
+        \end{align*}
+        \item Considérons les différents termes de la fonction:
+        \begin{itemize}
+            \item $x^4$ est définie et dérivable sur tout $\mathbb{R}$ donc c'est aussi le cas pour $\dfrac{x^4}{3}$.
+            \item $\dfrac{1}{x}$ n'est ni définie ni dérivable en $0$, ce qui est aussi le cas pour $\dfrac{2}{x}$.
+        \end{itemize}
+        Donc $f$ est définie et dérivable sur $\mathbb{R}^\star$.\\
+        Calculons sa dérivée:
+        \begin{align*}
+            f'(x) &= \left(\dfrac{x^4}{3} - \dfrac{2}{x}\right)'\\
+            &= \left(\dfrac{x^4}{3}\right)' - \left(\dfrac{2}{x}\right)' \qquad \text{(somme de fonction $(u+v)' = u' + v'$)}\\
+            &= \dfrac{1}{3}\left(x^4\right)' - 2\left(\dfrac{1}{x}\right)' \qquad \text{(produit par une constante $(\lambda u)' = \lambda u')$}\\
+            &= \dfrac{1}{3}\times 4x^3 - 2 \left(-\dfrac{1}{x^2}\right)\\
+            &= \dfrac{4x^3}{3} + \dfrac{2}{x^2}
+        \end{align*}
+        \item Observons que la fonction $f(x) = \sqrt{2x - 4}$ est composée: $f(x) = g(2x - 4)$ avec $g(x) = \sqrt{x}$.\\
+        Comme la fonction racine est définie sur $\mathbb{R}_+$ et dérivable sur $\mathbb{R}_+^\star$. Il faut:
+        \begin{itemize}
+            \item Pour la définition: $2x - 4 \in \mathbb{R}_+$, soit $2x - 4 \geq 0$ et donc $x \in \left[2; +\infty\right[$.\\ Donc $f$ est définie sur $\left[2; +\infty\right[$.
+            \item Pour la dérivabilité: if faut $2x - 4 \in \mathbb{R}_+^\star$, soit $2x - 4 > 0$.\\
+            De la même manière on trouve que $f$ est dérivable sur $\left]2; +\infty\right[$ (cette fois on exclut $0$).
+        \end{itemize}
+        Calculons sa dérivée:
+        \begin{align*}
+            f'(x) &= a \times g'(ax + b) \qquad \text{(fonction composée)}\\
+            &= 2 \times \dfrac{1}{2\sqrt{2x-4}}\\
+            &= \dfrac{1}{\sqrt{2x - 4}}
+        \end{align*}
+    \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+    \begin{enumerate}
+        \item[]
+        \item Observons que $f(x)$ est le produit de deux fonctions:
+        \begin{itemize}
+            \item $(x-1)$ qui est définie et dérivable sur tout $\mathbb{R}$,
+            \item $\sqrt{x-1}$ qui est définie pour $x - 1 \geq 0$ soit $x \geq 1$ et dérivable pour $x - 1 > 0$ soit $x > 1$.
+        \end{itemize}
+        Donc $f$ est définie sur $\left[1; +\infty\right[$ (déjà donné dans l'énoncé) et dérivable sur $\left]1; +\infty\right[$.
+        \item Exprimons le taux d'accroissement en $1$:
+        \begin{align*}
+            \frac{f(1+h) - f(1)}{h} &= \frac{\left[(1+h)-1\right]\left(\sqrt{(1 + h) - 1}\right) - \left[(1 - 1)(\sqrt{1 - 1})\right]}{h}\\
+            &= \frac{h\sqrt{h}}{h}\\
+            &= \sqrt{h}
+        \end{align*}
+        En prenant la limite pour $h \rightarrow 0$ on trouve $f'(1) = 0$.\\
+        Ainsi, la dérivée de $f$ est définie en $1$, alors $f$ est dérivable en $1$.\\
+        Donc $f$ est dérivable sur $\left[1; +\infty\right[$.
+    \end{enumerate}
+\end{exercice}
+
 \end{document}

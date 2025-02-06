@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{polyglossia}
+\usepackage{yhmath}
+\input{def.tex}
+\graphicspath{ {../../Images/} } % chemin vers le dossier d’images
+\hyphenpenalty=100000
+
+\geometry{a4paper, margin=1.5cm}
+\pagestyle{empty}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+
+\newtcbtheorem
+  []% init options
+  {bilan}% name
+  {Bilan}% title
+  {%
+    colback=GrayBG,
+    colframe=BlueDef,
+    fonttitle=\bfseries,
+  }% options
+  {bilan}% prefix
+
+\newtcbtheorem
+  []% init options
+  {activite}% name
+  {Activité}% title
+  {%
+    colback=GrayBG,
+    colframe=GreenProp,
+    fonttitle=\bfseries,
+  }% options
+  {act}% prefix
+
+\newtcbtheorem
+  []% init options
+  {method}% name
+  {Méthode}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=RedMet,
+    fonttitle=\bfseries,
+  }% options
+  {met}% prefix
+  
+\newtcbtheorem
+  []% init options
+  {savoir}% name
+  {Savoir-faire du chapitre}% title
+  {%
+    theorem name,
+    colback=GrayBG,
+    colframe=BlackSav,
+    fonttitle=\bfseries,
+  }% options
+  {sav}% prefix
+
+% Pour un style de théorème si besoin
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+}{%
+  \end{proof}
+}
+
+\begin{document}
+
+
+    % \noindent{
+    % \makebox[0pt][l]{\textbf{\Niveau}}%
+    % \makebox[\textwidth][c]{\textbf{\ChapitreCourt}}%
+    % \makebox[0pt][r]{\textbf{\Document}
+    % }
+
+    % \vspace{2mm}
+
+\small
+\begin{center}
+  \large
+  Activité 1 : Piste de course
+\end{center}
+
+\vspace{-2em}
+
+  \begin{minipage}{0.8\linewidth}
+  Une course se déroule sur une piste circulaire de rayon \(1\) hm (hectomètre) et de centre \(O\).  
+  Le départ se fait toujours au point \(A\). Le coureur se déplace sur la piste dans le sens indiqué et parcourt une distance égale à la longueur de l’arc \(\wideparen{AM}\), laquelle correspond à un angle au centre \(\alpha\) (en degrés), comme indiqué sur le schéma ci-contre.
+  \end{minipage}
+  \begin{minipage}{0.2\linewidth}
+  \begin{center}
+    \includegraphics[width=1\linewidth]{swappy-20250203_123857}
+  \end{center}
+  \end{minipage}
+
+  \begin{enumerate}
+    \item \textbf{Recopier et compléter le tableau suivant}, où \(M\) est la position d’un coureur sur la piste correspondant à l’angle (en degré) indiqué, et \(L\) est la longueur exacte, en hectomètres, parcourue depuis le départ (c’est-à-dire la longueur de l’arc \(\wideparen{AM}\)).  
+    On rappelle que le périmètre \(P\) d’un cercle de rayon \(R\) est \(P = 2\pi R\).
+    \renewcommand{\arraystretch}{1.5}
+    \[
+    \begin{array}{|c|c|c|c|c|c|c|}
+    \hline
+    \textbf{Angle en degré} & 180 & 360 & 90 & 45 & 60 & 210 \\
+    \hline
+    \textbf{Position de M} & 
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123919} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946}
+    \\
+    \hline
+    \textbf{Longueur \(L\) en hm} & \pi \times 1 & \dots & \dots & \dots & \dots & \dots \\
+    \hline
+    \end{array}
+    \]
+    \end{enumerate}
+    \begin{minipage}{0.8\linewidth}
+    \begin{enumerate}
+      \setcounter{enumi}{1}
+    \item \textbf{Si un coureur a fait, à partir de \(A\), trois tours de piste, puis arrive en \(B\)}, comme sur la figure ci-contre,  
+    \begin{enumerate}[label=\alph*)]
+      \item Quelle est la longueur \(L\) parcourue ?  
+      \item Quelle est la mesure de l’angle correspondant en degré ?
+    \end{enumerate}
+
+    \item \textbf{Un coureur parti de \(A\) a parcouru la distance \(\dfrac{11\pi}{2}\) hm sur la piste.}
+    Où est-il arrivé ?
+  \end{enumerate}
+  \end{minipage}
+  \begin{minipage}{0.2\linewidth}
+    \begin{center}
+      \includegraphics[width=1\linewidth]{swappy-20250203_124459(2)}
+    \end{center}
+    
+  \end{minipage}
+
+\vspace{1em}
+
+\hrulefill
+
+
+\begin{center}
+  \large
+  Activité 1 : Piste de course
+\end{center}
+
+\vspace{-2em}
+
+  \begin{minipage}{0.8\linewidth}
+  Une course se déroule sur une piste circulaire de rayon \(1\) hm (hectomètre) et de centre \(O\).  
+  Le départ se fait toujours au point \(A\). Le coureur se déplace sur la piste dans le sens indiqué et parcourt une distance égale à la longueur de l’arc \(\wideparen{AM}\), laquelle correspond à un angle au centre \(\alpha\) (en degrés), comme indiqué sur le schéma ci-contre.
+  \end{minipage}
+  \begin{minipage}{0.2\linewidth}
+  \begin{center}
+    \includegraphics[width=1\linewidth]{swappy-20250203_123857}
+  \end{center}
+  \end{minipage}
+
+  \begin{enumerate}
+    \item \textbf{Recopier et compléter le tableau suivant}, où \(M\) est la position d’un coureur sur la piste correspondant à l’angle (en degré) indiqué, et \(L\) est la longueur exacte, en hectomètres, parcourue depuis le départ (c’est-à-dire la longueur de l’arc \(\wideparen{AM}\)).  
+    On rappelle que le périmètre \(P\) d’un cercle de rayon \(R\) est \(P = 2\pi R\).
+    \renewcommand{\arraystretch}{1.5}
+    \[
+    \begin{array}{|c|c|c|c|c|c|c|}
+    \hline
+    \textbf{Angle en degré} & 180 & 360 & 90 & 45 & 60 & 210 \\
+    \hline
+    \textbf{Position de M} & 
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123919} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946} &
+    \includegraphics[width=0.11\linewidth]{swappy-20250203_123946}
+    \\
+    \hline
+    \textbf{Longueur \(L\) en hm} & \pi \times 1 & \dots & \dots & \dots & \dots & \dots \\
+    \hline
+    \end{array}
+    \]
+    \end{enumerate}
+    \begin{minipage}{0.8\linewidth}
+    \begin{enumerate}
+      \setcounter{enumi}{1}
+    \item \textbf{Si un coureur a fait, à partir de \(A\), trois tours de piste, puis arrive en \(B\)}, comme sur la figure ci-contre,  
+    \begin{enumerate}[label=\alph*)]
+      \item Quelle est la longueur \(L\) parcourue ?  
+      \item Quelle est la mesure de l’angle correspondant en degré ?
+    \end{enumerate}
+
+    \item \textbf{Un coureur parti de \(A\) a parcouru la distance \(\dfrac{11\pi}{2}\) hm sur la piste.}
+    Où est-il arrivé ?
+  \end{enumerate}
+  \end{minipage}
+  \begin{minipage}{0.2\linewidth}
+    \begin{center}
+      \includegraphics[width=1\linewidth]{swappy-20250203_124459(2)}
+    \end{center}
+    
+  \end{minipage}
+
+
+\end{document}
