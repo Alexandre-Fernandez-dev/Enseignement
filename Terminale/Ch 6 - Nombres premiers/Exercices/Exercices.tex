@@ -1,0 +1,474 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{tasks}
+\usepackage{listings}
+\usepackage{color}
+
+\graphicspath{ {../Images/} }
+\hyphenpenalty=1000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mywhite}{rgb}{0.9,0.9,0.9}
+
+\newcommand{\footnotettfamily}{\ttfamily\footnotesize}
+% \newcommand{\footnotettfamily}{\ttfamily\footnotesize}
+
+\newcommand{\scriptttfamily}{\ttfamily\scriptsize}
+
+\lstset{ %
+  backgroundcolor=\color{mywhite},   % choose the background color
+  %basicstyle=\footnotesize,        % size of fonts used for the code
+  basicstyle=\ttfamily\scriptttfamily,
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+keywordstyle=\color{blue},       % keyword style
+stringstyle=\color{mymauve},     % string literal style
+}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BrownHist}{HTML}{8b5a2b}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+  Chapitre 6 \\ Nombres premiers
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+[]% init options
+{history}% name
+{Histoire}% title
+{%
+theorem name,
+colback=GrayBG,
+colframe=BrownHist,
+fonttitle=\bfseries,
+}% options
+{hist}% prefix
+
+\newtcbtheorem
+[]% init options
+{exercice}% name
+{Exercice}% title
+{%
+colback=GrayEx,
+colframe=PurpleEx,
+fonttitle=\bfseries,
+breakable=true,
+}% options
+{ex}% prefix
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+
+\begin{exercice}[title=Exercice 1 $\star$ { [Calculer] }]{}{}
+  Parmi les entiers suivants, déterminer ceux qui sont premiers :
+  \begin{tasks}[style=itemize](2)
+    \task $97$
+    \task $187$
+    \task $1081$
+    \task $1009$
+  \end{tasks}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 2 $\star$ { [Calculer] }]{}{}
+  Déterminer le nombre de diviseurs des entiers suivants :
+  \begin{tasks}[style=itemize](2)
+    \task $51$
+    \task $72$
+    \task $101$
+    \task $1024$
+  \end{tasks}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 3 $\star$ { [Calculer] }]{}{}
+  Déterminer l'ensemble des diviseurs des entiers suivants :
+  \begin{tasks}[style=itemize](2)
+    \task $67$
+    \task $36$
+    \task $1309$
+    \task $21097$
+  \end{tasks}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 4 $\star$ { [Calculer] }]{}{}
+  Déterminer le $\mathrm{PPCM}$ de $9\,060$ et de $2\,466$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 5 $\star$ { [Calculer] }]{}{}
+  \begin{enumerate}
+    \item Montrer que pour tous entiers naturels $n$ et $m$,
+      \[
+        n \times m \;=\; \mathrm{PGCD}(n;m) \times \mathrm{PPCM}(n;m).
+      \]
+    \item Comment calcule-t-on efficacement le $\mathrm{PPCM}$ de deux entiers ?
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 6 $\star\star$ { [Raisonner] }]{}{}
+  Déterminer, en justifiant, si les affirmations suivantes sont vraies ou fausses.
+  \begin{enumerate}
+    \item La somme de deux entiers consécutifs peut être un nombre premier.
+    \item La somme de trois entiers impairs consécutifs peut être un nombre premier.
+    \item Pour tout entier $p \ge 2$, $p^2 - 1$ n'est pas premier.
+    \item Il existe $n \in \mathbb{N}$ tel que $n$ et $2n$ soient des carrés parfaits.
+    \item Un entier $n$ est un carré parfait si, et seulement si, il admet un nombre impair de diviseurs.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 7 $\star\star$ { [Calculer, Chercher] }]{}{}
+  Déterminer l'ensemble des valeurs de \(n \in \mathbb{N}\) pour lesquelles les entiers \(n\), \(n+10\) et \(n+20\) sont trois nombres premiers.
+\end{exercice}
+\newpage
+\begin{exercice}[title=Exercice 8 $\star\star$ { [Calculer] }]{}{}
+  Déterminer le plus petit entier naturel admettant exactement \(21\) diviseurs.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 9 $\star\star$ { [Raisonner, Communiquer] }]{}{}
+  Montrer que si \(k\) est un entier naturel impair et supérieur à \(5\), alors la somme de \(k\) entiers consécutifs n'est pas un nombre premier.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 10 $\star\star$ { [Calculer] }]{}{}
+  \begin{enumerate}
+    \item Montrer que pour tous \(x,\,y \in \mathbb{R}\) :
+      \[
+        x^3 - y^3 \;=\; (\,x - y\,)\,\bigl(x^2 + x\,y + y^2\bigr).
+      \]
+    \item Déterminer l'ensemble des nombres premiers de la forme \(n^3 - 8\), où \(n\) est un nombre entier.
+    \item Montrer que l'entier \(n^3 + 1\) n'est pas premier.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 11 $\star\star\star$ { [Calculer] }]{}{}
+  \begin{enumerate}
+    \item Montrer que pour tous \(x,\,y \in \mathbb{R}\) :
+      \[
+        x^4 \;+\; 4\,y^4 \;=\; \bigl(x - y\bigr)\,\bigl(x^2 + x\,y + y^2\bigr).
+      \]
+    \item Déterminer l'ensemble des nombres premiers de la forme \(n^4 + 4\), où \(n\) est un nombre entier.
+    \item Montrer que l'entier \(285 + 4^{285}\) n'est pas premier.
+      Pourquoi n'est-il pas envisageable de répondre à cette question en utilisant simplement un test classique de primalité tel que celui présenté dans le cours ?
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 12 $\star\star$ { [Chercher] }]{}{}
+  Déterminer les trois plus petits entiers naturels \(n\) tels que \(n^2 - 1\) soit le produit de trois nombres premiers distincts.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 13 $\star$ { [Représenter] }]{}{}
+  Écrire une fonction algorithmique en langage Python permettant de tester si un entier \(n\) est premier ou non.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 14 $\star\star\star$ { [Modéliser, Représenter] }]{}{}
+  On considère un entier $n \ge 2$. La fonction algorithmique \emph{Eratosthene}, écrite en langage Python, renvoie la liste des nombres premiers inférieurs ou égaux à $n$ :
+
+    \begin{lstlisting}[language=Python]
+def Eratosthene(n):
+    Nombres = [1]*n
+    Nombres_premiers = [2]
+    for i in range(3, n, 2):
+        if Nombres[i] == 1:
+            Nombres_premiers.append(i)
+            for j in range(2*i, n, i):
+                Nombres[j] = 0
+    return Nombres_premiers
+    \end{lstlisting}
+
+  \begin{enumerate}
+    \item Expliquer chaque ligne de l'algorithme afin de justifier pourquoi l'algorithme renvoie bien la liste des nombres premiers inférieurs ou égaux à $n$.
+    \item Pourquoi l'algorithme ci-dessus est-il plus efficace que celui consistant à tester la primalité de tous les entiers entre $2$ et $n$ indépendamment les uns des autres ?
+    \item Implémenter le programme puis le tester pour $n = 100000$.
+      Combien y a-t-il de nombres premiers inférieurs ou égaux à $100000$ ?
+    \item Un théorème, démontré indépendamment par Charles de la Vallée Poussin et Jacques Hadamard en 1896, indique que pour $n$ suffisamment grand, le nombre de nombres premiers inférieurs ou égaux à $n$ est environ $\dfrac{n}{\ln(n)}$.
+      Vérifier cette propriété pour $n = 100000$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 15 $\star\star\star$ { [Raisonner, Communiquer] }]{}{}
+  \begin{enumerate}
+    \item Montrer qu'il existe une infinité de nombres premiers de la forme $4n + 3$.
+    \item Montrer qu'il existe une infinité de nombres premiers de la forme $6n + 5$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 16 $\star\star$ { [Calculer, Raisonner] }]{}{}
+  Montrer que pour tout entier premier $p$ et pour tous entiers $x$ et $y$, on a :
+  \[
+    (x + y)^p \equiv x^p + y^p \pmod{p}.
+  \]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 17 $\star\star$ { [Chercher] }]{}{}
+  Montrer que pour tout $n \le 10^9$, la décomposition de $n$ en produit de facteurs premiers fait apparaître moins de dix facteurs premiers distincts.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 18 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, déterminer le reste de la division euclidienne de $n$ par $a$ :
+  \begin{enumerate}
+    \item $n = 21^0$ et $a = 11$.
+    \item $n = 31^7$ et $a = 17$.
+    \item $n = 5^{20}$ et $a = 29$.
+    \item $n = 13^4$ et $a = 7$.
+    \item $n = 15^{100}$ et $a = 97$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 19 $\star\star$ { [Calculer] }]{}{}
+  \begin{enumerate}
+    \item Calculer $3^{24} \bmod 35$.
+    \item Calculer $4^{20} \bmod 55$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 20 $\star\star$ { [Calculer] }]{}{}
+  Déterminer le chiffre des unités de $3^{80}$ et de $7^{28}$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 21 $\star\star$ { [Calculer, Chercher] }]{}{}
+  Montrer que pour tout entier $n \in \mathbb{N}$, $n^7 - n$ est divisible par $14$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 22 $\star\star\star$ { [Calculer] }]{}{}
+  Montrer que pour tout $n \in \mathbb{N}^*$, on a :
+  \[
+    15^{\,15^n} \equiv 1 \pmod{11}.
+  \]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 23 $\star\star\star$ { [Chercher] }]{}{}
+  Montrer que pour tout $n \ge 2$, il existe $n$ entiers consécutifs qui ne sont pas premiers.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 24 $\star$ { [Représenter, Raisonner] }]{}{}
+  Dans la fonction algorithmique ci-dessous, écrite en langage Python, on considère un entier $n \ge 3$ :
+
+    \begin{lstlisting}[language=Python, basicstyle=\footnotettfamily]
+    def testFermat(n):
+        F = 2**(2*(n-1)) % n
+        return F
+    \end{lstlisting}
+
+  \begin{enumerate}
+    \item Que renvoie l'algorithme si $n$ est un nombre premier ?
+    \item Que peut-on dire lorsque la valeur renvoyée par l'algorithme est différente de $1$ ?
+    \item Tester l'algorithme pour $n = 561$. Que peut-on en déduire ?
+    \item En utilisant l'algorithme, que peut-on dire des entiers suivants ?
+      \[
+        244\,608\,079
+        \quad\text{et}\quad
+        154\,515\,677
+      \]
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 25 $\star\star\star$ { [Raisonner] }]{}{}
+  On considère un entier $n > 2$ et on définit le $n^{\text{e}}$ nombre de Mersenne par $M_n = 2^n - 1$.
+  \begin{enumerate}
+    \item Montrer que si $M_n$ est premier, alors $n$ est premier.
+    \item En considérant le cas $n = 11$, montrer que la réciproque de la proposition précédente est fausse.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 27 $\star\star\star$ { [Chercher, Raisonner] }]{}{}
+  On définit la fonction indicatrice d'Euler de la manière suivante :
+  \[
+    \begin{cases}
+      \mathbb{N}^* \;\longrightarrow\; \mathbb{N}^*,\\[6pt]
+      n \;\longmapsto\; \varphi(n),
+    \end{cases}
+  \]
+  où \(\varphi(n)\) désigne le nombre d'entiers premiers avec \(n\) entre \(1\) et \(n\).
+
+  \begin{enumerate}
+    \item \textbf{Cas où \(p\) est un nombre premier.}
+      \begin{enumerate}
+        \item Si \(p\) est premier, exprimer \(\varphi(p)\) en fonction de \(p\).
+        \item Si \(p\) est premier et \(k \in \mathbb{N}^*\), montrer que \(\varphi\bigl(p^k\bigr) = p^k - p^{\,k-1}\).
+      \end{enumerate}
+
+    \item \textbf{Fonction multiplicative.}
+      L'objectif de cette question est de montrer que \(\varphi\) est une fonction multiplicative, c'est-à-dire que si \(a\) et \(b\) sont premiers entre eux, alors :
+      \[
+        \varphi(a \times b) \;=\; \varphi(a)\;\times\;\varphi(b).
+      \]
+      Dans toute la suite, \(a\) et \(b\) désignent donc deux entiers strictement positifs et premiers entre eux.
+      \begin{enumerate}
+        \item[(a)] Pour tout entier \(x \ge 1\), on note
+          \[
+            E_x \;=\; \{\,0,\;1,\;\dots,\;x\},
+          \]
+          sur lequel on définit l'addition et la multiplication modulo \(x\). De plus, on note \(E_x^*\) l'ensemble des éléments de \(E_x\) qui sont inversibles modulo \(x\).
+          Montrer que pour tout \(x \ge 1\), on a :
+          \[
+            \varphi(x) \;=\; \mathrm{Card}\bigl(E_x^*\bigr).
+          \]
+
+        \item[(b)] On définit l'application suivante :
+          $$
+          F:
+          \begin{cases}
+            E_{ab} \;\longrightarrow\; E_a \times E_b\\
+            k \;\longmapsto\; \bigl(k \bmod a,\;k \bmod b\bigr)
+          \end{cases}
+          $$
+          Montrer que tout \(\bigl(x;\,y\bigr) \in E_a \times E_b\) admet un unique antécédent par la fonction \(F\).
+
+        \item[(c)] Montrer que pour tout \(k \in E_{ab}\), on a \(k \in E_{ab}^*\) si, et seulement si, \(F(k) \in E_a^* \times E_b^*\).
+
+        \item[(d)] En déduire :
+          \[
+            \hspace*{-2em}\mathrm{Card}\bigl(E_{ab}^*\bigr)
+            \;=\;
+            \mathrm{Card}\bigl(E_a^*\bigr)
+            \;\times\;
+            \mathrm{Card}\bigl(E_b^*\bigr)
+          \]
+          puis en conclure que la fonction \(\varphi\) est multiplicative.
+      \end{enumerate}
+
+    \item \textbf{Calcul final.}
+      Calculer le nombre d'entiers premiers avec \(3096\) entre \(1\) et \(3096\).
+      (Autrement dit, déterminer \(\varphi(3096)\).)
+  \end{enumerate}
+\end{exercice}
+
+\newpage
+
+\begin{exercice}[title=Exercice 28 $\star\star\star$ { [Modéliser, Calculer] }]{}{}
+  Le but de cet exercice est d'envisager une méthode de cryptage à clé publique d'une information numérique, appelée \emph{système RSA}, en l'honneur des mathématiciens Ronald Rivest, Adi Shamir et Leonard Adleman, qui ont inventé cette méthode de cryptage en 1977 (publiée en 1978).
+  \begin{enumerate}
+    \item \textbf{Chiffrement dans le système RSA}
+      Alice veut communiquer de manière sécurisée. Elle choisit deux nombres premiers \(p\) et \(q\), puis calcule les produits
+      \[
+        N = p\,q
+        \quad\text{et}\quad
+        n = (p - 1)\,(q - 1).
+      \]
+      Elle choisit également un entier naturel \(c\) premier avec \(n\) puis elle publie le couple \(\bigl(N;\,c\bigr)\), qui est une clé publique permettant à quiconque de lui envoyer un nombre chiffré.
+
+      Les messages sont numérisés et transformés en une suite d'entiers compris entre \(0\) et \(N-1\). Pour chiffrer un entier \(a\) de cette suite, on procède ainsi : on calcule le reste \(b\) dans la division euclidienne par \(N\) du nombre \(a^c\). Le nombre chiffré est l'entier \(b\).
+
+      \medskip
+      \noindent
+      Dans la pratique, cette méthode est sûre si l'on choisit des nombres premiers \(p\) et \(q\) très grands, s'écrivant avec plusieurs dizaines de chiffres. On va l'envisager ici avec des nombres plus simples : \(p = 5\) et \(q = 11\). Alice choisit également \(c = 23\).
+
+      \begin{enumerate}
+        \item Calculer les nombres \(N\) et \(n\), puis justifier que la valeur de \(c\) vérifie la condition voulue (c'est-à-dire \(\gcd(c, n) = 1\)).
+        \item Bob souhaite envoyer à Alice le nombre \(a = 8\). Déterminer la valeur du nombre chiffré \(b\) correspondant.
+      \end{enumerate}
+      \newcolumn
+
+    \item \textbf{Déchiffrement dans le système RSA}
+      Alice calcule dans un premier temps l'unique entier naturel \(d\) vérifiant les conditions
+      \[
+        0 \;<\; d \;<\; n
+        \quad\text{et}\quad
+        c\,d \;\equiv\; 1 \pmod{n}.
+      \]
+      Elle garde secret ce nombre \(d\) qui lui permet, à elle seule, de déchiffrer les nombres qui lui ont été envoyés chiffrés avec sa clé publique.
+
+      Pour déchiffrer un nombre crypté \(b\), Alice calcule le reste \(a\) dans la division euclidienne par \(N\) du nombre \(b^d\). Le nombre en clair — c'est-à-dire le nombre avant chiffrage — est alors le nombre \(a\).
+
+      \begin{enumerate}
+        \item Justifier qu'en faisant cette opération, Alice retombe bien sur le nombre \(a\) modulo \(N\).
+        \item Les nombres choisis par Alice sont encore \(p = 5\), \(q = 11\) et \(c = 23\).
+          Quelle est la valeur de \(d\) ?
+        \item En appliquant la règle de décryptage, retrouver le nombre en clair lorsque le nombre crypté est \(b = 17\).
+      \end{enumerate}
+
+  \end{enumerate}
+\end{exercice}
+\begin{exercice}[title=Exercice 29 $\star\star\star$ { [Modéliser, Calculer] }]{}{}
+  À toute lettre de l'alphabet, on associe un nombre entier entre \(0\) et \(25\) :
+
+  \[
+    \begin{array}{ccccccccccccc}
+      A & B & C & D & E & F & G & H & I & J \\
+      0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+    \end{array}
+  \]
+  \[
+    \begin{array}{cccccccccccc}
+      K & L & M & N & O & P & Q & R & S \\
+      10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 \\
+    \end{array}
+  \]
+  \[
+    \begin{array}{ccccccc}
+      T & U & V & W & X & Y & Z \\
+      19 & 20 & 21 & 22 & 23 & 24 & 25 \\
+    \end{array}
+  \]
+
+  \medskip
+
+  Alice veut communiquer de manière sécurisée. Elle choisit deux nombres premiers \(p\) et \(q\) et un entier naturel \(B\) tel que :
+  \[
+    1 \;\le\; B \;<\; p\,q.
+  \]
+  Elle publie les nombres \(n = p\,q\) et \(B\) et garde secrets les nombres \(p\) et \(q\).
+
+  Si Bob veut envoyer un message à Alice, il le code lettre par lettre. Plus précisément, le codage d'une lettre représentée par l'entier \(x\) est l'entier \(y \in \{\,0,\,1,\dots,n-1\}\) tel que :
+  \[
+    y \equiv x\,(x + B) \pmod{n}.
+  \]
+
+  \medskip
+  Dans tout l'exercice, on prend \(p = 3\), \(q = 11\) et \(B = 13\).
+
+  \begin{enumerate}
+    \item Bob veut envoyer la lettre N à Alice.
+      Quel nombre crypté doit-il lui transmettre ?
+
+    \item Alice a reçu un message crypté qui commence par le nombre 3.
+      Elle doit donc déterminer l'entier \(x\) compris entre \(0\) et \(25\) tel que
+      \[
+        x + 13 \;\equiv\; 3 \pmod{33}.
+      \]
+      \begin{enumerate}
+        \item Montrer que cette équation est équivalente à
+          \[
+            (\,x + 23\,)^2 \;\equiv\; 4 \pmod{33}.
+          \]
+        \item Montrer ensuite qu'elle est équivalente au système :
+          \[
+            \begin{cases}
+              (\,x+23\,)^2 \;\equiv\; 1 \pmod{3},\\
+              (\,x+23\,)^2 \;\equiv\; 4 \pmod{11}.
+            \end{cases}
+          \]
+        \item En déduire que l'entier \(x\) recherché est congru à \(0\) ou \(2\) modulo \(3\), et qu'il est congru à \(8\) ou \(1\) modulo \(11\).
+      \end{enumerate}
+
+    \item En énumérant les différentes possibilités, Alice peut-elle connaître la première lettre du message envoyé par Bob ?
+      Cette méthode de chiffrement est-elle utilisable pour décoder un message lettre par lettre ?
+  \end{enumerate}
+\end{exercice}
+
+
+\end{multicols}
+
+\end{document}
