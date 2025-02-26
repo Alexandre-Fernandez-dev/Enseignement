@@ -29,10 +29,10 @@
 \definecolor{BrownHist}{HTML}{8b5a2b}
 \definecolor{BlackSav}{HTML}{000000}
 
-\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
-\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
-%\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
-%\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+%\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+%\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
 
 \newtcbtheorem
   []% init options
@@ -139,7 +139,7 @@ Chapitre 6 \\ Nombres premiers
 
 \section{L'ensemble des nombres premiers}
 \begin{definition}{}{}
-Un entier naturel est un nombre premier s'il admet exactement deux diviseurs positifs : 1 et lui même.
+Un entier naturel est un nombre premier s'il admet exactement deux diviseurs positifs : \hide{1 et lui même}.
 \end{definition}
 
 \begin{examples}
@@ -151,7 +151,7 @@ L'entier 1 n'est pas un nombre premier car il n'admet qu'un seul diviseur.
 \end{remark}
 
 \begin{proposition}{}{}
-Tout entier naturel supérieur ou égal à 2 est divisible par un nombre premier.
+Tout entier naturel supérieur ou égal à 2 est divisible par \hide{un nombre premier}.
 \end{proposition}
 
 \begin{demo}
@@ -178,7 +178,7 @@ Dans tous les cas, on a montré que $\mathcal{P}(n+1)$ est vraie.
 Soit $n \geqslant 2$.
 \begin{itemize}[noitemsep,topsep=0pt]
   \item Soit $n$ est un nombre premier;
-  \item Soit $n$ est divisible par un nombre premier compris entre 2 et $\sqrt{n}$.
+  \item Soit $n$ est divisible par un nombre premier compris entre \hide{2 et $\sqrt{n}$}.
 \end{itemize}
 \end{proposition}
 
@@ -193,7 +193,7 @@ D'après la propriété $1, a$ est divisible par un nombre premier $p$. Comme $p
 
 \begin{method}{Démontrer qu'un entier est premier}{}
 \begin{itemize}[noitemsep,topsep=0pt]
-  \item Dresser la liste de tous les nombres premiers inférieurs ou égaux à $\sqrt{n}$.
+  \item Dresser la liste de tous les nombres premiers inférieurs ou égaux à \hide{$\sqrt{n}$}.
   \item Vérifier qu'aucun de ces nombres ne divise $n$.
 \end{itemize}
 \end{method}
@@ -274,9 +274,9 @@ Soit $n \geqslant 2$ un entier dont la décomposition en produit de nombres prem
 \begin{itemize}[noitemsep,topsep=0pt]
   \item les diviseurs de $n$ sont les nombres de la forme:
   $$
-  n=p_{1}^{\beta_{1}} \times p_{2}^{\beta_{2}} \times \ldots \times p_{k}^{\beta_{k}} \quad\left(\text { avec } 0 \leqslant \beta_{i} \leqslant \alpha_{i}, \text { pour tout } i\right)
+  n=\hideM{p_{1}^{\beta_{1}} \times p_{2}^{\beta_{2}} \times \ldots \times p_{k}^{\beta_{k}}} \quad\left(\text { avec } 0 \leqslant \beta_{i} \leqslant \alpha_{i}, \text { pour tout } i\right)
   $$
-  \item le nombre de diviseurs de $n$ est $\left(\alpha_{1}+1\right)\left(\alpha_{2}+1\right) \ldots\left(\alpha_{k}+1\right)$.
+  \item le nombre de diviseurs de $n$ est $\hideM{\left(\alpha_{1}+1\right)\left(\alpha_{2}+1\right) \ldots\left(\alpha_{k}+1\right)}$.
 \end{itemize}
   
 \end{proposition}
@@ -307,8 +307,8 @@ $$
 On a alors :
 
 \begin{itemize}[noitemsep,topsep=0pt]
-  \item $\operatorname{PGCD}(n ; m)=p_{1}^{\min \left(\alpha_{1} \beta_{1}\right)} \times p_{2}^{\min \left(\alpha_{2} \beta_{2}\right)} \times \ldots \times p_{k}^{\min \left(\alpha_{k} \beta_{k}\right)}$
-  \item $\operatorname{PPCM}(n ; m)=p_{1}^{\max \left(\alpha_{1} \beta_{1}\right)} \times p_{2}^{\max \left(\alpha_{2} \beta_{2}\right)} \times \ldots \times p_{k}^{\max \left(\alpha_{k} \beta_{k}\right)}$
+  \item $\operatorname{PGCD}(n ; m)=\hideM{p_{1}^{\min \left(\alpha_{1} \beta_{1}\right)} \times p_{2}^{\min \left(\alpha_{2} \beta_{2}\right)} \times \ldots \times p_{k}^{\min \left(\alpha_{k} \beta_{k}\right)}}$
+  \item $\operatorname{PPCM}(n ; m)=\hideM{p_{1}^{\max \left(\alpha_{1} \beta_{1}\right)} \times p_{2}^{\max \left(\alpha_{2} \beta_{2}\right)} \times \ldots \times p_{k}^{\max \left(\alpha_{k} \beta_{k}\right)}}$
 \end{itemize}
 \end{proposition}
 
@@ -324,7 +324,7 @@ En pratique, pour des grands nombres, la décomposition en produit de nombres pr
 
 \section{Petit théorème de Fermat}
 \begin{proposition}{Lemme}{}
-  Si $p$ est un nombre premier et $k$ un entier tel que $1 \leqslant k \leqslant p-1$, alors $p$ divise $\dbinom{p}{k}$.
+  Si $p$ est un nombre premier et $k$ un entier tel que $1 \leqslant k \leqslant p-1$, alors $p$ divise \hide{$\dbinom{p}{k}$}.
 \end{proposition}
 \begin{demo}
 Soit $p$ un nombre premier et $k$ un entier tel que $1 \leqslant k \leqslant p-1$. On a $\dbinom{p}{k}=\dfrac{p!}{k!(p-k)!}$.\\
@@ -336,7 +336,7 @@ D'après le théorème de Gauss, on en déduit donc que $p$ divise $\dbinom{p}{k
 \end{demo}
 
 \begin{proposition}{}{}
-Si $p$ est un nombre premier alors pour tout entier $a, a^{p} \equiv a[p]$.
+Si $p$ est un nombre premier alors pour tout entier $a, a^{p} \equiv \hideM{a[p]}$.
 \end{proposition}
 
 \begin{demo}
@@ -360,7 +360,7 @@ Ainsi, on a montré que $(a+1)^{p}=a+1$ donc $\mathcal{P}(a)+1$ est vraie.
 
 \newpage
 \begin{proposition}{Petit théorème de Fermat}{}
-Si $p$ est un nombre premier et si $a$ est un entier non divisible par $p$, alors $a^{p-1} \equiv 1[p]$.
+Si $p$ est un nombre premier et si $a$ est un entier non divisible par $p$, alors $a^{p-1} \equiv \hideM{1}[p]$.
 \end{proposition}
 
 \begin{remark}
