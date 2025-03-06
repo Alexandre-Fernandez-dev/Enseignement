@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\ChapitreCourt}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (A) -- 45min}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+
+\large
+
+\textbf{Nom et prénom :}\enspace\dotfill
+
+\begin{exercice}
+  \begin{enumerate}
+
+    \item Déterminer graphiquement l'expression de la fonction affine $f$ représentée ci-dessous :
+    \begin{minipage}{0.7\linewidth}
+      \begin{tikzpicture}[baseline,scale = 0.6]
+
+        \tikzset{
+          point/.style={
+            thick,
+            draw,
+            cross out,
+            inner sep=0pt,
+            minimum width=5pt,
+            minimum height=5pt,
+          },
+        }
+        \clip (-8,-5.1) rectangle (8.1,6);
+        \draw[color ={black},line width = 1.2,>=latex,->] (-8,0)--(8,0);
+        \draw[color ={black},line width = 1.2,>=latex,->] (0,-5)--(0,6);
+        \draw[color ={black},opacity = 0.4] (-8,1)--(8,1);
+        \draw[color ={black},opacity = 0.4] (-8,-1)--(8,-1);
+        \draw[color ={black},opacity = 0.4] (-8,2)--(8,2);
+        \draw[color ={black},opacity = 0.4] (-8,-2)--(8,-2);
+        \draw[color ={black},opacity = 0.4] (-8,3)--(8,3);
+        \draw[color ={black},opacity = 0.4] (-8,-3)--(8,-3);
+        \draw[color ={black},opacity = 0.4] (-8,4)--(8,4);
+        \draw[color ={black},opacity = 0.4] (-8,-4)--(8,-4);
+        \draw[color ={black},opacity = 0.4] (-8,5)--(8,5);
+        \draw[color ={black},opacity = 0.4] (-8,-5)--(8,-5);
+        \draw[color ={black},opacity = 0.4] (2,-5)--(2,6);
+        \draw[color ={black},opacity = 0.4] (-2,-5)--(-2,6);
+        \draw[color ={black},opacity = 0.4] (4,-5)--(4,6);
+        \draw[color ={black},opacity = 0.4] (-4,-5)--(-4,6);
+        \draw[color ={black},opacity = 0.4] (6,-5)--(6,6);
+        \draw[color ={black},opacity = 0.4] (-6,-5)--(-6,6);
+        \draw[color ={black},line width = 1.2] (0,-0.1)--(0,0.1);
+        \draw[color ={black},line width = 1.2] (2,-0.1)--(2,0.1);
+        \draw[color ={black},line width = 1.2] (-2,-0.1)--(-2,0.1);
+        \draw[color ={black},line width = 1.2] (4,-0.1)--(4,0.1);
+        \draw[color ={black},line width = 1.2] (-4,-0.1)--(-4,0.1);
+        \draw[color ={black},line width = 1.2] (-0.1,0)--(0.1,0);
+        \draw[color ={black},line width = 1.2] (-0.1,1)--(0.1,1);
+        \draw[color ={black},line width = 1.2] (-0.1,-1)--(0.1,-1);
+        \draw[color ={black},line width = 1.2] (-0.1,2)--(0.1,2);
+        \draw[color ={black},line width = 1.2] (-0.1,-2)--(0.1,-2);
+        \draw[color ={black},line width = 1.2] (-0.1,3)--(0.1,3);
+        \draw[color ={black},line width = 1.2] (-0.1,-3)--(0.1,-3);
+        \draw[color ={black},line width = 1.2] (-0.1,4)--(0.1,4);
+        \draw[color ={black},line width = 1.2] (-0.1,-4)--(0.1,-4);
+        \draw (2,-0.4) node[anchor = center, rotate=0] {\scriptsize \color{black}{$1$}};
+        \draw (4,-0.4) node[anchor = center, rotate=0] {\scriptsize \color{black}{$2$}};
+        \draw (6,-0.4) node[anchor = center, rotate=0] {\scriptsize \color{black}{$3$}};
+        \draw (-2,-0.4) node[anchor = center, rotate=0] {\scriptsize \color{black}{$-1$}};
+        \draw (-4,-0.4) node[anchor = center, rotate=0] {\scriptsize \color{black}{$-2$}};
+        \draw (-6,-0.4) node[anchor = center, rotate=0] {\scriptsize \color{black}{$-3$}};
+        \draw (-0.6,1.1) node[anchor = center, rotate=0] {\footnotesize \color{black}{$1$}};
+        \draw (-0.6,2.1) node[anchor = center, rotate=0] {\footnotesize \color{black}{$2$}};
+        \draw (-0.6,3.1) node[anchor = center, rotate=0] {\footnotesize \color{black}{$3$}};
+        \draw (-0.6,4.1) node[anchor = center, rotate=0] {\footnotesize \color{black}{$4$}};
+        \draw (-0.6,5.1) node[anchor = center, rotate=0] {\footnotesize \color{black}{$5$}};
+        \draw (-0.6,-0.9) node[anchor = center, rotate=0] {\footnotesize \color{black}{$-1$}};
+        \draw (-0.6,-1.9) node[anchor = center, rotate=0] {\footnotesize \color{black}{$-2$}};
+        \draw (-0.6,-2.9) node[anchor = center, rotate=0] {\footnotesize \color{black}{$-3$}};
+        \draw (-0.6,-3.9) node[anchor = center, rotate=0] {\footnotesize \color{black}{$-4$}};
+        \draw[color={red},line width = 2] (-22.32,-46.64)--(23.32,44.64);
+        \draw [color={black}] (-0.3,-0.3) node[anchor = center,scale=1, rotate = 0] {O};
+      \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{0.3\linewidth}
+      \fbox{$f(x) = {\makebox[5em]{\enspace\dotfill}}$}
+    \end{minipage}
+    \item Représenter graphiquement (sur l'annexe page 3) les fonctions affines suivantes définies sur $\mathbb R$ par :
+      \begin{tasks}(2)
+        \task $f(x)=-2$
+        \task $f(x)=3x-3$
+      \end{tasks}
+    % \item Déterminer le sens de variation de la fonction $h$ définie sur $\mathbb R$ par : $h(x)=-10x-9$.
+    % \begin{center}
+    %   \fbox{$f$ est ${\makebox[5em]{\enspace\dotfill}}$}
+    % \end{center}
+    \item Déterminer l'expression de la fonction affine $f$ définie sur $\mathbb R$, sachant que
+      $f(8)=-17$ et $f(4)=-13$.
+    \begin{center}
+      \fbox{$f(x) = {\makebox[5em]{\enspace\dotfill}}$}
+    \end{center}
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+
+  Inès souhaite s'inscrire dans une salle de sport à Pantin. Deux salles se font concurrence :
+
+  \begin{itemize}
+    \item \textbf{Energym} propose une formule à 40€ par mois, sans frais d'inscription.
+    \item \textbf{Fitness Plus} propose une formule avec 80€ de frais d'inscription, puis 15€ par mois.
+  \end{itemize}
+
+  \begin{enumerate}
+    \item Modéliser le coût total de la première formule par une fonction \(f(x)\), où \(x\) représente le nombre de mois.
+      Modéliser le coût total de la deuxième formule par une fonction \(g(x)\).
+    \item Déterminer au bout de combien de mois ces deux tarifs deviennent identiques.
+    \item Résoudre l'inéquation \(f(x) \le g(x)\) et interpréter le résultat dans le contexte de l'exercice.
+  \end{enumerate}
+  \begin{center}
+  \framebox[1\textwidth]{\parbox{0.92\linewidth}{
+    \vspace{19em}
+  }}
+  \end{center}
+\end{exercice}
+
+% \begin{exercice}
+% Inès souhaite s'inscrire dans une salle de sport à Pantin. Deux salles se font concurrence :
+%
+% \begin{itemize}
+%   \item \textbf{Sportissimo} propose une formule à 45€ par mois, sans frais d'inscription.
+%   \item \textbf{Forme \& Fun} propose une formule avec 100€ de frais d'inscription, puis 25€ par mois.
+% \end{itemize}
+%
+% \begin{enumerate}
+%   \item Modéliser le coût total de la première formule par une fonction \(f(x)\), où \(x\) est le nombre de mois.
+%         Modéliser le coût total de la deuxième formule par une fonction \(g(x)\).
+%   \item Au bout de combien de mois les deux formules reviennent-elles au même coût ?
+%   \item Résoudre l'inéquation \(f(x) \le g(x)\) et interpréter ce résultat dans le cadre de l'exercice.
+% \end{enumerate}
+% \end{exercice}
+
+\begin{exercice}
+  Un étudiant souhaite analyser l'argent présent sur son compte bancaire au cours des 365 jours de l'année 2019.
+  On définit la fonction
+  \[
+    C : [0, 365] \to \mathbb{R}, \quad C(x) = -0{,}5\,x^2 + 12\,x - 40,
+  \]
+  où \(C(x)\) est exprimée en milliers d'euros, et \(x\) représente le numéro du jour (avec \(x=0\) le premier jour de l'année).
+
+  \begin{enumerate}
+    \item Montrer que
+      \[
+        C(x) = -0{,}5\,\bigl(x - 4\bigr)\bigl(x - 20\bigr).
+      \]
+    \item Dresser les tableaux de signes des fonctions $f(x) = -0.5$, $g(x) = x - 4$ et $h(x) = x - 20$.
+    \item En déduire le tableau de signes de la fonction \(C\).
+    \item Déterminer l'intervalle des jours (valeurs de \(x\)) pour lesquels le compte de l'étudiant est resté en positif au cours de l'année 2019.
+  \end{enumerate}
+\end{exercice}
+\begin{center}
+\framebox[1\textwidth]{\parbox{0.92\linewidth}{
+  \vspace{40em}
+}}
+\end{center}
+
+% \begin{exercice}
+%   Un étudiant observe à nouveau l'évolution de son solde bancaire sur la période des 365 jours de l'année 2019.
+%   On définit cette fois la fonction
+%   \[
+%     C : [0, 365] \to \mathbb{R}, \quad C(x) = -x^2 + 16\,x - 48,
+%   \]
+%   toujours en milliers d'euros, où \(x\) est le numéro du jour.
+% 
+%   \begin{enumerate}
+%     \item Vérifier que
+%       \[
+%         C(x) = -\,\bigl(x - 4\bigr)\bigl(x - 12\bigr).
+%       \]
+%     \item Établir le tableau de signes de la fonction \(C\).
+%     \item Déterminer, parmi les 365 jours, l'intervalle de jours pendant lequel le solde est positif.
+%   \end{enumerate}
+% \end{exercice}
+
+\begin{center}
+  \begin{tcolorbox}[hbox]
+    \Large
+    Annexe pour la question 2 de l'exercice 1.
+  \end{tcolorbox}
+\end{center}
+
+\vfill
+
+\begin{center}
+  \begin{tikzpicture}[scale=6]
+    \draw[step=.5cm,gray,thin] (-1.4,-1.4) grid (1.4,1.4);
+    \draw[step=.5cm,gray,very thin, shift={(0.25, 0.25)}] (-1.65,-1.65) grid (1.15,1.15);
+    \draw[step=.25cm,gray,very thin, dashed, shift={(0.125, 0.125)}] (-1.525,-1.525) grid (1.275,1.275);
+    \draw[->] (-1.5,0) -- (1.5,0) coordinate (x axis)node[right]{$x$};
+    \draw[->] (0,-1.5) -- (0,1.5) coordinate (y axis)node[above]{$y$};
+    \foreach \x/\xtext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+    \draw (\x*0.25 cm,1pt) -- (\x*0.25 cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+    \foreach \y/\ytext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+    \draw (1pt,\y*0.25 cm) -- (-1pt,\y*0.25 cm) node[anchor=east,fill=white] {$\ytext$};
+  \end{tikzpicture}
+\end{center}
+
+\vfill
+
+\end{document}
