@@ -3,6 +3,6 @@
 '<,'>s/\\section\*{Méthode - \(.*\)}/\\begin{method}{\1}{}
 '<,'>s/\\section\*{Exemple.}/\\begin{example}
 '<,'>s/\\section\*{Remarque.}/\\begin{remark}
-'<,'>s/\\se.*Démonstration.}/\\begin{demo}/g
+'<,'>s/\\section\*{Démonstration.}/\\begin{demo}/g
 '<,'>s/\\section\*{\(\d*\.*\)\d* \(.*\)}/\\section\{\2\}
 '<,'>s/\\subsection\*{\(\d*\.*\)*\d* \(.*\)}/\\subsection\{\2\}

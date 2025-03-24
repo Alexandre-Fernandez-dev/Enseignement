@@ -177,12 +177,12 @@ $$
   On appelle produit scalaire de deux vecteurs $\vv{u}$ et $\vv{v}$, le réel noté $\vv{u} . \vv{v}$ et défini par
 
   $$
-  \vv{u} \cdot \vv{v}=\dfrac{1}{2}\left(\|\vv{u}+\vv{v}\|^{2}-\|\vv{u}\|^{2}-\|\vv{v}\|^{2}\right)
+  \vv{u} \cdot \vv{v}=\hideM{\dfrac{1}{2}\left(\|\vv{u}+\vv{v}\|^{2}-\|\vv{u}\|^{2}-\|\vv{v}\|^{2}\right)}
   $$
 \end{definition}
 
 \begin{definition}{}{}
-  Deux vecteurs non nuls sont dit ortogonaux si, et seulement si, $(\vv{u}, \vv{v})=\dfrac{\pi}{2}$ ou $(\vv{u}, \vv{v})=-\dfrac{\pi}{2}$
+  Deux vecteurs non nuls sont dit ortogonaux si, et seulement si, $(\vv{u}, \vv{v})=\hideM{\dfrac{\pi}{2}}$ ou $(\vv{u}, \vv{v})=\hideM{-\dfrac{\pi}{2}}$
 \end{definition}
 
 \begin{remark}
@@ -190,7 +190,7 @@ $$
 \end{remark}
 
 \begin{proposition}{}{}
-  $\vv{u}$ et $\vv{v}$ sont ortogonaux si, et seulement si, $\vv{u} \cdot \vv{v}=0$.
+  $\vv{u}$ et $\vv{v}$ sont ortogonaux si, et seulement si, $\vv{u} \cdot \vv{v}=\hideM{0}$.
 \end{proposition}
 
 \begin{demo}
@@ -201,7 +201,7 @@ $$
   Pour tout vecteur $\vv{u}$,
 
   $$
-  \vv{u} \cdot \vv{u}=\|\vv{u}\|^{2}
+  \vv{u} \cdot \vv{u}=\hideM{\|\vv{u}\|^{2}}
   $$
 \end{proposition}
 
@@ -221,7 +221,7 @@ $$
   Soient $\vv{u}\dbinom{x}{y}$ et $\vv{v}\dbinom{x^{\prime}}{y^{\prime}}$ dans un repère orthonormé. Alors
 
   $$
-  \vv{u} \cdot \vv{v}=x x^{\prime}+y y^{\prime}
+  \vv{u} \cdot \vv{v}=\hideM{x x^{\prime}+y y^{\prime}}
   $$
 \end{proposition}
 
@@ -245,7 +245,7 @@ $$
   Le produit scalaire est symétrique (on dit aussi commutatif), c'est-à-dire que pour tous $\vv{u}$ et $\vv{v}$,
 
   $$
-  \vv{u} \cdot \vv{v}=\vv{v} \cdot \vv{u}
+  \vv{u} \cdot \vv{v}=\hideM{\vv{v} \cdot \vv{u}}
   $$
 \end{proposition}
 
@@ -261,8 +261,8 @@ $$
   Le produit scalaire est bilinéaire, c'est à dire que pour tous vecteurs $\vv{u}, \vv{v}$ et $\vv{w}$, et pour tout réel $k$ :
 
   \begin{itemize}
-    \item $\vv{u} \cdot(\vv{v}+\vv{w})=\vv{u} \cdot \vv{v}+\vv{u} \cdot \vv{w}$
-    \item $(k \vv{u}) \cdot \vv{v}=\vv{u} \cdot(k \vv{v})=k(\vv{u} \cdot \vv{v})$
+    \item $\vv{u} \cdot(\vv{v}+\vv{w})=\hideM{\vv{u} \cdot \vv{v}+\vv{u} \cdot \vv{w}}$
+    \item $(k \vv{u}) \cdot \vv{v}=\hideM{\vv{u} \cdot(k \vv{v})} =\hideM{k(\vv{u} \cdot \vv{v})}$
   \end{itemize}
 \end{proposition}
 
@@ -282,9 +282,9 @@ $$
 \subsection{Identités remarquables}
 \begin{proposition}{}{}
   \begin{itemize}
-    \item $\|\vv{u}+\vv{v}\|^{2}=\|\vv{u}\|^{2}+2 \vv{u} \cdot \vv{v}+\|\vv{v}\|^{2}$
-    \item $\|\vv{u}-\vv{v}\|^{2}=\|\vv{u}\|^{2}-2 \vv{u} \cdot \vv{v}+\|\vv{v}\|^{2}$
-    \item $(\vv{u}-\vv{v}) \cdot(\vv{u}+\vv{v})=\|\vv{u}\|^{2}-\|\vv{v}\|^{2}$
+    \item $\|\vv{u}+\vv{v}\|^{2}=\hideM{\|\vv{u}\|^{2}+2 \vv{u} \cdot \vv{v}+\|\vv{v}\|^{2}}$
+    \item $\|\vv{u}-\vv{v}\|^{2}=\hideM{\|\vv{u}\|^{2}-2 \vv{u} \cdot \vv{v}+\|\vv{v}\|^{2}}$
+    \item $(\vv{u}-\vv{v}) \cdot(\vv{u}+\vv{v})=\hideM{\|\vv{u}\|^{2}-\|\vv{v}\|^{2}}$
   \end{itemize}
 \end{proposition}
 \includegraphics[width=0.5\textwidth, center]{2025_02_26_6fa51b4490e482ca532cg-5}
@@ -297,12 +297,13 @@ $$
     \item Pour montrer cette égalité, il suffit de développer en utilisant la bilinéarité du produit scalaire.
   \end{itemize}
 \end{demo}
+\newpage
 
 \begin{proposition}{}{}
   \begin{itemize}[itemsep=5pt]
-    \item $\vv{u} \cdot \vv{v}=\frac{1}{2}\left(\|\vv{u}+\vv{v}\|^{2}-\|\vv{u}\|^{2}-\|\vv{v}\|^{2}\right)$
-    \item $\vv{u} \cdot \vv{v}=\frac{1}{2}\left(\|\vv{u}\|^{2}+\|\vv{v}\|^{2}-\|\vv{u}-\vv{v}\|^{2}\right)$
-    \item $\vv{u} \cdot \vv{v}=\frac{1}{4}\left(\|\vv{u}+\vv{v}\|^{2}-\|\vv{u}-\vv{v}\|^{2}\right)$
+    \item $\vv{u} \cdot \vv{v}=\hideM{\frac{1}{2}\left(\|\vv{u}+\vv{v}\|^{2}-\|\vv{u}\|^{2}-\|\vv{v}\|^{2}\right)}$
+    \item $\vv{u} \cdot \vv{v}=\hideM{\frac{1}{2}\left(\|\vv{u}\|^{2}+\|\vv{v}\|^{2}-\|\vv{u}-\vv{v}\|^{2}\right)}$
+    \item $\vv{u} \cdot \vv{v}=\hideM{\frac{1}{4}\left(\|\vv{u}+\vv{v}\|^{2}-\|\vv{u}-\vv{v}\|^{2}\right)}$
   \end{itemize}
 \end{proposition}
 
@@ -321,7 +322,7 @@ $$
   Pour tous vecteurs $\vv{u}$ et $\vv{v}$, si $\theta=(\vv{u}, \vv{v})$ alors :
 
   $$
-  \vv{u} . \vv{v}=\|\vv{u}\| \times\|\vv{v}\| \times \cos (\theta)
+  \vv{u} . \vv{v}=\hideM{\|\vv{u}\| \times\|\vv{v}\| \times \cos (\theta)}
   $$
 \end{proposition}
 
@@ -334,7 +335,7 @@ $$
 \end{remark}
 
 \begin{demo}
-  Soient deux vecteurs $\vv{u}$ et $\vv{v}$. On définit le repère orthonormé $(0 ; \vv{i}, \vv{j})$ tel que $\vv{i}=\dfrac{1}{\|\overrightarrow{\|}\|} \vv{u}$ et tel que $(\vv{i} ; \vv{j})=+\dfrac{\pi}{2}$. Dans ce repère, $\vv{v}$ a pour coordonnées $\dbinom{\|\vv{v}\| \cos \theta}{\|\vv{v}\| \sin \theta}$.\\
+  Soient deux vecteurs $\vv{u}$ et $\vv{v}$. On définit le repère orthonormé $(0 ; \vv{i}, \vv{j})$ tel que $\vv{i}=\dfrac{1}{\|\vv{u}\|} \vv{u}$ et tel que $(\vv{i} ; \vv{j})=+\dfrac{\pi}{2}$. Dans ce repère, $\vv{v}$ a pour coordonnées $\dbinom{\|\vv{v}\| \cos \theta}{\|\vv{v}\| \sin \theta}$.\\
   \includegraphics[width=0.4\textwidth, center]{2025_02_26_6fa51b4490e482ca532cg-6}
 
   Étant donné que le vecteur $\vv{u}$ a pour coordonnées $\dbinom{\|\vv{u}\|}{0}$, on voit, d'après la formule en fonction des coordonnées que
@@ -349,10 +350,10 @@ $$
   Soient $\overrightarrow{A B}$ et $\overrightarrow{A C}$ deux vecteurs et soit $H$ le projeté orthogonal du point $C$ sur la droite (AB). Alors,
 
   $$
-  \overrightarrow{\mathrm{AB}} \cdot \overrightarrow{\mathrm{AC}}=\overrightarrow{\mathrm{AB}} \cdot \overrightarrow{\mathrm{AH}}=\left\{
+  \overrightarrow{\mathrm{AB}} \cdot \overrightarrow{\mathrm{AC}}=\hideM{\overrightarrow{\mathrm{AB}} \cdot \overrightarrow{\mathrm{AH}}}=\left\{
     \begin{array}{cl}
-      \mathrm{AB} \times \mathrm{AH} & \text { si } \overrightarrow{\mathrm{AB}} \text { et } \overrightarrow{\mathrm{AH}} \text { sont de même sens. } \\
-      -\mathrm{AB} \times \mathrm{AH} &
+      \hideM{\mathrm{AB} \times \mathrm{AH}} & \text { si } \overrightarrow{\mathrm{AB}} \text { et } \overrightarrow{\mathrm{AH}} \text { sont de même sens. } \\
+      \hideM{-\mathrm{AB} \times \mathrm{AH}} &
       \text { sinon }
     \end{array}\right.
     $$
