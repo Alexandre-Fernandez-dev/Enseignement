@@ -1,0 +1,340 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tasks}  % pour lister des items en colonnes
+\usepackage{yhmath}
+\usepackage{listing}
+\usepackage{graphicx}% pour \includegraphics
+\usepackage{tikz}
+\usepackage{color}
+
+\usetikzlibrary{calc,angles,quotes}
+% Définition de la "pic" "tick"
+\tikzset{
+  pics/tick/.style args={#1}{
+    code={
+      % "#1" correspond à la longueur du tick.
+      \draw[line width=1pt, line cap=round] (-#1/2,0) -- (#1/2,0);
+    }
+  }
+}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mywhite}{rgb}{0.9,0.9,0.9}
+
+\newcommand{\footnotettfamily}{\ttfamily\footnotesize}
+% \newcommand{\footnotettfamily}{\ttfamily\footnotesize}
+
+\newcommand{\scriptttfamily}{\ttfamily\scriptsize}
+
+\lstset{ %
+  backgroundcolor=\color{mywhite},   % choose the background color
+  %basicstyle=\footnotesize,        % size of fonts used for the code
+  basicstyle=\ttfamily\scriptttfamily,
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+keywordstyle=\color{blue},       % keyword style
+stringstyle=\color{mymauve},     % string literal style
+}
+
+\graphicspath{ {../Images/} } % chemin vers le dossier d'images
+\hyphenpenalty=1000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlackSav}{HTML}{000000}
+\definecolor{RedMet}{HTML}{cd5556}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+  Chapitre 8 \\Applications du produit scalaire
+}
+}
+\author{}
+\date{}
+
+\newtcbtheorem
+[]% init options
+{exercice}% name
+{Exercice}% title
+{%
+colback=GrayEx,
+colframe=PurpleEx,
+fonttitle=\bfseries,
+breakable=true
+}% options
+{ex}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+theorem name,
+colback=GrayBG,
+colframe=RedMet,
+fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+\begin{exercice}[title=Exercice 1 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, on considère la droite $(AB)$ où $A$ et $B$ sont deux points du plan.
+  \textbf{Objectif :} déterminer un vecteur directeur de la droite $(AB)$ ainsi qu'un vecteur normal.
+
+  \begin{enumerate}
+    \item $A(2\,;\,1)$ et $B(1\,;\,0)$
+    \item $A(-2\,;\,3)$ et $B(4\,;\,1)$
+    \item $A(2\,;\,-1)$ et $B(2\,;\,0)$
+    \item $A\bigl(\sqrt{2}\,;\,1\bigr)$ et $B\bigl(\sqrt{3}\,;\,\sqrt{2}\bigr)$
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 2 $\star$ { [Calculer] }]{}{}
+  Donner un vecteur directeur et un vecteur normal de chacune des droites dont une équation est donnée :
+  \begin{enumerate}
+    \item $3x + 5y - 1 = 0$
+    \item $3x + 8y = 4$
+    \item $y = 3x + 2$
+    \item $2x = 5$
+    \item $y = -7$
+    \item $-\,y + 5x + 8 = 0$
+  \end{enumerate}
+\end{exercice}
+
+\newcolumn
+
+\begin{exercice}[title=Exercice 3 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, déterminer une équation cartésienne de la droite passant par le point $A$ et de vecteur normal $\vec{n}$.
+  \begin{enumerate}
+    \item $A(2\,;\,1)$ et $\displaystyle \vec{n} \dbinom{1}{-2}$
+    \item $A(-2\,;\,3)$ et $\displaystyle \vec{n} \dbinom{0}{-3}$
+    \item $A(2\,;\,3)$ et $\displaystyle \vec{n} \dbinom{\sqrt{2}}{\sqrt{3}}$
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 4 $\star$ { [Représenter, Calculer] }]{}{}
+  Dans chaque cas, déterminer si la droite $D_1$ et la droite $D_2$ sont perpendiculaires ou non.
+
+  \begin{enumerate}
+    \item
+      \begin{itemize}[label=$\bullet$]
+        \item $D_1 :\; 2x + 5y + 8 = 0$
+        \item $D_2 :\; 5x - 2y - 1 = 0$
+      \end{itemize}
+
+    \item
+      \begin{itemize}[label=$\bullet$]
+        \item $D_1$ passant par les points $I(1\,;4)$ et $J(2\,;\,1)$.
+        \item $D_2$ passant par les points $K\bigl(\sqrt{2}-2\,;\,-1\bigr)$ et $L\bigl(\sqrt{2}+1\,;\,-2\bigr)$.
+      \end{itemize}
+
+    \item
+      \begin{itemize}[label=$\bullet$]
+        \item $D_1 :\; -6y = 3x$
+        \item $D_2$ de vecteur normal $\displaystyle \vec{n}\dbinom{-8}{4}$
+      \end{itemize}
+
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 5 $\star\star$ { [Représenter, Calculer] }]{}{}
+  Dans le plan muni d'un repère orthonormé, on considère le point $A$ de coordonnées $(3\,;\,1)$ ainsi que la droite $(d)$ d'équation cartésienne $x - 3y - 4 = 0$.
+  \begin{enumerate}
+    \item Déterminer les coordonnées du point $B$ d'abscisse 7 appartenant à la droite $(d)$.
+    \item Donner un vecteur normal à la droite $(d)$.
+    \item Déterminer une équation de la droite $(\Delta)$ perpendiculaire à la droite $(d)$ passant par le point $A$.
+    \item Calculer les coordonnées du projeté orthogonal $H$ du point $A$ sur la droite $(d)$.
+    \item Calculer la distance $AH$ et en donner une interprétation.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 6 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, déterminer une équation du cercle $C$.
+  \begin{enumerate}
+    \item $C$ est le cercle de centre $\Omega(3\,;4)$ et de rayon 5.
+    \item $C$ est le cercle de centre $\Omega(-1\,;\,\pi)$ et de diamètre $\sqrt{5}$.
+    \item $C$ est le cercle de diamètre $[AB]$ où $A(-5\,;\,2)$ et $B\left(\dfrac{3}{4}\,;\,\dfrac{5}{9}\right)$.
+    \item $C$ est le cercle de centre $\Omega(1\,;\,-4)$ et passant par le point $A(5\,;\,6)$.
+  \end{enumerate}
+\end{exercice}
+
+\newcolumn
+
+\begin{exercice}[title=Exercice 7 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, déterminer les coordonnées du centre et le rayon du cercle défini par l'équation donnée.
+  \begin{enumerate}
+    \item $(\,x-1\,)^2 + \Bigl(y + \dfrac{5}{4}\Bigr)^2 = 9$
+    \item $x^2 + y^2 = 7$
+    \item $x^2 + y^2 + 2x = 0$
+    \item $x^2 + y - 1 = x - y^2 + 1$
+    \item $x^2 + y^2 - 4x + 5y = 33$
+    \item $3x^2 + 3y^2 + x - 2y - 17 = 0$
+    \item $(x + 1)(x - 2) + (y - 4)(y + 5) = 0$
+    \item $(x - 1)^2 - (y + 8)^2 = 1$
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 8 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, indiquer si l'équation définit un cercle. Dans ce cas, déterminer les coordonnées du centre et le rayon du cercle défini par l'équation donnée.
+  \begin{enumerate}
+    \item $(\,x + 1\,)^2 + (\,y - 7\,)^2 = 1$
+    \item $x^3 + y^3 - 3y + 2x = 17$
+    \item $x^2 + y^2 = 5$
+    \item $5x^2 + 5y^2 - x + y = 87$
+    \item $3x^2 + y^2 + x - 2y - 54 = 0$
+    \item $(x + 1)(x - 2)\,(y - 4)(y + 5) = 0$
+    \item $x^2 - y^2 = 7$
+    \item $x^2 + y^2 - 2x - 4y = 1$
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 9 $\star\star$ { [Représenter, Calculer] }]{}{}
+  Soit $C$ le cercle de centre $\Omega(2\,;\,-4)$ et de rayon $r = 10$.
+  \begin{enumerate}
+    \item Justifier que le point $A(1\,;\,-1)$ appartient à $C$.
+    \item Déterminer l'équation de la tangente à $C$ passant par $A$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 10 $\star\star$ { [Représenter, Calculer] }]{}{}
+  Soit le cercle $C$ de centre $\Omega(1\,;2)$ et de rayon $r = 5$. Soit la droite $(AB)$ avec $A(2\,;10)$ et $B(1\,;\,-2)$. Déterminer les coordonnées des points d'intersection du cercle $C$ et de la droite $D$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 11 $\star$ { [Représenter, Calculer] }]{}{}
+  Soit $ABC$ un triangle tel que $\mathrm{AB} = 3$, $\mathrm{AC} = \dfrac{7}{3}$ et $\mathrm{BC} = \dfrac{3}{2}$. On note $I$ le milieu de $[BC]$. Calculer la longueur $\mathrm{AI}$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 12 $\star$ { [Calculer] }]{}{}
+  Soit $ABC$ un triangle tel que $\mathrm{AB} = 7$, $\mathrm{AC} = 4$ et $\mathrm{BC} = 5$. On note $I$ le milieu de $[AC]$. Calculer la longueur $\mathrm{BI}$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 13 $\star$ { [Calculer] }]{}{}
+  Dans chaque cas, déterminer les trois longueurs des côtés ainsi que la mesure des trois angles du triangle $ABC$ (on arrondira les résultats à $0{,}1^\circ$ près).
+
+  \begin{enumerate}
+    \item $\mathrm{AB} = 3$, $\mathrm{AC} = 7$ et $\widehat{BAC} = 37^\circ$.
+    \item $\mathrm{AB} = 1$, $\mathrm{AC} = 4$ et $\widehat{ABC} = 110^\circ$.
+    \item $\mathrm{BC} = 9$, $\widehat{ABC} = 72^\circ$ et $\widehat{ACB} = 34^\circ$.
+    \item $\mathrm{BC} = 11$, $\mathrm{AC} = 3$ et $\widehat{ABC} = 72^\circ$.
+    \item $\mathrm{AC} = 17$, $\widehat{ABC} = 64^\circ$ et $\widehat{ACB} = 71^\circ$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 14 $\star$ { [Raisonner, Représenter] }]{}{}
+  La proposition suivante est-elle vraie ou fausse ?
+  \emph{``La somme des carrés de deux côtés d'un triangle est strictement supérieure à la moitié du carré du troisième côté''.}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 15 $\star\star$ { [Représenter, Calculer] }]{}{}
+  Soient $A(x_A\,;\,y_A)$, $B(x_B\,;\,y_B)$ et $C(x_C\,;\,y_C)$ trois points du plan. On note $G$ le centre de gravité du triangle $ABC$.
+  \begin{enumerate}
+    \item Montrer que les coordonnées de $G$ sont
+      $$G\,\Bigl(\,\dfrac{x_A + x_B + x_C}{3},\;\dfrac{y_A + y_B + y_C}{3}\Bigr).$$
+    \item On considère la fonction algorithmique ci-dessous, nommée \texttt{gravite}, et prenant en paramètre les variables \texttt{xA}, \texttt{xB}, \texttt{xC} (abscisses respectives des points $A$, $B$ et $C$) ainsi que les variables \texttt{yA}, \texttt{yB}, \texttt{yC} (ordonnées respectives des points $A$, $B$ et $C$).
+
+        \begin{lstlisting}[language=Python]
+def gravite(xA,xB,xC,yA,yB,yC):
+    xG = ...
+    yG = ...
+    print(xG,yG)
+
+gravite(1,2,-4,5,2,-3)
+        \end{lstlisting}
+
+      \begin{enumerate}
+        \item[(a)] Compléter les lignes 2 et 3 de cet algorithme afin qu'il calcule les coordonnées \texttt{xG} et \texttt{yG} du centre de gravité du triangle $ABC$.
+        \item[(b)] Quelle valeur renvoie l'algorithme ?
+      \end{enumerate}
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 16 $\star\star\star$ { [Représenter, Calculer] }]{}{}
+  On considère les points $A(3\,;\,5)$, $B(-2\,;\,1)$ et $C(4\,;\,7)$. Déterminer une équation du cercle circonscrit au triangle $ABC$.
+\end{exercice}
+
+
+\begin{exercice}[title=Exercice 17 $\star\star\star$ { [Chercher, Représenter, Calculer] }]{}{}
+  Soit $A(x_A\,;\,y_A)$ un point du plan et $D$ la droite d'équation $a\,x + b\,y + c = 0$.
+  Déterminer la distance du point $A$ à la droite $D$ en fonction des réels $x_A,\,y_A,\,a,\,b$ et $c$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 18 $\star\star$ { [Chercher, Représenter, Calculer] }]{}{}
+  Soient $A$ et $B$ deux points du plan tels que $\mathrm{AB} = 4$. Déterminer l'ensemble des points $M$ tels que $\mathrm{AM}\cdot\mathrm{AB} = 10$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 19 $\star\star$ { [Chercher, Représenter, Calculer] }]{}{}
+  Soient $A$ et $B$ deux points du plan tels que $\mathrm{AB} = 1$. Déterminer l'ensemble des points $M$ tels que $\mathrm{MA}\cdot\mathrm{MB} = \dfrac{3}{2}$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 20 $\star\star$ { [Chercher, Représenter, Calculer] }]{}{}
+  Soient $A$ et $B$ deux points du plan tels que $\mathrm{AB} = 5\,\text{cm}$. Déterminer l'ensemble des points $M$ tels que l'aire de $ABM$ soit de $3\,\text{cm}^2$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 21 $\star\star$ { [Représenter, Calculer] }]{}{}
+  Soient $A(1\,;\,3)$ et $B(-2\,;\,5)$. Déterminer l'ensemble des points $M$ de coordonnées $(x\,;\,y)$ tels que les vecteurs $2\overrightarrow{MA} + \overrightarrow{MB}$ et $\overrightarrow{MA} + 2\overrightarrow{MB}$ soient orthogonaux.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 22 $\star\star\star$ { [Chercher, Calculer] }]{}{}
+  Soient $A$ et $B$ deux points du plan. Déterminer l'ensemble de(s) point(s) $M$ qui minimise la quantité suivante :
+  $$\mathrm{MA}^2 + \mathrm{MB}^2.$$
+\end{exercice}
+
+\begin{exercice}[title=Exercice 23 $\star\star\star$ { [Raisonner, Chercher, Représenter] }]{}{}
+  Dans un triangle $ABC$, on appelle :
+  \begin{itemize}
+    \item $C$ le cercle circonscrit de centre $O$ ;
+    \item $G$ le centre de gravité ;
+    \item $H$ l'orthocentre ;
+    \item $A'$, $B'$ et $C'$ les milieux respectifs des côtés $[BC]$, $[AC]$ et $[AB]$.
+  \end{itemize}
+  \begin{enumerate}
+    \item Faire une figure. Que peut-on conjecturer sur les points $O$, $G$ et $H$ ? La suite de l'exercice consiste à démontrer cette conjecture.
+    \item On appelle $I$ le point du plan tel que
+      $$\overrightarrow{OI} = \overrightarrow{OA} + \overrightarrow{OB} + \overrightarrow{OC}.$$
+      \begin{enumerate}
+        \item[(a)] Justifier que $\overrightarrow{OI} = \overrightarrow{OA} + 2\overrightarrow{OA'}$.
+        \item[(b)] En déduire que $\overrightarrow{AK} = 2\overrightarrow{OA'}$.
+      \end{enumerate}
+    \item Conclure que $I$ est un point de la hauteur issue de $A$ puis que $I = H$.
+    \item On a ainsi montré :
+      $$\overrightarrow{OI} = \overrightarrow{OA} + \overrightarrow{OB} + \overrightarrow{OC}.$$
+      En déduire que $\overrightarrow{OH} = 3\,\overrightarrow{OG}.$
+    \item Conclure.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 24 $\star\star\star$ { [Raisonner, Chercher, Représenter] }]{}{}
+  Soient $A(x_A\,;\,y_A)$, $B(x_B\,;\,y_B)$ et $C(x_C\,;\,y_C)$ trois points du plan. On note :
+  \begin{itemize}
+    \item $A'$, $B'$, $C'$ les milieux respectifs des côtés $[BC]$, $[AC]$ et $[AB]$.
+    \item $\mathcal{C}'$ le cercle circonscrit au triangle $A'B'C'$ de centre $O'$.
+    \item $P$, $Q$ et $R$ les projetés orthogonaux de $A$, $B$ et $C$ respectivement sur $[BC]$, $[AC]$ et $[AB]$.
+    \item $H$ l'orthocentre du triangle $ABC$.
+    \item $I$, $J$ et $K$ les milieux respectifs de $[HA]$, $[HB]$ et $[HC]$.
+  \end{itemize}
+  Montrer que les neuf points $A'$, $B'$, $C'$, $P$, $Q$, $R$, $I$, $J$ et $K$ appartiennent au cercle $\mathcal{C}'$.
+\end{exercice}
+
+\end{multicols}
+
+\end{document}

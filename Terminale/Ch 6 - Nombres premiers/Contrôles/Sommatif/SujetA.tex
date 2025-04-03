@@ -1,0 +1,234 @@
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (A) -- 2h}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+
+\large
+
+%\textbf{Nom et prénom :}\enspace\dotfill
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item Déterminer le nombre de diviseurs de $72$.
+    \item Déterminer l'ensemble des diviseurs de $1309$.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item Dans chaque cas, déterminer le reste de la division euclidienne de $n$ par $a$ :
+    \begin{enumerate}
+      \item $n = 31^{19}$ et $a = 17$.
+      \item $n = 15^{100}$ et $a = 31$.
+      \item $n = 3^{40}$ et $a = 55$.
+    \end{enumerate}
+    \item Déterminer le chiffre des unités de $7^{120}$.
+  \end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}
+  Montrer que pour tout entier $n \in \mathbb{N}$, $n^{11} - n$ est divisible par $33$.
+\end{exercice}
+
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item Montrer que pour tous \(x,\,y \in \mathbb{R}\) :
+      \[
+        x^4 + 4y^4 = \left(x^2 - 2xy + 2y^2\right)\left(x^2 + 2xy + 2y^2\right)
+      \]
+    \item Déterminer l'ensemble des nombres premiers de la forme \(n^4 + 4\), où \(n\) est un nombre entier.
+    \item Montrer que l'entier \(81 + 4^{285}\) n'est pas premier.
+    Pourquoi n'est-il pas envisageable de répondre à cette question en utilisant simplement un test classique de primalité tel que celui présenté dans le cours ?
+  \end{enumerate}
+\end{exercice}
+
+% \begin{theorem}
+%   Prenons \(m_1, m_2\) des entiers supérieurs ou égaux à 2,
+%   premiers entre eux, et \(a_1, a_2\) des entiers.
+%   Le système d'équations
+%   \[
+%   \begin{cases}
+%   x \equiv a_1 \pmod{m_1}, \\
+%   x \equiv a_2 \pmod{m_2}
+%   \end{cases}
+%   \]
+%   admet une unique solution modulo \(M = m_1 \times m_2 \),
+%   donnée par la formule
+%   \[
+%   x \equiv a_1 m_2(m_2^{-1})_{m_1} + a_2 m_1 (m_1^{-1})_{m_2}\pmod{M},
+%   \]
+%   où la notation $(x^{-1})_m$ désigne l'inverse de $x$ modulo $m$.
+% \end{theorem}
+% 
+% \begin{exercice}
+%   Le but de cet exercice est d'étudier le théorème des restes chinois et ses applications.
+%   Le théorème est présenté dans le cas particulier d'un système de deux équations.
+%   \subsection*{Partie A - Étude de l'énoncé.}
+%   \begin{enumerate}
+%     \item Vérifiez que le solution proposée est bien solution du système d'équations.
+%     \item Démontrer l'unicité de la solution proposée.
+%   \end{enumerate}
+%   \subsection*{Partie B - Application.}
+%   On souhaite déterminer le reste la division euclidienne de $x = 13^{23}$ modulo $77$.
+%   \begin{enumerate}
+%     \item Déterminer les restes des divisions euclidiennes de $x$ modulo $7$ et $11$.
+%     \item À l'aide du théorème des restes chinois, répondre au problème.
+%   \end{enumerate}
+%   \subsection*{Partie C - Trois équations et plus.}
+%   On souhaite maintenant formuler le théorème des restes chinois pour un système de trois équations :
+%   $$
+%   \begin{cases}
+%     x \equiv a_1 \pmod{m_1}, \\
+%     x \equiv a_2 \pmod{m_2}, \\
+%     x \equiv a_3 \pmod{m_3},
+%     \end{cases}
+%   $$
+%   On suppose qu'une solution unique existe sous la forme $x \equiv a_1 X_1 + a_2 X_2 + a_3 X_3$.
+%   On cherche alors à déterminer l'expression des $X_i$
+%   \begin{enumerate}
+%     \item Justifier que
+%     $$
+%     \begin{cases}
+%       X_1 = m_2m_3Y_1, \\
+%       X_2 = m_1m_3Y_2, \\
+%       X_3 = m_1m_2Y_3
+%     \end{cases}
+%     $$
+%     pour trois $Y_1, Y_2, Y_3$ à déterminer par la suite.
+%     \item On suppose que $m_1, m_2$ et $m_3$ sont deux à deux premiers entre eux. En déduire l'expression de $Y_1, Y_2$ et $Y_3$.
+%     \item On considère le système d'équations suivant :
+%     $$
+%     \begin{cases}
+%     x \equiv 2 \pmod{5}, \\
+%     x \equiv 1 \pmod{3}, \\
+%     x \equiv 6 \pmod{7}.
+%     \end{cases}
+%     $$
+%     Déterminer son unique solution modulo $105$.
+%     \item \textbf{(Bonus).} En notant $M = m_1 \times m_2 \times \ldots \times m_n$ et $M_i = \frac{M}{m_i}$ (le produit de tout les $m_k$ entre $1 et n$ excluant $m_i$), donner l'expression du thèorème des restes chinois dans sa version générale.
+%   \end{enumerate}
+% 
+% \end{exercice}
+
+
+\begin{exercice}
+  Le but de cet exercice est d'étudier le théorème des restes chinois et ses applications. Le théorème est présenté ci-dessous dans le cas particulier d'un système de deux équations.
+  \begin{theorem*}
+    Soient \(m_1\) et \(m_2\) deux entiers supérieurs ou égaux à 2, premiers entre eux, et \(a_1, a_2\) deux entiers. Le système d'équations
+    \[
+    \begin{cases}
+    x \equiv a_1 \pmod{m_1}, \\
+    x \equiv a_2 \pmod{m_2},
+    \end{cases}
+    \]
+    admet une unique solution modulo \(M = m_1 \times m_2\), donnée par la formule
+    \[
+    x \equiv a_1\, m_2\, (m_2^{-1})_{m_1} + a_2\, m_1\, (m_1^{-1})_{m_2}\pmod{M},
+    \]
+    où la notation \((x^{-1})_m\) désigne l'inverse de \(x\) modulo \(m\).
+  \end{theorem*}
+  
+  \subsection*{Partie A -- Étude de l'énoncé}
+  \begin{enumerate}
+    \item Vérifiez que la solution proposée est bien une solution du système d'équations.
+    \item Démontrer l'unicité de cette solution.
+  \end{enumerate}
+  
+  \subsection*{Partie B -- Application}
+  On souhaite déterminer le reste de la division euclidienne de \(x = 13^{23}\) par \(77\).
+  \begin{enumerate}
+    \item Déterminez les restes de la division de \(x\) par \(7\) et par \(11\).
+    \item À l'aide du théorème des restes chinois, déduisez le reste de la division par \(77\).
+  \end{enumerate}
+  
+  \subsection*{Partie C -- Trois équations et plus}
+  On souhaite maintenant formuler le théorème des restes chinois pour un système de trois équations :
+  \[
+  \begin{cases}
+    x \equiv a_1 \pmod{m_1}, \\
+    x \equiv a_2 \pmod{m_2}, \\
+    x \equiv a_3 \pmod{m_3}.
+  \end{cases}
+  \]
+  On suppose qu'une solution unique s'exprime sous la forme
+  \[
+  x \equiv a_1 X_1 + a_2 X_2 + a_3 X_3.
+  \]
+  On cherche alors à déterminer l'expression des \(X_i\).
+  \begin{enumerate}
+    \item Justifier que l'on peut écrire
+    \[
+    \begin{cases}
+      X_1 = m_2m_3Y_1, \\
+      X_2 = m_1m_3Y_2, \\
+      X_3 = m_1m_2Y_3,
+    \end{cases}
+    \]
+    pour des entiers \(Y_1, Y_2, Y_3\) à déterminer.
+    \item En supposant que \(m_1\), \(m_2\) et \(m_3\) sont deux à deux premiers entre eux, en déduire l'expression de \(Y_1\), \(Y_2\) et \(Y_3\).
+    \item Considérons le système d'équations suivant :
+    \[
+    \begin{cases}
+    x \equiv 2 \pmod{5}, \\
+    x \equiv 1 \pmod{3}, \\
+    x \equiv 6 \pmod{7}.
+    \end{cases}
+    \]
+    Déterminez son unique solution modulo \(105\).
+    \item \textbf{(Bonus)} En notant \(M = m_1 \times m_2 \times \cdots \times m_n\) et \(M_i = \dfrac{M}{m_i}\) (c'est-à-dire le produit de tous les \(m_k\) pour \(k \neq i\)), donnez l'expression générale du théorème des restes chinois pour un système de \(n\) équations.
+  \end{enumerate}
+  
+\end{exercice}
+
+\end{document}

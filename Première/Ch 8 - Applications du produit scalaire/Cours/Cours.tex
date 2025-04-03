@@ -141,7 +141,7 @@ Dans toute la suite, on se place dans un repère orthonormé $(\mathrm{O} ; \vec
 
 \section{Application à l'étude des droites}
 \begin{definition}{}{}
-  Soit $D$ une droite. On appelle vecteur normal à $D$ tout vecteur non nul qui est orthogonal à un vecteur directeur de $D$.
+  Soit $D$ une droite. On appelle \hide{vecteur normal} à $D$ tout vecteur non nul qui est orthogonal à un vecteur directeur de $D$.
 \end{definition}
 
 \begin{remark}
@@ -151,8 +151,8 @@ Dans toute la suite, on se place dans un repère orthonormé $(\mathrm{O} ; \vec
 \begin{proposition}{}{}
   Soient $D$ et $D^{\prime}$ deux droites du plan. Les conditions suivantes sont équivalentes:\\
   (i) $D$ et $D^{\prime}$ sont perpendiculaires;\\
-  (ii) Il existe un vecteur directeur de $D$ et un vecteur directeur de $D^{\prime}$ qui sont orthogonaux ;\\
-  (iii) Il existe un vecteur normal à $D$ et un vecteur normal à $D^{\prime}$ qui sont orthogonaux ;
+  (ii) Il existe un vecteur directeur de $D$ et un vecteur directeur de $D^{\prime}$ qui sont \hide{orthogonaux} ;\\
+  (iii) Il existe un vecteur normal à $D$ et un vecteur normal à $D^{\prime}$ qui sont \hide{orthogonaux} ;
 \end{proposition}
 
 \begin{proof}
@@ -169,7 +169,7 @@ Dans toute la suite, on se place dans un repère orthonormé $(\mathrm{O} ; \vec
   Soient $a, b, c \in \mathbb{R}$ tels que $(a ; b) \neq(0 ; 0)$.
 
   \begin{itemize}
-    \item La droite d'équation cartésienne $a x+b y+c=0$ admet pour vecteur normal le vecteur $\vec{n}\dbinom{a}{b}$.
+    \item La droite d'équation cartésienne $a x+b y+c=0$ admet pour vecteur normal le vecteur $\vec{n}\dbinom{\hideM{a}}{\hideM{b}}$.
     \item Réciproquement, toute droite ayant pour vecteur normal le vecteur non nul $\vec{n}\dbinom{a}{b}$ admet une équation cartésienne de la forme $a x+b y+c=0$.
   \end{itemize}
 \end{proposition}
@@ -192,14 +192,14 @@ Dans toute la suite, on se place dans un repère orthonormé $(\mathrm{O} ; \vec
 
 \section{Application à l'étude des cercles}
 \begin{definition}{}{}
-  On appelle cercle de centre $\Omega$ et de rayon $r$, noté $\mathcal{C}_{(\Omega, r)}$ l'ensemble des points M du plan tels que $\Omega \mathrm{M}=r$.
+  On appelle cercle de centre $\Omega$ et de rayon $r$, noté $\hideM{\mathcal{C}_{(\Omega, r)}}$ l'ensemble des points M du plan tels que $\Omega \mathrm{M}=r$.
 \end{definition}
 
 \begin{proposition}{}{}
   Soient $a, b \in \mathbb{R}$. Une équation du cercle de centre $\Omega(a ; b)$ et de rayon $r$ est :
 
   $$
-  \mathrm{M}(x ; y) \in \mathcal{C}_{(\Omega, r)} \Longleftrightarrow(x-a)^{2}+(y-b)^{2}=r^{2}
+  \mathrm{M}(x ; y) \in \mathcal{C}_{(\Omega, r)} \Longleftrightarrow(x-a)^{2}+(y-b)^{2}=\hideM{r^{2}}
   $$
 \end{proposition}
 
@@ -243,7 +243,7 @@ Dans toute la suite, on se place dans un repère orthonormé $(\mathrm{O} ; \vec
 \end{example}
 
 \begin{proposition}{}{}
-  Soient A et B deux points distincts du plan. L'ensemble des points M du plan tels que $\overrightarrow{\mathrm{MA}} \cdot \overrightarrow{\mathrm{MB}}=0$ est le cercle de diamètre $[\mathrm{AB}]$.
+  Soient A et B deux points distincts du plan. L'ensemble des points M du plan tels que $\hideM{\overrightarrow{\mathrm{MA}} \cdot \overrightarrow{\mathrm{MB}}=0}$ est le cercle de diamètre $[\mathrm{AB}]$.
 \end{proposition}
 
 \begin{demo}
@@ -269,7 +269,7 @@ Dans toute la suite, on se place dans un repère orthonormé $(\mathrm{O} ; \vec
   Soient $A$ et $B$ deux points distincts du plan et soit $\mathcal{C}$ un cercle de diamètre $[\mathrm{AB}]$. On a alors l'équivalence suivante :
 
   $$
-  \mathrm{M} \in \mathcal{C} \Longleftrightarrow \text { AMB est rectangle en } \mathrm{M}
+  \mathrm{M} \in \mathcal{C} \Longleftrightarrow \hideM{\text { AMB est rectangle en } \mathrm{M}}
   $$
 \end{proposition}
 
@@ -299,7 +299,7 @@ $\mathrm{AB}=c, \mathrm{AC}=b, \mathrm{BC}=a, \widehat{\mathrm{BAC}}=\widehat{\m
   Pour tout triangle ABC,
 
   $$
-  a^{2}=b^{2}+c^{2}-2 b c \cos (\widehat{\mathrm{~A}})
+  a^{2}=\hideM{b^{2}+c^{2}-2 b c \cos (\widehat{\mathrm{~A}})}
   $$
 \end{proposition}
 
@@ -321,7 +321,7 @@ $\mathrm{AB}=c, \mathrm{AC}=b, \mathrm{BC}=a, \widehat{\mathrm{BAC}}=\widehat{\m
   Pour tout triangle ABC,
 
   $$
-  \frac{a}{\sin (\widehat{\mathrm{~A}})}=\frac{b}{\sin (\widehat{\mathrm{~B}})}=\frac{c}{\sin (\widehat{\mathrm{C}})}
+  \frac{a}{\sin (\widehat{\mathrm{~A}})}=\hideM{\frac{b}{\sin (\widehat{\mathrm{~B}})}}=\hideM{\frac{c}{\sin (\widehat{\mathrm{C}})}}
   $$
 \end{proposition}
 
@@ -356,7 +356,7 @@ $\mathrm{AB}=c, \mathrm{AC}=b, \mathrm{BC}=a, \widehat{\mathrm{BAC}}=\widehat{\m
   Pour tout triangle ABC , si I est le milieu de [BC] alors :
 
   $$
-  \mathrm{AB}^{2}+\mathrm{AC}^{2}=2 \mathrm{AI}^{2}+\frac{\mathrm{BC}^{2}}{2}
+  \mathrm{AB}^{2}+\mathrm{AC}^{2}=\hideM{2 \mathrm{AI}^{2}+\frac{\mathrm{BC}^{2}}{2}}
   $$
 
 \end{proposition}
@@ -392,7 +392,7 @@ $$
 \newpage
 
 \begin{proposition}{}{}
-Pour tout triangle $\mathrm{ABC}$, il existe un unique point $G$ tel que $\overrightarrow{\mathrm{GA}}+\overrightarrow{\mathrm{GB}}+\overrightarrow{\mathrm{GC}}=\overrightarrow{0}$. Ce point est appelé \textbf{centre de gravité} du triangle.
+Pour tout triangle $\mathrm{ABC}$, il existe un unique point $G$ tel que $\hideM{\overrightarrow{\mathrm{GA}}+\overrightarrow{\mathrm{GB}}+\overrightarrow{\mathrm{GC}}=\overrightarrow{0}}$. Ce point est appelé \textbf{centre de gravité} du triangle.
 \end{proposition}
 
 \begin{demo}

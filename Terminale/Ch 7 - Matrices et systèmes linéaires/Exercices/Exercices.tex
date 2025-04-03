@@ -1,0 +1,571 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{tasks}
+\usepackage{listings}
+\usepackage{color}
+
+\graphicspath{ {../Images/} }
+\hyphenpenalty=1000
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mywhite}{rgb}{0.9,0.9,0.9}
+
+\newcommand{\footnotettfamily}{\ttfamily\footnotesize}
+% \newcommand{\footnotettfamily}{\ttfamily\footnotesize}
+
+\newcommand{\scriptttfamily}{\ttfamily\scriptsize}
+
+\lstset{ %
+  backgroundcolor=\color{mywhite},   % choose the background color
+  %basicstyle=\footnotesize,        % size of fonts used for the code
+  basicstyle=\ttfamily\scriptttfamily,
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+keywordstyle=\color{blue},       % keyword style
+stringstyle=\color{mymauve},     % string literal style
+}
+
+\tcbuselibrary{theorems}
+
+\definecolor{PurpleEx}{HTML}{5d478b}
+\definecolor{GrayEx}{HTML}{f2f2f2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BrownHist}{HTML}{8b5a2b}
+\definecolor{BlackSav}{HTML}{000000}
+
+\title{
+\centering
+\tcbset{colframe=BlackSav,colback=GrayBG}
+\tcbox[tikznode]{
+  Chapitre 7 \\ Matrices et systèmes linéaires
+}
+}
+\usepackage{tikz}
+\author{}
+\date{}
+
+\newtcbtheorem
+[]% init options
+{history}% name
+{Histoire}% title
+{%
+theorem name,
+colback=GrayBG,
+colframe=BrownHist,
+fonttitle=\bfseries,
+}% options
+{hist}% prefix
+
+\newtcbtheorem
+[]% init options
+{exercice}% name
+{Exercice}% title
+{%
+colback=GrayEx,
+colframe=PurpleEx,
+fonttitle=\bfseries,
+breakable=true,
+}% options
+{ex}% prefix
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+
+\begin{exercice}[title=Exercice 1 $\star$ { [Calculer] }]{}{}
+  Résoudre les systèmes d’équations suivants :
+
+  \begin{enumerate}
+    \item $\displaystyle
+      \begin{cases}
+        x + y + 2z = 3,\\
+        x + 2y + 3z = 2,\\
+        2x + y + z = 0.
+      \end{cases}$
+
+    \item $\displaystyle
+      \begin{cases}
+        x + y - z = 1,\\
+        2x + 3y - 3z = 2,\\
+        5x + y + z = 4.
+      \end{cases}$
+
+    \item $\displaystyle
+      \begin{cases}
+        x + z = 3,\\
+        2x - 5y + 2z = 0,\\
+        3x + y - 7z = 1.
+      \end{cases}$
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 2 $\star\star$ { [Calculer] }]{}{}
+  Résoudre les systèmes d’équations suivants :
+
+  \begin{enumerate}
+    \item $\displaystyle
+      \begin{cases}
+        x + y - z = 1,\\
+        2x + y + 3z = 0.
+      \end{cases}$
+
+    \item $\displaystyle
+      \begin{cases}
+        2x + 5y + z = 2,\\
+        -3x + y + 2z = 4.
+      \end{cases}$
+
+    \item $\displaystyle
+      \begin{cases}
+        x + y = 1,\\
+        2x - 3y = 0,\\
+        5x + 13y = 4.
+      \end{cases}$
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 3 $\star\star$ { [Calculer] }]{}{}
+  Résoudre le système suivant en fonction du paramètre $m \in \mathbb{R}$ :
+  $$
+  \begin{cases}
+    m\,x + y \;-\; z \;=\; m^2,\\
+    x + m\,y \;-\; m\,z \;=\; m,\\
+    x \;-\; y \;+\; m\,z \;=\; 1.
+  \end{cases}
+  $$
+\end{exercice}
+
+\begin{exercice}[title=Exercice 4 $\star$ { [Chercher, Calculer] }]{}{}
+  Soit $f \in \mathcal{L}\bigl(\mathbb{K}^m,\;\mathbb{K}^n\bigr)$. Montrer que $f(\vec{0}) = \vec{0}$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 5 $\star\star$ { [Raisonner, Communiquer] }]{}{}
+  Soient $m,n,k \in \mathbb{N}^*$.
+  Soit $f \in \mathcal{L}\bigl(\mathbb{K}^m,\;\mathbb{K}^n\bigr)$ et $g \in \mathcal{L}\bigl(\mathbb{K}^n,\;\mathbb{K}^k\bigr)$.
+  Montrer que $g \circ f \in \mathcal{L}\bigl(\mathbb{K}^m,\;\mathbb{K}^k\bigr)$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 6 $\star$ { [Raisonner, Calculer] }]{}{}
+  Parmi les applications suivantes, lesquelles sont linéaires ? On indique, pour chaque fonction, son domaine et son codomaine, ainsi que sa définition par $(x,y)$ ou $(x,y,z)$ :
+  \begin{enumerate}
+    \item
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+          \dbinom{x}{y} &\longmapsto &
+          \begin{pmatrix}
+            2x + 3y \\
+            x - y
+          \end{pmatrix}
+        \end{array} \right.
+      \end{equation*}
+      
+
+    \item
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+          \dbinom{x}{y} &\longmapsto &
+      \begin{pmatrix}
+        x + y \\
+        x^2 + 3y
+      \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+
+    \item
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{C}^2 &\longrightarrow &\mathbb{C}^2\\
+          \dbinom{x}{y} &\longmapsto &
+      \begin{pmatrix}
+        2x + y + 1 \\
+        3x - y
+      \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+      
+    \item
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{C}^2 &\longrightarrow &\mathbb{C}^2\\
+          \dbinom{x}{y} &\longmapsto &
+      \begin{pmatrix}
+        \dfrac{x}{2} + y \\
+        2x \;-\; i\,y
+      \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^3 &\longrightarrow &\mathbb{R}^3\\
+          \begin{pmatrix}
+            x\\
+            y\\
+            z\\
+          \end{pmatrix} &\longmapsto &
+      \begin{pmatrix}
+        x + y + z \\
+        -\,2z \;-\; 7y \\
+        x + y + z
+      \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^3 &\longrightarrow &\mathbb{R}^2\\
+          \begin{pmatrix}
+            x\\
+            y\\
+            z\\
+          \end{pmatrix} &\longmapsto &
+      \begin{pmatrix}
+        x + z - 1 \\
+        -\,2x - y + 2
+      \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 7 $\star\star$ { [Représenter] }]{}{}
+  \begin{enumerate}
+    \item Soit $\vec{v}$ un vecteur non nul de $\mathbb{R}^2$. On considère l’application qui, à un vecteur du plan $\overrightarrow{OM}$, associe le vecteur $\overrightarrow{OM'}$ où $M'$ est l’image de $M$ par la translation de vecteur $\vec{v}$. Cette application est-elle une application linéaire ?
+    \item La rotation d’angle $\dfrac{\pi}{2}$ dans $\mathbb{R}^2$ est-elle une application linéaire ?
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 8 $\star$ { [Calculer] }]{}{}
+  Déterminer le produit des deux matrices suivantes :
+  \[
+    A
+    =
+    \begin{pmatrix}
+      1 & 2 & -1 \\
+      1 & 0 & 2 \\
+      -1 & 2 & -1
+    \end{pmatrix}
+    \quad\text{et}\quad
+    B
+    =
+    \begin{pmatrix}
+      3 & 0 & 3 \\
+      4 & 1 & 6 \\
+      1 & 1 & 3
+    \end{pmatrix}.
+  \]
+\end{exercice}
+
+\begin{exercice}[title=Exercice 9 $\star\star$ { [Raisonner, Communiquer] }]{}{}
+  Montrer que tout vecteur $\vec{v}\in \mathbb{R}^2$ admet un unique antécédent par l’application linéaire
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+          \dbinom{x}{y} &\longmapsto &
+    \begin{pmatrix}
+      2x + 3y \\
+      x - 5y
+    \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+\end{exercice}
+
+\begin{exercice}[title=Exercice 10 $\star$ { [Calculer, Chercher] }]{}{}
+  Déterminer deux matrices $A$ et $B$ d’ordre 2 telles que $AB \neq BA$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 11 $\star$ { [Calculer, Raisonner] }]{}{}
+  Montrer que si $A$ et $B$ sont deux matrices inversibles d’ordre $n$, alors le produit $A \times B$ est inversible.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 12 $\star$ { [Raisonner, Communiquer] }]{}{}
+  On considère une matrice $A$ de la forme suivante :
+  \[
+    A
+    =
+    \begin{pmatrix}
+      a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
+      0 & a_{2,2} & \cdots & \vdots\\
+      \vdots & \vdots & \ddots & \vdots\\
+      0 & 0 & \cdots & a_{n,n}
+    \end{pmatrix}.
+  \]
+  Montrer que $A$ est inversible si, et seulement si, pour tout $i \in \{1,\ldots,n\}$ on a $a_{i,i} \neq 0$.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 13 $\star\star$ { [Calculer] }]{}{}
+  Montrer que pour toute matrice $A \in \mathrm{M}_{2}(\mathbb{R})$ et pour toute matrice $B \in \mathrm{M}_{2}(\mathbb{R})$, on a
+  \[
+    \det(AB) \;=\; \det(A)\,\times\,\det(B).
+  \]
+\end{exercice}
+
+\newpage
+\begin{exercice}[title=Exercice 14 $\star$ { [Calculer] }]{}{}
+  Indiquer si les matrices suivantes sont inversibles et déterminer leur inverse dans le cas échéant.
+  \begin{enumerate}
+    \item
+      \[
+        A \;=\;
+        \begin{pmatrix}
+          1 & 3\\[6pt]
+          5 & -3
+        \end{pmatrix}
+      \]
+    \item
+      \[
+        B \;=\;
+        \begin{pmatrix}
+          -3 & 6\\[6pt]
+          1 & -2
+        \end{pmatrix}
+      \]
+  \end{enumerate}
+\end{exercice}
+
+
+\begin{exercice}[title=Exercice 15 $\star$ { [Calculer] }]{}{}
+  Indiquer si les matrices suivantes sont inversibles et déterminer leur inverse dans le cas échéant.
+  \begin{enumerate}
+    \item
+      \[
+        A \;=\;
+        \begin{pmatrix}
+          1 & 2 & -1\\[6pt]
+          1 & 0 & 2\\[6pt]
+          -1 & 2 & -1
+        \end{pmatrix}
+      \]
+    \item
+      \[
+        B \;=\;
+        \begin{pmatrix}
+          3 & 0 & 3\\[6pt]
+          4 & 1 & 6\\[6pt]
+          1 & 1 & 3
+        \end{pmatrix}
+      \]
+    \item
+      \[
+        C' \;=\;
+        \begin{pmatrix}
+          1 & 3 & 12\\[6pt]
+          -1 & -1 & 16\\[6pt]
+          0 & -2 & 7
+        \end{pmatrix}
+      \]
+  \end{enumerate}
+\end{exercice}
+
+\newcolumn
+\begin{exercice}[title=Exercice 16 $\star\star$ { [Modéliser, Calculer] }]{}{}
+  Dans une cafétéria, Alice, Bob et Charlie ont l’habitude de prendre leur pause et de consommer du café, du thé ou un chocolat chaud.
+
+  À la fin de l’année, ils font les comptes.
+  \begin{itemize}
+    \item Au total, Alice a commandé 12 cafés, 3 thés et 10 chocolats chauds. En tout, elle a dépensé 55,1 euros.
+    \item Bob a commandé 1 café, 17 thés et 2 chocolats chauds. En tout, il a dépensé 56,9 euros.
+    \item Enfin, Charlie a commandé 21 cafés, 3 thés et 5 chocolats chauds pour un total de 49,9 euros.
+  \end{itemize}
+
+  Déterminer le prix d’un café, d’un thé et d’un chocolat chaud.
+\end{exercice}
+
+\begin{exercice}[title=Exercice 17 $\star\star$ { [Calculer] }]{}{}
+  \begin{enumerate}
+    \item Montrer que la matrice suivante est inversible et déterminer son inverse :
+      \[
+        A \;=\;
+        \begin{pmatrix}
+          2 & 3 & 5 & -4 \\[4pt]
+          1 & 2 & 2 & 1 \\[4pt]
+          -6 & 1 & 5 & 2 \\[4pt]
+          1 & 3 & 4 & 2
+        \end{pmatrix}.
+      \]
+
+    \item Résoudre les systèmes suivants :
+      \[
+        \text{(a)}\quad
+        \begin{cases}
+          2x \;+\; 3y \;+\; 5z \;-\; 4t \;=\; 1,\\[4pt]
+          x \;+\; 2y \;+\; 2z \;+\; t \;=\; 2,\\[4pt]
+          -6x \;+\; y \;+\; 5z \;+\; 2t \;=\; 0,\\[4pt]
+          x \;+\; 3y \;+\; 4z \;+\; 2t \;=\; 1,
+        \end{cases}
+      \]
+      \[
+        \text{(b)}\quad
+        \begin{cases}
+          2x \;+\; 3y \;+\; 5z \;-\; 4t \;=\; 3,\\[4pt]
+          x \;+\; 2y \;+\; 2z \;+\; t \;=\; -1,\\[4pt]
+          -6x \;+\; y \;+\; 5z \;+\; 2t \;=\; 0,\\[4pt]
+          x \;+\; 3y \;+\; 4z \;+\; 2t \;=\; 0.
+        \end{cases}
+      \]
+  \end{enumerate}
+\end{exercice}
+
+\newpage
+
+\begin{exercice}[title=Exercice 18 $\star\star\star$ { [Modéliser, Calculer, Chercher] }]{}{}
+  Le but de cet exercice est d’étudier, sur un exemple, une méthode de chiffrement publiée en 1929 par le mathématicien et cryptologue Lester~Hill. Ce chiffrement repose sur le choix d’une matrice $A$ vérifiant les conditions suivantes :
+  \begin{itemize}
+    \item $\det(A) \neq 0$;
+    \item $\det(A)$ est premier avec 26.
+  \end{itemize}
+
+  Dans toute la suite, on considérera le cas où
+  \[
+    A \;=\;
+    \begin{pmatrix}
+      5 & 2 \\[5pt]
+      7 & 7
+    \end{pmatrix}.
+  \]
+
+  \paragraph{Partie A — Étude de la matrice $A$.}
+  \begin{enumerate}
+    \item Justifier que la matrice $A$ vérifie bien les conditions demandées par l’énoncé.
+    \item Déterminer $A^{-1}$.
+  \end{enumerate}
+
+  \paragraph{Partie B — Chiffrement de Hill.}
+  Voici les différentes étapes de chiffrement pour un mot comportant un nombre pair de lettres :
+
+  \textbf{Étape 1 :} On associe à chaque lettre de l’alphabet un nombre entre $0$ et $25$ à l’aide du tableau suivant :
+  \[
+    \begin{array}{cccccccccc}
+      A & B & C & D & E & F & G & H & I & J \\
+      \hline
+      0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9
+    \end{array}
+  \]
+  \[
+    \begin{array}{cccccccccc}
+      K & L & M & N & O & P & Q & R & S & T \\
+      \hline
+      10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19
+    \end{array}
+  \]
+  \[
+    \begin{array}{cccccc}
+      U & V & W & X & Y & Z \\
+      \hline
+      20 & 21 & 22 & 23 & 24 & 25
+    \end{array}
+  \]
+
+  \textbf{Étape 2 :} On divise le texte à chiffrer en blocs de deux lettres successives.
+  On obtient ainsi plusieurs blocs de nombres $(x_1;x_2),\dots,(x_{n-1};x_n)$.
+
+  \newcolumn
+  \textbf{Étape 3 :} Pour chaque bloc $(x_i; x_{i+1})$, on forme la matrice-colonne
+  \[
+    \begin{pmatrix} x_i \\[4pt] x_{i+1}
+    \end{pmatrix},
+  \]
+  puis on calcule
+  \[
+    \begin{pmatrix} y_k \\[4pt] y_{k+1}
+    \end{pmatrix}
+    \;=\;
+    A \times
+    \begin{pmatrix} x_i \\[3pt] x_{i+1}
+    \end{pmatrix}.
+  \]
+
+  \textbf{Étape 4 :} On réduit modulo 26 chacun des $y_k$. Plus précisément, pour tout $k \in \{1,\ldots,n\}$, on calcule le reste $r_k$ de la division de $y_k$ par 26. On obtient donc une liste de nombres $r_1,\ldots,r_n$.
+
+  \textbf{Étape 5 :} On transforme la liste des $r_k$ en un texte en associant chaque nombre $r_k$ à une lettre grâce au tableau précédent.
+
+  Le \emph{bloc chiffré} est le bloc obtenu en juxtaposant ces deux lettres.
+
+  \textbf{Question :} utiliser la méthode de chiffrement exposée pour chiffrer le mot \texttt{HILL}.
+
+  \paragraph{Partie C — Déchiffrement.}
+  \begin{enumerate}
+    \item On cherche ici un moyen de déchiffrer un texte chiffré par le procédé précédent. Sans perte de généralité, on peut se restreindre au déchiffrement d’un texte composé uniquement du bloc $(r_1; r_2)$ correspondant au couple de nombres $(y_1; y_2)$ obtenu après transformation des nombres $(x_1; x_2)$ du texte initial. Montrer que $x_1$ et $x_2$ vérifient le système :
+      \[
+        \begin{cases}
+          x_1 = 9\,r_1 + 16\,r_2 \;[26], \\
+          x_2 = 17\,r_1 + 25\,r_2 \;[26].
+        \end{cases}
+      \]
+    \item Déchiffrer le mot suivant : \texttt{VLUP}.
+    \item Une analyse fréquentielle des lettres apparaissant dans un message chiffré à l’aide du chiffrement de Hill semble-t-elle pertinente pour celui qui voudrait casser le code ?
+  \end{enumerate}
+\end{exercice}
+\newpage
+
+\begin{exercice}[title=Exercice 19 $\star\star\star$ { [Modéliser, Calculer] }]{}{}
+  On rappelle qu’un \emph{bit} est un symbole informatique élémentaire valant soit 0, soit 1.
+
+  On considère un «~mot~» formé de 4 bits que l’on note $b_1, b_2, b_3, b_4$.
+  Par exemple, pour le mot «~1101~», on a $b_1 = 1$, $b_2 = 1$, $b_3 = 0$ et $b_4 = 1$.
+
+  On ajoute à cette liste une \emph{clé de contrôle} $c_1 c_2 c_3$ formée de trois bits :
+  \begin{itemize}
+    \item $c_1$ est le reste de la division euclidienne de $b_2 + b_3 + b_4$ par 2 ;
+    \item $c_2$ est le reste de la division euclidienne de $b_1 + b_3 + b_4$ par 2 ;
+    \item $c_3$ est le reste de la division euclidienne de $b_1 + b_2 + b_4$ par 2.
+  \end{itemize}
+
+  On appelle alors «~message~» la suite de 7 bits formée des 4 bits du mot et des 3 bits de contrôle.
+
+  \paragraph{1. Préliminaires}
+  \begin{enumerate}
+    \item[(a)] Justifier que $c_1, c_2, c_3$ ne peuvent prendre comme valeurs que 0 ou 1.
+    \item[(b)] Calculer la clé de contrôle associée au mot 1001.
+  \end{enumerate}
+
+  \paragraph{2.} Soit $b_1 b_2 b_3 b_4$ un mot de 4 bits et $c_1 c_2 c_3$ la clé associée.
+  Démontrer que si on change la valeur de $b_1$ et que l’on recalcule la clé, alors :
+  \begin{itemize}
+    \item la valeur de $c_1$ est inchangée ;
+    \item la valeur de $c_2$ est modifiée ;
+    \item la valeur de $c_3$ est modifiée.
+  \end{itemize}
+  \newcolumn
+  \paragraph{3.} On suppose que, durant la transmission du message, au plus un des 7 bits a été transmis de façon erronée. À partir des quatre premiers bits du message reçu, on recalcule les 3 bits de contrôle, et on les compare avec les bits de contrôle reçus.
+  
+  ~\\Sans justification, recopier et compléter le tableau ci-dessous. La lettre \texttt{F} signifie que le bit de contrôle reçu ne correspond pas au bit de contrôle calculé, et \texttt{J} que ces deux bits sont égaux.
+
+  \paragraph{4.} Justifier rapidement, en vous appuyant sur le tableau, que si un seul bit reçu est erroné, on peut dans tous les cas déterminer lequel, et corriger l’erreur.
+
+  \paragraph{5.} Voici deux messages de 7 bits :
+  \[
+    A = 0100010
+    \quad\text{et}\quad
+    B = 1101001.
+  \]
+  On admet que chacun d’eux comporte au plus une erreur de transmission.
+  Dire s’ils comportent une erreur, et la corriger le cas échéant.
+\end{exercice}
+
+\end{multicols}
+
+\hspace{-1.5em}\includegraphics[width=1\textwidth]{image.png}
+
+\end{document}

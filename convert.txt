@@ -1,8 +1,10 @@
+'<,'>s/\\section\*{\(\d*\.*\)\d* \(.*\)}/\\section\{\2\}
+'<,'>s/\\subsection\*{\(\d*\.*\)*\d* \(.*\)}/\\subsection\{\2\}
 '<,'>s/\\section\*{Définition \d*\(.*\)}/\\begin{definition}{\1}{}
 '<,'>s/\\section\*{Proposition \d*}/\\begin{proposition}{}{}
 '<,'>s/\\section\*{Méthode - \(.*\)}/\\begin{method}{\1}{}
 '<,'>s/\\section\*{Exemple.}/\\begin{example}
 '<,'>s/\\section\*{Remarque.}/\\begin{remark}
 '<,'>s/\\section\*{Démonstration.}/\\begin{demo}/g
-'<,'>s/\\section\*{\(\d*\.*\)\d* \(.*\)}/\\section\{\2\}
-'<,'>s/\\subsection\*{\(\d*\.*\)*\d* \(.*\)}/\\subsection\{\2\}
+gérer les bloc histoire
+corriger les itemize

@@ -1,0 +1,227 @@
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\ChapitreCourt}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 55min}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+
+\large
+
+\textbf{Nom et prénom :}\enspace\dotfill
+\begin{exercice}
+  Dans un repère orthonormé, on considère les points
+  %\[
+  %  A(4\,;2),\quad
+  %  B(3\,;5),\quad
+  %  C(-2\,;-4),\quad
+  %  D(1\,;5).
+  %\]
+  \[
+    A(3\,;6),\quad
+    B(-2\,;5),\quad
+    C(3\,;-4),\quad
+    D(1\,;2).
+  \]
+  Déterminer les coordonnées des vecteurs suivants :
+  \[
+    1.\quad \overrightarrow{AB} + \overrightarrow{CD}
+    \quad\text{et}\quad
+    %2.\quad 5\,\overrightarrow{AB} - 3\,\overrightarrow{CD}.
+    2.\quad 3\,\overrightarrow{AB} - 4\,\overrightarrow{CD}.
+  \]
+  \begin{center}
+    \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+        \vspace{10em}
+    }}
+  \end{center}
+\end{exercice}
+
+\begin{exercice}
+  Dans un repère orthonormé, on considère les points
+  %\[
+  %  A(3\,;1),\quad
+  %  B(4\,;-1),\quad
+  %  C(6\,;-5),\quad
+  %  D(6\,;2).
+  %\]
+  \[
+    A(2\,;1),\quad
+    B(3\,;2),\quad
+    C(-1\,;-2),\quad
+    D(6\,;0).
+  \]
+  \begin{enumerate}
+    \item Montrer que les points $A$, $B$ et $C$ sont alignés.
+    %\item Soit $E$ le point défini par $\overrightarrow{BE} = -2\,\overrightarrow{BD}$. Déterminer les coordonnées de $E$.
+    \item Soit $E$ le point défini par $\overrightarrow{BE} = 4\,\overrightarrow{BD}$. Déterminer les coordonnées de $E$.
+    \item Montrer que les droites $(AD)$ et $(CE)$ sont parallèles.
+  \end{enumerate}
+  \begin{center}
+    \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+        \vspace{29em}
+    }}
+  \end{center}
+\end{exercice}
+
+\newpage
+
+\begin{exercice}
+  Dans le repère orthonormé ci-dessous, placer les points %$A(1\,;2),B(0\,;4),C(-3\,;1),D(-1\,;-3).$
+  $A(-4\,;2),B(-2\,;4),C(4\,;0),D(0\,;-4).$
+  \begin{center}
+    \begin{tikzpicture}[scale=3.25]
+      \draw[step=.5cm,gray,thin] (-1.4,-1.4) grid (1.4,1.4);
+      \draw[step=.5cm,gray,very thin, shift={(0.25, 0.25)}] (-1.65,-1.65) grid (1.15,1.15);
+      \draw[step=.25cm,gray,very thin, dashed, shift={(0.125, 0.125)}] (-1.525,-1.525) grid (1.275,1.275);
+      \draw[->] (-1.5,0) -- (1.5,0) coordinate (x axis)node[right]{$x$};
+      \draw[->] (0,-1.5) -- (0,1.5) coordinate (y axis)node[above]{$y$};
+      \foreach \x/\xtext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+      \draw (\x*0.25 cm,1pt) -- (\x*0.25 cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+      \foreach \y/\ytext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+      \draw (1pt,\y*0.25 cm) -- (-1pt,\y*0.25 cm) node[anchor=east,fill=white] {$\ytext$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}
+    \item Que peut-on dire des droites $(AB)$ et $(CD)$ ? Justifier par le calcul.
+    \item
+      \begin{enumerate}
+        \item Placer le point $E$ qui vérifie l’égalité $
+            \overrightarrow{BE}
+            \;=\;
+            \overrightarrow{AD}
+            \;+\;
+            %\dfrac{1}{3}\,\overrightarrow{BC}.
+            \dfrac{1}{4}\,\overrightarrow{BC}.
+          $
+        \item Retrouver les coordonnées de $E$ par le calcul.
+      \end{enumerate}
+    \item Que peut-on dire des droites $(DE)$ et $(BC)$ ? Justifier par le calcul.
+  \end{enumerate}
+  \begin{center}
+    \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+        \vspace{25em}
+    }}
+  \end{center}
+\end{exercice}
+% \begin{exercice}
+%   On se donne les points $A(-3\,; 0)$, $B(-2\,; -4)$, $C(3\,; 2)$ et $D(4\,; -2)$.
+%
+%   \begin{enumerate}
+%     \item
+%       \begin{enumerate}
+%         \item Déterminer les coordonnées des vecteurs $\overrightarrow{AB}$ et $\overrightarrow{DC}$.
+%         \item Que peut-on en déduire ?
+%       \end{enumerate}
+%     \begin{center}
+%     \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+%       \vspace{6em}
+%     }}
+%     \end{center}
+%     \item
+%       \begin{enumerate}
+%         \item Placer ces points dans le repère orthonormé ci-dessous.
+%         \item Déterminer les coordonnées de $\overrightarrow{AC}$:
+%         \begin{center}
+%           \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+%             \vspace{2em}
+%           }}
+%           \end{center}
+%         \item Placer le point $E$ de sorte que $ADCE$ soit un parallélogramme.
+%         \item Déterminer les coordonnées de $E$ par le calcul.
+%         \begin{center}
+%         \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+%           \vspace{9em}
+%         }}
+%         \end{center}
+%       \end{enumerate}
+%   \end{enumerate}
+%   \begin{center}
+%     \begin{tikzpicture}[scale=3.5]
+%       \draw[step=.5cm,gray,thin] (-1.4,-1.4) grid (1.4,1.4);
+%       \draw[step=.5cm,gray,very thin, shift={(0.25, 0.25)}] (-1.65,-1.65) grid (1.15,1.15);
+%       \draw[step=.25cm,gray,very thin, dashed, shift={(0.125, 0.125)}] (-1.525,-1.525) grid (1.275,1.275);
+%       \draw[->] (-1.5,0) -- (1.5,0) coordinate (x axis)node[right]{$x$};
+%       \draw[->] (0,-1.5) -- (0,1.5) coordinate (y axis)node[above]{$y$};
+%       \foreach \x/\xtext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+%       \draw (\x*0.25 cm,1pt) -- (\x*0.25 cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+%       \foreach \y/\ytext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+%       \draw (1pt,\y*0.25 cm) -- (-1pt,\y*0.25 cm) node[anchor=east,fill=white] {$\ytext$};
+%     \end{tikzpicture}
+%   \end{center}
+% \end{exercice}
+
+% \begin{exercice}
+%   On considère les trois points suivants :
+%   $$A(3\,;1),\quad B(0\,;-2),\quad C(-8\,;2).$$
+%
+%   On admet la propriété suivante :
+%   \emph{« Un quadrilatère $ABCD$ est un parallélogramme si et seulement si ses diagonales ont le même milieu ».}
+%   En utilisant cette propriété, déterminer les coordonnées du point $D$ qui fasse de $ABCD$ un parallélogramme.
+%   \begin{center}
+%   \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+%     \vspace{20em}
+%   }}
+%   \end{center}
+% \end{exercice}
+%
+% \begin{exercice}
+%   Dans un repère orthonormé, on considère les points
+%   $$A(3\,;5),\quad B(3\,;6),\quad C(-2\,;2),\quad D(1\,;-4).$$
+%
+%   Déterminer les coordonnées des vecteurs suivants :
+%   \begin{tasks}(2)
+%     \task $\overrightarrow{AB} + \overrightarrow{CD}$
+%     \task $-\overrightarrow{AB} +\overrightarrow{CD}$
+%   \end{tasks}
+% \end{exercice}
+%   \begin{center}
+%   \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+%     \vspace{20em}
+%   }}
+%   \end{center}
+
+\end{document}
