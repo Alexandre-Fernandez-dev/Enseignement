@@ -1,0 +1,247 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+% --- boxes ---------------------------------------------------
+\definecolor{SolBG}{rgb}{0.95,0.98,1.00}
+\definecolor{ExeBG}{rgb}{0.93,0.93,1.00}
+
+\newtcolorbox{exercice}[1][]{
+  colback=ExeBG,
+  colframe=purple!70,
+  title=\textbf{#1},
+  fonttitle=\bfseries,
+}
+
+\newtcolorbox{solution}[1][]{
+  colback=SolBG,
+  colframe=blue!70!black,
+  title=\textbf{#1},
+  fonttitle=\bfseries,
+}
+
+%--------------------------------------------------------------
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%  Exercice 13  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[Exercice 13 – Calculer]
+Dans chaque cas on détermine (à 0,1 près) les longueurs des trois côtés
+et les mesures des trois angles du triangle $ABC$.
+\end{exercice}
+
+\begin{solution}[Correction]
+\textbf{Rappels.}  
+Loi des cosinus (Al-Kashi)
+\(
+BC^{2}=AB^{2}+AC^{2}-2\,AB\cdot AC\cos\widehat A
+\)
+et loi des sinus
+\(
+\displaystyle\frac{AB}{\sin\widehat C}
+      =\frac{BC}{\sin\widehat A}
+      =\frac{AC}{\sin\widehat B}.
+\)
+
+\begin{enumerate}
+\item[\bfseries 1.] ${AB}=3,\;AC=7,\;\widehat A=37^{\circ}$  
+  \[
+  BC^{2}=3^{2}+7^{2}-2\!\times\!3\!\times\!7\cos37^{\circ}\approx24.5
+  \Longrightarrow BC\approx4.9.
+  \]
+  Dès lors
+  \(
+  \sin\widehat B
+  =\dfrac{AC\,\sin\widehat A}{BC}
+  \approx\dfrac{7\times0.6018}{4.9}\approx0.853
+  \Rightarrow
+  \widehat B\approx58.6^{\circ},
+  \)
+  d’où
+  \(
+  \widehat C=180^{\circ}-37^{\circ}-58.6^{\circ}\approx84.4^{\circ}.
+  \)
+
+\smallskip
+\item[\bfseries 2.] ${AB}=1,\;AC=4,\;\widehat B=110^{\circ}$  
+  Utilisons Al-Kashi à l’angle $B$ :
+  \[
+  AC^{2}=AB^{2}+BC^{2}-2\,AB\cdot BC\cos\widehat B
+  \Longrightarrow
+  BC^{2}+0.684\,BC-15=0
+  \]
+  (car $\cos110^{\circ}\simeq-0.342$).  
+  La solution positive est $BC\approx3.5$.  
+  Loi des sinus :
+  \(
+  \sin\widehat C
+  =\dfrac{AB\,\sin110^{\circ}}{AC}\approx0.235
+  \Rightarrow\widehat C\approx13.6^{\circ},
+  \)
+  puis $\widehat A\approx56.4^{\circ}$.
+
+\smallskip
+\item[\bfseries 3.] ${BC}=9,\;\widehat B=72^{\circ},\;\widehat C=34^{\circ}$  
+  $\widehat A=180^{\circ}-72^{\circ}-34^{\circ}=74^{\circ}$.  
+  Par la loi des sinus
+  \[
+  AB=\frac{\sin34^{\circ}}{\sin74^{\circ}}\;9\approx5.2,
+  \qquad
+  AC=\frac{\sin72^{\circ}}{\sin74^{\circ}}\;9\approx8.9.
+  \]
+
+\smallskip
+\item[\bfseries 4.] ${BC}=11,\;AC=3,\;\widehat B=72^{\circ}$  
+  Ici
+  \(
+  \sin\widehat A=\dfrac{BC\sin\widehat B}{AC}
+  =\dfrac{11\times0.951}{3}=3.49>1.
+  \)
+  L’équation $\sin\widehat A>1$ est impossible : \textbf{aucun triangle
+  ne répond aux données}.  
+
+\smallskip
+\item[\bfseries 5.] ${AC}=17,\;\widehat B=64^{\circ},\;\widehat C=71^{\circ}$  
+  $\widehat A=45^{\circ}$ et $k=AC/\sin\widehat B
+  =17/\sin64^{\circ}\approx18.9$.  
+  Alors
+  \[
+    BC=k\sin45^{\circ}\approx13.4,
+    \qquad
+    AB=k\sin71^{\circ}\approx17.9.
+  \]
+\end{enumerate}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 18
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[Exercice 18 – Chercher / Représenter / Calculer]
+Deux points $A$ et $B$ sont tels que $AB=4$.
+Déterminer l’ensemble des points $M$ pour lesquels
+$\overrightarrow{AM}\cdot\overrightarrow{AB}=10$.
+\end{exercice}
+
+\begin{solution}[Correction]
+Plaçons un repère où $A$ est l’origine et $B$ est sur l’axe $x$ :
+$B(4,0)$, donc $\vec{AB}=(4,0)$.
+Écrivons $M(x,y)$ avec $\vec{AM}=(x,y)$ :
+
+\[
+\vec{AM}\cdot\vec{AB}=4x=10\quad\Longrightarrow\quad x=2.5.
+\]
+
+L’ensemble recherché est la \textbf{droite} parallèle à $AB$,
+d’équation $x=2.5$, c’est-à-dire la droite perpendiculaire à $AB$ passant
+à 2.5 cm du point $A$.
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 19
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[Exercice 19 – Chercher / Représenter / Calculer]
+Deux points $A$ et $B$ sont tels que $AB=1$.
+Déterminer l’ensemble des points $M$ pour lesquels
+$\overrightarrow{MA}\cdot\overrightarrow{MB}=\dfrac32$.
+\end{exercice}
+
+\begin{solution}[Correction]
+Toujours $A$ à l’origine, $B(1,0)$, donc
+$\vec{MB}=(x-1,y)$ et $\vec{MA}=(x,y)$.
+\[
+\vec{MA}\cdot\vec{MB}=x(x-1)+y^2=\frac32.
+\]
+Développons :
+\(
+x^{2}-x + y^{2}=1.5.
+\)
+C’est le cercle de centre $\bigl(\tfrac12,0\bigr)$ et de rayon
+$r=\sqrt{1.5+\tfrac14}= \sqrt{1.75}\simeq1.32$.
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 20
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[Exercice 20 – Chercher / Représenter / Calculer]
+Deux points $A$ et $B$ sont tels que $AB=5$ cm.
+Déterminer l’ensemble des points $M$ pour lesquels l’aire du triangle
+$ABM$ est $3$ cm$^{2}$.
+\end{exercice}
+
+\begin{solution}[Correction]
+L’aire d’un triangle vaut
+\(
+\mathcal A=\dfrac12\,AB\cdot h,
+\)
+où $h$ est la distance de $M$ à la droite $(AB)$.
+Ici
+\(
+3=\dfrac12\times5\times h\Longrightarrow h=\dfrac{6}{5}=1.2\text{ cm}.
+\)
+Le lieu cherché est donc constitué des \textbf{deux droites parallèles}
+à $(AB)$ situées à 1.2 cm de $(AB)$ (une de chaque côté).
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exercice 21
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercice}[Exercice 21 – Représenter / Calculer]
+Soient $A(1;3)$ et $B(-2;5)$.
+Déterminer l’ensemble des points $M(x,y)$ tels que
+les vecteurs $2\overrightarrow{MA}+\overrightarrow{MB}$ et
+$\overrightarrow{MA}+2\overrightarrow{MB}$ soient orthogonaux.
+\end{exercice}
+
+\begin{solution}[Correction]
+
+\textbf{1. Mise en équation}
+
+\[
+\vec{MA}=(1-x,\;3-y),\qquad
+\vec{MB}=(-2-x,\;5-y).
+\]
+
+Posons
+\[
+\vec v = 2\vec{MA}+\vec{MB},\qquad
+\vec w = \vec{MA}+2\vec{MB}.
+\]
+On veut $\vec v\cdot\vec w=0$.
+
+\[
+\vec v = (\,3-3x,\; 6-3y- y)=\bigl(3-3x,\;6-4y\bigr),
+\]
+\[
+\vec w = (\,3-3x,\;3- y-2y) =\bigl(3-3x,\;3-3y\bigr).
+\]
+
+Produit scalaire :
+\[
+(3-3x)^2 +(6-4y)(3-3y)=0.
+\]
+
+Après développement et division par $9$ on obtient
+\[
+x^{2}+x+y^{2}-8y+\frac{143}{9}=0.
+\]
+
+\textbf{2. Centre et rayon}
+
+Complétons les carrés :
+\[
+(x+\tfrac12)^{2}+\bigl(y-4\bigr)^{2}=\frac{29}{81}\approx0.36.
+\]
+
+\textbf{3. Lieu géométrique}
+
+Il s’agit d’un \textbf{cercle} de centre
+$\displaystyle C\!\Bigl(-\tfrac12,\,4\Bigr)$
+et de rayon
+\(
+r=\sqrt{29}/9\approx0.6.
+\)
+\end{solution}
+
+\end{document}
