@@ -1,0 +1,515 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+%\setCJKmainfont{Noto Serif CJK TC}
+\graphicspath{ {../Images/} }
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+\setmainlanguage{french}
+%\setmainfont{CMU Serif}
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 10 \\Probabilités conditionnelles
+  }
+}
+
+\author{}
+\date{}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+
+\newpage
+\section{Probabilités conditionnelles}
+Dans tout le chapitre, on considère un espace de probabilité $\Omega$.
+
+\begin{definition}{Probabilité conditionnelle}{}
+Soient A et B deux événements avec $\mathrm{P}(\mathrm{A}) \neq 0$. La probabilité de B sachant A est :
+
+$$
+\mathrm{P}_{\mathrm{A}}(\mathrm{~B})=\hideM{\frac{\mathrm{P}(\mathrm{~A} \cap \mathrm{~B})}{\mathrm{P}(\mathrm{~A})}}
+$$
+\end{definition}
+
+\begin{example}
+Soient A et B deux événements tels que $\mathrm{P}(\mathrm{A})=0,5$ et $\mathrm{P}(\mathrm{A} \cap \mathrm{B})=0,2$. Déterminer $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$.
+
+~\\Solution :
+
+$$
+\mathrm{P}_{\mathrm{A}}(\mathrm{~B})=\frac{\mathrm{P}(\mathrm{~A} \cap \mathrm{~B})}{\mathrm{P}(\mathrm{~A})}=\frac{0,2}{0,5}=0,4
+$$
+\end{example}
+
+\begin{remark}
+\begin{itemize}
+  \item[]
+  \item En général, le mot «parmi» dans un énoncé se traduit par une probabilité conditionnelle.
+  \item Attention ! Les probabilités conditionnelles $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$ et $\mathrm{P}_{\mathrm{B}}(\mathrm{A})$ ne sont en général pas égales.
+\end{itemize}
+\end{remark}
+
+\begin{proposition}{}{}
+Soient A et B deux événements avec $\mathrm{P}(\mathrm{A}) \neq 0$. Alors,
+
+$$
+\mathrm{P}(\mathrm{A} \cap \mathrm{B})=\hideM{\mathrm{P}_{\mathrm{A}}(\mathrm{B}) \times \mathrm{P}(\mathrm{A})}
+$$
+\end{proposition}
+
+\begin{demo}
+D'après la définition, on sait que $\mathrm{P}_{\mathrm{A}}(\mathrm{B})=\dfrac{\mathrm{P}(\mathrm{A} \cap \mathrm{B})}{\mathrm{P}(\mathrm{A})}$. Il suffit de multiplier chaque terme de cette égalité par $\mathrm{P}(\mathrm{A})$ pour obtenir le résultat souhaité.
+\end{demo}
+
+\section{Formule des probabilités totales}
+\begin{definition}{}{}
+Soit $n \geqslant 2$. Soient $\mathrm{A}_{1}, \mathrm{~A}_{2}, \ldots, \mathrm{~A}_{n}$ des événements non vides. On dit qu'ils forment une partition de l'univers $\Omega$ lorsque les conditions suivantes sont vérifiées :
+
+\begin{itemize}
+  \item Ils sont deux à deux incompatibles : pour tous $i \neq j, \hideM{\mathrm{A}_{i} \cap \mathrm{A}_{j}=\emptyset}$;
+  \item $\mathrm{A}_{1} \cup \mathrm{A}_{2} \cup \ldots \cup \mathrm{A}_{n}=\hideM{\Omega}$
+\end{itemize}
+\end{definition}
+\includegraphics[max width=0.85\textwidth, center]{2025_05_13_795d2fb7a2e4fd469256g-2}
+
+\begin{example}
+On lance un dé à six faces. L'univers est $\Omega=\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}$.\\
+On considère les événements suivants :\\
+A : «Obtenir un résultat pair»;\\
+B : «Obtenir un 5 »;\\
+C : «Obtenir un 1 ou un 3 ».\\
+Les événements $\mathrm{A}, \mathrm{B}$ et $C$ forment ainsi une partition de l'univers.
+\end{example}
+
+\begin{remark}
+Si A est un événement de probabilité non nulle, alors A et $\overline{\mathrm{A}}$ forment une partition de l'univers car :
+
+\begin{itemize}
+  \item $\mathrm{A} \cap \overline{\mathrm{A}}=\emptyset$;
+  \item $\mathrm{A} \cup \overline{\mathrm{A}}=\Omega$.
+\end{itemize}
+\end{remark}
+
+\begin{proposition}{}{Formule des probabilités totales}
+Soit $n \geqslant 2$. Soient $\mathrm{A}_{1}, \mathrm{A}_{2}, \ldots, \mathrm{A}_{n}$ des événements formant une partition de l'univers et soit B un événement. Alors,
+
+$$
+\begin{aligned}
+\mathrm{P}(\mathrm{B}) & =\mathrm{P}\left(\mathrm{A}_{1} \cap \mathrm{B}\right)+\mathrm{P}\left(\mathrm{A}_{2} \cap \mathrm{B}\right)+\ldots+\mathrm{P}\left(\mathrm{A}_{n} \cap \mathrm{B}\right) \\
+& =\mathrm{P}\left(\mathrm{A}_{1}\right) \times \mathrm{P}_{\mathrm{A}_{1}}(\mathrm{B})+\mathrm{P}\left(\mathrm{A}_{2}\right) \times \mathrm{P}_{\mathrm{A}_{2}}(\mathrm{B})+\ldots+\mathrm{P}\left(\mathrm{A}_{n}\right) \times \mathrm{P}_{\mathrm{A}_{n}}(\mathrm{B})
+\end{aligned}
+$$
+\end{proposition}
+
+\begin{center}
+\includegraphics[max width=0.8\textwidth]{2025_05_13_795d2fb7a2e4fd469256g-3}
+\end{center}
+
+\begin{demo}
+Soit $n \geqslant 2$. Soient $\mathrm{A}_{1}, \mathrm{~A}_{2}, \ldots, \mathrm{~A}_{n}$ des événements formant une partition de l'univers et soit B un événement. Alors,
+
+$$
+\begin{aligned}
+\mathrm{P}(\mathrm{~B}) & =\mathrm{P}(\mathrm{~B} \cap \Omega) \\
+& =\mathrm{P}\left(\mathrm{~B} \cap\left(\mathrm{~A}_{1} \cup \mathrm{~A}_{2} \cup \ldots \cup \mathrm{~A}_{n}\right)\right) \\
+& =\mathrm{P}\left(\left(\mathrm{~B} \cap \mathrm{~A}_{1}\right) \cup\left(\mathrm{B} \cap \mathrm{~A}_{2}\right) \cup \ldots \cup\left(\mathrm{B} \cap \mathrm{~A}_{n}\right)\right) \\
+& =\mathrm{P}\left(\mathrm{~B} \cap \mathrm{~A}_{1}\right)+\mathrm{P}\left(\mathrm{~B} \cap \mathrm{~A}_{2}\right)+\ldots+\mathrm{P}\left(\mathrm{~B} \cap \mathrm{~A}_{n}\right)
+\end{aligned}
+$$
+
+car les événements $\mathrm{A}_{i}$ sont deux à deux disjoints donc les événements $\mathrm{A}_{i} \cap \mathrm{~B}$ aussi. Pour montrer la deuxième égalité, on utilise ensuite le fait que, pour tout entier $i$,
+
+$$
+\mathrm{P}\left(\mathrm{~B} \cap \mathrm{~A}_{i}\right)=\mathrm{P}\left(\mathrm{~A}_{i}\right) \times \mathrm{P}_{\mathrm{A}_{i}}(\mathrm{~B})
+$$
+
+Ainsi, on obtient bien :
+
+$$
+\mathrm{P}(\mathrm{~B})=\mathrm{P}\left(\mathrm{~A}_{1}\right) \times \mathrm{P}_{\mathrm{A}_{1}}(\mathrm{~B})+\mathrm{P}\left(\mathrm{~A}_{2}\right) \times \mathrm{P}_{\mathrm{A}_{2}}(\mathrm{~B})+\ldots+\mathrm{P}\left(\mathrm{~A}_{n}\right) \times \mathrm{P}_{\mathrm{A}_{n}}(\mathrm{~B})
+$$
+\end{demo}
+
+\begin{example}
+Soient A et B deux événements tels que $\mathrm{P}(\mathrm{A})=0,6, \mathrm{P}_{\mathrm{A}}(\mathrm{B})=0,5$ et $\mathrm{P}_{\overline{\mathrm{A}}}(\mathrm{B})=0,1$.\\
+Déterminer $\mathrm{P}(\mathrm{B})$.
+
+~\\Solution :
+
+On sait que $\mathrm{P}(\overline{\mathrm{A}})=1-\mathrm{P}(\mathrm{A})=0,4$. Par ailleurs, comme A et $\overline{\mathrm{A}}$ forment une partition de l'univers, on peut appliquer la formule des probabilités totales :
+
+$$
+\begin{aligned}
+\mathrm{P}(\mathrm{B}) & =\mathrm{P}(\overline{\mathrm{A}} \cap \mathrm{~B})+\mathrm{P}(\mathrm{A} \cap \mathrm{B}) \\
+& =\mathrm{P}(\overline{\mathrm{A}}) \times \mathrm{P}_{\overline{\mathrm{A}}}(\mathrm{B})+\mathrm{P}(\mathrm{A}) \times \mathrm{P}_{\mathrm{A}}(\mathrm{B}) \\
+& =0,4 \times 0,1+0,6 \times 0,5 \\
+& =0,34
+\end{aligned}
+$$
+\end{example}
+
+\section{Calcul des probabilités conditionnelles en pratique}
+\subsection{Utilisation des tableaux}
+Un tableau à double entrée permet souvent de présenter de façon claire une expérience probabiliste et de calculer facilement des probabilités conditionnelles.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\cline { 2 - 4 }
+\multicolumn{1}{c|}{} & $\mathrm{B}$ & $\overline{\mathrm{B}}$ & Total \\
+\hline
+$\mathrm{A}$ & $P(\mathrm{A} \cap \mathrm{B})$ & $P(\mathrm{A} \cap \overline{\mathrm{B}})$ & $P(\mathrm{A})$ \\
+\hline
+$\overline{\mathrm{A}}$ & $P(\overline{\mathrm{A}} \cap \mathrm{B})$ & $P(\overline{\mathrm{A}} \cap \overline{\mathrm{B}})$ & $P(\overline{\mathrm{A}})$ \\
+\hline
+Total & $P(\mathrm{B})$ & $P(\overline{\mathrm{B}})$ & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{remark}
+Dans le tableau ci-dessus:
+
+\begin{itemize}
+  \item $\mathrm{P}(\mathrm{A} \cap \mathrm{B})$ se lit à l'intersection des lignes A et B .
+  \item $\mathrm{P}(\mathrm{A})$ se lit sur la dernière colonne et on a :
+\end{itemize}
+
+$$
+\mathrm{P}(\mathrm{A})=\mathrm{P}(\mathrm{A} \cap \mathrm{B})+\mathrm{P}(\mathrm{A} \cap \overline{\mathrm{B}}) \quad \text { (formule des probabilités totales) }
+$$
+\end{remark}
+
+\begin{example}
+Dans une entreprise de 450 salariés, il y a 270 hommes et 180 femmes. Par ailleurs, les salariés se répartissent en deux catégories : les cadres et les ouvriers. On sait plus précisément qu'il y a 80 cadres et que le nombre de femmes cadres est de 45. Quel est le pourcentage d'ouvriers parmi les hommes de l'entreprise?
+
+\newpage
+Solution :
+
+On réalise le taleau suivant donnant la proportion de salariés pour chaque catégorie (hommes/ femmes et cadres/ouvriers).
+
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{|c|c|c|c|}
+\cline { 2 - 4 }
+\multicolumn{1}{c|}{} & cadres & ouvriers & Total \\
+\hline
+femmes & $\dfrac{45}{450}$ & $\dfrac{135}{450}$ & $\dfrac{180}{450}$ \\
+\hline
+hommes & $\dfrac{35}{450}$ & $\dfrac{235}{450}$ & $\dfrac{270}{450}$ \\
+\hline
+Total & $\dfrac{80}{450}$ & $\dfrac{370}{450}$ & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+On choisit un salarié au hasard et on considère les événements suivants :\\
+H : «Le salarié est un homme»;\\
+O : «Le salarié est un ouvrier».\\
+Avec ces notations, la proportion cherchée est $\mathrm{P}_{\mathrm{H}}(\mathrm{O})$ :
+
+$$
+\mathrm{P}_{\mathrm{H}}(\mathrm{O})=\frac{\mathrm{P}(\mathrm{O} \cap H)}{\mathrm{P}(\mathrm{O})}=\dfrac{\frac{235}{450}}{\frac{270}{450}}=\dfrac{235}{270} \simeq 87 \%
+$$
+\end{example}
+
+\subsection{Utilisation des arbres}
+Un arbre de probabilité est un autre moyen de représenter efficacement une situation probabiliste et de calculer des probabilités conditionnelles.\\
+\includegraphics[max width=0.5\textwidth, center]{2025_05_13_795d2fb7a2e4fd469256g-5}
+
+\newpage
+\begin{remark}
+\begin{itemize}[itemsep=10pt]
+  \item[]
+  \item La somme des probabilités des chemins issues d'un noeud est égale à 1 .
+
+Par exemple, $\mathrm{P}(\mathrm{A})+\mathrm{P}(\overline{\mathrm{A}})=1$ et $\mathrm{P}_{\mathrm{A}}(\mathrm{B})+\mathrm{P}_{\mathrm{A}}(\overline{\mathrm{B}})=1$.
+
+  \item La probabilité d'un chemin est la probabilité de l'intersection des événements que comporte ce chemin. Elle se calcule en multipliant les probabilités du chemin.\\
+Par exemple, $\mathrm{P}(\mathrm{A} \cap \mathrm{B})=\mathrm{P}(\mathrm{A}) \times \mathrm{P}_{\mathrm{A}}(\mathrm{B}) \quad$ (d'après la propriété 1 ).
+  \item La probabilité d'un événement est égale à la somme des chemins conduisant à cet événement.\\
+Par exemple, $\mathrm{P}(\mathrm{B})=\mathrm{P}(\mathrm{A} \cap \mathrm{B})+\mathrm{P}(\overline{\mathrm{A}} \cap \mathrm{B}) \quad$ (d'après la formule des probabilités totales)
+\end{itemize}
+\end{remark}
+
+\begin{example}
+On considère deux événements A et B dont les probabilités sont représentées dans l'arbre ci-dessous.\\
+\includegraphics[max width=0.5\textwidth, center]{2025_05_13_795d2fb7a2e4fd469256g-6}
+
+Déterminer $\mathrm{P}(\mathrm{B})$.
+~\\Solution :
+D'après la formule des probabilités totales :
+
+$$
+\begin{aligned}
+\mathrm{P}(\mathrm{B}) & =\mathrm{P}(\mathrm{A} \cap \mathrm{B})+\mathrm{P}(\overline{\mathrm{A}} \cap \mathrm{B}) \\
+& =\mathrm{P}(\mathrm{A}) \times \mathrm{P}_{\mathrm{A}}(\mathrm{~B})+\mathrm{P}(\overline{\mathrm{A}}) \times \mathrm{P}_{\overline{\mathrm{A}}}(\mathrm{B}) \\
+& =0,1 \times 0,5+0,9 \times 0,4 \\
+& =0,41
+\end{aligned}
+$$
+\end{example}
+
+\begin{method}{Déterminer des probabilités}{}
+\begin{itemize}
+  \item Faire un tableau (plutôt lorsqu'on connait les probabilités des intersections)
+  \item Faire un arbre (plutôt lorsqu'on connait les probabilités conditionnelles)
+\end{itemize}
+\end{method}
+
+\subsection{Calculer $\mathrm{P}_{\mathrm{B}}(\mathrm{A})$ lorsqu'on connait $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$}
+\begin{method}{Calculer $\mathrm{P}_{\mathrm{B}}(\mathrm{A})$ lorsqu'on connait $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$}{}
+\begin{itemize}
+  \item Écrire la définition de $\mathrm{P}_{\mathrm{B}}(\mathrm{A})$ :
+\end{itemize}
+
+$$
+P_{\mathrm{B}}(\mathrm{A})=\frac{P(\mathrm{A} \cap \mathrm{B})}{P(\mathrm{B})} .
+$$
+
+\begin{itemize}
+  \item Calculer $\mathrm{P}(\mathrm{A} \cap \mathrm{B})$ grâce à $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$.
+  \item Calculer $\mathrm{P}(\mathrm{B})$ avec la formule des probabilités totales.
+\end{itemize}
+\end{method}
+
+\begin{example}
+Un sondage effectué dans une région montagneuse à propos de la construction d'un barrage donne les résultats suivants :
+
+\begin{itemize}
+  \item 65\% des personnes intérrogées sont contre la construction du barrage;
+  \item Parmi les personnes qui sont contre cette construction, $70 \%$ sont des écologistes.
+  \item Parmi les personnes qui sont favorables à la construction, $20 \%$ sont des écologistes. Quelle est la proportion de personnes contre le barrage parmi les écologistes?
+\end{itemize}
+
+~\\Solution :
+
+On note $C$ l'événement «La personne interrogée est contre la construction» et $E$ l'événement «La personne interrogée est écologiste».\\
+On souhaite déterminer $\mathrm{P}_{E}(C)=\dfrac{\mathrm{P}(E \cap C)}{\mathrm{P}(E)}$.\\
+On représente la situation par l'arbre suivant :\\
+\includegraphics[max width=0.4\textwidth, center]{2025_05_13_795d2fb7a2e4fd469256g-7}
+
+D'une part, on voit sur l'arbre que $\mathrm{P}(\mathrm{E} \cap \mathrm{C})=65 \% \times 70 \%=45,5 \%$.\\
+D'autre part, d'après la formule des probabilités totales :
+
+$$
+\begin{aligned}
+\mathrm{P}(\mathrm{E}) & =\mathrm{P}(\mathrm{E} \cap \mathrm{C})+\mathrm{P}(\mathrm{E} \cap \overline{\mathrm{C}}) \\
+& =65 \% \times 70 \%+35 \% \times 20 \% =52,5 \%
+\end{aligned}
+$$
+
+Finalement, on a :
+
+$$
+P_{E}(C)=\frac{P(E \cap C)}{P(E)}=\frac{45,5 \%}{52,5 \%} \simeq 86,7 \% .
+$$
+
+Il y a donc environ 86,7\% de personnes contre le barrage parmi les écologistes.
+\end{example}
+
+\section{Indépendance d'événements}
+\begin{definition}{Indépendance}{}
+Soient A et B deux événements. On dit que A et B sont \textbf{indépendants} lorsque :
+
+$$
+\mathrm{P}(\mathrm{A} \cap \mathrm{B})=\hideM{\mathrm{P}(\mathrm{A}) \times \mathrm{P}(\mathrm{B})}
+$$
+
+\end{definition}
+\begin{example}
+Soient A et B deux événements tels que $\mathrm{P}(\mathrm{A})=0,3, \mathrm{P}(\mathrm{B})=0,2$ et $\mathrm{P}(\mathrm{A} \cap \mathrm{B})=0,7$. Les événements $A$ et $B$ sont-ils indépendants?
+
+~\\Solution :
+
+$\mathrm{P}(\mathrm{A}) \times \mathrm{P}(\mathrm{B})=0,2 \times 0,3=0,06 \neq \mathrm{P}(\mathrm{A} \cap \mathrm{B})$.\\
+On en déduit que les événements A et B ne sont pas indépendants.
+\end{example}
+
+\begin{proposition}{}{}
+Soient A et B deux événements avec $\mathrm{P}(\mathrm{A}) \neq 0$.\\
+A et B sont indépendants si, et seulement si,
+
+$$
+\mathrm{P}_{\mathrm{A}}(\mathrm{B})=\hideM{\mathrm{P}(\mathrm{B})}
+$$
+\end{proposition}
+
+\begin{demo}
+$\mathrm{P}(\mathrm{A}) \neq 0$ donc $\mathrm{P}_{\mathrm{A}}(\mathrm{B})=\dfrac{\mathrm{P}(\mathrm{A} \cap \mathrm{B})}{\mathrm{P}(\mathrm{A})}$, c'est-à-dire $\mathrm{P}(\mathrm{A} \cap \mathrm{B})=\mathrm{P}(\mathrm{A}) \times \mathrm{P}_{\mathrm{A}}(\mathrm{B})$.\\
+Ainsi, on a les équivalences suivantes :
+
+$$
+\begin{aligned}
+\text { A et } \mathrm{B} \text { sont indépendants } & \Longleftrightarrow \mathrm{P}(\mathrm{A} \cap \mathrm{B})=\mathrm{P}(\mathrm{A}) \times \mathrm{P}(\mathrm{B}) \\
+& \Longleftrightarrow \mathrm{P}(\mathrm{A}) \times \mathrm{P}_{\mathrm{A}}(\mathrm{B})=\mathrm{P}(\mathrm{A}) \times \mathrm{P}(\mathrm{B}) \\
+& \Longleftrightarrow \mathrm{P}_{\mathrm{A}}(\mathrm{B})=\mathrm{P}(\mathrm{B}) \quad(\operatorname{car} \mathrm{P}(\mathrm{A}) \neq 0)
+\end{aligned}
+$$
+\end{demo}
+
+\begin{proposition}{}{}
+Si $\mathrm{A}$ et $\mathrm{B}$ sont deux événements indépendants, alors les événements $\mathrm{A}$ et $\overline{\mathrm{B}}$ sont également indépendants.
+\end{proposition}
+
+\begin{demo}
+B et $\overline{\mathrm{B}}$ forment une partition de l'univers donc, d'après la formule des probabiltiés totales :
+
+$$
+\mathrm{P}(\mathrm{A})=\mathrm{P}(\mathrm{A} \cap \mathrm{B})+\mathrm{P}(\mathrm{A} \cap \overline{\mathrm{B}})
+$$
+
+Par indépendance de A et B , on a :
+
+$$
+\mathrm{P}(\mathrm{~A})=\mathrm{P}(\mathrm{A}) \times \mathrm{P}(\mathrm{B})+\mathrm{P}(\mathrm{A} \cap \overline{\mathrm{B}})
+$$
+
+\newpage
+donc
+
+$$
+\mathrm{P}(\mathrm{A})(1-\mathrm{P}(\mathrm{B}))=\mathrm{P}(\mathrm{A} \cap \overline{\mathrm{B}})
+$$
+
+donc
+
+$$
+\mathrm{P}(\mathrm{A}) \mathrm{P}(\overline{\mathrm{B}})=\mathrm{P}(\mathrm{A} \cap \overline{\mathrm{B}})
+$$
+
+Cela signifie exactement que A et $\overline{\mathrm{B}}$ sont également indépendants.
+\end{demo}
+
+\begin{savoir}{}{}
+\begin{itemize}
+  \item Passer du registre de la langue naturelle au registre symbolique et inversement.
+  \item Calculer une probabilité conditionnelle.
+  \item Utiliser la formule des probabilités totales (en particulier avec un arbre).
+  \item Construire et utiliser un arbre ou un tableau pour résoudre un problème.
+  \item Distinguer $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$ et $\mathrm{P}_{\mathrm{B}}(\mathrm{A})$ dans des problèmes de type «faux-positifs».
+  \item Déterminer et utiliser l'indépendance de deux événements.
+\end{itemize}
+\end{savoir}
+
+
+\end{document}

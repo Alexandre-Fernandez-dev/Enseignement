@@ -1,0 +1,110 @@
+% !TeX program = xelatex
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm,graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\title{\textbf{Corrigé du Devoir Commun 2GT}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Exercice 1}
+On lit sur la courbe $C_f$ les informations suivantes :
+\begin{enumerate}
+  \item $f(4)=2$.
+  \item L'équation $f(x)=3$ admet trois solutions sur $[-9,9]$, en lecture graphique :
+  \[x\approx0{,}3,\quad x\approx2{,}4,\quad x=6.\]
+  \item L'inéquation $f(x)\le1$ est satisfaite pour
+  \[x\in[-6,-1]\cup[8,9].\]
+  \item L'inéquation $f(x)>0$ est satisfaite pour
+  \[x\in[-9,-5[\;\cup\;]-2,8[\,.\]
+  \item On en déduit le tableau de signes de $f$ sur $[-9,9]$ :
+  
+  \begin{center}
+  \begin{tabular}{c|ccccccccccc}
+$x$ & $-9$ & & $-6$ & & $-1$ & & $2$ & & $8$ & & $9$ \\
+    \hline
+$f(x)$ & $+$ & $\,\searrow\,$ & $0$ & $\,\searrow\,$ & $0$ & $\,\nearrow\,$ & $+$ & $\,\searrow\,$ & $0$ & $\,\searrow\,$ & $-$
+  \end{tabular}
+  \end{center}
+  
+  (Les flèches indiquent la variation approchée de $f$ entre chaque zéro.)
+\end{enumerate}
+
+\section*{Exercice 2}
+On définit $f(x)=4x^2+12x-40$.
+\begin{enumerate}
+  \item[	extbf{1.a)}] $f(3)=4\times9+36-40=32.$
+  \item[	extbf{1.b)}] $f(-1)=4\times1-12-40=-48.$
+  \item[	extbf{2.}] Le point $A(5,110)$ ne vérifie pas l'équation $y=f(x)$ car $f(5)=4\times25+60-40=120\neq110$.
+  \item[	extbf{3.a)}] On factorise :
+  \[f(x)=4x^2+12x-40=(4x-8)(x+5).\]
+  \item[	extbf{3.b)}] Donc $f(x)=0\iff x=2\text{ ou }x=-5$.
+  \item[	extbf{4.a)}] Mise sous forme canonique :
+  \[f(x)=4x^2+12x-40=(2x+3)^2-9-40=(2x+3)^2-49.\]
+  \item[	extbf{4.b)}] Pour $f(x)=-49$, on résout $(2x+3)^2-49=-49\iff(2x+3)^2=0\iff x=-\tfrac32$.
+\end{enumerate}
+
+\section*{Exercice 3}
+\textbf{Partie A}\quad
+1. La traduction de vecteur $\overrightarrow{FH}$ envoie $D$ sur le point $O$.\\
+2. Le point dont l'image par la translation de vecteur $\overrightarrow{EC}$ est $L$ est $G$.\\
+3. Quelques exemples de représentants :
+\begin{align*}
+(a)\;&\overrightarrow{GC}+\overrightarrow{CK}=\overrightarrow{GK},\quad
+(b)\;\overrightarrow{AC}+\overrightarrow{AK}=\overrightarrow{CE},\\
+(c)\;&\overrightarrow{CE}-\overrightarrow{GI}=\overrightarrow{CG},\quad
+(d)\;\overrightarrow{AB}+\overrightarrow{GD}=\overrightarrow{AD},\\
+(e)\;&\overrightarrow{OG}+\overrightarrow{HO}+\overrightarrow{GF}=\overrightarrow{OF},\quad
+(f)\;\overrightarrow{MC}+\overrightarrow{KJ}+\overrightarrow{ED}=\overrightarrow{MD}.
+\end{align*}
+
+\textbf{Partie B}\quad On place cinq points $A,B,C,D$ sur le quadrillage; on cherche $E,F,G,K,J$ tels que :
+\begin{itemize}
+  \item $\overrightarrow{AE}=\overrightarrow{CD}\implies E$ est tel que $\vec{AE}=\vec{CD}$; on construit $E$ par translation de $D-C$ depuis $A$.
+  \item $\overrightarrow{FA}=\overrightarrow{BC}$,
+  \item $\overrightarrow{AG}=\overrightarrow{AC}+\overrightarrow{BC}$,
+  \item $\overrightarrow{DK}=\overrightarrow{BD}+\overrightarrow{AD}$,
+  \item $\overrightarrow{BI}+\overrightarrow{DA}-\overrightarrow{CB}=\overrightarrow{BJ}$,
+  \item $\overrightarrow{BJ}=\overrightarrow{AC}+\overrightarrow{DB}-\overrightarrow{AB}.$
+\end{itemize}
+(Hors sujet : on vérifie graphiquement que chaque égalité vectorielle permet de placer le point demandé sur la figure.)
+
+\section*{Exercice 5}
+On note $n=900$ le nombre total d’adhérents.\\
+\textbf{1. Tableau des effectifs} :
+\begin{center}
+\begin{tabular}{l|cc|c}
+               & Compétition & Loisir & Total \\
+\hline
+Adultes        & $63$        & $234$  & $297$ \\
+Jeunes         & $270$       & $333$  & $603$ \\
+\hline
+Total          & $333$       & $567$  & $900$ 
+\end{tabular}
+\end{center}
+
+\textbf{2. Probabilités sur l'univers de taille 900} :
+\begin{align*}
+P(A)&=\frac{297}{900}=\frac{33}{100},\quad P(C)=\frac{333}{900}=\frac{37}{100}.\\
+\overline A&=\text{“l’adhérent est jeune”},\quad A\cap C=\text{“adulte et compétition”},\\
+A\cup C&=\text{“adulte ou compétition (ou les deux)”}.
+\end{align*}
+
+\begin{align*}
+P(\overline A)&=\frac{603}{900}=\frac{67}{100},\quad P(A\cap C)=\frac{63}{900}=\frac{7}{100},\\
+P(A\cup C)&=P(A)+P(C)-P(A\cap C)=\frac{33}{100}+\frac{37}{100}-\frac{7}{100}=\frac{63}{100}.
+\end{align*}
+
+\textbf{3. Probabilité conditionnelle} parmi les adultes :
+$$P(C\mid A)=\frac{P(A\cap C)}{P(A)}=\frac{63/900}{297/900}=\frac{63}{297}=\frac{7}{33}.$$
+
+\textbf{4. Probabilité conditionnelle} parmi les compétiteurs :
+$$P(A\mid C)=\frac{P(A\cap C)}{P(C)}=\frac{63/900}{333/900}=\frac{63}{333}=\frac{7}{37}.$$
+
+\end{document}

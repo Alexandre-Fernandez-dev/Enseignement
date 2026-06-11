@@ -1,0 +1,566 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+%\setCJKmainfont{Noto Serif CJK TC}
+\graphicspath{ {../Images/} }
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{examples}{Exemples.}
+\newtheorem*{remark}{Remarque.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+\setmainlanguage{french}
+%\setmainfont{CMU Serif}
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 11 \\Variables aléatoires
+  }
+}
+
+\author{}
+\date{}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+
+\newpage
+
+\section{Rappels de Seconde (Indicateurs statistiques)}
+Dans l'ensemble de cette partie, on considère l'exemple de la série statistiques suivante, donnant les distances des planètes du système solaire au Soleil :
+
+\begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    Planète & Distance au soleil en millions de km \\
+    \hline
+    Mercure & 58 \\
+    \hline
+    Vénus & 108 \\
+    \hline
+    Terre & 150 \\
+    \hline
+    Mars & 228 \\
+    \hline
+    Jupiter & 778 \\
+    \hline
+    Saturne & 1429 \\
+    \hline
+    Uranus & 2871 \\
+    \hline
+    Neptune & 4503 \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Indicateurs de position}
+\subsection{Moyenne}
+\begin{definition}{}{}
+  La moyenne d'une série statistique $x_{1}, \ldots, x_{n}$ se note $\bar{x}$ et est donné par la formule suivante :
+
+  $$
+  \bar{x}=\frac{x_{1}+\ldots+x_{n}}{n}=\hideM{\frac{\sum_{i=1}^{n} x_{i}}{n}}
+  $$
+\end{definition}
+
+\begin{example}
+  En moyenne, la distance d'une planète du système solaire au Soleil est d'environ 1266 millions de km.
+
+  $$
+  \bar{x}=\frac{58+108+150+228+778+1429+2871+4503}{8} \simeq 1266
+  $$
+\end{example}
+
+\subsection{Médiane}
+\begin{definition}{}{}
+  La médiane d'une série statistique $x_{1}, \ldots, x_{n}$ est une valeur qui permet de couper l'ensemble des valeurs en deux parties égales : la moitié des valeurs étant plus grande que la médiane et l'autre moitié étant moins grande.
+\end{definition}
+
+\begin{remark}
+  \begin{itemize}
+    \item[]
+    \item Lorsque la série comprend un nombre impair de valeurs, la médiane est simplement une des valeurs de la série.
+    \item Lorsque la série comprend un nombre pair de valeurs, la médiane est la moyenne entre les deux valeurs du «milieu».
+  \end{itemize}
+\end{remark}
+
+\begin{example}
+  Dans le cas des distances planète-Soleil, la médiane est la moyenne entre la $4^{e}$ et la $5^{e}$ plus grande valeur étant donné que la série comporte 8 valeurs.
+
+  $$
+  m=\frac{228+778}{2}=503 \text { millions de } \mathrm{km}
+  $$
+\end{example}
+
+\subsection{Quartiles}
+\begin{definition}{}{}
+  \begin{itemize}
+    \item Le \textbf{premier quartile} d'une série statistique est une valeur, notée $Q_{1}$ telle qu'au moins \hide{$25 \%$} des valeurs soient plus petites que $Q_{1}$.
+    \item Le  \textbf{troisième quartile} d'une série statistique est une valeur, notée $Q_{3}$ telle qu'au moins \hide{$75 \%$} des valeurs soient plus petites que $Q_{3}$.
+  \end{itemize}
+\end{definition}
+
+\begin{example}
+  Dans le cas des distances planète-Soleil, $Q_{1}$ correspond à la moyenne entre la deuxième et la troisième valeur (car $8 \times \frac{1}{4}=2$ ) et $Q_{3}$ correspond à lamoyenne entre la sixième et la sixième valeur (car $8 \times \frac{3}{4}=6$ ).
+
+  $$
+  \begin{gathered}
+    Q_{1}=129 \\
+    Q_{3}=2150
+  \end{gathered}
+  $$
+\end{example}
+
+\begin{remark}
+  L'intervalle interquartile est l'intervale $\left[Q_{1} ; Q_{3}\right]$. Il contient donc $50 \%$ des valeurs de la série statistique.
+\end{remark}
+
+\subsection{Valeur minimale et maximale}
+\begin{definition}{}{}
+  La \textbf{valeur minimale} d'une série statistique est la plus petite valeur de la série. la \textbf{valeur maximale} est la plus grande valeur de la série.
+\end{definition}
+
+\begin{example}
+  Dans le cas des distances planète-Soleil, la valeur minimale est 58 et la valeur maximale est 4503.
+\end{example}
+
+\subsection{Indicateurs de dispersion}
+\subsection{Étendue}
+\begin{definition}{}{}
+  L'\textbf{étendue} d'une série statistique est la différence entre la valeur maximale et la valeur minimale.
+\end{definition}
+
+\begin{example}
+  Dans le cas des distances planète-Soleil, l'étendue est de $4503-58=4445$ millions de km.
+\end{example}
+
+\subsection{Écart interquartile}
+\begin{definition}{}{}
+  L'\textbf{écart interquartile} est \hide{$Q_{3}-Q_{1}$}.
+\end{definition}
+
+\begin{example}
+  Dans le cas des distances planète-Soleil, l'écart interquartile est $2150-129=2021$ millions de km .
+\end{example}
+
+\subsection{Écart-type}
+\begin{definition}{}{}
+  \begin{itemize}
+    \item La \textbf{variance} $V$ d'une série statistique $x_{1}, \ldots, x_{n}$ est définie par :
+
+      $$
+      V=\frac{\left(x_{1}-\bar{x}\right)^{2}+\ldots+\left(x_{n}-\bar{x}\right)^{2}}{n}=\hideM{\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n}}
+      $$
+
+    \item L'\textbf{écart type} $\sigma$ d'une série statistique est définie par :
+
+      $$
+      \sigma=\hideM{\sqrt{V}}
+      $$
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  On retiendra que la variance est «la moyenne des carrés des écarts à la moyenne »
+\end{remark}
+
+\begin{example}
+  Dans le cas des distances planète-Soleil, on a :\\
+  $\bar{x}=1266$\\
+  $V=\dfrac{(58-1266)^{2}+(108-1266)^{2}+(150-1266)^{2}+\ldots+(4503-1266)^{2}}{8} \simeq 2304324$\\
+  $\sigma=\sqrt{V} \simeq 1518$
+\end{example}
+
+\begin{remark}
+  La donnée de la médiane et de l'écart interquartile n'est pas sensible aux valeurs extrêmes, contrairement à la donnée de la moyenne et de l'écart-type.
+\end{remark}
+
+\section{Échantillonnage}
+\begin{proposition}{(admise)}{}
+  Si l'effectif d'une série statistique est suffisamment grand, et si le phénomène étudié suit une loi de Gauss (la répartition des valeurs se fait selon une courbe en cloche) :
+
+  \begin{itemize}
+    \item L'intervalle $[\bar{x}-\sigma ; \bar{x}+\sigma]$ contient environ $68 \%$ des valeurs.
+    \item L'intervalle $[\bar{x}-2 \sigma ; \bar{x}+2 \sigma]$ contient environ $95 \%$ des valeurs.
+    \item L'intervalle $[\bar{x}-3 \sigma ; \bar{x}+3 \sigma]$ contient environ $99 \%$ des valeurs.
+  \end{itemize}
+\end{proposition}
+
+\newpage
+\begin{examples}
+  Les phénomènes suivants suivent une loi de Gauss :
+
+  \begin{itemize}
+    \item Pourcentage de Pile obtenus lors du lancer de 50 pièces;
+    \item La taille des femmes dans la population française;
+    \item Le nombre de votants par bureau de vote lors d'une élection;
+    \item La taille des tiges des coquelicots dans un champ;
+    \item Les notes d'une évaluation.
+  \end{itemize}
+
+  Ainsi, si la moyenne a une évaluation est $\bar{x}=10$ et l'écart-type est $\sigma=3$, cela signifie qu'environ $68 \%$ des notes sont comprises entre 7 et 13 .
+\end{examples}
+
+\begin{proposition}{Loi des Grands Nombres (admise)}{}
+On répète $n$ fois une même expérience aléatoire de façon indépendante et dont la probabilité de succès est $p$. Expérimentalement, plus $n$ sera grand, plus la fréquence du succès se rapprochera de $p$. De plus, on peut considérer que la fréquence de succès suit une loi de Gauss et on a :
+
+$$
+\sigma \simeq \hideM{\sqrt{\frac{p(1-p)}{n}}}
+$$
+  
+\end{proposition}
+
+\begin{remark}
+  En général, lorsque $n \geqslant 25$, on considère que $n$ est suffisament grand pour utiliser la loi des Grands Nombres.
+\end{remark}
+
+\begin{example}
+  On lance 200 fois un dé équilibré à six faces et on compte le nombre de 6 obtenus. Déterminer avec une marge d'erreur de $5 \%$, un intervalle contenant la fréquence de 6 obtenus.
+
+  ~\\Solution :\\
+  Les lancers étant indépendants les uns des autres, on peut utiliser la loi des Grands Nombres. On a $p=\frac{1}{6}$ donc :
+
+  $$
+  \sigma \simeq \sqrt{\frac{\frac{1}{6}\left(1-\frac{1}{6}\right)}{200}} \simeq 0,0264
+  $$
+
+  Par conséquent, cela signifie que l'intervalle suivant contient $95 \%$ des fréquences expérimentales:
+
+  $$
+  [p-2 \sigma ; p+2 \sigma] \simeq\left[\frac{1}{6}-2 \times 0,0264 ; \frac{1}{6}+2 \times 0,0264\right] \simeq[0,114 ; 0,219]
+  $$
+
+  Autrement dit, avec une marge d'erreur de $5 \%$, l'intervalle $[0,114 ; 0,219]$ contient la fréquence de 6 obtenus.
+\end{example}
+
+\newpage
+\section{Variables aléatoires}
+\subsection*{Introduction}
+Une association étudiante souhaite organiser un jeu de dés afin de récolter de l'argent. Les règles du jeu sont les suivantes. Le joueur lance un dé équilibré à six faces.
+
+\begin{itemize}
+  \item Il gagne s'il obtient un 6 et l'association lui donne 12 euros.
+  \item Il perd dans tous les autres cas et il donne 6 euros à l'association.
+\end{itemize}
+
+L'association organise 500 parties de ce jeu. Combien peut-elle espérer gagner en moyenne?
+
+\subsection{Notion de variable aléatoire}
+\begin{definition}{}{}
+  Une \textbf{variable aléatoire} sur $\Omega$ est une fonction définie sur $\Omega$ à valeur dans $\mathbb{R}$.\\
+  À chaque issue de $\Omega$, on associe un nombre réel.
+\end{definition}
+
+\begin{definition}{}{}
+  Soit $x$ un réel. L'événement « \hide{$\mathrm{X}=x »$} est l'ensemble des issues de $\Omega$ auxquelles on associe le réel $x$.
+\end{definition}
+
+\begin{example}
+  Avec l'exemple d'introduction :\\
+  L'univers est $\Omega=\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}$.\\
+  On note $X$ la variable aléatoire correspondant au gain en euros de l'association sur une partie.\\
+  L'événement « $\mathrm{X}=6 »$ correspond aux issues 1, 2, 3, 4, 5.\\
+  L'événement « $\mathrm{X}=-12$ » correspond à l'issue 6.
+\end{example}
+
+\subsection{Loi de probabilité d'une variable aléatoire}
+\begin{definition}{}{}
+  Pour définir la loi de probabilité d'une variable aléatoire X :
+
+  \begin{itemize}
+    \item On liste les valeurs $x_{i}$ possibles pour X ;
+    \item On détermine les probabilités $\mathrm{P}\left(\mathrm{X}=x_{i}\right)$.
+  \end{itemize}
+\end{definition}
+
+\begin{method}{Déterminer la loi de probabilité d'une variable aléatoire}{}
+On forme le tableau suivant :
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x_{i}$ & $x_{1}$ & $x_{2}$ & $\ldots$ & $x_{n}$ \\
+    \hline
+    $P\left(\mathrm{X}=x_{i}\right)$ & $p_{1}$ & $p_{2}$ & $\ldots$ & $p_{n}$ \\
+    \hline
+  \end{tabular}
+\end{center}
+\end{method}
+
+\begin{remark}
+  Dans le tableau, on a :
+
+  $$
+  p_{1}+p_{2}+\ldots+p_{n}=1
+  $$
+\end{remark}
+
+\begin{example}
+  Avec l'exemple d'introduction : Si $X$ est le gain de l'association sur une partie, la loi de probabilité de $X$ est donnée par le tableau suivant :
+
+  \begin{center}
+  \renewcommand{\arraystretch}{2}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      $x_{i}$ & -12 & 6 \\
+      \hline
+      $P\left(\mathrm{X}=x_{i}\right)$ & $\dfrac{1}{6}$ & $\dfrac{5}{6}$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{example}
+
+\subsection{Espérance}
+\begin{definition}{}{}
+  Soit $X$ une variable aléatoire. On appelle \textbf{espérance} de $X$ le nombre :
+
+  $$
+  E(X)=p_{1} x_{1}+p_{2} x_{2}+\ldots+p_{n} x_{n}=\hideM{\sum_{i=1}^{n} p_{i} x_{i}}
+  $$
+\end{definition}
+
+\begin{remark}
+  Le mot «espérance» vient du langage des jeux : lorsque $X$ désigne le gain, $E(X)$ est le gain moyen que peut espérer un joueur lorsque le nombre de parties est important.
+\end{remark}
+
+\begin{example}
+  Avec l'exemple d'introduction :
+
+  $$
+  E(X)=p_{1} x_{1}+p_{2} x_{2}=(-12) \times \frac{1}{6}+6 \times \frac{5}{6}=3
+  $$
+
+  Cela signifie que le jeu est défavorable au joueur et qu'en moyenne, l'association gagnera 3 euros par partie. Par conséquent, sur 500 parties, elle peut espérer gagner environ 1500 euros.
+\end{example}
+
+\subsection{Variance et Écart-type}
+\begin{definition}{}{}
+  Soit $X$ une variable aléatoire.
+
+  \begin{itemize}
+    \item On appelle \textbf{variance} de $X$ le nombre :
+
+  $$
+  V(X)=p_{1}\left(x_{1}-E(X)\right)^{2}+p_{2}\left(x_{2}-E(X)\right)^{2}+\ldots+p_{n}\left(x_{n}-E(X)\right)^{2}=\hideM{\sum_{i=1}^{n} p_{i}\left(x_{i}-E(X)\right)^{2}}
+  $$
+
+    \item On appelle \textbf{écart-type} de $X$ le nombre $\sigma(X)=\hideM{\sqrt{V(X)}}$.
+  \end{itemize}
+\end{definition}
+
+\newpage
+
+\begin{example}
+  Avec l'exemple d'introduction :
+
+  $$
+  \begin{aligned}
+    V(X) & =p_{1}\left(x_{1}-E(X)\right)^{2}+p_{2}\left(x_{2}-E(X)\right)^{2} \\
+    & =\frac{1}{6}(-12-3)^{2}+\frac{5}{6}(6-3)^{2} \\
+    & =45
+  \end{aligned}
+  $$
+
+  On a ainsi, $\sigma(X)=\sqrt{V(X)}=\sqrt{45} \simeq 6,71$.
+\end{example}
+
+\subsection{Transformation affine d'une variable aléatoire}
+\begin{proposition}{}{}
+  Si $X$ est une variable aléatoire prenant les valeurs $x_{1}, x_{2}, \ldots, x_{n}$ avec les probabilités $p_{1}, p_{2}, \ldots, p_{n}$ et si $a$ et $b$ des réels alors la loi de la variable aléatoire $Y=a X+b$ est donnée par le tableau suivant :
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      $y_{i}$ & $a x_{1}+b$ & $a x_{2}+b$ & $\ldots$ & $a x_{n}+b$ \\
+      \hline
+      $P\left(Y=y_{i}\right)$ & $p_{1}$ & $p_{2}$ & $\ldots$ & $p_{n}$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{proposition}
+
+\begin{example}
+  Avec l'exemple d'introduction, supposons que l'on multiplie les gains et les pertes par 2 pour chaque partie, on obtient ainsi une nouvelle variable aléatoire $Y=2 X$.
+\end{example}
+
+\begin{proposition}{}{}
+  Si $X$ est une variable aléatoire et $a$ et $b$ des réels alors
+
+  $$
+  E(a X+b)=\hideM{a E(X)+b}
+  $$
+\end{proposition}
+
+\begin{demo}
+  $$
+  \begin{aligned}
+    E(a X+b) & =p_{1}\left(a x_{1}+b\right)+p_{2}\left(a x_{2}+b\right)+\ldots+p_{n}\left(a x_{n}+b\right) \\
+    & =p_{1} a x_{1}+p_{1} b+p_{2} a x_{2}+p_{2} b+\ldots+p_{n} a x_{n}+p_{n} b \\
+    & =a\left(p_{1} x_{1}+p_{2} x_{2}+\ldots+p_{n} x_{n}\right)+\left(p_{1}+p_{2}+\ldots+p_{n}\right) b \\
+    & =a E(X)+b \quad\left(\operatorname{car} p_{1}+p_{2}+\ldots+p_{n}=1\right)
+  \end{aligned}
+  $$
+\end{demo}
+
+\begin{proposition}{}{}
+  Si $X$ est une variable aléatoire et $a$ et $b$ des réels alors
+
+  $$
+  V(a X+b)=\hideM{a^{2} V(X)}
+  $$
+\end{proposition}
+\newpage
+\begin{demo}
+  $V(a X+b)$\\
+  $=p_{1}\left(a x_{1}+b-E(a X+b)\right)^{2}+p_{2}\left(a x_{2}+b-E(a X+b)\right)^{2}+\ldots+p_{n}\left(a x_{n}+b-E(a X+b)\right)^{2}$\\
+  $=p_{1}\left(a x_{1}+b-a E(X)-b\right)^{2}+p_{2}\left(a x_{2}+b-a E(X)-b\right)^{2}+\ldots+p_{n}\left(a x_{n}+b-a E(X)-b\right)^{2}$\\
+  $=p_{1}\left(a x_{1}-a E(X)\right)^{2}+p_{2}\left(a x_{2}-a E(X)\right)^{2}+\ldots+p_{n}\left(a x_{n}-a E(X)\right)^{2}$\\
+  $=p_{1}\left(a\left(x_{1}-E(X)\right)\right)^{2}+p_{2}\left(a\left(x_{2}-E(X)\right)\right)^{2}+\ldots+p_{n}\left(a\left(x_{n}-E(X)\right)\right)^{2}$\\
+  $=a^{2}\left(p_{1}\left(x_{1}-E(X)\right)^{2}+p_{2}\left(x_{2}-E(X)\right)^{2}+\ldots+p_{n}\left(x_{n}-E(X)\right)^{2}\right)$\\
+  $=a^{2} V(X)$
+\end{demo}
+
+\begin{proposition}{}{}
+  Si $X$ est une variable aléatoire et $a$ et $b$ des réels alors
+
+  $$
+  \sigma(a X+b)=|a| \sigma(X)
+  $$
+\end{proposition}
+
+\begin{demo}
+  $$
+  \begin{aligned}
+    \sigma(a X+b) & =\sqrt{V(a X+b)} \\
+    & =\sqrt{a^{2} V(X)} \\
+    & =\sqrt{a^{2}} \sqrt{V(X)} \\
+    & =|a| \sigma(X)
+  \end{aligned}
+  $$
+\end{demo}
+
+\begin{savoir}{}{}
+  \begin{itemize}
+    \item Modéliser une situation à l'aide d'une variable aléatoire.
+    \item Déterminer la loi de probabilité d'une variable aléatoire.
+    \item Calculer l'espérance, la variance et l'écart-type d'une variable aléatoire.
+    \item Interpréter l'espérance d'une variable aléatoire.
+  \end{itemize}
+\end{savoir}
+
+\end{document}

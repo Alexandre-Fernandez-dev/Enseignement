@@ -1,0 +1,327 @@
+% Sujet de contrôle généré automatiquement : mêmes mises en page et formulations, valeurs changées.
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tasks}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage[export]{adjustbox}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+\usepackage[lastpage,user]{zref}
+\setlength{\parindent}{0cm}
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+\geometry{left=1.5cm,right=1.5cm,top=1cm,bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\ChapitreCourt}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (A) -- 55min}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+\large
+
+\textbf{Nom et prénom :}\dotfill
+
+\begin{exercice}
+  En utilisant la définition de croissance ou de décroissance, déterminer si les fonctions suivantes sont croissantes ou décroissantes.
+  \begin{tasks}(2)
+    \task $f(x)=5x-8$
+    \task $g(x)=-2x^2+6$
+  \end{tasks}
+  \begin{center}
+    \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+        \vspace{18em}
+    }}
+  \end{center}
+\end{exercice}
+
+\begin{exercice}
+  Dresser les tableaux de signes et de variation des fonctions suivantes.
+
+  \noindent
+  \begin{minipage}{0.5\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+          width=10cm, height=7cm,
+          axis lines=middle,
+          xlabel={$x$}, ylabel={$y$},
+          xmin=-8, xmax= 8,
+          ymin=-5, ymax= 6,
+          grid=both,
+          %minor tick num=1,
+          every major grid/.style={gray!30},
+          every minor grid/.style={gray!10},
+          xtick={-7,-6,...,8},
+          xticklabels={-7,...,-2,,,1,...,8},
+          ytick={-5,-4,...,6},
+          yticklabels={-5,...,-1,,1,...,6},
+        ]
+        % 1) La spline lissée passant par les points-clés
+        \addplot [blue, very thick, smooth, tension=0.8]
+        coordinates {
+          (-7,  5)  % point de gauche
+          (-2, -3)  % minimum local
+          ( 2,  3)  % maximum local
+          ( 5,  1)  % point intermédiaire
+          ( 8,  3)  % point de droite
+        };
+      \end{axis}
+    \end{tikzpicture}
+  \end{minipage}\hfill
+  \begin{minipage}{0.5\linewidth}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+          width=10cm, height=7cm,
+          axis lines=middle,
+          xlabel={$x$}, ylabel={$y$},
+          xmin=-8, xmax= 8,
+          ymin=-5, ymax= 6,
+          grid=both,
+          %minor tick num=1,
+          every major grid/.style={gray!30},
+          every minor grid/.style={gray!10},
+          %xtick={-7,-6,...,8},
+          xtick={-7,...,8},
+          xticklabels={-7,...,-2,,,1,...,8},
+          ytick={-5,-4,...,6},
+          yticklabels={-5,...,-1,,1,...,6},
+        ]
+        % 1) La spline lissée passant par les points-clés
+        \addplot [blue, very thick, smooth, tension=0.8]
+        coordinates {
+          (-7, -5)
+          (-4,  1)
+          ( 2, -2)
+          ( 5, -1)
+          ( 7, -4)
+        };
+      \end{axis}
+    \end{tikzpicture}
+  \end{minipage}
+  \begin{center}
+    \framebox[1\linewidth]{\parbox{0.92\linewidth}{
+        \vspace{16em}
+    }}
+  \end{center}
+\end{exercice}
+
+\newpage
+
+\begin{exercice}
+    On donne ci-dessous le tableau de variation de deux fonctions $f$ et $g$.
+
+    \noindent
+    \begin{minipage}[t]{0.45\linewidth}
+      \centering
+      % x dans [-5,5] et f(x) dans [-5,5]
+      \begin{tikzpicture}
+        \tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$f(x)$/1.3}{-5,-2,1,4,5}
+        \tkzTabVar{-/ -3,+/ 0,-/ -2,+/ 5,-/ 1}
+      \end{tikzpicture}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.45\linewidth}
+      \centering
+      % x dans [-5,5] et g(x) dans [-5,5]
+      \begin{tikzpicture}
+        \tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$g(x)$/1.3}{-5,0,2,3,5}
+        \tkzTabVar{+/ 2,-/ -1,+/ 3,-/ 0,+/ 4}
+      \end{tikzpicture}
+    \end{minipage}
+  
+    \vspace{1ex}
+    \begin{enumerate}[label=\arabic*.]
+      \item Comparer, si c’est possible, les images suivantes avec un signe d’inégalité.
+      \begin{tasks}(4)
+      \task $f(-4)\;\rule{1em}{.15mm}\;f(-3)$  
+      \task $f(0)\;\rule{1em}{.15mm}\;f(1)$  
+      \task $f(-2{,}5)\;\rule{1em}{.15mm}\;f(4{,}2)$  
+      \task $f(-3{,}5)\;\rule{1em}{.15mm}\;f(2{,}1)$  
+      \task $g(1)\;\rule{1em}{.15mm}\;g(-4)$  
+      \task $g(0)\;\rule{1em}{.15mm}\;g(1)$  
+      \task $g(-4)\;\rule{1em}{.15mm}\;g(3{,}3)$  
+      \task $g(1)\;\rule{1em}{.15mm}\;g(4)$
+      \end{tasks}
+  % On donne ci-dessous le tableau de variation de deux fonctions $f$ et $g$.
+
+  % \noindent
+  % \begin{minipage}[t]{0.45\linewidth}
+  %   \centering
+  %   \begin{tikzpicture}
+  %     \tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$f(x)$/1.3}{-5,-2,1,4,6}
+  %     \tkzTabVar{-/ -3,+/ 1,-/ -2,+/ 5,-/ 0}
+  %   \end{tikzpicture}
+  % \end{minipage}\hfill
+  % \begin{minipage}[t]{0.45\linewidth}
+  %   \centering
+  %   \begin{tikzpicture}
+  %     \tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$g(x)$/1.3}{-4,0,2,3,7}
+  %     \tkzTabVar{+/ 2,-/ -1,+/ 3,-/ 0,+/ 4}
+  %   \end{tikzpicture}
+  % \end{minipage}
+
+  % \vspace{1ex}
+  % \begin{enumerate}[label=\arabic*.]
+  %   \item Comparer, si c’est possible, les images suivantes avec un signe d’inégalité.
+  %     \begin{tasks}(4)
+  %       \task $f(-5)\;\rule{1em}{.15mm}\;f(-2)$
+  %       \task $f(1)\;\rule{1em}{.15mm}\;f(4)$
+  %       \task $f(6)\;\rule{1em}{.15mm}\;f(1)$
+  %       \task $f(-2)\;\rule{1em}{.15mm}\;f(6)$
+  %       \task $g(-4)\;\rule{1em}{.15mm}\;g(0)$
+  %       \task $g(2)\;\rule{1em}{.15mm}\;g(3)$
+  %       \task $g(7)\;\rule{1em}{.15mm}\;g(2)$
+  %       \task $g(0)\;\rule{1em}{.15mm}\;g(7)$
+  %     \end{tasks}
+    \item Tracer une représentation possible des fonctions $f$ et $g$.
+      \begin{center}
+        \vspace{-1em}
+        \begin{tikzpicture}[scale=3]
+          \draw[step=.5cm,gray,thin] (-1.4,-1.4) grid (1.4,1.4);
+          \draw[step=.5cm,gray,very thin, shift={(0.25, 0.25)}] (-1.65,-1.65) grid (1.15,1.15);
+          \draw[step=.25cm,gray,very thin, dashed, shift={(0.125, 0.125)}] (-1.525,-1.525) grid (1.275,1.275);
+          \draw[->] (-1.5,0) -- (1.5,0) coordinate (x axis)node[right]{$x$};
+          \draw[->] (0,-1.5) -- (0,1.5) coordinate (y axis)node[above]{$y$};
+          \foreach \x/\xtext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+          \draw (\x*0.25 cm,1pt) -- (\x*0.25 cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+          \foreach \y/\ytext in {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
+          \draw (1pt,\y*0.25 cm) -- (-1pt,\y*0.25 cm) node[anchor=east,fill=white] {$\ytext$};
+        \end{tikzpicture}
+      \end{center}
+  \end{enumerate}
+\end{exercice}
+
+\vspace{-1em}
+\begin{exercice}
+  Les fonctions ci-dessous sont définies sur $\mathbb{R}$.
+  \begin{enumerate}
+    \item Montrer que la fonction $h$ définie par $h(x)=x^2-8$ admet un minimum.
+    \item Montrer que la fonction $k$ définie par $k(x)=-4(x-2)^2+5$ admet un maximum.
+  \end{enumerate}
+\end{exercice}
+
+\begin{center}
+\framebox[1\linewidth]{\parbox{0.92\linewidth}{
+    \vspace{17em}
+}}
+\end{center}
+
+\newpage
+\section*{Exercice 1}
+Déterminer si les fonctions suivantes sont croissantes ou décroissantes.
+\begin{enumerate}
+  \item $f(x)=5x-8$.\\
+    Pour $x_1<x_2$, on a
+    \[
+      f(x_2)-f(x_1)=5(x_2-x_1)>0
+    \]
+    donc $f$ est \emph{strictement croissante} sur $\mathbb{R}$.
+  \item $g(x)=-2x^2+6$.\\
+    Pour $x_1<x_2$,
+    \[
+      g(x_2)-g(x_1)
+      =-2(x_2^2-x_1^2)
+      =-2(x_2-x_1)(x_2+x_1).
+    \]
+    Comme le signe de $x_2+x_1$ dépend des valeurs, on ne peut pas conclure un sens de variation unique sur $\mathbb{R}$.\\
+    En fait,
+    \[
+      g'(x)=-4x,
+    \]
+    qui change de signe en $x=0$, donc $g$ n'est ni monotone croissante ni monotone décroissante sur tout $\mathbb{R}$.
+\end{enumerate}
+
+\section*{Exercice 2}
+Dresser les tableaux de signes et de variation des fonctions représentées ci-dessous.
+
+\subsection*{(a)}
+% \begin{tkzTabInit}{$x$ /1,$y=f(x)$ /1,$\text{var}(f)$ /2}{$-7$,$-2$,$2$,$5$,$8$}
+% \tkzTabLine{ , +, z, –, , +, , –, , + }
+% \tkzTabVar{ +/ $5$ , –/ $-3$ , +/ $3$ , –/ $1$ , +/ $3$ }
+% \end{tkzTabInit}
+
+\noindent\textbf{Interprétation :}
+\begin{itemize}
+  \item Zéros de $f$ (approx.) en $x\approx -5$ et $x\approx 0$.
+  \item $f$ décroît de $x=-7$ à $x=-2$, croît de $-2$ à $2$, décroît de $2$ à $5$, croît de $5$ à $8$.
+  \item Signe : $f(x)>0$ sur $(-7,-5)\cup(0,2)\cup(5,8)$, $f(x)<0$ sur $(-5,0)\cup(2,5)$.
+\end{itemize}
+
+\subsection*{(b)}
+% \begin{tkzTabInit}{$x$ /1,$y=g(x)$ /1,$\text{var}(g)$ /2}{$-7$,$-4$,$2$,$5$,$7$}
+% \tkzTabLine{ , –, z, +, z, –, , –, }
+% \tkzTabVar{ –/ $-5$ , +/ $1$ , –/ $-2$ , +/ $-1$ , –/ $-4$ }
+% \end{tkzTabInit}
+
+\noindent\textbf{Interprétation :}
+\begin{itemize}
+  \item Zéros de $g$ (approx.) en $x\approx -5.5$ et $x\approx -1$.
+  \item $g$ croît de $-7$ à $-4$, décroît de $-4$ à $2$, croît de $2$ à $5$, décroît de $5$ à $7$.
+  \item Signe : $g(x)<0$ sur $(-7,-5.5)\cup(-1,2)\cup(5,7)$, $g(x)>0$ sur $(-5.5,-1)\cup(2,5)$.
+\end{itemize}
+
+\section*{Exercice 3}
+On donne le tableau de variation de deux fonctions $f$ et $g$.
+\[
+\begin{array}{c|ccccc}
+x      & -5 & -2 & 1 & 4 & 5 \\ \hline
+f(x)   & -3 & 0  & -2 & 5 & 1
+\end{array}
+\quad
+\begin{array}{c|ccccc}
+x      & -5 & 0 & 2 & 3 & 5 \\ \hline
+g(x)   & 2  & -1 & 3 & 0 & 4
+\end{array}
+\]
+\begin{enumerate}[label=\arabic*.]
+  \item Comparer, si possible, les images suivantes :
+  \begin{enumerate}
+    \item $f(-4)\;<\;f(-3)$ car pour $x$ dans $[-5,-2]$, $f$ est croissante.
+    \item $f(0)\;>\;f(1)$ car pour $x$ dans $[-2,1]$, $f$ est décroissante.
+    \item $f(-2.5)\;<\;f(4.2)$ car $f(-2.5)\in[-5,0]$ croît jusqu'à $0$, puis décroît et recroît jusqu'à $5$ ; néanmoins $f(-2.5)<0<f(4.2)$.
+    \item $f(-3.5)\;<\;f(2.1)$ car $f(-3.5)<0$ et $f(2.1)>0$.
+    \item $g(1)\;<\;g(-4)$ car $g(-4)=2>g(0)=-1<g(1)=3$, donc $g(1)>g(-4)$.
+    \item $g(0)\;<\;g(1)$ car sur $[-5,0]$, $g$ décroît de $2$ à $-1$, puis croît de $-1$ à $3$.
+    \item $g(-4)\;>\;g(3.3)$ car $g(-4)=2>g(3.3)\approx0$.
+    \item $g(1)\;>\;g(4)$ car $g(4)$ est entre $g(3)=0$ et $g(5)=4$, soit positif mais $g(1)=3<4$, donc $g(1)<g(4)$.
+  \end{enumerate}
+  \item Tracer une représentation possible de $f$ et $g$ sur les axes fournis correspondant aux tableaux ci-dessus.  
+        (\emph{voir graphique apparié au tableau de variation})
+\end{enumerate}
+
+\section*{Exercice 4}
+\begin{enumerate}
+  \item $h(x)=x^2-8$.\\
+    On reconnait une parabole d'équation $x^2+c$, de coefficient devant $x^2$ positif, donc $h$ admet un \emph{minimum} en son sommet $x=0$ et
+    \[
+      h(0)=0^2-8=-8.
+    \]
+  \item $k(x)=-4(x-2)^2+5$.\\
+    C'est une parabole d'ouverture vers le bas (coefficient $-4<0$), donc $k$ admet un \emph{maximum} en $x=2$ de valeur
+    \[
+      k(2)=-4\cdot0^2+5=5.
+    \]
+\end{enumerate}
+
+\end{document}

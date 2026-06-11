@@ -1,0 +1,222 @@
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (A) -- 1h}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+
+\large
+
+\begin{exercice}
+  En utilisant la définition d’application linéaire, déterminer lesquelles des applications suivantes sont linéaires.
+  \begin{tasks}(2)
+    \task[]
+    \[
+      f :
+      \begin{cases}
+        \mathbb{R}^2\to\mathbb{R}^2\\
+        \dbinom{x}{y}\mapsto
+        \begin{pmatrix}
+          3x + 2y\\[3pt]
+          x - 2y
+        \end{pmatrix}
+      \end{cases}
+    \]
+    \task[]
+    \[
+      g :
+      \begin{cases}
+        \mathbb{R}^2\to\mathbb{R}^2\\
+        \dbinom{x}{y}\mapsto
+        \begin{pmatrix}
+          x - y\\[3pt]
+          x^2 + 2y
+        \end{pmatrix}
+      \end{cases}
+    \]
+  \end{tasks}
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  On considère l’application qui, à un vecteur du plan $\vec v$, associe le vecteur $-3\,\vec v$. Déterminer si c’est une application linéaire.
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  Déterminer le produit des deux matrices suivantes :
+  \[
+    A=
+    \begin{pmatrix}
+      2 & 1 & -2\\[3pt]
+      0 & 3 & 1\\[3pt]
+      -1 & 2 & 0
+    \end{pmatrix}
+    \quad\text{et}\quad
+    B=
+    \begin{pmatrix}
+      4 & 1 & 2\\[3pt]
+      5 & 0 & 3\\[3pt]
+      2 & 1 & 4
+    \end{pmatrix}.
+  \]
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  Montrer que tout vecteur $\vec v\in\mathbb{R}^2$ admet un unique antécédent par l'application
+  \begin{equation*}
+    f : \left \{
+      \begin{array}{ccc}
+        \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+        \dbinom{x}{y} &\longmapsto &
+        \begin{pmatrix}
+          3x +  y\\[3pt]
+          2x - 4y
+        \end{pmatrix}.
+      \end{array} \right.
+  \end{equation*}
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item En utilisant la notion de déterminant, indiquer si les matrices suivantes sont inversibles, et dans ce cas, déterminer leur inverse.
+      \begin{tasks}(2)
+        \task[]
+        $
+        A=
+        \begin{pmatrix}2 & 4\\[3pt]1&-1
+        \end{pmatrix}
+        $
+        \task[]
+        $
+        B=
+        \begin{pmatrix}6 & -4\\[3pt]3&\,-2
+        \end{pmatrix}
+        $
+      \end{tasks}
+    \item En utilisant l'algorithme du pivot de Gauss, déterminer, si possible, l'inverse de
+      \[
+        C=
+        \begin{pmatrix}
+          1 & 2 & 0\\[3pt]
+          1 & 0 & 3\\[3pt]
+          -1 & 4 & 1
+        \end{pmatrix}.
+      \]
+  \end{enumerate}
+\end{exercice}
+
+\newpage
+
+\section*{Exercice 1}
+On étudie deux applications $f,g:\mathbb R^2\to\mathbb R^2$ définies par :
+\[f(x,y)=\bigl(3x+2y,\,x-2y\bigr),\quad g(x,y)=\bigl(x-y,\,x^2+2y\bigr).\]
+\begin{itemize}
+  \item $f$ est linéaire car pour tous $u=(x,y)$ et $v=(x',y')$ et tout scalaire $\lambda$, on vérifie
+  \[f(u+v)=f(x+x',y+y')=(3(x+x')+2(y+y'),\,(x+x')-2(y+y'))
+    =(3x+2y,\,x-2y)+(3x'+2y',\,x'-2y')=f(u)+f(v),\]
+  \[f(\lambda u)=f(\lambda x,\lambda y)=(3\lambda x+2\lambda y,\,\lambda x-2\lambda y)
+    =\lambda(3x+2y,\,x-2y)=\lambda f(u).\]
+  \item $g$ n'est pas linéaire car le deuxième coordonnée contient le terme $x^2$, qui ne respecte ni l'additivité ni l'homogénéité.
+\end{itemize}
+
+\section*{Exercice 2}
+L'application $$T:\vec v\mapsto -3\vec v$$ est une homothétie de rapport $-3$. Pour tous vecteurs $u,v$ et tout scalaire $\lambda$,
+$$T(u+v)=-3(u+v)=-3u-3v=T(u)+T(v),$$
+$$T(\lambda u)=-3(\lambda u)=\lambda(-3u)=\lambda T(u).$$
+Donc $T$ est linéaire.
+
+\section*{Exercice 3}
+On calcule le produit $AB$ pour
+$$A=\begin{pmatrix}2&1&-2\\0&3&1\\-1&2&0\end{pmatrix},\quad B=\begin{pmatrix}4&1&2\\5&0&3\\2&1&4\end{pmatrix}.$$ 
+Par multiplication ligne-colonne :
+$$AB=\begin{pmatrix}
+2\cdot4+1\cdot5+(-2)\cdot2 & 2\cdot1+1\cdot0+(-2)\cdot1 & 2\cdot2+1\cdot3+(-2)\cdot4 \\
+0\cdot4+3\cdot5+1\cdot2 & 0\cdot1+3\cdot0+1\cdot1 & 0\cdot2+3\cdot3+1\cdot4 \\
+(-1)\cdot4+2\cdot5+0\cdot2 & (-1)\cdot1+2\cdot0+0\cdot1 & (-1)\cdot2+2\cdot3+0\cdot4
+\end{pmatrix}
+=\begin{pmatrix}9&0&-1\\17&1&13\\6&-1&4\end{pmatrix}.
+$$
+
+\section*{Exercice 4}
+On considère
+$$f:\mathbb R^2\to\mathbb R^2,\quad f(x,y)=\bigl(3x+y,\,2x-4y\bigr).$$
+La matrice associée est
+$$M=\begin{pmatrix}3&1\\2&-4\end{pmatrix},\quad\det(M)=3\times(-4)-1\times2=-14\neq0.$$
+Ainsi $M$ est inversible, donc $f$ est bijective et admet un unique antécédent pour tout $\vec v\in\mathbb R^2$. 
+On peut même écrire sa matrice inverse
+$$M^{-1}=\frac1{-14}\begin{pmatrix}-4&-1\\-2&3\end{pmatrix}
+=\begin{pmatrix}2/7&1/14\\1/7&-3/14\end{pmatrix}.
+$$
+
+\section*{Exercice 5}
+\begin{enumerate}
+  \item On utilise le déterminant pour l'inversibilité :
+  $$A=\begin{pmatrix}2&4\\1&-1\end{pmatrix},\quad\det(A)=2(-1)-4\cdot1=-6\neq0,$$
+  donc $A$ est inversible et
+  $$A^{-1}=\frac1{-6}\begin{pmatrix}-1&-4\\-1&2\end{pmatrix}
+    =\begin{pmatrix}1/6&2/3\\1/6&-1/3\end{pmatrix}.
+  $$
+  $$B=\begin{pmatrix}6&-4\\3&-2\end{pmatrix},\quad\det(B)=6(-2)-(-4)3=-12+12=0,$$
+  donc $B$ n'est pas inversible.
+  
+  \item On cherche $C^{-1}$ pour
+  $$C=\begin{pmatrix}1&2&0\\1&0&3\\-1&4&1\end{pmatrix}.$$
+  En appliquant le pivot de Gauss sur l'augmentée $(C\mid I_3)$, on obtient finalement
+  $$C^{-1}=\begin{pmatrix}3/5&1/10&-3/10\\1/5&-1/20&3/20\\-1/5&3/10&1/10\end{pmatrix}.\qedhere$$
+\end{enumerate}
+
+\end{document}

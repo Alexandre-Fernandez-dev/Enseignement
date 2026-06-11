@@ -231,4 +231,208 @@
   
 \end{exercice}
 
+%% !TeX program = xelatex
+%\documentclass[12pt,a4paper]{article}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[french]{babel}
+%\usepackage{amsmath,amssymb,amsthm}
+%\usepackage{geometry}
+%\geometry{margin=2.5cm}
+%\title{\textbf{Corrigé du Contrôle de Mathématiques}}
+%\author{}
+%\date{}
+%
+%\newtheorem{theoreme}{Théorème}
+%\newtheorem{proposition}{Proposition}
+%\newtheorem{lemme}{Lemme}
+%\newtheorem{exercice}{Exercice}
+%
+%\begin{document}
+%\maketitle
+\newpage
+
+\begin{exercice}[1]
+\begin{enumerate}
+ \item Déterminer le nombre de diviseurs de 72.
+
+ On factorise :
+ \[72 = 2^3 \times 3^2.\]
+ Le nombre de diviseurs est
+ \[(3+1)\times(2+1)=4\times3=12.
+ \]
+ \item Déterminer l'ensemble des diviseurs de 1309.
+
+ On cherche la décomposition en facteurs premiers de 1309.
+ Par essais, on trouve
+ \[1309 = 7 \times 11 \times 17.
+ \]
+ Les diviseurs sont de la forme $7^\alpha11^\beta17^\gamma$ avec $\alpha,\beta,\gamma\in\{0,1\}$. Il y en a $2^3=8$ :
+ \[1,\;7,\;11,\;17,\;7\cdot11=77,\;7\cdot17=119,\;11\cdot17=187,\;7\cdot11\cdot17=1309.\]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[2]
+\begin{enumerate}
+ \item Dans chaque cas, déterminer le reste de la division euclidienne de~$n$ par~$a$ :
+ \begin{enumerate}
+  \item $n=31^{19}$ et $a=17$.
+
+  Comme $31\equiv31-17=14\pmod{17}$, donc
+  \[31^{19}\equiv14^{19}\pmod{17}.\]
+  Or $14\equiv-3\pmod{17}$, et $-3$ et 17 sont premiers entre eux. Par petit théorème de Fermat,
+  \[(-3)^{16}\equiv1\pmod{17},\quad(-3)^{19}=(-3)^{16}\cdot(-3)^3\equiv1\cdot(-27)\equiv-27\equiv7\pmod{17}.\]
+  Donc le reste est \boxed{7}.
+
+  \item $n=15^{100}$ et $a=31$.
+
+  On a $15$ et $31$ premiers entre eux. Par Fermat,
+  \[15^{30}\equiv1\pmod{31}.\]
+  Écrire $100=3\times30+10$, donc
+  \[15^{100}=(15^{30})^3\cdot15^{10}\equiv1^3\cdot15^{10}\pmod{31}.\]
+  Il reste à calculer $15^{10}\bmod31$. On peut itérer les carrés :
+  \[15^2=225\equiv225-7\times31=225-217=8,\]
+  \[15^4=(15^2)^2\equiv8^2=64\equiv64-2\times31=2,\]
+  \[15^8=(15^4)^2\equiv2^2=4,\]
+  puis
+  \[15^{10}=15^8\cdot15^2\equiv4\times8=32\equiv1\pmod{31}.\]
+  Le reste est \boxed{1}.
+
+  \item $n=3^{40}$ et $a=55$.
+
+  Comme $55=5\times11$ non premier, on peut calculer séparément modulo 5 et 11, puis reconstituer par CRT ou faire directement la réduction itérative.
+  \begin{itemize}
+    \item Modulo 5 : $3^4\equiv81\equiv1\pmod5$ donc $3^{40}=(3^4)^{10}\equiv1^{10}=1\pmod5$.
+    \item Modulo 11 : $3^{10}\equiv1\pmod{11}$ (Fermat), donc $3^{40}=(3^{10})^4\equiv1^4=1\pmod{11}$.
+  \end{itemize}
+  Ainsi $3^{40}\equiv1$ modulo 5 et 11, donc $3^{40}\equiv1$ modulo 55. Le reste est \boxed{1}.
+ \end{enumerate}
+
+ \item Déterminer le chiffre des unités de $7^{120}$.
+
+ On travaille en base 10, on cherche $7^{120}\bmod10$. Comme $\varphi(10)=4$, et $7$ est premier avec 10,
+ \[7^4\equiv1\pmod{10}.\]
+ Écrire $120=4\times30$, donc $7^{120}=(7^4)^{30}\equiv1^{30}=1\pmod{10}$. Le chiffre des unités est \boxed{1}.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[3]
+Montrer que pour tout entier $n\in\mathbb{N}$, $n^{11}-n$ est divisible par 33.
+
+On observe que $33=3\times11$. Il suffit de montrer que $n^{11}-n$ est divisible par 3 et par 11.
+\begin{itemize}
+  \item Modulo 3, par Fermat, pour $n\not\equiv0\pmod3$, $n^2\equiv1$, donc $n^{11}=n^{2\times5+1}\equiv1^5\cdot n=n\pmod3$. Pour $n\equiv0$, c'est trivial. Ainsi $n^{11}-n\equiv0\pmod3$.
+  \item Modulo 11, par Fermat, pour $n\not\equiv0\pmod{11}$, $n^{10}\equiv1\pmod{11}$ donc $n^{11}=n^{10}\cdot n\equiv n\pmod{11}$. Pour $n\equiv0$, trivial. Donc $n^{11}-n\equiv0\pmod{11}$.
+\end{itemize}
+Par le théorème des restes chinois, $n^{11}-n$ est divisible par $3\times11=33$.
+\end{exercice}
+
+\begin{exercice}[4]
+\begin{enumerate}
+ \item Montrer que pour tous $x,y\in\mathbb{R}$,
+ \[x^4+4y^4=(x^2-2xy+2y^2)\,(x^2+2xy+2y^2).\]
+
+On développe :
+\begin{align*}
+(x^2-2xy+2y^2)&(x^2+2xy+2y^2)\\
+&=x^4+(2xy-2xy)x^2+(2y^2+2y^2)x^2 -4x y^3+4y^4\\
+&=x^4+4y^4.
+\end{align*}
+(Les termes en $x^3y$ et $xy^3$ se compensent.)
+
+ \item Déterminer l'ensemble des nombres premiers de la forme $n^4+4$, où $n$ est un entier.
+
+ D'après la factorisation précédente, pour $n\ne0$, $n^4+4=(n^2-2n+2)(n^2+2n+2)$ est un produit de deux entiers >1, donc non premier sauf si l'un des facteurs vaut 1. Or $n^2-2n+2=1\iff n^2-2n+1=0\iff(n-1)^2=0\iff n=1$. Pour $n=1$, $1^4+4=5$ premier. Pour $n=0$, $0^4+4=4$ non premier. Donc l'unique nombre premier est $5$.
+
+ \item Montrer que l'entier $81+4^{285}$ n'est pas premier. Pourquoi n'est-il pas envisageable de répondre à cette question en utilisant simplement un test classique de primalité tel que celui présenté dans le cours ?
+
+ On remarque que
+ \[81+4^{285}=3^4+4(4^{284})=(3^2)^2+4(2^{568}).\]
+ Appliquons la même factorisation avec $x=3^2$ et $y=2^{142}$ :
+ \[x^4+4y^4=(x^2-2xy+2y^2)(x^2+2xy+2y^2).\]
+ Ici,
+ \[x^2=9^2=81,\quad2xy=2\cdot9\cdot2^{142},\quad2y^2=2(2^{284})=2^{285},\]
+ les deux facteurs sont >1, donc $81+4^{285}$ est composé.
+
+ Il est impossible de calculer directement $81+4^{285}$ (nombre énorme) et d'appliquer un test classique de primalité en pratique, car la taille en bits de $4^{285}$ est trop grande pour un calcul manuel ou élémentaire.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[5]
+\textbf{Théorème (Cas de deux équations)}\\
+Soient $m_1$ et $m_2$ deux entiers supérieurs ou égaux à 2, premiers entre eux, et $a_1,a_2$ deux entiers. Le système
+\[\begin{cases}x\equiv a_1\; (\bmod\,m_1),\\x\equiv a_2\; (\bmod\,m_2)\end{cases}\]
+admet une unique solution modulo $M=m_1m_2$, donnée par
+\[x\equiv a_1\,m_2\,(m_2^{-1}\bmod m_1)+a_2\,m_1\,(m_1^{-1}\bmod m_2)\pmod M.\]
+
+\textbf{Partie A: Étude de l'énoncé}
+\begin{enumerate}
+ \item Vérifier que la solution proposée est bien solution du système.
+
+ On vérifie les congruences en réduisant chaque terme modulo $m_1$ et $m_2$ en utilisant les inverses modulaires.
+
+ \item Démontrer l'unicité de cette solution.
+
+ Si $x$ et $x'$ sont deux solutions, alors $x\equiv x'\pmod{m_1}$ et $x\equiv x'\pmod{m_2}$, donc $x\equiv x'\pmod{m_1m_2}$ par coprimalité.
+\end{enumerate}
+
+\textbf{Partie B: Application}
+On souhaite déterminer le reste de la division euclidienne de $x=13^{23}$ par 77.
+\begin{enumerate}
+ \item Déterminez les restes de la division de $x$ par 7 et par 11.
+
+ - Modulo 7 : $13\equiv-1$, donc $13^{23}\equiv(-1)^{23}=-1\equiv6\pmod7$.\\
+ - Modulo 11: $13\equiv2$, et $2^{10}\equiv1\pmod{11}$, $23=2\times10+3$, donc
+ \[13^{23}\equiv2^{23}=2^{20}2^3\equiv1\cdot8=8\pmod{11}.\]
+
+ \item À l'aide du théorème des restes chinois, déduisez le reste modulo 77.
+
+ On résout
+ \[\begin{cases}x\equiv6\pmod7,\\x\equiv8\pmod{11}.
+ \end{cases}\]
+ Ici $m_1=7,m_2=11,M=77$. On calcule les inverses :
+ \[11^{-1}\bmod7: 11\equiv4,\;4y\equiv1\pmod7\implies y=2,\]
+ \[7^{-1}\bmod11:7y\equiv1\pmod{11}\implies y=8.\]
+ La solution est
+ \[x\equiv6\cdot11\cdot2+8\cdot7\cdot8=132+448=580\equiv580-7\times77=580-539=41\
+ \pmod{77}.\]
+ Le reste est \boxed{41}.
+\end{enumerate}
+
+\textbf{Partie C: Trois équations et plus}
+On considère maintenant le système
+\[\begin{cases}x\equiv a_1\; (\bmod m_1),\\x\equiv a_2\; (\bmod m_2),\\x\equiv a_3\; (\bmod m_3).
+\end{cases}\]
+On cherche une solution de la forme
+\[x\equiv a_1X_1+a_2X_2+a_3X_3.\]
+\begin{enumerate}
+ \item Justifier que l'on peut écrire
+ \[X_1=m_2m_3Y_1,\;X_2=m_1m_3Y_2,\;X_3=m_1m_2Y_3\]
+pour des entiers $Y_1,Y_2,Y_3$ à déterminer.
+
+ Chaque terme $X_i$ doit être multiple des deux modules autres que $m_i$ pour annuler les contributions correspondantes.
+
+ \item En supposant que $m_1,m_2,m_3$ sont deux à deux premiers entre eux, en déduire l'expression de $Y_1,Y_2,Y_3$.
+
+ On procède de même qu'au cas $n=2$: on cherche les inverses de $M_i=m_i^{-1}\bmod(m/m_i)$ etc.
+
+ \item Considérons le système :
+ \[\begin{cases}x\equiv2\pmod5,\\x\equiv1\pmod3,\\x\equiv6\pmod7.
+ \end{cases}\]
+ Déterminez son unique solution modulo 105.
+
+ On calcule $M=5\times3\times7=105$, $M_1=21,M_2=35,M_3=15$. Les inverses :
+ \[21^{-1}\bmod5=1,\;35^{-1}\bmod3=2,\;15^{-1}\bmod7=1.\]
+ Donc
+ \[x\equiv2\cdot21\cdot1+1\cdot35\cdot2+6\cdot15\cdot1=42+70+90=202\equiv202-1\times105=97\pmod{105}.\]
+ Le reste est \boxed{97}.
+
+ \item[(Bonus)] En notant $M=m_1m_2\cdots m_n$ et $M_i=\tfrac{M}{m_i}$, donnez l'expression générale du 
+ théorème des restes chinois pour un système de $n$ équations.
+
+ La solution s'écrit
+ \[x\equiv\sum_{i=1}^n a_i\,M_i\,\bigl(M_i^{-1}\bmod m_i\bigr)\pmod{M}.\]
+\end{enumerate}
+\end{exercice}
+
 \end{document}

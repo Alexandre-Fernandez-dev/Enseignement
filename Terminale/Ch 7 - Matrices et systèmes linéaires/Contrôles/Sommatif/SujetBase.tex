@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (A) -- 1h}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+
+\large
+
+\begin{exercice}
+  En utilisant la définition d'application linéaire,  déterminer lesquelles des applications suivantes sont linéaires.
+  \begin{tasks}(2)
+    \task[] \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+          \dbinom{x}{y} &\longmapsto &
+          \begin{pmatrix}
+            2x + 3y \\
+            x - y
+          \end{pmatrix}
+        \end{array} \right.
+      \end{equation*}
+      
+
+    \task[] \begin{equation*}
+      g : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+          \dbinom{x}{y} &\longmapsto &
+      \begin{pmatrix}
+        x + y \\
+        x^2 + 3y
+      \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+
+    % \item
+    % \begin{equation*}
+    %   f : \left \{
+    %     \begin{array}{ccc}
+    %       \mathbb{R}^3 &\longrightarrow &\mathbb{R}^2\\
+    %       \begin{pmatrix}
+    %         x\\
+    %         y\\
+    %         z\\
+    %       \end{pmatrix} &\longmapsto &
+    %   \begin{pmatrix}
+    %     x + z - 1 \\
+    %     -\,2x - y + 2
+    %   \end{pmatrix}.
+    %     \end{array} \right.
+    %   \end{equation*}
+  \end{tasks}
+\end{exercice}
+
+\begin{exercice}
+    On considère l'application qui, à un vecteur du plan $\vec{v}$, associe le vecteur $-2\vec{v}$. Déterminer si cette application est linéaire.
+\end{exercice}
+
+\begin{exercice}
+  Déterminer le produit des deux matrices suivantes :
+  \[
+    A
+    =
+    \begin{pmatrix}
+      1 & 2 & -1 \\
+      1 & 0 & 2 \\
+      -1 & 2 & -1
+    \end{pmatrix}
+    \quad\text{et}\quad
+    B
+    =
+    \begin{pmatrix}
+      3 & 0 & 3 \\
+      4 & 1 & 6 \\
+      1 & 1 & 3
+    \end{pmatrix}.
+  \]
+\end{exercice}
+
+\begin{exercice}
+  Montrer que tout vecteur $\vec{v}\in \mathbb{R}^2$ admet un unique antécédent par l'application linéaire
+    \begin{equation*}
+      f : \left \{
+        \begin{array}{ccc}
+          \mathbb{R}^2 &\longrightarrow &\mathbb{R}^2\\
+          \dbinom{x}{y} &\longmapsto &
+          \begin{pmatrix}
+            2x + 3y \\
+            x - 5y
+          \end{pmatrix}.
+        \end{array} \right.
+      \end{equation*}
+\end{exercice}
+
+\begin{exercice}
+  \begin{enumerate}
+  \item[]
+  \item En utilisant la notion de déterminant, indiquer si les matrices suivantes sont inversibles et déterminer leur inverse dans le cas échant.
+  \begin{tasks}(2)
+    \task[]
+      \[
+        A \;=\;
+        \begin{pmatrix}
+          1 & 3\\[6pt]
+          5 & -3
+        \end{pmatrix}
+      \]
+    \task[]
+      \[
+        B \;=\;
+        \begin{pmatrix}
+          -3 & 6\\[6pt]
+          1 & -2
+        \end{pmatrix}
+      \]
+  \end{tasks}
+  \item En utilisant le pivot de Gauss, déterminer, si possible, l'inverse de la matrice suivante.
+      \[
+        C \;=\;
+        \begin{pmatrix}
+          1 & 2 & -1\\[6pt]
+          1 & 0 & 2\\[6pt]
+          -1 & 2 & -1
+        \end{pmatrix}
+      \]
+  \end{enumerate}
+\end{exercice}
+
+\end{document}
