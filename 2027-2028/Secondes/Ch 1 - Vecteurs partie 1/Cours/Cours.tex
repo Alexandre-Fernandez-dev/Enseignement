@@ -1,0 +1,351 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{examples}{Exemples.}
+\newtheorem*{remark}{Remarque.}
+\newtheorem*{remarks}{Remarques.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 1 \\Notion de vecteur
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyfoot[C]{\Structure}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+   \renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+% \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
+%\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% Définition de l'environnement qui rend le contenu invisible
+% \NewEnviron{multihide}{%
+%   \begin{lrbox}{\hidebox}%
+%     \begin{minipage}{\linewidth}%
+%       \BODY
+%     \end{minipage}%
+%   \end{lrbox}%
+%   % On affiche un espace invisible ayant les dimensions exactes de la boîte
+%   \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+% }
+% Définition de l'environnement qui rend le contenu invisible
+\NewEnviron{multihide}{%
+  \BODY
+}
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[L]{ {\Niveau}}
+\fancyhead[C]{ {\Chapitre}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+
+\section{Vecteurs et translations}
+
+\begin{definition}{Translation}{}
+  \begin{multihide}
+  On se place dans un plan où sont placés deux points $M$ et $M'$.
+  On appelle \textbf{translation de vecteur} $\wvec{MM'}$ la transformation consistant à faire glisser $M$ sur $M'$
+  et à faire glisser tous les autres points du plan selon ce même déplacement.
+  \end{multihide}
+\end{definition}
+
+\begin{example}~\\
+  \vspace{-3em}
+  \begin{center}
+    \includegraphics[scale=0.2]{translation.png}
+  \end{center}
+\end{example}
+
+\begin{remark}
+  On appelle \emph{image} de $N$ par $\wvec{MM'}$ le point $N'$ obtenu par la translation de vecteur $\wvec{MM'}$.
+\end{remark}
+
+
+\begin{example}
+  Dans la figure ci-dessous, construire le point $D$ image de $C$ par la translation $\wvec{AB}$.
+\end{example}
+
+\begin{figure}[h]
+  \centering
+  \Large
+\begin{tikzpicture}[scale=0.6]
+  \draw[dashed, ultra thin, color=gray] (0, 0) grid (8, 8);
+    \node["$A$" left] (A) at (0,3) {};
+    \fill (A) circle[radius=1.5pt];
+    \node["$B$" above] (B) at (4,7) {};
+    \fill (B) circle[radius=1.5pt];
+    \node["$C$" above right] (B) at (4,1) {};
+    \fill (B) circle[radius=1.5pt];
+
+    \draw[->,very thick, arrows = {-Stealth[length=4mm]}] (0,3) -- (4, 7);
+\end{tikzpicture}
+\end{figure}
+
+\begin{proposition}{}{}
+  La translation de vecteur $\wvec{AB}$ est la transformation qui associe à tout point $C$ l'unique point tel que $ABCD$ est un parallélogramme.
+\end{proposition}
+
+
+\begin{definition}{Vecteur}{}
+  Un \emph{vecteur} $\wvec{AB}$ est déterminé par : 
+  \begin{itemize}
+    \item sa \textbf{direction} (celle de la droite $(AB)$)
+    \item son \textbf{sens} (de $A$ vers $B$)
+    \item sa \textbf{norme} (ou longueur), notée $||\wvec{AB}||$ qui est la longueur $AB$.
+  \end{itemize}
+\end{definition}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item Un vecteur $\wvec{AB}$ est représenté par une flèche d'origine $A$ et d'extrémité $B$.
+    \item Un vecteur est parfois simplement noté $\vec{u}$.
+    \item \underline{Attention :} $\wvec{AB}$ et $\wvec{BA}$ \textbf{sont différents} car ils n'ont pas le même sens !
+  \end{itemize}
+\end{remarks}
+
+\begin{remark}
+  Lorsque $A$ et $B$ sont confondus, $\wvec{AB}$ s'écrit alors $\wvec{AA}$ : on dit que c'est le \textbf{vecteur nul}, noté $\vec{0}$.
+\end{remark}
+
+\subsection{Égalité de vecteurs}
+
+\begin{definition}{}{}
+  Deux vecteurs sont égaux s'ils ont la même direction, le même sens et la même norme.
+\end{definition}
+
+\begin{example} En reprenant la figure précédente, on a les égalités de vecteurs suivantes :
+  $$ \wvec{MM'} = \wvec{NN'} = \wvec{PP'} = \vec{u} $$
+  \begin{center}
+    \includegraphics[scale=0.2]{vecteurs_egaux.png}
+  \end{center}
+\end{example}
+
+\begin{proposition}{}{}
+  Soient $A, B, C, D$ quatre points distincts du plan, on a :
+  \begin{center}
+  $\wvec{AB} = \wvec{DC}$ \ssi $ABCD$ est un parallélogramme.
+  \end{center}
+\end{proposition}
+\begin{proof}
+  $\wvec{AB} = \wvec{DC}$ \ssi les vecteurs $\wvec{AB}$ et $\wvec{CD}$ ont la même direction, le même sens et la même norme. Donc les droites $(AB)$ et $(CD)$ sont parallèles, le quadrilatère $ABCD$ est non croisé et $AB = CD$. C'est-à dire, \ssi $ABCD$ est un parallélogramme.
+\end{proof}
+
+\begin{center}
+  \includegraphics[scale=1.2]{par.png}
+\end{center}
+
+\begin{remark}
+  Le parallélogramme $ABCD$ peut être éventuellement aplati.
+\end{remark}
+
+\begin{proposition}{}{}
+  $\wvec{AM} = \wvec{MB}$ \ssi $M$ est le milieu de $[AB]$.
+\end{proposition}
+
+\begin{remark}
+  On peut noter le vecteur d'une seule lettre : par exemple $\vec{u}$ sans préciser l'origine et l'extrémité. Ainsi on a $\vec{u} = \wvec{AB}$.
+  On peut dire que $\vec{u}$ désignera tout les vecteurs égaux à $\wvec{AB}$, on dit que $\vec{u}$ est un représentant de $\wvec{AB}$. Il en existe une infinité.
+\end{remark}
+\begin{center}
+  \begin{tikzpicture}[scale=0.6]
+    \draw[dashed, ultra thin, color=gray] (0, 0) grid (14,8);
+  \end{tikzpicture}
+\end{center}
+
+\begin{definition}{}{}
+  Deux vecteurs sont \textbf{opposés} s'ils ont la même norme et la même direction, mais sont de sens contraire.
+  Le vecteur opposé à $\wvec{AB}$ est $\wvec{BA}$.
+\end{definition}
+
+
+\section{Somme de vecteurs}
+
+\subsection{Addition de vecteurs}
+\begin{definition}{}{}
+  Soit $\vec{u}$ et $\vec{v}$ deux vecteurs. La somme des vecteurs $\vec{u}$ et $\vec{v}$ est le vecteur $\vec{w}$ associé la translation résultant de l'enchaînement des translations de vecteurs $\vec{u}$ et $\vec{v}$, et on écrit : $\vec{w} = \vec{u} + \vec{v}$.
+\end{definition}
+
+\begin{example}
+  Construire le point $B$ tel que $\wvec{AB} = \vec{u} + \vec{v}$
+\end{example}
+
+\begin{center}
+  \Large
+  \begin{tikzpicture}[scale=0.6]
+    \draw[dashed, ultra thin, color=gray] (0, 0) grid (12, 8);
+    \node["$A$" left] (A) at (3,1) {};
+    \fill (A) circle[radius=2pt];
+
+    \draw[->,thick, arrows = {-Stealth[length=3mm]}] (0,2) -- (4,6) node[midway,above left] {$\vec{u}$};
+    \draw[->,thick, arrows = {-Stealth[length=3mm]}] (2,7) -- (5,7) node[midway,above] {$\vec{v}$};
+  \end{tikzpicture}
+\end{center}
+
+\subsection{Relation de Chasles}
+\section{Produit d'un vecteur par un réel}
+
+\begin{savoir}{}{}
+  \begin{itemize}
+    \item Représenter géométriquement des vecteurs.
+    \item Représenter la somme de deux vecteurs.
+    \item Caractériser alignement et parallélisme par la colinéarité de vecteurs.
+    \item Résoudre des problèmes avec des méthodes géométriques.
+  \end{itemize}
+\end{savoir}
+
+\end{document}

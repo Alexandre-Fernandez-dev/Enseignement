@@ -1,0 +1,74 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Géométrie du cycle 4 : transformation du plan, translations.
+    \item Parallélogramme.
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Vecteur $\overrightarrow{A,B}$ : translation d'un point $A$ à un point $B$, sens, direction, norme.
+    \item Représentation graphique.
+    \item Égalité de deux vecteurs, lien avec parallélogramme.
+    \item Notation $\overrightarrow{u}$, vecteur nul.
+    \item Somme de deux vecteurs, enchaînement de translations. Relation de Chasles.
+    \item Représentation d'un vecteur.
+    \item Produit par un réel. Colinéarité de deux vecteurs (graphiquement).
+  \end{itemize} 
+\end{paragraph}
+
+\end{document}

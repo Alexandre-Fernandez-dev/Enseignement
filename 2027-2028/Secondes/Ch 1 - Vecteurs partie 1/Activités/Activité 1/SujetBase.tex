@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+\fancyhead[R]{\large \textbf{\textbf{\Document\ (A) -- 2h}}}
+\fancyfoot[R]{\fbox{\thepage\  / \zpageref{LastPage}}}
+
+\large
+
+% Chapitre produit scalaire : 3, 6, 11
+% Chapitre applications du produit scalaire : 4, 7, 13
+% Chapitre exponentielle: 2, 3, 4, 5, 9
+\textbf{Nom et prénom :}\enspace\dotfill
+
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item Soient trois points $A, B, C$ tels que \(\mathrm{AB} = 2, \mathrm{AC} = 2, \mathrm{BC} = 1\), déterminer $\overrightarrow{AB} \cdot \overrightarrow{BC}$.
+      %\item Soient quatres points \(A(0\,;\,5), B(-7\,;\,8), C(1\,;\,5), D(-3\,;\,4)\). Calculer \(\overrightarrow{AB} \cdot \overrightarrow{CD}\).
+    \item Soient \(A,\ B\) et \(C\) trois points tels que \(\mathrm{AB} = 1\), \(\mathrm{AC} = 5\) et \(\bigl(\overrightarrow{AB}, \overrightarrow{AC}\bigr) = -\dfrac{\pi}{4}\).
+      Déterminer \(\overrightarrow{AB}\cdot\overrightarrow{AC}\).
+  \end{enumerate}
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  Soient deux droites
+  $$D_1 :\; 2x + 5y + 8 = 0 \quad \text{ et } \quad D_2 :\; 5x - 2y - 1 = 0$$
+  Déterminer si $D_1$ et $D_2$ sont perpendiculaires.
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  Dans chaque cas, indiquer si l'équation définit un cercle. Dans ce cas, déterminer les coordonnées du centre et le rayon du cercle défini par l'équation donnée.
+  \begin{tasks}(2)
+    \task $(\,x + 1\,)^2 + (\,y - 7\,)^2 = 1$,
+    \task $5x^2 + 5y^2 - x + y = 87$.
+  \end{tasks}
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  Soient trois points $A, B$ et $C$ tels que
+  $$
+  \mathrm{AB} = 3, \quad \mathrm{AC} = 7 \quad \text{et} \quad \widehat{BAC} = 37^\circ
+  $$
+  Déterminer les trois longueurs des côtés ainsi que la mesure des trois angles du triangle $ABC$.
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item Simplifier l'expression $\dfrac{\exp(x)\times\bigl(\exp(3x)\bigr)^2}{\exp(8x)}$
+    \item Résoudre les (in)équations suivantes :
+      \begin{tasks}(3)
+        \task $e^{-3x} = 1$
+        \task $e^x + 1 = 0$
+        \task $e^{-3x+1}>\dfrac1{e^{-x^2}}$
+      \end{tasks}
+  \end{enumerate}
+\end{exercice}
+
+\vfill
+
+\begin{exercice}
+  \begin{enumerate}
+    \item[]
+    \item Déterminer la dérivées des fonctions suivantes :
+      \begin{tasks}(2)
+        \task $f : x \mapsto e^{x} + x^2 - 5$
+        \task $f : x \mapsto e^{3x+1}$
+      \end{tasks}
+    \item Étudier la fonction (signe, variations) $f(x)=(1+x)e^{-x+2}$.
+  \end{enumerate}
+\end{exercice}
+
+\end{document}
