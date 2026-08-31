@@ -155,29 +155,35 @@
 
 \tableofcontents
 
-\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
-\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
-% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
-% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
 % \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
 %\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
 % On crée une boîte temporaire pour stocker le texte
 \newsavebox{\hidebox}
 
 % Définition de l'environnement qui rend le contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+% % Définition de l'environnement qui rend le contenu invisible
+% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
 % \NewEnviron{multihide}{%
-%   \begin{lrbox}{\hidebox}%
+%   \colorbox{gray!50}{
 %     \begin{minipage}{\linewidth}%
 %       \BODY
 %     \end{minipage}%
-%   \end{lrbox}%
-%   % On affiche un espace invisible ayant les dimensions exactes de la boîte
-%   \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+%   }
 % }
-% Définition de l'environnement qui rend le contenu invisible
-\NewEnviron{multihide}{%
-  \BODY
-}
 
 \newcommand{\wvec}[1]{\overrightarrow{#1}}
 \newcommand{\ssi}[0]{\emph{ssi}\ }
@@ -197,9 +203,9 @@
 
 \begin{definition}{Translation}{}
   \begin{multihide}
-  On se place dans un plan où sont placés deux points $M$ et $M'$.
-  On appelle \textbf{translation de vecteur} $\wvec{MM'}$ la transformation consistant à faire glisser $M$ sur $M'$
-  et à faire glisser tous les autres points du plan selon ce même déplacement.
+    On se place dans un plan où sont placés deux points $M$ et $M'$.
+    On appelle \textbf{translation de vecteur} $\wvec{MM'}$ la transformation consistant à faire glisser $M$ sur $M'$
+    et à faire glisser tous les autres points du plan selon ce même déplacement.
   \end{multihide}
 \end{definition}
 
@@ -211,7 +217,7 @@
 \end{example}
 
 \begin{remark}
-  On appelle \emph{image} de $N$ par $\wvec{MM'}$ le point $N'$ obtenu par la translation de vecteur $\wvec{MM'}$.
+  On appelle \hide{\emph{image}} de $N$ par $\wvec{MM'}$ le point $N'$ obtenu par la translation de vecteur $\wvec{MM'}$.
 \end{remark}
 
 
@@ -235,17 +241,19 @@
 \end{tikzpicture}
 \end{figure}
 
-\begin{proposition}{}{}
-  La translation de vecteur $\wvec{AB}$ est la transformation qui associe à tout point $C$ l'unique point tel que $ABCD$ est un parallélogramme.
+\begin{proposition}{Translations et parallélogrammes}{}
+  \begin{multihide}
+    La translation de vecteur $\wvec{AB}$ est la transformation qui associe à tout point $C$ l'unique point tel que $ABCD$ est un parallélogramme.
+  \end{multihide}
 \end{proposition}
 
 
 \begin{definition}{Vecteur}{}
   Un \emph{vecteur} $\wvec{AB}$ est déterminé par : 
   \begin{itemize}
-    \item sa \textbf{direction} (celle de la droite $(AB)$)
-    \item son \textbf{sens} (de $A$ vers $B$)
-    \item sa \textbf{norme} (ou longueur), notée $||\wvec{AB}||$ qui est la longueur $AB$.
+    \item \hide{sa \textbf{direction} (celle de la droite $(AB)$)}
+    \item \hide{son \textbf{sens} (de $A$ vers $B$)}
+    \item \hide{sa \textbf{norme} (ou longueur), notée $||\wvec{AB}||$ qui est la longueur $AB$.}
   \end{itemize}
 \end{definition}
 
@@ -259,13 +267,15 @@
 \end{remarks}
 
 \begin{remark}
-  Lorsque $A$ et $B$ sont confondus, $\wvec{AB}$ s'écrit alors $\wvec{AA}$ : on dit que c'est le \textbf{vecteur nul}, noté $\vec{0}$.
+  Lorsque $A$ et $B$ sont confondus, $\wvec{AB}$ s'écrit alors $\wvec{AA}$ : on dit que c'est le \hide{\textbf{vecteur nul}}, noté $\vec{0}$.
 \end{remark}
 
 \subsection{Égalité de vecteurs}
 
-\begin{definition}{}{}
-  Deux vecteurs sont égaux s'ils ont la même direction, le même sens et la même norme.
+\begin{definition}{Vecteurs égaux}{}
+  \begin{multihide}
+    Deux vecteurs sont \textbf{égaux} s'ils ont la \textbf{même direction}, le \textbf{même sens} et la \textbf{même norme}.
+  \end{multihide}
 \end{definition}
 
 \begin{example} En reprenant la figure précédente, on a les égalités de vecteurs suivantes :
@@ -275,12 +285,15 @@
   \end{center}
 \end{example}
 
-\begin{proposition}{}{}
-  Soient $A, B, C, D$ quatre points distincts du plan, on a :
-  \begin{center}
-  $\wvec{AB} = \wvec{DC}$ \ssi $ABCD$ est un parallélogramme.
-  \end{center}
+\begin{proposition}{Égalités et parallélogrammes}{}
+  \begin{multihide}
+    Soient $A, B, C, D$ quatre points distincts du plan, on a :
+    \begin{center}
+    $\wvec{AB} = \wvec{DC}$ \ssi $ABCD$ est un parallélogramme.
+    \end{center}
+  \end{multihide}
 \end{proposition}
+
 \begin{proof}
   $\wvec{AB} = \wvec{DC}$ \ssi les vecteurs $\wvec{AB}$ et $\wvec{CD}$ ont la même direction, le même sens et la même norme. Donc les droites $(AB)$ et $(CD)$ sont parallèles, le quadrilatère $ABCD$ est non croisé et $AB = CD$. C'est-à dire, \ssi $ABCD$ est un parallélogramme.
 \end{proof}
@@ -293,31 +306,38 @@
   Le parallélogramme $ABCD$ peut être éventuellement aplati.
 \end{remark}
 
-\begin{proposition}{}{}
-  $\wvec{AM} = \wvec{MB}$ \ssi $M$ est le milieu de $[AB]$.
+\begin{proposition}{Égalités et milieux}{}
+  \begin{multihide}
+    $\wvec{AM} = \wvec{MB}$ \ssi $M$ est le milieu de $[AB]$.
+  \end{multihide}
 \end{proposition}
 
 \begin{remark}
   On peut noter le vecteur d'une seule lettre : par exemple $\vec{u}$ sans préciser l'origine et l'extrémité. Ainsi on a $\vec{u} = \wvec{AB}$.
   On peut dire que $\vec{u}$ désignera tout les vecteurs égaux à $\wvec{AB}$, on dit que $\vec{u}$ est un représentant de $\wvec{AB}$. Il en existe une infinité.
 \end{remark}
+
 \begin{center}
   \begin{tikzpicture}[scale=0.6]
     \draw[dashed, ultra thin, color=gray] (0, 0) grid (14,8);
   \end{tikzpicture}
 \end{center}
 
-\begin{definition}{}{}
-  Deux vecteurs sont \textbf{opposés} s'ils ont la même norme et la même direction, mais sont de sens contraire.
-  Le vecteur opposé à $\wvec{AB}$ est $\wvec{BA}$.
+\begin{definition}{Vecteurs opposés}{}
+  \begin{multihide}
+    Deux vecteurs sont \textbf{opposés} s'ils ont la même norme et la même direction, mais sont de sens contraire.
+    Le vecteur opposé à $\wvec{AB}$ est $\wvec{BA}$.
+  \end{multihide}
 \end{definition}
 
 
 \section{Somme de vecteurs}
 
 \subsection{Addition de vecteurs}
-\begin{definition}{}{}
+\begin{definition}{Somme de vecteurs}{}
+  \begin{multihide}
   Soit $\vec{u}$ et $\vec{v}$ deux vecteurs. La somme des vecteurs $\vec{u}$ et $\vec{v}$ est le vecteur $\vec{w}$ associé la translation résultant de l'enchaînement des translations de vecteurs $\vec{u}$ et $\vec{v}$, et on écrit : $\vec{w} = \vec{u} + \vec{v}$.
+  \end{multihide}
 \end{definition}
 
 \begin{example}
