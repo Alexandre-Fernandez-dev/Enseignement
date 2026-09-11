@@ -1,0 +1,80 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Fonctions de seconde (revoir)
+    \item calcul littéral
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenus}
+  \begin{itemize}
+    \item Modes de représentations : littérale, graphique
+    \item notations $y = f(x)$ et $x \mapsto f(x)$.
+    \item Taux de variation
+    \item Monotonie et variations
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Modéliser à l'aide de Fonctions
+    \item Résoudre graphiquement f(x) = k ou inéquation
+    \item taux de variation graphiquement comme pente de sécante
+    \item calculer taux de variation à partir de l'expression littérale
+  \end{itemize} 
+\end{paragraph}
+
+\end{document}

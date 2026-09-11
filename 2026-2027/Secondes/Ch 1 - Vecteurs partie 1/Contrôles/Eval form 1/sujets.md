@@ -1,0 +1,2 @@
+Sujet A https://coopmaths.fr/alea/?uuid=57d64&id=2G21-1&n=2&d=10&s=4&cd=1&tip=0&alea=80zm&uuid=2d849&id=2G21-2&n=1&d=10&s=2&cd=1&tip=0&alea=ur4K&uuid=d02da&id=2L21-4&n=1&d=10&s=true&s2=2&s3=false&cd=1&tip=0&alea=o9ij&v=eleve
+Sujet B https://coopmaths.fr/alea/?uuid=57d64&id=2G21-1&n=2&d=10&s=4&cd=1&tip=0&alea=g5oI&uuid=2d849&id=2G21-2&n=1&d=10&s=2&cd=1&tip=0&alea=rcvM&uuid=d02da&id=2L21-4&n=1&d=10&s=true&s2=2&s3=false&cd=1&tip=0&alea=uUvW&v=eleve

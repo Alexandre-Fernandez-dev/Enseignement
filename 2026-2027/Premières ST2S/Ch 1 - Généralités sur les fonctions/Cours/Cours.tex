@@ -1,0 +1,636 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{examples}{Exemples.}
+\newtheorem*{remark}{Remarque.}
+\newtheorem*{remarks}{Remarques.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 1 \\Généralités sur les fonctions
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\tikzset{cross/.style={path picture={
+  \draw[black]
+    (path picture bounding box.south east)--(path picture bounding box.north west)
+    (path picture bounding box.south west)--(path picture bounding box.north east);
+}}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyhead[L]{\Structure}
+  \fancyhead[R]{\Niveau}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \dots }}
+   %\renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+% \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
+%\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% -----------
+% % Définition de l'environnement qui rend le contenu invisible
+% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+% \NewEnviron{multihide}{%
+%   \colorbox{gray!50}{
+%     \begin{lrbox}{\hidebox}%
+%         \begin{minipage}{\linewidth}%
+%           \BODY
+%         \end{minipage}%
+%     \end{lrbox}%
+%     % On affiche un espace invisible ayant les dimensions exactes de la boîte
+%     \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+%   }
+% }
+% \newcommand{\hidetk}[1]{}
+% Définition de l'environnement qui rend le contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+\newcommand{\hidetk}[1]{#1}
+% -----------
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \dots }}
+
+
+
+\section{Définition et notations}
+
+\begin{definition}{}{}
+  \begin{multihide}
+  Une \textbf{fonction} $f$ est la donnée de deux choses 
+  \begin{itemize}
+    \item Un \textbf{ensemble de définition} $D_f$. $D_f$ est le plus souvent un intervalle ou une union d'intervalles de \setR.
+    \item pour chaque nombre $x$ de $D_f$, un nombre $f(x)$ appelé $\textbf{image}$ de x. $x$ est alors appelée l'\textbf{antécédent} de $f(x)$.
+  \end{itemize}
+ \end{multihide}
+\end{definition}
+
+\vfill
+
+\begin{example}
+  Dire que : $f(\textcolor{orange}{2})=\textcolor{green!50!black}{5}$ signifie que :
+
+\begin{center}
+\begin{tikzpicture}[>=stealth]
+    % Association
+    \node (deux) at (0,0) {\textcolor{orange}{$2$}};
+    \node (cinq) at (2,0) {\textcolor{green!50!black}{$5$}};
+    \draw[|->] (deux.east) -- (cinq.west) node[above,midway] {$f$};
+
+    % Étiquettes
+    \node[
+        fill=orange!15,
+        minimum width=4.2cm,
+        minimum height=0.65cm
+    ] (E) at (-1.5,-1.1) {\textcolor{orange!80!black}{Antécédent de 5}};
+
+    \node[
+        fill=green!15,
+        minimum width=2.8cm,
+        minimum height=0.65cm
+    ] (F) at (3,-1.1) {\textcolor{green!50!black}{Image de 2}};
+
+    % Flèches vers les étiquettes
+    \draw[->, orange] (E) -- (deux);
+    \draw[->, green!50!black] (F) -- (cinq);
+\end{tikzpicture}
+
+\end{center}
+
+On dit que l'\textbf{\hide{image} de \textcolor{orange}{2}} par la fonction $f$ est \textcolor{green!50!black}{5} et un \textbf{\hide{antécédent} de \textcolor{green!50!black}{5}} par $f$ est \textcolor{orange}{2}.
+\end{example}
+
+\vfill
+
+\begin{remark}
+  Un nombre peut avoir aucun, un seul ou plusieurs antécédents.
+  En revanche, un nombre de l'ensemble de définition $D_f$ \underline{n'a qu'une seule image}.
+  Un nombre hors de $D_f$ n'en a pas.%et un nombre qui n'est pas dans l'ensemble de définition n'a pas d'image.
+\end{remark}
+
+\vfill
+
+\begin{example}
+Soit $f$ une fonction d'ensemble de définition $D_f = [1,5\,;\,6]$.
+
+On souhaite donner des images aux nombres de l'intervalle $[1,5\,;\,6]$.
+%En revanche, on ne donne pas d'image aux nombres hors de $D_f$. Ainsi, écrire $f(1)$ ou $f(6,5)$ n'a aucun sens pour cette fonction.
+
+On peut définir en partie $f$ à l'aide d'un tableau comme celui-ci :
+    
+\begin{center}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|Y|Y|Y|Y|Y|}
+\hline
+$x$ & $1,5$ & $2$ & $2,5$ & $3$ & $3,5$ & $4$ & $5$ & $6$ \\
+\hline
+$f(x)$ & $5,25$ & $3$ & $1,25$ & $0$ & $-0,75$ & $-1$ & $0$ & $\dots$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+On peut voir grâce à ce tableau que :
+
+\begin{tasks}[label=\textbullet](3)
+    \task $f(1,5) = \dots$
+    \task $f(3) = \dots$
+    \task $f(4) = \dots$
+    \task $f(\dots) = -1$
+    \task $f(\dots) = 1,25$
+    \task $f(\dots) = 0$
+\end{tasks}
+
+On dit par exemple que $5,25$ est $\dots \dots \dots$ de $\dots$ par $f$ et que $1,5$ est $\dots \dots \dots$ de $\dots$ par $f$. $0$ a plusieurs antécédents qui sont $\dots$ et $\dots$.
+
+Avec un tableau, on ne peut pas donner toutes des images à tous les nombres de l'intervalle $[1,5\,;\,6]$.
+%Il faudrait donc une infinité de cases dans ce tableau pour qu'il définisse complètement la fonction $f$.
+Lorsque c'est possible, on peut aussi donner une formule.
+
+Ici, on donne la formule suivante :
+
+$$f(x) = x^2 - 8x + 15$$
+
+On peut alors calculer l'image d'un nombre de $[1,5\,;\,6]$ en remplaçant $x$ par ce nombre dans la formule.
+\newpage 
+
+Par exemple, si on veut calculer l'image de $2$ par $f$, on écrit :
+\[
+f(2) = 2^2 - 8 \times 2 + 15 = 4 - 16 + 15 = 3
+\]
+et on retrouve bien que l'image de $2$ par $f$ est $3$.
+De la même manière :
+$$f(6) = \dots$$
+\end{example}
+
+% \begin{definition}{Notation}{}
+%   On note 
+%   \[
+%   f : \begin{cases}
+%     D_f \to \mathbb{R} \\
+%     x \mapsto f(x)
+%   \end{cases}.
+%   \]
+%   Ce qui se lit ``la fonction qui a $x$ associe $f(x)$''
+% \end{definition}
+
+\begin{remark}
+  La notation $f: x \mapsto f(x)$ se lit ``la fonction qui a $x$ associe $f(x)$''.
+\end{remark}
+
+\section{Représentation graphique}
+
+\begin{definition}{Représentation $C_f$ de $f$}{}
+  \begin{multihide}
+    La représentation graphique (ou courbe) $C_f$ d'une fonction $f$ dans un repère est l'ensemble des points du repère de coordonnées $(x ; f(x))$ pour les $x$ de l'ensemble de définition $D_f$. 
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+    On a représenté ci-dessous une fonction $f$. 
+    \begin{center}
+      \includegraphics[width=0.5\linewidth]{graphe_f.png}
+    \end{center}
+    Son ensemble de définition est
+    $D_f = \dots \dots \dots$ et on peut voir sur le graphique que :
+    
+      \begin{tasks}[label=\textbullet](3)
+        \task $f(-3)=\dots$
+        \task $f(-4)=\dots$
+
+        \task $f(3)=\dots$
+        \task $f(\dots)=-4$
+
+        \task $f(0)=$
+        \task $f(\dots) \approx 4,9$
+    \end{tasks}
+
+    Les antécédents de $1$ par $f$ sont : $\dots \dots \dots$
+
+
+  \end{example}
+  \newpage
+  \begin{example}
+    On souhaite désormais tracer la courbe de la fonction $f$ vue au
+    I. définie sur $[1,5\,;\,6]$ par :
+    
+    \[
+        f(x)=x^2-8x+15.
+    \]
+
+
+\begin{minipage}{0.5\textwidth}
+On rappelle son tableau de valeurs :
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $x$ & $1,5$ & $2$ & $2,5$ & $3$ & $3,5$ & $4$ & $5$ & $6$ \\
+    \hline
+    $f(x)$ & $5,25$ & $3$ & $1,25$ & $0$ & $-0,75$ & $-1$ & $0$ & $3$ \\
+    \hline
+\end{tabular}
+\end{center}
+  
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+    % Grille
+    \draw[step=0.2cm, very thin, gray!30]
+        (-0.2,-1.2) grid (6.2,6.2);
+    \draw[step=1cm, thin, gray!50]
+        (-0.2,-1.2) grid (6.2,6.2);
+
+    % Axes
+    \draw[->] (-0.2,0) -- (6.2,0);
+    \draw[->] (0,-1.2) -- (0,6.2);
+
+    % Graduations en abscisse
+    \foreach \x in {1,2,3,4,5,6}
+        \node[below] at (\x,0) {\scriptsize $\x$};
+
+    % Graduations en ordonnée
+    \foreach \y in {-1,1,2,3,4,5,6}
+        \node[left] at (0,\y) {\scriptsize $\y$};
+
+    % Origine
+    \node[below left] at (0,0) {\scriptsize $0$};
+\end{tikzpicture}
+
+\end{center}
+\end{minipage}
+\end{example}
+\vfill
+\begin{proposition}{}{}
+  \begin{multihide}
+    Un point $A$ de coordonnées $(x_A; y_A)$ appartient à la courbe de $f$ si et seulement si $x_A \in D_f$ et $f(x_A) = y_A$.
+  \end{multihide}
+\end{proposition}
+
+
+\begin{example}
+  
+  On donne la fonction $f$ définie sur $\mathbb{R}$ par
+  \[
+      f(x)=x^3+3x^2+0,5x+1.
+  \]
+  On souhaite s'assurer que le point $A(-1\,;\,2,5)$ appartient à la courbe représentative de cette fonction $f$. 
+  Cela semble être le cas sur le graphique, mais seul un calcul peut servir de preuve.
+  \vfill
+  \newpage
+
+  \begin{center}
+      \includegraphics[width=0.35\textwidth]{f_point.png}
+
+      (Graphe de la fonction $f$)
+  \end{center}
+
+
+  \begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{7em}}}
+  \end{center}
+  % Ici $x_A=-1$ et $y_A=2,5$. On calcule donc $f(-1)$ :
+  % \[
+  % \begin{aligned}
+  %     f(-1) &= (-1)^3 + 3\times(-1)^2 + 0,5\times(-1) + 1\\
+  %             &= -1 + 3 - 0,5 + 1\\
+  %             &= 2,5
+  % \end{aligned}
+  % \]
+
+  Ainsi, on a prouvé que $f(x_A)=y_A$ ce qui prouve que $A\in C_f$.
+  \end{example}
+\vfill
+  \begin{remark}
+    Si en faisant le calcul, on trouve $f(x_A)$ a une valeur différente de $y_A$, cela aurait prouvé que $A$ n'appartient pas à la courbe de $f$.
+  \end{remark}
+\vfill
+  \begin{example}
+
+  On donne la fonction $f$ définie sur $\mathbb{R}$ par
+  \[
+      f(x)=x^2+1.
+  \]
+
+  Le point $A(3\,;\,10)$ appartient-il à la courbe de $f$ ?
+  
+  \begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \vspace{5em}}}
+  \end{center}
+
+  % \[
+  %     f(3)= \dots
+  % \]
+
+  % Ainsi, $A\ \ldots\ C_f$
+
+  % Le point $B(-4\,;\,15)$ appartient-il à la courbe de $f$ ?
+
+  % \[
+  %     f(-4)= \dots
+  % \]
+
+  % Ainsi, $B\ \ldots\ C_f$
+  
+\end{example}
+\vfill
+\newpage
+
+\subsection{Équations et inéquations du type $f(x)=k$, $f(x)<k$, $f(x)\leq k$}
+
+\begin{remark}
+  Cette partie va donner des méthodes concrètes pour déterminer graphiquement des solutions d'équations et d'inéquations.
+\end{remark}
+
+\subsubsection{Équation du type $f(x)=k$}
+
+On a représenté ci-dessous une fonction $f$. On cherche à résoudre l'équation $f(x)=3$ ce qui est exactement la même chose que de rechercher les antécédents de $3$ par $f$.
+
+\begin{tasks}[style=enumerate](2)
+    \task On se place sur $k$ dans l'axe des ordonnées. Ici $3$.
+    ~\\
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{eq_step1.png}
+    \end{center}
+
+    \task On trace un trait horizontal qui peut couper la courbe une fois, plusieurs fois, ou même jamais.
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{eq_step2.png}
+    \end{center}
+
+    \task On trace des traits verticaux jusqu'à l'axe des abscisses à chaque fois que le trait horizontal coupe la courbe.
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{eq_step3.png}
+    \end{center}
+
+    \task Les solutions de l'équation sont obtenues sur l'axe des abscisses.
+    ~\\
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{eq_step4.png}
+    \end{center}
+\end{tasks}
+
+Ainsi, $f(x)=3$ a deux solutions qui sont $\dots$ et $\dots$. Ou encore, $3$ a deux antécédents : $\dots$ et $\dots$.
+
+\subsubsection{Inéquation du type $f(x)<k$ ou $f(x)\leq k$}
+
+On a représenté une fonction $f$. On veut résoudre l'inéquation
+$f(x)<2$ ou $f(x)\leq 2$.
+
+
+\begin{tasks}[style=enumerate](2)
+    \task On effectue la même méthode que si on cherchait les solutions de
+    $f(x)=2$.
+    ~\\
+    \begin{center}
+    \includegraphics[width=.9\linewidth]{ineqA_step1.png}
+    \end{center}
+    
+    \task On reporte sur l'axe des abscisses les morceaux de courbe qui sont
+    sous le trait horizontal.
+    \begin{center}
+    \includegraphics[width=.9\linewidth]{ineqA_step2.png}
+    \end{center}
+
+    \task Si l'inéquation est $f(x)<2$, alors l'ensemble des solutions est :
+    
+  
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+      \[
+      \hideMW{S=[-6\,;\,-5[ \cup ]-2\,;\,2[ \cup ]4\,;\,6]}
+      \]
+      }}
+    \end{center}
+    
+    On exclut les nombres dont l'image vaut
+    exactement $2$, le signe $<$ ne l'accepte pas.
+
+    \task Si l'inéquation est $f(x)\leq 2$, alors l'ensemble des solutions est :
+    
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \[
+    \hideMW{S=[-6\,;\,-5] \cup [-2\,;\,2] \cup [4\,;\,6]}
+    \]
+      }}
+    \end{center}
+    
+    On inclut les nombres dont l'image vaut exactement $2$.
+
+\end{tasks}
+
+\subsubsection{Inéquation du type $f(x)>k$ ou $f(x)\geq k$}
+
+Toujours avec $f$, on veut cette fois résoudre l'inéquation
+$f(x)>2$ ou $f(x)\geq2$.
+
+\begin{tasks}[style=enumerate](2)
+    \task On effectue la même méthode que si on cherchait les solutions de
+    $f(x)=2$.
+    ~\\
+    \begin{center}
+    \includegraphics[width=.9\linewidth]{ineqB_step1.png}
+    \end{center}
+    
+    \task On reporte sur l'axe des abscisses les morceaux de courbe qui sont au-dessus du trait horizontal.
+    \begin{center}
+    \includegraphics[width=0.9\linewidth]{ineqB_step2.png}
+    \end{center}
+
+    \task Si l'inéquation est $f(x)>2$, alors l'ensemble des solutions est :
+    
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \[
+    \hideMW{S=]-5\,;\,-2[ \cup ]2\,;\,4[}
+    \]
+      }}
+    \end{center}
+    
+    On exclut les nombres dont l'image vaut
+    exactement $2$, le signe $>$ ne l'accepte pas.
+    
+    \task Si l'inéquation est $f(x)\geq2$, alors l'ensemble des solutions est :
+    
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+    \[
+    \hideMW{S=[-5\,;\,-2] \cup [2\,;\,4]}
+    \]
+      }}
+    \end{center}
+    
+    On inclut les nombres dont l'image vaut exactement $2$.
+  \end{tasks}
+
+
+
+\end{document}

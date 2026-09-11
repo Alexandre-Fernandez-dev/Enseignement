@@ -1,0 +1,614 @@
+% @see : https://coopmaths.fr/alea/?uuid=f1208&id=2N30-flash3&n=2&d=10&qcm=0&cd=1&tip=0&alea=ka4d&uuid=97008&id=2N30-flash2&n=1&d=10&qcm=0&cd=1&tip=0&alea=dpSN&uuid=16c8e&id=2N30-flash1&n=2&d=10&cd=1&tip=0&alea=nY7r&uuid=d309b&id=2N30-4&n=1&d=10&s=false&s2=10&s3=true&s4=true&cd=0&tip=0&alea=q00i&uuid=d0fdc&id=2N33-1&n=1&d=10&s=6&s2=false&cd=1&tip=0&alea=Mdan&uuid=08a2a&id=2N31-flash2&n=2&d=10&qcm=0&cd=1&tip=0&alea=w7p1&uuid=dd7d1&id=2N31-flash1&alea=PvQN&uuid=1894f&id=2N31-flash4&alea=C68e&uuid=07df0&id=2N31-flash3&alea=Ship&uuid=6575c&id=2N32-1&n=1&d=10&s=4&s2=true&cd=0&tip=0&alea=xvAD&uuid=4c878&id=2N33-flash1&alea=LIo0&v=eleve
+\documentclass[a4paper,11pt,fleqn]{article}
+
+%%% COULEURS %%%
+\usepackage[table,svgnames]{xcolor}
+\definecolor{nombres}{cmyk}{0,.8,.95,0}
+\definecolor{gestion}{cmyk}{.75,1,.11,.12}
+\definecolor{gestionbis}{cmyk}{.75,1,.11,.12}
+\definecolor{grandeurs}{cmyk}{.02,.44,1,0}
+\definecolor{geo}{cmyk}{.62,.1,0,0}
+\definecolor{algo}{cmyk}{.69,.02,.36,0}
+\definecolor{correction}{cmyk}{.63,.23,.93,.06}
+\arrayrulecolor{couleur_theme} % Couleur des filets des tableaux
+\usepackage{tasks}
+
+\usepackage[most]{tcolorbox} % Supprimé à cause de conflits avec ProfCollege
+% Découpe des cadres d'exercice. Le style est redéfini par la sortie LaTeX
+% juste avant un exercice à garder d'un seul tenant, puis rétabli :
+%   \tcbset{mathaleaexo/.style={unbreakable}}
+% Passer par un style plutôt que par la clé « breakable » directement évite
+% de changer la découpe des autres cadres du document (ProfCollege...).
+\tcbset{mathaleaexo/.style={breakable}}
+\tcbuselibrary{documentation}
+
+%%%%%%%% Modification paramétrage pour footnotes
+% Le paquet semble déjà appelé en amont, curieux qu'il n'y ait pas eu de clash
+% avec l'appel ci-dessous mais seulement quand j'ai essayé de l'inclure avec l'option lualatex
+
+% \usepackage{hyperref}
+% Parametrages
+\hypersetup{
+    colorlinks=true,% On active la couleur pour les liens. Couleur par défaut rouge
+    linkcolor=black,% On définit la couleur pour les liens internes
+    % filecolor=magenta,% On définit la couleur pour les liens vers les fichiers locaux      
+    urlcolor=black,% On définit la couleur pour les liens vers des sites web
+    % pdftitle={Puissance Quatre},% On définit un titre pour le document pdf
+    % pdfpagemode=FullScreen,% On fixe l'affichage par défaut à plein écran
+    }
+% Pour avoir les numérotations arabic y compris dans les environnements tcolorbox
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+%%%%%%%%
+
+\usepackage{multicol} 
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{tablvar}
+
+\setlength{\parindent}{0mm}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\labelenumi}{\textbf{\theenumi{}.}}
+\renewcommand{\labelenumii}{\textbf{\theenumii{}.}}
+\setlength{\fboxsep}{3mm}
+
+\setlength{\headheight}{14.5pt}
+
+\setlength{\premulticols}{0pt}
+
+\newcounter{ExoMA}
+
+\newlength{\parindentMA}%
+\setlength{\parindentMA}{\parindent}
+\addtolength{\parindentMA}{30pt}
+
+\usepackage{simplekv}
+
+\setKVdefault[Theme]{Coopmath,Classiques=false,CANs=false}
+\defKV[Theme]{Classique=\setKV[Theme]{Coopmath=false}\setKV[Theme]{Classiques}}
+\defKV[Theme]{CAN=\setKV[Theme]{Coopmath=false}\setKV[Theme]{CANs}}
+
+\usepackage{fancyhdr}
+\fancyhead[C]{}
+\fancyfoot{}
+
+\def\bla{}
+
+\NewDocumentCommand\Theme{o m m m m}{%
+  \useKVdefault[Theme]%
+  \setKV[Theme]{#1}%
+  \ifboolKV[Theme]{CANs}{%
+    \usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}%
+    \fancypagestyle{premierePage}{%
+      \fancyhead[C]{\textsc{\ifx\bla#2\bla Course aux nombres\else#2\fi}}%
+      \fancyfoot[R]{\scriptsize Coopmaths.fr -- CC-BY-SA}%
+      \setlength{\headheight}{14.5pt}%
+      \NewDocumentCommand\dureeCan{}{\ifx\bla#4\bla 9 minutes\else #4\fi}
+      \NewDocumentCommand\titreSujetCan{}{\ifx\bla#3\bla\else\textbf{#3}\fi}
+    }%
+    \pagestyle{premierePage}
+    \colorlet{couleur_theme}{black}%
+    \colorlet{couleur_numerotation}{couleur_theme}%
+    \let\EXO\EXOCan\let\endEXO\endEXOCan%
+  }{%
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \pagestyle{fancy}
+    \ifboolKV[Theme]{Classiques}{%
+      \usepackage[left=0.65cm,right=0.65cm,top=2cm,bottom=1.5cm]{geometry}
+      \let\EXO\EXOlibre\let\endEXO\endEXOlibre%
+      \colorlet{couleur_theme}{black}%
+      \colorlet{couleur_numerotation}{couleur_theme}%
+      \fancyhead[C]{\bfseries #3}
+      \fancyhead[L]{\bfseries #4}
+      \fancyfoot[R]{#5}
+    }{%
+      \usepackage[left=1.5cm,right=1.5cm,top=4cm,bottom=2cm]{geometry}
+      \theme{#2}{#3}{#4}{#5}%
+      \let\EXO\EXOcoop\let\endEXO\endEXOcoop%
+    }%
+  }%
+}%
+
+\NewDocumentEnvironment{EXOCan}{m m}{%
+}{}
+
+\NewDocumentEnvironment{EXOcoop}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\IfNoValueTF{#1}{}{\textmd{#1}},%
+    overlay unbroken and first={%
+      \IfNoValueTF{#2}{}{%
+        \node[
+        fill=white,
+        anchor=east,
+        xshift=10pt,
+        text=black
+        ]
+        at (frame.north east)
+        {\scriptsize #2};
+      }
+      \node[anchor=west,xshift=-20pt,yshift=-15pt] 
+      at (frame.north west) {\stepcounter{ExoMA}\numb{\arabic{ExoMA}}};
+    }
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{EXOlibre}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\stepcounter{ExoMA}\textbf{Exercice \arabic{ExoMA}},%
+  ]
+  \IfNoValueTF{#1}{}{#1\par}%
+}{%
+  \end{tcolorbox}%
+}
+
+
+%%% MISE EN PAGE %%%
+\usepackage{setspace}
+\usepackage{pgf}%
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{babel,arrows, arrows.meta,calc,fit,patterns,plotmarks,shapes.geometric,shapes.misc,shapes.symbols,shapes.arrows,shapes.callouts, shapes.multipart, shapes.gates.logic.US,shapes.gates.logic.IEC, er, automata,backgrounds,chains,topaths,trees,petri,mindmap,matrix, calendar, folding,fadings,through,positioning,scopes,decorations.fractals,decorations.shapes,decorations.text,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,decorations.markings,shadows}
+
+\spaceskip=2\fontdimen2\font plus 3\fontdimen3\font minus3\fontdimen4\font\relax %Pour doubler l'espace entre les mots
+\newcommand\numb[1]{ % Dessin autour du numéro d'exercice
+  \begin{tikzpicture}[overlay,scale=.8]%,yshift=-.3cm
+    \draw[fill=couleur_numerotation,couleur_numerotation](-.4,-0.1)rectangle($(-0.4,.8)+(2em,0)$);
+    \draw (-.4,.8) node[white,anchor=north west,inner sep=0.5pt]{\bfseries EX}; 
+    \draw[line width=.05cm,couleur_numerotation,fill=white] (0,0)--(.5,.5)--(1,0)--(.5,-.5)--cycle;
+    \draw (0.5,0) node[anchor=center,couleur_numerotation]{\large\bfseries#1};
+  \end{tikzpicture}
+}
+
+% echelle pour le dé
+\def\globalscale {0.04}
+% abscisse initiale pour les chevrons
+\def\xini {3}
+
+\newcommand\theme[4]{%
+  \fancyhead[C]{%
+    % Tracé du dé
+    \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-\globalscale, xscale=\globalscale,remember picture, overlay,transform canvas={xshift=-0.5\linewidth,yshift=2.7cm},fill=couleur_theme]%,xshift=17cm,yshift=9.5cm
+      %%%% Arc supérieur gauche%%%%
+      \path[fill](523,1424)..controls(474,1413)and(404,1372)..(362,1333)..controls(322,1295)and(313,1272)..(331,1254)..controls(348,1236)and(369,1245)..(410,1283)..controls(458,1328)and(517,1356)..(575,1362)..controls(635,1368)and(646,1375)..(643,1404)..controls(641,1428)and(641,1428)..(596,1430)..controls(571,1431)and(538,1428)..(523,1424)--cycle;
+      %%%% Dé face supérieur%%%%
+      \path[fill](512,1272)..controls(490,1260)and(195,878)..(195,861)..controls(195,854)and(198,846)..(202,843)..controls(210,838)and(677,772)..(707,772)..controls(720,772)and(737,781)..(753,796)..controls(792,833)and(1057,1179)..(1057,1193)..controls(1057,1200)and(1053,1209)..(1048,1212)..controls(1038,1220)and(590,1283)..(551,1282)..controls(539,1282)and(521,1278)..(512,1272)--cycle;
+      %%%% Dé faces gauche et droite%%%%
+      \path[fill](1061,1167)..controls(1050,1158)and(978,1068)..(900,967)..controls(792,829)and(756,777)..(753,756)--(748,729)--(724,745)..controls(704,759)and(660,767)..(456,794)..controls(322,813)and(207,825)..(200,822)..controls(193,820)and(187,812)..(187,804)..controls(188,797)and(229,688)..(279,563)..controls(349,390)and(376,331)..(391,320)..controls(406,309)and(462,299)..(649,273)..controls(780,254)and(897,240)..(907,241)..controls(918,243)and(927,249)..(928,256)..controls(930,264)and(912,315)..(889,372)..controls(866,429)and(848,476)..(849,477)..controls(851,479)and(872,432)..(897,373)..controls(936,276)and(942,266)..(960,266)..controls(975,266)and(999,292)..(1089,408)..controls(1281,654)and(1290,666)..(1290,691)..controls(1290,720)and(1104,1175)..(1090,1180)..controls(1085,1182)and (1071,1176)..(1061,1167)--cycle;
+      %%%% Arc inférieur bas%%%%
+      \path[fill](1329,861)..controls(1316,848)and(1317,844)..(1339,788)..controls(1364,726)and(1367,654)..(1347,591)..controls(1330,539)and(1338,522)..(1375,526)..controls(1395,528)and(1400,533)..(1412,566)..controls(1432,624)and(1426,760)..(1401,821)..controls(1386,861)and(1380,866)..(1361,868)..controls(1348,870)and(1334,866)..(1329,861)--cycle;
+      %%%% Arc inférieur gauche%%%%
+      \path[fill](196,373)..controls(181,358)and(186,335)..(213,294)..controls(252,237)and(304,190)..(363,161)..controls(435,124)and(472,127)..(472,170)..controls(472,183)and(462,192)..(414,213)..controls(350,243)and(303,283)..(264,343)..controls(239,383)and(216,393)..(196,373)--cycle;
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay, shift={(current page.north west)},yshift=-8.5cm]
+      \fill[fill=couleur_theme] (0,5) rectangle (21,6);
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;   
+      \node[color=white] at (10.5,5.5) {\LARGE \bfseries{ \MakeUppercase{#4}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=west, fill=white, inner sep = 0pt] at ($(current page.north west)+(0.2,-2.3cm)$) {\footnotesize \bfseries{MathALÉA}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=east, fill=white] at ($(current page.north east)+(-2,-1.5cm)$) {\Huge \textcolor{couleur_theme}{\bfseries{\#}} \bfseries{#2} \textcolor{couleur_theme}{\bfseries \MakeUppercase{#3}}};
+    \end{tikzpicture}
+  }%
+  \fancyfoot[R]{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=south east] at ($(current page.south east)+(-2,0.25cm)$) {\scriptsize {\bfseries \href{https://coopmaths.fr/}{Coopmaths.fr} -- \href{http://creativecommons.fr/licences/}{CC-BY-SA}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay,xscale=0.5,yscale=0.5, shift={(current page.south west)},xshift=35.7cm,yshift=-6cm]
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;  
+    \end{tikzpicture}
+  }
+  \fancyfoot[C]{}
+  \colorlet{couleur_theme}{#1}
+  \colorlet{couleur_numerotation}{couleur_theme}
+  \def\iconeobjectif{icone-objectif-#1}
+  \def\urliconeomethode{icone-methode-#1}
+}%
+
+\newcommand*\tikzfootMA{%
+  \ifboolKV[Theme]{CANs}{
+    \begin{tikzpicture}[remember picture,overlay,shift=(current page.north west)]
+      \begin{scope}[x=\textwidth-\oddsidemargin,y=\textheight+5pt]
+        \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt,shift={(-\oddsidemargin,\topmargin)}] (0,0) rectangle (1,-1);
+      \end{scope}
+    \end{tikzpicture} 
+  }{%
+  \ifboolKV[Theme]{Classiques}{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1cm)$) rectangle ($(1,1)+(-5mm,-1.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1.5cm)$) rectangle ($(1,1)+(-5mm,-3.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }%
+  }
+}
+
+\newenvironment{Correction}{%
+  \setcounter{ExoMA}{0}%
+  \cfoot{\tikzfootMA}
+}{}%
+
+\newcommand\version[1]{
+  \fancyhead[R]{
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(-.5,-.5cm)$) {\large \textcolor{couleur_theme}{\bfseries V#1}};
+    \end{tikzpicture}
+  }
+}
+
+\usepackage[french]{babel}
+\usepackage{icomma}
+% loadPackagesFromContent
+
+\newcounter{customfootnote}
+\newcounter{tempreset}%
+\newcounter{temp}
+
+\makeatletter
+\newcommand{\anote}[1]{%
+  \refstepcounter{customfootnote}%
+  \textsuperscript{\thecustomfootnote}%
+  \expandafter\gdef\csname custom@footnote@\thecustomfootnote\endcsname{#1}%
+}
+
+\newcommand{\printcustomnotes}{%
+  \par\noindent\rule{\linewidth}{0.4pt}\par
+  \setcounter{temp}{1}%
+  \whileboolexpr{
+    test {\ifcsdef{custom@footnote@\thetemp}}
+  }{%
+    \noindent\textsuperscript{\thetemp}~\csname custom@footnote@\thetemp\endcsname\par
+    \stepcounter{temp}%
+  }%
+}
+
+\newcommand{\resetcustomnotes}{%
+  \setcounter{customfootnote}{0}%
+  \setcounter{tempreset}{1}%
+  \whileboolexpr{
+    test {\ifcsdef{custom@footnote@\thetempreset}}
+  }{%
+    \global\expandafter\let\csname custom@footnote@\thetempreset\endcsname\@undefined
+    \stepcounter{tempreset}%
+  }%
+}
+\makeatother
+\newcommand{\e}{\mathrm{e}}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\newbool{dys}
+\setbool{dys}{false}
+% ===== POLICES =====
+% Le choix est le même en police standard et en police adaptée aux dys ;
+% seuls la taille et l'interligne changent entre les deux.
+\newcommand{\choiceFonts}[1]{
+\ifstrequal{#1}{helvet}{%
+  % Helvetica (police standard historique des fiches)
+  \usepackage[scaled=1]{helvet}
+}{}
+\ifstrequal{#1}{Fira}{%
+  % Fira Sans + Fira Math
+  % Description : Fira Sans est une police moderne, et Fira Math est une version mathématique compatible qui maintient le style sans-serif.
+  % Utilisation : Fonctionne bien avec XeLaTeX et LuaLaTeX.
+  \usepackage{fontspec}
+  \setmainfont{Fira Sans}
+  \setsansfont{Fira Sans}
+  \usepackage{unicode-math}
+  \setmathfont{Fira Math}
+}{}
+\ifstrequal{#1}{lmodern}{%
+  % Latin Modern Sans
+  % Description : Une version sans-serif de la célèbre police Latin Modern, qui est compatible avec mathastext.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX et LuaLaTeX.
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+\ifstrequal{#1}{tgheros}{%
+  % TeX Gyre Heros + mathastext
+  % Description : TeX Gyre Heros est une alternative à Helvetica, et le package mathastext permet d'utiliser la même police pour les mathématiques.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX, ou LuaLaTeX.
+  \usepackage{tgheros}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+}
+\ifbool{dys}{
+% POLICE DYS
+\choiceFonts{Fira}
+
+%\usepackage{unicode-math}
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Schola}
+%\setsansfont{TeX Gyre Schola}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmainfont{OpenDyslexic}[Scale=1.0]
+%\setsansfont{OpenDyslexic}[Scale=1.0]
+%\setmathfont{OpenDyslexic}[Scale=1.0,range=up/{Latin,latin,num}]
+\usepackage[fontsize=14]{scrextend}
+\usepackage{setspace}
+\setstretch{1.7}
+% Une valeur d'environ 1.2 à 1.7 est souvent recommandée. Cela permet d'augmenter l'espace entre les lignes tout en offrant un léger espacement entre les mots.
+\setlength{\spaceskip}{1.2em}
+% Une valeur d'environ 1.2em à 1.5em est couramment conseillée. Cela crée un espace plus ample entre les mots, ce qui peut aider à réduire la fatigue visuelle et à améliorer la fluidité de la lecture.
+}{
+% POLICE STANDARD
+%%% EE (24/04/2026) : Cette modif ci-dessous est nécessaire pour accepter ’ comme apostrophe.
+% \usepackage[T1]{fontenc}     % Réservé à pdfLaTeX, à remplacer par fontspec en LuaLaTeX
+\choiceFonts{helvet}
+\usepackage[fontsize=11]{scrextend}
+}
+
+\Theme[Classique]{nombres}{Fractions 1}{Secondes}{Accompagnement personnalisé}
+\begin{document}
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=f1208&id=2N30-flash3&n=2&d=10&alea=ka4d&cd=1&cols=1
+\begin{EXO}{}{}
+
+
+\begin{multicols}{2}
+\begin{enumerate}
+	\item \begin{minipage}[t]{\linewidth} Rendre  la fraction $\dfrac{72}{81}$ irréductible. \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} Rendre  la fraction $\dfrac{50}{70}$ irréductible. \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=97008&id=2N30-flash2&n=1&d=10&alea=dpSN&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}
+    \item 
+Écrire $\dfrac{70}{9}$ sous la forme de la somme d'un nombre entier et d'une fraction inférieure à 1.
+
+
+    \item $\dfrac{70}{9} = \ldots + \ldots$
+\end{enumerate}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=16c8e&id=2N30-flash1&n=2&d=10&alea=nY7r&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+Compléter avec $>$ ou $<$.
+
+
+\begin{tasks}(2)
+	\task $\dfrac{17}{32}$ $\ldots$ $\dfrac{14}{5}$
+	\task $\dfrac{13}{22}$ $\ldots$ $\dfrac{14}{5}$
+\end{tasks}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=d309b&id=2N30-4&n=1&d=10&s=false&s2=10&s3=true&s4=true&alea=q00i&cd=0&cols=2
+\end{EXO}
+
+\begin{EXO}{
+\resetcustomnotes }{}
+
+Compléter avec deux nombres entiers \textbf{consécutifs} %\anote{\textbf{} Nombres entiers consécutifs : Ce sont deux nombres entiers qui se suivent comme 4 et 5.}.
+
+ $$\ldots\ldots < \dfrac{5}{2} < \ldots\ldots$$
+%\printcustomnotes
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=d0fdc&id=2N33-1&n=1&d=10&s=6&s2=false&alea=Mdan&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+Justifier votre réponse au problème suivant.
+
+
+ Un jardin est aménagé selon les proportions suivantes :  $\dfrac{1}{5}$ par la culture des légumes, $\dfrac{19}{100}$ par  la culture des plantes aromatiques, $\dfrac{6}{25}$ par  une serre servant aux semis et le reste par la culture des fraisiers. 
+
+ Quelle est la culture qui occupe le plus de surface ?
+
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=08a2a&id=2N31-flash2&n=2&d=10&alea=w7p1&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+\begin{tasks}(3)
+	\task \begin{minipage}[t]{\linewidth} Calculer $\dfrac{3}{4} + \dfrac{2}{3}$. \end{minipage}
+	\task \begin{minipage}[t]{\linewidth} Calculer $\dfrac{8}{9} - \dfrac{2}{7}$. \end{minipage}
+    \task Calculer $3 - \dfrac{5}{8}$.
+\end{tasks}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=dd7d1&id=2N31-flash1&n=1&d=10&alea=PvQN&cd=1&cols=1
+% @see : https://coopmaths.fr/alea?uuid=1894f&id=2N31-flash4&n=1&d=10&alea=C68e&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}
+
+\item Calculer  $\dfrac{13}{20}\times \dfrac{36}{13}$ sous la forme d'une fraction irréductible. 
+% @see : https://coopmaths.fr/alea?uuid=07df0&id=2N31-flash3&n=1&d=10&alea=Ship&cd=1&cols=1
+
+
+
+\item Calculer et écrire sous la forme d'une fraction simplifiée : $\dfrac{3}{4}\times \dfrac{7}{9}$.
+
+
+% @see : https://coopmaths.fr/alea?uuid=6575c&id=2N32-1&n=1&d=10&s=4&s2=true&alea=xvAD&cd=0&cols=4
+
+\item Effectuer le calcul suivant en donnant le résultat sous forme d'une fraction.
+
+ $$A = \dfrac{9}{7} \times \dfrac{4}{7} - \dfrac{2}{7}$$
+\end{enumerate}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=4c878&id=2N33-flash1&n=1&d=10&alea=LIo0&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ Ce matin, Alice a ouvert une bouteille d’eau.
+
+     Elle a bu $\dfrac{1}{3}$ de la bouteille. Puis à midi,  elle a bu $\dfrac{3}{4}$ du reste.
+
+ 
+Quelle fraction de la bouteille a-t-elle bu à midi ? 
+\end{EXO}
+
+
+\clearpage
+
+\begin{Correction}
+\begin{EXO}{}{}
+
+\begin{enumerate}
+	\item $\dfrac{72}{81} =\dfrac{8{\color[HTML]{2563a5}\boldsymbol{\times9}} }{9{\color[HTML]{2563a5}\boldsymbol{\times9}}}={\color[HTML]{F15929}\boldsymbol{\dfrac{8}{9}}}$
+	\item $\dfrac{50}{70} =\dfrac{5{\color[HTML]{2563a5}\boldsymbol{\times10}} }{7{\color[HTML]{2563a5}\boldsymbol{\times10}}}={\color[HTML]{F15929}\boldsymbol{\dfrac{5}{7}}}$
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Le plus grand multiple de $9$ inférieur à $70$ est $63$. 
+
+    Ainsi, $\dfrac{70}{9}=\dfrac{63}{9}+\dfrac{7}{9}={\color[HTML]{F15929}\boldsymbol{7+\dfrac{7}{9}}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{enumerate}
+	\item $\dfrac{17}{32} <1$ et $\dfrac{14}{5}>1$.
+
+      On en déduit : $\dfrac{17}{32} {\color[HTML]{F15929}\boldsymbol{<}} \dfrac{14}{5}$.
+	\item $\dfrac{13}{22} <1$ et $\dfrac{14}{5}>1$.
+
+      On en déduit : $\dfrac{13}{22} {\color[HTML]{F15929}\boldsymbol{<}} \dfrac{14}{5}$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+  $\quad \dfrac{5}{2}=2+\dfrac{1}{2}\quad$ et $\quad2<2+\dfrac{1}{2}<3$ 
+
+donc $\quad {\color[HTML]{F15929}\boldsymbol{2}} < \dfrac{5}{2} < {\color[HTML]{F15929}\boldsymbol{3}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Il s'agit d'un problème additif. Il va être nécessaire de réduire les fractions au même dénominateur pour les additionner, les soustraire ou les comparer.
+
+Réduisons les fractions de l'énoncé au même dénominateur :  $\dfrac{1}{5}$ $= \dfrac{20}{100}$ ; $\dfrac{19}{100}$  et $\dfrac{6}{25}$ $= \dfrac{24}{100}$.
+
+Calculons d'abord la fraction du jardin occupée par une serre servant aux semis : 
+
+$1-\dfrac{1}{5}-\dfrac{19}{100}-\dfrac{6}{25} = \dfrac{100}{100}-\dfrac{20}{100}-\dfrac{19}{100}-\dfrac{24}{100} = \dfrac{100-20-19-24}{100} = \dfrac{37}{100}$
+
+Le jardin est donc occupé de la façon suivante : $\dfrac{1}{5}$ par la culture des légumes, $\dfrac{19}{100}$ par la culture des plantes aromatiques, $\dfrac{6}{25}$ par une serre servant aux semis et $\dfrac{37}{100}$ par la culture des fraisiers.
+
+ Avec les mêmes dénominateurs pour pouvoir comparer, le jardin est donc occupé de la façon suivante : $\dfrac{20}{100}$ par la culture des légumes, $\dfrac{19}{100}$ par la culture des plantes aromatiques, $\dfrac{24}{100}$ par une serre servant aux semis et $\dfrac{37}{100}$ par la culture des fraisiers.
+
+Nous pouvons alors ranger ces fractions dans l'ordre croissant : $\dfrac{19}{100}$, $\dfrac{20}{100}$, $\dfrac{24}{100}$, $\dfrac{37}{100}$.
+
+Enfin, nous pouvons ranger les fractions de l'énoncé et la fraction calculée dans l'ordre croissant : ${\color[HTML]{F15929}\boldsymbol{\dfrac{19}{100}}} < {\color[HTML]{F15929}\boldsymbol{\dfrac{1}{5}}} < {\color[HTML]{F15929}\boldsymbol{\dfrac{6}{25}}} < {\color[HTML]{F15929}\boldsymbol{\dfrac{37}{100}}}$.
+
+ 
+                      C'est donc par {\bfseries \color[HTML]{F15929}la culture des fraisiers} que le jardin est le plus occupé.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{enumerate}[itemsep=1em]
+	\item On cherche un dénominateur commun (ici $12$), puis on additionne les numérateurs :
+
+$\begin{aligned}
+\dfrac{3}{4} + \dfrac{2}{3} &= \dfrac{3\times 3}{4\times 3} + \dfrac{2\times 4}{3\times 4} \\
+&= \dfrac{9}{12} + \dfrac{8}{12} \\[0.7em]
+&= {\color[HTML]{F15929}\boldsymbol{\dfrac{17}{12}}}
+\end{aligned}$
+	\item On réduit au même dénominateur ($63$), puis on soustrait les numérateurs :
+
+$\begin{aligned}
+\dfrac{8}{9} - \dfrac{2}{7} &= \dfrac{8\times 7}{9\times 7} -\dfrac{2\times 9}{7\times 9} \\
+&= \dfrac{56}{63} - \dfrac{18}{63} \\[0.7em]
+&= {\color[HTML]{F15929}\boldsymbol{\dfrac{38}{63}}}
+\end{aligned}$
+\end{enumerate}
+\medskip
+
+
+ On écrit l'entier sous la forme d'une fraction de dénominateur $8$, soit $3=  \dfrac{24}{8}$
+
+$\begin{aligned}
+3 - \dfrac{5}{8} &= \dfrac{24}{8} - \dfrac{5}{8} \\
+&= {\color[HTML]{F15929}\boldsymbol{\dfrac{19}{8}}}
+\end{aligned}$
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Il y a une simplification évidente par $13$, puis on simplifie par $4$ :
+
+    $\begin{aligned}
+    \dfrac{13}{20}\times \dfrac{36}{13}&=\dfrac{36}{20}\\
+    &=\dfrac{4 \times 9}{4 \times 5}\\
+    &={\color[HTML]{F15929}\boldsymbol{\dfrac{9}{5}}}
+    \end{aligned}$
+\medskip
+
+
+ $\dfrac{3}{4}\times \dfrac{7}{9}=\dfrac{3\times 7}{4 \times 9}=\dfrac{3\times 7}{2\times2\times 3\times3}=\dfrac{7{\color[HTML]{2563a5}\boldsymbol{\times3}} }{12{\color[HTML]{2563a5}\boldsymbol{\times3}}}=\dfrac{7}{12}$
+\medskip
+
+\begin{multicols}{4}
+ \begin{minipage}[t]{\linewidth} $A = \dfrac{9}{7} \times \dfrac{4}{7} - \dfrac{2}{7}$
+
+$A = \dfrac{36}{49} - \dfrac{2}{7}$
+
+$A = \dfrac{36}{49} - \dfrac{14}{49}$
+
+$A =$ ${\color[HTML]{F15929}\boldsymbol{ \dfrac{22}{49}}}$
+
+ \end{minipage}
+\end{multicols}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Le matin, Alice a bu $\dfrac{1}{3}$ de la bouteille. Il reste alors $\dfrac{2}{3}$ de la bouteille.
+
+    À midi, elle a bu $\dfrac{3}{4}$ du reste.
+
+     Comme $\dfrac{3}{4}\times \dfrac{2}{3}=\dfrac{6}{12}$, elle a bu ${\color[HTML]{F15929}\boldsymbol{\dfrac{6}{12}}}$ 
+      ou $\dfrac{1}{2}$ de la bouteille à midi.
+\end{EXO}
+
+\clearpage
+\end{Correction}
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:

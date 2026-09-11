@@ -1,0 +1,805 @@
+% @see : https://coopmaths.fr/alea/?uuid=71e5c&id=2L21-1&n=2&d=10&s=1&s2=1-2-3-4-5-6-7-8-9&cd=1&tip=0&alea=SmM1&uuid=3ad01&id=2L21-5&n=4&d=10&s=0&s2=false&cd=1&tip=0&alea=ML0o&uuid=550cf&id=2L21-6&alea=P6aQ&uuid=bb6d5&id=2L22-2&n=3&d=10&s=1-2-3-5&cd=1&tip=0&alea=Br0N&uuid=31017&id=2L22-4&n=1&d=10&s=3&cd=1&tip=0&alea=XZGz&uuid=27741&id=2L20-2&n=1&d=10&s=1&cd=1&tip=0&alea=ILxS&uuid=622b9&id=2L20-1&n=1&d=10&s=0&s2=false&cd=0&tip=0&alea=lZvf&uuid=cf5b7&id=2L20-4&alea=hcGK&v=eleve
+\documentclass[a4paper,11pt,fleqn]{article}
+
+%%% COULEURS %%%
+\usepackage[table,svgnames]{xcolor}
+\definecolor{nombres}{cmyk}{0,.8,.95,0}
+\definecolor{gestion}{cmyk}{.75,1,.11,.12}
+\definecolor{gestionbis}{cmyk}{.75,1,.11,.12}
+\definecolor{grandeurs}{cmyk}{.02,.44,1,0}
+\definecolor{geo}{cmyk}{.62,.1,0,0}
+\definecolor{algo}{cmyk}{.69,.02,.36,0}
+\definecolor{correction}{cmyk}{.63,.23,.93,.06}
+\arrayrulecolor{couleur_theme} % Couleur des filets des tableaux
+
+\usepackage[most]{tcolorbox} % Supprimé à cause de conflits avec ProfCollege
+% Découpe des cadres d'exercice. Le style est redéfini par la sortie LaTeX
+% juste avant un exercice à garder d'un seul tenant, puis rétabli :
+%   \tcbset{mathaleaexo/.style={unbreakable}}
+% Passer par un style plutôt que par la clé « breakable » directement évite
+% de changer la découpe des autres cadres du document (ProfCollege...).
+\tcbset{mathaleaexo/.style={breakable}}
+\tcbuselibrary{documentation}
+
+%%%%%%%% Modification paramétrage pour footnotes
+% Le paquet semble déjà appelé en amont, curieux qu'il n'y ait pas eu de clash
+% avec l'appel ci-dessous mais seulement quand j'ai essayé de l'inclure avec l'option lualatex
+
+% \usepackage{hyperref}
+% Parametrages
+\hypersetup{
+    colorlinks=true,% On active la couleur pour les liens. Couleur par défaut rouge
+    linkcolor=black,% On définit la couleur pour les liens internes
+    % filecolor=magenta,% On définit la couleur pour les liens vers les fichiers locaux      
+    urlcolor=black,% On définit la couleur pour les liens vers des sites web
+    % pdftitle={Puissance Quatre},% On définit un titre pour le document pdf
+    % pdfpagemode=FullScreen,% On fixe l'affichage par défaut à plein écran
+    }
+% Pour avoir les numérotations arabic y compris dans les environnements tcolorbox
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+%%%%%%%%
+
+\usepackage{multicol} 
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{tablvar}
+
+\setlength{\parindent}{0mm}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\labelenumi}{\textbf{\theenumi{}.}}
+\renewcommand{\labelenumii}{\textbf{\theenumii{}.}}
+\setlength{\fboxsep}{3mm}
+
+\setlength{\headheight}{14.5pt}
+
+\setlength{\premulticols}{0pt}
+
+\newcounter{ExoMA}
+
+\newlength{\parindentMA}%
+\setlength{\parindentMA}{\parindent}
+\addtolength{\parindentMA}{30pt}
+
+\usepackage{simplekv}
+
+\setKVdefault[Theme]{Coopmath,Classiques=false,CANs=false}
+\defKV[Theme]{Classique=\setKV[Theme]{Coopmath=false}\setKV[Theme]{Classiques}}
+\defKV[Theme]{CAN=\setKV[Theme]{Coopmath=false}\setKV[Theme]{CANs}}
+
+\usepackage{fancyhdr}
+\fancyhead[C]{}
+\fancyfoot{}
+
+\def\bla{}
+
+\NewDocumentCommand\Theme{o m m m m}{%
+  \useKVdefault[Theme]%
+  \setKV[Theme]{#1}%
+  \ifboolKV[Theme]{CANs}{%
+    \usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}%
+    \fancypagestyle{premierePage}{%
+      \fancyhead[C]{\textsc{\ifx\bla#2\bla Course aux nombres\else#2\fi}}%
+      \fancyfoot[R]{\scriptsize Coopmaths.fr -- CC-BY-SA}%
+      \setlength{\headheight}{14.5pt}%
+      \NewDocumentCommand\dureeCan{}{\ifx\bla#4\bla 9 minutes\else #4\fi}
+      \NewDocumentCommand\titreSujetCan{}{\ifx\bla#3\bla\else\textbf{#3}\fi}
+    }%
+    \pagestyle{premierePage}
+    \colorlet{couleur_theme}{black}%
+    \colorlet{couleur_numerotation}{couleur_theme}%
+    \let\EXO\EXOCan\let\endEXO\endEXOCan%
+  }{%
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \pagestyle{fancy}
+    \ifboolKV[Theme]{Classiques}{%
+      \usepackage[left=0.65cm,right=0.65cm,top=2cm,bottom=1.5cm]{geometry}
+      \let\EXO\EXOlibre\let\endEXO\endEXOlibre%
+      \colorlet{couleur_theme}{black}%
+      \colorlet{couleur_numerotation}{couleur_theme}%
+      \fancyhead[C]{\bfseries #3}
+      \fancyhead[L]{\bfseries #4}
+      \fancyfoot[R]{#5}
+    }{%
+      \usepackage[left=1.5cm,right=1.5cm,top=4cm,bottom=2cm]{geometry}
+      \theme{#2}{#3}{#4}{#5}%
+      \let\EXO\EXOcoop\let\endEXO\endEXOcoop%
+    }%
+  }%
+}%
+
+\NewDocumentEnvironment{EXOCan}{m m}{%
+}{}
+
+\NewDocumentEnvironment{EXOcoop}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\IfNoValueTF{#1}{}{\textmd{#1}},%
+    overlay unbroken and first={%
+      \IfNoValueTF{#2}{}{%
+        \node[
+        fill=white,
+        anchor=east,
+        xshift=10pt,
+        text=black
+        ]
+        at (frame.north east)
+        {\scriptsize #2};
+      }
+      \node[anchor=west,xshift=-20pt,yshift=-15pt] 
+      at (frame.north west) {\stepcounter{ExoMA}\numb{\arabic{ExoMA}}};
+    }
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{EXOlibre}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\stepcounter{ExoMA}\textbf{Exercice \arabic{ExoMA}},%
+  ]
+  \IfNoValueTF{#1}{}{#1\par}%
+}{%
+  \end{tcolorbox}%
+}
+
+
+%%% MISE EN PAGE %%%
+\usepackage{setspace}
+\usepackage{pgf}%
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{babel,arrows, arrows.meta,calc,fit,patterns,plotmarks,shapes.geometric,shapes.misc,shapes.symbols,shapes.arrows,shapes.callouts, shapes.multipart, shapes.gates.logic.US,shapes.gates.logic.IEC, er, automata,backgrounds,chains,topaths,trees,petri,mindmap,matrix, calendar, folding,fadings,through,positioning,scopes,decorations.fractals,decorations.shapes,decorations.text,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,decorations.markings,shadows}
+
+\spaceskip=2\fontdimen2\font plus 3\fontdimen3\font minus3\fontdimen4\font\relax %Pour doubler l'espace entre les mots
+\newcommand\numb[1]{ % Dessin autour du numéro d'exercice
+  \begin{tikzpicture}[overlay,scale=.8]%,yshift=-.3cm
+    \draw[fill=couleur_numerotation,couleur_numerotation](-.4,-0.1)rectangle($(-0.4,.8)+(2em,0)$);
+    \draw (-.4,.8) node[white,anchor=north west,inner sep=0.5pt]{\bfseries EX}; 
+    \draw[line width=.05cm,couleur_numerotation,fill=white] (0,0)--(.5,.5)--(1,0)--(.5,-.5)--cycle;
+    \draw (0.5,0) node[anchor=center,couleur_numerotation]{\large\bfseries#1};
+  \end{tikzpicture}
+}
+
+% echelle pour le dé
+\def\globalscale {0.04}
+% abscisse initiale pour les chevrons
+\def\xini {3}
+
+\newcommand\theme[4]{%
+  \fancyhead[C]{%
+    % Tracé du dé
+    \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-\globalscale, xscale=\globalscale,remember picture, overlay,transform canvas={xshift=-0.5\linewidth,yshift=2.7cm},fill=couleur_theme]%,xshift=17cm,yshift=9.5cm
+      %%%% Arc supérieur gauche%%%%
+      \path[fill](523,1424)..controls(474,1413)and(404,1372)..(362,1333)..controls(322,1295)and(313,1272)..(331,1254)..controls(348,1236)and(369,1245)..(410,1283)..controls(458,1328)and(517,1356)..(575,1362)..controls(635,1368)and(646,1375)..(643,1404)..controls(641,1428)and(641,1428)..(596,1430)..controls(571,1431)and(538,1428)..(523,1424)--cycle;
+      %%%% Dé face supérieur%%%%
+      \path[fill](512,1272)..controls(490,1260)and(195,878)..(195,861)..controls(195,854)and(198,846)..(202,843)..controls(210,838)and(677,772)..(707,772)..controls(720,772)and(737,781)..(753,796)..controls(792,833)and(1057,1179)..(1057,1193)..controls(1057,1200)and(1053,1209)..(1048,1212)..controls(1038,1220)and(590,1283)..(551,1282)..controls(539,1282)and(521,1278)..(512,1272)--cycle;
+      %%%% Dé faces gauche et droite%%%%
+      \path[fill](1061,1167)..controls(1050,1158)and(978,1068)..(900,967)..controls(792,829)and(756,777)..(753,756)--(748,729)--(724,745)..controls(704,759)and(660,767)..(456,794)..controls(322,813)and(207,825)..(200,822)..controls(193,820)and(187,812)..(187,804)..controls(188,797)and(229,688)..(279,563)..controls(349,390)and(376,331)..(391,320)..controls(406,309)and(462,299)..(649,273)..controls(780,254)and(897,240)..(907,241)..controls(918,243)and(927,249)..(928,256)..controls(930,264)and(912,315)..(889,372)..controls(866,429)and(848,476)..(849,477)..controls(851,479)and(872,432)..(897,373)..controls(936,276)and(942,266)..(960,266)..controls(975,266)and(999,292)..(1089,408)..controls(1281,654)and(1290,666)..(1290,691)..controls(1290,720)and(1104,1175)..(1090,1180)..controls(1085,1182)and (1071,1176)..(1061,1167)--cycle;
+      %%%% Arc inférieur bas%%%%
+      \path[fill](1329,861)..controls(1316,848)and(1317,844)..(1339,788)..controls(1364,726)and(1367,654)..(1347,591)..controls(1330,539)and(1338,522)..(1375,526)..controls(1395,528)and(1400,533)..(1412,566)..controls(1432,624)and(1426,760)..(1401,821)..controls(1386,861)and(1380,866)..(1361,868)..controls(1348,870)and(1334,866)..(1329,861)--cycle;
+      %%%% Arc inférieur gauche%%%%
+      \path[fill](196,373)..controls(181,358)and(186,335)..(213,294)..controls(252,237)and(304,190)..(363,161)..controls(435,124)and(472,127)..(472,170)..controls(472,183)and(462,192)..(414,213)..controls(350,243)and(303,283)..(264,343)..controls(239,383)and(216,393)..(196,373)--cycle;
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay, shift={(current page.north west)},yshift=-8.5cm]
+      \fill[fill=couleur_theme] (0,5) rectangle (21,6);
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;   
+      \node[color=white] at (10.5,5.5) {\LARGE \bfseries{ \MakeUppercase{#4}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=west, fill=white, inner sep = 0pt] at ($(current page.north west)+(0.2,-2.3cm)$) {\footnotesize \bfseries{MathALÉA}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=east, fill=white] at ($(current page.north east)+(-2,-1.5cm)$) {\Huge \textcolor{couleur_theme}{\bfseries{\#}} \bfseries{#2} \textcolor{couleur_theme}{\bfseries \MakeUppercase{#3}}};
+    \end{tikzpicture}
+  }%
+  \fancyfoot[R]{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=south east] at ($(current page.south east)+(-2,0.25cm)$) {\scriptsize {\bfseries \href{https://coopmaths.fr/}{Coopmaths.fr} -- \href{http://creativecommons.fr/licences/}{CC-BY-SA}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay,xscale=0.5,yscale=0.5, shift={(current page.south west)},xshift=35.7cm,yshift=-6cm]
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;  
+    \end{tikzpicture}
+  }
+  \fancyfoot[C]{}
+  \colorlet{couleur_theme}{#1}
+  \colorlet{couleur_numerotation}{couleur_theme}
+  \def\iconeobjectif{icone-objectif-#1}
+  \def\urliconeomethode{icone-methode-#1}
+}%
+
+\newcommand*\tikzfootMA{%
+  \ifboolKV[Theme]{CANs}{
+    \begin{tikzpicture}[remember picture,overlay,shift=(current page.north west)]
+      \begin{scope}[x=\textwidth-\oddsidemargin,y=\textheight+5pt]
+        \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt,shift={(-\oddsidemargin,\topmargin)}] (0,0) rectangle (1,-1);
+      \end{scope}
+    \end{tikzpicture} 
+  }{%
+  \ifboolKV[Theme]{Classiques}{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1cm)$) rectangle ($(1,1)+(-5mm,-1.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1.5cm)$) rectangle ($(1,1)+(-5mm,-3.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }%
+  }
+}
+
+\newenvironment{Correction}{%
+  \setcounter{ExoMA}{0}%
+  \cfoot{\tikzfootMA}
+}{}%
+
+\newcommand\version[1]{
+  \fancyhead[R]{
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(-.5,-.5cm)$) {\large \textcolor{couleur_theme}{\bfseries V#1}};
+    \end{tikzpicture}
+  }
+}
+
+\usepackage[french]{babel}
+\usepackage{icomma}
+% loadPackagesFromContent
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\usepackage[tikz]{bclogo}
+\newcommand{\e}{\mathrm{e}}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\newbool{dys}
+\setbool{dys}{false}
+% ===== POLICES =====
+% Le choix est le même en police standard et en police adaptée aux dys ;
+% seuls la taille et l'interligne changent entre les deux.
+\newcommand{\choiceFonts}[1]{
+\ifstrequal{#1}{helvet}{%
+  % Helvetica (police standard historique des fiches)
+  \usepackage[scaled=1]{helvet}
+}{}
+\ifstrequal{#1}{Fira}{%
+  % Fira Sans + Fira Math
+  % Description : Fira Sans est une police moderne, et Fira Math est une version mathématique compatible qui maintient le style sans-serif.
+  % Utilisation : Fonctionne bien avec XeLaTeX et LuaLaTeX.
+  \usepackage{fontspec}
+  \setmainfont{Fira Sans}
+  \setsansfont{Fira Sans}
+  \usepackage{unicode-math}
+  \setmathfont{Fira Math}
+}{}
+\ifstrequal{#1}{lmodern}{%
+  % Latin Modern Sans
+  % Description : Une version sans-serif de la célèbre police Latin Modern, qui est compatible avec mathastext.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX et LuaLaTeX.
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+\ifstrequal{#1}{tgheros}{%
+  % TeX Gyre Heros + mathastext
+  % Description : TeX Gyre Heros est une alternative à Helvetica, et le package mathastext permet d'utiliser la même police pour les mathématiques.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX, ou LuaLaTeX.
+  \usepackage{tgheros}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+}
+\ifbool{dys}{
+% POLICE DYS
+\choiceFonts{Fira}
+
+%\usepackage{unicode-math}
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Schola}
+%\setsansfont{TeX Gyre Schola}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmainfont{OpenDyslexic}[Scale=1.0]
+%\setsansfont{OpenDyslexic}[Scale=1.0]
+%\setmathfont{OpenDyslexic}[Scale=1.0,range=up/{Latin,latin,num}]
+\usepackage[fontsize=14]{scrextend}
+\usepackage{setspace}
+\setstretch{1.7}
+% Une valeur d'environ 1.2 à 1.7 est souvent recommandée. Cela permet d'augmenter l'espace entre les lignes tout en offrant un léger espacement entre les mots.
+\setlength{\spaceskip}{1.2em}
+% Une valeur d'environ 1.2em à 1.5em est couramment conseillée. Cela crée un espace plus ample entre les mots, ce qui peut aider à réduire la fatigue visuelle et à améliorer la fluidité de la lecture.
+}{
+% POLICE STANDARD
+%%% EE (24/04/2026) : Cette modif ci-dessous est nécessaire pour accepter ’ comme apostrophe.
+% \usepackage[T1]{fontenc}     % Réservé à pdfLaTeX, à remplacer par fontspec en LuaLaTeX
+\choiceFonts{helvet}
+\usepackage[fontsize=12]{scrextend}
+}
+
+\Theme[Classique]{nombres}{}{Fiche calcul 2}{Équations 2}
+\begin{document}
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=71e5c&id=2L21-1&n=2&d=10&s=1&s2=1-2-3-4-5-6-7-8-9&alea=SmM1&cd=1&cols=1
+\begin{EXO}{}{}
+Justifier si les nombres proposés sont des solutions de l'équation donnée ou non.
+
+
+\begin{enumerate}
+	\item $x^2-14x+45=0~$ pour $~x=5~$, pour $~x=9~$ puis pour $~x=8$
+	\item $4x+9=5x-1~$ pour $~x=10~$ puis pour $~x=2$
+\end{enumerate}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=3ad01&id=2L21-5&n=4&d=10&s=0&s2=false&alea=ML0o&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les équations suivantes.
+
+\begin{multicols}{4}
+\begin{enumerate}[itemsep=1em]
+	\item \begin{minipage}[t]{\linewidth} $8-(2x+8)=2x-4$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $-x-1=-2x+8$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $5(-2x+4)=3x+7$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $x^2+1=(x-8)^2$
+
+ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=550cf&id=2L21-6&n=1&d=10&alea=P6aQ&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+  Résoudre l'équation $\dfrac{4x+10}{-6}=\dfrac{1}{4}$.
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=bb6d5&id=2L22-2&n=3&d=10&s=1-2-3-5&alea=Br0N&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre dans $\mathbb{R}$ :
+
+\begin{multicols}{3}
+\begin{enumerate}[itemsep=1em]
+	\item \begin{minipage}[t]{\linewidth} $x^{2}-25=0$ 
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $x^{2}-32=0$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $4x^{2}-40=0$
+
+ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=31017&id=2L22-4&n=1&d=10&s=3&alea=XZGz&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ Préciser les valeurs interdites éventuelles, puis résoudre l'équation : $\dfrac{6+4x}{5x-4}=-1$.
+
+Ensemble des valeurs interdites : 
+Ensemble des solutions : 
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=27741&id=2L20-2&n=1&d=10&s=1&alea=ILxS&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+Exprimer le prix total de l'achat, en fonction des lettres introduites dans l'énoncé.
+
+
+ Nassim veut acheter $2$ poireaux et $3$ navets.
+
+On note $p$ le prix d'un poireau et $n$ le prix d'un navet.
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=622b9&id=2L20-1&n=1&d=10&s=0&s2=false&alea=lZvf&cd=0&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ Ursule et Nicolas choisissent un même nombre.
+
+ Ursule lui ajoute $1$ puis multiplie le résultat par $6$ alors que Nicolas lui ajoute $7$ puis multiplie le résultat par $15$.
+
+Ursule et Nicolas obtiennent le même résultat.
+
+Quel nombre commun ont choisi Ursule et Nicolas ?
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=cf5b7&id=2L20-4&n=1&d=10&s=1&alea=hcGK&cd=1&cols=2
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth}  En augmentant le côté d'un carré de $5\text{ cm}$, son aire augmente de $76\text{ cm}^2$.
+
+      Quelle est la longueur du côté de ce carré ? 
+
+      On donnera le résultat sous la forme d'une fraction irréductible ou d'un nombre entier le cas échéant. \end{minipage}
+\end{multicols}
+\end{EXO}
+
+
+\clearpage
+
+\begin{Correction}
+\begin{EXO}{}{}
+
+\begin{enumerate}
+	\item Pour $x=5$ : 
+
+$x^2-14\times  x+45=
+        5^2-14\times 5+45=
+        25-70+45=0$
+
+On trouve bien $0$ pour le membre de gauche donc l'égalité est vraie.
+
+{\color[HTML]{F15929}$x=5$ est donc solution de l'équation $x^2-14x+45=0~$}\medskip
+
+Pour $x=9$ : 
+
+$x^2-14\times  x+45=
+        9^2-14\times 9+45=
+        81-126+45=0$
+
+On trouve bien $0$ pour le membre de gauche donc l'égalité est vraie.
+
+{\color[HTML]{F15929}$x=9$ est donc solution de l'équation $x^2-14x+45=0~$}\medskip
+
+Pour $x=8$ : 
+
+$x^2-14\times  x+45=
+        8^2-14\times 8+45=
+        64-112+45=-3$
+
+$-3\not=0$ donc l'égalité n'est pas vraie.
+
+{\color[HTML]{F15929}$x=8$ n'est donc pas solution de l'équation $x^2-14x+45=0~$}\medskip
+
+
+	\item Pour $x=10$ : 
+
+$4x+9=4\times 10+9=40+9=49$ 
+
+           $5x-1=5\times 10-1=50-1=49$
+
+On trouve le même résultat pour le membre de gauche et pour le membre de droite donc l'égalité est vraie.
+
+{\color[HTML]{F15929}$x=10$ est donc solution de l'équation $4x+9=5x-1~$}\medskip
+
+Pour $x=2$ : 
+
+$4x+9=4\times 2+9=8+9=17$ 
+
+           $5x-1=5\times 2-1=10-1=9$
+
+$17\not=9$ donc l'égalité n'est pas vraie.
+
+{\color[HTML]{F15929}$x=2$ n'est donc pas solution de l'équation $4x+9=5x-1~$}\medskip
+
+
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{enumerate}[itemsep=1em]
+	\item $8-(2x+8)=2x-4$
+
+On développe le membre de gauche.
+
+$8-2x-8=2x-4$
+
+$-2x+0=2x-4$
+
+On soustrait $2x$ aux deux membres.
+
+$-2x+0{\color[HTML]{216D9A}\boldsymbol{-2x}}=2x-4{\color[HTML]{216D9A}\boldsymbol{-2x}}$
+
+$-4x+0=-4$
+
+On ajoute $0$ aux deux membres.
+
+$-4x+0{\color[HTML]{216D9A}\boldsymbol{+0}}=-4{\color[HTML]{216D9A}\boldsymbol{+0}}$
+
+$-4x=-4$
+
+On divise les deux membres par $-4$.
+
+$-4x{\color[HTML]{216D9A}\boldsymbol{\div(-4)}}=-4{\color[HTML]{216D9A}\boldsymbol{\div(-4)}}$
+
+$x=\dfrac{4}{4}$
+
+Par simplification, $x=1$.
+
+La solution de l'équation $8-(2x+8)=2x-4$ est ${\color[HTML]{F15929}\boldsymbol{1}}$.
+	\item $-x-1=-2x+8$
+
+On ajoute $2x$ aux deux membres.
+
+$-x-1{\color[HTML]{216D9A}\boldsymbol{+2x}}=-2x+8{\color[HTML]{216D9A}\boldsymbol{+2x}}$
+
+$x-1=8$
+
+On ajoute $1$ aux deux membres.
+
+$x-1{\color[HTML]{216D9A}\boldsymbol{+1}}=8{\color[HTML]{216D9A}\boldsymbol{+1}}$
+
+$x=9$
+
+La solution de l'équation $-x-1=-2x+8$ est ${\color[HTML]{F15929}\boldsymbol{9}}$.
+	\item $5(-2x+4)=3x+7$
+
+On développe le membre de gauche.
+
+$-10x+20=3x+7$
+
+On soustrait $3x$ aux deux membres.
+
+$-10x+20{\color[HTML]{216D9A}\boldsymbol{-3x}}=3x+7{\color[HTML]{216D9A}\boldsymbol{-3x}}$
+
+$-13x+20=7$
+
+On soustrait $20$ aux deux membres.
+
+$-13x+20{\color[HTML]{216D9A}\boldsymbol{-20}}=7{\color[HTML]{216D9A}\boldsymbol{-20}}$
+
+$-13x=-13$
+
+On divise les deux membres par $-13$.
+
+$-13x{\color[HTML]{216D9A}\boldsymbol{\div(-13)}}=-13{\color[HTML]{216D9A}\boldsymbol{\div(-13)}}$
+
+$x=\dfrac{13}{13}$
+
+Par simplification, $x=1$.
+
+La solution de l'équation $5(-2x+4)=3x+7$ est ${\color[HTML]{F15929}\boldsymbol{1}}$.
+	\item $x^2+1=(x-8)^2$
+
+On développe le membre de droite à l'aide de l'identité remarquable $(a-b)^2=a^2-2ab+b^2$, avec $a=x$ et $b=8$.
+
+$x^2+1=x^2-2\times x\times 8+8^2$
+
+$x^2+1=x^2-16x+64$
+
+On soustrait $x^2$ aux deux membres.
+
+$x^2+1{\color[HTML]{216D9A}\boldsymbol{-x^2}}=x^2-16x+64{\color[HTML]{216D9A}\boldsymbol{-x^2}}$
+
+$1=-16x+64$
+
+On soustrait $64$ aux deux membres.
+
+$1{\color[HTML]{216D9A}\boldsymbol{-64}}=-16x+64{\color[HTML]{216D9A}\boldsymbol{-64}}$
+
+$-63=-16x$
+
+On divise les deux membres par $-16$.
+
+$-63{\color[HTML]{216D9A}\boldsymbol{\div(-16)}}=-16x{\color[HTML]{216D9A}\boldsymbol{\div(-16)}}$
+
+$x=\dfrac{63}{16}$
+
+La solution de l'équation $x^2+1=(x-8)^2$ est ${\color[HTML]{F15929}\boldsymbol{\dfrac{63}{16}}}$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ 
+    \begin{bclogo}[couleurBarre=nombres,couleurBord=nombres,epBord=2,couleur=gray!10,logo=\bclampe,arrondi=0.1]{\bf Rappel}
+      Pour tout réels $a$, $b$, $c$, $d$ tels que $b$ et $d$ soient non nuls : $\dfrac{a}{b}=\dfrac{c}{d}$ si et seulement si $ad=bc$.
+    \end{bclogo}
+    \[
+\begin{aligned}
+\dfrac{4x+10}{-6}&=\dfrac{1}{4}\\
+4( 4x+10 )&=-6 \times 1\\
+16x+40&=-6\\
+16x&=-6-40\\
+16x&=-46\\x&=-\dfrac{46}{16}=-\dfrac{23}{8}
+\end{aligned}
+\]L'équation a donc pour unique solution : ${\color[HTML]{F15929}\boldsymbol{-\dfrac{23}{8}}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{enumerate}[itemsep=1em]
+	\item \textbf{Méthode 1 :}
+
+On reconnaît l'identité remarquable $a^2-b^2$ qui se factorise en $(a-b)(a+b)$.
+
+          On l'applique avec $a=x$ et $b=5$.
+
+         Résoudre l'équation revient à résoudre $(x-5)(x+5)=0$ (on reconnaît une équation produit nul).
+
+  
+        $x-5=0$ ou $x+5=0$
+
+        $x=5$ ou $x=-5$
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-5;5\}}}$.
+            
+
+\textbf{Méthode 2 :}
+
+On isole le carré pour se ramener à une équation du type $x^2=k$.
+
+        Résoudre l'équation revient à résoudre  $x^2=25$.
+
+  
+        Puisque $25$ est strictement positif, l'équation a deux solutions : $-\sqrt{25}=-5$ et $\sqrt{25}=5$.
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-5\,;\,5\}}}$.
+	\item \textbf{Méthode 1 :}
+
+On reconnaît l'identité remarquable $a^2-b^2$ qui se factorise en $(a-b)(a+b)$.
+
+          On l'applique avec  $ a=x$ et $b=\sqrt{32}$.
+
+         Résoudre l'équation revient à résoudre $(x-\sqrt{32})(x+\sqrt{32})=0$ (on reconnaît une équation produit nul).
+
+  
+        $x-\sqrt{32}=0$ ou $x+\sqrt{32}=0$
+
+        $x=\sqrt{32}$ ou $x=-\sqrt{32}$
+
+        Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-\sqrt{32}\,;\,\sqrt{32}\}}}$\medskip
+
+\textbf{Méthode 2 :}
+
+On isole le carré pour se ramener à une équation du type $x^2=k$.
+
+        Résoudre l'équation revient à résoudre  $x^2=32$.
+
+  
+        Puisque $32$ est strictement positif, l'équation a deux solutions :  $-\sqrt{32}$ et $\sqrt{32}$.
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-\sqrt{32}\,;\,\sqrt{32}\}}}$.
+	\item On isole le carré pour se ramener à une équation du type $x^2=k$.
+
+        Résoudre l'équation revient à résoudre  $x^2=10$.
+
+  Puisque $10$  est strictement positif, l'équation a deux solutions :  $-\sqrt{10}$ et $\sqrt{10}$.
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-\sqrt{10}\,;\,\sqrt{10}\}}}$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Déterminer les valeurs interdites revient à déterminer les valeurs qui annulent le dénominateur du quotient, puisque la division par $0$ n'existe pas.
+
+Or $5x-4=0$ si et seulement si  $x=\dfrac{4}{5}$. 
+
+          Donc l'ensemble des valeurs interdites est  ${\color[HTML]{F15929}\boldsymbol{\left\{\dfrac{4}{5}\right\}}}$. 
+
+          Pour tout $x\in \mathbb{R}\smallsetminus\left\{\dfrac{4}{5}\right\}$,
+
+            $\begin{aligned}
+           \dfrac{6+4x}{5x-4}&=-1\\
+            6+4x&=-1\times(5x-4)\,\,\,\,\,\,\,\text{ car les produits en croix sont égaux.}\\
+            4x+6&= -5x+4\\
+            9x&= -2\\
+           x&=-\dfrac{2}{9}
+           \end{aligned}$
+
+$-\dfrac{2}{9}$ n'est pas une valeur interdite, donc l'ensemble des solutions de cette équation est  ${\color[HTML]{F15929}\boldsymbol{\mathscr{S}=\left\{-\dfrac{2}{9}\right\}}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ 
+        Nassim va payer $2$ fois le prix d'un poireau et $3$ fois le prix d'un navet.
+
+ C'est-à-dire $2\times p + 3\times n = 2p + 3n$.
+
+Donc le prix total de l'achat est ${\color[HTML]{F15929}\boldsymbol{2p + 3n}}$.
+        
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Posons $x$ le nombre choisi au départ.
+
+Le programme de calcul effectué par Ursule se traduit par : $(x+1)\times 6$.
+
+Le programme de calcul effectué par Nicolas se traduit par : $(x+7)\times 15$.
+
+L'égalité des résultats se traduit par l'équation suivante :
+
+$(x+1)\times 6=(x+7)\times 15$
+
+{\bfseries \color{black}Résolvons cette équation :}
+
+  Commençons par développer et réduire les deux membres :
+
+  $\begin{aligned}(x + 1)\times 6 &= 6x + 6\\
+  (x + 7)\times 15 &= 15x + 105\\
+  \end{aligned}$
+
+  Ainsi, l'équation devient : $6x + 6 = 15x + 105$.
+
+  
+  Soustrayons $15x$ des deux membres et soustrayons $6$ des deux membres :
+
+  $\begin{aligned}6x - 15x &= 105 - 6\\
+  -9\times x &= 99\\
+  \end{aligned}$.
+
+  Divisons les deux membres par $-9$ :
+
+  $x = \dfrac{99}{-9} = -11$.
+
+{\bfseries \color{black}Vérification :}
+
+ $(-11 + 1)\times 6 = -10\times 6 = -60$
+
+ 
+  $(-11 + 7)\times 15 = -4\times 15 = -60$\medskip
+
+Ursule et Nicolas ont donc choisi au départ le nombre ${\color[HTML]{F15929}\boldsymbol{-11}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth} On note $x$ la longueur du côté du carré que l'on cherche.
+
+      La différence des aires entre les deux carrés est  $76$, on cherche $x$ tel que :   
+
+      $\begin{aligned}
+      (x+5)^2-x^2&=76\\
+      \cancel{x^2}+ 10x+5^2-\cancel{x^2}&=76\\
+       10x+25&=76\\
+        10x+25{\color[HTML]{F15929}\boldsymbol{-25}}&=76{\color[HTML]{F15929}\boldsymbol{-25}}\\
+         10x&=51\\
+         \dfrac{10x}{{\color[HTML]{F15929}\boldsymbol{10}}}&=\dfrac{51}{{\color[HTML]{F15929}\boldsymbol{10}}}\\
+         x&=\dfrac{51}{10}\end{aligned}$
+           
+
+           La longueur du côté du carré est  $\dfrac{51}{10}\text{ cm}$.
+  \end{minipage}
+\end{multicols}
+\end{EXO}
+
+\clearpage
+\end{Correction}
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:
