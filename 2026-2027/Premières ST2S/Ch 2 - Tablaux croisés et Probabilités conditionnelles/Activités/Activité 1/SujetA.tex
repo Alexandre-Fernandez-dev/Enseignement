@@ -1,0 +1,173 @@
+\documentclass{article}
+%https://www.mathalea.fr/alea/?uuid=6575c&id=2N32-1&n=1&d=10&s=4&s2=true&cd=0&tip=0&alea=DGR6&uuid=cb572&id=2N31-3&n=1&d=10&s=1&cd=1&tip=0&alea=gg1c&uuid=1fc02&id=2N32-2&n=1&d=10&s=4&cd=1&tip=0&alea=71KW&uuid=71eba&id=2A-N3-2&alea=062Y&uuid=fc2e8&id=2N43-4&n=1&d=10&cd=1&tip=0&alea=9YGs&uuid=1e42b&id=2N43-1&n=3&d=10&s=1-2-3&s2=3&cd=0&tip=0&alea=ZhvY&uuid=19060&id=3AutoN02-1&n=1&d=10&s=1&cd=1&tip=0&alea=sSzW&uuid=0b020&id=3AutoN02-2&n=3&d=10&s=true&s2=5&s3=10&cd=1&tip=0&alea=utKy
+
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{empty}
+
+
+\large
+
+% Chapitre produit scalaire : 3, 6, 11
+% Chapitre applications du produit scalaire : 4, 7, 13
+% Chapitre exponentielle: 2, 3, 4, 5, 9
+
+{
+  \normalsize
+  \textbf{\Niveau} \hfill \textbf{\Chapitre} \hfill \textbf{\Document}
+}
+\hrule
+
+\subsection*{Méthode : calculer une probabilité conditionnelle à l'aide d'un tableau}
+
+\noindent
+
+Un laboratoire pharmaceutique a réalisé des tests sur 800 patients atteints d'une maladie.
+Certains sont traités avec le médicament A, d'autres avec le médicament B.
+Le tableau présente les résultats de l'étude :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Médicament A & Médicament B & Total \\
+\hline
+Guéri & 383 & 291 & 674 \\
+\hline
+Non guéri & 72 & 54 & 126 \\
+\hline
+Total & 455 & 345 & 800 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item On choisit au hasard un patient et on considère les événements suivants :
+
+    $A$ : « Le patient a pris le médicament A. »
+
+    $G$ : « Le patient est guéri. »
+
+    Calculer :
+    \begin{tasks}(4)
+        \task $P(A)$
+        \task $P(G)$
+        \task $P(G \cap A)$
+        \task $P(\overline{G} \cap A)$
+    \end{tasks}
+
+    \item
+    \begin{enumerate}
+        \item On choisit maintenant au hasard un \textbf{patient guéri}.
+        
+        Calculer la probabilité qu'il ait pris le médicament A \textbf{sachant qu'il est guéri}.
+
+        \item On choisit maintenant au hasard un \textbf{patient traité par le médicament B}.
+        
+        Calculer la probabilité qu'il soit guéri \textbf{sachant qu'il a pris le médicament B}.
+    \end{enumerate}
+\end{enumerate}
+
+\vfill
+
+\hrule
+
+\vfill
+\setcounter{exercice}{0}
+{
+  \normalsize
+  \textbf{\Niveau} \hfill \textbf{\Chapitre} \hfill \textbf{\Document}
+}
+\hrule
+
+\subsection*{Méthode : calculer une probabilité conditionnelle à l'aide d'un tableau}
+
+\noindent
+
+Un laboratoire pharmaceutique a réalisé des tests sur 800 patients atteints d'une maladie.
+Certains sont traités avec le médicament A, d'autres avec le médicament B.
+Le tableau présente les résultats de l'étude :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Médicament A & Médicament B & Total \\
+\hline
+Guéri & 383 & 291 & 674 \\
+\hline
+Non guéri & 72 & 54 & 126 \\
+\hline
+Total & 455 & 345 & 800 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item On choisit au hasard un patient et on considère les événements suivants :
+
+    $A$ : « Le patient a pris le médicament A. »
+
+    $G$ : « Le patient est guéri. »
+
+    Calculer :
+    \begin{tasks}(4)
+        \task $P(A)$
+        \task $P(G)$
+        \task $P(G \cap A)$
+        \task $P(\overline{G} \cap A)$
+    \end{tasks}
+
+    \item
+    \begin{enumerate}
+        \item On choisit maintenant au hasard un \textbf{patient guéri}.
+        
+        Calculer la probabilité qu'il ait pris le médicament A \textbf{sachant qu'il est guéri}.
+
+        \item On choisit maintenant au hasard un \textbf{patient traité par le médicament B}.
+        
+        Calculer la probabilité qu'il soit guéri \textbf{sachant qu'il a pris le médicament B}.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

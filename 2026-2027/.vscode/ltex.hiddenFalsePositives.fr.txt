@@ -1,0 +1,1 @@
+{"rule":"POINT","sentence":"^\\QEn reprenant la figure précédente, on a les égalités de vecteurs suivantes : \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Atrapa-|Dummy\\+|Dummy's\\+)[0-9]+$"}

@@ -1,0 +1,210 @@
+\documentclass[a4paper,11pt]{article}
+
+% ---------- Préambule minimal ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tasks}
+\usetikzlibrary{arrows.meta}
+\usepackage[margin=2.5cm]{geometry}
+
+% Environnement "exercice" : \begin{exercice}{<numéro>} ... \end{exercice}
+\newenvironment{exercice}[1]{%
+  \par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+\begin{document}
+{
+  \normalsize
+  \textbf{Seconde} \hfill \textbf{Vecteurs 1} \hfill \textbf{Fiche exos 2}
+}
+
+% =====================================================
+\begin{exercice}{1}
+Simplifier les expressions suivantes en utilisant la relation de Chasles.
+\begin{tasks}(3)
+\task $\overrightarrow{AD}+\overrightarrow{DE}$
+\task $\overrightarrow{BC}+\overrightarrow{AB}$
+\task $\overrightarrow{AB}-\overrightarrow{AC}$
+\task $\overrightarrow{AD}+\overrightarrow{DE}+\overrightarrow{EI}$
+\task $\overrightarrow{AB}-\overrightarrow{AC}-\overrightarrow{CB}$
+\task $\overrightarrow{AB}-\overrightarrow{AC}+\overrightarrow{BA}-\overrightarrow{AC}$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+Représenter à chaque fois le vecteur demandé.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \def\w{4} \def\h{3}
+  % grille fine sur toute la zone (3 colonnes x 3 lignes)
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (3*\w,3*\h);
+  % séparations épaisses des 9 cases
+  \foreach \x in {0,1,2,3} \draw[thick] (\x*\w,0) -- (\x*\w,3*\h);
+  \foreach \y in {0,1,2,3} \draw[thick] (0,\y*\h) -- (3*\w,\y*\h);
+  % ligne du haut (y entre 2h et 3h) : vecteur donné, 2u, 1/2 u
+  \draw[-{Latex[length=2.5mm]},thick] (0.5*\w,1+2*\h) -- (0.75*\w,2.5*\h) node[midway,above left] {$\vec u$};
+  \node at (\w+0.6,3*\h-0.5) {$2\vec u$};
+  \node at (2*\w+0.6,3*\h-0.5) {$\tfrac12\vec u$};
+  % ligne du milieu (y entre h et 2h) : -u, -3/2 u, 1/3 u
+  \node at (0.6,2*\h-0.5) {$-\vec u$};
+  \node at (\w+0.6,2*\h-0.5) {$-\tfrac32\vec u$};
+  \node at (2*\w+0.6,2*\h-0.5) {$\tfrac13\vec u$};
+  % ligne du bas (y entre 0 et h) : -2/3 u, 5/3 u, 1/6 u
+  \node at (0.6,\h-0.5) {$-\tfrac23\vec u$};
+  \node at (\w+0.6,\h-0.5) {$\tfrac53\vec u$};
+  \node at (2*\w+0.6,\h-0.5) {$\tfrac16\vec u$};
+\end{tikzpicture}
+\end{center}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+On considère deux vecteurs $\vec u$ et $\vec v$. $A$ est un point donné.
+\begin{enumerate}[label=\arabic*.]
+\item Construire les points $B$ et $C$ tels que :
+  \begin{tasks}[style=itemize](2)
+  \task $\overrightarrow{AB}=\vec u+\vec v$
+  \task $\overrightarrow{AC}=\vec u-\vec v$.
+  \end{tasks}
+\item Construire les points $P$, $Q$ et $R$ tels que :
+  \begin{tasks}[style=itemize](3)
+  \task $\overrightarrow{BP}=\dfrac23\vec u$
+  \task $\overrightarrow{PQ}=-2\vec v$
+  \task $\overrightarrow{QR}=\dfrac{-2}{3}\vec u$.
+  \end{tasks}
+\item Que constate-t-on ? Le justifier par un calcul vectoriel.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (14,9);
+  \draw[-{Latex[length=2.5mm]},thick] (4,5) -- (1,1) node[above left] {$\vec u$};
+  \draw[-{Latex[length=2.5mm]},thick] (6,7) -- (9,7) node[above,midway] {$\vec v$};
+  \node at (12,8) {$\times$};
+  \node[right] at (12.15,8) {$A$};
+\end{tikzpicture}
+\end{center}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{4}
+$ABCD$ est un parallélogramme.
+\begin{enumerate}[label=\arabic*.]
+\item Placer les points $E$ et $F$ tels que :
+  \begin{itemize}
+  \item $\overrightarrow{AE}=2\overrightarrow{AB}$
+  \item $\overrightarrow{BF}=\dfrac32\overrightarrow{AD}-\dfrac12\overrightarrow{AB}$.
+  \end{itemize}
+\item Montrer que $\overrightarrow{CE}=\overrightarrow{AB}-\overrightarrow{AD}$.
+\item Montrer que $\overrightarrow{CF}=\dfrac{-1}{2}\overrightarrow{AB}+\dfrac12\overrightarrow{AD}$.
+\item En déduire le réel $\lambda$ tel que $\overrightarrow{CE}=\lambda\overrightarrow{CF}$.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (14,9);
+  \coordinate (A) at (5+1,3+3);
+  \coordinate (B) at (5+5,3+3);
+  \coordinate (C) at (5+4,3+0);
+  \coordinate (D) at (5+0,3+0);
+  \draw (A) -- (B) -- (C) -- (D) -- cycle;
+  \foreach \P/\lab/\pos in {A/A/above left, B/B/above right, C/C/below right, D/D/below left}
+    \fill (\P) circle (1.5pt) node[\pos] {$\lab$};
+\end{tikzpicture}
+\end{center}
+\end{exercice}
+
+\newpage
+% =====================================================
+\begin{exercice}{5}
+$ABC$ est un triangle.
+\begin{enumerate}[label=\arabic*.]
+\item Placer les points $M$ et $N$ définis par $\overrightarrow{BM}=2\overrightarrow{AC}$ et $\overrightarrow{AN}=\dfrac12\overrightarrow{BC}$.
+\item Démontrer que $\overrightarrow{MC}=2\overrightarrow{CN}$.
+\item Soient $I$ et $J$ les milieux respectifs des segments $[AB]$ et $[AC]$. Montrer que $\overrightarrow{BC}=2\overrightarrow{IJ}$.
+\item Montrer que $ANJI$ est un parallélogramme.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (16,9);
+  \coordinate (A) at (5,2);
+  \coordinate (C) at (7,6);
+  \coordinate (B) at (13,1);
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \fill (A) circle (1.5pt) node[left] {$A$};
+  \fill (B) circle (1.5pt) node[right] {$B$};
+  \fill (C) circle (1.5pt) node[above] {$C$};
+\end{tikzpicture}
+\end{center}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+Sur la figure ci-dessous, $ABCD$ est un parallélogramme.
+
+\begin{center}
+\begin{tikzpicture}
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (12,9);
+  \coordinate (A) at (2,4);
+  \coordinate (B) at (7,4);
+  \coordinate (C) at (9,8);
+  \coordinate (D) at (4,8);
+  \foreach \P/\lab/\pos in {A/A/left, B/B/below right, C/C/above right, D/D/above left}
+    \fill (\P) circle (1.5pt) node[\pos] {$\lab$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\arabic*.]
+\item Donner deux égalités de vecteurs de votre choix données par cette figure.
+\item Placer les points $E$ et $F$ définis par :
+  \begin{enumerate}[label=(\roman*)]
+  \item $\overrightarrow{CF}=2\overrightarrow{CB}$
+  \item $\overrightarrow{AE}=2\overrightarrow{AB}-\overrightarrow{BC}$
+  \end{enumerate}
+\item
+  \begin{enumerate}[label=\alph*.]
+  \item Exprimer $\overrightarrow{CF}$ en fonction de $\overrightarrow{CB}$ et $\overrightarrow{BF}$ puis montrer que $\overrightarrow{CB}=\overrightarrow{BF}$ en utilisant l'égalité (i).
+  \item Que peut-on en déduire ?
+  \end{enumerate}
+\item
+  \begin{enumerate}[label=\alph*.]
+  \item À partir de l'égalité (ii), montrer que $\overrightarrow{AE}=\overrightarrow{AB}+\overrightarrow{AF}$ puis que $\overrightarrow{AB}=\overrightarrow{FE}$.
+  \item Que peut-on en déduire ?
+  \end{enumerate}
+\item Montrer que le quadrilatère $CDFE$ est un parallélogramme.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+Soit $ABC$ un triangle non aplati ($A$, $B$ et $C$ non alignés) et les points $D$ et $E$ tels que :
+\[
+\overrightarrow{AD}=\dfrac52\overrightarrow{AC}+\dfrac32\overrightarrow{CB}
+\qquad\text{et}\qquad
+\overrightarrow{CE}=-2\overrightarrow{AC}+\dfrac12\overrightarrow{AB}.
+\]
+\begin{enumerate}[label=\arabic*.]
+\item Faire un dessin. Conjecturer le lien entre les points $B$, $D$ et $E$.
+\item Nous allons démontrer la conjecture du point précédent.
+  \begin{enumerate}[label=\alph*.]
+  \item Exprimer $\overrightarrow{ED}$ en fonction des vecteurs $\overrightarrow{DA}$, $\overrightarrow{AC}$ et $\overrightarrow{CE}$, puis en fonction des seuls vecteurs $\overrightarrow{AB}$ et $\overrightarrow{AC}$.
+  \item Exprimer $\overrightarrow{BD}$ en fonction des seuls vecteurs $\overrightarrow{AB}$ et $\overrightarrow{AC}$.
+  \item On admet la propriété suivante :
+  \begin{quote}
+  \og Trois points $M$, $N$ et $P$ sont alignés ssi il existe un réel $\lambda$ tel que $\overrightarrow{MN}=\lambda\overrightarrow{MP}$. \fg{}
+  \end{quote}
+  Conclure.
+  \end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\end{document}

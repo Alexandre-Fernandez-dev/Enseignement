@@ -1,0 +1,249 @@
+%\documentclass{article}
+%%https://www.mathalea.fr/alea/?uuid=6575c&id=2N32-1&n=1&d=10&s=4&s2=true&cd=0&tip=0&alea=DGR6&uuid=cb572&id=2N31-3&n=1&d=10&s=1&cd=1&tip=0&alea=gg1c&uuid=1fc02&id=2N32-2&n=1&d=10&s=4&cd=1&tip=0&alea=71KW&uuid=71eba&id=2A-N3-2&alea=062Y&uuid=fc2e8&id=2N43-4&n=1&d=10&cd=1&tip=0&alea=9YGs&uuid=1e42b&id=2N43-1&n=3&d=10&s=1-2-3&s2=3&cd=0&tip=0&alea=ZhvY&uuid=19060&id=3AutoN02-1&n=1&d=10&s=1&cd=1&tip=0&alea=sSzW&uuid=0b020&id=3AutoN02-2&n=3&d=10&s=true&s2=5&s3=10&cd=1&tip=0&alea=utKy
+%
+%\usepackage{tasks}
+%\usepackage{amsmath,amssymb,amsfonts}
+%\usepackage{graphicx}
+%\usepackage{amsthm}
+%\usepackage[french]{babel}
+%\usepackage{enumitem}
+%\usepackage{currfile}
+%
+%\usepackage{tikz}
+%\usetikzlibrary{calc,intersections}
+%\usepackage{qrcode}
+%\usepackage{mathrsfs}
+%\usepackage{enumitem}
+%\usepackage[french]{babel}
+%\usepackage{tcolorbox}
+%\usepackage{multicol}
+%\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%%showframe
+%\usepackage[lastpage,user]{zref}
+%\usepackage{xcolor}
+%\usepackage{colortbl}
+
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{currfile}
+%\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{lastpage}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\definecolor{courbe}{RGB}{140,25,25}
+\definecolor{grad}{RGB}{190,60,60}
+
+%---------------------------------------------------------------
+% Repère standard : x de -5 à 5, y de -4 à 4 (exercice 3)
+%---------------------------------------------------------------
+\newcommand{\repereStd}{%
+  \draw[step=1,gray!35,very thin] (-5.6,-4.6) grid (5.6,4.6);
+  \draw[->,thick] (-5.9,0) -- (6.0,0) node[below right] {$x$};
+  \draw[->,thick] (0,-4.9) -- (0,5.0) node[above left] {$y$};
+  \foreach \x in {-5,-4,-3,-2,-1,1,2,3,4,5}
+    \draw (\x,0.08) -- (\x,-0.08) node[below,font=\scriptsize,grad] {$\x$};
+  \foreach \y in {-4,-3,-2,-1,1,2,3,4}
+    \draw (0.08,\y) -- (-0.08,\y) node[left,font=\scriptsize,grad] {$\y$};
+}
+
+\newcommand{\etiquetteCf}[2]{\node[courbe,font=\small] at (#1,#2) {$\mathcal{C}_f$};}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\ChapitreCourt}}
+\fancyhead[C]{ {\Document}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+% {
+%   \normalsize
+%   \textbf{\Niveau} \hfill \textbf{\Chapitre} \hfill \textbf{\Document}
+% }
+% \hrule
+% 
+% \subsection*{Méthode : calculer une probabilité conditionnelle à l'aide d'un tableau}
+%\pagestyle{empty}
+
+%===============================================================
+\noindent\textbf{Exercice 1}\quad En utilisant la définition de la croissance ou de la
+décroissance d'une fonction, déterminer pour chaque fonction si elle est croissante ou
+décroissante sur l'intervalle indiqué.
+
+\medskip
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+1. $f(x)=3x+2$ sur $\mathrm{I}=\mathbb{R}$.
+  & 2. $f(x)=-5x^{2}-3$ sur $\mathrm{I}=[0\,;+\infty[$ \\[0.9em]
+3. $f(x)=4x^{2}+1$ sur $\mathrm{I}=\,]-\infty\,;0]$
+  & 4. $f(x)=4(x+2)^{2}-3$ sur $\mathrm{I}=\,]-\infty\,;-2]$
+\end{tabular}
+
+\bigskip
+%===============================================================
+\noindent\textbf{Fiche exercice 2}
+
+\medskip
+\noindent
+\begin{minipage}[t]{0.40\linewidth}
+\vspace{0pt}
+Elias consulte son compte bancaire et tombe sur un graphique qui représente les
+variations de l'argent disponible sur son compte au fil des douze mois de l'année 2018.
+\begin{enumerate}[leftmargin=*,itemsep=0.3em,topsep=0.4em]
+  \item Faire le tableau de variations de la fonction représentée ci-contre qu'on
+        appellera $f$.
+  \item Faire son tableau de signes.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[x=0.62cm,y=0.0075cm]
+  \draw[gray!30,very thin] (0,-200) grid[xstep=1,ystep=100] (12,600);
+  \draw[->] (0,0) -- (12.6,0);
+  \draw[->] (0,-220) -- (0,640);
+  \foreach \x in {1,...,12}
+    \draw (\x,12) -- (\x,-12) node[below,font=\tiny,grad] {$\x$};
+  \foreach \y in {-200,-100,100,200,300,400,500,600}
+    \draw (0.08,\y) -- (-0.08,\y) node[left,font=\tiny,grad] {$\y$};
+  % extremums : (1,200) (3,300) (6,-100) (10,500) (12,300)
+  \draw[courbe,thick]
+       (1,200)  .. controls (2,200)   and (2,300)   .. (3,300)
+                .. controls (4.5,300) and (4.5,-100).. (6,-100)
+                .. controls (8,-100)  and (8,500)   .. (10,500)
+                .. controls (11,500)  and (11,300)  .. (12,300);
+\end{tikzpicture}
+\end{minipage}
+
+\bigskip
+%===============================================================
+\noindent\textbf{Exercice 3}\quad Dresser le tableau de variations pour chaque fonction
+représentée ci-dessous~:
+
+\medskip
+\noindent
+\begin{minipage}[t]{0.49\linewidth}
+\centering
+1.\\[0.3em]
+\begin{tikzpicture}[scale=0.62]
+  \repereStd
+  \clip (-5.6,-4.6) rectangle (5.6,4.6);
+  % extremums : (-3,3) et (2,-2)
+  \draw[courbe,thick]
+       (-5,-4) .. controls (-4,-4)     and (-4,3)     .. (-3,3)
+               .. controls (-0.5,3)    and (-0.5,-2)  .. (2,-2)
+               .. controls (3.5,-2)    and (3.5,4)    .. (5,4);
+  \etiquetteCf{4.3}{-3}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\centering
+2.\\[0.3em]
+\begin{tikzpicture}[scale=0.62]
+  \repereStd
+  \clip (-5.6,-4.6) rectangle (5.6,4.6);
+  % extremums : (-3,4) (-2,2) (0,3) (3,-4)
+  \draw[courbe,thick]
+       (-5,-4) .. controls (-4,-4)     and (-4,4)     .. (-3,4)
+               .. controls (-2.5,4)    and (-2.5,2)   .. (-2,2)
+               .. controls (-1,2)      and (-1,3)     .. (0,3)
+               .. controls (1.5,3)     and (1.5,-4)   .. (3,-4)
+               .. controls (4,-4)      and (4,1)      .. (5,1);
+  \etiquetteCf{-4.6}{-2.1}
+\end{tikzpicture}
+\end{minipage}
+
+\bigskip
+\noindent
+\begin{minipage}[t]{0.49\linewidth}
+\centering
+3.\\[0.3em]
+\begin{tikzpicture}[scale=0.62]
+  \repereStd
+  \clip (-5.6,-4.6) rectangle (5.6,4.6);
+  % extremums : (-3,2) (1,-3) (4,1)
+  \draw[courbe,thick]
+       (-5,0)  .. controls (-4,0)      and (-4,2)     .. (-3,2)
+               .. controls (-1,2)      and (-1,-3)    .. (1,-3)
+               .. controls (2.5,-3)    and (2.5,1)    .. (4,1)
+               .. controls (4.5,1)     and (4.5,0)    .. (5,0);
+  \etiquetteCf{-4.6}{-3.2}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\centering
+4.\\[0.3em]
+\begin{tikzpicture}[scale=0.62]
+  \repereStd
+  \clip (-5.6,-4.6) rectangle (5.6,4.6);
+  % extremums : (-4,0) (-3,1) (-1,-1) (3,4)
+  \draw[courbe,thick]
+       (-5,1)  .. controls (-4.5,1)    and (-4.5,0)   .. (-4,0)
+               .. controls (-3.5,0)    and (-3.5,1)   .. (-3,1)
+               .. controls (-2,1)      and (-2,-1)    .. (-1,-1)
+               .. controls (1,-1)      and (1,4)      .. (3,4)
+               .. controls (4,4)       and (4,-1)     .. (5,-1);
+  \etiquetteCf{-4.6}{2.2}
+\end{tikzpicture}
+\end{minipage}
+
+\newpage
+%===============================================================
+\noindent\textbf{Exercice 4}\quad On donne ci-dessous les tableaux de variations de deux
+fonctions $f$ et $g$.
+
+\medskip
+\noindent
+\begin{minipage}{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.85]
+  \tkzTabInit[lgt=1.4,espcl=1.6]{$x$/1,$f(x)$/2}{$-4$,$-3$,$-1$,$2$,$3$}
+  \tkzTabVar{-/$-2$,+/$0$,-/$-3$,+/$4$,-/$2$}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.85]
+  \tkzTabInit[lgt=1.4,espcl=1.6]{$x$/1,$g(x)$/2}{$-5$,$-2$,$0$,$3$,$5$}
+  \tkzTabVar{+/$0$,-/$-3$,+/$2$,-/$1$,+/$3$}
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+\begin{enumerate}[leftmargin=*,itemsep=0.5em]
+  \item Comparer, si c'est possible, les images suivantes avec un signe d'inégalité.
+  \medskip
+
+  \noindent\hspace*{-1.5em}\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llll@{}}
+    a. $f(-4)$ \rule{0.9cm}{0.4pt} $f(-3)$
+      & b. $f(0)$ \rule{0.9cm}{0.4pt} $f(1)$
+      & c. $f(2,\!5)$ \rule{0.9cm}{0.4pt} $f(-2)$
+      & d. $f(-3,\!5)$ \rule{0.9cm}{0.4pt} $f(2,\!1)$ \\[1em]
+    e. $g(1)$ \rule{0.9cm}{0.4pt} $g(-4)$
+      & f. $g(-1)$ \rule{0.9cm}{0.4pt} $g(1)$
+      & g. $g(-4)$ \rule{0.9cm}{0.4pt} $g(-3)$
+      & h. $g(1)$ \rule{0.9cm}{0.4pt} $g(4)$
+  \end{tabular*}
+
+  \item Tracer une représentation possible des fonctions $f$ et $g$.
+\end{enumerate}
+
+\end{document}

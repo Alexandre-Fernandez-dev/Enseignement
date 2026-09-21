@@ -1,0 +1,218 @@
+% @see : https://coopmaths.fr/alea/?uuid=f1208&id=2N30-flash3&n=2&d=10&qcm=0&cd=1&tip=0&alea=ka4d&uuid=97008&id=2N30-flash2&n=1&d=10&qcm=0&cd=1&tip=0&alea=dpSN&uuid=16c8e&id=2N30-flash1&n=2&d=10&cd=1&tip=0&alea=nY7r&uuid=d309b&id=2N30-4&n=1&d=10&s=false&s2=10&s3=true&s4=true&cd=0&tip=0&alea=q00i&uuid=d0fdc&id=2N33-1&n=1&d=10&s=6&s2=false&cd=1&tip=0&alea=Mdan&uuid=08a2a&id=2N31-flash2&n=2&d=10&qcm=0&cd=1&tip=0&alea=w7p1&uuid=dd7d1&id=2N31-flash1&alea=PvQN&uuid=1894f&id=2N31-flash4&alea=C68e&uuid=07df0&id=2N31-flash3&alea=Ship&uuid=6575c&id=2N32-1&n=1&d=10&s=4&s2=true&cd=0&tip=0&alea=xvAD&uuid=4c878&id=2N33-flash1&alea=LIo0&v=eleve
+\documentclass[a4paper,12pt,fleqn]{article}
+\usepackage[margin=1.7cm]{geometry}
+
+%%% COULEURS %%%
+\usepackage[table,svgnames]{xcolor}
+\definecolor{nombres}{cmyk}{0,.8,.95,0}
+\definecolor{gestion}{cmyk}{.75,1,.11,.12}
+\definecolor{gestionbis}{cmyk}{.75,1,.11,.12}
+\definecolor{grandeurs}{cmyk}{.02,.44,1,0}
+\definecolor{geo}{cmyk}{.62,.1,0,0}
+\definecolor{algo}{cmyk}{.69,.02,.36,0}
+\definecolor{correction}{cmyk}{.63,.23,.93,.06}
+\arrayrulecolor{couleur_theme} % Couleur des filets des tableaux
+\usepackage{tasks}
+
+
+\usepackage[most]{tcolorbox} % Supprimé à cause de conflits avec ProfCollege
+% Découpe des cadres d'exercice. Le style est redéfini par la sortie LaTeX
+% juste avant un exercice à garder d'un seul tenant, puis rétabli :
+%   \tcbset{mathaleaexo/.style={unbreakable}}
+% Passer par un style plutôt que par la clé « breakable » directement évite
+% de changer la découpe des autres cadres du document (ProfCollege...).
+\tcbuselibrary{documentation}
+
+%%%%%%%% Modification paramétrage pour footnotes
+% Le paquet semble déjà appelé en amont, curieux qu'il n'y ait pas eu de clash
+% avec l'appel ci-dessous mais seulement quand j'ai essayé de l'inclure avec l'option lualatex
+
+% \usepackage{hyperref}
+% Parametrages
+\hypersetup{
+    colorlinks=true,% On active la couleur pour les liens. Couleur par défaut rouge
+    linkcolor=black,% On définit la couleur pour les liens internes
+    % filecolor=magenta,% On définit la couleur pour les liens vers les fichiers locaux      
+    urlcolor=black,% On définit la couleur pour les liens vers des sites web
+    % pdftitle={Puissance Quatre},% On définit un titre pour le document pdf
+    % pdfpagemode=FullScreen,% On fixe l'affichage par défaut à plein écran
+    }
+% Pour avoir les numérotations arabic y compris dans les environnements tcolorbox
+
+\usepackage{multicol} 
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{tablvar}
+
+\setlength{\parindent}{0mm}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\labelenumi}{\textbf{\theenumi{}.}}
+\renewcommand{\labelenumii}{\textbf{\theenumii{}.}}
+\setlength{\fboxsep}{3mm}
+
+%\setlength{\headheight}{14.5pt}
+
+\setlength{\premulticols}{0pt}
+
+\newlength{\parindentMA}%
+\setlength{\parindentMA}{\parindent}
+\addtolength{\parindentMA}{30pt}
+
+\usepackage{fancyhdr}
+\fancyhead[C]{}
+\fancyfoot{}
+
+\newtheorem{exercice}{Exercice}
+
+%%% MISE EN PAGE %%%
+\usepackage{setspace}
+\usepackage{pgf}%
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{babel,arrows, arrows.meta,calc,fit,patterns,plotmarks,shapes.geometric,shapes.misc,shapes.symbols,shapes.arrows,shapes.callouts, shapes.multipart, shapes.gates.logic.US,shapes.gates.logic.IEC, er, automata,backgrounds,chains,topaths,trees,petri,mindmap,matrix, calendar, folding,fadings,through,positioning,scopes,decorations.fractals,decorations.shapes,decorations.text,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,decorations.markings,shadows}
+
+\usepackage[french]{babel}
+\usepackage{icomma}
+% loadPackagesFromContent
+
+\newcounter{customfootnote}
+\newcounter{tempreset}%
+\newcounter{temp}
+
+\newcommand{\e}{\mathrm{e}}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+
+%\usepackage{unicode-math}
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Schola}
+%\setsansfont{TeX Gyre Schola}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmainfont{OpenDyslexic}[Scale=1.0]
+%\setsansfont{OpenDyslexic}[Scale=1.0]
+%\setmathfont{OpenDyslexic}[Scale=1.0,range=up/{Latin,latin,num}]
+
+\begin{document}
+
+
+{
+  \normalsize
+  \textbf{Seconde} \hfill \textbf{Fiche calcul 3} \hfill \textbf{Factorisation}
+  \newline
+}
+
+\hrule
+
+% @see : https://coopmaths.fr/alea?uuid=2e5df&id=2L11-5&n=3&d=10&s=4&alea=dOxp&cd=1&cols=2
+\begin{exercice}
+Factoriser les expressions suivantes.    
+\begin{tasks}(3)
+	\task  $A=-55n+88z$ 
+	\task  $B=20n-35k$ 
+	\task  $C=-8z^2+9z$ 
+\end{tasks}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=0fe88&id=2L11-6&n=7&d=10&s=9&alea=g33Y&cd=1&cols=1
+\end{exercice}
+
+\begin{exercice}{}{}
+Factoriser au maximum les expressions suivantes.
+
+
+\begin{tasks}(2)
+	\task $A=-2x^{2}-5x$
+	\task $B=x(2x+5)-6x$
+	\task $C=x^2-25$
+	\task $D=(3x-5)(-2x+7)-(3x-5)(2x-1)$
+	\task $E=(-x-9)(-5x-1)+(-x-9)(-4x-4)$
+	\task $F=(-x-2)^2-(-x-2)(2x+7)$
+\end{tasks}
+\end{exercice}
+
+\begin{exercice}
+Utiliser $(a+b)^2 = a^2+2ab+b^2$ pour développer les expressions suivantes :
+ \begin{tasks}(3)
+    \task $(x+3)^2$
+    \task $(4+a)^2$
+    \task $(x+2y)^2$
+    \task $(-2x+3y)^2$
+    \task $\left(\dfrac{1}{3}+x\right)^2$
+    \task $\left(\dfrac{x}{2}+\dfrac{y}{3}\right)^2$
+ \end{tasks} 
+\end{exercice}
+ 
+\begin{exercice}
+Utiliser $(a-b)^2 = a^2-2ab+b^2$ pour développer les expressions suivantes :
+ 
+ \begin{tasks}(3)
+    \task $(x-2)^2$
+    \task $(1-a)^2$
+    \task $(x-5y)^2$
+    \task $(2x-3y)^2$
+    \task $\left(\dfrac{1}{4}-x\right)^2$
+    \task $\left(\dfrac{x}{2}-\dfrac{y}{3}\right)^2$
+ \end{tasks} 
+\end{exercice}
+ 
+\begin{exercice}
+Utiliser $(a+b)(a-b) = a^2-b^2$ pour développer les expressions suivantes :
+ 
+ \begin{tasks}(3)
+    \task $(x+7)(x-7)$
+    \task $(x-4)(x+4)$
+    \task $(x+2y)(x-2y)$
+    \task $(2x+3y)(2x-3y)$
+    \task $\left(\dfrac{3}{4}+x\right)\left(\dfrac{3}{4}-x\right)$
+    \task $\left(\dfrac{3x}{2}+\dfrac{y}{5}\right)\left(\dfrac{3x}{2}-\dfrac{y}{5}\right)$
+ \end{tasks} 
+\end{exercice}
+ 
+\begin{exercice}  
+Factoriser les expressions suivantes.
+\begin{tasks}(2)
+    \task $A = 42z-49z^2$
+    \task $B = 14c+63a$
+\end{tasks}
+\end{exercice}
+ 
+\begin{exercice}  
+Factoriser au maximum les expressions suivantes.
+\begin{tasks}(2)
+    \task $A = x(-6x-6)-7x$
+    \task $B = (-x+6)(-4x-7)+(-x+6)(x+4)$
+\end{tasks}
+\end{exercice}
+ 
+\begin{exercice}
+Utiliser les identités remarquables pour factoriser les expressions suivantes :
+ 
+ \begin{tasks}(3)
+    \task $x^2+10x+25$
+    \task $x^2+8x+16$
+    \task $x^2-6x+9$
+    \task $x^2-20x+100$
+    \task $x^2-36$
+    \task $x^2-\dfrac{1}{4}$
+    \task $x^2-x+\dfrac{1}{4}$
+    \task $9x^2+6x+1$
+    \task $16x^2-\dfrac{4}{9}$
+ \end{tasks} 
+\end{exercice}
+
+\begin{exercice}  
+On considère l'expression littérale : $A(x) = x^2-6x-16$.
+\begin{enumerate}
+    \item Montrer que $A(x) = (x-3)^2-25$.
+    \item Montrer que $A(x) = (x+2)(x-8)$.
+    \item Utiliser l'expression de $A(x)$ la plus adaptée pour calculer $A(3)$, $A(8)$, $A(-2)$ et $A(0)$.
+\end{enumerate}
+\end{exercice}
+ 
+
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:

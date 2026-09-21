@@ -1,0 +1,662 @@
+% @see : https://coopmaths.fr/alea/?uuid=153b9&id=4C10-3&n=2&d=10&s=10&s2=true&cd=1&tip=0&alea=VBV5&uuid=cdcc1&id=4C10-4&n=2&d=10&s=false&cd=1&tip=0&alea=q5Hi&uuid=62f66&id=4C11&n=2&d=10&s=3&s2=false&cd=1&tip=0&alea=iTfk&uuid=1bf3b&id=4C11-0&n=2&d=10&s=13&s2=true&cd=1&tip=0&alea=HqfD&uuid=71eba&id=2A-N3-2&n=1&d=10&qcm=1&cd=1&tip=0&alea=yDjC&uuid=71eba&id=2A-N3-2&n=1&d=10&qcm=1&cd=1&tip=0&alea=zvfO&uuid=71eba&id=2A-N3-2&n=4&d=10&qcm=0&cd=1&tip=0&alea=RHdv&uuid=6682b&id=2A-N3-1&alea=BBA3&uuid=7233e&id=2A-N3-9&alea=pN7T&v=eleve
+\documentclass[a4paper,11pt,fleqn]{article}
+
+%%% COULEURS %%%
+\usepackage[table,svgnames]{xcolor}
+\definecolor{nombres}{cmyk}{0,.8,.95,0}
+\definecolor{gestion}{cmyk}{.75,1,.11,.12}
+\definecolor{gestionbis}{cmyk}{.75,1,.11,.12}
+\definecolor{grandeurs}{cmyk}{.02,.44,1,0}
+\definecolor{geo}{cmyk}{.62,.1,0,0}
+\definecolor{algo}{cmyk}{.69,.02,.36,0}
+\definecolor{correction}{cmyk}{.63,.23,.93,.06}
+\arrayrulecolor{couleur_theme} % Couleur des filets des tableaux
+
+\usepackage[most]{tcolorbox} % Supprimé à cause de conflits avec ProfCollege
+% Découpe des cadres d'exercice. Le style est redéfini par la sortie LaTeX
+% juste avant un exercice à garder d'un seul tenant, puis rétabli :
+%   \tcbset{mathaleaexo/.style={unbreakable}}
+% Passer par un style plutôt que par la clé « breakable » directement évite
+% de changer la découpe des autres cadres du document (ProfCollege...).
+\tcbset{mathaleaexo/.style={breakable}}
+\tcbuselibrary{documentation}
+
+%%%%%%%% Modification paramétrage pour footnotes
+% Le paquet semble déjà appelé en amont, curieux qu'il n'y ait pas eu de clash
+% avec l'appel ci-dessous mais seulement quand j'ai essayé de l'inclure avec l'option lualatex
+
+% \usepackage{hyperref}
+% Parametrages
+\hypersetup{
+    colorlinks=true,% On active la couleur pour les liens. Couleur par défaut rouge
+    linkcolor=black,% On définit la couleur pour les liens internes
+    % filecolor=magenta,% On définit la couleur pour les liens vers les fichiers locaux      
+    urlcolor=black,% On définit la couleur pour les liens vers des sites web
+    % pdftitle={Puissance Quatre},% On définit un titre pour le document pdf
+    % pdfpagemode=FullScreen,% On fixe l'affichage par défaut à plein écran
+    }
+% Pour avoir les numérotations arabic y compris dans les environnements tcolorbox
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+%%%%%%%%
+
+\usepackage{multicol} 
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{tablvar}
+
+\setlength{\parindent}{0mm}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\labelenumi}{\textbf{\theenumi{}.}}
+\renewcommand{\labelenumii}{\textbf{\theenumii{}.}}
+\setlength{\fboxsep}{3mm}
+
+\setlength{\headheight}{14.5pt}
+
+\setlength{\premulticols}{0pt}
+
+\newcounter{ExoMA}
+
+\newlength{\parindentMA}%
+\setlength{\parindentMA}{\parindent}
+\addtolength{\parindentMA}{30pt}
+
+\usepackage{simplekv}
+
+\setKVdefault[Theme]{Coopmath,Classiques=false,CANs=false}
+\defKV[Theme]{Classique=\setKV[Theme]{Coopmath=false}\setKV[Theme]{Classiques}}
+\defKV[Theme]{CAN=\setKV[Theme]{Coopmath=false}\setKV[Theme]{CANs}}
+
+\usepackage{fancyhdr}
+\fancyhead[C]{}
+\fancyfoot{}
+
+\def\bla{}
+
+\NewDocumentCommand\Theme{o m m m m}{%
+  \useKVdefault[Theme]%
+  \setKV[Theme]{#1}%
+  \ifboolKV[Theme]{CANs}{%
+    \usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}%
+    \fancypagestyle{premierePage}{%
+      \fancyhead[C]{\textsc{\ifx\bla#2\bla Course aux nombres\else#2\fi}}%
+      \fancyfoot[R]{\scriptsize Coopmaths.fr -- CC-BY-SA}%
+      \setlength{\headheight}{14.5pt}%
+      \NewDocumentCommand\dureeCan{}{\ifx\bla#4\bla 9 minutes\else #4\fi}
+      \NewDocumentCommand\titreSujetCan{}{\ifx\bla#3\bla\else\textbf{#3}\fi}
+    }%
+    \pagestyle{premierePage}
+    \colorlet{couleur_theme}{black}%
+    \colorlet{couleur_numerotation}{couleur_theme}%
+    \let\EXO\EXOCan\let\endEXO\endEXOCan%
+  }{%
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \pagestyle{fancy}
+    \ifboolKV[Theme]{Classiques}{%
+      \usepackage[left=0.65cm,right=0.65cm,top=2cm,bottom=1.5cm]{geometry}
+      \let\EXO\EXOlibre\let\endEXO\endEXOlibre%
+      \colorlet{couleur_theme}{black}%
+      \colorlet{couleur_numerotation}{couleur_theme}%
+      \fancyhead[C]{\bfseries #3}
+      \fancyhead[L]{\bfseries #4}
+      \fancyfoot[R]{#5}
+    }{%
+      \usepackage[left=1.5cm,right=1.5cm,top=4cm,bottom=2cm]{geometry}
+      \theme{#2}{#3}{#4}{#5}%
+      \let\EXO\EXOcoop\let\endEXO\endEXOcoop%
+    }%
+  }%
+}%
+
+\NewDocumentEnvironment{EXOCan}{m m}{%
+}{}
+
+\NewDocumentEnvironment{EXOcoop}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\IfNoValueTF{#1}{}{\textmd{#1}},%
+    overlay unbroken and first={%
+      \IfNoValueTF{#2}{}{%
+        \node[
+        fill=white,
+        anchor=east,
+        xshift=10pt,
+        text=black
+        ]
+        at (frame.north east)
+        {\scriptsize #2};
+      }
+      \node[anchor=west,xshift=-20pt,yshift=-15pt] 
+      at (frame.north west) {\stepcounter{ExoMA}\numb{\arabic{ExoMA}}};
+    }
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{EXOlibre}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\stepcounter{ExoMA}\textbf{Exercice \arabic{ExoMA}},%
+  ]
+  \IfNoValueTF{#1}{}{#1\par}%
+}{%
+  \end{tcolorbox}%
+}
+
+
+%%% MISE EN PAGE %%%
+\usepackage{setspace}
+\usepackage{pgf}%
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{babel,arrows, arrows.meta,calc,fit,patterns,plotmarks,shapes.geometric,shapes.misc,shapes.symbols,shapes.arrows,shapes.callouts, shapes.multipart, shapes.gates.logic.US,shapes.gates.logic.IEC, er, automata,backgrounds,chains,topaths,trees,petri,mindmap,matrix, calendar, folding,fadings,through,positioning,scopes,decorations.fractals,decorations.shapes,decorations.text,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,decorations.markings,shadows}
+
+\spaceskip=2\fontdimen2\font plus 3\fontdimen3\font minus3\fontdimen4\font\relax %Pour doubler l'espace entre les mots
+\newcommand\numb[1]{ % Dessin autour du numéro d'exercice
+  \begin{tikzpicture}[overlay,scale=.8]%,yshift=-.3cm
+    \draw[fill=couleur_numerotation,couleur_numerotation](-.4,-0.1)rectangle($(-0.4,.8)+(2em,0)$);
+    \draw (-.4,.8) node[white,anchor=north west,inner sep=0.5pt]{\bfseries EX}; 
+    \draw[line width=.05cm,couleur_numerotation,fill=white] (0,0)--(.5,.5)--(1,0)--(.5,-.5)--cycle;
+    \draw (0.5,0) node[anchor=center,couleur_numerotation]{\large\bfseries#1};
+  \end{tikzpicture}
+}
+
+% echelle pour le dé
+\def\globalscale {0.04}
+% abscisse initiale pour les chevrons
+\def\xini {3}
+
+\newcommand\theme[4]{%
+  \fancyhead[C]{%
+    % Tracé du dé
+    \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-\globalscale, xscale=\globalscale,remember picture, overlay,transform canvas={xshift=-0.5\linewidth,yshift=2.7cm},fill=couleur_theme]%,xshift=17cm,yshift=9.5cm
+      %%%% Arc supérieur gauche%%%%
+      \path[fill](523,1424)..controls(474,1413)and(404,1372)..(362,1333)..controls(322,1295)and(313,1272)..(331,1254)..controls(348,1236)and(369,1245)..(410,1283)..controls(458,1328)and(517,1356)..(575,1362)..controls(635,1368)and(646,1375)..(643,1404)..controls(641,1428)and(641,1428)..(596,1430)..controls(571,1431)and(538,1428)..(523,1424)--cycle;
+      %%%% Dé face supérieur%%%%
+      \path[fill](512,1272)..controls(490,1260)and(195,878)..(195,861)..controls(195,854)and(198,846)..(202,843)..controls(210,838)and(677,772)..(707,772)..controls(720,772)and(737,781)..(753,796)..controls(792,833)and(1057,1179)..(1057,1193)..controls(1057,1200)and(1053,1209)..(1048,1212)..controls(1038,1220)and(590,1283)..(551,1282)..controls(539,1282)and(521,1278)..(512,1272)--cycle;
+      %%%% Dé faces gauche et droite%%%%
+      \path[fill](1061,1167)..controls(1050,1158)and(978,1068)..(900,967)..controls(792,829)and(756,777)..(753,756)--(748,729)--(724,745)..controls(704,759)and(660,767)..(456,794)..controls(322,813)and(207,825)..(200,822)..controls(193,820)and(187,812)..(187,804)..controls(188,797)and(229,688)..(279,563)..controls(349,390)and(376,331)..(391,320)..controls(406,309)and(462,299)..(649,273)..controls(780,254)and(897,240)..(907,241)..controls(918,243)and(927,249)..(928,256)..controls(930,264)and(912,315)..(889,372)..controls(866,429)and(848,476)..(849,477)..controls(851,479)and(872,432)..(897,373)..controls(936,276)and(942,266)..(960,266)..controls(975,266)and(999,292)..(1089,408)..controls(1281,654)and(1290,666)..(1290,691)..controls(1290,720)and(1104,1175)..(1090,1180)..controls(1085,1182)and (1071,1176)..(1061,1167)--cycle;
+      %%%% Arc inférieur bas%%%%
+      \path[fill](1329,861)..controls(1316,848)and(1317,844)..(1339,788)..controls(1364,726)and(1367,654)..(1347,591)..controls(1330,539)and(1338,522)..(1375,526)..controls(1395,528)and(1400,533)..(1412,566)..controls(1432,624)and(1426,760)..(1401,821)..controls(1386,861)and(1380,866)..(1361,868)..controls(1348,870)and(1334,866)..(1329,861)--cycle;
+      %%%% Arc inférieur gauche%%%%
+      \path[fill](196,373)..controls(181,358)and(186,335)..(213,294)..controls(252,237)and(304,190)..(363,161)..controls(435,124)and(472,127)..(472,170)..controls(472,183)and(462,192)..(414,213)..controls(350,243)and(303,283)..(264,343)..controls(239,383)and(216,393)..(196,373)--cycle;
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay, shift={(current page.north west)},yshift=-8.5cm]
+      \fill[fill=couleur_theme] (0,5) rectangle (21,6);
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;   
+      \node[color=white] at (10.5,5.5) {\LARGE \bfseries{ \MakeUppercase{#4}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=west, fill=white, inner sep = 0pt] at ($(current page.north west)+(0.2,-2.3cm)$) {\footnotesize \bfseries{MathALÉA}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=east, fill=white] at ($(current page.north east)+(-2,-1.5cm)$) {\Huge \textcolor{couleur_theme}{\bfseries{\#}} \bfseries{#2} \textcolor{couleur_theme}{\bfseries \MakeUppercase{#3}}};
+    \end{tikzpicture}
+  }%
+  \fancyfoot[R]{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=south east] at ($(current page.south east)+(-2,0.25cm)$) {\scriptsize {\bfseries \href{https://coopmaths.fr/}{Coopmaths.fr} -- \href{http://creativecommons.fr/licences/}{CC-BY-SA}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay,xscale=0.5,yscale=0.5, shift={(current page.south west)},xshift=35.7cm,yshift=-6cm]
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;  
+    \end{tikzpicture}
+  }
+  \fancyfoot[C]{}
+  \colorlet{couleur_theme}{#1}
+  \colorlet{couleur_numerotation}{couleur_theme}
+  \def\iconeobjectif{icone-objectif-#1}
+  \def\urliconeomethode{icone-methode-#1}
+}%
+
+\newcommand*\tikzfootMA{%
+  \ifboolKV[Theme]{CANs}{
+    \begin{tikzpicture}[remember picture,overlay,shift=(current page.north west)]
+      \begin{scope}[x=\textwidth-\oddsidemargin,y=\textheight+5pt]
+        \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt,shift={(-\oddsidemargin,\topmargin)}] (0,0) rectangle (1,-1);
+      \end{scope}
+    \end{tikzpicture} 
+  }{%
+  \ifboolKV[Theme]{Classiques}{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1cm)$) rectangle ($(1,1)+(-5mm,-1.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1.5cm)$) rectangle ($(1,1)+(-5mm,-3.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }%
+  }
+}
+
+\newenvironment{Correction}{%
+  \setcounter{ExoMA}{0}%
+  \cfoot{\tikzfootMA}
+}{}%
+
+\newcommand\version[1]{
+  \fancyhead[R]{
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(-.5,-.5cm)$) {\large \textcolor{couleur_theme}{\bfseries V#1}};
+    \end{tikzpicture}
+  }
+}
+
+\usepackage[french]{babel}
+\usepackage{icomma}
+% loadPackagesFromContent
+\newcommand{\e}{\mathrm{e}}
+% ===============================================================
+%                    FORMATAGE DES QCM (qcmenv.tex)
+% ===============================================================
+\usepackage{tasks}
+\usepackage{expkv-def}
+\usepackage{fontawesome5}
+
+% --- Moteur logique pour détecter les bonnes réponses ---
+\ExplSyntaxOn
+\clist_new:N \l_qcm_corrige_clist
+\newcommand{\SetQcmCorrige}[1]{\clist_set:Nn \l_qcm_corrige_clist {#1}}
+
+\newcommand{\IfCorrectTask}[2]{%
+  \exp_args:NNx \clist_if_in:NnTF \l_qcm_corrige_clist { \arabic{task} } { #1 } { #2 }
+}
+\ExplSyntaxOff
+
+% ---------------------------------------------------------
+% 1. Définition des clés avec expkv-def
+% ---------------------------------------------------------
+\ekvdefinekeys{qcmkeys}{
+  store   cols    = \qcmcols,
+  initial cols    = 4,
+  noval   case    = \qcmiscasetrue,
+  code    correct = \SetQcmCorrige{#1}
+}
+\newif\ifqcmiscase
+
+% ---------------------------------------------------------
+% 2. Création de l'environnement QCM
+% ---------------------------------------------------------
+\NewDocumentEnvironment{qcmprop}{ O{} +b }{%
+  \qcmiscasefalse
+  \SetQcmCorrige{}
+  \ekvset{qcmkeys}{#1}%
+  \ifqcmiscase
+    \begin{tasks}[
+      label = \IfCorrectTask{\faCheckSquare[regular]}{\faSquare[regular]},
+      label-width = 1.8em,
+      label-offset = 0.5em
+    ](\qcmcols)
+      #2
+    \end{tasks}
+  \else
+    \begin{tasks}[
+      label = \begingroup\setlength{\fboxsep}{2pt}%
+              \IfCorrectTask{%
+                \fcolorbox{black}{white}{\makebox[0.8em]{\textbf{\Alph*}}}%
+              }{%
+                \colorbox{black}{\makebox[0.8em]{\textcolor{white}{\textbf{\Alph*}}}}%
+              }%
+              \endgroup,
+      label-format = \color{black},
+      label-width = 1.2em,
+      label-offset = 0.5em
+    ](\qcmcols)
+      #2
+    \end{tasks}
+  \fi
+}{}
+
+\usepackage{etoolbox}
+\newbool{dys}
+\setbool{dys}{false}
+% ===== POLICES =====
+% Le choix est le même en police standard et en police adaptée aux dys ;
+% seuls la taille et l'interligne changent entre les deux.
+\newcommand{\choiceFonts}[1]{
+\ifstrequal{#1}{helvet}{%
+  % Helvetica (police standard historique des fiches)
+  \usepackage[scaled=1]{helvet}
+}{}
+\ifstrequal{#1}{Fira}{%
+  % Fira Sans + Fira Math
+  % Description : Fira Sans est une police moderne, et Fira Math est une version mathématique compatible qui maintient le style sans-serif.
+  % Utilisation : Fonctionne bien avec XeLaTeX et LuaLaTeX.
+  \usepackage{fontspec}
+  \setmainfont{Fira Sans}
+  \setsansfont{Fira Sans}
+  \usepackage{unicode-math}
+  \setmathfont{Fira Math}
+}{}
+\ifstrequal{#1}{lmodern}{%
+  % Latin Modern Sans
+  % Description : Une version sans-serif de la célèbre police Latin Modern, qui est compatible avec mathastext.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX et LuaLaTeX.
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+\ifstrequal{#1}{tgheros}{%
+  % TeX Gyre Heros + mathastext
+  % Description : TeX Gyre Heros est une alternative à Helvetica, et le package mathastext permet d'utiliser la même police pour les mathématiques.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX, ou LuaLaTeX.
+  \usepackage{tgheros}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+}
+\ifbool{dys}{
+% POLICE DYS
+\choiceFonts{Fira}
+
+%\usepackage{unicode-math}
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Schola}
+%\setsansfont{TeX Gyre Schola}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmainfont{OpenDyslexic}[Scale=1.0]
+%\setsansfont{OpenDyslexic}[Scale=1.0]
+%\setmathfont{OpenDyslexic}[Scale=1.0,range=up/{Latin,latin,num}]
+\usepackage[fontsize=14]{scrextend}
+\usepackage{setspace}
+\setstretch{1.7}
+% Une valeur d'environ 1.2 à 1.7 est souvent recommandée. Cela permet d'augmenter l'espace entre les lignes tout en offrant un léger espacement entre les mots.
+\setlength{\spaceskip}{1.2em}
+% Une valeur d'environ 1.2em à 1.5em est couramment conseillée. Cela crée un espace plus ample entre les mots, ce qui peut aider à réduire la fatigue visuelle et à améliorer la fluidité de la lecture.
+}{
+% POLICE STANDARD
+%%% EE (24/04/2026) : Cette modif ci-dessous est nécessaire pour accepter ’ comme apostrophe.
+% \usepackage[T1]{fontenc}     % Réservé à pdfLaTeX, à remplacer par fontspec en LuaLaTeX
+\choiceFonts{helvet}
+\usepackage[fontsize=10]{scrextend}
+}
+
+\Theme[Classique]{nombres}{Relatifs et puissances 1}{Secondes}{Accompagnement personnalisé}
+\begin{document}
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=153b9&id=4C10-3&n=2&d=10&s=10&s2=true&alea=VBV5&cd=1&cols=1
+\begin{EXO}{}{}
+Calculer.
+
+\begin{multicols}{2}
+\begin{enumerate}[itemsep=1em]
+	\item \begin{minipage}[t]{\linewidth} $ -8 \times  5 =$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $ 4 \times  (-2) =$ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=cdcc1&id=4C10-4&n=2&d=10&s=false&alea=q5Hi&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+Calculer.
+
+\begin{multicols}{2}
+\begin{enumerate}[itemsep=1em]
+	\item \begin{minipage}[t]{\linewidth} $\dfrac{-32}{16}$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $\dfrac{-21}{-3}$ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=62f66&id=4C11&n=2&d=10&s=3&s2=false&alea=iTfk&cd=1&cols=2
+\end{EXO}
+
+\begin{EXO}{}{}
+Calculer.
+
+\begin{multicols}{2}
+\begin{enumerate}[itemsep=1em,label={}]
+	\item \begin{minipage}[t]{\linewidth} $A = -3\times2+32\div4$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $B = -3\times(-3)\times4-3$ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=1bf3b&id=4C11-0&n=2&d=10&s=13&s2=true&alea=HqfD&cd=1&cols=2
+\end{EXO}
+
+\begin{EXO}{}{}
+Calculer.
+
+\begin{multicols}{2}
+\begin{enumerate}[itemsep=1em,label={}]
+	\item \begin{minipage}[t]{\linewidth} $A = -8 \times \Bigl(5 + \left(-3\right) \times 3\Bigr)$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $B = \dfrac{4 \times \Bigl(2 + 3 \times \left(-2\right)\Bigr)}{-3 + \left(-3\right) \times 8}$ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=71eba&id=2A-N3-2&n=1&d=10&alea=yDjC&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ $7^{-7}\times 7^{-8}$$=$\medskip
+
+\begin{qcmprop}[cols=4]
+  \task $7^{-15}$
+  \task $7^{1}$
+  \task $49^{-15}$
+  \task $7^{56}$
+\end{qcmprop}
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=71eba&id=2A-N3-2&n=1&d=10&alea=zvfO&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ $4^{2}\times (-4)^{2}$$=$\medskip
+
+\begin{qcmprop}[cols=2]
+  \task $(-16)^{2}$
+  \task $(-16)^{4}$
+\end{qcmprop}
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=71eba&id=2A-N3-2&n=4&d=10&alea=RHdv&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+Écrire sous la forme $a^n$ où $a$ et $n$  sont  des  entiers relatifs. 
+\begin{multicols}{4}
+\begin{enumerate}
+	\item \begin{minipage}[t]{\linewidth} 
+
+$(-6)^{4}\times (-6)^{-6}$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} 
+
+$6^{-9}\times (-8)^{-9}$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} 
+
+ $\left((-9)^{4}\right)^{-7}$ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} 
+
+ $\dfrac{24^{-4}}{6^{-4}}$ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=6682b&id=2A-N3-1&n=1&d=10&s=false&s2=false&s4=false&alea=BBA3&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ On considère le nombre $N=\dfrac{10^4}{5^2}$. On a :\medskip
+
+\begin{qcmprop}[cols=4]
+  \task $N=\dfrac{1}{10^{2}}$
+  \task $N=20$
+  \task $N=2^{2}$
+  \task  $N=4\times 10^{2}$
+\end{qcmprop}
+
+\tcbset{mathaleaexo/.style={breakable}}
+% @see : https://coopmaths.fr/alea?uuid=7233e&id=2A-N3-9&n=1&d=10&alea=pN7T&cd=1&cols=1
+\end{EXO}
+
+\begin{EXO}{}{}
+
+
+
+ $\left(\dfrac{1}{8}\right)^{-2}$ est égal à : \medskip
+
+\begin{qcmprop}[cols=4]
+  \task $64$
+  \task $-\dfrac{1}{64}$
+  \task $\dfrac{1}{64}$
+  \task $-64$
+\end{qcmprop}
+
+\end{EXO}
+
+
+% \clearpage
+
+% \begin{Correction}
+% \begin{EXO}{}{}
+% 
+% \begin{enumerate}
+% 	\item $ -8 \times  5 = -40 $
+% 	\item $ 4 \times  (-2) = -8 $
+% \end{enumerate}
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+% \begin{enumerate}
+% 	\item $\dfrac{-32}{16}={\color[HTML]{F15929}\boldsymbol{-2}}$
+% 	\item $\dfrac{-21}{-3}={\color[HTML]{F15929}\boldsymbol{7}}$
+% \end{enumerate}
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% \begin{multicols}{2}
+% \begin{enumerate}[label={}]
+% 	\item \begin{minipage}[t]{\linewidth} $~$
+% 
+% $\begin{aligned}A &= -3{\color[HTML]{216D9A}\boldsymbol{\times}}2+32{\color[HTML]{216D9A}\boldsymbol{\div}}4\\A&=-6+8\\A&={\color[HTML]{F15929}\boldsymbol{2}}\end{aligned}$ \end{minipage}
+% 	\item \begin{minipage}[t]{\linewidth} $~$
+% 
+% $\begin{aligned}B &= {\color[HTML]{216D9A}\boldsymbol{-3\times(-3)}}\times4-3\\B&={\color[HTML]{216D9A}\boldsymbol{9\times4}}-3\\
+% B&=36-3\\
+% B&= {\color[HTML]{F15929}\boldsymbol{33}}\end{aligned}$ \end{minipage}
+% \end{enumerate}
+% \end{multicols}
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+% \begin{enumerate}[label={}]
+% 	\item $A = -8 \times \Bigl(5 + {\color[HTML]{216D9A}\boldsymbol{\left(-3\right) \times 3}}\Bigr)$
+% 
+% $A = -8 \times \Bigl({\color[HTML]{216D9A}\boldsymbol{5 + \left(-9\right)}}\Bigr)$
+% 
+% $A = -8 \times \left(-4\right)$
+% 
+% $A = {\color[HTML]{F15929}\boldsymbol{32}}$
+% 	\item $B = \dfrac{4 \times \Bigl(2 + {\color[HTML]{216D9A}\boldsymbol{3 \times \left(-2\right)}}\Bigr)}{-3 + {\color[HTML]{216D9A}\boldsymbol{\left(-3\right) \times 8}}}$\medskip
+% 
+% $B = \dfrac{4 \times \Bigl({\color[HTML]{216D9A}\boldsymbol{2 + \left(-6\right)}}\Bigr)}{{\color[HTML]{216D9A}\boldsymbol{-3 + \left(-24\right)}}}$\medskip
+% 
+% $B = \dfrac{4 \times \left(-4\right)}{-27}$\medskip
+% 
+% $B = \dfrac{-16}{-27}$\medskip
+% 
+% $B = {\color[HTML]{F15929}\boldsymbol{\dfrac{16}{27}}}$
+% \end{enumerate}
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+%  On utilise la formule $a^n\times a^m=a^{n+m}$ avec $a=7$, $n=-7$ et $m=-8$.
+% 
+%         $7^{-7}\times 7^{-8}=7^{-7+(-8)}={\color[HTML]{F15929}\boldsymbol{7^{-15}}}$
+% 
+% La bonne réponse est la réponse {\bfseries \color[HTML]{F15929}A}.
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+%  On utilise la formule $a^n\times b^n=(a\times b)^{n}$
+%         avec $a=4$,  $b=-4$ et $n=2$.
+% 
+%         $4^{2}\times (-4)^{2}=(4\times (-4))^{2}={\color[HTML]{F15929}\boldsymbol{(-16)^{2}}}$ 
+% 
+% La bonne réponse est la réponse {\bfseries \color[HTML]{F15929}A}.
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+% \begin{enumerate}
+% 	\item On utilise la formule $a^n\times a^m=a^{n+m}$ avec $a=-6$, $n=4$ et $m=-6$.
+% 
+%         $(-6)^{4}\times (-6)^{-6}=(-6)^{4+(-6)}={\color[HTML]{F15929}\boldsymbol{(-6)^{-2}}}$
+% 	\item On utilise la formule $a^n\times b^n=(a\times b)^{n}$
+%         avec $a=6$,  $b=-8$ et $n=-9$.
+% 
+%         $6^{-9}\times (-8)^{-9}=(6\times (-8))^{-9}={\color[HTML]{F15929}\boldsymbol{(-48)^{-9}}}$ 
+% 	\item On utilise la formule $\left(a^n\right)^p=a^{n\times p}$
+%         avec $a=-9$,  $n=4$ et $p=-7$.
+% 
+%         $\left((-9)^{4}\right)^{-7}=(-9)^{4\times (-7)}={\color[HTML]{F15929}\boldsymbol{(-9)^{-28}}}$ 
+% 	\item On utilise la formule $\dfrac{a^n}{b^n}=\left(\dfrac{a}{b}\right)^{n}$ avec
+%         $a=24$,  $b=6$ et $n=-4$.
+% 
+%         $\dfrac{24^{-4}}{6^{-4}}=\left(\dfrac{24}{6}\right)^{-4}={\color[HTML]{F15929}\boldsymbol{4^{-4}}}$
+%         
+% \end{enumerate}
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+%  $\begin{aligned}
+%     N&=\dfrac{10^4}{5^2}\\
+%     &=\dfrac{5^4\times 2^4 }{5^2}\\
+%     &=2^4\times 5^{2}\\
+%     &=10^2\times 2^{2}\\
+%     &={\color[HTML]{F15929}\boldsymbol{4\times 10^{2}}}
+%     \end{aligned}$
+% 
+% La bonne réponse est la réponse {\bfseries \color[HTML]{F15929}D}.
+% \end{EXO}
+% 
+% \begin{EXO}{}{}
+% 
+%  $\left(\dfrac{1}{8}\right)^{-2}=8^{2}={\color[HTML]{F15929}\boldsymbol{64}}$
+% 
+% La bonne réponse est la réponse {\bfseries \color[HTML]{F15929}A}.
+% \end{EXO}
+% 
+% \clearpage
+% \end{Correction}
+\end{document}
+
+% Local Variables:
+% TeX-engine: luatex
+% End:
