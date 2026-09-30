@@ -1,0 +1,399 @@
+\documentclass[a4paper,11pt]{article}
+
+% ---------- Préambule minimal ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tasks}
+\usetikzlibrary{arrows.meta}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{needspace}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\settasks{label=\arabic*.}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+% Environnement "exercice" : \begin{exercice}{<numéro>} ... \end{exercice}
+\newenvironment{exercice}[1]{%
+  \Needspace{6\baselineskip}\par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+% ---------- Droites graduées ----------
+% Espace vertical pour la rédaction (exercice 7)
+\newcommand{\espace}{\rule[-2cm]{0pt}{0pt}}
+
+% Exercice 1 : droite de -2 à 3, graduée tous les 0,25
+\newcommand{\droiteun}[1]{%
+  \begin{tikzpicture}[x=2.6cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-2.3,0) -- (3.3,0);
+    \foreach \i in {-2,...,3} {
+      \draw (\i,0.12) -- (\i,-0.12);
+      \node[below] at (\i,-0.12) {\small$\i$};
+    }
+    \foreach \x in {-1.75,-1.5,...,2.75} \draw (\x,0.06) -- (\x,-0.06);
+    #1
+  \end{tikzpicture}%
+}
+
+% Exercice 4 : de -5 à 5
+\newcommand{\droitetrois}{%
+  \begin{tikzpicture}[x=1.1cm,baseline=-0.5ex]
+    \draw[-{Latex[length=2mm]}] (-5.7,0) -- (5.7,0);
+    \foreach \i in {-5,...,5} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \node[below] at (\i,-0.08) {\scriptsize$\i$};
+    }
+  \end{tikzpicture}%
+}
+
+% Exercice 6 : de -10 à 10
+\newcommand{\droitecinq}{%
+  \begin{tikzpicture}[x=0.7cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-10.6,0) -- (10.6,0);
+    \foreach \i in {-10,...,10} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \node[below] at (\i,-0.08) {\scriptsize$\i$};
+    }
+  \end{tikzpicture}%
+}
+
+% Exercice 11 : de -2 à 10
+\newcommand{\droiteonze}{%
+  \begin{tikzpicture}[x=0.55cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-2.6,0) -- (10.6,0);
+    \foreach \i in {-2,...,10} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \$\bullet$ \quad Calculatrice autorisée \quaenode[below] at (\i,-0.08) {\scriptsize$\i$};
+    }
+  \end{tikzpicture}%
+}
+
+% Exercice 6 : un cas = énoncé + droite + zone de réponse
+\newcommand{\casecinq}[2]{%
+  \par\medskip\noindent
+  \begin{minipage}{\linewidth}
+    #1. $#2$\par\smallskip
+    \begin{center}
+      \droitecinq\\[1.2em]
+      $I\cap J=\underline{\hspace{3.2cm}}\qquad\qquad I\cup J=\underline{\hspace{3.2cm}}$
+    \end{center}
+  \end{minipage}\par\bigskip
+}
+
+% Exercice 8 : chaîne d'équivalences à compléter
+\newcommand{\chainevide}[1]{%
+  En effet : $\begin{array}{rl}
+    x\in #1 & \Leftrightarrow \underline{\hspace{3cm}}\\
+    & \Leftrightarrow \underline{\hspace{3cm}}\\
+    & \Leftrightarrow \underline{\hspace{3cm}}\\
+    & \Leftrightarrow \underline{\hspace{3cm}}
+  \end{array}$%
+}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[L]{ {\Niveau}}
+\fancyhead[C]{ {\Chapitre}}
+\fancyhead[R]{ {\Document}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+%{
+%  \normalsize
+%  \textbf{\Niveau} \hfill \textbf{\Chapitre} \hfill \textbf{\Document}
+%}
+
+% =====================================================
+\begin{exercice}{1}
+\begin{enumerate}[label=\arabic*.]
+\item Lire l'abscisse de chacun des points $A$, $B$, $C$, $D$ et $E$ placés sur la droite graduée ci-dessous.
+
+\medskip
+\begin{center}
+\droiteun{\foreach \x/\n in {-1.75/A,-0.5/B,0.25/C,1.5/D,2.75/E} {
+  \fill (\x,0) circle[radius=2pt];
+  \node[above=3pt] at (\x,0) {$\n$};
+}}
+\end{center}
+
+\begin{tasks}(3)
+\task $A(\dots\dots)$
+\task $B(\dots\dots)$
+\task $C(\dots\dots)$
+\task $D(\dots\dots)$
+\task $E(\dots\dots)$
+\end{tasks}
+
+\item Placer le plus précisément possible, sur la droite graduée ci-dessous, les points $F$, $G$, $H$ et $K$ d'abscisses respectives :
+\[
+\frac{3}{4} \qquad -\frac{5}{4} \qquad 2{,}5 \qquad \frac{7}{3}
+\]
+
+\begin{center}
+\droiteun{}
+\end{center}
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+Traduire les inégalités suivantes par des appartenances à des intervalles.
+\begin{tasks}(2)
+\task $-2\leq x\leq 6$
+\task $4<x<9$
+\task $-1\leq x<10$
+\task $12<x\leq 17{,}5$
+\task $x\leq 7$
+\task $8<x$
+\task $x<-2$
+\task $-1\leq x$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+Traduire les appartenances suivantes par des inégalités.
+\begin{tasks}(2)
+\task $x\in[-7\,;\,3]$
+\task $x\in\,]0\,;\,1[$
+\task $x\in\,]2\,;\,5]$
+\task $x\in\,]-\infty\,;\,3[$
+\task $x\in[-4\,;\,+\infty[$
+\task $x\in[5\,;\,10[$
+\task $x\in\,]-\infty\,;\,-1]$
+\task $x\in\,]-2{,}5\,;\,0[$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{4}
+Représenter chacun des intervalles suivants sur une droite graduée.
+
+\medskip
+\noindent
+\begin{tabular}{@{}p{2.6cm}l@{}}
+1. $[-2\,;\,5]$ & \droitetrois \\[1.8em]
+2. $]1\,;\,4]$ & \droitetrois \\[1.8em]
+3. $[-1\,;\,+\infty[$ & \droitetrois \\[1.8em]
+4. $]-\infty\,;\,3[$ & \droitetrois
+\end{tabular}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{5}
+Compléter les pointillés par les symboles $\in$ ou $\notin$.
+\begin{tasks}(2)
+\task $3\ \dots\ [-4\,;\,6[$
+\task $-2\ \dots\ [-1\,;\,4[$
+\task $0\ \dots\ ]-2\,;\,1[$
+\task $5\ \dots\ ]5\,;\,8]$
+\task $7\ \dots\ ]6\,;\,7]$
+\task $0\ \dots\ ]-\infty\,;\,0[$
+\task $10^{-2}\ \dots\ ]0\,;\,+\infty[$
+\task $10^{-5}\ \dots\ ]-\infty\,;\,0]$
+\task $\pi\ \dots\ [3{,}1\,;\,3{,}2]$
+\task $\dfrac{3}{7}\ \dots\ [0{,}5\,;\,2]$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+Dans chaque cas, représenter les intervalles $I$ et $J$ proposés sur la droite de deux couleurs différentes, puis déterminer leur intersection et leur union.
+
+\casecinq{1}{I=[1\,;\,4]\ ;\ J=[3\,;\,7]}
+\casecinq{2}{I=[-6\,;\,-1]\ ;\ J=[2\,;\,7{,}5]}
+\casecinq{3}{I=\,]-\infty\,;\,0]\ ;\ J=[-3\,;\,5[}
+\casecinq{4}{I=\,]-\infty\,;\,2[\ ;\ J=[1\,;\,+\infty[}
+\casecinq{5}{I=\,]-\infty\,;\,4]\ ;\ J=[5\,;\,7[}
+\casecinq{6}{I=[0\,;\,8[\ ;\ J=\,]0\,;\,3]}
+\casecinq{7}{I=\,]-6\,;\,2[\ ;\ J=[2\,;\,+\infty[}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+Résoudre les inéquations et donner les solutions sous forme d'intervalles.
+\begin{tasks}(3)
+\task $x+3<12$\espace
+\task $7x-4\leq 10$\espace
+\task $6x+2\geq 56$\espace
+\task $3x+6\leq 24$\espace
+\task $-5x-11\geq -6$\espace
+\task $-3x+2\leq 17$\espace
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{8}
+Répondre à chaque fois en suivant l'exemple :
+
+\medskip
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+1. $x\in[3\,;\,5]\Leftrightarrow 2x+1\in[7\,;\,11]$
+
+\smallskip
+En effet : $\begin{array}{rl}
+  x\in[3\,;\,5] & \Leftrightarrow 3\leq x\leq 5\\
+  & \Leftrightarrow 6\leq 2x\leq 10\\
+  & \Leftrightarrow 7\leq 2x+1\leq 11\\
+  & \Leftrightarrow 2x+1\in[7\,;\,11]
+\end{array}$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+2. $x\in\,]4\,;\,5]\Leftrightarrow 3x-2\in\underline{\hspace{2cm}}$
+
+\smallskip
+\chainevide{]4\,;\,5]}
+\end{minipage}
+
+\bigskip
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+3. $x\in[1\,;\,2[\ \Leftrightarrow -3x+1\in\underline{\hspace{2cm}}$
+
+\smallskip
+\chainevide{[1\,;\,2[}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+4. $x\in[-5\,;\,2]\Leftrightarrow -2x-4\in\underline{\hspace{2cm}}$
+
+\smallskip
+\chainevide{[-5\,;\,2]}
+\end{minipage}
+\end{exercice}
+
+% % =====================================================
+% \begin{exercice}{9}
+% Déterminer les valeurs suivantes :
+% \begin{tasks}(3)
+% \task $|-12|=\underline{\hspace{1.2cm}}$
+% \task $|-4{,}5|=\underline{\hspace{1.2cm}}$
+% \task $|7{,}2|=\underline{\hspace{1.2cm}}$
+% \task $|4-10|=\underline{\hspace{1.2cm}}$
+% \task $|-5-4|=\underline{\hspace{1.2cm}}$
+% \task $|-7+9|=\underline{\hspace{1.2cm}}$
+% \task $|10-(-6)|=\underline{\hspace{1.2cm}}$
+% \task $\left|-\sqrt{2}\right|=\underline{\hspace{1.2cm}}$
+% \task $\left|1-\sqrt{2}\right|=\underline{\hspace{1.2cm}}$
+% \end{tasks}
+% \end{exercice}
+% 
+% % =====================================================
+% \begin{exercice}{10}
+% On a placé quelques points sur la droite réelle ci-dessous :
+% 
+% \begin{center}
+% \begin{tikzpicture}[x=2cm]
+%   \draw[thick] (-1.8,0) -- (5,0);
+%   % graduations tous les 0,5
+%   \foreach \i in {-1.5,-1,...,4.5} \draw (\i,0.1) -- (\i,-0.1);
+%   % origine et unité en rouge
+%   \foreach \i in {0,1} {
+%     \draw[red,thick] (\i,0.15) -- (\i,-0.15);
+%     \node[red,below=3pt] at (\i,-0.1) {$\i$};
+%   }
+%   % points
+%   \foreach \x/\n in {-1.5/K,-1/L,0.5/M,2.25/N,3.5/O,4.5/P} {
+%     \draw[blue,thick] (\x,0.2) -- (\x,-0.2);
+%     \node[blue,above=3pt] at (\x,0.2) {$\n$};
+%   }
+% \end{tikzpicture}
+% \end{center}
+
+% \begin{enumerate}[label=\arabic*.]
+% \item Écrire en dessous de chaque point son abscisse.
+% \item Déterminer les distances suivantes, en suivant l'exemple a.
+%   \begin{tasks}[label=\alph*.](2)
+%   \task LM $=|0{,}5-(-1)|=|1{,}5|=1{,}5$
+%   \task KL $=$
+%   \task KO $=$
+%   \task OP $=$
+%   \task ON $=$
+%   \task PL $=$
+%   \end{tasks}
+% \end{enumerate}
+% \end{exercice}
+
+% =====================================================
+% \begin{exercice}{9}
+% Compléter les expressions suivantes, en vous aidant d'un schéma.
+% 
+% \medskip
+% \noindent
+% \begin{tabular}{@{}p{7.2cm}l@{}}
+% 1. $x\in[3\,;\,7]\Leftrightarrow |x-5|\leq\dots$ & \droiteonze \\[1.6em]
+% 2. $x\in[-1\,;\,5]\Leftrightarrow |x-\dots|\leq\dots$ & \droiteonze \\[1.6em]
+% 3. $x\in[\dots\,;\,\dots]\Leftrightarrow |x-6|\leq 3$ & \droiteonze \\[1.6em]
+% 4. $x\in[\dots\,;\,\dots]\Leftrightarrow |x-(-1)|\leq 1$ & \droiteonze \\[1.6em]
+% 5. $x\in[3\,;\,\dots]\Leftrightarrow |x-5|\leq\dots$ & \droiteonze \\[1.6em]
+% 6. $x\in[\dots\,;\,\dots]\Leftrightarrow |x|\leq 1$ & \droiteonze
+% \end{tabular}
+% \end{exercice}
+
+% =====================================================
+\begin{exercice}{9}
+Pour chacun des nombres suivants, donner le plus petit sous-ensemble de $\mathbb{R}$ auquel il appartient parmi les ensembles du cours : $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$ et $\mathbb{R}$.
+\begin{tasks}(4)
+\task $15$
+\task $\dfrac{2}{3}$
+\task $4{,}8$
+\task $-17$
+\task $\dfrac{3}{2}$
+\task $-4{,}275$
+\task $\dfrac{12}{3}$
+\task $\dfrac{-10}{5}$
+\task $\sqrt{2}$
+\task $\sqrt{9}$
+\task $\sqrt{2}\times\sqrt{2}$
+\task $\sqrt{2}-\sqrt{2}$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{10}
+Pour chacun des nombres suivants, donner un encadrement à $10^{-3}$ près, puis en déduire son arrondi à $10^{-3}$ près.
+\begin{tasks}(3)
+\task $\dfrac{1}{3}$
+\task $0{,}7586$
+\task $2{,}356\times 10^{-3}$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{11}
+Pour chacun des nombres suivants, donner un encadrement d'amplitude $10^{-2}$, puis en déduire son arrondi au centième.
+\begin{tasks}(3)
+\task $-327{,}426$
+\task $\dfrac{5}{8}$
+\task $4{,}526\,86\times 10^{2}$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{12}
+Vrai ou faux ? Si la réponse est \og faux \fg{}, donner un contre-exemple.
+\begin{enumerate}[label=\arabic*.]
+\item La différence de deux nombres entiers naturels est un nombre entier naturel.
+\item Le produit de deux nombres entiers relatifs est un nombre entier naturel.
+\item Le quotient d'un nombre entier relatif par un nombre entier relatif non nul est un nombre entier naturel.
+\item Le quotient de deux nombres décimaux est un nombre décimal.
+\item Le produit d'un nombre rationnel par un nombre entier relatif est un nombre rationnel.
+\item La somme de deux nombres rationnels est un nombre rationnel.
+\item Le quotient d'un nombre réel par un nombre réel non nul est un nombre rationnel.
+\item Le produit de deux nombres irrationnels est un nombre irrationnel.
+\end{enumerate}
+\end{exercice}
+
+\end{document}

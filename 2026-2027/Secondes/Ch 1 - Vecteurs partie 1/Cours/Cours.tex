@@ -18,7 +18,7 @@
 %\setCJKmainfont{Noto Serif CJK TC}
 \usepackage{enumitem}
 \usepackage{tikz}
-\usetikzlibrary {arrows.meta, quotes} 
+\usetikzlibrary {arrows.meta, quotes}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{amsthm}
@@ -244,7 +244,7 @@
   \draw[ultra thin, color=gray!40] (0, 0) grid (8, 8);
     \node["$A$" left] (A) at (0,3) {};
     \fill (A) circle[radius=2pt];
-     
+
     \node["$B$" above] (B) at (4,7) {};
     \fill (B) circle[radius=2pt];
     \node["$C$" above right] (C) at (4,1) {};
@@ -262,7 +262,7 @@
 
 
 \begin{definition}{Vecteur}{}
-  Un \emph{vecteur} $\wvec{AB}$ est déterminé par : 
+  Un \emph{vecteur} $\wvec{AB}$ est déterminé par :
   \begin{itemize}
     \item \hide{sa \textbf{direction} (celle de la droite $(AB)$)}
     \item \hide{son \textbf{sens} (de $A$ vers $B$)}
@@ -480,97 +480,97 @@
 \end{center}
 \end{example}
 
-\subsection{Vecteurs colinéaires}
-
-\begin{definition}{Colinéarité}{}
-  \begin{multihide}
-    \begin{itemize}
-      \item Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont \textbf{colinéaires} lorsqu'ils ont la même direction.
-      
-      Dans ce cas, il existe un réel $\lambda$ tel que $\vec{u} = \lambda \vec{v}$.
-      \item Par convention, le vecteur nul est colinéaire à tout vecteur.
-    \end{itemize}
-  \end{multihide}
-\end{definition}
-
-\begin{example}
-  \begin{minipage}{0.5\linewidth}
-    Ces trois vecteurs sont colinéaires car ils ont la même direction (pas forcément le même sens).
-    \begin{itemize}
-      \item $\vec{v} = 3 \vec{u}$
-      \item $\vec{w} = -5 \vec{u}$
-      \item Ces trois vecteurs sont donc colinéaires.
-    \end{itemize}
-  \end{minipage}
-  \begin{minipage}{0.5\linewidth}
-    \begin{center}
-      \large
-      \begin{tikzpicture}[scale=0.5]
-        \draw[ultra thin, color=gray!40] (0, 0) grid (9,6);
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (1,3) -- (2,4) node[midway,above left] {$\vec{u}$};
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,5) -- (0,0) node[midway,below right] {$\vec{w}$};
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,1) -- (8,4) node[midway,below right] {$\vec{v}$};
-      \end{tikzpicture}
-    \end{center}
-  \end{minipage}
-\end{example}
-
-\vfill
-
-\begin{proposition}{}{}
-  \begin{tasks}[label=\textbullet](2)
-    \task Trois points $A$, $B$ et $C$ sont alignés \ssi \hide{les vecteurs $\wvec{AB}$ et $\wvec{AC}$ sont colinéaires.}
-    \begin{center}
-      \large
-      \begin{tikzpicture}[scale=0.8]
-        \draw[ultra thin, color=gray!40] (0, 0) grid (8,5);
-        \node["$A$" above] (A) at (5,3) {};
-        \fill (A) circle[radius=2pt];
-        \node["$B$" above] (B) at (7,4) {};
-        \fill (B) circle[radius=2pt];
-        \node["$C$" above] (C) at (1,1) {};
-        \fill (C) circle[radius=2pt];
-        \hidetk{
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,3) -- (1,1);
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,3) -- (7,4);
-        }
-        \draw[shorten <=-1cm, shorten >=-1cm] (1,1) -- (7,4);
-      \end{tikzpicture}
-    \end{center}
-    \task Deux droites $(AB)$ et $(CD)$ sont
-    ~\\parallèles si et seulement si
-    \hide{~\\les vecteurs $\wvec{AB}$ et $\wvec{CD}$ sont colinéaires.}
-    \begin{center}
-      \large
-      \begin{tikzpicture}[scale=0.8]
-        \draw[ultra thin, color=gray!40] (0, 0) grid (8,5);
-        \node["$A$" above] (A) at (4,3) {};
-        \fill (A) circle[radius=2pt];
-        \node["$B$" above] (B) at (6,4) {};
-        \fill (B) circle[radius=2pt];
-        \node["$D$" below] (D) at (7,3) {};
-        \fill (D) circle[radius=2pt];
-        \node["$C$" above] (C) at (1,0) {};
-        \fill (C) circle[radius=2pt];
-
-        \hidetk{
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (4,3) -- (6,4);
-        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (1,0) -- (7,3);
-        }
-        \draw[shorten <=-0.4cm, shorten >=-1cm] (1,0) -- (7,3);
-        \draw[shorten <=-0.3cm, shorten >=-2cm] (0,1) -- (6,4);
-      \end{tikzpicture}
-    \end{center}
-  \end{tasks}
-\end{proposition}
-
-\vfill
+%\subsection{Vecteurs colinéaires}
+%
+%\begin{definition}{Colinéarité}{}
+%  \begin{multihide}
+%    \begin{itemize}
+%      \item Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont \textbf{colinéaires} lorsqu'ils ont la même direction.
+%
+%      Dans ce cas, il existe un réel $\lambda$ tel que $\vec{u} = \lambda \vec{v}$.
+%      \item Par convention, le vecteur nul est colinéaire à tout vecteur.
+%    \end{itemize}
+%  \end{multihide}
+%\end{definition}
+%
+%\begin{example}
+%  \begin{minipage}{0.5\linewidth}
+%    Ces trois vecteurs sont colinéaires car ils ont la même direction (pas forcément le même sens).
+%    \begin{itemize}
+%      \item $\vec{v} = 3 \vec{u}$
+%      \item $\vec{w} = -5 \vec{u}$
+%      \item Ces trois vecteurs sont donc colinéaires.
+%    \end{itemize}
+%  \end{minipage}
+%  \begin{minipage}{0.5\linewidth}
+%    \begin{center}
+%      \large
+%      \begin{tikzpicture}[scale=0.5]
+%        \draw[ultra thin, color=gray!40] (0, 0) grid (9,6);
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (1,3) -- (2,4) node[midway,above left] {$\vec{u}$};
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,5) -- (0,0) node[midway,below right] {$\vec{w}$};
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,1) -- (8,4) node[midway,below right] {$\vec{v}$};
+%      \end{tikzpicture}
+%    \end{center}
+%  \end{minipage}
+%\end{example}
+%
+%\vfill
+%
+%\begin{proposition}{}{}
+%  \begin{tasks}[label=\textbullet](2)
+%    \task Trois points $A$, $B$ et $C$ sont alignés \ssi \hide{les vecteurs $\wvec{AB}$ et $\wvec{AC}$ sont colinéaires.}
+%    \begin{center}
+%      \large
+%      \begin{tikzpicture}[scale=0.8]
+%        \draw[ultra thin, color=gray!40] (0, 0) grid (8,5);
+%        \node["$A$" above] (A) at (5,3) {};
+%        \fill (A) circle[radius=2pt];
+%        \node["$B$" above] (B) at (7,4) {};
+%        \fill (B) circle[radius=2pt];
+%        \node["$C$" above] (C) at (1,1) {};
+%        \fill (C) circle[radius=2pt];
+%        \hidetk{
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,3) -- (1,1);
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (5,3) -- (7,4);
+%        }
+%        \draw[shorten <=-1cm, shorten >=-1cm] (1,1) -- (7,4);
+%      \end{tikzpicture}
+%    \end{center}
+%    \task Deux droites $(AB)$ et $(CD)$ sont
+%    ~\\parallèles si et seulement si
+%    \hide{~\\les vecteurs $\wvec{AB}$ et $\wvec{CD}$ sont colinéaires.}
+%    \begin{center}
+%      \large
+%      \begin{tikzpicture}[scale=0.8]
+%        \draw[ultra thin, color=gray!40] (0, 0) grid (8,5);
+%        \node["$A$" above] (A) at (4,3) {};
+%        \fill (A) circle[radius=2pt];
+%        \node["$B$" above] (B) at (6,4) {};
+%        \fill (B) circle[radius=2pt];
+%        \node["$D$" below] (D) at (7,3) {};
+%        \fill (D) circle[radius=2pt];
+%        \node["$C$" above] (C) at (1,0) {};
+%        \fill (C) circle[radius=2pt];
+%
+%        \hidetk{
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (4,3) -- (6,4);
+%        \draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (1,0) -- (7,3);
+%        }
+%        \draw[shorten <=-0.4cm, shorten >=-1cm] (1,0) -- (7,3);
+%        \draw[shorten <=-0.3cm, shorten >=-2cm] (0,1) -- (6,4);
+%      \end{tikzpicture}
+%    \end{center}
+%  \end{tasks}
+%\end{proposition}
+%
+%\vfill
 
 \begin{savoir}{}{}
   \begin{itemize}
     \item Représenter géométriquement des vecteurs.
     \item Représenter la somme de deux vecteurs.
-    \item Caractériser alignement et parallélisme par la colinéarité de vecteurs.
+    %\item Caractériser alignement et parallélisme par la colinéarité de vecteurs.
     \item Résoudre des problèmes avec des méthodes géométriques.
   \end{itemize}
 \end{savoir}

@@ -1,0 +1,107 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+Au cycle 4, les élèves ont étudié les inégalités pour comparer des valeurs numériques. Ils ont résolu des équations et des
+inéquations du premier degré. La notion d'intervalle, présentée comme ensemble de nombres vérifiant des inégalités, est
+nouvelle. Elle prolonge le travail mené au cycle 4 sur les inéquations.
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Cycle 4 : inégalités
+    \item inéquations du premier degré.
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenu}
+    \begin{itemize}
+        \item Ensemble R des nombres réels, droite numérique.
+        \item Intervalles de R. Représentation graphique, notations du type $[a, +\infty[$, $]-\infty, a]$, $[a, b]$
+        \item Intersection et union de deux intervalles (vocabulaire ensembliste : $\cap$, $\cup$).
+        \item Inégalités et opérations (ajout d'un nombre, multiplication par un nombre positif ou négatif).
+        \item Ensemble des nombres décimaux. Encadrement décimal d'un nombre réel à $10^{-n}$ près.
+        \item Ensemble Q des nombres rationnels. Nombres irrationnels ; exemples fournis par la géométrie, par exemple $\sqrt{2}$ et $\pi$.
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Lire l'abscisse d'un nombre réel sur une droite graduée et placer un nombre réel d'abscisse donnée.
+    \item Représenter un intervalle de la droite numérique. Déterminer si un nombre réel appartient à un intervalle donné.
+    \item Donner un encadrement, d'amplitude donnée, d'un nombre réel par des décimaux.
+    \item Dans le cadre de la résolution de problèmes, arrondir en donnant le nombre de chiffres significatifs adapté à la situation
+étudiée.
+  \end{itemize} 
+\end{paragraph}
+
+\begin{paragraph}{Démonstrations}
+    \begin{itemize}
+        \item $\dfrac{1}{3}$ n'est pas décimal : démontrée dans ce chapitre (raisonnement par l'absurde).
+        \item $\sqrt{2}$ est irrationnel : énoncée dans ce chapitre, démontrée dans le chapitre d'arithmétique (fin d'année).
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Approfondissements}
+    \begin{itemize}
+        \item Développement décimal illimité d'un nombre réel.
+        \item Observation, sur des exemples, de la périodicité du développement décimal de nombres rationnels.
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Exemple d'algorithme}
+    \begin{itemize}
+        \item Déterminer par balayage un encadrement de $\sqrt{2}$ d'amplitude inférieure ou égale à $10^{-n}$.
+    \end{itemize}
+\end{paragraph}
+
+\end{document}

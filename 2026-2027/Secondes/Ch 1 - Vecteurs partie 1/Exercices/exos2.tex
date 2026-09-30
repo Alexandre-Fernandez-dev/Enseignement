@@ -45,22 +45,23 @@ Représenter à chaque fois le vecteur demandé.
 \begin{tikzpicture}[scale=0.8]
   \def\w{4} \def\h{3}
   % grille fine sur toute la zone (3 colonnes x 3 lignes)
-  \draw[gray!30,very thin,step=0.5] (0,0) grid (3*\w,3*\h);
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (4*\w,3*\h);
   % séparations épaisses des 9 cases
-  \foreach \x in {0,1,2,3} \draw[thick] (\x*\w,0) -- (\x*\w,3*\h);
-  \foreach \y in {0,1,2,3} \draw[thick] (0,\y*\h) -- (3*\w,\y*\h);
+  \foreach \x in {0,1,3,4} \draw[thick] (\x*\w,0) -- (\x*\w,3*\h);
+  \foreach \y in {0,1,2,3} \draw[thick] (0,\y*\h) -- (4*\w,\y*\h);
+
   % ligne du haut (y entre 2h et 3h) : vecteur donné, 2u, 1/2 u
-  \draw[-{Latex[length=2.5mm]},thick] (0.5*\w,1+2*\h) -- (0.75*\w,2.5*\h) node[midway,above left] {$\vec u$};
+  \draw[-{Latex[length=2.5mm]},thick] (0.125*\w,1+2*\h) -- (0.875*\w,2.5*\h) node[midway,above left] {$\vec u$};
   \node at (\w+0.6,3*\h-0.5) {$2\vec u$};
-  \node at (2*\w+0.6,3*\h-0.5) {$\tfrac12\vec u$};
+  \node at (3*\w+0.6,3*\h-0.5) {$\tfrac12\vec u$};
   % ligne du milieu (y entre h et 2h) : -u, -3/2 u, 1/3 u
   \node at (0.6,2*\h-0.5) {$-\vec u$};
   \node at (\w+0.6,2*\h-0.5) {$-\tfrac32\vec u$};
-  \node at (2*\w+0.6,2*\h-0.5) {$\tfrac13\vec u$};
+  \node at (3*\w+0.6,2*\h-0.5) {$\tfrac13\vec u$};
   % ligne du bas (y entre 0 et h) : -2/3 u, 5/3 u, 1/6 u
   \node at (0.6,\h-0.5) {$-\tfrac23\vec u$};
   \node at (\w+0.6,\h-0.5) {$\tfrac53\vec u$};
-  \node at (2*\w+0.6,\h-0.5) {$\tfrac16\vec u$};
+  \node at (3*\w+0.6,\h-0.5) {$\tfrac16\vec u$};
 \end{tikzpicture}
 \end{center}
 \end{exercice}
@@ -70,12 +71,12 @@ Représenter à chaque fois le vecteur demandé.
 On considère deux vecteurs $\vec u$ et $\vec v$. $A$ est un point donné.
 \begin{enumerate}[label=\arabic*.]
 \item Construire les points $B$ et $C$ tels que :
-  \begin{tasks}[style=itemize](2)
+  \begin{tasks}[label=\textbullet](2)
   \task $\overrightarrow{AB}=\vec u+\vec v$
   \task $\overrightarrow{AC}=\vec u-\vec v$.
   \end{tasks}
 \item Construire les points $P$, $Q$ et $R$ tels que :
-  \begin{tasks}[style=itemize](3)
+  \begin{tasks}[label=\textbullet](3)
   \task $\overrightarrow{BP}=\dfrac23\vec u$
   \task $\overrightarrow{PQ}=-2\vec v$
   \task $\overrightarrow{QR}=\dfrac{-2}{3}\vec u$.
@@ -86,10 +87,10 @@ On considère deux vecteurs $\vec u$ et $\vec v$. $A$ est un point donné.
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
   \draw[gray!30,very thin,step=0.5] (0,0) grid (14,9);
-  \draw[-{Latex[length=2.5mm]},thick] (4,5) -- (1,1) node[above left] {$\vec u$};
-  \draw[-{Latex[length=2.5mm]},thick] (6,7) -- (9,7) node[above,midway] {$\vec v$};
-  \node at (12,8) {$\times$};
-  \node[right] at (12.15,8) {$A$};
+\draw[-{Latex[length=2.5mm]},thick] (4,7) -- (1,4) node[above left] {$\vec u$};
+  \draw[-{Latex[length=2.5mm]},thick] (1,8) -- (3,8) node[above,midway] {$\vec v$};
+  \node at (8,8) {$\times$};
+  \node[right] at (8.15,8) {$A$};
 \end{tikzpicture}
 \end{center}
 \end{exercice}
@@ -99,7 +100,7 @@ On considère deux vecteurs $\vec u$ et $\vec v$. $A$ est un point donné.
 $ABCD$ est un parallélogramme.
 \begin{enumerate}[label=\arabic*.]
 \item Placer les points $E$ et $F$ tels que :
-  \begin{itemize}
+  \begin{itemize}[label=\textbullet]
   \item $\overrightarrow{AE}=2\overrightarrow{AB}$
   \item $\overrightarrow{BF}=\dfrac32\overrightarrow{AD}-\dfrac12\overrightarrow{AB}$.
   \end{itemize}
@@ -111,9 +112,9 @@ $ABCD$ est un parallélogramme.
 \begin{center}
 \begin{tikzpicture}
   \draw[gray!30,very thin,step=0.5] (0,0) grid (14,9);
-  \coordinate (A) at (5+1,3+3);
+  \coordinate (A) at (5+2,3+3);
   \coordinate (B) at (5+5,3+3);
-  \coordinate (C) at (5+4,3+0);
+  \coordinate (C) at (5+3,3+0);
   \coordinate (D) at (5+0,3+0);
   \draw (A) -- (B) -- (C) -- (D) -- cycle;
   \foreach \P/\lab/\pos in {A/A/above left, B/B/above right, C/C/below right, D/D/below left}
@@ -122,7 +123,6 @@ $ABCD$ est un parallélogramme.
 \end{center}
 \end{exercice}
 
-\newpage
 % =====================================================
 \begin{exercice}{5}
 $ABC$ est un triangle.
@@ -135,10 +135,10 @@ $ABC$ est un triangle.
 
 \begin{center}
 \begin{tikzpicture}
-  \draw[gray!30,very thin,step=0.5] (0,0) grid (16,9);
+  \draw[gray!30,very thin,step=0.5] (0,0) grid (16,5);
   \coordinate (A) at (5,2);
-  \coordinate (C) at (7,6);
-  \coordinate (B) at (13,1);
+  \coordinate (C) at (6,4);
+  \coordinate (B) at (9,1);
   \draw[thick] (A) -- (B) -- (C) -- cycle;
   \fill (A) circle (1.5pt) node[left] {$A$};
   \fill (B) circle (1.5pt) node[right] {$B$};
@@ -153,11 +153,11 @@ Sur la figure ci-dessous, $ABCD$ est un parallélogramme.
 
 \begin{center}
 \begin{tikzpicture}
-  \draw[gray!30,very thin,step=0.5] (0,0) grid (12,9);
+  \draw[gray!30,very thin,step=0.5] (0,1.5) grid (8,7);
   \coordinate (A) at (2,4);
-  \coordinate (B) at (7,4);
-  \coordinate (C) at (9,8);
-  \coordinate (D) at (4,8);
+  \coordinate (B) at (5,4);
+  \coordinate (C) at (6,5.5);
+  \coordinate (D) at (3,5.5);
   \foreach \P/\lab/\pos in {A/A/left, B/B/below right, C/C/above right, D/D/above left}
     \fill (\P) circle (1.5pt) node[\pos] {$\lab$};
 \end{tikzpicture}

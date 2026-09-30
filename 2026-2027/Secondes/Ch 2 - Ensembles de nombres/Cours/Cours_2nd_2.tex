@@ -1,0 +1,786 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes, calc} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+\usepackage{needspace}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheorem*{exampleil}{Exemple}
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{examples}{Exemples.}
+\newtheorem*{remark}{Remarque.}
+\newtheorem*{remarks}{Remarques.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 2 \\Les ensembles de nombres
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+%\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+\setlist[itemize,1]{label=$\bullet$}
+
+\tikzset{cross/.style={path picture={
+  \draw[black]
+    (path picture bounding box.south east)--(path picture bounding box.north west)
+    (path picture bounding box.south west)--(path picture bounding box.north east);
+}}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyhead[L]{\Structure}
+  \fancyhead[R]{\Niveau}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+   %\renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% -----------
+% Définition de l'environnement qui rend le contenu invisible
+% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+% \newcommand{\hideW}[1]{\mbox{\vphantom{#1}\smash{\colorbox{white}{\phantom{#1}}}}}
+% \NewEnviron{multihide}{%
+%   \colorbox{gray!50}{
+%     \begin{lrbox}{\hidebox}%
+%         \begin{minipage}{\linewidth}%
+%           \BODY
+%         \end{minipage}%
+%     \end{lrbox}%
+%     % On affiche un espace invisible ayant les dimensions exactes de la boîte
+%     \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+%   }
+% }
+% \NewEnviron{multihideW}{%
+%   \colorbox{white}{
+%     \begin{lrbox}{\hidebox}%
+%         \begin{minipage}{\linewidth}%
+%           \BODY
+%         \end{minipage}%
+%     \end{lrbox}%
+%     % On affiche un espace invisible ayant les dimensions exactes de la boîte
+%     \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+%   }
+% }
+% \newcommand{\hidetk}[1]{}
+% Définition de l'environnement qui rend le contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\newcommand{\hideW}[1]{\mbox{\vphantom{#1}\smash{#1}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+\NewEnviron{multihideW}{%
+  \colorbox{white}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+\newcommand{\hidetk}[1]{#1}
+% -----------
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+
+% Macros pour la représentation des intervalles sur la droite réelle
+% (crochet gauche fermé / ouvert, crochet droit fermé / ouvert)
+\newcommand{\droite}{\draw[<->, >=Stealth] (0,0) -- (6,0);}
+\newcommand{\brGF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\brGO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\etiq}[2]{\node[below=10pt,inner sep=0pt] at (#1,0) {\scriptsize$#2$};}
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+
+\section{La droite réelle}
+
+\begin{definition}{Nombre réel}{}
+  \begin{multihide}
+  Un \textbf{nombre réel} est un nombre qui peut s'écrire avec une \textbf{partie entière} et une \textbf{partie décimale}. La \emph{partie décimale} peut contenir une liste \textbf{finie ou infinie} de chiffres.
+
+  L'\textbf{ensemble} de tous les nombres réels est noté $\mathbb{R}$.
+
+  Si un nombre $x$ est réel, on dit que \og $x$ appartient à $\mathbb{R}$ \fg{}, et on écrit \hide{$x \in \mathbb{R}$}.
+
+  Sinon, on dit que \og $x$ n'appartient pas à $\mathbb{R}$ \fg{}, et on écrit \hide{$x \notin \mathbb{R}$}.
+    
+  \end{multihide}
+\end{definition}
+
+\begin{examples}
+  \begin{itemize}
+    \item[]
+    \item \hideW{$0$, $3$, $-4$ sont des réels ayant une partie décimale nulle.}
+    \item \hideW{$12{,}5$, $-1{,}33$, $0{,}4125$ sont des réels ayant une partie décimale qui contient un nombre fini de chiffres}
+    \item \hideW{$1{,}2222\ldots$, $0{,}415415415\ldots$, $\dfrac{1}{3} \approx 0{,}333333\ldots$, $\sqrt{2} \approx 1{,}41421\ldots$ sont des réels ayant une partie décimale qui contient un nombre infini de chiffres.}
+  \end{itemize}
+\end{examples}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+  Tout nombre réel est l'abscisse d'un point d'une droite graduée appelée la \emph{droite numérique} ou \emph{droite réelle}.
+  \end{multihide}
+\end{proposition}
+
+\begin{example}
+  Placer sur la droite réelle, le plus précisément possible, les nombres :
+  $$2{,}5 \qquad -1{,}5 \qquad -4{,}5 \qquad \dfrac{1}{3} \qquad \dfrac{10}{3} \qquad -\dfrac{1}{3} \qquad -\dfrac{12}{5} \qquad \sqrt{2}$$
+\end{example}
+
+\vspace{1em}
+
+\begin{center}
+  \begin{tikzpicture}[x=1.7cm]
+    \draw[<->, >=Stealth, thick] (-5.4,0) -- (4.4,0);
+    \foreach \i in {-5,...,4} {
+      \draw (\i,0.1) -- (\i,-0.1);
+      \node[below] at (\i,-0.1) {\small$\i$};
+    }
+    \hidetk{
+      \foreach \x/\l in {2.5/2{,}5, -1.5/-1{,}5, -4.5/-4{,}5, 0.3333/\frac{1}{3}, 3.3333/\frac{10}{3}, -0.3333/-\frac{1}{3}, -2.4/-\frac{12}{5}, 1.41421/\sqrt{2}} {
+        \fill (\x,0) circle[radius=2pt];
+        \node[above=3pt] at (\x,0) {\small$\l$};
+      }
+    }
+  \end{tikzpicture}
+\end{center}
+
+\section{Intervalles}
+
+Un intervalle est un \og morceau \fg{} de la droite réelle contenant tous les nombres réels allant d'un nombre $a$ jusqu'à un nombre $b$. Par exemple, le morceau qui va de $-1$ à $5$ et qui contient tous les nombres réels allant de $-1$ à $5$ est un intervalle que l'on note à l'aide de crochets. L'orientation des crochets permet d'inclure ou non les extrémités $-1$ et $5$ de l'intervalle.
+
+\begin{itemize}
+  \item $[-1\,;\,5]$ est l'intervalle allant de $-1$ à $5$ dans lequel les nombres $-1$ et $5$ sont inclus.
+  \item $]-1\,;\,5[$ est l'intervalle allant de $-1$ à $5$ dans lequel les nombres $-1$ et $5$ sont exclus.
+  \item $[-1\,;\,5[$ est l'intervalle allant de $-1$ à $5$ dans lequel $-1$ est inclus et $5$ est exclu.
+  \item $]-1\,;\,5]$ est l'intervalle allant de $-1$ à $5$ dans lequel $-1$ est exclu et $5$ est inclus.
+\end{itemize}
+
+Pour être plus précis, voici la définition rigoureuse des intervalles :
+
+\newpage
+\begin{definition}{Intervalle}{}
+  Un \underline{intervalle} est un ensemble de nombres réels vérifiant une ou deux inégalités. Le tableau ci-dessous donne les différentes formes d'intervalles possibles, leur représentation et les inégalités qui les définissent. $a$ et $b$ sont deux réels tels que $a < b$.
+
+  \vspace{-1em}
+  \begingroup
+  \renewcommand{\arraystretch}{1}
+  \begin{center}
+    \begin{tabular}{|C{2.6cm}|C{7cm}|C{3.4cm}|}
+      \hline
+      Intervalle & Représentation graphique & Inégalités \\ \hline
+      $[a\,;\,b]$ &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \draw[very thick] (1.5,0) -- (4.5,0);
+        \brGF{1.5} \brDF{4.5} \etiq{1.5}{a} \etiq{4.5}{b}
+      \end{tikzpicture}
+      & \hideM{a \leq x \leq b} \\ \hline
+      $]a\,;\,b[$ &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \draw[very thick] (1.5,0) -- (4.5,0);
+        \brGO{1.5} \brDO{4.5} \etiq{1.5}{a} \etiq{4.5}{b}
+      \end{tikzpicture}
+      & \hideM{a < x < b} \\ \hline
+      $[a\,;\,b[$ &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \hidetk{\draw[very thick] (1.5,0) -- (4.5,0);
+        \brGF{1.5} \brDO{4.5}} \etiq{1.5}{a} \etiq{4.5}{b}
+      \end{tikzpicture}
+      & $a \leq x < b$ \\ \hline
+      \hideM{]a\,;\,b]} &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \draw[very thick] (1.5,0) -- (4.5,0);
+        \brGO{1.5} \brDF{4.5} \etiq{1.5}{a} \etiq{4.5}{b}
+      \end{tikzpicture}
+      & $a < x \leq b$ \\ \hline
+      $[a\,;\,+\infty[$ &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \draw[very thick] (1.5,0) -- (5.9,0);
+        \brGF{1.5} \etiq{1.5}{a}
+      \end{tikzpicture}
+      & \hideM{x \geq a} \\ \hline
+      $]a\,;\,+\infty[$ &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \hidetk{\draw[very thick] (1.5,0) -- (5.9,0);
+        \brGO{1.5}} \etiq{1.5}{a}
+      \end{tikzpicture}
+      & $x > a$ \\ \hline
+      \hideM{]-\infty\,;\,b]} &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \draw[very thick] (0.1,0) -- (4.5,0);
+        \brDF{4.5} \etiq{4.5}{b}
+      \end{tikzpicture}
+      & $x \leq b$ \\ \hline
+      $]-\infty\,;\,b[$ &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \hidetk{\draw[very thick] (0.1,0) -- (4.5,0);
+        \brDO{4.5}} \etiq{4.5}{b}
+      \end{tikzpicture}
+      & $x < b$ \\ \hline
+      \hideM{]-\infty\,;\,+\infty[} &
+      \begin{tikzpicture}
+        \node at (0, 0.5) {$ $};
+        \droite \draw[very thick] (0.1,0) -- (5.9,0);
+        \etiq{4.5}{}
+      \end{tikzpicture}
+      & \\ \hline
+    \end{tabular}
+  \end{center}
+  \endgroup
+\end{definition}
+
+\begin{remarks}
+  \begin{itemize}[noitemsep]
+    \item[]
+    \item À côté d'un signe $\infty$, le crochet est toujours ouvert.
+    \item Si on veut inclure $a$ ou $b$, on met un crochet fermé du côté du nombre inclus.
+    \item On a l'égalité d'ensembles : $\mathbb{R} = $ \hide{$]-\infty\,;\,+\infty[$}.
+  \end{itemize}
+\end{remarks}
+
+\begin{definition}{Intersection et union}{}
+  Soient $I$ et $J$ deux intervalles.
+  \begin{itemize}[noitemsep]
+    \item L'\underline{intersection} entre $I$ et $J$, notée $I \cap J$, est :
+    
+      \hide{l'ensemble des nombres réels qui appartiennent \textbf{à la fois} à $I$ et à $J$.}
+    \item L'\underline{union} entre $I$ et $J$, notée $I \cup J$, est :
+    
+      \hide{l'ensemble des nombres réels qui appartiennent à $I$ \textbf{ou} à $J$ (au moins l'un des deux).}
+  \end{itemize}
+\end{definition}
+
+\begin{exampleil}
+  On se donne deux intervalles : $I = [1\,;\,7]$ et $J = [5\,;\,9]$.
+  
+  \vspace{1em}
+  \begin{tikzpicture}[x=1.4cm]
+    \draw[<->, >=Stealth, thick] (-1,0) -- (11.5,0);
+    \foreach \i in {0,...,11} {
+      \draw (\i,0.1) -- (\i,-0.1);
+    }
+    \node[below] at (0,-0.1) {$0$};
+    % \hidetk{
+    %   \draw[very thick, blue!70!black] (1,0.4) -- (7,0.4);
+    %   \node[anchor=west, inner sep=0pt] at (1,0.4) {\Large$[$};
+    %   \node[anchor=east, inner sep=0pt] at (7,0.4) {\Large$]$};
+    %   \node[blue!70!black, above] at (4,0.5) {$I$};
+    %   \draw[very thick, red!70!black] (5,0.9) -- (9,0.9);
+    %   \node[anchor=west, inner sep=0pt] at (5,0.9) {\Large$[$};
+    %   \node[anchor=east, inner sep=0pt] at (9,0.9) {\Large$]$};
+    %   \node[red!70!black, above] at (7,1.0) {$J$};
+    % }
+  \end{tikzpicture}
+
+\vspace{-1em} 
+\begin{tasks}[label=\textbullet](2)
+  \task $I \cap J = \hideM{[5\,;\,7].}$
+  \task $I \cup J = \hideM{[1\,;\,9].}$
+\end{tasks}
+\end{exampleil}
+
+\begin{remarks}
+  \begin{itemize}[noitemsep]
+    \item[]
+    \item Si deux intervalles n'ont aucun nombre en commun, leur intersection est \hide{l'\textbf{ensemble vide}}, noté \hide{$\varnothing$}.
+
+      Par exemple : $[1\,;\,3] \cap [5\,;\,8] = \hideM{\varnothing}$ et $]-\infty\,;\,2[\, \cap\, [2\,;\,+\infty[\, = \hideM{\varnothing}$.
+    \item L'union de deux intervalles n'est pas toujours un intervalle. Par exemple, $[1\,;\,3] \cup [5\,;\,8]$ \hide{n'est pas un intervalle} : il y a un \og trou \fg{} entre $3$ et $5$.
+  \end{itemize}
+\end{remarks}
+
+\subsection*{Inégalités et opérations}
+
+Pour savoir à quel intervalle appartient une expression comme $2x+1$ lorsque $x$ appartient à un intervalle, on transforme les inégalités à l'aide de la propriété suivante.
+
+\begin{proposition}{Inégalités et opérations}{}
+  Soient $a$, $b$ et $c$ trois nombres réels tels que $a \leq b$.
+  \begin{itemize}
+    \item \textbf{Ajouter ou soustraire} un même nombre \hide{ne change pas le sens de l'inégalité :}
+    $$\hideM{a + c \leq b + c \text{ et } a - c \leq b - c}$$
+    \item \textbf{Multiplier ou diviser} par un même nombre \textbf{strictement positif} \hide{ne change pas le sens de l'inégalité :}
+    $$\hideM{\text{si } c > 0, \text{ alors } a \times c \leq b \times c}$$
+    \item \textbf{Multiplier ou diviser} par un même nombre \textbf{strictement négatif} \hide{\underline{change le sens} de l'inégalité :}
+    $$\hideM{\text{si } c < 0, \text{ alors } a \times c \geq b \times c}$$
+  \end{itemize}
+\end{proposition}
+
+\begin{example}
+  On sait que $x \in [1\,;\,3]$. À quel intervalle appartient $-2x + 5$ ?
+  
+  \vspace{0.2em}
+  \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+  \[
+    \hideMW{1 \leq x \leq 3
+    \quad \Leftrightarrow \quad -2 \geq -2x \geq -6
+    \quad \Leftrightarrow \quad 3 \geq -2x + 5 \geq -1}
+  \]
+  \hideW{On a multiplié par $-2$ : le sens change. Ainsi $-2x + 5 \in [-1\,;\,3]$}.
+  %\vspace{-0.5em}
+  }}
+\end{example}
+
+
+% \newpage
+% 
+% \section{Valeur absolue}
+% 
+% \begin{definition}{Valeur absolue et distance}{}
+%   \begin{multihide}
+%   \begin{itemize}
+%     \item Soit $a$ un nombre réel. La \underline{valeur absolue} de $a$, notée $|a|$, est la longueur qui sépare $a$ de $0$. Autrement dit, $|a|$ est simplement la valeur positive de $a$.
+%     \item Soient $a$ et $b$ deux nombres réels. On appelle \underline{distance} entre $a$ et $b$ la valeur $|a - b|$.
+%   \end{itemize}
+%   \end{multihide}
+% \end{definition}
+% 
+% \begin{example}
+%   On a placé deux réels $a$ et $b$ sur la droite réelle. On a choisi $a = -5$ et $b = 2$.
+% 
+% \begin{center}
+%   \begin{tikzpicture}[x=1.3cm]
+%     \draw[<->, >=Stealth, thick] (-6.4,0) -- (4.4,0);
+%     \foreach \i in {-6,...,4} {
+%       \draw (\i,0.1) -- (\i,-0.1);
+%     }
+%     \node[below] at (-5,-0.1) {$a = -5$};
+%     \node[below] at (0,-0.1) {$0$};
+%     \node[below] at (2,-0.1) {$b = 2$};
+%   \end{tikzpicture}
+% \end{center}
+% \vspace{0.2em}
+% \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+% \begin{multihideW}
+% \begin{itemize}
+%   \item La distance entre $a$ et $0$ vaut $5$. Ainsi : $|a| = |$\hide{$-5$}$| = $\hide{$5$}.
+%   \item La distance entre $a$ et $b$ vaut $7$. Ainsi : $|a - b| = |$\hide{$-5 - 2$}$| = |$\hide{$-7$}$| = $\hide{$7$}.
+% \end{itemize}
+% \end{multihideW}
+% }}
+% 
+% \end{example}
+% 
+% \begin{remarks}
+%   \begin{itemize}
+%     \item[]
+%     \item Soit $a$ un réel. Si $a$ est positif alors $|a| = a$. Si $a$ est négatif alors $|a| = -a$.
+% 
+%     La valeur absolue est donc toujours une valeur positive.
+%     \item Soient $a$ et $b$ deux réels. Alors $|a - b| = |b - a|$.
+% 
+%     C'est cohérent, la distance de $a$ à $b$ est bien la même que celle de $b$ à $a$.
+%   \end{itemize}
+% \end{remarks}
+% 
+% \begin{proposition}{}{}
+%   \begin{multihide}
+%   Soient $a$ et $x$ deux réels et $r$ un réel positif.
+%   $$x \in [a - r\,;\,a + r] \quad \text{si et seulement si} \quad |x - a| \leq r$$
+%     
+%   \end{multihide}
+% \end{proposition}
+% 
+% \begin{remark}
+%   \og Si et seulement si \fg{} a une signification très précise en mathématiques. Son utilisation signifie que les deux affirmations situées avant et après sont exactement équivalentes. Autrement dit, la propriété ci-dessus stipule à la fois que :
+%   \begin{center}
+%     Si $|x - a| \leq r$ alors $x \in [a - r\,;\,a + r]$
+%   \end{center}
+%   et que réciproquement :
+%   \begin{center}
+%     Si $x \in [a - r\,;\,a + r]$ alors $|x - a| \leq r$
+%   \end{center}
+%   Si la propriété était : \og $x \in [a - r\,;\,a + r]$ si $|x - a| \leq r$ \fg{}, celle-ci affirmerait que le premier point est vrai, mais pas forcément la réciproque.
+% \end{remark}
+% 
+% \begin{example}
+%   On a représenté la droite réelle ci-dessous :
+% 
+% \begin{center}
+%   \begin{tikzpicture}[x=1.3cm]
+%     \draw[<->, >=Stealth, thick] (-4.4,0) -- (6.4,0);
+%     \foreach \i in {-4,...,6} {
+%       \draw (\i,0.1) -- (\i,-0.1);
+%     }
+%     \node[below] at (-2,-0.1) {$a - r$};
+%     \node[below] at (0,-0.1) {$0$};
+%     \node[below] at (1,-0.1) {$a$};
+%     \node[below] at (4,-0.1) {$a + r$};
+%   \end{tikzpicture}
+% \end{center}
+% 
+% \framebox[1\linewidth]{\parbox{5.5in}{%\centering \underline{Réponse:}
+% \begin{multihideW}
+% Ici, on a : $a = 1$ et $r = 3$.
+% 
+% On voit bien qu'il est équivalent de dire qu'un nombre $x$ appartient à l'intervalle $[a-3\,;\,a+3]$ ou de dire que la distance entre $x$ et $a$ est plus petite que $3$.
+% \end{multihideW}
+% }}
+% \end{example}
+% 
+% \vfill
+
+\newpage
+
+\section{Les sous-ensembles particuliers de $\mathbb{R}$}
+
+\begin{definition}{Sous-ensemble de $\mathbb{R}$}{}
+  \begin{multihide}
+  Un \emph{sous-ensemble} de $\mathbb{R}$ est un ensemble inclus dans $\mathbb{R}$. Autrement dit, c'est un ensemble constitué de nombres réels (et qui ne les contient en général pas tous).
+  \end{multihide}
+\end{definition}
+
+\begin{remark}
+  Les intervalles sont des exemples de sous-ensembles de $\mathbb{R}$.
+\end{remark}
+
+\begin{definition}{Principaux sous-ensembles de $\mathbb{R}$}{}
+  On définit ci-dessous les principaux sous-ensembles de $\mathbb{R}$ à connaître.
+  \begin{itemize}
+    \item L'ensemble des \textbf{entiers naturels}, noté $\mathbb{N}$, est constitué de tous les nombres entiers positifs ou nuls :
+    $$\hideM{\mathbb{N} = \{0\,;\,1\,;\,2\,;\,3\,;\,\ldots\}}$$
+    \item L'ensemble des \textbf{entiers relatifs}, noté $\mathbb{Z}$, est constitué de tous les nombres entiers positifs, nuls ou négatifs :
+    $$\hideM{\mathbb{Z} = \{\ldots\,;\,-3\,;\,-2\,;\,-1\,;\,0\,;\,1\,;\,2\,;\,3\,;\,\ldots\}}$$
+    \item L'ensemble des \textbf{décimaux}, noté $\mathbb{D}$, est constitué de tous les nombres réels pouvant s'écrire sous la forme \hide{$\dfrac{a}{10^n}$ où $a$ est un entier relatif et $n$ un entier naturel :}
+    $$\hideM{\mathbb{D} = \left\{\dfrac{a}{10^n} \text{ où } a \in \mathbb{Z},\ n \in \mathbb{N}\right\}}$$
+    \item L'ensemble des \textbf{rationnels}, noté $\mathbb{Q}$, est constitué de tous les nombres réels pouvant s'écrire sous la forme \hide{d'une fraction $\dfrac{a}{b}$ où $a$ est un entier relatif et $b$ un entier naturel différent de $0$ :}
+    $$\hideM{\mathbb{Q} = \left\{\dfrac{a}{b} \text{ où } a \in \mathbb{Z},\ b \in \mathbb{N}^*\right\}}$$
+  \end{itemize}
+\end{definition}
+
+\begin{examples}
+  \begin{tasks}[label=\textbullet](2)
+    \task $17{,}2\hideM{ \in \mathbb{D} \text{ car } 17{,}2 = \dfrac{172}{10}}$
+    \task $-0{,}333\hideM{ \in \mathbb{D} \text{ car } -0{,}333 = \dfrac{-333}{10^3}}$
+    \task $\dfrac{1}{2}\hideM{ \in \mathbb{Q}}$
+    \task $\dfrac{1}{2}\hideM{ \in \mathbb{D} \text{ car } \dfrac{1}{2} = \dfrac{5}{10}}$
+    \task $\dfrac{21}{3}\hideM{ \in \mathbb{Q}}$
+    \task $\dfrac{21}{3}\hideM{ \in \mathbb{N} \text{ car } \dfrac{21}{3} = 7}$
+  \end{tasks}
+\end{examples}
+
+\begin{remark}
+  Les nombres décimaux ne sont pas seulement ceux qui s'écrivent avec une partie décimale ayant un nombre fini de chiffres. Par exemple $0{,}999999\ldots$ est un nombre décimal bien qu'il ait une partie décimale avec une infinité de $9$ puisque $0{,}999999\ldots = 1$.
+
+  En revanche, il est vrai que tout nombre décimal peut s'écrire avec une partie décimale ayant un nombre fini de chiffres.
+\end{remark}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+  $$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R}$$
+  où le symbole $\subset$ signifie \og est inclus dans \fg{}.
+  \end{multihide}
+\end{proposition}
+
+\begin{remarks}
+  \begin{itemize}[noitemsep]
+    \item[]
+    \item Le schéma ci-dessous représente les inclusions des différents sous-ensembles de $\mathbb{R}$, les uns dans les autres. Cela montre que les entiers naturels font partie des entiers relatifs, qui font eux-mêmes partie des décimaux, faisant eux-mêmes partie des rationnels, faisant eux-mêmes partie des réels.
+
+\begin{center}
+  \begin{tikzpicture}[scale=1]
+    % Ensembles emboîtés
+    \draw[blue!60!black, thick, rounded corners=12pt] (0,0) rectangle (11.5,7);
+    \draw[magenta!70!black, thick, rounded corners=12pt] (0.3,0.3) rectangle (9.6,6);
+    \draw[magenta!70!black, thick, rounded corners=10pt] (0.6,0.6) rectangle (7.6,4.9);
+    \draw[magenta!70!black, thick, rounded corners=8pt] (0.9,0.9) rectangle (6,3.6);
+    \draw[magenta!70!black, thick, rounded corners=6pt] (1.2,1.2) rectangle (3.2,2.7);
+    % Étiquettes
+    \node[fill=white, inner sep=2pt] at (1.5,7)   {\textcolor{blue!60!black}{$\mathbb{R}$}};
+    \node[fill=white, inner sep=2pt] at (1.5,6)   {\textcolor{magenta!70!black}{$\mathbb{Q}$}};
+    \node[fill=white, inner sep=2pt] at (1.5,4.9) {\textcolor{magenta!70!black}{$\mathbb{D}$}};
+    \node[fill=white, inner sep=2pt] at (1.5,3.6) {\textcolor{magenta!70!black}{$\mathbb{Z}$}};
+    \node[fill=white, inner sep=2pt] at (1.7,2.7) {\textcolor{magenta!70!black}{$\mathbb{N}$}};
+    % Éléments de N
+    \node at (1.7,1.7) {\hide{$0$}};
+    \node at (2.6,2.2) {\hide{$15$}};
+    \node at (2.5,1.5) {\hide{$2^3$}};
+    % Éléments de Z
+    \node at (1.6,3.1) {\hide{$-1$}};
+    \node at (3.6,3.1) {\hide{$-12$}};
+    \node at (4.7,1.8) {\hide{$-3^4$}};
+    % Éléments de D
+    \node at (2.4,4.3) {\hide{$-0{,}475$}};
+    \node at (5.5,4.3) {\hide{$10^{-3}$}};
+    \node at (6.8,2.4) {\hide{$-\frac{3}{4}$}};
+    % Éléments de Q
+    \node at (8.6,5.2) {\hide{$\frac{22}{7}$}};
+    \node at (8.6,2.4) {\hide{$-\frac{4}{3}$}};
+    % Éléments de R
+    \node at (4.5,6.5) {\hide{$\sqrt{2}$}};
+    \node at (8,6.5)    {\hide{$\cos 30^\circ$}};
+    \node at (10.6,5.2) {\hide{$\pi$}};
+    \node at (10.6,1.5) {\hide{$-\sqrt{\frac{3}{4}}$}};
+  \end{tikzpicture}
+\end{center}
+  \item Le fait que tout nombre décimal puisse s'écrire sous la forme $\dfrac{a}{10^n}$ prouve que tout nombre décimal est un nombre rationnel. On a donc bien $\mathbb{D} \subset \mathbb{Q}$. L'inverse est-il vrai ? Tout nombre rationnel est-il un nombre décimal ? Autrement dit, a-t-on $\mathbb{Q} \subset \mathbb{D}$ ? La propriété suivante répond à cette question.
+\end{itemize}
+\end{remarks}
+
+\begin{proposition}{}{}
+  Le nombre $\dfrac{1}{3}$ n'est pas décimal.
+\end{proposition}
+
+%\needspace{4\baselineskip}
+\begin{proof}$ $\newline
+\vspace{0.2em}
+\noindent\framebox[\linewidth]{\parbox{\dimexpr\linewidth-6\fboxsep\relax}{
+\begin{multihideW}
+  Supposons que $\frac{1}{3}$ soit décimal. Il existerait alors un entier $a$ et un entier naturel $n$ tels que
+  $$\dfrac{1}{3} = \dfrac{a}{10^n}.$$
+  Par un produit en croix, on obtient $10^n = 3a$ : le nombre $10^n$ serait donc un multiple de $3$.
+
+  Or $10^n$ s'écrit avec un $1$ suivi de $n$ zéros : la somme de ses chiffres vaut $1$, qui n'est pas un multiple de $3$. D'après le critère de divisibilité par $3$, $10^n$ n'est donc pas un multiple de $3$.
+
+  C'est une contradiction. La supposition de départ est donc fausse : $\frac{1}{3}$ n'est pas décimal.
+\end{multihideW}
+}}
+\end{proof}
+
+\begin{remark}
+  On utilise un \textbf{raisonnement par l'absurde} : pour démontrer qu'une affirmation est vraie, on suppose au contraire qu'elle est fausse, puis on en déduit quelque chose d'impossible (une \emph{contradiction}). Puisqu'on aboutit à une impossibilité, c'est que la supposition de départ était fausse : l'affirmation est donc vraie.
+\end{remark}
+
+\begin{remark}
+  Cela prouve qu'il existe un nombre rationnel qui n'est pas décimal et donc que $\mathbb{Q} \not\subset \mathbb{D}$.
+
+  À l'Antiquité, les Grecs ont pensé pendant des siècles que tout nombre pouvait s'écrire comme une fraction entre deux entiers. En termes modernes, ils pensaient qu'on avait l'égalité d'ensembles $\mathbb{R} = \mathbb{Q}$. C'est vers 530 avant J.-C. que l'un d'entre eux réussit à prouver que la longueur de la diagonale d'un carré de côté $1$ ne pouvait pas s'écrire comme une fraction. Autrement dit, il prouva la propriété suivante :
+\end{remark}
+
+\begin{proposition}{(Admise)}{}
+  Le nombre $\sqrt{2}$ n'est pas un nombre rationnel.
+\end{proposition}
+
+\begin{remark}
+  Cela prouve qu'il existe un nombre réel qui n'est pas rationnel et donc que $\mathbb{R} \not\subset \mathbb{Q}$. Les nombres réels qui ne sont pas rationnels se nomment les \emph{irrationnels}. Les nombres suivants sont d'autres exemples de nombres irrationnels : $\sqrt{3}$, $\sqrt{5}$, $\pi$.
+
+  La démonstration de cette propriété sera faite en fin d'année, dans le chapitre d'arithmétique.
+\end{remark}
+
+\section{Encadrement décimal d'un nombre réel}
+
+Un nombre réel comme $\dfrac{1}{3}$ ou $\sqrt{2}$ a une infinité de chiffres après la virgule : on ne peut pas l'écrire exactement sous forme décimale. On peut en revanche le \og coincer \fg{} entre deux nombres décimaux aussi proches que l'on veut.
+
+\begin{definition}{Encadrement décimal}{}
+  \begin{multihide}
+  Soient $x$ un nombre réel et $n$ un entier naturel.
+
+  Un \textbf{encadrement décimal de $x$ à $10^{-n}$ près} (on dit aussi \textbf{d'amplitude $10^{-n}$}) est une double inégalité
+  $$a \leq x \leq b$$
+  où $a$ et $b$ sont deux nombres décimaux ayant $n$ chiffres après la virgule et tels que $b - a = 10^{-n}$.
+  \end{multihide}
+\end{definition}
+
+\begin{remark}
+  L'\textbf{amplitude} d'un encadrement $a \leq x \leq b$ est la différence $b - a$. Plus l'amplitude est petite, plus l'encadrement est précis.
+
+  $10^{-1} = 0{,}1$ (au dixième près), $10^{-2} = 0{,}01$ (au centième près), $10^{-3} = 0{,}001$ (au millième près).
+\end{remark}
+
+\begin{method}{Encadrer un nombre à $10^{-n}$ près}{}
+  \begin{multihide}
+  \begin{itemize}
+    \item On écrit le nombre avec \textbf{au moins} $n + 1$ chiffres après la virgule (en posant la division pour une fraction).
+    \item On \textbf{coupe} après le $n$-ième chiffre après la virgule : on obtient une borne de l'encadrement.
+    \item On obtient l'autre borne en ajoutant ou en retranchant $10^{-n}$, de façon que le nombre soit bien compris entre les deux.
+  \end{itemize}
+  \end{multihide}
+\end{method}
+
+\begin{examples}
+  \begin{itemize}
+    \item[]
+    \item Encadrement de $12{,}4579$ à $10^{-2}$ près : \hideM{12{,}45 \leq 12{,}4579 \leq 12{,}46}
+    \item Encadrement de $\dfrac{2}{3}$ à $10^{-3}$ près. En posant la division, $\dfrac{2}{3} = 0{,}6666\ldots$ donc \hideM{0{,}666 \leq \dfrac{2}{3} \leq 0{,}667}
+    \item Encadrement de $-5{,}783$ à $10^{-1}$ près : \hideM{-5{,}8 \leq -5{,}783 \leq -5{,}7}
+
+      \hide{Attention : pour un nombre négatif, couper après la virgule donne la borne de \textbf{droite}.}
+  \end{itemize}
+\end{examples}
+
+\vfill
+
+\begin{definition}{Arrondi}{}
+  \begin{multihide}
+  L'\textbf{arrondi} de $x$ à $10^{-n}$ près est, parmi les deux bornes de l'encadrement de $x$ à $10^{-n}$ près, celle qui est \textbf{la plus proche} de $x$. Si $x$ est exactement au milieu, on choisit la borne de droite.
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+  $12{,}45 \leq 12{,}4579 \leq 12{,}46$ et $12{,}4579$ est plus proche de $12{,}46$ : l'arrondi de $12{,}4579$ au centième est \hide{$12{,}46$}.
+\end{example}
+
+\vspace{2em}
+
+\begin{savoir}{}{}
+  \begin{itemize}
+    \item Placer des nombres réels sur la droite réelle.
+    \item Représenter un intervalle et traduire un intervalle par des inégalités (et réciproquement).
+    \item Déterminer l'intersection et l'union de deux intervalles.
+    \item Transformer une inégalité en ajoutant ou en multipliant par un nombre (attention au signe).
+    \item Connaître les ensembles $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$, $\mathbb{R}$ et leurs inclusions, et savoir dans quel(s) ensemble(s) se trouve un nombre donné.
+    \item Donner un encadrement décimal d'un nombre réel à $10^{-n}$ près, et son arrondi.
+  \end{itemize}
+\end{savoir}
+
+\vfill
+
+\end{document}

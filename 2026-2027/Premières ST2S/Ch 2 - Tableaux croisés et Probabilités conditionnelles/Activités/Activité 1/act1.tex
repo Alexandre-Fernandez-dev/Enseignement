@@ -1,0 +1,243 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Langue et encodage ----------
+\usepackage[french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+% ---------- Mise en page ----------
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{array,booktabs,tabularx}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr}
+\usepackage{makecell}
+\usepackage{pgffor}
+\usepackage{currfile}
+\usepackage{lastpage}
+
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+% ---------- Couleurs ----------
+\definecolor{bleuF}{RGB}{47,87,163}   % Femmes
+\definecolor{orH}{RGB}{242,170,60}    % Hommes
+\definecolor{cadre}{RGB}{47,87,163}
+
+% ---------- Boîtes ----------
+\newtcolorbox{objectif}{
+  colback=bleuF!6, colframe=cadre, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\textbf{Objectif}}, fonttitle=\bfseries,
+  coltitle=cadre, colbacktitle=bleuF!12
+}
+\newtcolorbox{bilan}{
+  colback=orH!8, colframe=cadre, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\textbf{Bilan}}, fonttitle=\bfseries,
+  coltitle=cadre, colbacktitle=orH!20,
+  breakable
+}
+\newtcolorbox{correctionbox}{
+  colback=green!5, colframe=green!40!black, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  breakable
+}
+
+% \checkmark symbol fallback (amssymb provides \checkmark)
+
+% ---------- Ligne de réponse pointillée ----------
+\newcommand{\reponse}[1]{%
+  \par\vspace{2mm}
+  \foreach \i in {1,...,#1}{\rule{0pt}{0pt}\dotfill\\[3mm]}%
+}
+
+\begin{document}
+
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\small \Niveau}}
+\fancyhead[L]{ {\small \ChapitreCourt}}
+\fancyhead[C]{ {\small \Document}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\small \thepage\  / \pageref{LastPage}}}
+
+\begin{objectif}
+Compléter un tableau à double entrée à partir de proportions en pourcentages.
+\end{objectif}
+
+\bigskip
+\noindent On souhaite construire un tableau représentant la répartition des ouvriers en France en 2019 par catégorie socioprofessionnelle et par sexe à partir des informations suivantes, données en pourcentage.
+
+\bigskip
+\noindent\textbf{Document 1 --- Répartition par sexe au sein de chaque catégorie}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  xbar stacked,
+  width=0.74\textwidth, height=7.2cm,
+  xmin=0, xmax=100,
+  xlabel={\%},
+  bar width=6.5mm,
+  %enlarge y limits=0.11,
+  symbolic y coords={Agricoles, Non qual.\ artisanal, Non qual.\ industriel, Manut.\ / magasinage / transport, Chauffeurs, Qual.\ artisanal, Qual.\ industriel},
+  ytick=data,
+  y tick label style={font=\footnotesize, align=right},
+  axis y line*=none, axis x line*=bottom, tickwidth=0pt,
+  nodes near coords, nodes near coords align={center},
+  every node near coord/.append style={font=\scriptsize, white},
+  legend style={at={(0.5,-0.20)}, anchor=north, legend columns=-1, draw=none, font=\small},
+  ]
+\addplot[fill=bleuF] coordinates {
+  (10,Qual.\ industriel) (20,Qual.\ artisanal) (10,Chauffeurs)
+  (20,Manut.\ / magasinage / transport) (20,Non qual.\ industriel)
+  (30,Non qual.\ artisanal) (40,Agricoles)};
+\addplot[fill=orH] coordinates {
+  (90,Qual.\ industriel) (80,Qual.\ artisanal) (90,Chauffeurs)
+  (80,Manut.\ / magasinage / transport) (80,Non qual.\ industriel)
+  (70,Non qual.\ artisanal) (60,Agricoles)};
+\legend{Femmes, Hommes}
+\end{axis}
+\end{tikzpicture}
+
+%{\footnotesize Source~: Insee.}
+\end{center}
+
+\bigskip
+\noindent\textbf{Document 2 --- Répartition des ouvriers par catégorie socioprofessionnelle}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{Catégorie socioprofessionnelle} & \textbf{\%} \\
+\midrule
+Ouvriers qualifiés de type industriel & 20 \\
+Ouvriers qualifiés de type artisanal & 25 \\
+Chauffeurs & 10 \\
+Ouvriers qualifiés de la manutention, du magasinage et du transport & 5 \\
+Ouvriers non qualifiés de type industriel & 15 \\
+Ouvriers non qualifiés de type artisanal & 20 \\
+Ouvriers agricoles & 5 \\
+%Ouvriers qualifiés de type industriel & 19,9 \\
+%Ouvriers qualifiés de type artisanal & 24,6 \\
+%Chauffeurs & 12,5 \\
+%Ouvriers qualifiés de la manutention, du magasinage et du transport & 8,4 \\
+%Ouvriers non qualifiés de type industriel & 16,4 \\
+%Ouvriers non qualifiés de type artisanal & 13,6 \\
+%Ouvriers agricoles & 4,6 \\
+\midrule
+\textbf{Ensemble des ouvriers} & \textbf{100} \\
+\bottomrule
+\end{tabular}
+
+%{\footnotesize Source~: Insee.}
+\end{center}
+
+\newpage
+\noindent\textbf{Questions}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item Laquelle des affirmations suivantes est juste~? Cocher la bonne réponse.
+\begin{itemize}[label=$\square$]
+  \item « 40~\% des ouvriers sont des femmes ouvrières agricoles. »
+  \item « 40~\% des ouvriers agricoles sont des femmes. »
+\end{itemize}
+Expliquer la différence entre ces deux affirmations.
+\reponse{3}
+
+\item Interpréter le nombre 10 qui apparaît dans la troisième ligne du second tableau.
+\reponse{3}
+
+\item À partir de ces tableaux, déterminer la proportion de femmes chauffeurs parmi l'ensemble des ouvriers, en pourcentage.
+\reponse{3}
+\end{enumerate}
+
+\bigskip
+\begin{bilan}
+À l'aide des tableaux exposés dans cette activité, compléter le tableau ci-dessous avec des pourcentages calculés par rapport à l'ensemble des ouvriers de France. On arrondira au besoin les résultats à 0,1~\%.
+
+\bigskip
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+ & \makecell{Qual.\\industriel} & \makecell{Qual.\\artisanal} & Chauffeurs & \makecell{Manut. /\\magasinage /\\transport} & \makecell{Non qual.\\industriel} & \makecell{Non qual.\\artisanal} & Agricoles & \textbf{Ensemble} \\
+\hline
+\textbf{Femmes} & & & & & & & & \\
+\hline
+\textbf{Hommes} & & & & & & & & \\
+\hline
+\textbf{Ensemble} & & & & & & & & \\
+\hline
+\end{tabular}}
+\end{center}
+\end{bilan}
+
+
+% \clearpage
+% \pagestyle{empty}
+% \begin{center}
+% {\LARGE\textbf{Correction}}\\[2pt]
+% {\large Tableau à double entrée : fréquences marginales et conditionnelles}
+% \end{center}
+% \vspace{3mm}
+%  
+% \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+%  
+% \item \textbf{Réponse~:} c'est la \emph{seconde} affirmation qui est juste~: « 40~\% des ouvriers agricoles sont des femmes. »
+%  
+% \begin{correctionbox}
+% \textbf{Explication.} Le nombre 40~\% est une \emph{fréquence conditionnelle}~: c'est le pourcentage de femmes calculé \emph{parmi les seuls ouvriers agricoles} (la catégorie « ouvriers agricoles » sert de référence, de « dénominateur »).
+%  
+% La première affirmation confond cette fréquence conditionnelle avec une \emph{fréquence par rapport à l'ensemble des ouvriers} (une fréquence « croisée », ou jointe)~: le pourcentage de femmes ouvrières agricoles parmi \emph{tous} les ouvriers n'est pas 40~\%, mais se calcule à la question~3 (on trouve 2~\%, bien plus faible), car les ouvriers agricoles ne représentent eux-mêmes que 5~\% de l'ensemble des ouvriers.
+% \end{correctionbox}
+%  
+% \item \textbf{Réponse~:} 10 est une \emph{fréquence marginale}~: parmi l'ensemble des ouvriers de France (hommes et femmes confondus), 10~\% exercent la profession de chauffeur.
+%  
+% \item \textbf{Réponse~:} On cherche la fréquence \emph{croisée} (femmes $\cap$ chauffeurs) par rapport à l'ensemble des ouvriers. Elle s'obtient en multipliant la fréquence marginale de la catégorie « chauffeurs » par la fréquence conditionnelle de femmes \emph{parmi} les chauffeurs~: c'est 10~\% de 10, c'est-à-dire
+% \[
+% 10\,\% \times 10 = \boxed{1\,\%}
+% \]
+% \end{enumerate}
+%  
+% \bigskip
+% \begin{correctionbox}
+% \textbf{Méthode générale (Bilan).} Pour chaque catégorie, la fréquence croisée par rapport à l'ensemble des ouvriers s'obtient par~:
+% \begin{center}
+% \itshape fréquence croisée $=$ fréquence marginale $\times$ fréquence conditionnelle (Femmes ou Hommes)
+% \end{center}
+% Les fréquences croisées « Hommes » s'en déduisent aussi par différence à la fréquence marginale de la catégorie (ou en multipliant par la fréquence conditionnelle complémentaire).
+% \end{correctionbox}
+%  
+% \bigskip
+% \begin{center}
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+% \hline
+%  & \makecell{Qual.\\industriel} & \makecell{Qual.\\artisanal} & Chauffeurs & \makecell{Manut. /\\magasinage /\\transport} & \makecell{Non qual.\\industriel} & \makecell{Non qual.\\artisanal} & Agricoles & \textbf{Ensemble} \\
+% \hline
+% \textbf{Femmes} & 2 & 5 & 1 & 1 & 3 & 6 & 2 & \textbf{20} \\
+% \hline
+% \textbf{Hommes} & 18 & 20 & 9 & 4 & 12 & 14 & 3 & \textbf{80} \\
+% \hline
+% \textbf{Ensemble} & \textbf{20} & \textbf{25} & \textbf{10} & \textbf{5} & \textbf{15} & \textbf{20} & \textbf{5} & \textbf{100} \\
+% \hline
+% \end{tabular}}
+% \end{center}
+%  
+% \bigskip
+% {\footnotesize\textit{Remarque~:} la dernière ligne (« Ensemble ») redonne exactement les fréquences marginales du Document~2, et la dernière colonne redonne la répartition marginale par sexe (20~\% de femmes, 80~\% d'hommes parmi l'ensemble des ouvriers), ce qui permet de vérifier la cohérence du tableau.}
+
+\end{document}

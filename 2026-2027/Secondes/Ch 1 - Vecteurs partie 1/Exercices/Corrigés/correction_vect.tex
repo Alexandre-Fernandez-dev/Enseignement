@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[margin=2.5cm]{geometry}
+\title{Corrections d'exercices sur les vecteurs}
+\date{}
+\begin{document}
+\maketitle
+
+% Environnement "exercice" : \begin{exercice}{<numéro>} ... \end{exercice}
+\newenvironment{exercice}[1]{%
+  \par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+\begin{exercice}{3}{}
+
+\textbf{Question 3.} On constate que les points $R$ et $C$ sont confondus.
+
+\medskip
+\textbf{Démonstration} : D'après la relation de Chasles appliquée à la ligne brisée $A \to B \to P \to Q \to R$ :
+\[
+\overrightarrow{AR} = \overrightarrow{AB} + \overrightarrow{BP} + \overrightarrow{PQ} + \overrightarrow{QR}.
+\]
+Or, par construction :
+\[
+\overrightarrow{AB} = \vec u + \vec v, \qquad
+\overrightarrow{BP} = \frac{2}{3}\vec u, \qquad
+\overrightarrow{PQ} = -2\vec v, \qquad
+\overrightarrow{QR} = -\frac{2}{3}\vec u.
+\]
+D'où :
+\[
+\overrightarrow{AR} = (\vec u + \vec v) + \frac{2}{3}\vec u - 2\vec v - \frac{2}{3}\vec u
+= \left(1 + \frac{2}{3} - \frac{2}{3}\right)\vec u + (1-2)\vec v
+= \vec u - \vec v.
+\]
+Ainsi $\overrightarrow{AR} = \vec u - \vec v = \overrightarrow{AC}$, donc $R = C$.
+
+\end{exercice}
+\begin{exercice}{4}{}
+
+\textbf{Question 2.} Montrons que $\overrightarrow{CE} = \overrightarrow{AB} - \overrightarrow{AD}$.
+
+\medskip
+\noindent Puisque $ABCD$ est un parallélogramme, $\overrightarrow{AC} = \overrightarrow{AB} + \overrightarrow{AD}$. Par la relation de Chasles :
+\[
+\overrightarrow{CE} = \overrightarrow{CA} + \overrightarrow{AE}
+= -\overrightarrow{AC} + \overrightarrow{AE}
+= -\left(\overrightarrow{AB} + \overrightarrow{AD}\right) + 2\overrightarrow{AB}
+= \overrightarrow{AB} - \overrightarrow{AD}.
+\]
+
+
+
+\textbf{Question 3.} Montrons que $\overrightarrow{CF} = -\dfrac{1}{2}\overrightarrow{AB} + \dfrac{1}{2}\overrightarrow{AD}$.
+
+\medskip
+\noindent Puisque $ABCD$ est un parallélogramme, $\overrightarrow{BC} = \overrightarrow{AD}$, donc $\overrightarrow{CB} = -\overrightarrow{AD}$. Par la relation de Chasles :
+\[
+\overrightarrow{CF} = \overrightarrow{CB} + \overrightarrow{BF}
+= -\overrightarrow{AD} + \left(\frac{3}{2}\overrightarrow{AD} - \frac{1}{2}\overrightarrow{AB}\right)
+= \frac{1}{2}\overrightarrow{AD} - \frac{1}{2}\overrightarrow{AB}
+= -\frac{1}{2}\overrightarrow{AB} + \frac{1}{2}\overrightarrow{AD}.
+\]
+
+\bigskip
+\textbf{Question 4.} D'après les questions 2 et 3 :
+\[
+\overrightarrow{CF} = -\frac{1}{2}\overrightarrow{AB} + \frac{1}{2}\overrightarrow{AD}
+= -\frac{1}{2}\left(\overrightarrow{AB} - \overrightarrow{AD}\right)
+= -\frac{1}{2}\overrightarrow{CE}.
+\]
+D'où $\overrightarrow{CE} = -2\,\overrightarrow{CF}$, donc $\lambda = -2$.
+
+\medskip
+\noindent (Les vecteurs $\overrightarrow{CE}$ et $\overrightarrow{CF}$ étant colinéaires, les points $C$, $E$, $F$ sont alignés.)
+\end{exercice}
+\end{document}

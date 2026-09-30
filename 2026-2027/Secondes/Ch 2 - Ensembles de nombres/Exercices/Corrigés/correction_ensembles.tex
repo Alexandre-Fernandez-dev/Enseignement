@@ -1,0 +1,294 @@
+%LTeX: language=fr-FR
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tasks}
+\usetikzlibrary{arrows.meta}
+\usepackage[margin=2cm]{geometry}
+\usepackage{needspace}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\settasks{label=\arabic*.}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\setlength{\parindent}{0pt}
+
+\newenvironment{exercice}[1]{%
+  \Needspace{6\baselineskip}\par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+% Intervalle dessiné : \itv{couleur}{hauteur}{a}{b}{crochet gauche}{crochet droit}
+% (laisser un crochet vide pour une borne infinie)
+\newcommand{\itv}[6]{%
+  \draw[very thick,#1] (#3,#2) -- (#4,#2);
+  \node[#1,inner sep=0pt] at (#3,#2) {\large$#5{}$};
+  \node[#1,inner sep=0pt] at (#4,#2) {\large$#6{}$};
+}
+
+% Droite de -5 à 5 (exercice 4)
+\newcommand{\droitequatre}[1]{%
+  \begin{tikzpicture}[x=1cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-5.7,0) -- (5.7,0);
+    \foreach \i in {-5,...,5} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \node[below] at (\i,-0.1) {\scriptsize$\i$};
+    }
+    #1
+  \end{tikzpicture}%
+}
+
+% Droite de -10 à 10 (exercice 6)
+\newcommand{\droitesix}[1]{%
+  \begin{tikzpicture}[x=0.7cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-10.6,0) -- (10.6,0);
+    \foreach \i in {-10,...,10} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \node[below] at (\i,-0.1) {\scriptsize$\i$};
+    }
+    #1
+  \end{tikzpicture}%
+}
+
+% Un cas de l'exercice 6 : énoncé, dessin, résultats
+\newcommand{\casesix}[4]{%
+  \par\medskip\noindent
+  \begin{minipage}{\linewidth}
+    #1. $#2$\par\smallskip
+    \begin{center}
+      \droitesix{#3}\\[0.6em]
+      #4
+    \end{center}
+  \end{minipage}\par
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\Niveau}
+\fancyhead[C]{\Chapitre}
+\fancyhead[R]{\Document}
+\fancyfoot[L]{A. Fernandez}
+\fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+
+% =====================================================
+\begin{exercice}{1}
+\begin{enumerate}[label=\arabic*.]
+\item La droite est graduée tous les $0{,}25$.
+\begin{tasks}(3)
+\task $A(-1{,}75)$
+\task $B(-0{,}5)$
+\task $C(0{,}25)$
+\task $D(1{,}5)$
+\task $E(2{,}75)$
+\end{tasks}
+
+\item $\dfrac{3}{4} = 0{,}75$ et $-\dfrac{5}{4} = -1{,}25$ tombent sur des graduations. $\dfrac{7}{3} = 2 + \dfrac{1}{3} \approx 2{,}33$ se place au tiers de l'unité entre $2$ et $3$, entre les graduations $2{,}25$ et $2{,}5$.
+
+\begin{center}
+\begin{tikzpicture}[x=2.6cm]
+  \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-2.3,0) -- (3.3,0);
+  \foreach \i in {-2,...,3} {
+    \draw (\i,0.12) -- (\i,-0.12);
+    \node[below] at (\i,-0.12) {\small$\i$};
+  }
+  \foreach \x in {-1.75,-1.5,...,2.75} \draw (\x,0.06) -- (\x,-0.06);
+  \foreach \x/\n in {0.75/F,-1.25/G,2.5/H,2.3333/K} \fill[blue] (\x,0) circle[radius=2pt];
+  \foreach \x/\n in {0.75/F,-1.25/G,2.5/H} \node[blue,above=3pt] at (\x,0) {$\n$};
+  \node[blue,anchor=south east] at (2.3333,0.08) {$K$};
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+\begin{tasks}(4)
+\task $x\in[-2\,;\,6]$
+\task $x\in\,]4\,;\,9[$
+\task $x\in[-1\,;\,10[$
+\task $x\in\,]12\,;\,17{,}5]$
+\task $x\in\,]-\infty\,;\,7]$
+\task $x\in\,]8\,;\,+\infty[$
+\task $x\in\,]-\infty\,;\,-2[$
+\task $x\in[-1\,;\,+\infty[$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+\begin{tasks}(4)
+\task $-7\leq x\leq 3$
+\task $0<x<1$
+\task $2<x\leq 5$
+\task $x<3$
+\task $x\geq -4$
+\task $5\leq x<10$
+\task $x\leq -1$
+\task $-2{,}5<x<0$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{4}
+\medskip
+\begin{tabular}{@{}p{2.6cm}l@{}}
+1. $[-2\,;\,5]$ & \droitequatre{\itv{blue}{0}{-2}{5}{[}{]}} \\[1.6em]
+2. $]1\,;\,4]$ & \droitequatre{\itv{blue}{0}{1}{4}{]}{]}} \\[1.6em]
+3. $[-1\,;\,+\infty[$ & \droitequatre{\itv{blue}{0}{-1}{5.6}{[}{}} \\[1.6em]
+4. $]-\infty\,;\,3[$ & \droitequatre{\itv{blue}{0}{-5.6}{3}{}{[}}
+\end{tabular}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{5}
+\begin{tasks}(2)
+\task $3 \in [-4\,;\,6[$
+\task $-2 \notin [-1\,;\,4[$ \quad (car $-2 < -1$)
+\task $0 \in\, ]-2\,;\,1[$
+\task $5 \notin\, ]5\,;\,8]$ \quad ($5$ est exclu)
+\task $7 \in\, ]6\,;\,7]$ \quad ($7$ est inclus)
+\task $0 \notin\, ]-\infty\,;\,0[$ \quad ($0$ est exclu)
+\task $10^{-2} \in\, ]0\,;\,+\infty[$ \quad (car $10^{-2} = 0{,}01 > 0$)
+\task $10^{-5} \notin\, ]-\infty\,;\,0]$ \quad (car $10^{-5} > 0$)
+\task $\pi \in [3{,}1\,;\,3{,}2]$ \quad (car $\pi \approx 3{,}14$)
+\task $\dfrac{3}{7} \notin [0{,}5\,;\,2]$ \quad (car $\dfrac{3}{7} = \dfrac{6}{14} < \dfrac{7}{14} = 0{,}5$)
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+On représente $I$ en \textcolor{blue}{bleu} et $J$ en \textcolor{red}{rouge}.
+
+\casesix{1}{I=[1\,;\,4]\ ;\ J=[3\,;\,7]}
+  {\itv{blue}{0.35}{1}{4}{[}{]} \itv{red}{0.7}{3}{7}{[}{]}}
+  {$I\cap J=[3\,;\,4] \qquad\qquad I\cup J=[1\,;\,7]$}
+\casesix{2}{I=[-6\,;\,-1]\ ;\ J=[2\,;\,7{,}5]}
+  {\itv{blue}{0.35}{-6}{-1}{[}{]} \itv{red}{0.7}{2}{7.5}{[}{]}}
+  {$I\cap J=\varnothing \qquad\qquad I\cup J=[-6\,;\,-1]\cup[2\,;\,7{,}5]$ \quad (ce n'est pas un intervalle)}
+\casesix{3}{I=\,]-\infty\,;\,0]\ ;\ J=[-3\,;\,5[}
+  {\itv{blue}{0.35}{-10.5}{0}{}{]} \itv{red}{0.7}{-3}{5}{[}{[}}
+  {$I\cap J=[-3\,;\,0] \qquad\qquad I\cup J=\,]-\infty\,;\,5[$}
+\casesix{4}{I=\,]-\infty\,;\,2[\ ;\ J=[1\,;\,+\infty[}
+  {\itv{blue}{0.35}{-10.5}{2}{}{[} \itv{red}{0.7}{1}{10.5}{[}{}}
+  {$I\cap J=[1\,;\,2[ \qquad\qquad I\cup J=\,]-\infty\,;\,+\infty[\,=\mathbb{R}$}
+\casesix{5}{I=\,]-\infty\,;\,4]\ ;\ J=[5\,;\,7[}
+  {\itv{blue}{0.35}{-10.5}{4}{}{]} \itv{red}{0.7}{5}{7}{[}{[}}
+  {$I\cap J=\varnothing \qquad\qquad I\cup J=\,]-\infty\,;\,4]\cup[5\,;\,7[$ \quad (ce n'est pas un intervalle)}
+\casesix{6}{I=[0\,;\,8[\ ;\ J=\,]0\,;\,3]}
+  {\itv{blue}{0.35}{0}{8}{[}{[} \itv{red}{0.7}{0}{3}{]}{]}}
+  {$I\cap J=\,]0\,;\,3]=J \qquad\qquad I\cup J=[0\,;\,8[\,=I$ \quad ($J$ est inclus dans $I$)}
+\casesix{7}{I=\,]-6\,;\,2[\ ;\ J=[2\,;\,+\infty[}
+  {\itv{blue}{0.35}{-6}{2}{]}{[} \itv{red}{0.7}{2}{10.5}{[}{}}
+  {$I\cap J=\varnothing$ \quad ($2$ est exclu de $I$) \qquad $I\cup J=\,]-6\,;\,+\infty[$}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+Quand on divise par un nombre \textbf{négatif}, on change le sens de l'inégalité.
+\begin{tasks}(3)
+\task $x+3<12$\\ $x<9$\\ $S=\,]-\infty\,;\,9[$
+\task $7x-4\leq 10$\\ $7x\leq 14$\\ $x\leq 2$\\ $S=\,]-\infty\,;\,2]$
+\task $6x+2\geq 56$\\ $6x\geq 54$\\ $x\geq 9$\\ $S=[9\,;\,+\infty[$
+\task $3x+6\leq 24$\\ $3x\leq 18$\\ $x\leq 6$\\ $S=\,]-\infty\,;\,6]$
+\task $-5x-11\geq -6$\\ $-5x\geq 5$\\ $x\leq -1$\\ $S=\,]-\infty\,;\,-1]$
+\task $-3x+2\leq 17$\\ $-3x\leq 15$\\ $x\geq -5$\\ $S=[-5\,;\,+\infty[$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{8}
+\medskip
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+2. $\begin{array}[t]{rl}
+  x\in\,]4\,;\,5] & \Leftrightarrow 4< x\leq 5\\
+  & \Leftrightarrow 12< 3x\leq 15\\
+  & \Leftrightarrow 10< 3x-2\leq 13\\
+  & \Leftrightarrow 3x-2\in\,]10\,;\,13]
+\end{array}$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+3. $\begin{array}[t]{rl}
+  x\in[1\,;\,2[ & \Leftrightarrow 1\leq x< 2\\
+  & \Leftrightarrow -3\geq -3x> -6\\
+  & \Leftrightarrow -2\geq -3x+1> -5\\
+  & \Leftrightarrow -3x+1\in\,]-5\,;\,-2]
+\end{array}$
+\end{minipage}
+
+\bigskip
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+4. $\begin{array}[t]{rl}
+  x\in[-5\,;\,2] & \Leftrightarrow -5\leq x\leq 2\\
+  & \Leftrightarrow 10\geq -2x\geq -4\\
+  & \Leftrightarrow 6\geq -2x-4\geq -8\\
+  & \Leftrightarrow -2x-4\in[-8\,;\,6]
+\end{array}$
+\end{minipage}
+
+\medskip
+Aux questions 3 et 4, on multiplie par un nombre négatif ($-3$, puis $-2$) : le sens des inégalités change.
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{9}
+\begin{tasks}(3)
+\task $15\in\mathbb{N}$
+\task $\dfrac{2}{3}\in\mathbb{Q}$ \quad (non décimal)
+\task $4{,}8\in\mathbb{D}$
+\task $-17\in\mathbb{Z}$
+\task $\dfrac{3}{2}=1{,}5\in\mathbb{D}$
+\task $-4{,}275\in\mathbb{D}$
+\task $\dfrac{12}{3}=4\in\mathbb{N}$
+\task $\dfrac{-10}{5}=-2\in\mathbb{Z}$
+\task $\sqrt{2}\in\mathbb{R}$ \quad (irrationnel)
+\task $\sqrt{9}=3\in\mathbb{N}$
+\task $\sqrt{2}\times\sqrt{2}=2\in\mathbb{N}$
+\task $\sqrt{2}-\sqrt{2}=0\in\mathbb{N}$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{10}
+\begin{enumerate}[label=\arabic*.]
+\item $\dfrac{1}{3}=0{,}3333\ldots$ donc $0{,}333\leq\dfrac{1}{3}\leq 0{,}334$. Arrondi à $10^{-3}$ près : $0{,}333$.
+\item $0{,}758\leq 0{,}7586\leq 0{,}759$. Arrondi à $10^{-3}$ près : $0{,}759$ (car $0{,}7586$ est plus proche de $0{,}759$).
+\item $2{,}356\times10^{-3}=0{,}002\,356$ donc $0{,}002\leq 2{,}356\times10^{-3}\leq 0{,}003$. Arrondi à $10^{-3}$ près : $0{,}002$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{11}
+\begin{enumerate}[label=\arabic*.]
+\item $-327{,}43\leq -327{,}426\leq -327{,}42$ (nombre négatif : couper après le 2\textsuperscript{e} chiffre donne la borne de droite). Arrondi au centième : $-327{,}43$.
+\item $\dfrac{5}{8}=0{,}625$ donc $0{,}62\leq\dfrac{5}{8}\leq 0{,}63$. Le nombre est exactement au milieu : on prend la borne de droite, l'arrondi au centième est $0{,}63$.
+\item $4{,}526\,86\times10^{2}=452{,}686$ donc $452{,}68\leq 452{,}686\leq 452{,}69$. Arrondi au centième : $452{,}69$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{12}
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Faux} : $2-5=-3\notin\mathbb{N}$.
+\item \textbf{Faux} : $(-2)\times 3=-6\notin\mathbb{N}$.
+\item \textbf{Faux} : $1\div 2=0{,}5\notin\mathbb{N}$.
+\item \textbf{Faux} : $1$ et $3$ sont décimaux, mais $1\div 3=\dfrac{1}{3}$ n'est pas décimal (démontré dans le cours).
+\item \textbf{Vrai} : si $\dfrac{a}{b}$ est rationnel et $k$ un entier relatif, alors $\dfrac{a}{b}\times k=\dfrac{a\times k}{b}$ est encore un quotient d'entiers.
+\item \textbf{Vrai} : $\dfrac{a}{b}+\dfrac{c}{d}=\dfrac{a\times d+c\times b}{b\times d}$ est encore un quotient d'entiers.
+\item \textbf{Faux} : $\sqrt{2}\div 1=\sqrt{2}$ n'est pas rationnel.
+\item \textbf{Faux} : $\sqrt{2}$ est irrationnel, mais $\sqrt{2}\times\sqrt{2}=2$ est rationnel.
+\end{enumerate}
+\end{exercice}
+
+\end{document}

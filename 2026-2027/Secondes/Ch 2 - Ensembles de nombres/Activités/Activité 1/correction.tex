@@ -1,0 +1,160 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+
+\setlength{\parindent}{0cm}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Intervalle dessiné : \itv{couleur}{a}{b}{crochet gauche}{crochet droit}
+% (laisser un crochet vide pour une borne infinie)
+\newcommand{\itv}[5]{%
+  \draw[line width=2pt,#1] (#2,0) -- (#3,0);
+  \node[#1,inner sep=0pt] at (#2,0) {\Large$#4{}$};
+  \node[#1,inner sep=0pt] at (#3,0) {\Large$#5{}$};
+}
+
+% Droite graduée des tailles, de 0,9 m à 2,1 m, avec un dessin en argument
+\newcommand{\droitetailles}[1]{%
+  \begin{tikzpicture}[x=11cm]
+    \draw[-{Latex[length=2mm]}] (0.85,0) -- (2.15,0) node[right] {\small $x$ (m)};
+    \foreach \x/\l in {0.9/0{,}9, 1.0/1{,}0, 1.1/1{,}1, 1.2/1{,}2, 1.3/1{,}3, 1.4/1{,}4, 1.5/1{,}5, 1.6/1{,}6, 1.7/1{,}7, 1.8/1{,}8, 1.9/1{,}9, 2.0/2{,}0, 2.1/2{,}1} {
+      \draw (\x,0.1) -- (\x,-0.1);
+      \node[below] at (\x,-0.1) {\scriptsize$\l$};
+    }
+    \foreach \x in {0.95,1.05,...,2.05} \draw (\x,0.05) -- (\x,-0.05);
+    #1
+  \end{tikzpicture}%
+}
+
+\newcommand{\oui}{\textcolor{green!50!black}{\textbf{oui}}}
+\newcommand{\non}{\textcolor{red!70!black}{non}}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{\Niveau}}
+\fancyhead[C]{\textbf{\ChapitreCourt}}
+\fancyhead[R]{\textbf{\Document\ -- Correction}}
+
+\large
+
+\begin{center}
+  {\Large\bfseries Correction : le parc d'attractions}
+\end{center}
+
+% =====================================================
+\subsection*{Partie A : traduire les conditions}
+
+\begin{enumerate}
+  \item
+  \begin{tasks}(2)
+    \task Grand Huit : $x \geq 1{,}40$
+    \task Petit Train : $x < 1{,}20$
+    \task Rivière : $1{,}10 \leq x \leq 1{,}95$
+    \task Chute Libre : $1{,}30 < x \leq 1{,}90$
+  \end{tasks}
+
+  \item On colorie les tailles autorisées. Aux extrémités, on met un crochet tourné vers le segment si la taille est autorisée, vers l'extérieur sinon.
+
+  \medskip
+  \begin{tabular}{@{}p{2cm}l@{}}
+    Grand Huit & \droitetailles{\itv{blue}{1.4}{2.13}{[}{}} \\[1.2em]
+    Petit Train & \droitetailles{\itv{blue}{0.86}{1.2}{}{[}} \\[1.2em]
+    Rivière & \droitetailles{\itv{blue}{1.1}{1.95}{[}{]}} \\[1.2em]
+    Chute Libre & \droitetailles{\itv{blue}{1.3}{1.9}{]}{]}}
+  \end{tabular}
+
+  \setcounter{enumi}{2}
+  \item Un crochet tourné vers l'intérieur de l'intervalle (\og fermé \fg{}) signifie que le nombre est \textbf{inclus} : l'inégalité est large ($\leq$).
+  Un crochet tourné vers l'extérieur (\og ouvert \fg{}) signifie que le nombre est \textbf{exclu} : l'inégalité est stricte ($<$).
+
+  \item Grand Huit : $[1{,}40\,;\,+\infty[$. Du côté de $+\infty$, le crochet est toujours ouvert : l'infini n'est pas un nombre, on ne peut pas l'atteindre.
+
+  \item Petit Train : $]-\infty\,;\,1{,}20[$.
+
+  \smallskip
+  \textit{Remarque : une taille est toujours positive, on peut donc aussi accepter $]0\,;\,1{,}20[$.}
+\end{enumerate}
+
+\newpage
+
+% =====================================================
+\subsection*{Partie B : qui peut monter ?}
+
+\begin{enumerate}[resume]
+  \setcounter{enumi}{5}
+  \item Tableau complété :
+  \begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|C{3cm}|C{2.6cm}|C{2.6cm}|C{2.6cm}|C{2.6cm}|}
+      \hline
+      & \textbf{Grand Huit} & \textbf{Petit Train} & \textbf{Rivière} & \textbf{Chute Libre} \\ \hline
+      Léo : $1{,}15$ m & \non & \oui & \oui & \non \\ \hline
+      Inès : $1{,}40$ m & \oui & \non & \oui & \oui \\ \hline
+      Noé : $1{,}30$ m & \non & \non & \oui & \non \\ \hline
+      Sarah : $1{,}90$ m & \oui & \non & \oui & \oui \\ \hline
+      Yanis : $1{,}96$ m & \oui & \non & \non & \non \\ \hline
+    \end{tabular}
+  \end{center}
+
+  Les cas à discuter sont ceux des bornes : Inès ($1{,}40$ m) peut faire le Grand Huit car $1{,}40$ est inclus ; Noé ($1{,}30$ m) ne peut pas faire la Chute Libre car $1{,}30$ est exclu ; Sarah ($1{,}90$ m) peut la faire car $1{,}90$ est inclus.
+
+  \item
+  \begin{tasks}(3)
+    \task $1{,}30 \notin\, ]1{,}30\,;\,1{,}90]$
+    \task $1{,}90 \in\, ]1{,}30\,;\,1{,}90]$
+    \task $1{,}96 \notin [1{,}10\,;\,1{,}95]$
+  \end{tasks}
+\end{enumerate}
+
+% =====================================================
+\subsection*{Partie C : le pass \og Duo \fg{}}
+
+\begin{enumerate}[resume]
+  \setcounter{enumi}{7}
+  \item Il faut à la fois $1{,}10 \leq x \leq 1{,}95$ et $x \geq 1{,}40$, c'est-à-dire $1{,}40 \leq x \leq 1{,}95$.
+
+  Les tailles autorisées forment l'intervalle $[1{,}40\,;\,1{,}95]$.
+
+  \smallskip
+  \textit{Dans le cours, on dira que c'est l'\textbf{intersection} des deux intervalles :}
+  \[ [1{,}10\,;\,1{,}95] \cap [1{,}40\,;\,+\infty[\, = [1{,}40\,;\,1{,}95] \]
+
+  \item Les tailles autorisées sont celles du Petit Train et celles du Grand Huit :
+
+  \medskip
+  \droitetailles{\itv{blue}{0.86}{1.2}{}{[} \itv{blue}{1.4}{2.13}{[}{}}
+
+  \medskip
+  Elles ne forment pas un seul intervalle : il y a un \og trou \fg{} entre $1{,}20$ m et $1{,}40$ m. Elles s'écrivent :
+  \[ ]-\infty\,;\,1{,}20[\, \cup\, [1{,}40\,;\,+\infty[ \]
+
+  \smallskip
+  \textit{Dans le cours, on dira que c'est l'\textbf{union} des deux intervalles.}
+
+  \item Non : il faudrait à la fois $x < 1{,}20$ et $x \geq 1{,}40$, ce qui est impossible.
+
+  \smallskip
+  \textit{Dans le cours, on dira que l'intersection de ces deux intervalles est l'\textbf{ensemble vide} :}
+  \[ ]-\infty\,;\,1{,}20[\, \cap\, [1{,}40\,;\,+\infty[\, = \varnothing \]
+\end{enumerate}
+
+\end{document}
