@@ -172,23 +172,27 @@
 \newsavebox{\hidebox}
 
 % -----------
-% Définition de l'environnement qui rend le contenu invisible
-% \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
-% \newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
-% \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
-% \NewEnviron{multihide}{%
-%   \colorbox{gray!50}{
-%     \begin{lrbox}{\hidebox}%
-%         \begin{minipage}{\linewidth}%
-%           \BODY
-%         \end{minipage}%
-%     \end{lrbox}%
-%     % On affiche un espace invisible ayant les dimensions exactes de la boîte
-%     \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
-%   }
-% }
-% \newcommand{\hidetk}[1]{}
-% Définition de l'environnement qui rend le contenu invisible
+% Macros des trous : version élève si \ELEVE est défini à la compilation
+% (recette « prof + élève »), sinon version prof.
+\ifdefined\ELEVE
+% Version élève : contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+\newcommand{\hidetk}[1]{}
+\else
+% Version prof : contenu visible sur fond gris
 \newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
 \newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
 \newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
@@ -200,6 +204,7 @@
   }
 }
 \newcommand{\hidetk}[1]{#1}
+\fi
 % -----------
 
 \newcommand{\wvec}[1]{\overrightarrow{#1}}

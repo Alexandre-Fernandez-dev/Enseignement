@@ -1,0 +1,19 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex-prof-eleve",
+      "command": "bash",
+      "args": ["%WORKSPACE_FOLDER%/compile.sh", "%DOC%.tex"]
+    },
+    {
+      "name": "latexmk-xelatex",
+      "command": "latexmk",
+      "args": ["-xelatex", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "XeLaTeX (prof + élève)", "tools": ["xelatex-prof-eleve"] },
+    { "name": "XeLaTeX (prof seul)", "tools": ["latexmk-xelatex"] }
+  ],
+  "latex-workshop.latex.recipe.default": "first"
+}
