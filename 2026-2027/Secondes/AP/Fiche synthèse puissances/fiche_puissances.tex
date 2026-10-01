@@ -1,0 +1,90 @@
+%LTeX: language=fr-FR
+\documentclass[14pt]{extarticle}
+\usepackage[a4paper,margin=1.5cm,top=1.7cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{currfile}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+
+\input{def.tex}
+
+\setlength\parindent{0pt}
+
+% Cadre d'une règle : à gauche la formule avec des lettres, à droite les exemples
+\newtcolorbox{regle}[2][GreenProp]{%
+  enhanced, colback=GrayBG!50, colframe=#1, fonttitle=\bfseries,
+  title={#2}, sidebyside, sidebyside align=center,
+  lefthand width=0.34\linewidth, segmentation style={dashed},
+  before skip=5pt, after skip=5pt, top=3pt, bottom=3pt, fontupper=\large\centering, fontlower=\large,
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\Niveau}
+\fancyhead[R]{Accompagnement personnalisé}
+\fancyfoot[L]{A. Fernandez}
+
+\begin{document}
+
+{\centering\LARGE\bfseries Les puissances~: fiche synthèse\par}
+\vspace{4pt}
+
+\begin{tcolorbox}[colback=GrayBG!50, colframe=BlueDef, fonttitle=\bfseries, title=Définition]
+  Pour un nombre $a$ et un entier $n \geqslant 1$~: \hfill $a^n = \underbrace{a \times a \times \dots \times a}_{n \text{ facteurs}}$ \hfill\null \\[2pt]
+  Exemple~: $2^3 = 2 \times 2 \times 2 = 8$. \hfill Par convention, $a^1 = a$ et $a^0 = 1$ (si $a \neq 0$).
+\end{tcolorbox}
+
+\begin{regle}{Inverse (exposant négatif)}
+  $\displaystyle a^{-n} = \frac{1}{a^n}$ \\[5pt]
+  $\displaystyle a^{-1} = \frac{1}{a}$
+  \tcblower
+  $2^{-3} = \dfrac{1}{2^3} = \dfrac{1}{8}$ \\[5pt]
+  $5^{-1} = \dfrac{1}{5}$ \qquad $10^{-2} = \dfrac{1}{100} = 0{,}01$
+\end{regle}
+
+\begin{regle}{Multiplier : on additionne les exposants}
+  $\displaystyle a^m \times a^n = a^{m+n}$
+  \tcblower
+  $3^2 \times 3^4 = 3^{2+4} = 3^6$ \\[5pt]
+  $5^4 \times 5^{-6} = 5^{4+(-6)} = 5^{-2}$
+\end{regle}
+
+\begin{regle}{Diviser : on soustrait les exposants}
+  $\displaystyle \frac{a^m}{a^n} = a^{m-n}$
+  \tcblower
+  $\dfrac{2^7}{2^3} = 2^{7-3} = 2^4$ \\[5pt]
+  $\dfrac{7^2}{7^{-3}} = 7^{2-(-3)} = 7^5$
+\end{regle}
+
+\begin{regle}{Puissance d'une puissance : on multiplie les exposants}
+  $\displaystyle \left(a^m\right)^n = a^{m \times n}$
+  \tcblower
+  $\left(2^3\right)^2 = 2^{3 \times 2} = 2^6$ \\[5pt]
+  $\left(10^{-2}\right)^3 = 10^{-2 \times 3} = 10^{-6}$
+\end{regle}
+
+\begin{regle}{Même exposant : on regroupe les nombres}
+  $\displaystyle a^n \times b^n = (a \times b)^n$ \\[5pt]
+  $\displaystyle \frac{a^n}{b^n} = \left(\frac{a}{b}\right)^n$
+  \tcblower
+  $2^5 \times 5^5 = (2 \times 5)^5 = 10^5$ \\[5pt]
+  $\dfrac{6^3}{2^3} = \left(\dfrac{6}{2}\right)^3 = 3^3$ \quad $\left(\dfrac{2}{3}\right)^2 = \dfrac{2^2}{3^2} = \dfrac{4}{9}$
+\end{regle}
+
+\begin{tcolorbox}[colback=white, colframe=RedMet, fonttitle=\bfseries, title=Attention aux pièges~!, fontupper=\large, top=0pt, bottom=2pt]
+  \begin{itemize}\setlength\itemsep{2pt}
+    \item $(-3)^2 = (-3) \times (-3) = 9$ \quad mais \quad $-3^2 = -(3 \times 3) = -9$
+    \item $2^3 = 2 \times 2 \times 2 = 8$ \quad et non \quad $2 \times 3 = 6$
+    \item Pas de règle pour \textbf{l'addition}~: $2^2 + 2^3 = 12$ \quad et non \quad $2^5 = 32$
+  \end{itemize}
+\end{tcolorbox}
+
+\end{document}
