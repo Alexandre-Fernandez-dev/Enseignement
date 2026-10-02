@@ -42,6 +42,7 @@ Pour un nouveau dossier de document, il faut créer ce `def.tex`. Le document lu
 ## Compilation
 
 - **XeLaTeX** (le préambule charge `fontspec`) : `latexmk -xelatex fichier.tex`, lancé **dans le dossier du fichier** (les chemins `def.tex` et `graphicspath` sont relatifs).
+- `compile.sh fichier.tex` (recette LaTeX Workshop par défaut) produit les versions prof et élève. Les fichiers auxiliaires vont dans le sous-dossier `.build/` (option `-auxdir=.build`). Seul le `.synctex.gz` reste à côté du PDF.
 - Les fichiers auxiliaires sont ignorés par git. Les PDF sont versionnés.
 - Après une modification, recompiler pour vérifier qu'il n'y a pas d'erreur.
 
