@@ -25,7 +25,7 @@ Les élèves de Seconde n'ont droit à **aucune calculatrice**, en cours, en exe
 
 - `Ch N - …/` : chapitres (Cours, Exercices, Activités, Contrôles).
 - `AP/` : accompagnement personnalisé, 1 h/semaine en 3 groupes de niveau (niveaux 1 à 3). Fiches de remédiation courtes et progressives, avec rappels de méthode puis exercices très guidés, adaptées au niveau du groupe.
-- `Fiches calcul/` : 1 h/semaine en demi-groupe. Fiches d'automatismes en deux versions, **élève** et **prof** (`*_prof.pdf`, avec les réponses).
+- `Fiches calcul/` : 1 h/semaine en demi-groupe. Fiches d'automatismes en deux versions, **élève** et **prof** (`2nde_FicheCalculN.pdf` avec les réponses, `2nde_FicheCalculN_ELEVE.pdf` pour les élèves).
 
 ## Progression
 

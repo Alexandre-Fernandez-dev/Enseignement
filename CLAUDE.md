@@ -8,7 +8,7 @@ Auteur : Alexandre Fernandez (pied de page : « A. Fernandez »).
 ```
 <année>/<niveau>/Ch N - Titre/
     def.tex          ← \Chapitre, \ChapitreCourt
-    Chapitre.tex     ← progression du chapitre : pré-requis / contenus / objectifs
+    <Niveau>_ChN_Progression.tex ← progression du chapitre : pré-requis / contenus / objectifs
                        (à ne pas confondre avec <niveau>/progression.md, la progression annuelle)
     Cours/  Exercices/  Activités/  Contrôles/  Images/
 ```
@@ -16,6 +16,17 @@ Auteur : Alexandre Fernandez (pied de page : « A. Fernandez »).
 - `2026-2027/` : année en cours, au Lycée Louise Michel.
 - `2024-2025/` : archive d'un autre établissement (Lycée Lucie Aubrac), **à ne jamais modifier**. On peut y reprendre des contenus, mais en adaptant l'en-tête et les conventions à l'année en cours (le `\Structure` n'est pas le même).
 - Les images d'un chapitre sont dans `Images/` (via `\graphicspath{ {../Images/} }` ou `{../../Images/}`, selon la profondeur).
+
+## Nommage des fichiers (partage Pronote)
+
+Le nom du `.tex` détermine celui du PDF ; il doit être unique et explicite :
+`<Niveau>_Ch<N>_<Type>[_<Variante>].tex`, sans espace ni accent.
+- Niveau : `1ST2S`, `2nde`. N : numéro du dossier `Ch N`.
+- Type : `Cours`, `Progression`, `Act1`, `Exos1` (ou `Exos` s'il n'y en a qu'une), `Manuel` (scan du manuel), `Flash1`, `Form2`, `TestAP`…
+- Variante : `_SujetA` / `_SujetB`, `_Corrige`. Version élève générée : suffixe `_ELEVE`.
+- Hors chapitre : `2nde_AP_Fractions1`, `2nde_FicheCalcul2`…
+
+Exemples : `1ST2S_Ch2_Cours.pdf`, `2nde_Ch1_Form2_SujetA.pdf`, `2nde_Ch1_Form2_Corrige.pdf`.
 
 ## Chaîne `def.tex` (en-têtes automatiques)
 
@@ -40,7 +51,7 @@ Pour un nouveau dossier de document, il faut créer ce `def.tex`. Le document lu
 - Pour un nouveau document, **copier le préambule d'un document existant du même type** (cours, exercices, contrôle) au lieu d'en inventer un.
 - Environnements de cours (tcolorbox) : `definition`, `proposition`, `method`, `savoir`, avec deux arguments `{titre}{label}`, souvent vides : `\begin{definition}{}{}`. Environnements sans cadre : `example`, `examples`, `remark`, `remarks`, `demo`.
 - **Version prof / version élève** : les trous à compléter utilisent `\hide{}`, `\hideM{}` (maths), `\multihide` (bloc) et `\hidetk{}` (TikZ).
-  La version prof affiche le contenu sur fond gris. La version élève s'obtient en échangeant les définitions commentées (celles avec `\phantom`), ce qui produit les PDF `*_ELEVE.pdf` / `*_prof.pdf`.
+  La version prof affiche le contenu sur fond gris. La version élève s'obtient en échangeant les définitions commentées (celles avec `\phantom`), ce qui produit `<nom>.pdf` (prof) et `<nom>_ELEVE.pdf` (élève).
   Toute notion à faire compléter en classe doit être placée dans ces macros.
 - Typographie française : `\geqslant` / `\leqslant`, intervalles `[a\,;\,b]`, coordonnées `(x~;~y)`, virgule décimale `2{,}5`, ponctuation haute précédée de `~` (`~:`, `~?`).
 - Vecteurs : `\overrightarrow{AB}` (ou `\wvec` / `\vv` selon le préambule du fichier).
@@ -50,7 +61,7 @@ Pour un nouveau dossier de document, il faut créer ce `def.tex`. Le document lu
 - Dossiers `Contrôles/Flash N`, `Form N` (formatif), `Sommatif`, etc.
 - Souvent deux sujets **A et B** : même structure et même difficulté, valeurs différentes.
 - En-tête : `\Niveau` | `\Chapitre` | `\Document (A) -- durée`, puis une ligne « Nom et prénom ».
-- Barème indiqué par exercice. Correction dans `correction.tex` (ou un fichier équivalent) à côté du sujet.
+- Barème indiqué par exercice. Correction dans `<Niveau>_Ch<N>_<Contrôle>_Corrige.tex` à côté du sujet.
 
 ## Programmes officiels (BO)
 
