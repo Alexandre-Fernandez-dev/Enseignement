@@ -1,0 +1,89 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Généralités sur les fonctions (chapitre 1) : image, antécédent, courbe, résolution graphique de $f(x)=k$ et $f(x)<k$, tableau de variations
+    \item Équations du premier degré (questions flash)
+    \item Calcul avec les relatifs et les fractions
+    \item Lire et placer des points dans un repère
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenus}
+  \begin{itemize}
+    \item Fonction affine $x \mapsto ax+b$ ; cas particuliers : fonction linéaire ($b=0$), fonction constante ($a=0$)
+    \item Représentation graphique : une droite d'équation réduite $y=ax+b$
+    \item Coefficient directeur $a$ et ordonnée à l'origine $b$
+    \item Calcul du coefficient directeur à partir de deux points
+    \item Sens de variation selon le signe de $a$
+    \item Signe de $ax+b$ et tableau de signes
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Reconnaître une fonction affine et identifier $a$ et $b$,
+    \item Modéliser une situation par une fonction affine (tarifs, coûts, évolutions régulières),
+    \item Tracer une droite donnée par son équation réduite, ou par un point et son coefficient directeur,
+    \item Lire graphiquement l'équation réduite d'une droite,
+    \item Calculer le coefficient directeur à partir des coordonnées de deux points,
+    \item Interpréter $a$ comme l'augmentation de $f(x)$ quand $x$ augmente de $1$,
+    \item Relier signe de $a$, sens de variation et allure de la droite,
+    \item Déterminer le signe de $ax+b$ et dresser son tableau de signes,
+    \item Résoudre $f(x)=k$ et $f(x)<k$ par le calcul et graphiquement ; comparer deux tarifs (en exercice).
+  \end{itemize}
+\end{paragraph}
+
+\end{document}

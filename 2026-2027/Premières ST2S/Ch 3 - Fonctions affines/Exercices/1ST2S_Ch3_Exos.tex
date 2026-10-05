@@ -1,0 +1,232 @@
+%LTeX: language=fr-FR
+\documentclass[a4paper,11pt]{article}
+
+% ---------- Préambule minimal ----------
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{tasks}
+\usetikzlibrary{arrows.meta}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{needspace}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\settasks{label=\arabic*.}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+% Environnement "exercice" : \begin{exercice}{<numéro>} ... \end{exercice}
+\newenvironment{exercice}[1]{%
+  \Needspace{6\baselineskip}\par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{%
+  \draw[very thin, gray!40] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+% Tableau de signes vide : \tabsignes{f}
+\newcommand{\tabsignes}[1]{%
+  \begin{tikzpicture}
+    \tkzTabInit[lgt=1.2,espcl=2.2]{$x$/0.8,$#1(x)$/0.8}{$-\infty$,$+\infty$}
+  \end{tikzpicture}%
+}
+
+% Espace vertical pour la rédaction
+\newcommand{\espace}{\rule[-2cm]{0pt}{0pt}}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[L]{ {\Niveau}}
+\fancyhead[C]{ {\Chapitre}}
+\fancyhead[R]{ {\Document}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+% =====================================================
+\begin{exercice}{1}
+Pour chaque fonction, dire si elle est affine. Si oui, donner $a$ et $b$, et préciser si elle est linéaire ou constante.
+\begin{tasks}(2)
+\task $f(x)=4x+1$
+\task $g(x)=-3x$
+\task $h(x)=x^2-2$
+\task $k(x)=5-x$
+\task $m(x)=6$
+\task $n(x)=2(x+3)$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+Soit $f$ la fonction affine définie par $f(x)=-2x+5$.
+\begin{enumerate}[label=\arabic*.]
+\item Calculer $f(0)$, $f(3)$, $f(-1)$ et $f(1{,}5)$.
+\item Déterminer l'antécédent de $1$ par $f$, c'est-à-dire résoudre l'équation $f(x)=1$.
+\item Le point $A(4~;~-3)$ appartient-il à la droite représentant $f$ ? Et le point $B(-2~;~8)$ ?
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+\begin{minipage}[c]{0.5\linewidth}
+Dans le repère ci-contre, tracer les droites représentant les fonctions suivantes.
+\begin{enumerate}[label=\arabic*.]
+\item $f_1(x)=2x-3$
+\item $f_2(x)=-0{,}5x+2$
+\item $f_3(x)=3$
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  \repere{-5}{6}{-4}{5}
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\Needspace{14\baselineskip}
+\begin{exercice}{4}
+\begin{minipage}[c]{0.5\linewidth}
+Lire graphiquement l'équation réduite de chacune des droites $d_1$, $d_2$, $d_3$ et $d_4$ représentées ci-contre.
+
+\bigskip
+$d_1$ : $y=\dots\dots\dots\dots$
+
+\bigskip
+$d_2$ : $y=\dots\dots\dots\dots$
+
+\bigskip
+$d_3$ : $y=\dots\dots\dots\dots$
+
+\bigskip
+$d_4$ : $y=\dots\dots\dots\dots$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  \repere{-5}{5}{-5}{6}
+  \draw[thick, domain=-3:2.5] plot (\x,{2*\x+1}) node[right] {$d_1$};
+  \draw[thick, domain=-3:5] plot (\x,{-\x+3});
+  \node[above right] at (-3,6) {$d_2$};
+  \draw[thick, domain=-5:5] plot (\x,{0.5*\x-2}) node[above] {$d_3$};
+  \draw[thick] (-5,-4) -- (5,-4) node[above left] {$d_4$};
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{5}
+Dans chaque cas, calculer le coefficient directeur de la droite $(AB)$.
+\begin{tasks}(2)
+\task $A(1~;~2)$ et $B(3~;~8)$
+\task $A(0~;~5)$ et $B(2~;~1)$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+Dans chaque cas, déterminer l'équation réduite de la droite $(AB)$.
+\begin{tasks}(3)
+\task $A(1~;~5)$ et $B(3~;~9)$
+\task $A(-2~;~7)$ et $B(2~;~-1)$
+\task $A(0~;~-4)$ et $B(4~;~0)$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+Pour chaque fonction, donner son sens de variation sur $\mathbb{R}$ en justifiant.
+\begin{tasks}(4)
+\task $f(x)=5x-2$
+\task $g(x)=7-2x$
+\task $h(x)=-4$
+\task $k(x)=-\dfrac{1}{2}x+1$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{8}
+Dresser le tableau de signes de chaque fonction sur $\mathbb{R}$.
+\begin{tasks}(4)
+\task $f(x)=x-4$
+\task $g(x)=2x+6$
+\task $h(x)=-3x+9$
+\task $k(x)=4-2x$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{9}
+Un taxi applique un tarif qui est une fonction affine $P$ de la distance parcourue $x$, en km.
+Une course de $4$~km coûte $12$~€ et une course de $10$~km coûte $24$~€.
+\begin{tasks}(2)
+\task Déterminer l'expression de $P(x)$.
+\task Interpréter $a$ et $b$ dans le contexte.
+\task Combien coûte une course de $15$~km ?
+\task Quelle distance parcourir avec $30$~€ ?
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{10}
+La batterie d'un téléphone est chargée à $100\,\%$. Pendant une vidéo, elle perd $8\,\%$ de charge par heure.
+On note $B(t)$ le niveau de charge, en \%, après $t$ heures de vidéo.
+\begin{enumerate}[label=\arabic*.]
+\item Justifier que $B(t)=-8t+100$.
+\item Quel est le sens de variation de $B$ ? Était-ce prévisible ?
+\item Au bout de combien de temps la batterie atteint-elle $20\,\%$ ?
+\item Résoudre $B(t)=0$ et interpréter le résultat.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{11}
+Une salle d'escalade propose deux formules : la \textbf{formule A} à $12$~€ l'entrée, et la \textbf{formule B} avec une carte annuelle à $60$~€, puis $7$~€ l'entrée.
+On note $x$ le nombre d'entrées dans l'année, $f(x)$ le prix payé avec la formule A et $g(x)$ le prix payé avec la formule B.
+
+\medskip
+\noindent
+\begin{minipage}[c]{0.52\linewidth}
+\begin{enumerate}[label=\arabic*.]
+\item Exprimer $f(x)$ et $g(x)$ en fonction de $x$. Quelle est la nature de ces fonctions ?
+\item Tracer les droites représentant $f$ et $g$ dans le repère ci-contre.
+\item Lire graphiquement le nombre d'entrées pour lequel les deux formules coûtent le même prix.
+\item Retrouver ce résultat par le calcul, en résolvant $f(x)=g(x)$.
+\item À partir de combien d'entrées la formule B est-elle la plus avantageuse ?
+\item Léa dispose de $200$~€. Avec quelle formule peut-elle faire le plus d'entrées ?
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[x=0.25cm, y=0.017cm]
+  \draw[very thin, gray!40, xstep=1, ystep=20] (0,0) grid (24,300);
+  \draw[thin, gray!70, xstep=4, ystep=100] (0,0) grid (24,300);
+  \draw[->] (0,0) -- (25.5,0);
+  \node[below=14pt] at (12,0) {\small nombre d'entrées};
+  \draw[->] (0,0) -- (0,315) node[above] {\small prix (€)};
+  \foreach \x in {4,8,...,24} \node[below] at (\x,0) {\scriptsize $\x$};
+  \foreach \y in {100,200,300} \node[left] at (0,\y) {\scriptsize $\y$};
+  \node[below left] at (0,0) {\scriptsize $0$};
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+\end{document}

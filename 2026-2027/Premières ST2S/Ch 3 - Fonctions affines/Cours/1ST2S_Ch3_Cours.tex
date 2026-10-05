@@ -1,0 +1,710 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes} 
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple~:}
+\newtheorem*{examples}{Exemples~:}
+\newtheorem*{remark}{Remarque~:}
+\newtheorem*{remarks}{Remarques~:}
+% Variante sans retour à la ligne après « Exemple. »
+\newtheoremstyle{inline}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{ }{}%
+\theoremstyle{inline}
+\newtheorem*{example*}{Exemple~:}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 3 \\ Fonctions affines
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\tikzset{cross/.style={path picture={
+  \draw[black]
+    (path picture bounding box.south east)--(path picture bounding box.north west)
+    (path picture bounding box.south west)--(path picture bounding box.north east);
+}}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyhead[L]{\Structure}
+  \fancyhead[R]{\Niveau}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+   %\renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+% \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
+%\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% -----------
+% Macros des trous : version élève si \ELEVE est défini à la compilation
+% (recette « prof + élève »), sinon version prof.
+\ifdefined\ELEVE
+% Version élève : contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+% Corrigé long dans un cadre blanc : zone vide de même hauteur
+% Argument optionnel : espace ajouté sous le corrigé, ex. \begin{multihideW}[2em]
+\NewEnviron{multihideW}[1][0pt]{%
+  \par\noindent\fbox{%
+    \begin{lrbox}{\hidebox}%
+      \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}%
+        \BODY\par\vspace{#1}%
+      \end{minipage}%
+    \end{lrbox}%
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+\newcommand{\hidetk}[1]{}
+\else
+% Version prof : contenu visible sur fond gris
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+% Corrigé long dans un cadre blanc (argument optionnel : espace ajouté)
+\NewEnviron{multihideW}[1][0pt]{%
+  \par\noindent\fbox{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}%
+      \BODY\par\vspace{#1}%
+    \end{minipage}%
+  }
+}
+\newcommand{\hidetk}[1]{#1}
+\fi
+% -----------
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{%
+  \draw[very thin, gray!40] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+\section{Fonctions affines}
+
+\begin{minipage}[t]{0.55\linewidth}
+  \begin{example}
+  Une base de loisirs loue des vélos.
+  Elle facture $5$~€ de frais d'inscription, puis $3$~€ par heure de location.
+  On note $x$ le nombre d'heures de location et $f(x)$ le prix payé, en euros.
+
+    \vspace{0pt}
+    \begin{itemize}
+      \item Pour $1$ heure, on paie : \hideM{3 \times 1 + 5 = 8} €.
+      \item Pour $4$ heures, on paie : \hideM{3 \times 4 + 5 = 17} €.
+      \item Pour $x$ heures, on paie : $f(x) = \hideM{3x + 5}$.
+    \end{itemize}
+
+    \medskip
+    Le prix est la somme d'une partie qui \emph{dépend} du nombre d'heures ($3x$) et d'une partie \emph{fixe} ($5$).
+    On dit que $f$ est une fonction affine.
+
+    \medskip
+    Sa représentation graphique est ci-contre.
+  \end{example}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+  \vspace{0pt}
+  \centering
+  \begin{tikzpicture}[x=0.75cm, y=0.16cm]
+    \draw[very thin, gray!40, xstep=1, ystep=5] (0,0) grid (7,30);
+    \draw[->] (0,0) -- (7.6,0) node[right] {\small h};
+    \draw[->] (0,0) -- (0,32) node[left] {\small prix (€)};
+    \foreach \x in {1,...,7} \node[below] at (\x,0) {\scriptsize $\x$};
+    \foreach \y in {5,10,...,30} \node[left] at (0,\y) {\scriptsize $\y$};
+    \node[below left] at (0,0) {\scriptsize $0$};
+    \draw[thick, domain=0:7] plot (\x,{3*\x+5});
+    \draw[dashed] (1,0) -- (1,8) -- (0,8);
+    \draw[dashed] (4,0) -- (4,17) -- (0,17);
+    \fill (1,8) circle (2pt) (4,17) circle (2pt) (0,5) circle (2pt);
+  \end{tikzpicture}
+\end{minipage}
+
+\begin{definition}{Fonction affine}{}
+  \begin{multihide}
+    Une fonction $f$ définie sur $\mathbb{R}$ est \textbf{affine} s'il existe deux nombres réels $a$ et $b$ tels que, pour tout réel $x$ :
+    \[
+      f(x) = ax + b.
+    \]
+    Cas particuliers :
+    \begin{itemize}
+      \item si $b = 0$, alors $f(x) = ax$ : on dit que $f$ est \textbf{linéaire}.% (situation de proportionnalité) ;
+      \item si $a = 0$, alors $f(x) = b$ : on dit que $f$ est \textbf{constante}.
+    \end{itemize}
+  \end{multihide}
+\end{definition}
+
+\begin{examples}
+  Compléter le tableau.
+
+  \renewcommand{\arraystretch}{1.6}
+  \begin{center}
+  \begin{tabularx}{\linewidth}{|c|Y|Y|Y|}
+    \hline
+    Fonction & Affine ? & $a$ & $b$ \\
+    \hline
+    $f_1(x) = 2x - 3$ & \hide{oui} & \hideM{2} & \hideM{-3} \\
+    \hline
+    $f_2(x) = -x + 4$ & \hide{oui} & \hideM{-1} & \hideM{4} \\
+    \hline
+    $f_3(x) = 5x$ & \hide{oui, linéaire} & \hideM{5} & \hideM{0} \\
+    \hline
+    $f_4(x) = 7$ & \hide{oui, constante} & \hideM{0} & \hideM{7} \\
+    \hline
+    $f_5(x) = x^2 + 1$ & \hide{non} & & \\
+    \hline
+  \end{tabularx}
+  \end{center}
+\end{examples}
+
+\begin{remark}
+  Attention à l'ordre d'écriture : dans $f(x) = 4 - 0{,}5x$, on a $b = 4$ et le coefficient $a$ est le nombre qui multiplie $x$, c'est-à-dire $-0{,}5$.
+\end{remark}
+
+\newpage
+\section{Représentation graphique}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Dans un repère, la représentation graphique d'une fonction affine $f(x) = ax + b$ est une \textbf{droite}.
+    On dit que cette droite a pour \textbf{équation réduite} $y = ax + b$.
+    \begin{itemize}
+      \item $a$ est le \textbf{coefficient directeur} (ou \emph{pente}) de la droite ;
+      \item $b$ est l'\textbf{ordonnée à l'origine} : la droite coupe l'axe des ordonnées au point $(0~;~b)$.
+    \end{itemize}
+  \end{multihide}
+\end{proposition}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item La droite d'une fonction linéaire ($b = 0$) passe par l'\hide{origine du repère}.
+    \item La droite d'une fonction constante ($a = 0$) est \hide{horizontale}.
+  \end{itemize}
+\end{remarks}
+
+\begin{method}{Tracer une droite}{}
+  Pour tracer la droite d'équation $y = ax + b$, il suffit de connaître \textbf{deux points}.
+  \begin{itemize}
+    \item \textbf{Avec deux images :} on calcule les images de deux nombres, on place les deux points et on trace la droite.
+    \item \textbf{Avec $a$ et $b$ :} on place le point $(0~;~b)$. À partir de ce point, on avance de $1$ vers la droite et on monte de $a$ (ou on descend si $a < 0$). On obtient un deuxième point.
+  \end{itemize}
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.55\linewidth}
+    \vspace{0pt}
+    \textbf{1.} Tracer la droite $d_1$ de la fonction $f(x) = 2x - 1$.
+
+    \renewcommand{\arraystretch}{1.4}
+    \begin{center}
+    \begin{tabular}{|c|C{1.5cm}|C{1.5cm}|}
+      \hline
+      $x$ & $0$ & $3$ \\
+      \hline
+      $f(x)$ & \hideM{-1} & \hideM{5} \\
+      \hline
+    \end{tabular}
+    \end{center}
+
+    Calcul : $f(3) = \hideM{2 \times 3 - 1 = 5}$.
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+      \repere{-2}{5}{-2}{6}
+      \hidetk{
+        \draw[red, thick, domain=-0.5:3.5] plot (\x,{2*\x-1}) node[right] {$d_1$};
+        \fill (0,-1) circle (4pt) (3,5) circle (4pt);
+      }
+    \end{tikzpicture}
+  \end{minipage}
+
+  \bigskip
+  \begin{minipage}[t]{0.55\linewidth}
+    \vspace{0pt}
+    \textbf{2.} Tracer la droite $d_2$ de la fonction $g(x) = -0{,}5x + 3$.
+
+    \medskip
+    \begin{multihideW}[2em]
+      On a $b = 3$ : on place le point $(0~;~3)$.
+
+      \medskip
+      On a $a = -0{,}5$ : on avance de $2$ et on descend de $1$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+      \repere{-2}{5}{-2}{6}
+      \hidetk{
+        \draw[blue, thick, domain=-2:5] plot (\x,{-0.5*\x+3}) node[above] {$d_2$};
+        \fill (0,3) circle (4pt) (2,2) circle (4pt);
+        \draw[dashed, thick, ->] (0,3) -- (2,3);
+        \draw[dashed, thick, ->] (2,3) -- (2,2);
+      }
+    \end{tikzpicture}
+  \end{minipage}
+\end{example}
+
+\begin{method}{Lire graphiquement l'équation réduite d'une droite}{}
+  \begin{enumerate}
+    \item On lit $b$ : c'est l'ordonnée du point où la droite coupe l'axe des ordonnées.
+    \item On lit $a$ : à partir d'un point de la droite, on avance de $1$ vers la droite et on compte de combien on monte ($a > 0$) ou on descend ($a < 0$) pour revenir sur la droite.
+  \end{enumerate}
+  Si la lecture n'est pas précise, on avance de plusieurs carreaux :
+  \[
+    a = \frac{\text{déplacement vertical}}{\text{déplacement horizontal}}.
+  \]
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.45\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[scale=0.55]
+      \repere{-4}{6}{-4}{6}
+      \draw[blue, thick, domain=-4:4] plot (\x,{\x+2}) node[above left] {$d_1$};
+      \draw[red, thick, domain=-1:4] plot (\x,{-2*\x+4}) node[right] {$d_2$};
+      \draw[green!50!black, thick, domain=-3:6] plot (\x,{2/3*\x-2}) node[above] {$d_3$};
+    \end{tikzpicture}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+    \vspace{1em}
+    Lire l'équation réduite de chaque droite.
+
+    \medskip
+    \begin{multihideW}[1.5em]
+      $d_1$ : $b = 2$, $a = 1$, donc $y = x + 2$.
+
+      \bigskip
+      $d_2$ : $b = 4$, $a = -2$, donc $y = -2x + 4$.
+
+      \bigskip
+      $d_3$ : $b = -2$. On avance de $3$, on monte de $2$ :
+
+      \smallskip
+      $a = \dfrac{2}{3}$, donc $y = \dfrac{2}{3}x - 2$.
+    \end{multihideW}
+  \end{minipage}
+\end{example}
+
+\section{Calcul du coefficient directeur}
+
+\begin{example}
+  On reprend la location de vélos : $f(x) = 3x + 5$.
+
+  Pour $2$ heures, on paie $f(2) = \hideM{11}$ €. Pour $5$ heures, on paie $f(5) = \hideM{20}$ €.
+
+  Quand on passe de $2$ à $5$ heures, le prix augmente de \hideM{20 - 11 = 9} € pour \hideM{5 - 2 = 3} heures de plus,
+  soit $\dfrac{9}{3} = \hideM{3}$ € par heure supplémentaire. On retrouve le coefficient $a$.
+\end{example}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $A(x_A~;~y_A)$ et $B(x_B~;~y_B)$ deux points de la droite d'une fonction affine.
+
+    Le coefficient directeur de cette droite est :
+    \[
+      a = \frac{y_B - y_A}{x_B - x_A}.
+    \]
+  \end{multihide}
+\end{proposition}
+
+\begin{remark}
+  Le coefficient directeur $a$ indique de combien augmente $f(x)$ quand $x$ augmente de $1$.
+  Pour la location de vélos, $a = 3$ : le prix augmente de $3$~€ par heure.
+\end{remark}
+
+\begin{method}{Déterminer une fonction affine à partir de deux points}{}
+  \begin{enumerate}
+    \item On calcule $a$ avec la formule $a = \dfrac{y_B - y_A}{x_B - x_A}$.
+    \item On calcule $b$ : on remplace $x$ et $y$ par les coordonnées d'un des points dans $y = ax + b$, puis on résout l'équation.
+    \item On vérifie avec l'autre point.
+  \end{enumerate}
+\end{method}
+
+\begin{example}
+  Déterminer l'équation réduite de la droite passant par $A(1~;~3)$ et $B(4~;~9)$.
+
+  \begin{multihideW}[1.5em]
+    \begin{enumerate}
+      \item $a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{9 - 3}{4 - 1} = \dfrac{6}{3} = 2$.
+      \item Le point $A(1~;~3)$ est sur la droite, donc $3 = 2 \times 1 + b$, soit $3 = 2 + b$, d'où $b = 3 - 2 = 1$.
+      \item Vérification avec $B$ : $2 \times 4 + 1 = 9$. \checkmark
+    \end{enumerate}
+    La droite $(AB)$ a pour équation $y = 2x + 1$.
+  \end{multihideW}
+\end{example}
+
+\section{Sens de variation}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $f$ une fonction affine définie par $f(x) = ax + b$.
+    \begin{itemize}
+      \item Si $a > 0$, alors $f$ est \textbf{croissante} sur $\mathbb{R}$ : la droite « monte ».
+      \item Si $a < 0$, alors $f$ est \textbf{décroissante} sur $\mathbb{R}$ : la droite « descend ».
+      \item Si $a = 0$, alors $f$ est \textbf{constante} sur $\mathbb{R}$ : la droite est horizontale.
+    \end{itemize}
+  \end{multihide}
+\end{proposition}
+
+\begin{center}
+  \begin{tabular}{C{0.31\linewidth}C{0.31\linewidth}C{0.31\linewidth}}
+    $a > 0$ & $a < 0$ & $a = 0$ \\[0.3em]
+    \begin{tikzpicture}[scale=0.45]
+      \draw[->] (-2.5,0) -- (2.7,0); \draw[->] (0,-2) -- (0,2.7);
+      \hidetk{\draw[blue, line width=1.8pt] (-2.2,-1.6) -- (2.2,2.2);}
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.45]
+      \draw[->] (-2.5,0) -- (2.7,0); \draw[->] (0,-2) -- (0,2.7);
+      \hidetk{\draw[blue, line width=1.8pt] (-2.2,2.2) -- (2.2,-1.6);}
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.45]
+      \draw[->] (-2.5,0) -- (2.7,0); \draw[->] (0,-2) -- (0,2.7);
+      \hidetk{\draw[blue, line width=1.8pt] (-2.2,1.2) -- (2.2,1.2);}
+    \end{tikzpicture}
+    \\
+    \begin{tikzpicture}[scale=0.8]
+      \tkzTabInit[lgt=1,espcl=2.2]{$x$/1,$f$/1.5}{$-\infty$,$+\infty$}
+      \hidetk{\tkzTabVar{-/ ,+/ }}
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.8]
+      \tkzTabInit[lgt=1,espcl=2.2]{$x$/1,$f$/1.5}{$-\infty$,$+\infty$}
+      \hidetk{\tkzTabVar{+/ ,-/ }}
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.8]
+      \tkzTabInit[lgt=1,espcl=2.2]{$x$/1,$f$/1.5}{$-\infty$,$+\infty$}
+      \hidetk{\tkzTabVar{+/ $b$,+/ $b$}}
+    \end{tikzpicture}
+  \end{tabular}
+\end{center}
+
+\begin{examples}
+  Donner le sens de variation de chaque fonction.
+
+  \medskip
+  \begin{minipage}[t]{0.31\linewidth}
+    $f(x) = 3x - 7$
+    \begin{multihideW}[1.5em]
+      $a = 3 > 0$, donc $f$ est croissante sur $\mathbb{R}$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $g(x) = -2x + 5$
+    \begin{multihideW}[1.5em]
+      $a = -2 < 0$, donc $g$ est décroissante sur $\mathbb{R}$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $h(x) = 4 - x$
+    \begin{multihideW}[1.5em]
+      $a = -1 < 0$, donc $h$ est décroissante sur $\mathbb{R}$.
+    \end{multihideW}
+  \end{minipage}
+\end{examples}
+
+\newpage
+
+\section{Signe d'une fonction affine}
+
+\begin{minipage}[c]{0.56\linewidth}
+  \begin{example*}
+    Soit $f(x) = 2x - 6$.
+
+      \begin{itemize}
+        \item On cherche quand $f(x) = 0$ :
+
+        $2x - 6 = 0 \iff \hideM{2x = 6} \iff \hideM{x = 3}$.
+        \item $a = 2 > 0$, donc $f$ est \hide{croissante} : $f(x)$ est \hide{négatif} avant $3$ et \hide{positif} après $3$.
+      \end{itemize}
+
+      \medskip
+      Tableau de signes de $f$ :
+
+      \begin{center}
+        \begin{tikzpicture}
+          \tkzTabInit[lgt=1.5,espcl=2]{$x$/1,$f(x)$/1}{$-\infty$,$\hideM{3}$,$+\infty$}
+          \hidetk{\tkzTabLine{,-,z,+,}}
+        \end{tikzpicture}
+      \end{center}
+  \end{example*}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\linewidth}
+  \centering
+  \begin{tikzpicture}[scale=0.8]
+    \repere{-1}{5}{-3}{3}
+    \draw[very thick, red, domain=1.5:3] plot (\x,{2*\x-6});
+    \draw[very thick, green!50!black, domain=3:4.5] plot (\x,{2*\x-6});
+    \fill (3,0) circle (3pt);
+  \end{tikzpicture}
+\end{minipage}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $f(x) = ax + b$ avec $a \neq 0$. La fonction $f$ s'annule en $x = -\dfrac{b}{a}$, et :% (solution de $ax + b = 0$), et :
+
+    \medskip
+    \begin{minipage}{0.48\linewidth}
+      \centering
+      Si $a > 0$ :
+      \vspace{0.5em}
+
+      \begin{tikzpicture}[scale=0.85]
+        \tkzTabInit[lgt=2,espcl=1.8]{$x$/1,$ax+b$/1}{$-\infty$,$-\frac{b}{a}$,$+\infty$}
+        \tkzTabLine{,-,z,+,}
+      \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\linewidth}
+      \centering
+      Si $a < 0$ :
+      \vspace{0.5em}
+
+      \begin{tikzpicture}[scale=0.85]
+        \tkzTabInit[lgt=2,espcl=1.8]{$x$/1,$ax+b$/1}{$-\infty$,$-\frac{b}{a}$,$+\infty$}
+        \tkzTabLine{,+,z,-,}
+      \end{tikzpicture}
+    \end{minipage}
+
+    %\medskip
+    %À retenir : à droite du $0$, $ax + b$ a le \textbf{signe de $a$}.
+  \end{multihide}
+\end{proposition}
+
+\begin{method}{Dresser le tableau de signes de $ax + b$}{}
+  \begin{enumerate}
+    \item On résout l'équation $ax + b = 0$.
+    \item On regarde le signe de $a$.
+    \item On remplit le tableau : $0$ sous la solution, signe de $a$ à droite, signe contraire à gauche.
+  \end{enumerate}
+\end{method}
+
+\begin{example*}
+  Dresser le tableau de signes de $g(x) = -3x + 12$.
+  \begin{multihideW}
+    \begin{minipage}{0.5\linewidth}
+      $-3x + 12 = 0 \iff -3x = -12 \iff x = 4$.
+
+      \smallskip
+      $a = -3 < 0$, donc $a$ est négatif.
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\linewidth}
+      \begin{tikzpicture}
+        \tkzTabInit[lgt=1.5,espcl=1.8]{$x$/1,$g(x)$/1}{$-\infty$,$4$,$+\infty$}
+        \tkzTabLine{,+,z,-,}
+      \end{tikzpicture}
+    \end{minipage}
+  \end{multihideW}
+\end{example*}
+
+\vfill
+
+\begin{savoir}{}{}
+\begin{itemize}
+  \item Reconnaître une fonction affine et identifier $a$ et $b$,
+  \item Modéliser une situation par une fonction affine,
+  \item Tracer une droite à partir de son équation réduite,
+  \item Lire graphiquement l'équation réduite d'une droite,
+  \item Calculer le coefficient directeur à partir de deux points,
+  \item Donner le sens de variation selon le signe de $a$,
+  \item Dresser le tableau de signes de $ax + b$.
+\end{itemize}
+\end{savoir}
+
+\end{document}
