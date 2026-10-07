@@ -1,0 +1,305 @@
+%LTeX: language=fr-FR
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{tasks}
+\usetikzlibrary{arrows.meta}
+\usepackage[margin=2cm]{geometry}
+\usepackage{needspace}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\settasks{label=\arabic*.}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\setlength{\parindent}{0pt}
+
+\newenvironment{exercice}[1]{%
+  \Needspace{6\baselineskip}\par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{%
+  \draw[very thin, gray!40] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+% Tableau de signes : \tabsignes{f}{valeur qui annule}{signes}
+\newcommand{\tabsignes}[3]{%
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \tkzTabInit[lgt=1.2,espcl=1.6]{$x$/0.8,$#1(x)$/0.8}{$-\infty$,$#2$,$+\infty$}
+    \tkzTabLine{,#3,}
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\Niveau}
+\fancyhead[C]{\ChapitreCourt}
+\fancyhead[R]{\Document}
+\fancyfoot[L]{A. Fernandez}
+\fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+
+% =====================================================
+\begin{exercice}{1}
+Une fonction affine s'écrit $f(x)=ax+b$.
+\begin{tasks}(2)
+\task $f(x)=4x+1$ : affine, $a=4$ et $b=1$.
+\task $g(x)=-3x$ : affine, $a=-3$ et $b=0$. Elle est \textbf{linéaire}.
+\task $h(x)=x^2-2$ : \textbf{pas affine}, à cause du $x^2$.
+\task $k(x)=5-x=-x+5$ : affine, $a=-1$ et $b=5$.
+\task $m(x)=6$ : affine, $a=0$ et $b=6$. Elle est \textbf{constante}.
+\task $n(x)=2(x+3)=2x+6$ : affine, $a=2$ et $b=6$.
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+\begin{enumerate}[label=\arabic*.]
+\item $f(0)=-2\times 0+5=5$ \qquad $f(3)=-2\times 3+5=-6+5=-1$
+
+$f(-1)=-2\times(-1)+5=2+5=7$ \qquad $f(1{,}5)=-2\times 1{,}5+5=-3+5=2$
+\item $f(x)=1$\\
+$-2x+5=1$\\
+$-2x=1-5$\\
+$-2x=-4$\\
+$x=\dfrac{-4}{-2}=2$\\
+L'antécédent de $1$ par $f$ est $2$.
+\item $f(4)=-2\times 4+5=-8+5=-3$ : c'est l'ordonnée de $A$, donc $A$ \textbf{appartient} à la droite.
+
+$f(-2)=-2\times(-2)+5=4+5=9\neq 8$, donc $B$ \textbf{n'appartient pas} à la droite.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+\begin{minipage}[c]{0.5\linewidth}
+Pour chaque droite, on calcule deux points.
+\begin{enumerate}[label=\arabic*.]
+\item \textcolor{blue}{$f_1(x)=2x-3$} : $f_1(0)=-3$ et $f_1(3)=3$.\\
+Points $(0~;~-3)$ et $(3~;~3)$.
+\item \textcolor{red}{$f_2(x)=-0{,}5x+2$} : $f_2(0)=2$ et $f_2(4)=0$.\\
+Points $(0~;~2)$ et $(4~;~0)$.
+\item \textcolor{green!50!black}{$f_3(x)=3$} : fonction constante, droite horizontale passant par $(0~;~3)$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  \repere{-5}{6}{-4}{5}
+  \draw[thick, blue, domain=-0.5:4] plot (\x,{2*\x-3}) node[right] {$f_1$};
+  \draw[thick, red, domain=-5:6] plot (\x,{-0.5*\x+2}) node[below] {$f_2$};
+  \draw[thick, green!50!black] (-5,3) -- (6,3) node[above left] {$f_3$};
+  \foreach \p in {(0,-3),(3,3),(0,2),(4,0)} \fill \p circle[radius=3pt];
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{4}
+Méthode : $b$ est l'ordonnée du point d'intersection avec l'axe des ordonnées. Pour lire $a$, on avance de $1$ vers la droite et on compte de combien on monte (ou descend).
+
+\begin{minipage}[c]{0.5\linewidth}
+\begin{itemize}[label=$\bullet$]
+\item $d_1$ : $b=1$ ; on monte de $2$, donc $a=2$.\\
+$d_1$ : $y=2x+1$.
+\item $d_2$ : $b=3$ ; on descend de $1$, donc $a=-1$.\\
+$d_2$ : $y=-x+3$.
+\item $d_3$ : $b=-2$ ; quand on avance de $2$, on monte de $1$, donc $a=\dfrac{1}{2}=0{,}5$.\\
+$d_3$ : $y=0{,}5x-2$.
+\item $d_4$ : droite horizontale, $a=0$.\\
+$d_4$ : $y=-4$.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  \repere{-5}{5}{-5}{6}
+  \draw[thick, domain=-3:2.5] plot (\x,{2*\x+1}) node[right] {$d_1$};
+  \draw[thick, domain=-3:5] plot (\x,{-\x+3});
+  \node[above right] at (-3,6) {$d_2$};
+  \draw[thick, domain=-5:5] plot (\x,{0.5*\x-2}) node[above] {$d_3$};
+  \draw[thick] (-5,-4) -- (5,-4) node[above left] {$d_4$};
+  % lectures de a
+  \draw[blue, thick, ->] (-2,-3) -- (-1,-3);
+  \draw[blue, thick, ->] (-1,-3) -- (-1,-1) node[midway, right] {\scriptsize $+2$};
+  \draw[red, thick, ->] (0,3) -- (1,3);
+  \draw[red, thick, ->] (1,3) -- (1,2) node[midway, right] {\scriptsize $-1$};
+  \draw[green!50!black, thick, ->] (0,-2) -- (2,-2);
+  \draw[green!50!black, thick, ->] (2,-2) -- (2,-1) node[midway, right] {\scriptsize $+1$};
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{5}
+On utilise $a=\dfrac{y_B-y_A}{x_B-x_A}$.
+\begin{tasks}(2)
+\task $a=\dfrac{8-2}{3-1}=\dfrac{6}{2}=3$
+\task $a=\dfrac{1-5}{2-0}=\dfrac{-4}{2}=-2$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+On calcule $a=\dfrac{y_B-y_A}{x_B-x_A}$, puis on trouve $b$ avec les coordonnées de $A$ : $y_A=a\times x_A+b$.
+\begin{tasks}(3)
+\task $a=\dfrac{9-5}{3-1}=\dfrac{4}{2}=2$\\[0.3em]
+$5=2\times 1+b$\\
+$5=2+b$\\
+$b=3$\\
+$(AB)$ : $y=2x+3$
+\task $a=\dfrac{-1-7}{2-(-2)}=\dfrac{-8}{4}=-2$\\[0.3em]
+$7=-2\times(-2)+b$\\
+$7=4+b$\\
+$b=3$\\
+$(AB)$ : $y=-2x+3$
+\task $a=\dfrac{0-(-4)}{4-0}=\dfrac{4}{4}=1$\\[0.3em]
+$A(0~;~-4)$ est sur l'axe des ordonnées, donc $b=-4$.\\
+$(AB)$ : $y=x-4$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+Le sens de variation d'une fonction affine dépend du signe de $a$.
+\begin{tasks}(2)
+\task $a=5>0$ : $f$ est \textbf{croissante} sur $\mathbb{R}$.
+\task $a=-2<0$ : $g$ est \textbf{décroissante} sur $\mathbb{R}$.
+\task $a=0$ : $h$ est \textbf{constante} sur $\mathbb{R}$.
+\task $a=-\dfrac{1}{2}<0$ : $k$ est \textbf{décroissante} sur $\mathbb{R}$.
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{8}
+Méthode : on résout $f(x)=0$, puis on utilise le signe de $a$ : si $a>0$, la fonction est négative puis positive ; si $a<0$, elle est positive puis négative.
+
+\medskip
+\begin{minipage}[t]{0.48\linewidth}
+1. $x-4=0 \iff x=4$ ; $a=1>0$.\par\smallskip
+\centering\tabsignes{f}{4}{-,z,+}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+2. $2x+6=0 \iff 2x=-6 \iff x=-3$ ; $a=2>0$.\par\smallskip
+\centering\tabsignes{g}{-3}{-,z,+}
+\end{minipage}
+
+\bigskip
+\begin{minipage}[t]{0.48\linewidth}
+3. $-3x+9=0 \iff -3x=-9 \iff x=3$ ; $a=-3<0$.\par\smallskip
+\centering\tabsignes{h}{3}{+,z,-}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+4. $4-2x=0 \iff -2x=-4 \iff x=2$ ; $a=-2<0$.\par\smallskip
+\centering\tabsignes{k}{2}{+,z,-}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{9}
+\begin{enumerate}[label=\arabic*.]
+\item $P(x)=ax+b$ avec $P(4)=12$ et $P(10)=24$.
+
+$a=\dfrac{24-12}{10-4}=\dfrac{12}{6}=2$.
+
+$P(4)=12$ donc $2\times 4+b=12$, soit $8+b=12$, donc $b=4$.
+
+$P(x)=2x+4$.
+\item $a=2$ : chaque kilomètre coûte $2$~€.\\
+$b=4$ : la prise en charge coûte $4$~€ (prix payé avant de rouler).
+\item $P(15)=2\times 15+4=30+4=34$. Une course de $15$~km coûte $34$~€.
+\item On résout $P(x)=30$ :\\
+$2x+4=30$\\
+$2x=26$\\
+$x=13$\\
+Avec $30$~€, on peut parcourir $13$~km.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{10}
+\begin{enumerate}[label=\arabic*.]
+\item Au départ, la charge est de $100\,\%$. Chaque heure, elle baisse de $8\,\%$. Après $t$ heures, elle a baissé de $8\times t$, donc $B(t)=100-8t=-8t+100$.
+
+$B$ est une fonction affine avec $a=-8$ et $b=100$.
+\item $a=-8<0$ donc $B$ est \textbf{décroissante}. C'était prévisible : la batterie se décharge au cours du temps.
+\item On résout $B(t)=20$ :\\
+$-8t+100=20$\\
+$-8t=-80$\\
+$t=\dfrac{-80}{-8}=10$\\
+La batterie atteint $20\,\%$ au bout de $10$ heures.
+\item $-8t+100=0$\\
+$-8t=-100$\\
+$t=\dfrac{-100}{-8}=12{,}5$\\
+La batterie est vide au bout de $12{,}5$ heures, c'est-à-dire $12$~h~$30$~min.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{11}
+\begin{minipage}[c]{0.52\linewidth}
+\begin{enumerate}[label=\arabic*.]
+\item \textcolor{blue}{$f(x)=12x$} : fonction \textbf{linéaire}.
+
+\textcolor{red}{$g(x)=7x+60$} : fonction \textbf{affine}.
+\item Pour $f$ : $f(0)=0$ et $f(20)=240$.
+
+Pour $g$ : $g(0)=60$ et $g(20)=200$.
+\item Les droites se coupent au point d'abscisse $12$ : pour $12$ entrées, les deux formules coûtent le même prix ($144$~€).
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[x=0.25cm, y=0.017cm]
+  \draw[very thin, gray!40, xstep=1, ystep=20] (0,0) grid (24,300);
+  \draw[thin, gray!70, xstep=4, ystep=100] (0,0) grid (24,300);
+  \draw[->] (0,0) -- (25.5,0);
+  \node[below=14pt] at (12,0) {\small nombre d'entrées};
+  \draw[->] (0,0) -- (0,315) node[above] {\small prix (€)};
+  \foreach \x in {4,8,...,24} \node[below] at (\x,0) {\scriptsize $\x$};
+  \foreach \y in {100,200,300} \node[left] at (0,\y) {\scriptsize $\y$};
+  \node[below left] at (0,0) {\scriptsize $0$};
+  \draw[thick, blue] (0,0) -- (24,288) node[above left] {$f$};
+  \draw[thick, red] (0,60) -- (24,228) node[below left] {$g$};
+  \draw[dashed] (12,0) -- (12,144) -- (0,144);
+  \fill (12,144) circle[radius=2pt];
+\end{tikzpicture}
+\end{minipage}
+
+\begin{enumerate}[label=\arabic*., start=4]
+\item $f(x)=g(x)$\\
+$12x=7x+60$\\
+$12x-7x=60$\\
+$5x=60$\\
+$x=12$\\
+On retrouve $12$ entrées. Le prix est alors $f(12)=12\times 12=144$~€.
+\item Après $x=12$, la droite de $g$ est en dessous de celle de $f$ : la formule B est moins chère. Elle est donc plus avantageuse à partir de $13$ entrées.
+\item \textbf{Formule A :} $\dfrac{200}{12}\approx 16{,}7$, donc Léa peut faire $16$ entrées.
+
+\textbf{Formule B :} on résout $7x+60\leqslant 200$, soit $7x\leqslant 140$, donc $x\leqslant 20$. Léa peut faire $20$ entrées.
+
+Avec $200$~€, Léa fait plus d'entrées avec la \textbf{formule B}.
+\end{enumerate}
+\end{exercice}
+
+\end{document}

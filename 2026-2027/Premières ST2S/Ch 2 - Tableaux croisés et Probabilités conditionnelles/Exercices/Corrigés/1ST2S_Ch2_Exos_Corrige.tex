@@ -1,0 +1,302 @@
+%LTeX: language=fr-FR
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage[margin=2cm]{geometry}
+\usepackage{needspace}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[table]{xcolor}
+\usepackage{diagbox}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.2}
+
+\newenvironment{exercice}[1]{%
+  \Needspace{6\baselineskip}\par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+% Valeur calculée dans un tableau
+\newcommand{\val}[1]{\textcolor{blue}{#1}}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\Niveau}
+\fancyhead[C]{\ChapitreCourt}
+\fancyhead[R]{\Document}
+\fancyfoot[L]{A. Fernandez}
+\fancyfoot[R]{\thepage\ / \pageref{LastPage}}
+
+Dans les tableaux, les valeurs calculées sont écrites en \val{bleu}.
+
+% =====================================================
+\begin{exercice}{1}
+\begin{enumerate}[label=\arabic*.]
+\item $30\,\%$ de $240$ : $\dfrac{30}{100}\times 240 = 0{,}3\times 240 = 72$. Donc $72$ adhérents ont choisi le volley-ball.
+\item $25\,\%$ de $240$ : $0{,}25\times 240 = 60$. Donc $60$ adhérents sont demi-pensionnaires et ont choisi la natation.
+\item On complète dans cet ordre :
+\begin{itemize}[label=$\bullet$]
+\item externes : $240-130=110$ ; natation : $240-66-72=102$ ;
+\item basket demi-pensionnaires : $130-40-60=30$ ;
+\item colonne par colonne pour les externes : $66-30=36$ ; $72-40=32$ ; $102-60=42$.
+\end{itemize}
+Vérification : $36+32+42=110$.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & Basket-ball & Volley-ball & Natation & Total \\ \hline
+Demi-pensionnaires & \val{30} & 40 & \val{60} & 130 \\ \hline
+Externes & \val{36} & \val{32} & \val{42} & \val{110} \\ \hline
+Total & 66 & \val{72} & \val{102} & 240 \\ \hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+\begin{itemize}[label=$\bullet$]
+\item Boucles d'oreilles : $0{,}2\times 250=50$ ; colliers : $0{,}4\times 250=100$ ; bracelets : $0{,}4\times 250=100$.
+\item Argentés : $0{,}6\times 250=150$ ; dorés : $250-150=100$.
+\item Autant de colliers argentés que dorés : $100\div 2=50$ chacun.
+\item Bracelets argentés : $0{,}75\times 100=75$ ; bracelets dorés : $100-75=25$.
+\item Boucles d'oreilles argentées : $150-50-75=25$ ; dorées : $50-25=25$.
+\end{itemize}
+Vérification : $50+25+25=100$ bijoux dorés.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & Collier & Bracelet & Boucles d'oreilles & Total \\ \hline
+Argenté & \val{50} & \val{75} & \val{25} & \val{150} \\ \hline
+Doré & \val{50} & \val{25} & \val{25} & \val{100} \\ \hline
+Total & \val{100} & \val{100} & \val{50} & 250 \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+\begin{enumerate}[label=\arabic*.]
+\item
+\begin{enumerate}[label=(\alph*)]
+\item Il y a $100$ jetons en tout.
+\item Il y a $40$ jetons carrés.
+\item Fréquence des jetons carrés : $\dfrac{40}{100}=0{,}4=40\,\%$.
+\end{enumerate}
+\item Fréquence des jetons verts : $\dfrac{50}{100}=0{,}5=50\,\%$.
+\item Il y a $30$ jetons rouges et carrés : $\dfrac{30}{100}=0{,}3=30\,\%$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{4}
+\begin{enumerate}[label=\arabic*.]
+\item Hommes en production : $54-11=43$ ; hommes en service : $88-43=45$ ; femmes en service : $126-45=81$.
+
+Vérification : $11+81=92$.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Hommes & Femmes & Total \\ \hline
+Production & \val{43} & 11 & 54 \\ \hline
+Service & \val{45} & \val{81} & 126 \\ \hline
+Total & 88 & 92 & 180 \\ \hline
+\end{tabular}
+\end{center}
+\item Proportion de femmes : $\dfrac{92}{180}=\dfrac{23}{45}\approx 0{,}511\approx 51{,}1\,\%$.
+\item Fréquence de la spécialité « Production » : $\dfrac{54}{180}=0{,}3=30\,\%$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{5}
+\begin{enumerate}[label=\arabic*.]
+\item Fréquence des filles : $\dfrac{120}{200}=0{,}6=60\,\%$.
+\item Proportion d'externes : $\dfrac{60}{200}=0{,}3=30\,\%$.
+\item
+\begin{enumerate}[label=(\alph*)]
+\item Il y a $40$ internes en tout.
+\item Parmi les internes, il y a $20$ filles.
+\item Proportion de filles parmi les internes : $\dfrac{20}{40}=0{,}5=50\,\%$.
+\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+\begin{enumerate}[label=\arabic*.]
+\item Il y a $250$ lycéens en filière Générale.
+\item Il y a $100$ lycéens en Première Générale.
+\item Parmi les $250$ lycéens de la filière Générale, $100$ sont en Première : $\dfrac{100}{250}=0{,}4=40\,\%$.
+\item Parmi les $225$ Terminales, $75$ sont en filière Technologique : $\dfrac{75}{225}=\dfrac{1}{3}\approx 0{,}333\approx 33{,}3\,\%$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+\begin{enumerate}[label=\arabic*.]
+\item $40+10+30+20=100$ : chaque élève fait du sport en club ou ne fait pas de sport.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Sport en club & Pas de sport & Total \\ \hline
+Collège & 40 & 20 & \val{60} \\ \hline
+Lycée & 10 & 30 & \val{40} \\ \hline
+Total & \val{50} & \val{50} & 100 \\ \hline
+\end{tabular}
+\end{center}
+\item $50$ élèves ne font pas de sport en club : $\dfrac{50}{100}=0{,}5=50\,\%$.
+\item Parmi les $50$ élèves qui font du sport en club, $40$ sont collégiens : $\dfrac{40}{50}=0{,}8=80\,\%$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{8}
+\begin{enumerate}[label=\arabic*.]
+\item Anciens : $200-30-90=80$.
+\begin{itemize}[label=$\bullet$]
+\item Neufs défaillants : $0$.
+\item Récents défaillants : $0{,}1\times 90=9$.
+\item Anciens défaillants : $0{,}25\times 80=20$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & Neuf & Récent & Ancien & Total \\ \hline
+Défaillant & \val{0} & \val{9} & \val{20} & \val{29} \\ \hline
+Non défaillant & \val{30} & \val{81} & \val{60} & \val{171} \\ \hline
+Total & 30 & 90 & \val{80} & 200 \\ \hline
+\end{tabular}
+\end{center}
+\item On note $A$ : « l'ordinateur est ancien » et $D$ : « l'ordinateur est défaillant ».
+
+Parmi les $29$ ordinateurs défaillants, $20$ sont anciens :
+\[P_D(A)=\dfrac{20}{29}\approx 0{,}690\approx 69\,\%.\]
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{9}
+\begin{enumerate}[label=\arabic*.]
+\item $\mathrm{Card}(A)=5+25=30$ ; \quad $\mathrm{Card}(A\cup B)=5+25+20=50$ ; \quad $\mathrm{Card}(A\cap B)=25$.
+\item $\mathrm{Card}(B)=25+20=45$. Parmi les $45$ éléments de $B$, $25$ sont dans $A$ :
+\[P_B(A)=\dfrac{\mathrm{Card}(A\cap B)}{\mathrm{Card}(B)}=\dfrac{25}{45}=\dfrac{5}{9}\approx 0{,}556\approx 55{,}6\,\%.\]
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{10}
+Il y a $6\times 6=36$ résultats équiprobables. On les range dans un tableau : les nombres \textbf{premiers} sont en gras, ceux qui contiennent un 2 sont \colorbox{gray!25}{grisés}.
+
+\begin{center}
+\newcommand{\g}[1]{\cellcolor{gray!25}#1}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\diagbox[width=3.2cm]{1\textsuperscript{er} lancer}{2\textsuperscript{e} lancer} & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+1 & \textbf{11} & \g{12} & \textbf{13} & 14 & 15 & 16 \\ \hline
+2 & \g{21} & \g{22} & \g{\textbf{23}} & \g{24} & \g{25} & \g{26} \\ \hline
+3 & \textbf{31} & \g{32} & 33 & 34 & 35 & 36 \\ \hline
+4 & \textbf{41} & \g{42} & \textbf{43} & 44 & 45 & 46 \\ \hline
+5 & 51 & \g{52} & \textbf{53} & 54 & 55 & 56 \\ \hline
+6 & \textbf{61} & \g{62} & 63 & 64 & 65 & 66 \\ \hline
+\end{tabular}
+\end{center}
+
+Rappel : $21=3\times 7$, $51=3\times 17$, $63=7\times 9$ ne sont pas premiers.
+
+On note $A$ : « le nombre est premier », $B$ : « le nombre contient au moins un 2 » et $C$ : « le nombre contient au moins un 3 ».
+\begin{enumerate}[label=\arabic*.]
+\item $11$ nombres contiennent au moins un 2. Parmi eux, seul $23$ est premier (les autres sont pairs ou multiples de 3) :
+\[P_B(A)=\dfrac{1}{11}\approx 0{,}091\approx 9{,}1\,\%.\]
+\item Il y a $8$ nombres premiers : $11$, $13$, $23$, $31$, $41$, $43$, $53$, $61$. Parmi eux, $5$ contiennent un 3 : $13$, $23$, $31$, $43$, $53$.
+\[P_A(C)=\dfrac{5}{8}=0{,}625=62{,}5\,\%.\]
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{11}
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Affirmation 1 : Faux.} Une probabilité est toujours inférieure ou égale à $1$, or $\dfrac{213}{200}>1$.
+
+En effet, $193+20=213$ compte deux fois les $15$ coureurs non dopés testés positifs. Le bon calcul est :
+\[\dfrac{193+20-15}{200}=\dfrac{198}{200}=0{,}99=99\,\%.\]
+\item \textbf{Affirmation 2 : Vrai.} Parmi les $20$ coureurs testés positifs, $15$ ne sont pas dopés :
+\[\dfrac{15}{20}=0{,}75=75\,\%.\]
+\item \textbf{Affirmation 3 : Vrai.} Il y a erreur pour les $15$ non dopés testés positifs et les $2$ dopés testés négatifs :
+\[\dfrac{15+2}{200}=\dfrac{17}{200}=0{,}085=8{,}5\,\%.\]
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{12}
+\begin{enumerate}[label=\arabic*.]
+\item
+\begin{itemize}[label=$\bullet$]
+\item Smartphone et forfait bloqué : $0{,}2\times 200=40$ ; smartphone et non bloqué : $200-40=160$.
+\item Autre téléphone : $1\,200-200=1\,000$ ; autre et non bloqué : $360-160=200$ ; autre et bloqué : $1\,000-200=800$.
+\item Forfait bloqué : $1\,200-360=840$.
+\end{itemize}
+Vérification : $40+800=840$.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Possède un smartphone & Possède un autre téléphone & Total \\ \hline
+Forfait bloqué & \val{40} & \val{800} & \val{840} \\ \hline
+Forfait non bloqué & \val{160} & \val{200} & 360 \\ \hline
+Total & 200 & \val{1\,000} & 1\,200 \\ \hline
+\end{tabular}
+\end{center}
+\item $P(B)=\dfrac{840}{1\,200}=0{,}7=70\,\%$ \qquad et \qquad $P(S)=\dfrac{200}{1\,200}=\dfrac{1}{6}\approx 0{,}167\approx 16{,}7\,\%$.
+\item Parmi les $200$ élèves qui ont un smartphone, $160$ ont un forfait non bloqué :
+\[P_S\big(\overline{B}\big)=\dfrac{160}{200}=0{,}8=80\,\%.\]
+\item $S\cup B$ : « l'élève interrogé a un smartphone \textbf{ou} un forfait bloqué ».
+
+On compte les élèves de la colonne « smartphone » et de la ligne « forfait bloqué », sans compter deux fois les $40$ de la case commune :
+\[P(S\cup B)=\dfrac{200+840-40}{1\,200}=\dfrac{1\,000}{1\,200}=\dfrac{5}{6}\approx 0{,}833\approx 83{,}3\,\%.\]
+Autre méthode : seuls les $200$ élèves « autre téléphone et forfait non bloqué » ne sont pas dans $S\cup B$, et $1\,200-200=1\,000$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{13}
+On note $M$ : « la personne est malade » et $T$ : « le test est positif ». On construit un tableau croisé pour les $100\,000$ personnes.
+\begin{itemize}[label=$\bullet$]
+\item Malades : $0{,}01\times 100\,000=1\,000$ ; non malades : $100\,000-1\,000=99\,000$.
+\item Malades testés positifs : $0{,}95\times 1\,000=950$ ; malades testés négatifs : $1\,000-950=50$.
+\item Non malades testés négatifs : $0{,}85\times 99\,000=84\,150$ ; non malades testés positifs : $99\,000-84\,150=14\,850$.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Malade & Non malade & Total \\ \hline
+Test positif & \val{950} & \val{14\,850} & \val{15\,800} \\ \hline
+Test négatif & \val{50} & \val{84\,150} & \val{84\,200} \\ \hline
+Total & \val{1\,000} & \val{99\,000} & 100\,000 \\ \hline
+\end{tabular}
+\end{center}
+
+Parmi les $15\,800$ personnes testées positives, $950$ sont malades :
+\[P_T(M)=\dfrac{950}{15\,800}\approx 0{,}060\approx 6\,\%.\]
+
+\textbf{Conclusion :} on peut rassurer notre ami. Même avec un test positif, il n'y a qu'environ $6\,\%$ de chances qu'il soit réellement malade. La maladie est rare : la plupart des tests positifs viennent de personnes non malades ($14\,850$ contre $950$). Il faudra confirmer le diagnostic par un autre examen.
+\end{exercice}
+
+\end{document}
