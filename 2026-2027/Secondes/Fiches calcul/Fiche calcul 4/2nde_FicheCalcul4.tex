@@ -1,0 +1,600 @@
+%LTeX: language=fr-FR
+\documentclass[a4paper,11pt,fleqn]{article}
+
+\usepackage{tasks}
+%%% COULEURS %%%
+\usepackage[table,svgnames]{xcolor}
+\definecolor{nombres}{cmyk}{0,.8,.95,0}
+\definecolor{gestion}{cmyk}{.75,1,.11,.12}
+\definecolor{gestionbis}{cmyk}{.75,1,.11,.12}
+\definecolor{grandeurs}{cmyk}{.02,.44,1,0}
+\definecolor{geo}{cmyk}{.62,.1,0,0}
+\definecolor{algo}{cmyk}{.69,.02,.36,0}
+\definecolor{correction}{cmyk}{.63,.23,.93,.06}
+\arrayrulecolor{couleur_theme} % Couleur des filets des tableaux
+
+\usepackage[most]{tcolorbox} % Supprimé à cause de conflits avec ProfCollege
+% Découpe des cadres d'exercice. Le style est redéfini par la sortie LaTeX
+% juste avant un exercice à garder d'un seul tenant, puis rétabli :
+%   \tcbset{mathaleaexo/.style={unbreakable}}
+% Passer par un style plutôt que par la clé « breakable » directement évite
+% de changer la découpe des autres cadres du document (ProfCollege...).
+\tcbset{mathaleaexo/.style={breakable}}
+\tcbuselibrary{documentation}
+
+%%%%%%%% Modification paramétrage pour footnotes
+% Le paquet semble déjà appelé en amont, curieux qu'il n'y ait pas eu de clash
+% avec l'appel ci-dessous mais seulement quand j'ai essayé de l'inclure avec l'option lualatex
+
+% \usepackage{hyperref}
+% Parametrages
+\hypersetup{
+    colorlinks=true,% On active la couleur pour les liens. Couleur par défaut rouge
+    linkcolor=black,% On définit la couleur pour les liens internes
+    % filecolor=magenta,% On définit la couleur pour les liens vers les fichiers locaux      
+    urlcolor=black,% On définit la couleur pour les liens vers des sites web
+    % pdftitle={Puissance Quatre},% On définit un titre pour le document pdf
+    % pdfpagemode=FullScreen,% On fixe l'affichage par défaut à plein écran
+    }
+% Pour avoir les numérotations arabic y compris dans les environnements tcolorbox
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+%%%%%%%%
+
+\usepackage{multicol} 
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{tablvar}
+
+\setlength{\parindent}{0mm}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\labelenumi}{\textbf{\theenumi{}.}}
+\renewcommand{\labelenumii}{\textbf{\theenumii{}.}}
+\setlength{\fboxsep}{3mm}
+
+\setlength{\headheight}{14.5pt}
+
+\setlength{\premulticols}{0pt}
+
+\newcounter{ExoMA}
+
+\newlength{\parindentMA}%
+\setlength{\parindentMA}{\parindent}
+\addtolength{\parindentMA}{30pt}
+
+\usepackage{simplekv}
+
+\setKVdefault[Theme]{Coopmath,Classiques=false,CANs=false}
+\defKV[Theme]{Classique=\setKV[Theme]{Coopmath=false}\setKV[Theme]{Classiques}}
+\defKV[Theme]{CAN=\setKV[Theme]{Coopmath=false}\setKV[Theme]{CANs}}
+
+\usepackage{fancyhdr}
+\fancyhead[C]{}
+\fancyfoot{}
+
+\def\bla{}
+
+\NewDocumentCommand\Theme{o m m m m}{%
+  \useKVdefault[Theme]%
+  \setKV[Theme]{#1}%
+  \ifboolKV[Theme]{CANs}{%
+    \usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}%
+    \fancypagestyle{premierePage}{%
+      \fancyhead[C]{\textsc{\ifx\bla#2\bla Course aux nombres\else#2\fi}}%
+      \fancyfoot[R]{\scriptsize Coopmaths.fr -- CC-BY-SA}%
+      \setlength{\headheight}{14.5pt}%
+      \NewDocumentCommand\dureeCan{}{\ifx\bla#4\bla 9 minutes\else #4\fi}
+      \NewDocumentCommand\titreSujetCan{}{\ifx\bla#3\bla\else\textbf{#3}\fi}
+    }%
+    \pagestyle{premierePage}
+    \colorlet{couleur_theme}{black}%
+    \colorlet{couleur_numerotation}{couleur_theme}%
+    \let\EXO\EXOCan\let\endEXO\endEXOCan%
+  }{%
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \pagestyle{fancy}
+    \ifboolKV[Theme]{Classiques}{%
+      \usepackage[left=0.65cm,right=0.65cm,top=2cm,bottom=1.5cm]{geometry}
+      \let\EXO\EXOlibre\let\endEXO\endEXOlibre%
+      \colorlet{couleur_theme}{black}%
+      \colorlet{couleur_numerotation}{couleur_theme}%
+      \fancyhead[C]{\bfseries #3}
+      \fancyhead[L]{\bfseries #4}
+      \fancyfoot[R]{#5}
+    }{%
+      \usepackage[left=1.5cm,right=1.5cm,top=4cm,bottom=2cm]{geometry}
+      \theme{#2}{#3}{#4}{#5}%
+      \let\EXO\EXOcoop\let\endEXO\endEXOcoop%
+    }%
+  }%
+}%
+
+\NewDocumentEnvironment{EXOCan}{m m}{%
+}{}
+
+\NewDocumentEnvironment{EXOcoop}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\IfNoValueTF{#1}{}{\textmd{#1}},%
+    overlay unbroken and first={%
+      \IfNoValueTF{#2}{}{%
+        \node[
+        fill=white,
+        anchor=east,
+        xshift=10pt,
+        text=black
+        ]
+        at (frame.north east)
+        {\scriptsize #2};
+      }
+      \node[anchor=west,xshift=-20pt,yshift=-15pt] 
+      at (frame.north west) {\stepcounter{ExoMA}\numb{\arabic{ExoMA}}};
+    }
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{EXOlibre}{m m}{%
+  \begin{tcolorbox}[%
+    enhanced,
+    mathaleaexo,
+    colback=white,
+    colframe=white,
+    coltitle=black,
+    title=\stepcounter{ExoMA}\textbf{Exercice \arabic{ExoMA}},%
+  ]
+  \IfNoValueTF{#1}{}{#1\par}%
+}{%
+  \end{tcolorbox}%
+}
+
+
+%%% MISE EN PAGE %%%
+\usepackage{setspace}
+\usepackage{pgf}%
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{babel,arrows, arrows.meta,calc,fit,patterns,plotmarks,shapes.geometric,shapes.misc,shapes.symbols,shapes.arrows,shapes.callouts, shapes.multipart, shapes.gates.logic.US,shapes.gates.logic.IEC, er, automata,backgrounds,chains,topaths,trees,petri,mindmap,matrix, calendar, folding,fadings,through,positioning,scopes,decorations.fractals,decorations.shapes,decorations.text,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,decorations.markings,shadows}
+
+\spaceskip=2\fontdimen2\font plus 3\fontdimen3\font minus3\fontdimen4\font\relax %Pour doubler l'espace entre les mots
+\newcommand\numb[1]{ % Dessin autour du numéro d'exercice
+  \begin{tikzpicture}[overlay,scale=.8]%,yshift=-.3cm
+    \draw[fill=couleur_numerotation,couleur_numerotation](-.4,-0.1)rectangle($(-0.4,.8)+(2em,0)$);
+    \draw (-.4,.8) node[white,anchor=north west,inner sep=0.5pt]{\bfseries EX}; 
+    \draw[line width=.05cm,couleur_numerotation,fill=white] (0,0)--(.5,.5)--(1,0)--(.5,-.5)--cycle;
+    \draw (0.5,0) node[anchor=center,couleur_numerotation]{\large\bfseries#1};
+  \end{tikzpicture}
+}
+
+% echelle pour le dé
+\def\globalscale {0.04}
+% abscisse initiale pour les chevrons
+\def\xini {3}
+
+\newcommand\theme[4]{%
+  \fancyhead[C]{%
+    % Tracé du dé
+    \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-\globalscale, xscale=\globalscale,remember picture, overlay,transform canvas={xshift=-0.5\linewidth,yshift=2.7cm},fill=couleur_theme]%,xshift=17cm,yshift=9.5cm
+      %%%% Arc supérieur gauche%%%%
+      \path[fill](523,1424)..controls(474,1413)and(404,1372)..(362,1333)..controls(322,1295)and(313,1272)..(331,1254)..controls(348,1236)and(369,1245)..(410,1283)..controls(458,1328)and(517,1356)..(575,1362)..controls(635,1368)and(646,1375)..(643,1404)..controls(641,1428)and(641,1428)..(596,1430)..controls(571,1431)and(538,1428)..(523,1424)--cycle;
+      %%%% Dé face supérieur%%%%
+      \path[fill](512,1272)..controls(490,1260)and(195,878)..(195,861)..controls(195,854)and(198,846)..(202,843)..controls(210,838)and(677,772)..(707,772)..controls(720,772)and(737,781)..(753,796)..controls(792,833)and(1057,1179)..(1057,1193)..controls(1057,1200)and(1053,1209)..(1048,1212)..controls(1038,1220)and(590,1283)..(551,1282)..controls(539,1282)and(521,1278)..(512,1272)--cycle;
+      %%%% Dé faces gauche et droite%%%%
+      \path[fill](1061,1167)..controls(1050,1158)and(978,1068)..(900,967)..controls(792,829)and(756,777)..(753,756)--(748,729)--(724,745)..controls(704,759)and(660,767)..(456,794)..controls(322,813)and(207,825)..(200,822)..controls(193,820)and(187,812)..(187,804)..controls(188,797)and(229,688)..(279,563)..controls(349,390)and(376,331)..(391,320)..controls(406,309)and(462,299)..(649,273)..controls(780,254)and(897,240)..(907,241)..controls(918,243)and(927,249)..(928,256)..controls(930,264)and(912,315)..(889,372)..controls(866,429)and(848,476)..(849,477)..controls(851,479)and(872,432)..(897,373)..controls(936,276)and(942,266)..(960,266)..controls(975,266)and(999,292)..(1089,408)..controls(1281,654)and(1290,666)..(1290,691)..controls(1290,720)and(1104,1175)..(1090,1180)..controls(1085,1182)and (1071,1176)..(1061,1167)--cycle;
+      %%%% Arc inférieur bas%%%%
+      \path[fill](1329,861)..controls(1316,848)and(1317,844)..(1339,788)..controls(1364,726)and(1367,654)..(1347,591)..controls(1330,539)and(1338,522)..(1375,526)..controls(1395,528)and(1400,533)..(1412,566)..controls(1432,624)and(1426,760)..(1401,821)..controls(1386,861)and(1380,866)..(1361,868)..controls(1348,870)and(1334,866)..(1329,861)--cycle;
+      %%%% Arc inférieur gauche%%%%
+      \path[fill](196,373)..controls(181,358)and(186,335)..(213,294)..controls(252,237)and(304,190)..(363,161)..controls(435,124)and(472,127)..(472,170)..controls(472,183)and(462,192)..(414,213)..controls(350,243)and(303,283)..(264,343)..controls(239,383)and(216,393)..(196,373)--cycle;
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay, shift={(current page.north west)},yshift=-8.5cm]
+      \fill[fill=couleur_theme] (0,5) rectangle (21,6);
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;   
+      \node[color=white] at (10.5,5.5) {\LARGE \bfseries{ \MakeUppercase{#4}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=west, fill=white, inner sep = 0pt] at ($(current page.north west)+(0.2,-2.3cm)$) {\footnotesize \bfseries{MathALÉA}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(0,-.8cm)$) {};
+      \node[anchor=east, fill=white] at ($(current page.north east)+(-2,-1.5cm)$) {\Huge \textcolor{couleur_theme}{\bfseries{\#}} \bfseries{#2} \textcolor{couleur_theme}{\bfseries \MakeUppercase{#3}}};
+    \end{tikzpicture}
+  }%
+  \fancyfoot[R]{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=south east] at ($(current page.south east)+(-2,0.25cm)$) {\scriptsize {\bfseries \href{https://coopmaths.fr/}{Coopmaths.fr} -- \href{http://creativecommons.fr/licences/}{CC-BY-SA}}};
+    \end{tikzpicture}
+    \begin{tikzpicture}[line cap=round,line join=round,remember picture, overlay,xscale=0.5,yscale=0.5, shift={(current page.south west)},xshift=35.7cm,yshift=-6cm]
+      \fill[fill=couleur_theme] (\xini,6)--(\xini+1.5,6)--(\xini+2.5,7)--(\xini+1.5,8)--(\xini,8)--(\xini+1,7)-- cycle;
+      \fill[fill=couleur_theme] (\xini+2,6)--(\xini+2.5,6)--(\xini+3.5,7)--(\xini+2.5,8)--(\xini+2,8)--(\xini+3,7)-- cycle;  
+      \fill[fill=couleur_theme] (\xini+3,6)--(\xini+3.5,6)--(\xini+4.5,7)--(\xini+3.5,8)--(\xini+3,8)--(\xini+4,7)-- cycle;  
+    \end{tikzpicture}
+  }
+  \fancyfoot[C]{}
+  \colorlet{couleur_theme}{#1}
+  \colorlet{couleur_numerotation}{couleur_theme}
+  \def\iconeobjectif{icone-objectif-#1}
+  \def\urliconeomethode{icone-methode-#1}
+}%
+
+\newcommand*\tikzfootMA{%
+  \ifboolKV[Theme]{CANs}{
+    \begin{tikzpicture}[remember picture,overlay,shift=(current page.north west)]
+      \begin{scope}[x=\textwidth-\oddsidemargin,y=\textheight+5pt]
+        \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt,shift={(-\oddsidemargin,\topmargin)}] (0,0) rectangle (1,-1);
+      \end{scope}
+    \end{tikzpicture} 
+  }{%
+  \ifboolKV[Theme]{Classiques}{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1cm)$) rectangle ($(1,1)+(-5mm,-1.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }{%
+  \begin{tikzpicture}[remember picture,overlay,shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+      \draw[correction,line width=4pt,dashed,dash pattern= on 10pt off 10pt] ($(0,0)+(5mm,1.5cm)$) rectangle ($(1,1)+(-5mm,-3.75cm)$);
+    \end{scope}
+  \end{tikzpicture} 
+  }%
+  }
+}
+
+\newenvironment{Correction}{%
+  \setcounter{ExoMA}{0}%
+  \cfoot{\tikzfootMA}
+}{}%
+
+\newcommand\version[1]{
+  \fancyhead[R]{
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(-.5,-.5cm)$) {\large \textcolor{couleur_theme}{\bfseries V#1}};
+    \end{tikzpicture}
+  }
+}
+
+\usepackage[french]{babel}
+\usepackage{icomma}
+% loadPackagesFromContent
+
+\newcounter{customfootnote}
+\newcounter{tempreset}%
+\newcounter{temp}
+
+\makeatletter
+\newcommand{\anote}[1]{%
+  \refstepcounter{customfootnote}%
+  \textsuperscript{\thecustomfootnote}%
+  \expandafter\gdef\csname custom@footnote@\thecustomfootnote\endcsname{#1}%
+}
+
+\newcommand{\printcustomnotes}{%
+  \par\noindent\rule{\linewidth}{0.4pt}\par
+  \setcounter{temp}{1}%
+  \whileboolexpr{
+    test {\ifcsdef{custom@footnote@\thetemp}}
+  }{%
+    \noindent\textsuperscript{\thetemp}~\csname custom@footnote@\thetemp\endcsname\par
+    \stepcounter{temp}%
+  }%
+}
+
+\newcommand{\resetcustomnotes}{%
+  \setcounter{customfootnote}{0}%
+  \setcounter{tempreset}{1}%
+  \whileboolexpr{
+    test {\ifcsdef{custom@footnote@\thetempreset}}
+  }{%
+    \global\expandafter\let\csname custom@footnote@\thetempreset\endcsname\@undefined
+    \stepcounter{tempreset}%
+  }%
+}
+\makeatother
+\usepackage[gen]{eurosym}
+\usepackage{cancel}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary {decorations.pathreplacing}
+\newcommand{\e}{\mathrm{e}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\newbool{dys}
+\setbool{dys}{false}
+% ===== POLICES =====
+% Le choix est le même en police standard et en police adaptée aux dys ;
+% seuls la taille et l'interligne changent entre les deux.
+\newcommand{\choiceFonts}[1]{
+\ifstrequal{#1}{helvet}{%
+  % Helvetica (police standard historique des fiches)
+  \usepackage[scaled=1]{helvet}
+}{}
+\ifstrequal{#1}{Fira}{%
+  % Fira Sans + Fira Math
+  % Description : Fira Sans est une police moderne, et Fira Math est une version mathématique compatible qui maintient le style sans-serif.
+  % Utilisation : Fonctionne bien avec XeLaTeX et LuaLaTeX.
+  \usepackage{fontspec}
+  \setmainfont{Fira Sans}
+  \setsansfont{Fira Sans}
+  \usepackage{unicode-math}
+  \setmathfont{Fira Math}
+}{}
+\ifstrequal{#1}{lmodern}{%
+  % Latin Modern Sans
+  % Description : Une version sans-serif de la célèbre police Latin Modern, qui est compatible avec mathastext.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX et LuaLaTeX.
+  \usepackage{lmodern}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+\ifstrequal{#1}{tgheros}{%
+  % TeX Gyre Heros + mathastext
+  % Description : TeX Gyre Heros est une alternative à Helvetica, et le package mathastext permet d'utiliser la même police pour les mathématiques.
+  % Utilisation : Fonctionne avec pdfLaTeX, XeLaTeX, ou LuaLaTeX.
+  \usepackage{tgheros}
+  \renewcommand{\familydefault}{\sfdefault}
+  \usepackage{mathastext}
+}{}
+}
+\ifbool{dys}{
+% POLICE DYS
+\choiceFonts{Fira}
+
+%\usepackage{unicode-math}
+%\usepackage{fontspec}
+%\setmainfont{TeX Gyre Schola}
+%\setsansfont{TeX Gyre Schola}
+%\setmathfont{TeX Gyre Schola Math}
+%\setmainfont{OpenDyslexic}[Scale=1.0]
+%\setsansfont{OpenDyslexic}[Scale=1.0]
+%\setmathfont{OpenDyslexic}[Scale=1.0,range=up/{Latin,latin,num}]
+\usepackage[fontsize=14]{scrextend}
+\usepackage{setspace}
+\setstretch{1.7}
+% Une valeur d'environ 1.2 à 1.7 est souvent recommandée. Cela permet d'augmenter l'espace entre les lignes tout en offrant un léger espacement entre les mots.
+\setlength{\spaceskip}{1.2em}
+% Une valeur d'environ 1.2em à 1.5em est couramment conseillée. Cela crée un espace plus ample entre les mots, ce qui peut aider à réduire la fatigue visuelle et à améliorer la fluidité de la lecture.
+}{
+% POLICE STANDARD
+%%% EE (24/04/2026) : Cette modif ci-dessous est nécessaire pour accepter ’ comme apostrophe.
+% \usepackage[T1]{fontenc}     % Réservé à pdfLaTeX, à remplacer par fontspec en LuaLaTeX
+\choiceFonts{helvet}
+\usepackage[fontsize=12]{scrextend}
+}
+
+
+% Résultat final mis en valeur dans la correction
+\newcommand{\res}[1]{\ensuremath{{\color[HTML]{F15929}\boldsymbol{#1}}}}
+
+
+% Représentation des intervalles sur la droite réelle (mêmes macros que le cours du Ch 2)
+\newcommand{\droite}{\draw[<->, >=Stealth] (0,0) -- (6,0);}
+\newcommand{\brGF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\brGO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\etiq}[2]{\node[below=10pt,inner sep=0pt] at (#1,0) {\scriptsize$#2$};}
+
+\Theme[Classique]{nombres}{}{Fiche calcul 4}{Inéquations}
+\begin{document}
+
+% Énoncé sur une page : cadres d'exercice resserrés
+\tcbset{mathaleaexo/.style={breakable,before skip=4pt,after skip=4pt,top=0pt,bottom=0pt}}
+
+\begin{EXO}{}{}
+Dire si le nombre proposé est solution de l'inéquation. Justifier.
+
+\begin{enumerate}
+	\item $3x-5<2x+1~$ pour $~x=4$, pour $~x=6~$ puis pour $~x=-2$.
+	\item $x^2\geqslant 4x-3~$ pour $~x=0$, pour $~x=2~$ puis pour $~x=3$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+Écrire sous la forme d'un intervalle l'ensemble des réels $x$ qui vérifient l'inégalité, puis le représenter sur une droite graduée.
+
+\begin{tasks}(4)
+	\task $x\geqslant 3$
+	\task $x<-1$
+	\task $x\leqslant \dfrac{1}{2}$
+	\task $x>0$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les inéquations suivantes. Donner l'ensemble des solutions sous la forme d'un intervalle.
+
+\begin{tasks}(3)
+	\task $x+7>3$
+	\task $-x>25$
+	\task $-3x\geqslant 15$
+	\task $\dfrac{x}{2}\leqslant -3$
+	\task $-5x+1\leqslant 11$
+	\task $7-2x<0$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les inéquations suivantes. Donner l'ensemble des solutions sous la forme d'un intervalle.
+
+\begin{tasks}(3)
+	\task $5x-2\geqslant 3x+6$
+	\task $2x+9<5x-3$
+	\task $x-4\leqslant 4x+5$
+	\task $-2x+1>x+7$
+	\task $6x+1\geqslant 2x-1$
+	\task $3-x<7-3x$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les inéquations suivantes (on pourra commencer par développer ou par multiplier par un nombre bien choisi).
+
+\begin{tasks}(2)
+	\task $3(x-2)\leqslant 5x+4$
+	\task $2(3x+1)-(x-4)>1$
+	\task $(x+1)^2<x^2+7$
+	\task $\dfrac{x}{2}+1\geqslant \dfrac{x}{3}$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Un élève a écrit : $-4x+3\leqslant 11 \iff -4x\leqslant 8 \iff x\leqslant -2$. Il conclut que $S=\,]-\infty\,;\,-2]$.
+
+\begin{enumerate}
+	\item Tester la valeur $x=0$ dans l'inéquation. Que peut-on en déduire~?
+	\item Trouver l'erreur, puis corriger la résolution.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+Une salle de sport propose deux formules. \textbf{Formule A :} $8$~€ par séance. \textbf{Formule B :} un abonnement de $30$~€, puis $5$~€ par séance. On note $n$ le nombre de séances.
+
+\begin{enumerate}
+	\item Exprimer en fonction de $n$ le prix payé avec chaque formule.
+	\item À partir de combien de séances la formule B est-elle strictement moins chère que la formule A~?
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+Un rectangle a une largeur de $4$~cm et une longueur de $x$~cm (avec $x>0$).
+
+Pour quelles valeurs de $x$ son périmètre est-il inférieur ou égal à $30$~cm~?
+\end{EXO}
+
+
+% Corrigé : version prof uniquement (compile.sh produit aussi la version _ELEVE)
+\ifdefined\ELEVE\else
+\clearpage
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{Correction}
+\begin{EXO}{}{}
+\begin{enumerate}
+	\item Pour $x=4$ : $3\times 4-5=7$ et $2\times 4+1=9$. Comme $7<9$, \res{4 \text{ est solution}}.
+
+	Pour $x=6$ : $3\times 6-5=13$ et $2\times 6+1=13$. Comme $13<13$ est faux, \res{6 \text{ n'est pas solution}}.
+
+	Pour $x=-2$ : $3\times(-2)-5=-11$ et $2\times(-2)+1=-3$. Comme $-11<-3$, \res{-2 \text{ est solution}}.
+	\item Pour $x=0$ : $0^2=0$ et $4\times 0-3=-3$. Comme $0\geqslant -3$, \res{0 \text{ est solution}}.
+
+	Pour $x=2$ : $2^2=4$ et $4\times 2-3=5$. Comme $4\geqslant 5$ est faux, \res{2 \text{ n'est pas solution}}.
+
+	Pour $x=3$ : $3^2=9$ et $4\times 3-3=9$. Comme $9\geqslant 9$ est vrai, \res{3 \text{ est solution}}.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{tasks}(2)
+	\task $x\in\res{[3\,;\,+\infty[}$
+
+	\begin{tikzpicture}
+		\droite \draw[very thick] (2,0) -- (6,0);
+		\brGF{2} \etiq{2}{3}
+	\end{tikzpicture}
+	\task $x\in\res{]-\infty\,;\,-1[}$
+
+	\begin{tikzpicture}
+		\droite \draw[very thick] (0,0) -- (4,0);
+		\brDO{4} \etiq{4}{-1}
+	\end{tikzpicture}
+	\task $x\in\res{\left]-\infty\,;\,\dfrac{1}{2}\right]}$
+
+	\begin{tikzpicture}
+		\droite \draw[very thick] (0,0) -- (4,0);
+		\brDF{4} \etiq{4}{\frac{1}{2}}
+	\end{tikzpicture}
+	\task $x\in\res{]0\,;\,+\infty[}$
+
+	\begin{tikzpicture}
+		\droite \draw[very thick] (2,0) -- (6,0);
+		\brGO{2} \etiq{2}{0}
+	\end{tikzpicture}
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{tasks}(2)
+	\task $x+7>3 \iff x>-4$ \\ $S=\res{]-4\,;\,+\infty[}$
+	\task $-x>25 \iff x<-25$ \\ (multiplication par $-1<0$ : le sens change) \\ $S=\res{]-\infty\,;\,-25[}$
+	\task $-3x\geqslant 15 \iff x\leqslant -5$ \\ (division par $-3<0$ : le sens change) \\ $S=\res{]-\infty\,;\,-5]}$
+	\task $\dfrac{x}{2}\leqslant -3 \iff x\leqslant -6$ \\ $S=\res{]-\infty\,;\,-6]}$
+	\task $-5x+1\leqslant 11 \iff -5x\leqslant 10 \iff x\geqslant -2$ \\ $S=\res{[-2\,;\,+\infty[}$
+	\task $7-2x<0 \iff -2x<-7 \iff x>\dfrac{7}{2}$ \\ $S=\res{\left]\dfrac{7}{2}\,;\,+\infty\right[}$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{tasks}(2)
+	\task $5x-2\geqslant 3x+6 \iff 2x\geqslant 8 \iff x\geqslant 4$ \\ $S=\res{[4\,;\,+\infty[}$
+	\task $2x+9<5x-3 \iff -3x<-12 \iff x>4$ \\ $S=\res{]4\,;\,+\infty[}$
+	\task $x-4\leqslant 4x+5 \iff -3x\leqslant 9 \iff x\geqslant -3$ \\ $S=\res{[-3\,;\,+\infty[}$
+	\task $-2x+1>x+7 \iff -3x>6 \iff x<-2$ \\ $S=\res{]-\infty\,;\,-2[}$
+	\task $6x+1\geqslant 2x-1 \iff 4x\geqslant -2 \iff x\geqslant -\dfrac{1}{2}$ \\ $S=\res{\left[-\dfrac{1}{2}\,;\,+\infty\right[}$
+	\task $3-x<7-3x \iff 2x<4 \iff x<2$ \\ $S=\res{]-\infty\,;\,2[}$
+\end{tasks}
+
+Remarque : pour b, c et d, on peut aussi regrouper les $x$ à droite pour éviter de diviser par un nombre négatif. Par exemple : $2x+9<5x-3 \iff 12<3x \iff 4<x$.
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}[label=\textbf{\alph*.},itemsep=0.8em]
+	\item $3(x-2)\leqslant 5x+4 \iff 3x-6\leqslant 5x+4 \iff -2x\leqslant 10 \iff x\geqslant -5$
+
+	$S=\res{[-5\,;\,+\infty[}$
+	\item $2(3x+1)-(x-4)>1 \iff 6x+2-x+4>1 \iff 5x+6>1 \iff 5x>-5 \iff x>-1$
+
+	$S=\res{]-1\,;\,+\infty[}$
+	\item $(x+1)^2<x^2+7 \iff x^2+2x+1<x^2+7 \iff 2x+1<7 \iff 2x<6 \iff x<3$
+
+	$S=\res{]-\infty\,;\,3[}$
+	\item On multiplie les deux membres par $6>0$ : le sens ne change pas.
+
+	$\dfrac{x}{2}+1\geqslant \dfrac{x}{3} \iff 3x+6\geqslant 2x \iff x\geqslant -6$
+
+	$S=\res{[-6\,;\,+\infty[}$
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}
+	\item Pour $x=0$ : $-4\times 0+3=3$ et $3\leqslant 11$ est vrai, donc $0$ est solution. Or $0\notin\,]-\infty\,;\,-2]$ : la réponse de l'élève est fausse.
+	\item L'erreur est dans la dernière étape : on divise par $-4$, qui est \textbf{négatif}, donc il faut \textbf{changer le sens} de l'inégalité.
+
+	$-4x+3\leqslant 11 \iff -4x\leqslant 8 \iff x\geqslant -2$, donc $S=\res{[-2\,;\,+\infty[}$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}
+	\item Formule A : $\res{8n}$ euros. Formule B : $\res{30+5n}$ euros.
+	\item On cherche $n$ tel que $30+5n<8n$.
+
+	$30+5n<8n \iff 30<3n \iff 10<n$.
+
+	La formule B est strictement moins chère \res{\text{à partir de } 11 \text{ séances}}. Pour $10$ séances, les deux formules coûtent $80$~€.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+Le périmètre du rectangle est $2(x+4)=2x+8$.
+
+$2x+8\leqslant 30 \iff 2x\leqslant 22 \iff x\leqslant 11$.
+
+Comme de plus $x>0$, le périmètre est inférieur ou égal à $30$~cm pour $x\in\res{]0\,;\,11]}$.
+\end{EXO}
+
+\clearpage
+\end{Correction}
+\fi
+\end{document}
