@@ -388,90 +388,58 @@
 \Theme[Classique]{nombres}{}{Fiche calcul 4}{Inéquations}
 \begin{document}
 
-% Énoncé sur une page : cadres d'exercice resserrés
-\tcbset{mathaleaexo/.style={breakable,before skip=4pt,after skip=4pt,top=0pt,bottom=0pt}}
+\tcbset{mathaleaexo/.style={breakable}}
 
 \begin{EXO}{}{}
 Dire si le nombre proposé est solution de l'inéquation. Justifier.
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=1em]
 	\item $3x-5<2x+1~$ pour $~x=4$, pour $~x=6~$ puis pour $~x=-2$.
 	\item $x^2\geqslant 4x-3~$ pour $~x=0$, pour $~x=2~$ puis pour $~x=3$.
 \end{enumerate}
 \end{EXO}
-
+\vfill
 \begin{EXO}{}{}
 Écrire sous la forme d'un intervalle l'ensemble des réels $x$ qui vérifient l'inégalité, puis le représenter sur une droite graduée.
 
-\begin{tasks}(4)
+\begin{tasks}[after-item-skip=1em](4)
 	\task $x\geqslant 3$
 	\task $x<-1$
 	\task $x\leqslant \dfrac{1}{2}$
 	\task $x>0$
 \end{tasks}
 \end{EXO}
-
+\vfill
 \begin{EXO}{}{}
 Résoudre les inéquations suivantes. Donner l'ensemble des solutions sous la forme d'un intervalle.
 
-\begin{tasks}(3)
-	\task $x+7>3$
+\begin{tasks}[after-item-skip=1em](3)
 	\task $-x>25$
-	\task $-3x\geqslant 15$
 	\task $\dfrac{x}{2}\leqslant -3$
-	\task $-5x+1\leqslant 11$
 	\task $7-2x<0$
 \end{tasks}
 \end{EXO}
-
+\vfill
 \begin{EXO}{}{}
 Résoudre les inéquations suivantes. Donner l'ensemble des solutions sous la forme d'un intervalle.
 
-\begin{tasks}(3)
+\begin{tasks}[after-item-skip=1em](3)
 	\task $5x-2\geqslant 3x+6$
 	\task $2x+9<5x-3$
-	\task $x-4\leqslant 4x+5$
-	\task $-2x+1>x+7$
 	\task $6x+1\geqslant 2x-1$
-	\task $3-x<7-3x$
 \end{tasks}
 \end{EXO}
-
+\vfill
 \begin{EXO}{}{}
 Résoudre les inéquations suivantes (on pourra commencer par développer ou par multiplier par un nombre bien choisi).
 
-\begin{tasks}(2)
+\begin{tasks}[after-item-skip=1em](2)
 	\task $3(x-2)\leqslant 5x+4$
-	\task $2(3x+1)-(x-4)>1$
-	\task $(x+1)^2<x^2+7$
 	\task $\dfrac{x}{2}+1\geqslant \dfrac{x}{3}$
 \end{tasks}
 \end{EXO}
-
-\begin{EXO}{}{}
-Un élève a écrit : $-4x+3\leqslant 11 \iff -4x\leqslant 8 \iff x\leqslant -2$. Il conclut que $S=\,]-\infty\,;\,-2]$.
-
-\begin{enumerate}
-	\item Tester la valeur $x=0$ dans l'inéquation. Que peut-on en déduire~?
-	\item Trouver l'erreur, puis corriger la résolution.
-\end{enumerate}
-\end{EXO}
-
-\begin{EXO}{}{}
-Une salle de sport propose deux formules. \textbf{Formule A :} $8$~€ par séance. \textbf{Formule B :} un abonnement de $30$~€, puis $5$~€ par séance. On note $n$ le nombre de séances.
-
-\begin{enumerate}
-	\item Exprimer en fonction de $n$ le prix payé avec chaque formule.
-	\item À partir de combien de séances la formule B est-elle strictement moins chère que la formule A~?
-\end{enumerate}
-\end{EXO}
-
-\begin{EXO}{}{}
-Un rectangle a une largeur de $4$~cm et une longueur de $x$~cm (avec $x>0$).
-
-Pour quelles valeurs de $x$ son périmètre est-il inférieur ou égal à $30$~cm~?
-\end{EXO}
-
+\vfill
+\clearpage
 
 % Corrigé : version prof uniquement (compile.sh produit aussi la version _ELEVE)
 \ifdefined\ELEVE\else
@@ -525,11 +493,8 @@ Pour quelles valeurs de $x$ son périmètre est-il inférieur ou égal à $30$~c
 
 \begin{EXO}{}{}
 \begin{tasks}(2)
-	\task $x+7>3 \iff x>-4$ \\ $S=\res{]-4\,;\,+\infty[}$
 	\task $-x>25 \iff x<-25$ \\ (multiplication par $-1<0$ : le sens change) \\ $S=\res{]-\infty\,;\,-25[}$
-	\task $-3x\geqslant 15 \iff x\leqslant -5$ \\ (division par $-3<0$ : le sens change) \\ $S=\res{]-\infty\,;\,-5]}$
 	\task $\dfrac{x}{2}\leqslant -3 \iff x\leqslant -6$ \\ $S=\res{]-\infty\,;\,-6]}$
-	\task $-5x+1\leqslant 11 \iff -5x\leqslant 10 \iff x\geqslant -2$ \\ $S=\res{[-2\,;\,+\infty[}$
 	\task $7-2x<0 \iff -2x<-7 \iff x>\dfrac{7}{2}$ \\ $S=\res{\left]\dfrac{7}{2}\,;\,+\infty\right[}$
 \end{tasks}
 \end{EXO}
@@ -538,13 +503,10 @@ Pour quelles valeurs de $x$ son périmètre est-il inférieur ou égal à $30$~c
 \begin{tasks}(2)
 	\task $5x-2\geqslant 3x+6 \iff 2x\geqslant 8 \iff x\geqslant 4$ \\ $S=\res{[4\,;\,+\infty[}$
 	\task $2x+9<5x-3 \iff -3x<-12 \iff x>4$ \\ $S=\res{]4\,;\,+\infty[}$
-	\task $x-4\leqslant 4x+5 \iff -3x\leqslant 9 \iff x\geqslant -3$ \\ $S=\res{[-3\,;\,+\infty[}$
-	\task $-2x+1>x+7 \iff -3x>6 \iff x<-2$ \\ $S=\res{]-\infty\,;\,-2[}$
 	\task $6x+1\geqslant 2x-1 \iff 4x\geqslant -2 \iff x\geqslant -\dfrac{1}{2}$ \\ $S=\res{\left[-\dfrac{1}{2}\,;\,+\infty\right[}$
-	\task $3-x<7-3x \iff 2x<4 \iff x<2$ \\ $S=\res{]-\infty\,;\,2[}$
 \end{tasks}
 
-Remarque : pour b, c et d, on peut aussi regrouper les $x$ à droite pour éviter de diviser par un nombre négatif. Par exemple : $2x+9<5x-3 \iff 12<3x \iff 4<x$.
+Remarque : pour b, on peut aussi regrouper les $x$ à droite pour éviter de diviser par un nombre négatif. Par exemple : $2x+9<5x-3 \iff 12<3x \iff 4<x$.
 \end{EXO}
 
 \begin{EXO}{}{}
@@ -552,46 +514,12 @@ Remarque : pour b, c et d, on peut aussi regrouper les $x$ à droite pour évite
 	\item $3(x-2)\leqslant 5x+4 \iff 3x-6\leqslant 5x+4 \iff -2x\leqslant 10 \iff x\geqslant -5$
 
 	$S=\res{[-5\,;\,+\infty[}$
-	\item $2(3x+1)-(x-4)>1 \iff 6x+2-x+4>1 \iff 5x+6>1 \iff 5x>-5 \iff x>-1$
-
-	$S=\res{]-1\,;\,+\infty[}$
-	\item $(x+1)^2<x^2+7 \iff x^2+2x+1<x^2+7 \iff 2x+1<7 \iff 2x<6 \iff x<3$
-
-	$S=\res{]-\infty\,;\,3[}$
 	\item On multiplie les deux membres par $6>0$ : le sens ne change pas.
 
 	$\dfrac{x}{2}+1\geqslant \dfrac{x}{3} \iff 3x+6\geqslant 2x \iff x\geqslant -6$
 
 	$S=\res{[-6\,;\,+\infty[}$
 \end{enumerate}
-\end{EXO}
-
-\begin{EXO}{}{}
-\begin{enumerate}
-	\item Pour $x=0$ : $-4\times 0+3=3$ et $3\leqslant 11$ est vrai, donc $0$ est solution. Or $0\notin\,]-\infty\,;\,-2]$ : la réponse de l'élève est fausse.
-	\item L'erreur est dans la dernière étape : on divise par $-4$, qui est \textbf{négatif}, donc il faut \textbf{changer le sens} de l'inégalité.
-
-	$-4x+3\leqslant 11 \iff -4x\leqslant 8 \iff x\geqslant -2$, donc $S=\res{[-2\,;\,+\infty[}$.
-\end{enumerate}
-\end{EXO}
-
-\begin{EXO}{}{}
-\begin{enumerate}
-	\item Formule A : $\res{8n}$ euros. Formule B : $\res{30+5n}$ euros.
-	\item On cherche $n$ tel que $30+5n<8n$.
-
-	$30+5n<8n \iff 30<3n \iff 10<n$.
-
-	La formule B est strictement moins chère \res{\text{à partir de } 11 \text{ séances}}. Pour $10$ séances, les deux formules coûtent $80$~€.
-\end{enumerate}
-\end{EXO}
-
-\begin{EXO}{}{}
-Le périmètre du rectangle est $2(x+4)=2x+8$.
-
-$2x+8\leqslant 30 \iff 2x\leqslant 22 \iff x\leqslant 11$.
-
-Comme de plus $x>0$, le périmètre est inférieur ou égal à $30$~cm pour $x\in\res{]0\,;\,11]}$.
 \end{EXO}
 
 \clearpage
