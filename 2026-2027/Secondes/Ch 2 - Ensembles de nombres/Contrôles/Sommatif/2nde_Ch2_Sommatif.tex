@@ -1,0 +1,124 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{tasks}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exercice{numéro}{titre}{barème}
+\newcommand{\exercice}[3]{%
+  \noindent\exobox{Exercice #1 --- #2 \hfill (#3 points)}\par
+}
+
+\pagestyle{empty}
+\setlist{topsep=2pt, itemsep=3pt, parsep=0pt}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+
+% Droite graduée de -10 à 10 (même droite que l'exercice 6 de la feuille d'exercices)
+\newcommand{\droitecinq}{%
+  \begin{tikzpicture}[x=0.7cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-10.6,0) -- (10.6,0);
+    \foreach \i in {-10,...,10} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \node[below] at (\i,-0.08) {\scriptsize$\i$};
+    }
+  \end{tikzpicture}%
+}
+
+% Un cas de l'exercice 4 : énoncé + droite + zone de réponse
+\newcommand{\casinter}[2]{%
+  \par\noindent
+  \begin{minipage}{\linewidth}
+    #1. $#2$\par
+    \begin{center}
+      \droitecinq\\[0.5em]
+      $I\cap J=$ \makebox[3.5cm]{\dotfill} \qquad\qquad $I\cup J=$ \makebox[3.5cm]{\dotfill}
+    \end{center}
+  \end{minipage}\par
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Contrôle --- Ensembles de nombres (1)~: intervalles}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Durée~: 55 minutes \quad $\bullet$ \quad Calculatrice interdite}
+\end{center}
+
+\vspace{0.4em}
+\noindent Nom et prénom~: \dotfill
+
+\vspace{0.3em}
+\noindent\textit{Exercices 1 et 4 \underline{sur la copie}, exercices 2 et 3 \underline{sur le sujet} (à rendre avec la copie). La rédaction et la justification des réponses sont prises en compte dans la notation.}
+
+% ================= Exercice 1 =================
+\exercice{1}{Automatismes}{5}
+\underline{Sur la copie.} Les questions sont indépendantes. Justifier chaque réponse.
+\begin{enumerate}[itemsep=6pt]
+  \item Calculer $2^{5}\times 2^{-3}$.
+  \item On sait que $\dfrac{32}{33}-\dfrac{31}{32}>0$. Compléter avec le symbole $<$ ou $>$ : \quad $\dfrac{31}{32}\ \dots\ \dfrac{32}{33}$.
+  \item On considère l'expression $T=M(5+a)$. Calculer la valeur de $T$ pour $M=4$ et $a=\dfrac{3}{4}$.
+  \item Factoriser à l'aide d'une identité remarquable : \quad $A=x^2-6x+9$
+\end{enumerate}
+
+\vfill
+% ================= Exercice 2 =================
+\exercice{2}{Intervalles}{5}
+\underline{Sur le sujet.}
+\begin{enumerate}
+  \item Compléter les pointillés par $\in$ ou $\notin$.
+
+  \quad a) $4\ \dots\ [-1\,;\,4[$ \hfill b) $-3\ \dots\ ]-5\,;\,-3]$ \hfill c) $\dfrac{2}{3}\ \dots\ [0{,}5\,;\,1]$ \hspace*{2cm}
+  \item Compléter le tableau.
+  \begin{center}
+  \renewcommand{\arraystretch}{1.8}
+  \begin{tabular}{|c|c|c|c|c|}
+  \hline
+  Inégalité & $-3\leqslant x<4$ & $x>7$ & \makebox[3cm]{\dotfill} & \makebox[3cm]{\dotfill} \\ \hline
+  Intervalle & $x\in\dots\dots\dots\dots$ & $x\in\dots\dots\dots\dots$ & $x\in\,]-2\,;\,5]$ & $x\in\,]-\infty\,;\,2{,}5[$ \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\vfill
+% ================= Exercice 3 =================
+\exercice{3}{Intersection et union}{4}
+\underline{Sur le sujet.} Représenter $I$ et $J$ sur la droite en deux couleurs, puis donner $I\cap J$ et $I\cup J$.
+
+\casinter{1}{I=\,]-\infty\,;\,1]\ ;\ J=[-4\,;\,4[}
+\casinter{2}{I=[-5\,;\,-1[\ ;\ J=[2\,;\,+\infty[}
+
+\vfill
+% ================= Exercice 4 =================
+\exercice{4}{Inégalités et inéquations}{6}
+\underline{Sur la copie.}
+\begin{enumerate}
+  \item Résoudre les inéquations. Donner les solutions sous forme d'intervalle.
+
+  \quad a) $-4x+1>13$ \qquad\qquad b) $7-2x<x+1$
+  \item Compléter en justifiant par une suite d'inégalités : \quad $x\in\,]-1\,;\,3] \iff -2x+4\in\ \dots\dots$
+\end{enumerate}
+
+\vfill
+\end{document}

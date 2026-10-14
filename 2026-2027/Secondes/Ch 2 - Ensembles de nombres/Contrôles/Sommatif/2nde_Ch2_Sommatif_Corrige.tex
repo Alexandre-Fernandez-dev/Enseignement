@@ -1,0 +1,133 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=1.7cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{tasks}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exercice{numéro}{titre}{barème}
+\newcommand{\exercice}[3]{%
+  \vspace{0.15em}
+  \noindent\exobox{Exercice #1 --- #2 \hfill (#3 points)}\par
+  \vspace{0.15em}
+}
+
+\pagestyle{empty}
+\setlist{topsep=2pt, itemsep=3pt, parsep=0pt}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+
+% Barème détaillé indiqué entre crochets
+\newcommand{\pts}[1]{\hfill\textcolor{titrebleu}{\small[#1]}}
+
+\colorlet{sol}{blue!70!black}
+\colorlet{solJ}{red!70!black}
+
+% Droite graduée de -10 à 10 ; #1 : tracé des intervalles
+\newcommand{\droitecinq}[1]{%
+  \begin{tikzpicture}[x=0.7cm,baseline=-0.5ex]
+    \draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-10.6,0) -- (10.6,0);
+    \foreach \i in {-10,...,10} {
+      \draw (\i,0.08) -- (\i,-0.08);
+      \node[below] at (\i,-0.08) {\scriptsize$\i$};
+    }
+    #1
+  \end{tikzpicture}%
+}
+% \seg{couleur}{hauteur}{début}{fin}{crochet gauche}{crochet droit} (crochet vide : vers l'infini)
+\newcommand{\seg}[6]{%
+  \draw[#1, very thick] (#3,#2) -- (#4,#2);
+  \node[#1, inner sep=0pt] at (#3,#2) {#5};
+  \node[#1, inner sep=0pt] at (#4,#2) {#6};
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Corrigé --- Ensembles de nombres (1)~: intervalles}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Contrôle de 55 minutes}
+\end{center}
+
+% ================= Exercice 1 =================
+\exercice{1}{Automatismes}{5}
+\begin{enumerate}
+  \item On additionne les exposants : $2^{5}\times 2^{-3}=2^{5+(-3)}=2^{2}=\mathbf{4}$. \pts{1}
+  \item $\dfrac{32}{33}-\dfrac{31}{32}>0$, donc $\dfrac{32}{33}>\dfrac{31}{32}$, c'est-à-dire $\mathbf{\dfrac{31}{32}<\dfrac{32}{33}}$. \pts{1}
+  \item $T=4\times\left(5+\dfrac{3}{4}\right)=4\times 5+4\times\dfrac{3}{4}=20+3=\mathbf{23}$. \pts{1}
+  \item On reconnaît $a^2-2ab+b^2$ avec $a=x$ et $b=3$ : $A=x^2-2\times x\times 3+3^2=\mathbf{(x-3)^2}$. \pts{2}
+\end{enumerate}
+
+% ================= Exercice 2 =================
+\exercice{2}{Intervalles}{5}
+\begin{enumerate}
+  \item $1$ point par réponse. \pts{3}
+  \begin{tasks}(2)
+    \task $4\notin[-1\,;\,4[$ \quad ($4$ est exclu)
+    \task $-3\in\,]-5\,;\,-3]$
+    \task $\dfrac{2}{3}\in[0{,}5\,;\,1]$ \quad ($0{,}5<\dfrac{2}{3}<1$)
+  \end{tasks}
+  \item $0{,}5$ point par case. \pts{2}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{|c|c|c|c|c|}
+  \hline
+  Inégalité & $-3\leqslant x<4$ & $x>7$ & $\mathbf{-2<x\leqslant 5}$ & $\mathbf{x<2{,}5}$ \\ \hline
+  Intervalle & $x\in\mathbf{[-3\,;\,4[}$ & $x\in\mathbf{]7\,;\,+\infty[}$ & $x\in\,]-2\,;\,5]$ & $x\in\,]-\infty\,;\,2{,}5[$ \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+% ================= Exercice 3 =================
+\exercice{3}{Intersection et union}{4}
+$I$ en bleu, $J$ en rouge.
+
+1. $I=\,]-\infty\,;\,1]$ et $J=[-4\,;\,4[$ : \quad $I\cap J=\mathbf{[-4\,;\,1]}$ \quad et \quad $I\cup J=\mathbf{]-\infty\,;\,4[}$. \pts{2}
+\begin{center}
+\droitecinq{\seg{sol}{0.3}{-10.5}{1}{}{$]$}\seg{solJ}{0.6}{-4}{4}{$[$}{$[$}}
+\end{center}
+
+2. $I=[-5\,;\,-1[$ et $J=[2\,;\,+\infty[$ : \quad $I\cap J=\mathbf{\varnothing}$ \quad et \quad $I\cup J=\mathbf{[-5\,;\,-1[\,\cup\,[2\,;\,+\infty[}$. \pts{2}
+
+L'union n'est pas un intervalle.
+\begin{center}
+\droitecinq{\seg{sol}{0.3}{-5}{-1}{$[$}{$[$}\seg{solJ}{0.6}{2}{10.5}{$[$}{}}
+\end{center}
+
+% ================= Exercice 4 =================
+\exercice{4}{Inégalités et inéquations}{6}
+\begin{enumerate}
+  \item \begin{enumerate}[label=\alph*)]
+    \item $-4x+1>13 \iff -4x>12 \iff x<-3$ \quad (division par $-4<0$ : le sens change).
+
+    $S=\mathbf{]-\infty\,;\,-3[}$ \pts{2}
+    \item $7-2x<x+1 \iff -3x<-6 \iff x>2$ \quad (division par $-3<0$ : le sens change).
+
+    $S=\mathbf{]2\,;\,+\infty[}$ \pts{2}
+  \end{enumerate}
+  \item On multiplie par $-2<0$ : le sens des inégalités change. \pts{2}
+
+  $x\in\,]-1\,;\,3] \iff -1<x\leqslant 3 \iff 2>-2x\geqslant -6 \iff 6>-2x+4\geqslant -2 \iff -2x+4\in\mathbf{[-2\,;\,6[}$.
+\end{enumerate}
+
+\end{document}
