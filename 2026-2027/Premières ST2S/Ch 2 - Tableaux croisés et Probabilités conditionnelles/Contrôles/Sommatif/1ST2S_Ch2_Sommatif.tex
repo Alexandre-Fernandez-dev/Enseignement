@@ -1,0 +1,109 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[hmargin=1.7cm, vmargin=1.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{makecell}
+\usepackage{tasks}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exercice{numéro}{titre}{barème}
+\newcommand{\exercice}[3]{%
+  \vspace{0.6em plus 1fill}
+  \noindent\exobox{Exercice #1 --- #2 \hfill (#3 points)}\par
+  \vspace{0.4em}
+}
+
+\pagestyle{empty}
+\setlist{topsep=3pt, itemsep=4pt, parsep=0pt}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries Contrôle --- Tableaux croisés et probabilités conditionnelles}\\[0.4em]
+  {\itshape 1\textsuperscript{ère} ST2S \quad $\bullet$ \quad Durée~: 55 minutes \quad $\bullet$ \quad Calculatrice autorisée}
+\end{center}
+
+\vspace{0.3em}
+\noindent\textit{La qualité de la rédaction et la justification des réponses seront prises en compte dans la notation.}
+
+% ================= Partie A =================
+\exercice{1}{Automatismes}{6}
+Les trois questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $A = \dfrac{5}{1-\dfrac{2}{7}}$. Donner le résultat sous forme d'un entier ou d'une fraction irréductible.
+  \item Déterminer la solution de l'équation $-4x+3=-15$.
+  \item Le prix d'un pull est passé de $50$~euros à $70$~euros. Il a augmenté de~:
+
+  \textbf{A.}~$4\,\%$ \hfill \textbf{B.}~$20\,\%$ \hfill \textbf{C.}~$40\,\%$ \hfill \textbf{D.}~$5\,\%$ \hspace*{2cm}
+\end{enumerate}
+
+% ================= Partie B =================
+\exercice{2}{Construire un tableau croisé}{5}
+Une association sportive interroge 100 élèves sur leur établissement et leur pratique sportive. Les résultats sont les suivants~:
+\begin{multicols}{2}
+\begin{itemize}[label=$\bullet$]
+  \item 30 collégiens font du sport en club~;
+  \item 10 lycéens font du sport en club~;
+  \item 40 lycéens ne font pas de sport en club~;
+  \item 20 collégiens ne font pas de sport en club.
+\end{itemize}
+\end{multicols}
+\begin{enumerate}
+  \item Construire un tableau croisé d'effectifs correspondant à la situation. \\
+  \textit{Aide~: on mettra en lignes l'établissement (collège ou lycée) et en colonnes la pratique sportive.}
+  \item Quelle est la proportion d'élèves ne faisant pas de sport en club~?
+  \item Calculer le pourcentage de collégiens parmi les élèves pratiquant un sport en club.
+\end{enumerate}
+
+\exercice{3}{Test de dépistage}{9}
+Un centre de santé propose un test de dépistage rapide d'une maladie. On a testé $200$ patients, parmi lesquels $40$ sont malades. Parmi les patients malades, $75\,\%$ ont un test positif. Au total, $50$ patients ont un test positif.
+\begin{enumerate}
+  \item Recopier et compléter le tableau ci-dessous~:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+   & Patient malade & Patient non malade & Total \\ \hline
+  Test positif & & & 50 \\ \hline
+  Test négatif & & & \\ \hline
+  Total & 40 & & 200 \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+On choisit un patient au hasard parmi les $200$. On note $M$ l'événement \og le patient est malade\fg{} et $T$ l'événement \og le test du patient est positif\fg{}.
+\begin{enumerate}[resume]
+  \item Calculer les probabilités suivantes~:
+  \begin{tasks}[label=\alph*), label-width=1.5em](4)
+    \task $P(M)$
+    \task $P(T)$
+    \task $P_M(T)$
+    \task $P(M\cap\overline{T})$
+  \end{tasks}
+  \item Le test du patient est positif. Quelle est la probabilité qu'il soit malade~?
+  \item Décrire par une phrase l'événement $M\cup T$, puis calculer sa probabilité.
+  \item Le test se trompe lorsqu'il est positif pour un patient non malade, ou négatif pour un patient malade. \\
+  \textbf{Vrai ou faux~?} \og La probabilité que le test se trompe est inférieure à $10\,\%$.\fg{} Justifier.
+\end{enumerate}
+
+\end{document}
