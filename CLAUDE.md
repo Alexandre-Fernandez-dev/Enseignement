@@ -23,7 +23,7 @@ Le nom du `.tex` détermine celui du PDF ; il doit être unique et explicite :
 `<Niveau>_Ch<N>_<Type>[_<Variante>].tex`, sans espace ni accent.
 - Niveau : `1ST2S`, `2nde`. N : numéro du dossier `Ch N`.
 - Type : `Cours`, `Progression`, `Act1`, `Exos1` (ou `Exos` s'il n'y en a qu'une), `Manuel` (scan du manuel), `Flash1`, `Form2`, `TestAP`…
-- Variante : `_SujetA` / `_SujetB`, `_Corrige`. Version élève générée : suffixe `_ELEVE`.
+- Variante : `_SujetA` / `_SujetB`, `_Corrige`. Version élève générée : suffixe `_ELEVE`. PDF annoté au tableau : suffixe `_Annote` en dernier (ex. `2nde_Ch1_Cours_ELEVE_Annote.pdf`).
 - Hors chapitre : `2nde_AP_Fractions1`, `2nde_FicheCalcul2`…
 
 Exemples : `1ST2S_Ch2_Cours.pdf`, `2nde_Ch1_Form2_SujetA.pdf`, `2nde_Ch1_Form2_Corrige.pdf`.
@@ -45,6 +45,20 @@ Pour un nouveau dossier de document, il faut créer ce `def.tex`. Le document lu
 - `compile.sh fichier.tex` (recette LaTeX Workshop par défaut) produit les versions prof et élève. Les fichiers auxiliaires vont dans le sous-dossier `.build/` (option `-auxdir=.build`). Seul le `.synctex.gz` reste à côté du PDF.
 - Les fichiers auxiliaires sont ignorés par git. Les PDF sont versionnés.
 - Après une modification, recompiler pour vérifier qu'il n'y a pas d'erreur.
+
+## Diffusion des PDF (Drive, clé USB, tableau)
+
+- **Drive** : le hook `.git/hooks/post-commit` copie les PDF de `2026-2027/` vers `Drive:Enseignement/2026-2027/PDF Lycée` (rclone, en arrière-plan) à chaque commit.
+- **Clé USB** (pour l'écran Vivitek NovoTouch de la classe) : lancer à la main `scripts/sync-cle.sh` quand la clé `AFERNANDEZ` est branchée, ou la tâche VS Code « Synchroniser la clé ». L'option `--dry-run` (tâche « simulation ») montre ce qui serait fait.
+  - La clé reçoit un miroir exact des PDF de `2026-2027/` dans `PDF Lycée/` à la racine de la clé (mêmes sous-dossiers que le Drive). Puis chaque PDF reçoit un `.iwb` à côté de lui, généré s'il manque ou s'il est plus ancien que le PDF.
+  - Fichiers jamais supprimés par le miroir : `*.iwb` (sauf ceux dont le PDF a disparu), `*.enb` (annotations créées par le tableau), `*_Annote.pdf`. Tout le reste (ex. `.ubz`) est supprimé.
+  - Le premier passage convertit tout (environ 4 s par page) ; les suivants ne convertissent que ce qui a changé (un `.iwb` porte la date de son PDF ; dates différentes = à reconvertir).
+- `scripts/pdf2iwb.sh fichier.pdf` : convertit un PDF en `fichier.iwb` (pages en PNG de 4320 px de haut). L'import PDF direct du tableau est en basse résolution.
+- `scripts/enb2pdf.sh fichier.enb [fichier.pdf]` : produit `fichier_Annote.pdf`, le PDF d'origine avec les traits du tableau redessinés en vectoriel (calés sur la page même si elle a été zoomée ou déplacée). Une diapositive ajoutée au tableau devient une page blanche en paysage, après la page qui la précède.
+  Format `.enb` : ZIP avec `Slides/Slide_N.xml` (une diapositive par page : une `Picture` `p-N.png` placée par une `Transform`, et des traits `Ink`), plus des vignettes `Slide_N.png`.
+- Dépendances : `rsync`, `poppler` (`pdftoppm`, `pdfinfo`), `imagemagick` (`identify`), `zip`, `qpdf`, `python-cairo`.
+- Sur la clé, le script n'écrit que dans `PDF Lycée/` et s'arrête si ce dossier manque. Les documents personnels (plans de classe, listes d'élèves) sont dans `Documents/`, à côté, avec les mêmes sous-dossiers par niveau : hors du miroir, sans `.iwb`, jamais modifiés par le script.
+- Changement d'année : mettre à jour `ANNEE` dans `scripts/sync-cle.sh` et le chemin du hook `post-commit`.
 
 ## Conventions LaTeX
 
