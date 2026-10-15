@@ -1,0 +1,109 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[hmargin=1.7cm, vmargin=1.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{makecell}
+\usepackage{tasks}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exercice{numéro}{titre}{barème}
+\newcommand{\exercice}[3]{%
+  \vspace{0.6em plus 1fill}
+  \noindent\exobox{Exercice #1 --- #2 \hfill (#3 points)}\par
+  \vspace{0.4em}
+}
+
+\pagestyle{empty}
+\setlist{topsep=3pt, itemsep=4pt, parsep=0pt}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries Contrôle de rattrapage --- Tableaux croisés et probabilités conditionnelles}\\[0.4em]
+  {\itshape 1\textsuperscript{ère} ST2S \quad $\bullet$ \quad Durée~: 55 minutes \quad $\bullet$ \quad Calculatrice autorisée}
+\end{center}
+
+\vspace{0.3em}
+\noindent\textit{La qualité de la rédaction et la justification des réponses seront prises en compte dans la notation.}
+
+% ================= Partie A =================
+\exercice{1}{Automatismes}{6}
+Les trois questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Le prix d'une place de cinéma est passé de $8$~euros à $10$~euros. Il a augmenté de~:
+
+  \textbf{A.}~$2\,\%$ \hfill \textbf{B.}~$25\,\%$ \hfill \textbf{C.}~$20\,\%$ \hfill \textbf{D.}~$80\,\%$ \hspace*{2cm}
+  \item Déterminer la solution de l'équation $-6x+4=-17$.
+  \item Calculer $A = \dfrac{3}{1-\dfrac{1}{4}}$. Donner le résultat sous forme d'un entier ou d'une fraction irréductible.
+\end{enumerate}
+
+% ================= Partie B =================
+\exercice{2}{Test de dépistage}{9}
+Un laboratoire propose un test de dépistage rapide d'une maladie. On a testé $200$ patients, parmi lesquels $50$ sont malades. Parmi les patients malades, $80\,\%$ ont un test positif. Au total, $50$ patients ont un test positif.
+\begin{enumerate}
+  \item Recopier et compléter le tableau ci-dessous~:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+   & Patient malade & Patient non malade & Total \\ \hline
+  Test positif & & & 50 \\ \hline
+  Test négatif & & & \\ \hline
+  Total & 50 & & 200 \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+On choisit un patient au hasard parmi les $200$. On note $M$ l'événement \og le patient est malade\fg{} et $T$ l'événement \og le test du patient est positif\fg{}.
+\begin{enumerate}[resume]
+  \item Calculer les probabilités suivantes~:
+  \begin{tasks}[label=\alph*), label-width=1.5em](4)
+    \task $P(M)$
+    \task $P(T)$
+    \task $P_M(T)$
+    \task $P(M\cap\overline{T})$
+  \end{tasks}
+  \item Le test du patient est positif. Quelle est la probabilité qu'il soit malade~?
+  \item Décrire par une phrase l'événement $M\cup T$, puis calculer sa probabilité.
+  \item Le test se trompe lorsqu'il est positif pour un patient non malade, ou négatif pour un patient malade. \\
+  \textbf{Vrai ou faux~?} \og La probabilité que le test se trompe est inférieure à $15\,\%$.\fg{} Justifier.
+\end{enumerate}
+
+\exercice{3}{Construire un tableau croisé}{5}
+Un hôpital interroge 100 agents sur leur horaire de travail et leur vaccination contre la grippe. Les résultats sont les suivants~:
+\begin{multicols}{2}
+\begin{itemize}[label=$\bullet$]
+  \item 40 agents de jour sont vaccinés~;
+  \item 10 agents de nuit sont vaccinés~;
+  \item 20 agents de nuit ne sont pas vaccinés~;
+  \item 30 agents de jour ne sont pas vaccinés.
+\end{itemize}
+\end{multicols}
+\begin{enumerate}
+  \item Construire un tableau croisé d'effectifs correspondant à la situation. \\
+  \textit{Aide~: on mettra en lignes l'horaire de travail (jour ou nuit) et en colonnes la vaccination.}
+  \item Quelle est la proportion d'agents non vaccinés~?
+  \item Calculer le pourcentage d'agents de nuit parmi les agents vaccinés.
+\end{enumerate}
+
+\end{document}

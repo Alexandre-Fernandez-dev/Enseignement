@@ -1,0 +1,113 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=1.7cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{makecell}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exercice{numéro}{titre}{barème}
+\newcommand{\exercice}[3]{%
+  \vspace{0.15em}
+  \noindent\exobox{Exercice #1 --- #2 \hfill (#3 points)}\par
+  \vspace{0.15em}
+}
+
+\pagestyle{empty}
+\setlist{topsep=2pt, itemsep=3pt, parsep=0pt}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+
+% Barème détaillé indiqué entre crochets
+\newcommand{\pts}[1]{\hfill\textcolor{titrebleu}{\small[#1]}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Corrigé --- Tableaux croisés et probabilités conditionnelles}\\[0.4em]
+  {\itshape 1\textsuperscript{ère} ST2S \quad $\bullet$ \quad Contrôle de rattrapage de 55 minutes}
+\end{center}
+
+% ================= Exercice 1 =================
+\exercice{1}{Automatismes}{6}
+\begin{enumerate}
+  \item L'augmentation est de $10-8=2$~euros, soit $\dfrac{2}{8}=0{,}25=25\,\%$ du prix de départ. Réponse \textbf{B}. \pts{2 : 1 pour le calcul, 1 pour la réponse}
+  \item $-6x+4=-17 \iff -6x=-17-4 \iff -6x=-21 \iff x=\dfrac{-21}{-6}=\dfrac{7}{2}=\mathbf{3{,}5}$. \pts{2 : 1 pour les étapes, 1 pour le résultat}
+  \item $1-\dfrac{1}{4}=\dfrac{4}{4}-\dfrac{1}{4}=\dfrac{3}{4}$, donc $A=\dfrac{3}{\frac{3}{4}}=3\times\dfrac{4}{3}=\mathbf{4}$. \pts{2 : 1 pour $\frac{3}{4}$, 1 pour le résultat}
+\end{enumerate}
+
+% ================= Exercice 2 =================
+\exercice{2}{Test de dépistage}{9}
+\begin{enumerate}
+  \item $80\,\%$ de $50$~: $0{,}8\times 50=40$ patients sont malades avec un test positif. \pts{2 : 1 pour le 40, 1 pour les autres cases}
+
+  Puis $50-40=10$~; $50-40=10$~; $200-50=150$~; $150-10=140$~; $200-50=150$.
+  \begin{center}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+   & Patient malade & Patient non malade & Total \\ \hline
+  Test positif & \textbf{40} & \textbf{10} & 50 \\ \hline
+  Test négatif & \textbf{10} & \textbf{140} & \textbf{150} \\ \hline
+  Total & 50 & \textbf{150} & 200 \\ \hline
+  \end{tabular}
+  \end{center}
+  \item \pts{2 : 0,5 par probabilité}
+  \begin{enumerate}[label=\alph*)]
+    \item $P(M)=\dfrac{50}{200}=0{,}25=\mathbf{25\,\%}$.
+    \item $P(T)=\dfrac{50}{200}=0{,}25=\mathbf{25\,\%}$.
+    \item $P_M(T)$ est la probabilité que le test soit positif sachant que le patient est malade. Parmi les $50$ patients malades, $40$ ont un test positif~: $P_M(T)=\dfrac{40}{50}=0{,}8=\mathbf{80\,\%}$.
+    \item $M\cap\overline{T}$~: \og le patient est malade \textbf{et} son test est négatif\fg{}. Il y a $10$ patients concernés~: $P(M\cap\overline{T})=\dfrac{10}{200}=0{,}05=\mathbf{5\,\%}$.
+  \end{enumerate}
+  \item On cherche $P_T(M)$. Parmi les $50$ patients au test positif, $40$ sont malades~: \pts{1}
+
+  $P_T(M)=\dfrac{40}{50}=0{,}8=\mathbf{80\,\%}$.
+  \item $M\cup T$~: \og le patient est malade \textbf{ou} son test est positif\fg{}. \pts{2 : 1 pour la phrase, 1 pour le calcul}
+
+  On ne compte qu'une fois les $40$ patients malades au test positif~:
+
+  $P(M\cup T)=\dfrac{50+50-40}{200}=\dfrac{60}{200}=0{,}3=\mathbf{30\,\%}$.
+  \item Le test se trompe pour $10$ patients non malades au test positif et $10$ patients malades au test négatif~: \pts{2 : 1 pour le calcul, 1 pour la conclusion}
+
+  $\dfrac{10+10}{200}=\dfrac{20}{200}=0{,}1=10\,\%$. Comme $10\,\%<15\,\%$, l'affirmation est \textbf{vraie}.
+\end{enumerate}
+
+% ================= Exercice 3 =================
+\exercice{3}{Construire un tableau croisé}{5}
+\begin{enumerate}
+  \item On complète les totaux par additions. \pts{3 : 1 pour les données bien placées, 0,5 par total}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+   & Vacciné & Non vacciné & Total \\ \hline
+  Jour & 40 & 30 & \textbf{70} \\ \hline
+  Nuit & 10 & 20 & \textbf{30} \\ \hline
+  Total & \textbf{50} & \textbf{50} & 100 \\ \hline
+  \end{tabular}
+  \end{center}
+  \item $\dfrac{50}{100}=0{,}5=\mathbf{50\,\%}$ des agents ne sont pas vaccinés. \pts{1}
+  \item Parmi les $50$ agents vaccinés, $10$ travaillent de nuit~: \pts{1}
+
+  $\dfrac{10}{50}=\dfrac{1}{5}=0{,}2=\mathbf{20\,\%}$.
+\end{enumerate}
+
+\end{document}
