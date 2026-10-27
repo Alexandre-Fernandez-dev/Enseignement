@@ -1,0 +1,123 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+
+\setlength{\parindent}{0cm}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\newcommand{\rep}[1]{\textcolor{blue!70!black}{#1}}
+
+% Courbe de la température au cours de la journée, avec un dessin en argument
+\newcommand{\courbeT}[1]{%
+  \begin{tikzpicture}[x=0.58cm, y=0.32cm]
+    \draw[gray!25, very thin, xstep=1, ystep=1] (0,0) grid (24.5,16.5);
+    \draw[gray!60, thin, xstep=2, ystep=2] (0,0) grid (24.5,16.5);
+    \draw[-{Latex[length=2mm]}] (0,0) -- (25.3,0) node[right] {heure (h)};
+    \draw[-{Latex[length=2mm]}] (0,0) -- (0,17.3) node[above] {température (°C)};
+    \foreach \x in {2,4,...,24} \node[below] at (\x,0) {\small $\x$};
+    \foreach \y in {2,4,...,16} \node[left] at (0,\y) {\small $\y$};
+    \node[below left] at (0,0) {\small $0$};
+    \draw[very thick] plot[smooth, tension=0.6] coordinates
+      {(0,6) (3,4) (6,2) (8,6) (10,10) (12,13) (14,14) (16,13) (18,10) (21,8) (24,6)};
+    #1
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{\Niveau}}
+\fancyhead[C]{\textbf{\ChapitreCourt}}
+\fancyhead[R]{\textbf{\Document\ -- Correction}}
+
+\large
+
+\begin{center}
+  {\Large\bfseries Correction : fonctions du quotidien}
+\end{center}
+
+% =====================================================
+\subsection*{Partie A : la température au cours d'une journée}
+
+Une station météo a enregistré la température à Lyon le 2 novembre, de 0 h à 24 h.
+
+\begin{center}
+  \courbeT{
+    \draw[dashed, red!70!black] (0,10) -- (18,10) (10,0) -- (10,10) (18,0) -- (18,10);
+    \draw[line width=2.5pt, red!70!black] (10,0) -- (18,0);
+    \draw[dashed, blue!70!black] (0,6) -- (24,6) (8,0) -- (8,6);
+  }
+\end{center}
+
+\begin{enumerate}
+  \item Quelle était la température à 6 h~? À 14 h~? À 18 h~?
+
+  \rep{À 6 h : $2$~°C. \quad À 14 h : $14$~°C. \quad À 18 h : $10$~°C.}
+
+  \item À quelle(s) heure(s) faisait-il $10$~°C~? Et $6$~°C~?
+
+  \rep{$10$~°C à 10 h et à 18 h. \quad $6$~°C à 0 h, à 8 h et à 24 h.}
+
+  \item A-t-il fait $16$~°C ce jour-là~? \rep{Non : la température maximale est $14$~°C.}
+
+  \item Peut-on lire sur ce graphique la température à 26 h~? Pourquoi~? \rep{Non : le graphique ne va que de 0 h à 24 h.}
+
+  \item Pendant quelle période de la journée la température était-elle supérieure ou égale à $10$~°C~? \rep{De 10 h à 18 h, soit $x \in [10\,;\,18]$.}
+\end{enumerate}
+
+\begin{tcolorbox}[colback=white, colframe=black, title=Vocabulaire]
+  À chaque heure $x$ de l'intervalle $[0\,;\,24]$, la courbe associe \textbf{une seule} température, notée $T(x)$ : on dit que $T$ est une \textbf{fonction}. L'intervalle $[0\,;\,24]$ est son \textbf{ensemble de définition}.
+
+  Comme $T(6) = 2$, on dit que $2$ est \textbf{l'image} de $6$ par $T$, et que $6$ est \textbf{un antécédent} de $2$ par $T$.
+\end{tcolorbox}
+
+\begin{enumerate}[resume]
+  \item Compléter : \quad $T(14) = \rep{14}$ \qquad $T(\rep{6}) = 2$ \qquad Les antécédents de $6$ par $T$ sont \rep{$0$, $8$ et $24$}.
+\end{enumerate}
+
+% =====================================================
+\subsection*{Partie B : l'abonnement au club de sport}
+
+Un club de sport fait payer une carte de membre à $10$~€, puis $4$~€ par séance. On note $f(x)$ le prix payé, en euros, pour $x$ séances.
+
+\begin{enumerate}[resume]
+  \item Compléter le tableau de valeurs.
+
+  \medskip
+  \begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|C{4.2cm}|*{6}{C{1.4cm}|}}
+      \hline
+      Nombre de séances $x$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\ \hline
+      Prix $f(x)$ (en €) & \rep{$10$} & \rep{$14$} & \rep{$18$} & \rep{$22$} & \rep{$26$} & \rep{$30$} \\ \hline
+    \end{tabular}
+  \end{center}
+
+  \item Exprimer $f(x)$ en fonction de $x$. \rep{$f(x) = 4x + 10$}
+
+  \item Calculer $f(8)$. Que représente ce nombre~? \rep{$f(8) = 4 \times 8 + 10 = 42$ : le prix de 8 séances est $42$~€.}
+
+  \item Léa a payé $50$~€. Combien de séances a-t-elle faites~? Quel est donc l'antécédent de $50$ par $f$~?
+
+  \rep{$4x + 10 = 50 \iff 4x = 40 \iff x = 10$. Léa a fait $10$ séances : l'antécédent de $50$ par $f$ est $10$.}
+\end{enumerate}
+
+\end{document}

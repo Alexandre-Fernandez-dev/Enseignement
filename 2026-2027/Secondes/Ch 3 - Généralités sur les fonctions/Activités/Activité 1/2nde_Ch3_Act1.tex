@@ -1,0 +1,119 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+
+\setlength{\parindent}{0cm}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Courbe de la température au cours de la journée, avec un dessin en argument
+\newcommand{\courbeT}[1]{%
+  \begin{tikzpicture}[x=0.58cm, y=0.32cm]
+    \draw[gray!25, very thin, xstep=1, ystep=1] (0,0) grid (24.5,16.5);
+    \draw[gray!60, thin, xstep=2, ystep=2] (0,0) grid (24.5,16.5);
+    \draw[-{Latex[length=2mm]}] (0,0) -- (25.3,0) node[right] {heure (h)};
+    \draw[-{Latex[length=2mm]}] (0,0) -- (0,17.3) node[above] {température (°C)};
+    \foreach \x in {2,4,...,24} \node[below] at (\x,0) {\small $\x$};
+    \foreach \y in {2,4,...,16} \node[left] at (0,\y) {\small $\y$};
+    \node[below left] at (0,0) {\small $0$};
+    \draw[very thick] plot[smooth, tension=0.6] coordinates
+      {(0,6) (3,4) (6,2) (8,6) (10,10) (12,13) (14,14) (16,13) (18,10) (21,8) (24,6)};
+    #1
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{\Niveau}}
+\fancyhead[C]{\textbf{\ChapitreCourt}}
+\fancyhead[R]{\textbf{\Document}}
+
+\large
+
+\begin{center}
+  {\Large\bfseries Activité d'introduction : fonctions du quotidien}
+\end{center}
+
+% =====================================================
+\subsection*{Partie A : la température au cours d'une journée}
+
+Une station météo a enregistré la température à Lyon le 2 novembre, de 0 h à 24 h.
+
+\begin{center}
+  \courbeT{}
+\end{center}
+
+\begin{enumerate}
+  \item Quelle était la température à 6 h~? À 14 h~? À 18 h~?
+
+  \medskip
+  \dotfill
+
+  \item À quelle(s) heure(s) faisait-il $10$~°C~? Et $6$~°C~?
+
+  \medskip
+  \dotfill
+
+  \item A-t-il fait $16$~°C ce jour-là~? \dotfill
+
+  \item Peut-on lire sur ce graphique la température à 26 h~? Pourquoi~? \dotfill
+
+  \item Pendant quelle période de la journée la température était-elle supérieure ou égale à $10$~°C~? \dotfill
+\end{enumerate}
+
+\begin{tcolorbox}[colback=white, colframe=black, title=Vocabulaire]
+  À chaque heure $x$ de l'intervalle $[0\,;\,24]$, la courbe associe \textbf{une seule} température, notée $T(x)$ : on dit que $T$ est une \textbf{fonction}. L'intervalle $[0\,;\,24]$ est son \textbf{ensemble de définition}.
+
+  Comme $T(6) = 2$, on dit que $2$ est \textbf{l'image} de $6$ par $T$, et que $6$ est \textbf{un antécédent} de $2$ par $T$.
+\end{tcolorbox}
+
+\begin{enumerate}[resume]
+  \item Compléter : \quad $T(14) = \dots$ \qquad $T(\dots) = 2$ \qquad Les antécédents de $6$ par $T$ sont \dots\dots\dots
+\end{enumerate}
+
+% =====================================================
+\subsection*{Partie B : l'abonnement au club de sport}
+
+Un club de sport fait payer une carte de membre à $10$~€, puis $4$~€ par séance. On note $f(x)$ le prix payé, en euros, pour $x$ séances.
+
+\begin{enumerate}[resume]
+  \item Compléter le tableau de valeurs.
+
+  \medskip
+  \begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{|C{4.2cm}|*{6}{C{1.4cm}|}}
+      \hline
+      Nombre de séances $x$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\ \hline
+      Prix $f(x)$ (en €) & & & & & & \\ \hline
+    \end{tabular}
+  \end{center}
+
+  \item Exprimer $f(x)$ en fonction de $x$. \dotfill
+
+  \item Calculer $f(8)$. Que représente ce nombre~? \dotfill
+
+  \item Léa a payé $50$~€. Combien de séances a-t-elle faites~? Quel est donc l'antécédent de $50$ par $f$~?
+
+  \medskip
+  \dotfill
+\end{enumerate}
+
+\end{document}

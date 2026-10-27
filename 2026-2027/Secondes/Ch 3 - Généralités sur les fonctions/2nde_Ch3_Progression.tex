@@ -1,0 +1,97 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+Au cycle 4, les élèves ont découvert la notion de fonction et ses différents modes de représentation : expression algébrique, tableau de valeurs, représentation graphique, programme de calcul. Ils connaissent le vocabulaire de base : variable, fonction, image, antécédent et la notation $f(x)$. En seconde, on consolide la notion de fonction, comme exprimant la dépendance d'une variable par rapport à une autre, en passant d'un registre à l'autre (algébrique et graphique).
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Cycle 4 : notion de fonction, image, antécédent, notation $f(x)$.
+    \item Calcul d'une expression littérale pour une valeur donnée (priorités, nombres relatifs).
+    \item Coordonnées d'un point dans un repère.
+    \item Chapitre 2 : intervalles, réunion d'intervalles.
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenu}
+    \begin{itemize}
+        \item Fonction à valeurs réelles définie sur un intervalle ou une réunion finie d'intervalles de $\mathbb{R}$. Ensemble de définition.
+        \item Image, antécédent. Fonction donnée par un tableau de valeurs, une formule, une courbe.
+        \item Courbe représentative : la courbe d'équation $y = f(x)$ est l'ensemble des points du plan dont les coordonnées $(x\,;\,y)$ vérifient $y = f(x)$.
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Calculer une image à partir d'une formule ; lire une image et des antécédents sur un tableau ou une courbe.
+    \item Exploiter l'équation $y = f(x)$ d'une courbe : appartenance d'un point, calcul de coordonnées.
+    \item Résoudre graphiquement une équation ou une inéquation du type $f(x) = k$, $f(x) < k$.
+    \item Résoudre graphiquement une équation ou une inéquation du type $f(x) = g(x)$, $f(x) < g(x)$.
+    \item Modéliser par des fonctions des situations issues des mathématiques (problèmes d'aires) ou de la vie courante.
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Notions reportées}
+    \begin{itemize}
+        \item Signe d'une fonction, tableau de signes, variations et extremums : chapitre \og Fonctions : variations et signes \fg{} (décembre).
+        \item Fonctions de référence, parité : au fil de l'année.
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Histoire des mathématiques}
+    \begin{itemize}
+        \item La lente élaboration de la notion de fonction : Newton, Leibniz, Euler, jusqu'à la définition de Dirichlet ; importance de la notation $f(x)$.
+    \end{itemize}
+\end{paragraph}
+
+\end{document}
