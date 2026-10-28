@@ -27,7 +27,7 @@
 
 % Courbe de la température au cours de la journée, avec un dessin en argument
 \newcommand{\courbeT}[1]{%
-  \begin{tikzpicture}[x=0.58cm, y=0.32cm]
+  \begin{tikzpicture}[x=0.55cm, y=0.27cm]
     \draw[gray!25, very thin, xstep=1, ystep=1] (0,0) grid (24.5,16.5);
     \draw[gray!60, thin, xstep=2, ystep=2] (0,0) grid (24.5,16.5);
     \draw[-{Latex[length=2mm]}] (0,0) -- (25.3,0) node[right] {heure (h)};
@@ -48,7 +48,7 @@
 \fancyhead[C]{\textbf{\ChapitreCourt}}
 \fancyhead[R]{\textbf{\Document\ -- Correction}}
 
-\large
+\normalsize
 
 \begin{center}
   {\Large\bfseries Correction : fonctions du quotidien}
@@ -101,9 +101,8 @@ Un club de sport fait payer une carte de membre à $10$~€, puis $4$~€ par s�
 \begin{enumerate}[resume]
   \item Compléter le tableau de valeurs.
 
-  \medskip
   \begin{center}
-    \renewcommand{\arraystretch}{1.6}
+    \renewcommand{\arraystretch}{1.3}
     \begin{tabular}{|C{4.2cm}|*{6}{C{1.4cm}|}}
       \hline
       Nombre de séances $x$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\ \hline

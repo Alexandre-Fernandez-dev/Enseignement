@@ -15,6 +15,7 @@
 \usepackage{lastpage}
 \usepackage{array}
 \settasks{label=\alph*.}
+\setlength{\parindent}{0pt}
 
 \pagestyle{empty}
 \input{def.tex}
@@ -31,14 +32,14 @@
 % ---------- Repères et courbes ----------
 % Quadrillage + axes : \axes{xmin}{xmax}{ymin}{ymax}
 \newcommand{\axes}[4]{%
-  \draw[gray!35, very thin] (#1,#3) grid (#2,#4);
+  \draw[gray!35, very thin, step=1] (#1,#3) grid (#2,#4);
   \draw[-{Latex[length=2mm]}] (#1,0) -- (#2+0.4,0);
   \draw[-{Latex[length=2mm]}] (0,#3) -- (0,#4+0.4);
 }
 
 % Exercices 1 et 6 : fonction f définie sur [-7 ; 7]
 \newcommand{\repereUn}[1]{%
-  \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+  \begin{tikzpicture}[x=0.55cm, y=0.55cm]
     \axes{-7}{7}{-5}{5}
     \foreach \x in {-7,...,-1,1,2,...,7} \node[below] at (\x,0) {\scriptsize $\x$};
     \foreach \y in {-5,...,-1,1,2,...,5} \node[left] at (0,\y) {\scriptsize $\y$};
@@ -51,7 +52,7 @@
 
 % Exercice 3 : repère vide de -4 à 5
 \newcommand{\repereVide}[1]{%
-  \begin{tikzpicture}[x=0.75cm, y=0.75cm]
+  \begin{tikzpicture}[x=0.6cm, y=0.6cm]
     \axes{-4}{5}{-4}{5}
     \foreach \x in {-4,...,-1,1,2,...,5} \node[below] at (\x,0) {\scriptsize $\x$};
     \foreach \y in {-4,...,-1,1,2,...,5} \node[left] at (0,\y) {\scriptsize $\y$};
@@ -62,9 +63,9 @@
 
 % Exercice 5 : solde du compte (unité en ordonnée : 100 €)
 \newcommand{\repereBanque}[1]{%
-  \begin{tikzpicture}[x=1cm, y=0.6cm]
-    \draw[gray!35, very thin] (0,-2) grid (12,6);
-    \draw[-{Latex[length=2mm]}] (0,0) -- (12.5,0) node[right] {mois};
+  \begin{tikzpicture}[x=1cm, y=0.5cm]
+    \draw[gray!35, very thin, step=1] (0,-2) grid (12,6);
+    \draw[-{Latex[length=2mm]}] (0,0) -- (12.5,0) node[above left] {\scriptsize mois};
     \draw[-{Latex[length=2mm]}] (0,-2) -- (0,6.4) node[above] {solde (€)};
     \foreach \x in {1,...,12} \node[below] at (\x,0) {\scriptsize $\x$};
     \foreach \y/\l in {-2/-200,-1/-100,1/100,2/200,3/300,4/400,5/500,6/600} \node[left] at (0,\y) {\scriptsize $\l$};
@@ -84,7 +85,7 @@
     \begin{scope}
       \clip (-3,-7) rectangle (5,10);
       \draw[very thick, domain=-3:5, samples=80, smooth] plot (\x, {-\x*\x+2*\x+8});
-      \draw[very thick, dashed, domain=1.1:5, samples=80, smooth] plot (\x, {3*(\x-3)*(\x-3)-3});
+      \draw[very thick, dashed, domain=0.8:5, samples=80, smooth] plot (\x, {3*(\x-3)*(\x-3)-3});
     \end{scope}
     \node at (-1.3,4.5) {$\mathcal{C}_f$};
     \node at (4.6,7) {$\mathcal{C}_g$};
@@ -94,16 +95,16 @@
 
 % Exercice 8 : tarifs de location (A : 5x ; B : 15 + 2x)
 \newcommand{\repereVelo}[1]{%
-  \begin{tikzpicture}[x=1.2cm, y=0.13cm]
+  \begin{tikzpicture}[x=0.8cm, y=0.1cm]
     \draw[gray!20, very thin, xstep=0.5, ystep=2.5] (0,0) grid (10,50);
     \draw[gray!45, very thin, xstep=1, ystep=5] (0,0) grid (10,50);
-    \draw[-{Latex[length=2mm]}] (0,0) -- (10.5,0) node[right] {durée (h)};
+    \draw[-{Latex[length=2mm]}] (0,0) -- (10.5,0) node[above left] {\scriptsize durée (h)};
     \draw[-{Latex[length=2mm]}] (0,0) -- (0,53) node[above] {prix (€)};
     \foreach \x in {1,...,10} \node[below] at (\x,0) {\scriptsize $\x$};
     \foreach \y in {5,10,...,50} \node[left] at (0,\y) {\scriptsize $\y$};
     \node[below left] at (0,0) {\scriptsize $0$};
-    \draw[very thick] (0,0) -- (10,50) node[pos=0.88, left] {tarif A};
-    \draw[very thick, dashed] (0,15) -- (10,35) node[pos=0.9, below right] {tarif B};
+    \draw[very thick] (0,0) -- (10,50) node[pos=0.85, left] {A};
+    \draw[very thick, dashed] (0,15) -- (10,35) node[pos=0.95, below] {B};
     #1
   \end{tikzpicture}%
 }
@@ -118,7 +119,7 @@
   \end{tikzpicture}%
 }
 \newcommand{\repereRect}[1]{%
-  \begin{tikzpicture}[x=2.6cm, y=0.5cm]
+  \begin{tikzpicture}[x=1.7cm, y=0.42cm]
     \draw[gray!20, very thin, xstep=0.25, ystep=0.5] (0,0) grid (4,9);
     \draw[gray!45, very thin, xstep=0.5, ystep=1] (0,0) grid (4,9);
     \draw[-{Latex[length=2mm]}] (0,0) -- (4.2,0) node[right] {$x$};
@@ -133,7 +134,7 @@
 
 % Exercice 10 : rectangle ABCD (AB = 6, AD = 14), x = 2
 \newcommand{\rectABCD}{%
-  \begin{tikzpicture}[scale=0.55]
+  \begin{tikzpicture}[scale=0.42]
     \fill[pattern=north east lines] (0,0) rectangle (2,2);
     \fill[pattern=north east lines] (2,2) rectangle (14,6);
     \draw[very thick] (0,0) node[below left] {$A$} rectangle (14,6);
@@ -148,7 +149,7 @@
   \end{tikzpicture}%
 }
 \newcommand{\repereABCD}[1]{%
-  \begin{tikzpicture}[x=2cm, y=0.07cm]
+  \begin{tikzpicture}[x=1.25cm, y=0.05cm]
     \draw[gray!20, very thin, xstep=0.25, ystep=2] (0,0) grid (6,90);
     \draw[gray!45, very thin, xstep=0.5, ystep=10] (0,0) grid (6,90);
     \draw[-{Latex[length=2mm]}] (0,0) -- (6.3,0) node[right] {$x$};
@@ -164,11 +165,11 @@
 
 % Exercice 11 : bénéfice B(x) = -2x^2 + 26x - 60 sur [3 ; 10]
 \newcommand{\repereBallon}[1]{%
-  \begin{tikzpicture}[x=1.15cm, y=0.2cm]
+  \begin{tikzpicture}[x=0.72cm, y=0.15cm]
     \draw[gray!20, very thin, xstep=0.5, ystep=1] (0,0) grid (11,30);
     \draw[gray!45, very thin, xstep=1, ystep=5] (0,0) grid (11,30);
-    \draw[-{Latex[length=2mm]}] (0,0) -- (11.4,0) node[right] {prix (€)};
-    \draw[-{Latex[length=2mm]}] (0,0) -- (0,31.5) node[above] {bénéfice (milliers d'€)};
+    \draw[-{Latex[length=2mm]}] (0,0) -- (11.4,0) node[above left] {\scriptsize prix (€)};
+    \draw[-{Latex[length=2mm]}] (0,0) -- (0,31.5) node[above right] {\scriptsize bénéfice (milliers d'€)};
     \foreach \x in {1,...,11} \node[below] at (\x,0) {\scriptsize $\x$};
     \foreach \y in {5,10,...,30} \node[left] at (0,\y) {\scriptsize $\y$};
     \node[below left] at (0,0) {\scriptsize $0$};
@@ -189,27 +190,32 @@
 
 % =====================================================
 \begin{exercice}{1}
-On a représenté ci-dessous une fonction $f$.
-
+\begin{minipage}{0.47\linewidth}
+On a représenté ci-contre une fonction $f$.
+\begin{enumerate}[label=\arabic*.]
+  \item Quel est l'ensemble de définition de $f$~?
+  \item Déterminer $f(-5)$, $f(2)$ et $f(6)$.
+  \item Déterminer les antécédents de $0$, $5$ et $-3$.
+  \item Le nombre $-4$ a-t-il des antécédents~?
+  \item Compléter le tableau de valeurs.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
 \begin{center}
 \repereUn{}
 \end{center}
+\end{minipage}
 
-\begin{enumerate}[label=\arabic*.]
-  \item Quel est l'ensemble de définition de $f$~?
-  \item Déterminer les images par $f$ de $-5$, de $2$ et de $6$. Compléter : $f(-5) = \dots$ \quad $f(2) = \dots$ \quad $f(6) = \dots$
-  \item Déterminer les antécédents par $f$ de $0$, de $5$ et de $-3$.
-  \item Le nombre $-4$ a-t-il des antécédents par $f$~?
-  \item Compléter le tableau de valeurs.
-
-  \medskip
-  \renewcommand{\arraystretch}{1.5}
-  \begin{tabular}{|c|*{6}{C{1.3cm}|}}
-    \hline
-    $x$ & $-7$ & $-3$ & $-1$ & $7$ & & \\ \hline
-    $f(x)$ & & & & & $3$ & $0$ \\ \hline
-  \end{tabular}
-\end{enumerate}
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{6}{C{1.5cm}|}}
+  \hline
+  $x$ & $-7$ & $-3$ & $-1$ & $7$ & & \\ \hline
+  $f(x)$ & & & & & $3$ & $0$ \\ \hline
+\end{tabular}
+\end{center}
 \end{exercice}
 
 % =====================================================
@@ -218,13 +224,13 @@ On a représenté ci-dessous une fonction $f$.
   \item Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = 3x - 5$.
   \begin{tasks}(2)
     \task Calculer $f(2)$, $f(-1)$, $f(0)$ et $f\left(\dfrac{1}{3}\right)$.
-    \task Déterminer l'antécédent de $7$ par $f$, puis celui de $0$.
+    \task Trouver l'antécédent de $7$, puis celui de $0$.
   \end{tasks}
   \item Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = x^2 - 4$.
   \begin{tasks}(2)
     \task Calculer $g(-3)$, $g(0)$ et $g\left(\dfrac{1}{2}\right)$.
     \task Déterminer les antécédents de $0$ par $g$.
-    \task Le nombre $-5$ a-t-il des antécédents par $g$~? Justifier.
+    \task Le nombre $-5$ a-t-il des antécédents~? Justifier.
   \end{tasks}
 \end{enumerate}
 \end{exercice}
@@ -242,13 +248,21 @@ On étudie la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = 0{,}5x^2 - 0{,}
     $x$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ \\ \hline
     $f(x)$ & & & & & & & & \\ \hline
   \end{tabular}
-  \Needspace{9cm}\item Placer les points dans le repère ci-dessous, puis tracer la courbe de $f$ à main levée.
-
-  \begin{center}
-  \repereVide{}
-  \end{center}
-  \item Le point $A(1\,;\,-3)$ appartient-il à la courbe de $f$~? Et le point $B(5\,;\,6)$~? Justifier par un calcul.
 \end{enumerate}
+
+\begin{minipage}{0.53\linewidth}
+\begin{enumerate}[label=\arabic*., start=2]
+  \item Placer les points dans le repère ci-contre, puis tracer la courbe de $f$ à main levée.
+  \item $A(1\,;\,-3)$ appartient-il à la courbe de $f$~?
+  \item Même question pour $B(5\,;\,6)$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\repereVide{}
+\end{center}
+\end{minipage}
 \end{exercice}
 
 % =====================================================
@@ -263,7 +277,9 @@ Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = 2x^2 - 3x + 1$, et $\
 
 % =====================================================
 \begin{exercice}{5}
-Elias consulte son compte bancaire. Le graphique ci-dessous représente le solde de son compte (l'argent disponible) au cours de l'année : $x$ est le nombre de mois écoulés depuis le 1\textsuperscript{er} janvier.
+Elias consulte son compte bancaire. Le graphique représente le solde de son compte au cours de l'année.
+
+Ici, $x$ est le nombre de mois écoulés depuis le 1\textsuperscript{er} janvier.
 
 \begin{center}
 \repereBanque{}
@@ -289,7 +305,7 @@ On reprend la fonction $f$ de l'exercice 1.
     \task $f(x) = 5$
     \task $f(x) = -4$
   \end{tasks}
-  \item Résoudre graphiquement les inéquations suivantes. Donner les solutions sous la forme d'un intervalle ou d'une réunion d'intervalles.
+  \item Résoudre graphiquement les inéquations suivantes (réponses sous forme d'intervalles).
   \begin{tasks}(4)
     \task $f(x) < 0$
     \task $f(x) \geqslant 0$
@@ -303,8 +319,11 @@ On reprend la fonction $f$ de l'exercice 1.
 % =====================================================
 \begin{exercice}{7}
 \begin{minipage}{0.45\linewidth}
-On a tracé les courbes de deux fonctions $f$ et $g$ définies sur $[-3\,;\,5]$.
+Voici les courbes de deux fonctions $f$ et $g$.
 
+Elles sont définies sur $[-3\,;\,5]$.
+
+\medskip
 Résoudre graphiquement :
 \begin{enumerate}[label=\arabic*.]
   \item $f(x) = g(x)$
@@ -326,28 +345,39 @@ Résoudre graphiquement :
 
 % =====================================================
 \begin{exercice}{8}
-On reprend la location de vélos de la fiche calcul : le prix d'une location de $x$ heures ($0 \leqslant x \leqslant 10$) est de $5x$ euros avec le tarif A, et de $15 + 2x$ euros avec le tarif B. On a représenté ces deux tarifs ci-dessous.
+On reprend la location de vélos de la fiche calcul, pour une durée de $x$ heures ($0 \leqslant x \leqslant 10$).
+
+Le prix est de $5x$ euros avec le tarif A, et de $15 + 2x$ euros avec le tarif B.
 
 \begin{center}
 \repereVelo{}
 \end{center}
 
 Répondre aux questions \textbf{à l'aide du graphique}.
-\begin{enumerate}[label=\arabic*.]
-  \item Quel est le prix d'une location de 4 heures avec chaque tarif~?
-  \item Pour quelle durée les deux tarifs sont-ils égaux~?
-  \item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~?
-  \item Avec un budget de $30$~€, combien de temps peut-on louer un vélo avec le tarif A~? Avec le tarif B~?
-\end{enumerate}
+\begin{tasks}[label=\arabic*.](2)
+  \task Prix de 4 heures avec chaque tarif~?
+  \task Durée pour laquelle les tarifs sont égaux~?
+  \task Durées où B est strictement moins cher~?
+  \task Avec $30$~€, durée maximale avec chaque tarif~?
+\end{tasks}
 \end{exercice}
 
 % =====================================================
 \begin{exercice}{9}
-\begin{minipage}{0.58\linewidth}
-$ABC$ est un triangle rectangle en $A$ avec $AB = 4$~cm et $AC = 8$~cm. On place un point $M$ sur $[AB]$, puis $N$ sur $[BC]$ et $P$ sur $[AC]$ de sorte que $AMNP$ soit un rectangle. On note $x = AM$ et $f(x)$ l'aire du rectangle $AMNP$, en cm$^2$.
+\begin{minipage}{0.6\linewidth}
+$ABC$ est rectangle en $A$, avec $AB = 4$~cm et $AC = 8$~cm.
+
+\smallskip
+On place $M$ sur $[AB]$, $N$ sur $[BC]$ et $P$ sur $[AC]$.
+
+\smallskip
+Le quadrilatère $AMNP$ est un rectangle.
+
+\smallskip
+On note $x = AM$ et $f(x)$ l'aire du rectangle $AMNP$, en cm$^2$.
 \end{minipage}
 \hfill
-\begin{minipage}{0.38\linewidth}
+\begin{minipage}{0.36\linewidth}
 \begin{center}
 \triangleABC
 \end{center}
@@ -357,7 +387,10 @@ $ABC$ est un triangle rectangle en $A$ avec $AB = 4$~cm et $AC = 8$~cm. On place
   \item Quel est l'ensemble de définition de $f$~?
   \item On admet que $MN = 8 - 2x$. Montrer que $f(x) = x(8 - 2x)$.
   \item Calculer $f(1)$ et $f(1{,}5)$.
-  \item On a tracé la courbe de $f$ ci-dessous. Répondre aux questions à l'aide du graphique.
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=4]
+  \item On a tracé ci-dessous la courbe de $f$. Répondre à l'aide du graphique.
 
   \begin{center}
   \repereRect{}
@@ -365,24 +398,35 @@ $ABC$ est un triangle rectangle en $A$ avec $AB = 4$~cm et $AC = 8$~cm. On place
 
   \begin{enumerate}[label=\alph*.]
     \item Pour quelles valeurs de $x$ l'aire vaut-elle $6$~cm$^2$~?
-    \item Pour quelles valeurs de $x$ l'aire est-elle supérieure ou égale à $6$~cm$^2$~?
-    \item Où faut-il placer $M$ pour que l'aire soit la plus grande possible~? Que vaut-elle alors~?
+    \item Pour quelles valeurs de $x$ l'aire est-elle d'au moins $6$~cm$^2$~?
+    \item Où placer $M$ pour que l'aire soit la plus grande possible~? Que vaut-elle alors~?
   \end{enumerate}
   \item (Pour aller plus loin) Démontrer que $MN = 8 - 2x$ à l'aide du théorème de Thalès.
 \end{enumerate}
 \end{exercice}
 
 % =====================================================
+\newpage
 \begin{exercice}{10}
-$ABCD$ est un rectangle tel que $AB = 6$ et $AD = 14$. $M$ est un point du segment $[AB]$. On construit le carré $AMNP$ et le rectangle $NICJ$ comme sur la figure. On pose $AM = x$ et on note :
+\begin{minipage}{0.57\linewidth}
+$ABCD$ est un rectangle tel que $AB = 6$ et $AD = 14$.
+
+$M$ est un point du segment $[AB]$.
+
+On construit le carré $AMNP$ et le rectangle $NICJ$.
+
+On pose $AM = x$ et on note :
 \begin{itemize}
   \item $f(x)$ l'aire de la partie hachurée ;
   \item $g(x)$ l'aire de la partie non hachurée.
 \end{itemize}
-
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
 \begin{center}
 \rectABCD
 \end{center}
+\end{minipage}
 
 \begin{enumerate}[label=\arabic*.]
   \item Dans quel intervalle varie $x$~?
@@ -390,22 +434,28 @@ $ABCD$ est un rectangle tel que $AB = 6$ et $AD = 14$. $M$ est un point du segme
     \item Exprimer $NI$ et $NJ$ en fonction de $x$, puis montrer que $f(x) = 2x^2 - 20x + 84$.
     \item En déduire que $g(x) = -2x^2 + 20x$.
   \end{enumerate}
-  \item On a tracé ci-dessous les courbes de $f$ et de $g$. Quelle courbe correspond à $f$~? Justifier.
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=3]
+  \item On a tracé ci-dessous les courbes de $f$ et de $g$. Laquelle représente $f$~? Justifier.
 
   \begin{center}
   \repereABCD{}
   \end{center}
-  \item Déterminer la position du point $M$ pour que l'aire hachurée soit égale à l'aire non hachurée. Vérifier par le calcul.
+  \item Où placer $M$ pour que l'aire hachurée soit égale à l'aire non hachurée~? Vérifier par le calcul.
   \item Pour quelle valeur de $x$ l'aire hachurée semble-t-elle la plus petite possible~?
 \end{enumerate}
 \end{exercice}
 
 % =====================================================
+\newpage
 \begin{exercice}{11}
-Une entreprise veut vendre des ballons de football. On note $x$ le prix d'un ballon, en euros. Plus le prix est élevé, moins elle en vend. Le but est de trouver le prix qui donne le plus grand bénéfice.
+Une entreprise veut vendre des ballons de football. On note $x$ le prix d'un ballon, en euros.
+
+Plus le prix est élevé, moins elle en vend. On cherche le prix qui donne le plus grand bénéfice.
 
 \medskip
-\textbf{Partie A.} Une étude de marché montre que le nombre de ballons vendus, en milliers, est $f(x) = 20 - 2x$, pour $x \in [0\,;\,10]$.
+\textbf{Partie A.} Selon une étude, l'entreprise vend \mbox{$f(x) = 20 - 2x$} milliers de ballons, avec $x \in [0\,;\,10]$.
 \begin{enumerate}[label=\arabic*.]
   \item Combien de ballons sont vendus si le prix est de $5$~€~? De $9$~€~?
   \item Quel prix faut-il choisir pour vendre $6$ milliers de ballons~? $12$ milliers~?
@@ -430,7 +480,10 @@ Une entreprise veut vendre des ballons de football. On note $x$ le prix d'un bal
     $x$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\ \hline
     $B(x)$ & & & & & & & & & \\ \hline
   \end{tabular}
-  \Needspace{10cm}\item On a représenté $B$ sur l'intervalle $[3\,;\,10]$. Répondre à l'aide du graphique.
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=4]
+  \item On a représenté $B$ sur l'intervalle $[3\,;\,10]$. Répondre à l'aide du graphique.
 
   \begin{center}
   \repereBallon{}
@@ -439,7 +492,7 @@ Une entreprise veut vendre des ballons de football. On note $x$ le prix d'un bal
   \begin{enumerate}[label=\alph*.]
     \item Pour quels prix le bénéfice est-il supérieur ou égal à $20$ milliers d'euros~?
     \item Pour quels prix le bénéfice est-il strictement inférieur à $12$ milliers d'euros~?
-    \item Quel prix l'entreprise doit-elle choisir pour avoir le plus grand bénéfice~? Quel est ce bénéfice~?
+    \item Quel prix donne le plus grand bénéfice~? Quel est ce bénéfice~?
   \end{enumerate}
 \end{enumerate}
 \end{exercice}

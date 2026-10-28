@@ -239,6 +239,79 @@
 \newcommand{\brDO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
 \newcommand{\etiq}[2]{\node[below=10pt,inner sep=0pt] at (#1,0) {\scriptsize$#2$};}
 
+
+% ---------- Graphiques du cours ----------
+% Quadrillage, axes et graduations : \axesG{xmin}{xmax}{ymin}{ymax}
+\newcommand{\axesG}[4]{%
+  \draw[gray!35, very thin, step=1] (#1,#3) grid (#2,#4);
+  \draw[-{Latex[length=2mm]}] (#1,0) -- (#2+0.3,0);
+  \draw[-{Latex[length=2mm]}] (0,#3) -- (0,#4+0.3);
+  \foreach \x in {#1,...,#2} {\ifnum\x=0 \else \node[below, fill=white, fill opacity=0.7, text opacity=1, inner sep=1pt] at (\x,-0.18) {\small $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0 \else \node[left, fill=white, fill opacity=0.7, text opacity=1, inner sep=1pt] at (-0.1,\y) {\small $\y$};\fi}
+  \node[below left, inner sep=1pt] at (-0.05,-0.18) {\small $0$};
+}
+\newcommand{\croix}[1]{\node[inner sep=0pt] at (#1) {$\times$};}
+
+% Lecture graphique (partie II)
+\newcommand{\grapheF}{%
+  \begin{tikzpicture}[x=0.55cm, y=0.55cm]
+    \axesG{-5}{5}{-5}{5}
+    \draw[very thick] plot coordinates {(-5.00,-4.000) (-4.95,-3.709) (-4.90,-3.433) (-4.85,-3.174) (-4.80,-2.928) (-4.75,-2.695) (-4.70,-2.475) (-4.65,-2.264) (-4.60,-2.064) (-4.55,-1.872) (-4.50,-1.688) (-4.45,-1.509) (-4.40,-1.336) (-4.35,-1.167) (-4.30,-1.001) (-4.25,-0.836) (-4.20,-0.672) (-4.15,-0.508) (-4.10,-0.341) (-4.05,-0.173) (-4.00,0.000) (-3.95,0.176) (-3.90,0.354) (-3.85,0.533) (-3.80,0.712) (-3.75,0.891) (-3.70,1.068) (-3.65,1.243) (-3.60,1.416) (-3.55,1.585) (-3.50,1.750) (-3.45,1.910) (-3.40,2.064) (-3.35,2.212) (-3.30,2.352) (-3.25,2.484) (-3.20,2.608) (-3.15,2.722) (-3.10,2.826) (-3.05,2.919) (-3.00,3.000) (-2.95,3.075) (-2.90,3.148) (-2.85,3.218) (-2.80,3.284) (-2.75,3.344) (-2.70,3.396) (-2.65,3.439) (-2.60,3.472) (-2.55,3.493) (-2.50,3.500) (-2.45,3.495) (-2.40,3.479) (-2.35,3.454) (-2.30,3.420) (-2.25,3.377) (-2.20,3.326) (-2.15,3.268) (-2.10,3.202) (-2.05,3.130) (-2.00,3.052) (-1.95,2.968) (-1.90,2.879) (-1.85,2.786) (-1.80,2.688) (-1.75,2.587) (-1.70,2.484) (-1.65,2.377) (-1.60,2.269) (-1.55,2.159) (-1.50,2.048) (-1.45,1.937) (-1.40,1.826) (-1.35,1.715) (-1.30,1.606) (-1.25,1.498) (-1.20,1.392) (-1.15,1.289) (-1.10,1.189) (-1.05,1.092) (-1.00,1.000) (-0.95,0.907) (-0.90,0.809) (-0.85,0.706) (-0.80,0.600) (-0.75,0.491) (-0.70,0.379) (-0.65,0.266) (-0.60,0.152) (-0.55,0.038) (-0.50,-0.075) (-0.45,-0.187) (-0.40,-0.296) (-0.35,-0.402) (-0.30,-0.505) (-0.25,-0.603) (-0.20,-0.696) (-0.15,-0.783) (-0.10,-0.863) (-0.05,-0.936) (0.00,-1.000) (0.05,-1.057) (0.10,-1.108) (0.15,-1.153) (0.20,-1.192) (0.25,-1.225) (0.30,-1.252) (0.35,-1.273) (0.40,-1.288) (0.45,-1.297) (0.50,-1.300) (0.55,-1.296) (0.60,-1.284) (0.65,-1.265) (0.70,-1.239) (0.75,-1.206) (0.80,-1.166) (0.85,-1.121) (0.90,-1.069) (0.95,-1.011) (1.00,-0.948) (1.05,-0.880) (1.10,-0.807) (1.15,-0.730) (1.20,-0.648) (1.25,-0.562) (1.30,-0.473) (1.35,-0.381) (1.40,-0.285) (1.45,-0.186) (1.50,-0.085) (1.55,0.018) (1.60,0.123) (1.65,0.230) (1.70,0.338) (1.75,0.448) (1.80,0.558) (1.85,0.668) (1.90,0.779) (1.95,0.890) (2.00,1.000) (2.05,1.116) (2.10,1.244) (2.15,1.382) (2.20,1.530) (2.25,1.684) (2.30,1.845) (2.35,2.011) (2.40,2.181) (2.45,2.352) (2.50,2.525) (2.55,2.697) (2.60,2.867) (2.65,3.034) (2.70,3.197) (2.75,3.353) (2.80,3.502) (2.85,3.643) (2.90,3.774) (2.95,3.893) (3.00,4.000) (3.05,4.109) (3.10,4.232) (3.15,4.363) (3.20,4.496) (3.25,4.625) (3.30,4.744) (3.35,4.847) (3.40,4.928) (3.45,4.981) (3.50,5.000) (3.55,4.992) (3.60,4.967) (3.65,4.925) (3.70,4.868) (3.75,4.794) (3.80,4.704) (3.85,4.598) (3.90,4.476) (3.95,4.338) (4.00,4.185) (4.05,4.016) (4.10,3.832) (4.15,3.632) (4.20,3.417) (4.25,3.188) (4.30,2.943) (4.35,2.683) (4.40,2.408) (4.45,2.119) (4.50,1.815) (4.55,1.497) (4.60,1.164) (4.65,0.817) (4.70,0.456) (4.75,0.081) (4.80,-0.308) (4.85,-0.711) (4.90,-1.127) (4.95,-1.557) (5.00,-2.000)};
+    \node at (-3.9,3.5) {$\mathcal{C}_f$};
+  \end{tikzpicture}%
+}
+
+% Appartenance du point A (partie II)
+\newcommand{\grapheA}{%
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm]
+    \axesG{-3}{2}{-2}{5}
+    \begin{scope}
+      \clip (-3,-2) rectangle (2,5);
+      \draw[very thick, domain=-3.2:1.2, samples=80, smooth] plot (\x, {\x*\x*\x+3*\x*\x+0.5*\x+1});
+    \end{scope}
+    \node[blue!70!black, inner sep=0pt, font=\large] at (-1,2.5) {$\times$};
+    \node[blue!70!black, above right] at (-1,2.5) {$A$};
+  \end{tikzpicture}%
+}
+
+% Équation f(x) = 4 avec f(x) = -0,5x^2 + 3x : \grapheEq{étape}
+\newcommand{\grapheEq}[1]{%
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \axesG{0}{6}{-1}{5}
+    \draw[very thick, domain=-0.3:6.3, samples=60, smooth] plot (\x, {-0.5*\x*\x+3*\x});
+    \node at (5.6,2.6) {$\mathcal{C}_f$};
+    \croix{0,4}
+    \ifnum#1>1 \draw[thick, dashed, blue!70!black] (0,4) -- (4,4); \fi
+    \ifnum#1>2 \draw[thick, dashed, blue!70!black] (2,4) -- (2,0) (4,4) -- (4,0); \fi
+    \ifnum#1>3 \begin{scope}[blue!70!black] \croix{2,0} \croix{4,0} \end{scope} \fi
+  \end{tikzpicture}%
+}
+
+% Inéquations f(x) < 2 et f(x) > 2 : \grapheIneq{segments solutions (vide à l'étape 1)}
+\newcommand{\solseg}[1]{\draw[line width=3pt, blue!70!black, opacity=0.6] #1;}
+\newcommand{\grapheIneq}[1]{%
+  \begin{tikzpicture}[x=0.64cm, y=0.64cm]
+    \axesG{-6}{6}{-2}{5}
+    \draw[very thick] plot coordinates {(-6.00,1.000) (-5.95,1.003) (-5.90,1.012) (-5.85,1.026) (-5.80,1.046) (-5.75,1.072) (-5.70,1.103) (-5.65,1.138) (-5.60,1.179) (-5.55,1.225) (-5.50,1.275) (-5.45,1.330) (-5.40,1.389) (-5.35,1.452) (-5.30,1.519) (-5.25,1.591) (-5.20,1.666) (-5.15,1.744) (-5.10,1.826) (-5.05,1.912) (-5.00,2.000) (-4.95,2.091) (-4.90,2.182) (-4.85,2.275) (-4.80,2.368) (-4.75,2.461) (-4.70,2.554) (-4.65,2.646) (-4.60,2.738) (-4.55,2.829) (-4.50,2.919) (-4.45,3.007) (-4.40,3.093) (-4.35,3.177) (-4.30,3.259) (-4.25,3.337) (-4.20,3.413) (-4.15,3.486) (-4.10,3.555) (-4.05,3.620) (-4.00,3.681) (-3.95,3.738) (-3.90,3.790) (-3.85,3.837) (-3.80,3.878) (-3.75,3.914) (-3.70,3.944) (-3.65,3.968) (-3.60,3.986) (-3.55,3.996) (-3.50,4.000) (-3.45,3.996) (-3.40,3.986) (-3.35,3.968) (-3.30,3.944) (-3.25,3.914) (-3.20,3.878) (-3.15,3.837) (-3.10,3.790) (-3.05,3.738) (-3.00,3.681) (-2.95,3.620) (-2.90,3.555) (-2.85,3.486) (-2.80,3.413) (-2.75,3.337) (-2.70,3.259) (-2.65,3.177) (-2.60,3.093) (-2.55,3.007) (-2.50,2.919) (-2.45,2.829) (-2.40,2.738) (-2.35,2.646) (-2.30,2.554) (-2.25,2.461) (-2.20,2.368) (-2.15,2.275) (-2.10,2.182) (-2.05,2.091) (-2.00,2.000) (-1.95,1.910) (-1.90,1.819) (-1.85,1.729) (-1.80,1.638) (-1.75,1.548) (-1.70,1.458) (-1.65,1.368) (-1.60,1.279) (-1.55,1.191) (-1.50,1.103) (-1.45,1.016) (-1.40,0.931) (-1.35,0.846) (-1.30,0.763) (-1.25,0.682) (-1.20,0.602) (-1.15,0.523) (-1.10,0.447) (-1.05,0.372) (-1.00,0.300) (-0.95,0.230) (-0.90,0.162) (-0.85,0.097) (-0.80,0.034) (-0.75,-0.025) (-0.70,-0.082) (-0.65,-0.136) (-0.60,-0.187) (-0.55,-0.234) (-0.50,-0.278) (-0.45,-0.319) (-0.40,-0.355) (-0.35,-0.388) (-0.30,-0.417) (-0.25,-0.442) (-0.20,-0.462) (-0.15,-0.479) (-0.10,-0.490) (-0.05,-0.498) (0.00,-0.500) (0.05,-0.497) (0.10,-0.489) (0.15,-0.477) (0.20,-0.459) (0.25,-0.436) (0.30,-0.409) (0.35,-0.378) (0.40,-0.342) (0.45,-0.303) (0.50,-0.259) (0.55,-0.212) (0.60,-0.162) (0.65,-0.108) (0.70,-0.050) (0.75,0.010) (0.80,0.073) (0.85,0.139) (0.90,0.207) (0.95,0.277) (1.00,0.350) (1.05,0.425) (1.10,0.501) (1.15,0.579) (1.20,0.659) (1.25,0.740) (1.30,0.822) (1.35,0.906) (1.40,0.990) (1.45,1.074) (1.50,1.159) (1.55,1.245) (1.60,1.330) (1.65,1.416) (1.70,1.501) (1.75,1.586) (1.80,1.671) (1.85,1.755) (1.90,1.837) (1.95,1.919) (2.00,2.000) (2.05,2.079) (2.10,2.158) (2.15,2.234) (2.20,2.309) (2.25,2.381) (2.30,2.451) (2.35,2.518) (2.40,2.582) (2.45,2.643) (2.50,2.700) (2.55,2.753) (2.60,2.802) (2.65,2.846) (2.70,2.885) (2.75,2.919) (2.80,2.947) (2.85,2.970) (2.90,2.986) (2.95,2.997) (3.00,3.000) (3.05,2.997) (3.10,2.988) (3.15,2.974) (3.20,2.954) (3.25,2.928) (3.30,2.897) (3.35,2.862) (3.40,2.821) (3.45,2.775) (3.50,2.725) (3.55,2.670) (3.60,2.611) (3.65,2.548) (3.70,2.481) (3.75,2.409) (3.80,2.334) (3.85,2.256) (3.90,2.174) (3.95,2.088) (4.00,2.000) (4.05,1.906) (4.10,1.805) (4.15,1.697) (4.20,1.584) (4.25,1.465) (4.30,1.342) (4.35,1.216) (4.40,1.087) (4.45,0.955) (4.50,0.822) (4.55,0.689) (4.60,0.555) (4.65,0.423) (4.70,0.291) (4.75,0.162) (4.80,0.037) (4.85,-0.086) (4.90,-0.203) (4.95,-0.316) (5.00,-0.422) (5.05,-0.522) (5.10,-0.615) (5.15,-0.699) (5.20,-0.774) (5.25,-0.840) (5.30,-0.896) (5.35,-0.940) (5.40,-0.973) (5.45,-0.993) (5.50,-1.000) (5.55,-0.971) (5.60,-0.892) (5.65,-0.771) (5.70,-0.616) (5.75,-0.438) (5.80,-0.244) (5.85,-0.045) (5.90,0.152) (5.95,0.337) (6.00,0.500)};
+    \node at (-5.6,2.7) {$\mathcal{C}_f$};
+    \draw[thick, dashed, blue!70!black] (-6,2) -- (6,2);
+    \foreach \x in {-5,-2,2,4} \draw[thick, dashed, blue!70!black] (\x,2) -- (\x,0);
+    \begin{scope}[blue!70!black] \foreach \x in {-5,-2,2,4} {\croix{\x,0}} \end{scope}
+    #1
+  \end{tikzpicture}%
+}
+
+% Texte d'une étape dans les tableaux à deux colonnes : aligné à gauche et en haut
+\newcommand{\txt}[1]{\multicolumn{1}{@{}p{0.48\linewidth}@{}}{\raggedright #1}}
+
+% Cadre de réponse : blanc et vide dans la version élève (même hauteur)
+\NewEnviron{reponse}{%
+  \par\smallskip\noindent
+  \begin{lrbox}{\hidebox}\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}\BODY\end{minipage}\end{lrbox}%
+  \fbox{\ifdefined\ELEVE\phantom{\usebox{\hidebox}}\else\usebox{\hidebox}\fi}%
+  \par\smallskip
+}
+
 \newpage
 
 \pagestyle{fancy}
@@ -327,7 +400,8 @@ On lit dans ce tableau que :
 \end{tasks}
 
 $5{,}25$ est \hide{l'image} de $1{,}5$ par $f$, et $1{,}5$ est \hide{un antécédent} de $5{,}25$ par $f$.
-$0$ a deux antécédents dans ce tableau : \hide{$3$} et \hide{$5$}.
+
+$0$ a deux antécédents : \hide{$3$} et \hide{$5$}.
 
 \medskip
 Un tableau ne donne que \textbf{quelques} images. Pour connaître l'image de n'importe quel nombre de $D_f$, on utilise une \textbf{formule}. Ici :
@@ -362,7 +436,7 @@ De la même manière : \quad $f(6) = \hideM{6^2 - 8 \times 6 + 15 = 36 - 48 + 15
 \begin{example}
     On a représenté ci-dessous une fonction $f$.
     \begin{center}
-      \includegraphics[width=0.42\linewidth]{graphe_f.png}
+      \grapheF
     \end{center}
     Son ensemble de définition est $D_f = \hide{$[-5\,;\,5]$}$ et on lit sur le graphique :
 
@@ -372,17 +446,16 @@ De la même manière : \quad $f(6) = \hideM{6^2 - 8 \times 6 + 15 = 36 - 48 + 15
         \task $f(3)=\hideM{4}$
         \task $f(\hideM{-5})=-4$
         \task $f(0)=\hideM{-1}$
-        \task $f(\hideM{3{,}6})\approx 4{,}9$
+        \task $f(\hideM{3{,}5})=5$
     \end{tasks}
 
-    Les antécédents de $1$ par $f$ sont : \hide{environ $-3{,}7$ ; $-1$ ; $2$ et environ $4{,}8$.}
+    Les antécédents de $1$ par $f$ sont : \hide{environ $-3{,}7$ ; $-1$ ; $2$ et environ $4{,}6$.}
 \end{example}
 
 \begin{example}
     On veut tracer la courbe de la fonction $f$ vue au I, définie sur $[1{,}5\,;\,6]$ par $f(x)=x^2-8x+15$.
 
-\begin{minipage}{0.48\textwidth}
-On place les points du tableau de valeurs :
+On place les points du tableau de valeurs, puis on les relie \textbf{à main levée}, sans règle.
 
 \renewcommand{\arraystretch}{1.4}
 \begin{center}
@@ -393,28 +466,22 @@ On place les points du tableau de valeurs :
     $f(x)$ & $5{,}25$ & $3$ & $1{,}25$ & $0$ & $-0{,}75$ & $-1$ & $0$ & $3$ \\
     \hline
 \end{tabular}
-\end{center}
 
-puis on les relie \textbf{à main levée}, sans règle.
-\end{minipage}
-\hfill
-\begin{minipage}{0.48\textwidth}
-\begin{center}
-\begin{tikzpicture}[scale=0.85]
+\medskip
+\begin{tikzpicture}[scale=0.8]
     \draw[step=0.2cm, very thin, gray!30] (-0.2,-1.2) grid (6.2,6.2);
     \draw[step=1cm, thin, gray!50] (-0.2,-1.2) grid (6.2,6.2);
     \draw[->] (-0.2,0) -- (6.2,0);
     \draw[->] (0,-1.2) -- (0,6.2);
-    \foreach \x in {1,2,3,4,5,6} \node[below] at (\x,0) {\scriptsize $\x$};
-    \foreach \y in {-1,1,2,3,4,5,6} \node[left] at (0,\y) {\scriptsize $\y$};
-    \node[below left] at (0,0) {\scriptsize $0$};
+    \foreach \x in {1,2,3,4,5,6} \node[below] at (\x,0) {\small $\x$};
+    \foreach \y in {-1,1,2,3,4,5,6} \node[left] at (0,\y) {\small $\y$};
+    \node[below left] at (0,0) {\small $0$};
     \hidetk{
       \draw[thick, blue!70!black, domain=1.5:6, samples=60, smooth] plot (\x, {\x*\x-8*\x+15});
       \foreach \x in {1.5,2,2.5,3,3.5,4,5,6} \fill[blue!70!black] (\x, {\x*\x-8*\x+15}) circle (1.5pt);
     }
 \end{tikzpicture}
 \end{center}
-\end{minipage}
 \end{example}
 
 \begin{proposition}{Appartenance d'un point à une courbe}{}
@@ -426,21 +493,23 @@ puis on les relie \textbf{à main levée}, sans règle.
 \begin{example}
   On donne la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=x^3+3x^2+0{,}5x+1$.
 
-  \begin{minipage}{0.6\linewidth}
+  \begin{minipage}{0.5\linewidth}
   Le point $A(-1\,;\,2{,}5)$ semble appartenir à la courbe de $f$. Mais seul un \textbf{calcul} peut le prouver.
 
+  \begin{reponse}
   On calcule l'image de $x_A = -1$ :
   \begin{align*}
-    f(-1) &= \hideM{(-1)^3 + 3 \times (-1)^2 + 0{,}5 \times (-1) + 1} \\
-          &= \hideM{-1 + 3 - 0{,}5 + 1} \\
-          &= \hideM{2{,}5}
+    f(-1) &= (-1)^3 + 3 \times (-1)^2 + 0{,}5 \times (-1) + 1 \\
+          &= -1 + 3 - 0{,}5 + 1 \\
+          &= 2{,}5
   \end{align*}
-  On a $f(x_A) = y_A$, donc \hide{$A \in \mathcal{C}_f$}.
+  On a $f(x_A) = y_A$, donc $A \in \mathcal{C}_f$.
+  \end{reponse}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.35\linewidth}
+  \begin{minipage}{0.45\linewidth}
     \begin{center}
-      \includegraphics[width=0.65\linewidth]{f_point.png}
+      \grapheA
     \end{center}
   \end{minipage}
 \end{example}
@@ -451,10 +520,20 @@ puis on les relie \textbf{à main levée}, sans règle.
 
 \begin{example}
   On donne la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=x^2+1$.
-  \begin{itemize}
-    \item $B(-4\,;\,15) \in \mathcal{C}_f$~? \quad \hide{$f(-4) = (-4)^2 + 1 = 17 \neq 15$, donc $B \notin \mathcal{C}_f$.}
-    \item Le point $C$ de $\mathcal{C}_f$ d'abscisse $-2$ : \quad \hide{$f(-2) = (-2)^2 + 1 = 5$, donc $C(-2\,;\,5)$.}
-  \end{itemize}
+
+  \begin{minipage}[t]{0.48\linewidth}
+  Le point $B(-4\,;\,15)$ appartient-il à $\mathcal{C}_f$~?
+  \begin{reponse}
+    $f(-4) = (-4)^2 + 1 = 17 \neq 15$, donc $B \notin \mathcal{C}_f$.
+  \end{reponse}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\linewidth}
+  Ordonnée du point $C$ de $\mathcal{C}_f$ d'abscisse $-2$~?
+  \begin{reponse}
+    $f(-2) = (-2)^2 + 1 = 5$, donc $C(-2\,;\,5)$.
+  \end{reponse}
+  \end{minipage}
 \end{example}
 
 \newpage
@@ -476,31 +555,22 @@ Résoudre l'équation $f(x)=k$, c'est trouver tous les nombres $x$ de $D_f$ dont
 
 \noindent\begin{minipage}{\linewidth}
 \begin{example}
-On résout graphiquement $f(x)=3$.
+On a représenté une fonction $f$ définie sur $[0\,;\,6]$. On résout graphiquement $f(x)=4$.
 
-\begin{tasks}[style=enumerate](2)
-    \task On se place sur $k=3$ sur l'axe des ordonnées.
-    \begin{center}
-    \includegraphics[width=0.4\linewidth]{eq_step1.png}
-    \end{center}
+\medskip
+\noindent
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+  \txt{\textbf{1.} On place $k=4$ sur l'axe des ordonnées.} &
+  \txt{\textbf{2.} On trace la droite horizontale d'équation $y=4$.} \\[0.3em]
+  \grapheEq{1} & \grapheEq{2} \\[1em]
+  \txt{\textbf{3.} On descend jusqu'à l'axe des abscisses depuis chaque point d'intersection.} &
+  \txt{\textbf{4.} On lit les solutions sur l'axe des abscisses.} \\[0.3em]
+  \grapheEq{3} & \grapheEq{4}
+\end{tabular}
 
-    \task On trace la droite horizontale d'équation $y=3$.
-    \begin{center}
-    \includegraphics[width=0.4\linewidth]{eq_step2.png}
-    \end{center}
+\medskip
 
-    \task On descend verticalement jusqu'à l'axe des abscisses depuis chaque point d'intersection.
-    \begin{center}
-    \includegraphics[width=0.4\linewidth]{eq_step3.png}
-    \end{center}
-
-    \task On lit les solutions sur l'axe des abscisses.
-    \begin{center}
-    \includegraphics[width=0.4\linewidth]{eq_step4.png}
-    \end{center}
-\end{tasks}
-
-L'équation $f(x)=3$ a deux solutions : $S = \hide{$\{1\,;\,3\}$}$. Autrement dit, $3$ a deux antécédents par $f$ : \hide{$1$ et $3$}.
+Les solutions de $f(x)=4$ sont les antécédents de $4$ par $f$ : $S = \hide{$\{2\,;\,4\}$}$.
 \end{example}
 \end{minipage}
 
@@ -514,24 +584,20 @@ L'équation $f(x)=3$ a deux solutions : $S = \hide{$\{1\,;\,3\}$}$. Autrement di
     \item $f(x) > k$ : on cherche les abscisses des points de la courbe situés \textbf{strictement au-dessus} de la droite $y=k$.
     \item Avec $\leqslant$ ou $\geqslant$, on \textbf{inclut} les solutions de $f(x)=k$ (crochets fermés).
   \end{itemize}
-  On donne l'ensemble des solutions sous la forme d'un intervalle ou d'une réunion d'intervalles.
+  On donne les solutions sous la forme d'un intervalle ou d'une réunion d'intervalles.
 \end{method}
 
 \noindent\begin{minipage}{\linewidth}
 \begin{example}
 On a représenté une fonction $f$ définie sur $[-6\,;\,6]$. On veut résoudre $f(x)<2$ et $f(x)\leqslant 2$.
 
-\begin{tasks}[style=enumerate](2)
-    \task On résout d'abord $f(x)=2$.
-    \begin{center}
-    \includegraphics[width=.75\linewidth]{ineqA_step1.png}
-    \end{center}
-
-    \task On reporte sur l'axe des abscisses les morceaux de courbe situés sous la droite.
-    \begin{center}
-    \includegraphics[width=.75\linewidth]{ineqA_step2.png}
-    \end{center}
-\end{tasks}
+\medskip
+\noindent
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+  \txt{\textbf{1.} On résout d'abord $f(x)=2$.} &
+  \txt{\textbf{2.} On reporte sur l'axe des abscisses les morceaux de courbe situés \textbf{sous} la droite.} \\[0.3em]
+  \grapheIneq{} & \grapheIneq{\solseg{(-6,0) -- (-5,0) (-2,0) -- (2,0) (4,0) -- (6,0)}}
+\end{tabular}
 
 \begin{itemize}
   \item $f(x)<2$ : \quad $S = \hideM{[-6\,;\,-5[ \cup ]-2\,;\,2[ \cup ]4\,;\,6]}$
@@ -544,23 +610,23 @@ On a représenté une fonction $f$ définie sur $[-6\,;\,6]$. On veut résoudre 
 \end{example}
 \end{minipage}
 
-\bigskip
+\medskip
 
 \noindent\begin{minipage}{\linewidth}
 \begin{example}
 Avec la même fonction, on veut résoudre $f(x)>2$ et $f(x)\geqslant 2$.
 
-\begin{tasks}[style=enumerate](2)
-    \task On résout d'abord $f(x)=2$.
-    \begin{center}
-    \includegraphics[width=.75\linewidth]{ineqB_step1.png}
-    \end{center}
+\medskip
+\noindent
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+  \begin{minipage}{0.9\linewidth}\raggedright
+  \textbf{1.} On résout d'abord $f(x)=2$, comme dans l'exemple précédent.
 
-    \task On reporte sur l'axe des abscisses les morceaux de courbe situés au-dessus de la droite.
-    \begin{center}
-    \includegraphics[width=.75\linewidth]{ineqB_step2.png}
-    \end{center}
-\end{tasks}
+  \smallskip
+  \textbf{2.} On reporte sur l'axe des abscisses les morceaux de courbe situés \textbf{au-dessus} de la droite.
+  \end{minipage} &
+  \raisebox{-0.5\height}{\grapheIneq{\solseg{(-5,0) -- (-2,0) (2,0) -- (4,0)}}}
+\end{tabular}
 
 \begin{itemize}
   \item $f(x)>2$ : \quad $S = \hideM{]-5\,;\,-2[ \cup ]2\,;\,4[}$
@@ -592,9 +658,9 @@ On a représenté deux fonctions $f$ et $g$ définies sur $[-4\,;\,4]$.
     \draw[step=1, thin, gray!50] (-4.3,-3.5) grid (4.3,7.5);
     \draw[->] (-4.3,0) -- (4.5,0) node[right] {$x$};
     \draw[->] (0,-3.5) -- (0,7.8) node[above] {$y$};
-    \foreach \x in {-4,-3,-2,-1,1,2,3,4} \node[below] at (\x,0) {\scriptsize $\x$};
-    \foreach \y in {-3,-2,-1,1,2,3,4,5,6,7} \node[left] at (0,\y) {\scriptsize $\y$};
-    \node[below left] at (0,0) {\scriptsize $0$};
+    \foreach \x in {-4,-3,-2,-1,1,2,3,4} \node[below] at (\x,0) {\small $\x$};
+    \foreach \y in {-3,-2,-1,1,2,3,4,5,6,7} \node[left] at (0,\y) {\small $\y$};
+    \node[below left] at (0,0) {\small $0$};
     \draw[very thick, blue!70!black, domain=-4:4, samples=80, smooth] plot (\x, {0.5*\x*\x-2});
     \draw[very thick, red!70!black, dashed] (-4,-1) -- (4,3);
     \node[blue!70!black] at (-3.6,5.2) {$\mathcal{C}_f$};
