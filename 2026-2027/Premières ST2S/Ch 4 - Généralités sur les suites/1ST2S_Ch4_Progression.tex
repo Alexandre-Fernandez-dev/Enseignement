@@ -1,0 +1,91 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Généralités sur les fonctions (chapitre 1) : image, tableau de valeurs, courbe, sens de variation
+    \item Fonctions affines (chapitre 3) : points alignés, signe de $a$ et sens de variation
+    \item Appliquer un pourcentage d'évolution, coefficient multiplicateur (questions flash)
+    \item Python : boucle \texttt{for} (questions flash) ; tableur : lire une formule (seconde)
+    \item Comparer des nombres (questions flash)
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenus}
+  \begin{itemize}
+    \item Suite numérique : liste de nombres numérotés ; terme $u(n)$ de rang $n$, premier terme $u(0)$ ou $u(1)$ ; notation $u_n$, introduite après $u(n)$
+    \item Génération par une formule explicite : $u_n$ en fonction de $n$
+    \item Génération par une relation de récurrence : premier terme et $u_{n+1}$ en fonction de $u_n$
+    \item Représentation graphique : nuage de points $(n~;~u_n)$, points non reliés
+    \item Modélisation : traduire une évolution (ajout constant, pourcentage, autre) par une relation de récurrence
+    \item Sens de variation : suite croissante, décroissante, ni l'une ni l'autre ; signe de $u_{n+1}-u_n$ dans des cas simples
+    \item Calcul de termes au tableur (démonstration au tableau : formule explicite, formule de récurrence recopiée vers le bas ; recherche d'un seuil) et en Python (boucle \texttt{for})
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Modéliser une situation simple par une suite (effectifs, populations, budgets, doses de médicament),
+    \item Reconnaître si une suite est donnée par une formule explicite ou par récurrence,
+    \item Calculer un terme de rang donné, dans les deux modes de génération,
+    \item Traduire une phrase (« chaque année, on ajoute\dots », « chaque mois, la population augmente de $3\,\%$\dots ») en relation de récurrence,
+    \item Représenter les premiers termes d'une suite par un nuage de points et lire un terme sur le graphique,
+    \item Conjecturer le sens de variation à partir d'un tableau de valeurs ou d'un graphique,
+    \item Étudier le signe de $u(n+1)-u(n)$ quand ce calcul est simple,
+    \item Lire et compléter une formule de tableur (sur une capture d'écran) ; écrire un programme Python qui calcule un terme,
+    \item Déterminer le rang à partir duquel un seuil est dépassé (tableau de valeurs, tableur).
+  \end{itemize}
+\end{paragraph}
+
+\end{document}

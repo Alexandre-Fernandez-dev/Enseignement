@@ -1,0 +1,181 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Langue et encodage ----------
+\usepackage[french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+% ---------- Mise en page ----------
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{array,booktabs,tabularx}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr}
+\usepackage{makecell}
+\usepackage{pgffor}
+\usepackage{currfile}
+\usepackage{lastpage}
+
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+% ---------- Couleurs ----------
+\definecolor{bleuF}{RGB}{47,87,163}   
+\definecolor{orH}{RGB}{242,170,60}    
+\definecolor{cadre}{RGB}{47,87,163}
+
+% ---------- Boîtes ----------
+\newtcolorbox{objectif}{
+  colback=bleuF!6, colframe=cadre, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\textbf{Objectif}}, fonttitle=\bfseries,
+  coltitle=cadre, colbacktitle=bleuF!12
+}
+\newtcolorbox{bilan}{
+  colback=orH!8, colframe=cadre, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\textbf{Bilan}}, fonttitle=\bfseries,
+  coltitle=cadre, colbacktitle=orH!20,
+  breakable
+}
+\newtcolorbox{correctionbox}{
+  colback=green!5, colframe=green!40!black, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  breakable
+}
+
+% \checkmark symbol fallback (amssymb provides \checkmark)
+
+% ---------- Ligne de réponse pointillée ----------
+\newcommand{\reponse}[1]{%
+  \par\vspace{2mm}
+  \foreach \i in {1,...,#1}{\rule{0pt}{0pt}\dotfill\\[3mm]}%
+}
+
+\begin{document}
+
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\small \Niveau}}
+\fancyhead[L]{ {\small \ChapitreCourt}}
+\fancyhead[C]{ {\small \Document{} -- Corrigé}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\small \thepage\  / \pageref{LastPage}}}
+
+% ---------- Repère avec les points placés ----------
+\newcommand{\repere}[3]{% #1 : légende de l'axe des ordonnées, #2 : ymax, #3 : coordonnées
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.75\textwidth, height=6.5cm,
+  xmin=-0.5, xmax=7.5, ymin=0, ymax=#2,
+  xtick={0,...,7}, ytick distance=10, minor y tick num=1,
+  grid=both, major grid style={gray!45}, minor grid style={gray!20},
+  axis lines=left, xlabel={$n$}, ylabel={#1},
+  ylabel style={font=\small}, xlabel style={at={(1,0)}, anchor=west},
+  ]
+\addplot[only marks, mark=*, color=cadre] coordinates {#3};
+\end{axis}
+\end{tikzpicture}
+\end{center}}
+
+\setlength{\parindent}{0pt}
+\newcommand{\rep}[1]{\textcolor{cadre}{\textbf{#1}}}
+
+\section*{Partie A -- Le nombre d'enfants inscrits}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item On ajoute $6$ enfants à chaque rentrée.
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|*{7}{>{\centering\arraybackslash}p{1.2cm}|}}
+\hline
+Année & 2026 & 2027 & 2028 & \rep{2029} & \rep{2030} & \rep{2031} & \rep{2032} \\
+\hline
+$n$ & $0$ & $1$ & $2$ & \rep{3} & \rep{4} & \rep{5} & \rep{6} \\
+\hline
+$u(n)$ & $20$ & \rep{26} & \rep{32} & \rep{38} & \rep{44} & \rep{50} & \rep{56} \\
+\hline
+\end{tabular}
+\end{center}
+
+\item
+\begin{correctionbox}
+$u(4) = 44$ : à la rentrée $2026 + 4 = 2030$, la crèche accueillera $44$ enfants.
+\end{correctionbox}
+
+\item
+\begin{correctionbox}
+Chaque année, on ajoute $6$ enfants : $u(n+1) = u(n) + 6$.
+\end{correctionbox}
+
+\item
+\begin{correctionbox}
+De 2026 à 2036, il y a $10$ rentrées. On part de $20$ enfants et on ajoute $10$ fois $6$ enfants :
+\[ u(10) = 20 + 6 \times 10 = 20 + 60 = 80. \]
+De la même façon, après $n$ rentrées : $u(n) = 20 + 6 \times n$.
+\end{correctionbox}
+
+\item Nuage de points $(n~;~u(n))$ :
+\repere{Nombre d'enfants}{80}{(0,20) (1,26) (2,32) (3,38) (4,44) (5,50) (6,56)}
+\begin{correctionbox}
+Les points sont alignés : $u(n) = 20 + 6n$ s'écrit comme une fonction affine.
+
+On ne relie pas les points : $n$ est un nombre entier ($0$, $1$, $2$\dots). Par exemple, la valeur $n = 2{,}5$ n'a pas de sens, il n'y a pas de rentrée entre 2028 et 2029.
+\end{correctionbox}
+\end{enumerate}
+
+\section*{Partie B -- Le budget des repas}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item
+\begin{correctionbox}
+$v(1) = 1{,}1 \times v(0) = 1{,}1 \times 40\,000 = 44\,000$.
+
+$v(2) = 1{,}1 \times v(1) = 1{,}1 \times 44\,000 = 48\,400$.
+
+$v(3) = 1{,}1 \times v(2) = 1{,}1 \times 48\,400 = 53\,240$.
+
+$v(4) = 1{,}1 \times v(3) = 1{,}1 \times 53\,240 = 58\,564$.
+\end{correctionbox}
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|*{5}{>{\centering\arraybackslash}p{1.6cm}|}}
+\hline
+$n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
+\hline
+$v(n)$ & $40\,000$ & \rep{44\,000} & \rep{48\,400} & \rep{53\,240} & \rep{58\,564} \\
+\hline
+\end{tabular}
+\end{center}
+Chaque année, le budget est multiplié par $1{,}1$ : $v(n+1) = \rep{1{,}1} \times v(n)$.
+
+\item
+\begin{correctionbox}
+Non. Pour calculer $v(10)$, il faut connaître $v(9)$ ; pour calculer $v(9)$, il faut connaître $v(8)$, etc. Il faut donc calculer tous les termes un par un, de $v(1)$ jusqu'à $v(10)$.
+
+Pour $u(10)$, la formule $u(n) = 20 + 6n$ donne le résultat directement.
+\end{correctionbox}
+\end{enumerate}
+
+\begin{bilan}
+\begin{itemize}[leftmargin=1.2em]
+\item Une \textbf{suite} est une liste de nombres numérotés par les entiers $0$, $1$, $2$, \dots{} Le nombre $u(n)$ est le \textbf{terme de rang} \rep{$n$}.
+\item \textbf{Formule explicite} : on calcule un terme directement à partir de son rang $n$. Exemple : $u(n) = \rep{$20 + 6n$}$.
+\item \textbf{Relation de récurrence} : on calcule un terme à partir du terme \rep{précédent}. Il faut connaître le premier terme. Exemple : $v(0) = \rep{$40\,000$}$ et $v(n+1) = \rep{$1{,}1 \times v(n)$}$.
+\item On représente une suite par un \textbf{nuage de points} $(n~;~u(n))$. On ne \rep{relie} pas les points.
+\end{itemize}
+\end{bilan}
+
+\end{document}

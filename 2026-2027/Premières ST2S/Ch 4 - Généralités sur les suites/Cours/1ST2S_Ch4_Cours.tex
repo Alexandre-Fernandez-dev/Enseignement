@@ -1,0 +1,808 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes} 
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tabularray}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple~:}
+\newtheorem*{examples}{Exemples~:}
+\newtheorem*{remark}{Remarque~:}
+\newtheorem*{remarks}{Remarques~:}
+% Variante sans retour à la ligne après « Exemple. »
+\newtheoremstyle{inline}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{ }{}%
+\theoremstyle{inline}
+\newtheorem*{example*}{Exemple~:}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 4 \\ Généralités sur les suites
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\tikzset{cross/.style={path picture={
+  \draw[black]
+    (path picture bounding box.south east)--(path picture bounding box.north west)
+    (path picture bounding box.south west)--(path picture bounding box.north east);
+}}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyhead[L]{\Structure}
+  \fancyhead[R]{\Niveau}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+   %\renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+% \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
+%\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% -----------
+% Macros des trous : version élève si \ELEVE est défini à la compilation
+% (recette « prof + élève »), sinon version prof.
+\ifdefined\ELEVE
+% Version élève : contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+% Corrigé long dans un cadre blanc : zone vide de même hauteur
+% Argument optionnel : espace ajouté sous le corrigé, ex. \begin{multihideW}[2em]
+\NewEnviron{multihideW}[1][0pt]{%
+  \par\noindent\fbox{%
+    \begin{lrbox}{\hidebox}%
+      \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}%
+        \BODY\par\vspace{#1}%
+      \end{minipage}%
+    \end{lrbox}%
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+\newcommand{\hidetk}[1]{}
+\else
+% Version prof : contenu visible sur fond gris
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+% Corrigé long dans un cadre blanc (argument optionnel : espace ajouté)
+\NewEnviron{multihideW}[1][0pt]{%
+  \par\noindent\fbox{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}%
+      \BODY\par\vspace{#1}%
+    \end{minipage}%
+  }
+}
+\newcommand{\hidetk}[1]{#1}
+\fi
+% -----------
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{%
+  \draw[very thin, gray!40, step=1] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+% Cadre pour les programmes Python
+\newtcolorbox{python}{colback=white, colframe=black!50, boxrule=0.5pt, arc=1pt, left=6pt, fontupper=\ttfamily}
+\newcommand{\tab}{\hspace*{2em}}
+
+\section{Notion de suite et modes de génération}
+
+\subsection{Définition et notations}
+
+\begin{example}
+  Dans l'activité 1, on a noté $u(n)$ le nombre d'enfants inscrits à la crèche à la rentrée $2026 + n$.
+
+  \smallskip
+  \begin{minipage}[c]{0.52\linewidth}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
+      \hline
+      $n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
+      \hline
+      $u(n)$ & $20$ & $26$ & $32$ & $38$ & $44$ \\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.45\linewidth}
+    Ces nombres forment une liste numérotée par $0$, $1$, $2$, \dots{} : c'est une \textbf{suite}.
+  \end{minipage}
+\end{example}
+
+\begin{definition}{Suite numérique}{}
+  \begin{multihide}
+    Une \textbf{suite} $u$ associe à chaque entier naturel $n$, appelé \textbf{rang}, un nombre $u(n)$, appelé \textbf{terme de rang $n$}. Le \textbf{premier terme} est en général $u(0)$ (parfois $u(1)$).
+  \end{multihide}
+\end{definition}
+
+\begin{remark}
+  Le rang est un entier naturel : $n \in \mathbb{N} = \{0~;~1~;~2~;~3~;~\dots\}$. Ainsi, $u(2{,}5)$ n'existe pas.
+\end{remark}
+
+\begin{definition}{Notation $u_n$}{}
+  \begin{multihide}
+    Le terme $u(n)$ se note aussi $u_n$ (« $u$ indice $n$ ») : $u_0 = u(0)$, $u_{n+1} = u(n+1)$, etc.
+
+    Dans la suite du cours, on utilise la notation $u_n$.
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+  Une suite $u$ est donnée par le tableau ci-dessous.
+
+  \smallskip
+  \begin{minipage}[c]{0.52\linewidth}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
+      \hline
+      $n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
+      \hline
+      $u_n$ & $5$ & $8$ & $4$ & $10$ & $7$ \\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.45\linewidth}
+    \begin{itemize}
+      \item Le premier terme est $u_0 = \hideM{5}$.
+      \item Le terme de rang $2$ est $u_2 = \hideM{4}$.
+      \item Le terme $10$ a pour rang \hideM{3}.
+    \end{itemize}
+  \end{minipage}
+\end{example}
+
+\begin{remark}
+  Attention : $u_{n+1}$ est le terme de rang $n+1$ (le terme \emph{suivant}). Ce n'est pas $u_n + 1$.
+
+  Par exemple, dans le tableau ci-dessus : $u_{2+1} = u_3 = \hideM{10}$, alors que $u_2 + 1 = \hideM{4 + 1 = 5}$.
+\end{remark}
+
+
+\subsection{Formule explicite}
+
+\begin{example}
+  Dans l'activité 1, $u_n = 20 + 6n$. À la rentrée 2036 ($n = 10$) : $u_{10} = \hideM{20 + 6 \times 10 = 80}$ enfants.
+\end{example}
+
+\begin{definition}{Formule explicite}{}
+  \begin{multihide}
+    Une suite est définie par une \textbf{formule explicite} quand $u_n$ est donné \textbf{en fonction de $n$}.
+
+    On calcule directement n'importe quel terme, comme une image par une fonction.
+  \end{multihide}
+\end{definition}
+
+\begin{method}{Calculer un terme avec une formule explicite}{}
+  Pour calculer un terme, on \textbf{remplace $n$} par son rang dans la formule.
+\end{method}
+
+\begin{examples}
+  Calculer le premier terme et le terme de rang $5$ de chaque suite.
+
+  \medskip
+  \begin{minipage}[t]{0.31\linewidth}
+    $u_n = 3n + 2$
+    \begin{multihideW}[1em]
+      $u_0 = 3 \times 0 + 2 = 2$
+
+      $u_5 = 3 \times 5 + 2 = 17$
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $v_n = n^2 + 1$
+    \begin{multihideW}[1em]
+      $v_0 = 0^2 + 1 = 1$
+
+      $v_5 = 5^2 + 1 = 26$
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $w_n = \dfrac{120}{n + 1}$
+    \begin{multihideW}[1em]
+      $w_0 = 120 \div (0 + 1) = 120$
+
+      $w_5 = 120 \div (5 + 1) = 20$
+    \end{multihideW}
+  \end{minipage}
+\end{examples}
+
+\subsection{Relation de récurrence}
+
+\begin{example}
+  Dans l'activité 1, le budget des repas vérifie $v_0 = 40\,000$ et $v_{n+1} = 1{,}1 \times v_n$.
+
+  Pour calculer $v_2$, on calcule d'abord $v_1 = \hideM{1{,}1 \times 40\,000 = 44\,000}$, puis $v_2 = \hideM{1{,}1 \times 44\,000 = 48\,400}$.
+\end{example}
+
+\begin{definition}{Relation de récurrence}{}
+  \begin{multihide}
+    Une suite est définie par une \textbf{relation de récurrence} quand on donne son \textbf{premier terme} (par exemple $u_0$) et une relation qui donne $u_{n+1}$ \textbf{à partir du terme précédent} $u_n$.
+  \end{multihide}
+\end{definition}
+
+\begin{method}{Calculer des termes avec une relation de récurrence}{}
+  On calcule les termes \textbf{de proche en proche} : $u_1$ à partir de $u_0$, puis $u_2$ à partir de $u_1$, etc.
+\end{method}
+
+\begin{examples}
+  Calculer les termes de rang $1$, $2$ et $3$ de chaque suite.
+
+  \medskip
+  \begin{minipage}[t]{0.48\linewidth}
+    $u_0 = 3$ et $u_{n+1} = 2 \times u_n - 1$.
+    \begin{multihideW}[1em]
+      $u_1 = 2 \times u_0 - 1 = 2 \times 3 - 1 = 5$
+
+      $u_2 = 2 \times u_1 - 1 = 2 \times 5 - 1 = 9$
+
+      $u_3 = 2 \times u_2 - 1 = 2 \times 9 - 1 = 17$
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\linewidth}
+    $a_0 = 10$ et $a_{n+1} = a_n + 4$.
+    \begin{multihideW}[1em]
+      $a_1 = a_0 + 4 = 10 + 4 = 14$
+
+      $a_2 = a_1 + 4 = 14 + 4 = 18$
+
+      $a_3 = a_2 + 4 = 18 + 4 = 22$
+    \end{multihideW}
+  \end{minipage}
+\end{examples}
+
+\subsection{Comparer les deux modes}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabularx}{\linewidth}{|L{3.6cm}|Y|Y|}
+  \hline
+  & \textbf{Formule explicite} & \textbf{Relation de récurrence} \\
+  \hline
+  Exemple & $u_n = 20 + 6n$ & $v_0 = 40\,000$ et $v_{n+1} = 1{,}1 \times v_n$ \\
+  \hline
+  On utilise\dots & \hide{son rang $n$} & \hide{le terme précédent} \\
+  \hline
+  Pour calculer $u_{10}$\dots & \hide{directement} & \hide{il faut $u_1$, $u_2$, \dots, $u_9$} \\
+  \hline
+\end{tabularx}
+\end{center}
+
+\begin{examples}
+  Indiquer si chaque suite est définie par une formule explicite ou par une relation de récurrence.
+
+  \renewcommand{\arraystretch}{1.3}
+  \begin{center}
+  \begin{tabularx}{\linewidth}{|c|Y|c|Y|}
+    \hline
+    $u_n = 5n - 1$ & \hide{explicite} & $v_0 = 2$ et $v_{n+1} = v_n - 3$ & \hide{récurrence} \\
+    \hline
+    $w_n = n^2$ & \hide{explicite} & $t_0 = 800$ et $t_{n+1} = 0{,}5 \times t_n$ & \hide{récurrence} \\
+    \hline
+  \end{tabularx}
+  \end{center}
+\end{examples}
+
+\newpage
+\section{Représentation graphique}
+
+\begin{definition}{Représentation graphique d'une suite}{}
+  \begin{multihide}
+    Dans un repère, la représentation graphique d'une suite $u$ est le \textbf{nuage de points} de coordonnées $(n~;~u_n)$. On \textbf{ne relie pas} les points, car $n$ est un nombre entier.
+  \end{multihide}
+\end{definition}
+
+\begin{method}{Représenter une suite}{}
+  \begin{enumerate}
+    \item On calcule les premiers termes et on les range dans un tableau.
+    \item On place les points $(n~;~u_n)$ : le rang $n$ en abscisse, le terme $u_n$ en ordonnée.
+  \end{enumerate}
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.5\linewidth}
+    \vspace{0pt}
+    Représenter la suite définie par $u_n = n^2 - 4n + 5$ pour $n$ allant de $0$ à $5$.
+
+    \renewcommand{\arraystretch}{1.4}
+    \begin{center}
+    \begin{tabular}{|c|C{0.6cm}|C{0.6cm}|C{0.6cm}|C{0.6cm}|C{0.6cm}|C{0.6cm}|}
+      \hline
+      $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+      \hline
+      $u_n$ & \hideM{5} & \hideM{2} & \hideM{1} & \hideM{2} & \hideM{5} & \hideM{10} \\
+      \hline
+    \end{tabular}
+    \end{center}
+
+    Calcul : $u_1 = \hideM{1^2 - 4 \times 1 + 5 = 2}$.
+
+    \medskip
+    \textbf{Remarque :} ici, les points ne sont pas alignés. Si $u_n = an + b$, les points sont \hide{alignés} sur la droite d'équation $y = ax + b$ (chapitre 3).
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.45\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[x=0.8cm, y=0.34cm]
+      \repere{0}{6}{0}{11}
+      \hidetk{
+        \foreach \n/\u in {0/5, 1/2, 2/1, 3/2, 4/5, 5/10} \fill[red] (\n,\u) circle (3pt);
+      }
+    \end{tikzpicture}
+  \end{minipage}
+\end{example}
+
+\begin{method}{Lire un terme sur un graphique}{}
+  Pour lire $u_n$, on part de l'abscisse $n$, on monte jusqu'au point, puis on lit son ordonnée.
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.45\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[x=0.8cm, y=0.25cm]
+      \repere{0}{6}{0}{16}
+      \foreach \n/\u in {0/15, 1/12, 2/10, 3/9, 4/8.5, 5/8} \fill[blue] (\n,\u) circle (3pt);
+    \end{tikzpicture}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+    \vspace{1em}
+    On a représenté une suite $v$ ci-contre.
+    \begin{itemize}
+      \item Le premier terme est $v_0 = \hideM{15}$.
+      \item $v_2 = \hideM{10}$ et $v_3 = \hideM{9}$.
+      \item Le rang du terme égal à $12$ est \hideM{1}.
+    \end{itemize}
+  \end{minipage}
+\end{example}
+
+\newpage
+\section{Modéliser une situation par une suite}
+
+\begin{method}{Traduire une phrase par une relation de récurrence}{}
+  Chaque année (mois, jour\dots), la quantité\dots
+
+  \smallskip
+  \begin{tabularx}{\linewidth}{|Y|C{3.3cm}|Y|C{4.6cm}|}
+    \hline
+    \rule[-1.2em]{0pt}{3.2em}augmente de $b$ & $u_{n+1} = \hideM{u_n + b}$ & augmente de $t\,\%$ & $u_{n+1} = \hideM{\left(1 + \frac{t}{100}\right) \times u_n}$ \\
+    \hline
+    \rule[-1.2em]{0pt}{3.2em}diminue de $b$ & $u_{n+1} = \hideM{u_n - b}$ & diminue de $t\,\%$ & $u_{n+1} = \hideM{\left(1 - \frac{t}{100}\right) \times u_n}$ \\
+    \hline
+  \end{tabularx}
+\end{method}
+
+\begin{examples}
+  \begin{enumerate}
+    \setlength{\itemsep}{0.7em}
+    \item Un EHPAD compte $80$ résidents en 2026. Chaque année, il accueille $5$ résidents de plus.
+    On note $r_n$ le nombre de résidents en $2026 + n$.
+
+    \smallskip
+    \begin{multihideW}[1em]
+      $r_0 = 80$ et $r_{n+1} = r_n + 5$.
+    \end{multihideW}
+
+    \item Une colonie de $500$ bactéries augmente de $20\,\%$ chaque heure.
+    On note $b_n$ le nombre de bactéries au bout de $n$ heures. Calculer $b_1$ et $b_2$.
+
+    \smallskip
+    \begin{multihideW}[1em]
+      Augmenter de $20\,\%$, c'est multiplier par $1{,}2$. Donc $b_0 = 500$ et $b_{n+1} = 1{,}2 \times b_n$.
+
+      $b_1 = 1{,}2 \times 500 = 600$ et $b_2 = 1{,}2 \times 600 = 720$.
+    \end{multihideW}
+
+    \item Un patient reçoit $10$~mL d'un médicament. Chaque jour, son organisme en élimine $30\,\%$, puis on lui injecte $2$~mL.
+    On note $q_n$ la quantité de médicament, en mL, au bout de $n$ jours. Calculer $q_1$, $q_2$ et $q_3$.
+
+    \smallskip
+    \begin{multihideW}[1em]
+      Éliminer $30\,\%$, c'est multiplier par $0{,}7$ ; puis on ajoute $2$. Donc $q_0 = 10$ et $q_{n+1} = 0{,}7 \times q_n + 2$.
+
+      $q_1 = 0{,}7 \times 10 + 2 = 9$ \qquad $q_2 = 0{,}7 \times 9 + 2 = 8{,}3$ \qquad $q_3 = 0{,}7 \times 8{,}3 + 2 = 7{,}81$
+    \end{multihideW}
+  \end{enumerate}
+\end{examples}
+
+\newpage
+\section{Sens de variation}
+
+\begin{definition}{}{}
+  \begin{multihide}
+    \begin{itemize}
+      \item Une suite $u$ est \textbf{croissante} si $u_{n+1} \geqslant u_n$ pour tout $n \in \mathbb{N}$ : les termes augmentent.
+      \item Une suite $u$ est \textbf{décroissante} si $u_{n+1} \leqslant u_n$ pour tout $n \in \mathbb{N}$ : les termes diminuent.
+    \end{itemize}
+    Certaines suites ne sont ni croissantes, ni décroissantes.
+  \end{multihide}
+\end{definition}
+
+\begin{center}
+  \begin{tabular}{C{0.31\linewidth}C{0.31\linewidth}C{0.31\linewidth}}
+    \hide{croissante} & \hide{décroissante} & \hide{ni l'une ni l'autre} \\[0.3em]
+    \begin{tikzpicture}[scale=0.45]
+      \draw[->] (-0.3,0) -- (5.5,0); \draw[->] (0,-0.3) -- (0,5);
+      \foreach \n/\u in {0/0.5, 1/1, 2/1.8, 3/2.8, 4/4.2} \fill[blue] (\n,\u) circle (4pt);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.45]
+      \draw[->] (-0.3,0) -- (5.5,0); \draw[->] (0,-0.3) -- (0,5);
+      \foreach \n/\u in {0/4.5, 1/3.2, 2/2.4, 3/1.9, 4/1.6} \fill[blue] (\n,\u) circle (4pt);
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.45]
+      \draw[->] (-0.3,0) -- (5.5,0); \draw[->] (0,-0.3) -- (0,5);
+      \foreach \n/\u in {0/2, 1/3.5, 2/1.5, 3/4, 4/2.5} \fill[blue] (\n,\u) circle (4pt);
+    \end{tikzpicture}
+  \end{tabular}
+\end{center}
+
+\begin{method}{Conjecturer le sens de variation}{}
+  On regarde un tableau de valeurs ou le nuage de points : si les termes augmentent, on conjecture que la suite est croissante ; s'ils diminuent, qu'elle est décroissante.
+\end{method}
+
+\begin{example}
+  La suite $u_n = n^2 - 4n + 5$ de la partie II prend les valeurs $5$, $2$, $1$, $2$, $5$, $10$.
+
+  Elle n'est \hide{ni croissante, ni décroissante}.
+
+  Elle \hide{diminue} jusqu'au rang $2$, puis elle \hide{augmente}.
+\end{example}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    \begin{itemize}
+      \item Si $u_{n+1} - u_n \geqslant 0$ pour tout entier naturel $n$, alors la suite $u$ est \textbf{croissante}.
+      \item Si $u_{n+1} - u_n \leqslant 0$ pour tout entier naturel $n$, alors la suite $u$ est \textbf{décroissante}.
+    \end{itemize}
+  \end{multihide}
+\end{proposition}
+
+\begin{method}{Étudier le sens de variation par le calcul}{}
+  On calcule la différence $u_{n+1} - u_n$, on la simplifie, on étudie son signe, puis on conclut.
+\end{method}
+
+\begin{examples}
+  Étudier le sens de variation de chaque suite.
+
+  \medskip
+  \begin{minipage}[t]{0.42\linewidth}
+    \textbf{1.} $u_0 = 50$ et $u_{n+1} = u_n - 3$.
+    \begin{multihideW}[1em]
+      $u_{n+1} - u_n = (u_n - 3) - u_n = -3$.
+
+      $-3 < 0$, donc la suite $u$ est décroissante.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.55\linewidth}
+    \textbf{2.} $v_n = 2n + 7$.
+    \begin{multihideW}[1em]
+      $v_{n+1} = 2(n + 1) + 7 = 2n + 2 + 7 = 2n + 9$.
+
+      $v_{n+1} - v_n = (2n + 9) - (2n + 7)$
+
+      \hspace{4.4em}$= 2n + 9 - 2n - 7 = 2$.
+
+      $2 > 0$, donc la suite $v$ est croissante.
+    \end{multihideW}
+  \end{minipage}
+\end{examples}
+
+\newpage
+\section{Suites, tableur et Python}
+
+\subsection{Tableur}
+
+\begin{example}
+  \begin{minipage}[t]{0.4\linewidth}
+    \vspace{0pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|>{\columncolor{gray!20}}c|C{1cm}|C{1.6cm}|C{1.8cm}|}
+      \hline
+      \rowcolor{gray!20} & A & B & C \\
+      \hline
+      1 & $n$ & $u_n$ & $v_n$ \\
+      \hline
+      2 & 0 & 20 & 40\,000 \\
+      \hline
+      3 & 1 & 26 & 44\,000 \\
+      \hline
+      4 & 2 & 32 & 48\,400 \\
+      \hline
+      5 & 3 & 38 & 53\,240 \\
+      \hline
+      6 & 4 & 44 & 58\,564 \\
+      \hline
+      7 & 5 & 50 & 64\,420,4 \\
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.57\linewidth}
+    \vspace{0pt}
+    On reprend les suites de l'activité 1 : $u_n = 20 + 6n$, et $v_0 = 40\,000$, $v_{n+1} = 1{,}1 \times v_n$.
+
+    \medskip
+    \begin{itemize}
+      \item Formule explicite : en B2, on saisit \hide{\texttt{=20+6*A2}}, puis on recopie vers le bas.
+      \item Récurrence : en C2, on saisit $40\,000$. En C3, on saisit \hide{\texttt{=1,1*C2}}, puis on recopie vers le bas.
+      \item En recopiant, la formule de C3 devient en C4 : \hide{\texttt{=1,1*C3}}.
+    \end{itemize}
+  \end{minipage}
+\end{example}
+
+\begin{method}{Déterminer le rang à partir duquel un seuil est dépassé}{}
+  On calcule les termes un par un et on repère le \textbf{premier rang} $n$ où $u_n$ dépasse le seuil.
+\end{method}
+
+\begin{example}
+  À partir de quelle année le budget des repas dépasse-t-il $60\,000$~€~?
+  \begin{multihideW}[1em]
+    D'après le tableur, $v_4 = 58\,564 < 60\,000$ et $v_5 = 64\,420{,}4 > 60\,000$.
+
+    Le seuil est dépassé à partir du rang $n = 5$, c'est-à-dire en $2026 + 5 = 2031$.
+  \end{multihideW}
+\end{example}
+
+\subsection{Python}
+
+\begin{example}
+  \begin{minipage}[c]{0.42\linewidth}
+    \begin{python}
+      def u(n):\\
+      \tab return 20 + 6*n
+    \end{python}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.55\linewidth}
+    \raggedright
+    \textbf{Formule explicite.} Cette fonction renvoie $u_n = 20 + 6n$.
+
+    L'instruction \texttt{u(10)} renvoie \hide{$80$}.
+  \end{minipage}
+\end{example}
+
+\begin{example}
+  \begin{minipage}[c]{0.42\linewidth}
+    \begin{python}
+      def v(n):\\
+      \tab terme = 40000\\
+      \tab for i in range(n):\\
+      \tab\tab terme = 1.1*terme\\
+      \tab return terme
+    \end{python}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.55\linewidth}
+    \raggedright
+    \textbf{Relation de récurrence.} Cette fonction renvoie $v_n$, avec $v_0 = 40\,000$ et $v_{n+1} = 1{,}1 \times v_n$.
+    \begin{itemize}
+      \item Au départ, \texttt{terme} contient \hide{$v_0 = 40\,000$}.
+      \item La boucle répète $n$ fois : \hide{multiplier par $1{,}1$}.
+      \item \texttt{v(2)} renvoie \hide{$48\,400$}.
+    \end{itemize}
+  \end{minipage}
+\end{example}
+
+\begin{example}
+  \begin{minipage}[c]{0.42\linewidth}
+    \begin{python}
+      def q(n):\\
+      \tab terme = \hide{10}\\
+      \tab for i in range(n):\\
+      \tab\tab terme = \hide{0.7*terme + 2}\\
+      \tab return terme
+    \end{python}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.55\linewidth}
+    \raggedright
+    Compléter la fonction qui renvoie la quantité de médicament $q_n$, avec $q_0 = 10$ et $q_{n+1} = 0{,}7 \times q_n + 2$.
+
+    \smallskip
+    \textbf{Attention :} en Python, la virgule décimale s'écrit avec un \textbf{point} : $0{,}7$ s'écrit \texttt{0.7}.
+  \end{minipage}
+\end{example}
+
+\vfill
+
+\begin{savoir}{}{}
+\begin{itemize}
+  \item Utiliser les notations $u(n)$ et $u_n$,
+  \item Calculer un terme avec une formule explicite ou une relation de récurrence,
+  \item Reconnaître le mode de génération d'une suite,
+  \item Représenter une suite par un nuage de points ; lire un terme sur un graphique,
+  \item Traduire une situation par une relation de récurrence,
+  \item Conjecturer le sens de variation ; le démontrer avec le signe de $u_{n+1} - u_n$,
+  \item Compléter une formule de tableur ; trouver le rang où un seuil est dépassé,
+  \item Compléter un programme Python qui calcule un terme d'une suite.
+\end{itemize}
+\end{savoir}
+
+\end{document}

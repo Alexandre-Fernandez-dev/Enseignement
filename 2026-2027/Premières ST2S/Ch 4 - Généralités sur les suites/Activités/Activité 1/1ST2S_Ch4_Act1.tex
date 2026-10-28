@@ -1,0 +1,166 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Langue et encodage ----------
+\usepackage[french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+% ---------- Mise en page ----------
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{array,booktabs,tabularx}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr}
+\usepackage{makecell}
+\usepackage{pgffor}
+\usepackage{currfile}
+\usepackage{lastpage}
+
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+% ---------- Couleurs ----------
+\definecolor{bleuF}{RGB}{47,87,163}   
+\definecolor{orH}{RGB}{242,170,60}    
+\definecolor{cadre}{RGB}{47,87,163}
+
+% ---------- Boîtes ----------
+\newtcolorbox{objectif}{
+  colback=bleuF!6, colframe=cadre, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\textbf{Objectif}}, fonttitle=\bfseries,
+  coltitle=cadre, colbacktitle=bleuF!12
+}
+\newtcolorbox{bilan}{
+  colback=orH!8, colframe=cadre, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  title={\textbf{Bilan}}, fonttitle=\bfseries,
+  coltitle=cadre, colbacktitle=orH!20,
+  breakable
+}
+\newtcolorbox{correctionbox}{
+  colback=green!5, colframe=green!40!black, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  breakable
+}
+
+% \checkmark symbol fallback (amssymb provides \checkmark)
+
+% ---------- Ligne de réponse pointillée ----------
+\newcommand{\reponse}[1]{%
+  \par\vspace{2mm}
+  \foreach \i in {1,...,#1}{\rule{0pt}{0pt}\dotfill\\[3mm]}%
+}
+
+\begin{document}
+
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\small \Niveau}}
+\fancyhead[L]{ {\small \ChapitreCourt}}
+\fancyhead[C]{ {\small \Document}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\small \thepage\  / \pageref{LastPage}}}
+
+% ---------- Repère vierge pour placer les points ----------
+\newcommand{\repere}[2]{% #1 : légende de l'axe des ordonnées, #2 : ymax
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.8\textwidth, height=7.5cm,
+  xmin=-0.5, xmax=7.5, ymin=0, ymax=#2,
+  xtick={0,...,7}, ytick distance=10, minor y tick num=1,
+  grid=both, major grid style={gray!45}, minor grid style={gray!20},
+  axis lines=left, xlabel={$n$}, ylabel={#1},
+  ylabel style={font=\small}, xlabel style={at={(1,0)}, anchor=west},
+  ]
+\end{axis}
+\end{tikzpicture}
+\end{center}}
+
+\setlength{\parindent}{0pt}
+\newcommand{\trou}[1]{\underline{\hspace{#1}}}
+
+\begin{objectif}
+Découvrir la notion de suite : calculer des termes, passer d'un terme au suivant, représenter les termes dans un repère.
+\end{objectif}
+
+\section*{Partie A -- Le nombre d'enfants inscrits}
+
+Une crèche municipale ouvre à la rentrée 2026 avec $20$ enfants inscrits. La mairie prévoit d'accueillir $6$ enfants de plus à chaque rentrée.
+
+On note $u(n)$ le nombre d'enfants inscrits à la rentrée de l'année $2026+n$. Ainsi $u(0)=20$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item Compléter le tableau suivant.
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|*{7}{>{\centering\arraybackslash}p{1.2cm}|}}
+\hline
+Année & 2026 & 2027 & 2028 & & & & \\
+\hline
+$n$ & $0$ & $1$ & $2$ & & & & \\
+\hline
+$u(n)$ & $20$ & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\item Que représente le nombre $u(4)$~?
+\reponse{1}
+
+\item Compléter : $u(n+1) = u(n) + \trou{1.5cm}$.
+
+\item Sans compléter le tableau plus loin, calculer $u(10)$.\\
+En déduire une formule : $u(n) = 20 + \trou{1.5cm} \times n$.
+\reponse{2}
+
+\item Placer les points de coordonnées $(n~;~u(n))$ pour $n$ allant de $0$ à $6$. A-t-on le droit de relier les points~? Pourquoi~?
+\repere{Nombre d'enfants}{80}
+\reponse{1}
+\end{enumerate}
+
+\section*{Partie B -- Le budget des repas}
+
+En 2026, la crèche dépense $40\,000$~€ pour les repas. Ce budget augmente de $10\,\%$ chaque année, c'est-à-dire qu'il est multiplié par $1{,}1$.
+
+On note $v(n)$ le budget des repas, en euros, pour l'année $2026+n$. Ainsi $v(0)=40\,000$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item Compléter le tableau suivant, puis compléter : $v(n+1) = \trou{1.5cm} \times v(n)$.
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|*{5}{>{\centering\arraybackslash}p{1.6cm}|}}
+\hline
+$n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
+\hline
+$v(n)$ & $40\,000$ & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\item Peut-on calculer $v(10)$ aussi rapidement que $u(10)$~? Pourquoi~?
+\reponse{2}
+\end{enumerate}
+
+\begin{bilan}
+\begin{itemize}[leftmargin=1.2em]
+\item Une \textbf{suite} est une liste de nombres numérotés par les entiers $0$, $1$, $2$, \dots{} Le nombre $u(n)$ est le \textbf{terme de rang} \trou{1.2cm}.
+\item \textbf{Formule explicite} : on calcule un terme directement à partir de son rang $n$. Exemple : $u(n) = \trou{3cm}$.
+\item \textbf{Relation de récurrence} : on calcule un terme à partir du terme \trou{3cm}. Il faut connaître le premier terme. Exemple : $v(0) = \trou{2cm}$ et $v(n+1) = \trou{3cm}$.
+\item On représente une suite par un \textbf{nuage de points} $(n~;~u(n))$. On ne \trou{2cm} pas les points.
+\end{itemize}
+\end{bilan}
+
+\end{document}

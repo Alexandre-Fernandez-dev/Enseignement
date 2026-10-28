@@ -1,0 +1,428 @@
+%LTeX: language=fr-FR
+\documentclass[a4paper,11pt]{article}
+
+% ---------- Préambule minimal ----------
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{tasks}
+\usetikzlibrary{arrows.meta}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{needspace}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\settasks{label=\arabic*.}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+% Environnement "exercice" : \begin{exercice}{<numéro>} ... \end{exercice}
+\newenvironment{exercice}[1]{%
+  \Needspace{6\baselineskip}\par\bigskip\noindent\textbf{Exercice #1}\par\smallskip\noindent\ignorespaces
+}{%
+  \par
+}
+
+% Titre de partie, en lien avec les parties du cours
+\newcommand{\partie}[1]{%
+  \Needspace{10\baselineskip}\par\bigskip\noindent{\large\textbf{#1}}\par\vspace{-0.6em}\noindent\rule{\linewidth}{0.4pt}\par
+}
+
+% Repère pour une suite : \grille{nmax}{ymax}{graduations en y}{pas de la grille en y}
+\newcommand{\grille}[4]{%
+  \draw[very thin, gray!40, xstep=1, ystep=#4] (0,0) grid (#1,#2);
+  \draw[->] (0,0) -- ({#1+0.5},0) node[right] {\small $n$};
+  \draw[->] (0,0) -- (0,#2) -- ++(0,0.4cm);
+  \foreach \x in {1,...,#1} \node[below] at (\x,0) {\scriptsize $\x$};
+  \foreach \y in {#3} \node[left] at (0,\y) {\scriptsize $\y$};
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Cadre pour les programmes Python
+\newtcolorbox{python}{colback=white, colframe=black!50, boxrule=0.5pt, arc=1pt, left=6pt, fontupper=\ttfamily}
+\newcommand{\tab}{\hspace*{2em}}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[L]{ {\Niveau}}
+\fancyhead[C]{ {\Chapitre}}
+\fancyhead[R]{ {\Document}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+% =====================================================
+\partie{1. Définition, notation $u_n$, formule explicite}
+
+\begin{exercice}{1}
+Un centre de vaccination note chaque semaine le nombre de vaccins réalisés. On note $u_n$ le nombre de vaccins de la semaine $n$.
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{|c|*{6}{C{1.1cm}|}}
+  \hline
+  $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+  \hline
+  $u_n$ & $120$ & $135$ & $150$ & $142$ & $160$ & $175$ \\
+  \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\arabic*.]
+\item Donner le premier terme de la suite.
+\item Donner $u_3$ et interpréter ce nombre dans le contexte.
+\item Quel est le rang du terme égal à $150$~?
+\item Calculer $u_{2+1}$ puis $u_2 + 1$. Ces deux nombres sont-ils égaux~?
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{2}
+Dans chaque cas, calculer les termes demandés.
+\begin{tasks}(2)
+\task $u_n = 4n - 3$ : $u_0$, $u_1$ et $u_{10}$.
+\task $v_n = n^2 - 2n$ : $v_0$, $v_3$ et $v_{10}$.
+\task $w_n = \dfrac{60}{n + 1}$ : $w_0$, $w_2$ et $w_5$.
+\task $t_n = 100 - 7n$ : $t_0$, $t_4$ et $t_{10}$.
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{3}
+Une association distribue des colis alimentaires. On estime que le nombre de colis distribués la semaine $n$ est $c_n = 150 + 12n$.
+\begin{enumerate}[label=\arabic*.]
+\item Calculer $c_0$ et interpréter ce nombre.
+\item Combien de colis seront distribués la semaine $8$~?
+\item Compléter le tableau suivant.
+
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|*{6}{C{1.1cm}|}}
+  \hline
+  $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+  \hline
+  $c_n$ & & & & & & \\
+  \hline
+\end{tabular}
+\item Quelle semaine l'association distribuera-t-elle $270$ colis~? On pourra résoudre l'équation $150 + 12n = 270$.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\partie{2. Relation de récurrence, comparer les deux modes}
+
+\begin{exercice}{4}
+Dans chaque cas, calculer $u_1$, $u_2$, $u_3$ et $u_4$ en détaillant les calculs.
+\begin{tasks}(2)
+\task $u_0 = 2$ et $u_{n+1} = u_n + 5$
+\task $u_0 = 1$ et $u_{n+1} = 3 \times u_n$
+\task $u_0 = 10$ et $u_{n+1} = 2 \times u_n - 4$
+\task $u_0 = 100$ et $u_{n+1} = 0{,}9 \times u_n$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{5}
+Pour chaque suite, indiquer si elle est définie par une formule explicite ou par une relation de récurrence.
+\begin{tasks}(2)
+\task $u_n = 7n + 2$
+\task $v_0 = 4$ et $v_{n+1} = v_n - 1$
+\task $w_n = 3 \times 2^n$
+\task $t_0 = 50$ et $t_{n+1} = 1{,}2 \times t_n$
+\task $r_n = n^2 + n$
+\task $s_0 = 1$ et $s_{n+1} = s_n^2 + 1$
+\end{tasks}
+Pour quelles suites peut-on calculer directement le terme de rang $20$~? Le calculer pour la suite $u$.
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{6}
+On considère la suite $u$ définie par $u_0 = 1$ et $u_{n+1} = u_n + 3$, et la suite $v$ définie par $v_n = 3n + 1$.
+\begin{enumerate}[label=\arabic*.]
+\item Calculer $u_1$, $u_2$, $u_3$ et $u_4$.
+\item Calculer $v_0$, $v_1$, $v_2$, $v_3$ et $v_4$. Que remarque-t-on~?
+\item Calculer $u_{20}$ le plus rapidement possible. Expliquer la méthode.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{7}
+Dans une pharmacie hospitalière, on note $s_n$ le stock de gel hydroalcoolique, en litres, au début de la semaine $n$. On a $s_0 = 200$ et $s_{n+1} = 0{,}5 \times s_n + 40$.
+\begin{enumerate}[label=\arabic*.]
+\item Calculer $s_1$, $s_2$, $s_3$ et $s_4$.
+\item Expliquer avec une phrase comment le stock évolue d'une semaine à la suivante.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\partie{3. Représentation graphique}
+
+\begin{exercice}{8}
+Représenter chaque suite par un nuage de points, pour $n$ allant de $0$ à $5$ (pour $v$, de $0$ à $4$).
+
+\medskip
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+$u_n = 10 - 2n$
+
+\smallskip
+\begin{tikzpicture}[x=0.75cm, y=0.35cm]
+  \grille{6}{11}{2,4,...,10}{1}
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+$v_0 = 1$ et $v_{n+1} = 2 \times v_n$
+
+\smallskip
+\begin{tikzpicture}[x=0.75cm, y=0.22cm]
+  \grille{6}{17}{2,4,...,16}{1}
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+Pour quelle suite les points sont-ils alignés~? Pouvait-on le prévoir~?
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{9}
+\begin{minipage}[c]{0.5\linewidth}
+On a représenté ci-contre le nombre $\ell_n$ de lits occupés dans un service hospitalier le jour $n$.
+\begin{enumerate}[label=\arabic*.]
+\item Lire $\ell_0$, $\ell_2$ et $\ell_5$.
+\item Quel jour $25$ lits sont-ils occupés~?
+\item Quel jour le nombre de lits occupés est-il le plus grand~?
+\item Les points sont-ils alignés~?
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[x=0.75cm, y=0.15cm]
+  \grille{7}{30}{5,10,...,30}{1}
+  \foreach \n/\u in {0/18, 1/22, 2/25, 3/21, 4/24, 5/28, 6/26} \fill[blue] (\n,\u) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\Needspace{16\baselineskip}
+\begin{exercice}{10}
+Associer chaque suite à son nuage de points, en calculant quelques termes.
+\begin{tasks}(3)
+\task $u_n = 2n + 1$
+\task $v_n = n^2$
+\task $w_0 = 16$ et $w_{n+1} = w_n \div 2$
+\end{tasks}
+
+\medskip
+\noindent
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+Nuage A
+
+\begin{tikzpicture}[x=0.6cm, y=0.15cm]
+  \grille{5}{17}{4,8,12,16}{1}
+  \foreach \n/\u in {0/16, 1/8, 2/4, 3/2, 4/1} \fill[blue] (\n,\u) circle (2.5pt);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+Nuage B
+
+\begin{tikzpicture}[x=0.6cm, y=0.15cm]
+  \grille{5}{17}{4,8,12,16}{1}
+  \foreach \n/\u in {0/1, 1/3, 2/5, 3/7, 4/9} \fill[blue] (\n,\u) circle (2.5pt);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+Nuage C
+
+\begin{tikzpicture}[x=0.6cm, y=0.15cm]
+  \grille{5}{17}{4,8,12,16}{1}
+  \foreach \n/\u in {0/0, 1/1, 2/4, 3/9, 4/16} \fill[blue] (\n,\u) circle (2.5pt);
+\end{tikzpicture}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\partie{4. Modéliser une situation par une suite}
+
+\begin{exercice}{11}
+Dans chaque cas, donner le premier terme et la relation de récurrence de la suite, puis calculer les deux termes suivants.
+\begin{enumerate}[label=\arabic*.]
+\item Une crèche a $30$ places en 2026. Elle en crée $4$ de plus chaque année. On note $p_n$ le nombre de places en $2026 + n$.
+\item Une population de $2\,000$ bactéries augmente de $15\,\%$ chaque heure. On note $b_n$ le nombre de bactéries au bout de $n$ heures.
+\item Un service dispose de $500$ masques et en utilise $40$ par jour. On note $m_n$ le nombre de masques restants au bout de $n$ jours.
+\item Un appareil d'échographie vaut $80\,000$~€ à l'achat. Sa valeur baisse de $10\,\%$ chaque année. On note $e_n$ sa valeur au bout de $n$ années.
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{12}
+Un patient reçoit une perfusion. Au départ, il a $20$~mg de médicament dans le sang. Chaque heure, son organisme élimine $20\,\%$ du médicament, puis la perfusion en apporte $5$~mg. On note $q_n$ la quantité de médicament, en mg, au bout de $n$ heures.
+\begin{enumerate}[label=\arabic*.]
+\item Justifier que $q_{n+1} = 0{,}8 \times q_n + 5$.
+\item Calculer $q_1$, $q_2$, $q_3$ et $q_4$. Arrondir au centième si besoin.
+\item À chaque heure, ajoute-t-on toujours la même quantité~? Multiplie-t-on toujours par le même nombre~?
+\end{enumerate}
+\end{exercice}
+
+% =====================================================
+\partie{5. Sens de variation}
+
+\begin{exercice}{13}
+Pour chaque suite, conjecturer son sens de variation à partir du tableau de valeurs.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{|c|*{6}{C{0.9cm}|}}
+  \hline
+  $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+  \hline
+  $u_n$ & $3$ & $5$ & $8$ & $12$ & $17$ & $23$ \\
+  \hline
+  $v_n$ & $50$ & $45$ & $41$ & $38$ & $36$ & $35$ \\
+  \hline
+  $w_n$ & $4$ & $6$ & $5$ & $7$ & $6$ & $8$ \\
+  \hline
+\end{tabular}
+\end{center}
+Quel est le sens de variation de la suite $\ell$ de l'exercice 9~?
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{14}
+Dans chaque cas, calculer $u_{n+1} - u_n$ et en déduire le sens de variation de la suite.
+\begin{tasks}(2)
+\task $u_0 = 7$ et $u_{n+1} = u_n + 2{,}5$
+\task $u_0 = 40$ et $u_{n+1} = u_n - 6$
+\task $u_n = 5n - 3$
+\task $u_n = 12 - 4n$
+\task $u_0 = 3$ et $u_{n+1} = u_n + n$
+\task $u_n = 8 + 0{,}5n$
+\end{tasks}
+\end{exercice}
+
+% =====================================================
+\partie{6. Suites, tableur et Python}
+
+\begin{exercice}{15}
+\begin{minipage}[c]{0.42\linewidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|>{\columncolor{gray!20}}c|C{0.8cm}|C{1.6cm}|C{1cm}|}
+  \hline
+  \rowcolor{gray!20} & A & B & C \\
+  \hline
+  1 & $n$ & $b_n$ & $p_n$ \\
+  \hline
+  2 & 0 & 2\,000 & 30 \\
+  \hline
+  3 & 1 & 2\,300 & 34 \\
+  \hline
+  4 & 2 & 2\,645 & 38 \\
+  \hline
+  5 & 3 & 3\,041,75 & 42 \\
+  \hline
+  6 & 4 & 3\,498,01 & 46 \\
+  \hline
+  7 & 5 & 4\,022,71 & 50 \\
+  \hline
+  8 & 6 & 4\,626,12 & 54 \\
+  \hline
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.55\linewidth}
+On reprend deux suites de l'exercice 11 : $b_0 = 2\,000$ et $b_{n+1} = 1{,}15 \times b_n$ (bactéries), et $p_n = 30 + 4n$ (places en crèche).
+\begin{enumerate}[label=\arabic*.]
+\item Quelle formule a-t-on saisie en C2, puis recopiée vers le bas~?
+\item Quelle formule a-t-on saisie en B3, puis recopiée vers le bas~?
+\item Que devient la formule de B3 en B6~?
+\item À partir de quelle heure y a-t-il plus de $4\,000$ bactéries~?
+\item À partir de quelle année la crèche aura-t-elle au moins $50$ places~?
+\end{enumerate}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\begin{exercice}{16}
+\begin{minipage}[t]{0.4\linewidth}
+\vspace{0pt}
+\begin{python}
+  def u(n):\\
+  \tab return 3*n + 2
+\end{python}
+\begin{python}
+  def v(n):\\
+  \tab terme = 5\\
+  \tab for i in range(n):\\
+  \tab\tab terme = terme + 4\\
+  \tab return terme
+\end{python}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\begin{enumerate}[label=\arabic*.]
+\item Que renvoient \texttt{u(0)} et \texttt{u(4)}~? La suite $u$ est-elle définie par une formule explicite ou par récurrence~?
+\item Que renvoient \texttt{v(1)} et \texttt{v(3)}~? Donner $v_0$ et la relation de récurrence de la suite $v$.
+\item Écrire une fonction \texttt{w(n)} qui renvoie le terme $w_n$ de la suite définie par $w_0 = 1\,000$ et $w_{n+1} = 0{,}8 \times w_n + 50$.
+\item Écrire une fonction \texttt{t(n)} qui renvoie $t_n = n^2 + 1$. On pourra écrire $n^2$ sous la forme \texttt{n*n}.
+\end{enumerate}
+\end{minipage}
+\end{exercice}
+
+% =====================================================
+\newpage
+\partie{7. Synthèse}
+
+\begin{exercice}{17}
+Deux centres de soins comptaient des patients réguliers en 2026 :
+\begin{itemize}
+\item le centre A avait $500$ patients, et en gagne $40$ de plus chaque année ;
+\item le centre B avait $400$ patients, et leur nombre augmente de $10\,\%$ chaque année.
+\end{itemize}
+On note $a_n$ et $b_n$ le nombre de patients des centres A et B en $2026 + n$.
+\begin{enumerate}[label=\arabic*.]
+\item Donner $a_0$, $b_0$ et les relations de récurrence des suites $a$ et $b$.
+\item Justifier que $a_n = 500 + 40n$.
+\item Compléter le tableau (arrondir $b_n$ à l'unité).
+
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|*{9}{C{0.95cm}|}}
+  \hline
+  $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\
+  \hline
+  $a_n$ & & & & & & & & & \\
+  \hline
+  $b_n$ & & & & & & & & & \\
+  \hline
+\end{tabular}
+
+\item Représenter les deux suites dans le repère ci-dessous. Quel nuage est formé de points alignés~?
+
+\begin{center}
+\begin{tikzpicture}[x=1.2cm, y=0.0065cm]
+  \grille{8}{900}{100,200,...,900}{50}
+\end{tikzpicture}
+\end{center}
+
+\item Déterminer le sens de variation de la suite $a$ en calculant $a_{n+1} - a_n$. Conjecturer celui de la suite $b$.
+\item En quelle année le centre B aura-t-il plus de patients que le centre A~?
+\end{enumerate}
+\end{exercice}
+
+\end{document}
