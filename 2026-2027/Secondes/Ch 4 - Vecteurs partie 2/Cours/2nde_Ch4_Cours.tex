@@ -1,0 +1,686 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes, calc} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{tabularray}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+\usepackage{needspace}
+\usepackage{tabularx}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheorem*{exampleil}{Exemple}
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple.}
+\newtheorem*{examples}{Exemples.}
+\newtheorem*{remark}{Remarque.}
+\newtheorem*{remarks}{Remarques.}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 4 \\Vecteurs dans un repère
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+%\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+\setlist[itemize,1]{label=$\bullet$}
+
+\tikzset{cross/.style={path picture={
+  \draw[black]
+    (path picture bounding box.south east)--(path picture bounding box.north west)
+    (path picture bounding box.south west)--(path picture bounding box.north east);
+}}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyhead[L]{\Structure}
+  \fancyhead[R]{\Niveau}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+   %\renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% -----------
+% Macros des trous : version élève si \ELEVE est défini à la compilation
+% (recette « prof + élève »), sinon version prof.
+\ifdefined\ELEVE
+% Version élève : contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+\newcommand{\hideW}[1]{\mbox{\vphantom{#1}\smash{\colorbox{white}{\phantom{#1}}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+\NewEnviron{multihideW}{%
+  \colorbox{white}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+\newcommand{\hidetk}[1]{}
+\else
+% Version prof : contenu visible sur fond gris
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\newcommand{\hideW}[1]{\mbox{\vphantom{#1}\smash{#1}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+\NewEnviron{multihideW}{%
+  \colorbox{white}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+\newcommand{\hidetk}[1]{#1}
+\fi
+% -----------
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+
+% Macros pour la représentation des intervalles sur la droite réelle
+% (crochet gauche fermé / ouvert, crochet droit fermé / ouvert)
+\newcommand{\droite}{\draw[<->, >=Stealth] (0,0) -- (6,0);}
+\newcommand{\brGF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\brGO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\etiq}[2]{\node[below=10pt,inner sep=0pt] at (#1,0) {\scriptsize$#2$};}
+
+
+% ---------- Graphiques du cours ----------
+% Quadrillage, axes et graduations : \axesG{xmin}{xmax}{ymin}{ymax}
+\newcommand{\axesG}[4]{%
+  \draw[gray!35, very thin, step=1] (#1,#3) grid (#2,#4);
+  \draw[-{Latex[length=2mm]}] (#1,0) -- (#2+0.3,0);
+  \draw[-{Latex[length=2mm]}] (0,#3) -- (0,#4+0.3);
+  \foreach \x in {#1,...,#2} {\ifnum\x=0 \else \node[below, fill=white, fill opacity=0.7, text opacity=1, inner sep=1pt] at (\x,-0.18) {\small $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0 \else \node[left, fill=white, fill opacity=0.7, text opacity=1, inner sep=1pt] at (-0.1,\y) {\small $\y$};\fi}
+  \node[below left, inner sep=1pt] at (-0.05,-0.18) {\small $0$};
+}
+\newcommand{\croix}[1]{\node[inner sep=0pt] at (#1) {$\times$};}
+
+% Texte d'une étape dans les tableaux à deux colonnes : aligné à gauche et en haut
+\newcommand{\txt}[1]{\multicolumn{1}{@{}p{0.48\linewidth}@{}}{\raggedright #1}}
+
+% Cadre de réponse : blanc et vide dans la version élève (même hauteur)
+\NewEnviron{reponse}{%
+  \par\smallskip\noindent
+  \begin{lrbox}{\hidebox}\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}\BODY\end{minipage}\end{lrbox}%
+  \fbox{\ifdefined\ELEVE\phantom{\usebox{\hidebox}}\else\usebox{\hidebox}\fi}%
+  \par\smallskip
+}
+
+% ---------- Vecteurs ----------
+% Coordonnées d'un vecteur en colonne
+\newcommand{\col}[2]{{\renewcommand{\arraystretch}{1}\begin{pmatrix} #1 \\ #2 \end{pmatrix}}}
+\newcommand{\colvide}{\col{\dots}{\dots}}
+% Flèche de vecteur et point nommé
+\tikzset{vec/.style={-{Stealth[length=3mm]}, very thick}}
+\newcommand{\pt}[3]{\fill (#1) circle (2pt); \node[#2] at (#1) {$#3$};}
+
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+
+
+
+
+
+\section{Repère du plan}
+
+\begin{definition}{Repère}{}
+  \begin{multihide}
+  Soit $O$ un point du plan et $\vec\imath$, $\vec\jmath$ deux vecteurs de directions différentes.
+  Le triplet $(O\,;\,\vec\imath,\vec\jmath)$ est un \textbf{repère} du plan, et le couple $(\vec\imath,\vec\jmath)$ est sa \textbf{base}.
+  \begin{itemize}
+    \item Si $\vec\imath$ et $\vec\jmath$ ont des directions perpendiculaires, le repère est \textbf{orthogonal}.
+    \item Si $\vec\imath$ et $\vec\jmath$ ont la même norme, le repère est \textbf{normé}.
+    \item Si les deux conditions sont vérifiées, le repère est \textbf{orthonormé}.
+    \item Sinon, le repère est \textbf{quelconque}.
+  \end{itemize}
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+  Donner la nature de chaque repère.
+
+  \begin{center}
+  \begin{tabular}{ccc}
+    \begin{tikzpicture}[scale=1.2]
+      \draw[gray!35, very thin, xstep=1, ystep=0.5] (-1,-1) grid (3,1.5);
+      \draw[vec] (0,0) -- (1,0) node[midway, below] {$\vec\imath$};
+      \draw[vec] (0,0) -- (0,0.5) node[midway, left] {$\vec\jmath$};
+      \node[below left] at (0,0) {$O$};
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=1.2]
+      \begin{scope}
+        \clip (-1.5,-1) rectangle (2.5,1.5);
+        \foreach \k in {-4,...,4} \draw[gray!35, very thin] ({\k-2*0.6},-2*0.8) -- ({\k+2*0.6},2*0.8);
+        \foreach \k in {-2,...,2} \draw[gray!35, very thin] ({-3+\k*0.6},\k*0.8) -- ({4+\k*0.6},\k*0.8);
+      \end{scope}
+      \draw[vec] (0,0) -- (1,0) node[midway, below] {$\vec\imath$};
+      \draw[vec] (0,0) -- (0.6,0.8) node[midway, left] {$\vec\jmath$};
+      \node[below left] at (0,0) {$O$};
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=1.2]
+      \draw[gray!35, very thin, step=1] (-1,-1) grid (2,1.5);
+      \draw[vec] (0,0) -- (1,0) node[midway, below] {$\vec\imath$};
+      \draw[vec] (0,0) -- (0,1) node[midway, left] {$\vec\jmath$};
+      \node[below left] at (0,0) {$O$};
+    \end{tikzpicture}
+    \\[0.5em]
+    Repère \hide{orthogonal} & Repère \hide{quelconque} & Repère \hide{orthonormé}
+  \end{tabular}
+  \end{center}
+\end{example}
+
+\begin{remark}
+  Dans toute la suite du chapitre, on se place dans un \textbf{repère orthonormé} $(O\,;\,\vec\imath,\vec\jmath)$.
+\end{remark}
+
+\section{Coordonnées d'un vecteur}
+
+\subsection{Définition}
+
+\begin{definition}{Coordonnées d'un vecteur}{}
+  \begin{multihide}
+  Pour tout vecteur $\vec u$ du plan, il existe deux réels \textbf{uniques} $x$ et $y$ tels que $\vec u = x\,\vec\imath + y\,\vec\jmath$.
+
+  Ces réels sont les \textbf{coordonnées} de $\vec u$. On note $\vec u\col{x}{y}$, en colonne.
+  \end{multihide}
+\end{definition}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item $x$ est le déplacement \textbf{horizontal} (négatif vers la gauche) et $y$ le déplacement \textbf{vertical} (négatif vers le bas).
+    \item On écrit les coordonnées d'un vecteur \textbf{en colonne}, et celles d'un point \textbf{en ligne} : $A(x\,;\,y)$.
+  \end{itemize}
+\end{remarks}
+
+\Needspace{8\baselineskip}
+\begin{example}
+  \begin{minipage}{0.45\linewidth}
+    Lire les coordonnées des vecteurs représentés ci-contre.
+
+    \medskip
+    $\vec u\,\hideM{\col{4}{-2}}$ \qquad $\vec v\,\hideM{\col{-2}{-4}}$ \qquad $\vec w\,\hideM{\col{0}{-3}}$
+
+    \medskip
+    Représenter le vecteur $\vec t\col{3}{1}$ à partir du point $D$.
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.52\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[x=0.65cm, y=0.65cm]
+      \axesG{-4}{4}{-4}{4}
+      \draw[vec] (-3,4) -- (1,2) node[midway, above right] {$\vec u$};
+      \draw[vec] (3,2) -- (1,-2) node[midway, right] {$\vec v$};
+      \draw[vec] (-2,-1) -- (-2,-4) node[midway, left] {$\vec w$};
+      \pt{-3,1}{left}{D}
+      \hidetk{\draw[vec, blue!70!black] (-3,1) -- (0,2) node[midway, above left] {$\vec t$};}
+    \end{tikzpicture}
+    \end{center}
+  \end{minipage}
+\end{example}
+
+\subsection{Coordonnées du vecteur $\wvec{AB}$}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $A(x_A\,;\,y_A)$ et $B(x_B\,;\,y_B)$ deux points. Le vecteur $\wvec{AB}$ a pour coordonnées :
+    \[
+      \wvec{AB}\col{x_B - x_A}{y_B - y_A}
+    \]
+  \end{multihide}
+\end{proposition}
+
+\Needspace{8\baselineskip}
+\begin{example}
+  \begin{minipage}{0.55\linewidth}
+    On donne $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$.
+    \begin{itemize}
+      \item $\wvec{AB}\col{x_B - x_A}{y_B - y_A} = \hideM{\col{4-(-2)}{-1-3}} = \hideM{\col{6}{-4}}$
+      \item[]
+      \item $\wvec{BC}\,\hideM{\col{-3-4}{-2-(-1)}} = \hideM{\col{-7}{-1}}$
+      \item[]
+      \item $\wvec{CA}\,\hideM{\col{-2-(-3)}{3-(-2)}} = \hideM{\col{1}{5}}$
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.42\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[x=0.55cm, y=0.55cm]
+      \axesG{-4}{5}{-3}{4}
+      \pt{-2,3}{above left}{A} \pt{4,-1}{right}{B} \pt{-3,-2}{below left}{C}
+      \hidetk{\draw[vec, blue!70!black] (-2,3) -- (4,-1);}
+    \end{tikzpicture}
+    \end{center}
+  \end{minipage}
+\end{example}
+
+\begin{remark}
+  Si $O$ est l'origine du repère, le vecteur $\wvec{OM}$ a les mêmes coordonnées que le point $M$. En physique, on l'appelle le \emph{vecteur position} de $M$, et $\wvec{AB}$ le \emph{vecteur déplacement} de $A$ à $B$.
+\end{remark}
+
+\subsection{Égalité de deux vecteurs}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Deux vecteurs sont égaux \ssi ils ont les \textbf{mêmes coordonnées}.
+  \end{multihide}
+\end{proposition}
+
+\begin{method}{Trouver le quatrième sommet d'un parallélogramme}{}
+  On rappelle que $ABCD$ est un parallélogramme \ssi $\wvec{AB} = \wvec{DC}$.
+
+  On calcule les coordonnées de $\wvec{AB}$, puis on écrit que $\wvec{DC}$ a les mêmes coordonnées : on obtient une équation pour $x_D$ et une pour $y_D$.
+\end{method}
+
+\begin{example}
+  On donne $A(1\,;\,1)$, $B(4\,;\,2)$ et $C(3\,;\,5)$. Déterminer les coordonnées du point $D$ tel que $ABCD$ soit un parallélogramme.
+  \begin{reponse}
+    $\wvec{AB}\col{4-1}{2-1} = \col{3}{1}$ et $\wvec{DC}\col{3 - x_D}{5 - y_D}$.
+
+    $ABCD$ est un parallélogramme \ssi $\wvec{AB} = \wvec{DC}$, c'est-à-dire $3 - x_D = 3$ et $5 - y_D = 1$.
+
+    Donc $x_D = 0$ et $y_D = 4$ : $D(0\,;\,4)$.
+  \end{reponse}
+\end{example}
+
+\section{Distance entre deux points}
+
+\begin{proposition}{Norme d'un vecteur}{}
+  \begin{multihide}
+    Dans un repère orthonormé, la norme du vecteur $\vec u\col{x}{y}$ est :
+    \[
+      \lVert \vec u \rVert = \sqrt{x^2 + y^2}
+    \]
+  \end{multihide}
+\end{proposition}
+
+\Needspace{8\baselineskip}
+\begin{example}
+  \begin{minipage}{0.55\linewidth}
+    Pour $\vec u\col{4}{3}$, on trace un triangle rectangle dont les côtés de l'angle droit mesurent $4$ et $3$.
+
+    D'après le théorème de Pythagore :
+    \[
+      \lVert \vec u \rVert^2 = \hideM{4^2 + 3^2 = 16 + 9 = 25}
+    \]
+    donc $\lVert \vec u \rVert = \hideM{\sqrt{25} = 5}$.
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.4\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.7]
+      \draw[gray!35, very thin, step=1] (-0.5,-0.5) grid (4.5,3.5);
+      \draw[thick, dashed] (0,0) -- (4,0) node[midway, below] {$4$} -- (4,3) node[midway, right] {$3$};
+      \draw (3.7,0) -- (3.7,0.3) -- (4,0.3);
+      \draw[vec] (0,0) -- (4,3) node[midway, above left] {$\vec u$};
+    \end{tikzpicture}
+    \end{center}
+  \end{minipage}
+\end{example}
+
+\begin{proposition}{Distance entre deux points}{}
+  \begin{multihide}
+    Dans un repère orthonormé, la distance entre $A(x_A\,;\,y_A)$ et $B(x_B\,;\,y_B)$ est la norme du vecteur $\wvec{AB}$ :
+    \[
+      AB = \lVert \wvec{AB} \rVert = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
+    \]
+  \end{multihide}
+\end{proposition}
+
+\begin{example}
+  On reprend $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$, avec $\wvec{AB}\col{6}{-4}$, $\wvec{BC}\col{-7}{-1}$ et $\wvec{CA}\col{1}{5}$.
+  \begin{itemize}
+    \item $AB = \sqrt{6^2 + (-4)^2} = \hideM{\sqrt{36 + 16} = \sqrt{52} = 2\sqrt{13}}$
+    \item $BC = \hideM{\sqrt{(-7)^2 + (-1)^2} = \sqrt{49 + 1} = \sqrt{50} = 5\sqrt{2}}$
+    \item $CA = \hideM{\sqrt{1^2 + 5^2} = \sqrt{1 + 25} = \sqrt{26}}$
+  \end{itemize}
+\end{example}
+
+\begin{method}{Déterminer la nature d'un triangle}{}
+  \begin{itemize}
+    \item On calcule les longueurs des trois côtés.
+    \item Deux côtés de même longueur : le triangle est \textbf{isocèle}.
+    \item Si le carré du plus grand côté est égal à la somme des carrés des deux autres, le triangle est \textbf{rectangle} (réciproque du théorème de Pythagore).
+  \end{itemize}
+\end{method}
+
+\begin{example}
+  On donne $E(1\,;\,1)$, $F(4\,;\,5)$ et $G(-3\,;\,4)$. Quelle est la nature du triangle $EFG$~?
+  \begin{reponse}
+    $EF = \sqrt{3^2 + 4^2} = \sqrt{25} = 5$ \quad et \quad $EG = \sqrt{(-4)^2 + 3^2} = \sqrt{25} = 5$.
+
+    $FG = \sqrt{(-7)^2 + (-1)^2} = \sqrt{50}$.
+
+    $EF = EG$ : le triangle est isocèle en $E$. De plus $EF^2 + EG^2 = 25 + 25 = 50 = FG^2$ : il est rectangle en $E$.
+
+    Le triangle $EFG$ est donc rectangle isocèle en $E$.
+  \end{reponse}
+\end{example}
+
+\section{Milieu d'un segment}
+
+\begin{proposition}{Caractérisation vectorielle du milieu}{}
+  \begin{multihide}
+    $I$ est le milieu du segment $[AB]$ \ssi $\wvec{AI} = \wvec{IB}$.
+  \end{multihide}
+\end{proposition}
+
+\begin{proposition}{Coordonnées du milieu}{}
+  \begin{multihide}
+    Le milieu $I$ du segment $[AB]$ a pour coordonnées :
+    \[
+      x_I = \frac{x_A + x_B}{2} \qquad \text{et} \qquad y_I = \frac{y_A + y_B}{2}
+    \]
+  \end{multihide}
+\end{proposition}
+
+\begin{demo}[Démonstration (pour aller plus loin)]
+  Comme $\wvec{AI} = \wvec{IB}$, les deux vecteurs ont les mêmes coordonnées : $x_I - x_A = x_B - x_I$.
+  Donc $2x_I = x_A + x_B$, soit $x_I = \dfrac{x_A + x_B}{2}$. On procède de même pour $y_I$.
+\end{demo}
+
+\begin{example}
+  On reprend $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$. On note $I$, $J$ et $K$ les milieux de $[AB]$, $[BC]$ et $[AC]$.
+  \begin{itemize}
+    \item $x_I = \dfrac{-2 + 4}{2} = \hideM{1}$ \quad et \quad $y_I = \dfrac{3 + (-1)}{2} = \hideM{1}$, \quad donc $I\,\hideM{(1\,;\,1)}$.
+    \item $J\,\hideM{\left(\dfrac{1}{2}\,;\,-\dfrac{3}{2}\right)}$ \qquad $K\,\hideM{\left(-\dfrac{5}{2}\,;\,\dfrac{1}{2}\right)}$
+  \end{itemize}
+\end{example}
+
+\begin{method}{Utiliser le milieu}{}
+  \begin{itemize}
+    \item \textbf{Parallélogramme} : un quadrilatère est un parallélogramme \ssi ses diagonales ont le même milieu.
+    \item \textbf{Symétrique} : $B$ est le symétrique de $A$ par rapport à $M$ \ssi $M$ est le milieu de $[AB]$.
+  \end{itemize}
+\end{method}
+
+\begin{example}
+  On donne $A(-3\,;\,1)$ et $M(2\,;\,-2)$. Déterminer les coordonnées du symétrique $B$ de $A$ par rapport à $M$.
+  \begin{reponse}
+    $M$ est le milieu de $[AB]$, donc $\dfrac{-3 + x_B}{2} = 2$ et $\dfrac{1 + y_B}{2} = -2$.
+
+    D'où $-3 + x_B = 4$ et $1 + y_B = -4$, soit $x_B = 7$ et $y_B = -5$ : $B(7\,;\,-5)$.
+  \end{reponse}
+\end{example}
+
+\section{Somme de vecteurs}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Si $\vec u\col{x}{y}$ et $\vec v\col{x'}{y'}$, alors $\vec u + \vec v\col{x + x'}{y + y'}$.
+  \end{multihide}
+\end{proposition}
+
+\Needspace{8\baselineskip}
+\begin{example}
+  \begin{minipage}{0.5\linewidth}
+    On a représenté deux vecteurs $\vec u$ et $\vec v$.
+    \begin{itemize}
+      \item $\vec u\,\hideM{\col{4}{1}}$ \quad et \quad $\vec v\,\hideM{\col{-1}{-3}}$
+      \item[]
+      \item $\vec u + \vec v\,\hideM{\col{4 + (-1)}{1 + (-3)} = \col{3}{-2}}$
+    \end{itemize}
+    On construit $\vec u + \vec v$ en mettant les flèches bout à bout : on retrouve les mêmes coordonnées.
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+      \draw[gray!35, very thin, step=1] (-1,-1) grid (7,4);
+      \draw[vec] (0,2) -- (4,3) node[midway, above] {$\vec u$};
+      \draw[vec] (6,3) -- (5,0) node[midway, right] {$\vec v$};
+      \hidetk{
+        \draw[vec, dashed] (4,3) -- (3,0);
+        \draw[vec, blue!70!black] (0,2) -- (3,0) node[midway, below left] {$\vec u + \vec v$};
+      }
+    \end{tikzpicture}
+    \end{center}
+  \end{minipage}
+\end{example}
+
+\begin{remark}
+  On retrouve la relation de Chasles. Avec $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$ :
+  \[
+    \wvec{AB} + \wvec{BC} = \col{6}{-4} + \col{-7}{-1} = \hideM{\col{-1}{-5}}
+    \qquad \text{et} \qquad
+    \wvec{AC}\,\hideM{\col{-3-(-2)}{-2-3} = \col{-1}{-5}}
+  \]
+\end{remark}
+
+\section{Produit d'un vecteur par un réel}
+
+\begin{definition}{Rappel du chapitre 1}{}
+  \begin{multihide}
+    Soit $\vec u$ un vecteur non nul et $k$ un réel non nul. Le vecteur $k\vec u$ a :
+    \begin{itemize}
+      \item la \textbf{même direction} que $\vec u$ ;
+      \item le \textbf{même sens} que $\vec u$ si $k > 0$, le \textbf{sens contraire} si $k < 0$ ;
+      \item une norme égale à $\lvert k \rvert \times \lVert \vec u \rVert$.
+    \end{itemize}
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+  À partir du vecteur $\vec u$, construire les vecteurs $2\vec u$, $-\vec u$ et $\dfrac{1}{2}\vec u$.
+
+  \begin{center}
+  \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+    \draw[gray!35, very thin, step=1] (0,0) grid (22,5);
+    \draw[vec] (1,1) -- (5,3) node[midway, above left] {$\vec u$};
+    \hidetk{
+      \draw[vec, blue!70!black] (6,1) -- (14,5) node[midway, above left] {$2\vec u$};
+      \draw[vec, blue!70!black] (19,3) -- (15,1) node[midway, above left] {$-\vec u$};
+      \draw[vec, blue!70!black] (19,4) -- (21,5) node[midway, above left] {$\tfrac12\vec u$};
+    }
+  \end{tikzpicture}
+  \end{center}
+\end{example}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Si $\vec u\col{x}{y}$ et $k$ est un réel, alors $k\vec u\col{kx}{ky}$.
+  \end{multihide}
+\end{proposition}
+
+\begin{example}
+  Avec $\vec u\col{4}{-2}$ et $\vec v\col{-1}{3}$ :
+  \begin{tasks}[label=\textbullet](2)
+    \task $3\vec u\,\hideM{\col{3 \times 4}{3 \times (-2)} = \col{12}{-6}}$
+    \task $-\dfrac{1}{2}\vec u\,\hideM{\col{-2}{1}}$
+    \task $2\vec u - 3\vec v\,\hideM{\col{8 - (-3)}{-4 - 9} = \col{11}{-13}}$
+    \task $\vec u + 4\vec v\,\hideM{\col{4 - 4}{-2 + 12} = \col{0}{10}}$
+  \end{tasks}
+\end{example}
+
+\begin{example}
+  On donne $A(1\,;\,2)$ et $B(2\,;\,-1)$. Déterminer les coordonnées du point $M$ tel que $\wvec{AM} = 3\wvec{AB}$.
+  \begin{reponse}
+    $\wvec{AB}\col{1}{-3}$, donc $3\wvec{AB}\col{3}{-9}$. Et $\wvec{AM}\col{x_M - 1}{y_M - 2}$.
+
+    $x_M - 1 = 3$ et $y_M - 2 = -9$, donc $M(4\,;\,-7)$.
+  \end{reponse}
+\end{example}
+
+\vfill
+
+\begin{savoir}{}{}
+\begin{itemize}
+  \item Lire les coordonnées d'un vecteur et représenter un vecteur de coordonnées données.
+  \item Calculer les coordonnées d'un vecteur $\wvec{AB}$.
+  \item Déterminer le quatrième sommet d'un parallélogramme.
+  \item Calculer une distance et déterminer la nature d'un triangle.
+  \item Calculer les coordonnées du milieu d'un segment, d'un symétrique.
+  \item Calculer les coordonnées d'une somme de vecteurs et d'un produit par un réel.
+  \item Construire le vecteur $k\vec u$.
+\end{itemize}
+\end{savoir}
+
+\end{document}

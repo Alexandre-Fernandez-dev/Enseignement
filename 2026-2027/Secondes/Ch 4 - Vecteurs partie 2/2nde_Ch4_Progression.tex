@@ -1,0 +1,103 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections}
+\usepackage{qrcode}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+%showframe
+\usepackage[lastpage,user]{zref}
+
+\newtheorem*{theorem*}{Théorème}
+
+\setlength{\parindent}{0cm}
+
+\newenvironment{clist}{
+  \begin{center}
+  \begin{inparaenum}}{
+    \end{inparaenum}
+\end{center}}
+
+\pagestyle{empty}
+\graphicspath{ {../../Images/} }
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\begin{document}
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+Au chapitre 1, les vecteurs ont été définis géométriquement : translation, égalité de vecteurs et parallélogramme, somme et relation de Chasles. Le produit d'un vecteur par un réel n'a été vu que rapidement. Dans ce chapitre, on les étudie dans un repère orthonormé : chaque vecteur est repéré par ses coordonnées, ce qui permet de faire les constructions du chapitre 1 par le calcul. C'est le début de la géométrie repérée, qui relie nombres, calcul algébrique et géométrie.
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Chapitre 1 : vecteurs, égalité, parallélogramme, somme, relation de Chasles. Le produit par un réel a seulement été défini.
+    \item Coordonnées d'un point dans un repère.
+    \item Théorème de Pythagore ; calculs avec des racines carrées (fiches calcul des 09/11 et 16/11).
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenu}
+    \begin{itemize}
+        \item Base orthonormée, repère orthonormé. Coordonnées d'un vecteur.
+        \item Expression des coordonnées de $\overrightarrow{AB}$ en fonction de celles de $A$ et de $B$.
+        \item Égalité de deux vecteurs en coordonnées.
+        \item Coordonnées d'une somme de vecteurs.
+        \item Produit d'un vecteur par un réel : construction géométrique (reprise du chapitre 1), puis coordonnées.
+        \item Caractérisation vectorielle du milieu d'un segment. Coordonnées du milieu (formule démontrée en approfondissement).
+        \item Expression de la norme d'un vecteur. Distance entre deux points.
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Représenter un vecteur dont on connaît les coordonnées. Lire les coordonnées d'un vecteur.
+    \item Construire le vecteur $k\vec{u}$ à partir d'un représentant de $\vec{u}$.
+    \item Calculer les coordonnées d'un vecteur $\overrightarrow{AB}$, d'une somme de vecteurs, d'un produit d'un vecteur par un réel.
+    \item Calculer les coordonnées d'un point défini par une égalité vectorielle (quatrième sommet d'un parallélogramme, image d'un point par une translation).
+    \item Calculer la distance entre deux points. Calculer les coordonnées du milieu d'un segment.
+    \item Résoudre des problèmes de géométrie avec des méthodes diverses (méthodes vectorielles, repérées ou non) : nature d'un triangle ou d'un quadrilatère.
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Notions reportées}
+    \begin{itemize}
+        \item Colinéarité de deux vecteurs, déterminant, alignement et parallélisme : chapitre \og Colinéarité \fg{} (février).
+        \item Représentation d'un vecteur comme combinaison de deux vecteurs non colinéaires : chapitre \og Colinéarité \fg{}.
+        \item Vecteur directeur et équations de droites : chapitre \og Colinéarité et droites du plan \fg{} (mars).
+        \item Projeté orthogonal d'un point sur une droite (et démonstration : c'est le point de la droite le plus proche) : plus tard dans l'année.
+    \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Histoire des mathématiques}
+    \begin{itemize}
+        \item La \og méthode des coordonnées \fg{} de Descartes, puis la notion de vecteur, permettent de relier géométrie, physique et calcul.
+    \end{itemize}
+\end{paragraph}
+
+\end{document}

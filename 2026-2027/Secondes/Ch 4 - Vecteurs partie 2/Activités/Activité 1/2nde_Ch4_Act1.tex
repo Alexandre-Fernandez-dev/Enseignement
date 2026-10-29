@@ -1,0 +1,157 @@
+%LTeX: language=fr-FR
+\documentclass{article}
+\usepackage{tasks}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage[headsep=3mm,footskip=5mm,includefoot,includehead]{geometry}
+
+\setlength{\parindent}{0cm}
+
+\pagestyle{empty}
+\input{def.tex}
+
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\headheight}{14.0pt}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Déplacement codé en colonne
+\newcommand{\dep}[2]{{\renewcommand{\arraystretch}{1}\begin{pmatrix} #1 \\ #2 \end{pmatrix}}}
+\newcommand{\depvide}{\begin{pmatrix} \dots \\ \dots \end{pmatrix}}
+
+% Repère et lieux de l'île
+\newcommand{\lieu}[3]{\fill (#1) circle (2.5pt); \node[#2, font=\small] at (#1) {#3};}
+\newcommand{\croix}[1]{\draw[red!75!black, line width=1.6pt] ($(#1)+(-0.22,-0.22)$) -- ($(#1)+(0.22,0.22)$) ($(#1)+(-0.22,0.22)$) -- ($(#1)+(0.22,-0.22)$);}
+
+% Carte de l'île, avec un dessin en argument
+\newcommand{\carte}[1]{%
+  \begin{tikzpicture}[x=0.95cm, y=0.95cm]
+    \fill[blue!7] (-7.5,-5.5) rectangle (7.5,5.5);
+    \foreach \p in {(-6.6,4.9),(6.6,4.9),(-6.6,-5),(6.6,-5),(-3.6,5.2),(3.6,-5.25),(7,0.6),(-7.1,-1.6)} \node[blue!60!black] at \p {$\sim\!\sim$};
+    \fill[yellow!22, draw=black, line width=1.2pt] plot[smooth cycle] coordinates
+      {(-6.6,-3.4) (-5.2,-4.7) (-1,-4.9) (3,-4.8) (5.6,-3.6) (6.7,-1) (6.2,2.2) (4.6,4.3) (1,4.8) (-2.6,4.5) (-5.6,3.1) (-6.8,0)};
+    \draw[gray!45, very thin, step=1] (-7.5,-5.5) grid (7.5,5.5);
+    \draw[-{Latex[length=2mm]}] (-7.5,0) -- (7.7,0);
+    \draw[-{Latex[length=2mm]}] (0,-5.5) -- (0,5.7);
+    \foreach \x in {-7,...,-1,1,2,...,7} \node[below, font=\scriptsize, fill=white, fill opacity=0.6, text opacity=1, inner sep=1pt] at (\x,-0.12) {$\x$};
+    \foreach \y in {-5,...,-1,1,2,...,5} \node[left, font=\scriptsize, fill=white, fill opacity=0.6, text opacity=1, inner sep=1pt] at (-0.1,\y) {$\y$};
+    \node[below left, font=\scriptsize] at (0,0) {$0$};
+    \lieu{-5,-3}{below left}{Ponton $P$}
+    \lieu{-4,1}{left}{Rocher $R$}
+    \lieu{3,4}{above}{Phare $F$}
+    \lieu{-1,2}{above left}{Cocotier $C$}
+    \lieu{4,0}{above right}{Grotte $G$}
+    \lieu{-4,-1}{left}{Puits $J$}
+    \lieu{1,1}{above right}{Cabane $K$}
+    \croix{2,-4} \croix{-2,-4} \croix{5,-2} \croix{2,3}
+    #1
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{\Niveau}}
+\fancyhead[C]{\textbf{\ChapitreCourt}}
+\fancyhead[R]{\textbf{\Document}}
+
+\large
+
+\begin{center}
+  {\Large\bfseries Activité d'introduction : la carte au trésor}
+\end{center}
+
+Un pirate a caché son trésor sur une île. La carte est munie d'un repère orthonormé. Sur l'île, il y a quatre croix, mais une seule cache le trésor.
+
+Le pirate code chaque déplacement par une colonne : en haut le déplacement \textbf{horizontal}, en bas le déplacement \textbf{vertical}. Par exemple, $\dep{3}{-2}$ signifie : 3 unités vers la droite, puis 2 unités vers le bas.
+
+\begin{center}
+  \carte{}
+\end{center}
+
+% =====================================================
+\subsection*{Partie A : suivre le message du pirate}
+
+\begin{enumerate}
+  \item Le pirate part du ponton $P(-5\,;\,-3)$ et effectue trois déplacements :
+  \[
+    \text{étape 1 : } \dep{4}{5} \qquad \text{étape 2 : } \dep{5}{-2} \qquad \text{étape 3 : } \dep{-2}{-4}
+  \]
+  Tracer chaque déplacement par une flèche sur la carte, puis compléter.
+
+  \begin{tasks}[label=\textbullet](3)
+    \task Après l'étape 1 : $(\dots\,;\,\dots)$
+    \task Après l'étape 2 : $(\dots\,;\,\dots)$
+    \task Après l'étape 3 : $(\dots\,;\,\dots)$
+  \end{tasks}
+
+  \item Sous quelle croix se trouve le trésor~? \dotfill
+\end{enumerate}
+
+\newpage
+
+% =====================================================
+\subsection*{Partie B : retrouver le déplacement}
+
+\begin{enumerate}[resume]
+  \item Un deuxième pirate va du rocher $R(-4\,;\,1)$ au phare $F(3\,;\,4)$ en un seul déplacement. Lire ce déplacement sur la carte : $\depvide$
+
+  \item Comment peut-on retrouver ce déplacement par un calcul, à partir des coordonnées de $R$ et de $F$~?
+
+  \medskip
+  \dotfill
+
+  \item Compléter le tableau par le calcul, sans utiliser la carte.
+
+  \medskip
+  \begin{center}
+    \renewcommand{\arraystretch}{2.2}
+    \begin{tabular}{|C{3.2cm}|C{3.2cm}|C{4.8cm}|}
+      \hline
+      \textbf{Départ} & \textbf{Arrivée} & \textbf{Déplacement} \\ \hline
+      $A(1\,;\,2)$ & $B(4\,;\,7)$ & \\ \hline
+      $D(-2\,;\,3)$ & $E(1\,;\,-1)$ & \\ \hline
+      $M(3\,;\,-1)$ & $N(-2\,;\,-4)$ & \\ \hline
+    \end{tabular}
+  \end{center}
+\end{enumerate}
+
+% =====================================================
+\subsection*{Partie C : le même déplacement}
+
+\begin{enumerate}[resume]
+  \item Deux pirates partent l'un du puits $J(-4\,;\,-1)$, l'autre de la cabane $K(1\,;\,1)$. Ils effectuent tous les deux le déplacement $\dep{3}{-2}$.
+  Tracer les deux flèches sur la carte et donner les points d'arrivée.
+
+  \medskip
+  \dotfill
+
+  \item Que peut-on dire des deux flèches (direction, sens, longueur)~?
+
+  \medskip
+  \dotfill
+\end{enumerate}
+
+\begin{tcolorbox}[colback=blue!4, colframe=blue!55!black, fonttitle=\bfseries, title=Vocabulaire]
+  Un déplacement est représenté par un \textbf{vecteur}. Ses deux nombres, écrits en colonne, sont les \textbf{coordonnées} du vecteur.
+
+  Par exemple, le vecteur $\overrightarrow{RF}$, qui va du rocher au phare, a pour coordonnées $\dep{7}{3}$.
+
+  Deux flèches qui représentent le même déplacement représentent le \textbf{même vecteur} : elles ont la même direction, le même sens et la même longueur.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=orange!5, colframe=orange!70!black, fonttitle=\bfseries, title=Pour aller plus loin]
+  Dans la partie A, le pirate effectue l'étape 1, puis l'étape 2. Quel déplacement unique lui aurait permis d'aller directement du ponton à la grotte~? Comment l'obtenir à partir des déplacements des étapes 1 et 2~?
+
+  \medskip
+  \dotfill
+\end{tcolorbox}
+
+\end{document}
