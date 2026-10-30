@@ -20,7 +20,7 @@ Dates = lundi de la semaine.
 |---|---|---|
 | Vecteurs (partie 1) | 31/08 → 25/09 | 4 sem. |
 | Ensembles de nombres | 28/09 → 06/11 | 3 sem. (à cheval sur la Toussaint) |
-| Fonctions : généralités, résolution graphique | 09/11 → 19/11 | 5 séances (sommatif le 19/11) |
+| Fonctions : généralités, résolution graphique | 09/11 → 19/11 | 5 séances (contrôle mixte le 19/11 : automatismes, fin du Ch2, Ch3) |
 | Vecteurs (partie 2) : vecteurs dans un repère | 20/11 → 04/12 | 6 à 7 séances |
 | Fonctions : variations et signes | 07/12 → 18/12 | 2 sem. (devoir commun la semaine du 07/12) |
 | Évolutions et tableaux croisés | 04/01 → 15/01 | 2 sem. |
@@ -44,8 +44,8 @@ Détail dans les fichiers `2nde_ChN_Sequence.md` de chaque chapitre et dans `pro
 |---|---|---|---|
 | 12/10 (fait) | Questions flash (détail non renseigné) | Correction du DM et de l'ex. 7, révisions | Contrôle sommatif Ch2 |
 | 02/11 | Ch2 : sous-ensembles de $\mathbb{R}$ | Ch2 : $\frac{1}{3}$ non décimal, encadrement | Ch2 : arrondi |
-| 09/11 | Ch3 : activité, notion de fonction | Ch3 : courbe représentative | Ch3 : résolution graphique $f(x)=k$ |
-| 16/11 | Ch3 : formatif, $f(x)=g(x)$ | Ch3 : contrôle sommatif | Ch4 : activité, coordonnées |
+| 09/11 | Ch3 : activité, notion de fonction | Ch3 : courbe représentative | Ch3 : formatif, résolution graphique $f(x)=k$ |
+| 16/11 | Ch3 : $f(x)=g(x)$, révisions | Contrôle mixte (automatismes, Ch2, Ch3) | Ch4 : activité, coordonnées |
 | 23/11 | Ch4 : $\overrightarrow{AB}$, parallélogramme | Ch4 : distance | Ch4 : milieu |
 | 30/11 | Ch4 : formatif, somme | Ch4 : produit par un réel | Ch4 : synthèse |
 | 07/12 | Variations et signes (devoir commun cette semaine) | Variations et signes | Variations et signes |

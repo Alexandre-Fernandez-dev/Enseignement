@@ -53,7 +53,9 @@ Une séance d'1 h compte environ 10 min de questions flash. Reprise en douceur a
 
 ## Évaluation
 
-Les parties 3 et 4 ne font pas l'objet d'un contrôle séparé. On peut les évaluer par une ou deux questions flash (plus petit ensemble auquel appartient un nombre, encadrement d'un nombre), ou dans une prochaine évaluation.
+Les parties 3 et 4 ne font pas l'objet d'un contrôle séparé. Elles sont évaluées :
+- dans le contrôle formatif du vendredi 13/11 (début de séance, 15 min) ;
+- dans le **contrôle mixte du jeudi 19/11**, avec les automatismes des fiches calcul et le chapitre 3 (voir `../Ch 3 - Généralités sur les fonctions/2nde_Ch3_Sequence.md`).
 
 ## Points de vigilance
 

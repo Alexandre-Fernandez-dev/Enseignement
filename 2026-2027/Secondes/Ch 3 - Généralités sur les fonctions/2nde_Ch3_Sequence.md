@@ -13,8 +13,8 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Cours (prof et élève) | `Cours/2nde_Ch3_Cours.tex` |
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
-| Contrôle formatif A/B | à faire : `Contrôles/Form 1/` |
-| Contrôle sommatif A/B et corrigé | à faire : `Contrôles/Sommatif/` |
+| Contrôle formatif A/B (13/11) | à faire : `Contrôles/Form 1/` |
+| Contrôle mixte A/B et corrigé (19/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
 ## Questions flash de la période
@@ -47,26 +47,29 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 - L'exercice 4 (appartenance et coordonnées avec $2x^2 - 3x + 1$) est donné aux plus rapides, ou en devoir de la séance 3.
 
 ### Séance 3 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (vendredi 13/11)
+- **Contrôle formatif A/B** en début de séance (15 min), six jours avant le contrôle mixte : fin du chapitre 2 (plus petit ensemble auquel appartient un nombre, encadrement et arrondi) et parties I et II du chapitre 3 (images, antécédents, appartenance d'un point).
 - **Cours** : III.1 Équation $f(x) = k$ (exemple $f(x) = 4$ en 4 étapes), III.2 Inéquations ($<$, $\leqslant$, $>$, $\geqslant$).
-- **En classe** : exercice 6 (questions 1 et 2), exercice 5 (questions 1 à 3).
-- **Devoir** : exercice 5 (questions 4 et 5), exercice 4 s'il n'a pas été fait.
+- **En classe** : exercice 6 (questions 1 et 2).
+- **Devoir** : exercice 5 (questions 1 à 3), exercice 4 s'il n'a pas été fait.
 - La question 3 de l'exercice 6 ($f(x) \geqslant 3$, solution $[-5\,;\,-2] \cup \{2\}$) est réservée aux élèves les plus rapides.
 
-### Séance 4 — Comparer deux fonctions (lundi 16/11)
-- **Contrôle formatif A/B** en début de séance (10 à 15 min) : lecture d'images et d'antécédents, appartenance d'un point, résolution graphique de $f(x) = k$ et $f(x) < k$.
+### Séance 4 — Comparer deux fonctions, révisions (lundi 16/11)
+- Retour sur le formatif du 13/11.
 - **Cours** : IV. Équations et inéquations $f(x) = g(x)$, $f(x) < g(x)$.
-- **En classe** : exercice 7, exercice 8.
-- **Devoir** : exercice 9 (questions 1 à 4), puis réviser le savoir-faire du chapitre (fin du cours).
+- **En classe** : exercice 7, puis exercice 8 s'il reste du temps.
+- **Devoir** : réviser pour le contrôle mixte : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, racines carrées), exercice 5 (questions 4 et 5).
 
-### Séance 5 — Contrôle sommatif (jeudi 19/11)
-- Sujets A et B, même structure et même difficulté, sans calculatrice.
-- Contenu, sur le modèle de l'ancien Contrôle 3 :
-  - lecture graphique : ensemble de définition, images, antécédents, $f(x) = k$, $f(x) < k$ ;
-  - problème d'aires avec deux fonctions $f$ et $g$ : expression de $f(x)$, ensemble de définition, résolution graphique de $f(x) = g(x)$, vérification par le calcul.
+### Séance 5 — Contrôle mixte (jeudi 19/11)
+- Sujets A et B, même structure et même difficulté, sans calculatrice (1 h). Barème à fixer.
+- Contenu :
+  1. **Automatismes** (fiches calcul et questions flash) : fraction, factorisation, inéquation avec la réponse en intervalle, racine carrée à simplifier, application numérique d'une formule, proportion.
+  2. **Ensembles de nombres** (fin du chapitre 2) : plus petit ensemble auquel appartient un nombre, encadrement et arrondi, vrai ou faux avec contre-exemple.
+  3. **Lecture graphique** : ensemble de définition, images, antécédents, $f(x) = k$, $f(x) < k$, $f(x) \geqslant k$.
+  4. **Problème** : fonction donnée par une formule (images, appartenance d'un point), puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ dans un contexte.
 - Pas de tableau de signes ni de tableau de variations.
 
 ### Exercices hors séance
-- Exercice 10 (aires hachurées dans un rectangle) et exercice 11 (ballons de football) : problèmes de modélisation, pour les élèves qui veulent s'entraîner avant le contrôle, ou en AP. Ils pourront servir d'introduction au chapitre « Fonctions : variations et signes » (décembre), car ils font lire un minimum ou un maximum sur une courbe.
+- Exercice 9 (rectangle dans un triangle), exercice 10 (aires hachurées dans un rectangle) et exercice 11 (ballons de football) : problèmes de modélisation, pour les élèves qui veulent s'entraîner avant le contrôle, ou en AP. Ils pourront servir d'introduction au chapitre « Fonctions : variations et signes » (décembre), car ils font lire un minimum ou un maximum sur une courbe.
 
 ## Points de vigilance
 
