@@ -1,0 +1,656 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+%\usepackage[fallback]{xeCJK}
+%\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{censor}
+\usepackage{currfile}
+%\setCJKmainfont{Noto Serif CJK TC}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta, quotes} 
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tabularray}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{esvect}
+%\usepackage{changepage}   % for the adjustwidth environment
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{lastpage}
+
+\tcbuselibrary{theorems}
+
+\definecolor{GrayCen}{HTML}{d2d2d2}
+\definecolor{GrayBG}{HTML}{d9d9d9}
+\definecolor{BlueDef}{HTML}{104e8b}
+\definecolor{GreenProp}{HTML}{025540}
+\definecolor{RedMet}{HTML}{cd5556}
+\definecolor{BlackSav}{HTML}{000000}
+\def\censorcolor{GrayCen}
+\let\svcensorrule\censorrule
+\renewcommand\censorrule[1]{%
+\textcolor{\censorcolor}{\svcensorrule{#1}}}
+
+\newtcbtheorem
+[]% init options
+{definition}% name
+{Définition}% title
+{%
+  colback=GrayBG,
+  colframe=BlueDef,
+  fonttitle=\bfseries,
+}% options
+{def}% prefix
+
+\newtcbtheorem
+[]% init options
+{proposition}% name
+{Proposition}% title
+{%
+  colback=GrayBG,
+  colframe=GreenProp,
+  fonttitle=\bfseries,
+}% options
+{prop}% prefix
+
+\newtcbtheorem
+[]% init options
+{method}% name
+{Méthode}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=RedMet,
+  fonttitle=\bfseries,
+}% options
+{met}% prefix
+
+\newtcbtheorem
+[]% init options
+{savoir}% name
+{Savoir-faire du chapitre}% title
+{%
+  theorem name,
+  colback=GrayBG,
+  colframe=BlackSav,
+  fonttitle=\bfseries,
+}% options
+{sav}% prefix
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\newtheorem*{example}{Exemple~:}
+\newtheorem*{examples}{Exemples~:}
+\newtheorem*{remark}{Remarque~:}
+\newtheorem*{remarks}{Remarques~:}
+% Variante sans retour à la ligne après « Exemple. »
+\newtheoremstyle{inline}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{ }{}%
+\theoremstyle{inline}
+\newtheorem*{example*}{Exemple~:}
+
+\newenvironment{demo}[1][\proofname]{%
+  \begin{proof}[#1]$ $\newline
+  }{%
+  \end{proof}
+}
+
+%\setmainfont{CMU Serif}name
+
+\title{
+  \vspace{4em}
+  \centering
+  \tcbset{colframe=BlackSav,colback=GrayBG}
+  \tcbox[tikznode]{
+    Chapitre 5 \\ Fonctions du second degré
+  }
+}
+
+\author{}
+\date{}
+
+\pagestyle{empty}
+\graphicspath{ {../Images/} }
+\input{def.tex}
+
+\setlength\parindent{0pt}
+%\setlist[itemize]{topsep=0pt}
+\setlist{nolistsep}
+%\setlist[itemize]{noitemsep}
+%\setlist[enumerate]{noitemsep}
+
+\tikzset{cross/.style={path picture={
+  \draw[black]
+    (path picture bounding box.south east)--(path picture bounding box.north west)
+    (path picture bounding box.south west)--(path picture bounding box.north east);
+}}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\fancypagestyle{firststyle}
+{
+  \fancyhf{}
+  \fancyhead[L]{\Structure}
+  \fancyhead[R]{\Niveau}
+  \fancyfoot[L]{Alexandre Fernandez}
+  \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+   %\renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\tableofcontents
+
+% \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
+%\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
+% On crée une boîte temporaire pour stocker le texte
+\newsavebox{\hidebox}
+
+% -----------
+% Macros des trous : version élève si \ELEVE est défini à la compilation
+% (recette « prof + élève »), sinon version prof.
+\ifdefined\ELEVE
+% Version élève : contenu invisible
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{\phantom{$\displaystyle #1$}}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{\phantom{#1}}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{lrbox}{\hidebox}%
+        \begin{minipage}{\linewidth}%
+          \BODY
+        \end{minipage}%
+    \end{lrbox}%
+    % On affiche un espace invisible ayant les dimensions exactes de la boîte
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+% Corrigé long dans un cadre blanc : zone vide de même hauteur
+% Argument optionnel : espace ajouté sous le corrigé, ex. \begin{multihideW}[2em]
+\NewEnviron{multihideW}[1][0pt]{%
+  \par\noindent\fbox{%
+    \begin{lrbox}{\hidebox}%
+      \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}%
+        \BODY\par\vspace{#1}%
+      \end{minipage}%
+    \end{lrbox}%
+    \vrule width 0pt height \ht\hidebox depth \dp\hidebox\hskip\wd\hidebox%
+  }
+}
+\newcommand{\hidetk}[1]{}
+\else
+% Version prof : contenu visible sur fond gris
+\newcommand{\hideM}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{gray!50}{$\displaystyle #1$}}} }
+\newcommand{\hideMW}[1]{\mbox{\vphantom{$#1$}\smash{\colorbox{white}{$\displaystyle #1$}}} }
+\newcommand{\hide}[1]{\mbox{\vphantom{#1}\smash{\colorbox{gray!50}{#1}}}}
+\NewEnviron{multihide}{%
+  \colorbox{gray!50}{
+    \begin{minipage}{\linewidth}%
+      \BODY
+    \end{minipage}%
+  }
+}
+% Corrigé long dans un cadre blanc (argument optionnel : espace ajouté)
+\NewEnviron{multihideW}[1][0pt]{%
+  \par\noindent\fbox{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}%
+      \BODY\par\vspace{#1}%
+    \end{minipage}%
+  }
+}
+\newcommand{\hidetk}[1]{#1}
+\fi
+% -----------
+
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\newpage
+
+\pagestyle{fancy}
+
+\fancyhf{} % clear existing header/footer entries
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+%\fancyhead[R]{\large \textbf{\textbf{\Document\ (B) -- 1h}}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{%
+  \draw[very thin, gray!40, step=1] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+
+% Repère avec graduations choisies : \repereG{xmin}{xmax}{ymin}{ymax}{graduations x}{graduations y}
+\newcommand{\repereG}[6]{%
+  \draw[very thin, gray!40, step=1] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#5} {\draw (\x,0.1) -- (\x,-0.1) node[below] {\scriptsize $\x$};}
+  \foreach \y in {#6} {\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+\section{Forme factorisée et racines}
+
+\begin{example}
+  Dans l'activité 1, la hauteur du dauphin est $f(t) = -0{,}3\,t\,(t - 6)$. Le dauphin est au niveau de l'eau quand $f(t) = 0$, c'est-à-dire pour $t = \hideM{0}$ et $t = \hideM{6}$.
+\end{example}
+
+\begin{definition}{Fonction du second degré}{}
+  \begin{multihide}
+    Une fonction $f$ définie sur $\mathbb{R}$ est une \textbf{fonction polynôme du second degré} si elle peut s'écrire $f(x) = ax^2 + bx + c$, avec $a \neq 0$ (\textbf{forme développée}).
+
+    Certaines s'écrivent aussi $f(x) = a\,(x - x_1)(x - x_2)$ : c'est la \textbf{forme factorisée}.
+
+    Un nombre $r$ est une \textbf{racine} de $f$ si $f(r) = 0$.
+  \end{multihide}
+\end{definition}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Les racines de $f(x) = a\,(x - x_1)(x - x_2)$ sont $x_1$ et $x_2$.
+  \end{multihide}
+\end{proposition}
+
+\begin{remark}
+  Un produit est nul si et seulement si l'un de ses facteurs est nul : $f(x) = 0 \iff x - x_1 = 0$ ou $x - x_2 = 0$.
+\end{remark}
+
+\begin{examples}
+  Donner les racines de chaque fonction.
+
+  \medskip
+  \begin{minipage}[t]{0.31\linewidth}
+    $f(x) = 3(x - 2)(x - 7)$
+    \begin{multihideW}[0.5em]
+      Racines : $2$ et $7$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $g(x) = -2x(x - 5)$
+    \begin{multihideW}[0.5em]
+      $g(x) = -2(x - 0)(x - 5)$ : racines $0$ et $5$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $h(x) = (x + 4)(x - 1)$
+    \begin{multihideW}[0.5em]
+      $x + 4 = x - (-4)$ : racines $-4$ et $1$.
+    \end{multihideW}
+  \end{minipage}
+\end{examples}
+
+\begin{method}{Vérifier qu'un nombre est racine}{}
+  On calcule l'image de ce nombre : il est racine si et seulement si son image vaut $0$.
+\end{method}
+
+\begin{example}
+  Soit $f(x) = x^2 - 5x + 6$. Le nombre $2$ est-il racine de $f$~? Et le nombre $1$~?
+  \begin{multihideW}[0.5em]
+    $f(2) = 2^2 - 5 \times 2 + 6 = 4 - 10 + 6 = 0$ : $2$ est une racine de $f$.
+
+    $f(1) = 1^2 - 5 \times 1 + 6 = 2 \neq 0$ : $1$ n'est pas une racine de $f$.
+  \end{multihideW}
+\end{example}
+
+\newpage
+\begin{method}{Étudier le signe d'une forme factorisée}{}
+  On dresse un tableau de signes avec \textbf{une ligne par facteur} (méthode du chapitre 3 pour le signe de $ax + b$), puis on applique la règle des signes d'un produit sur la dernière ligne.
+\end{method}
+
+\begin{example}
+  Dresser le tableau de signes de $f(x) = 2(x - 1)(x - 5)$.
+
+  \begin{center}
+    \begin{tikzpicture}
+      \tkzTabInit[lgt=2,espcl=2.2]{$x$/0.8,$2$/0.8,$x - 1$/0.8,$x - 5$/0.8,$f(x)$/0.8}{$-\infty$,$1$,$5$,$+\infty$}
+      \hidetk{
+        \tkzTabLine{,+,t,+,t,+,}
+        \tkzTabLine{,-,z,+,t,+,}
+        \tkzTabLine{,-,t,-,z,+,}
+        \tkzTabLine{,+,z,-,z,+,}
+      }
+    \end{tikzpicture}
+  \end{center}
+\end{example}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Une fonction $f(x) = a\,(x - x_1)(x - x_2)$ est \textbf{du signe de $a$ à l'extérieur des racines}, et du signe contraire entre les racines.
+  \end{multihide}
+\end{proposition}
+
+\newpage
+\section{Allure, axe de symétrie, sommet, variations}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    La courbe d'une fonction du second degré est une \textbf{parabole}.
+    \begin{itemize}
+      \item Si $a > 0$, la parabole est tournée vers le haut.
+      \item Si $a < 0$, la parabole est tournée vers le bas.
+    \end{itemize}
+    Elle admet un \textbf{axe de symétrie} vertical. Le point de la parabole situé sur cet axe est le \textbf{sommet}.
+  \end{multihide}
+\end{proposition}
+
+\begin{center}
+  \begin{tabular}{C{0.4\linewidth}C{0.4\linewidth}}
+    $a > 0$ & $a < 0$ \\[0.3em]
+    \begin{tikzpicture}[scale=0.5]
+      \draw[->] (-3,0) -- (3.3,0); \draw[->] (0,-1.2) -- (0,3.5);
+      \hidetk{\draw[blue, thick, domain=-1.8:1.8, samples=50] plot (\x,{\x*\x-0.5});
+      \draw[dashed] (0,-0.5) -- (0,3.2); \fill (0,-0.5) circle (3pt) node[below right] {\scriptsize sommet};}
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.5]
+      \draw[->] (-3,0) -- (3.3,0); \draw[->] (0,-1.2) -- (0,3.5);
+      \hidetk{\draw[blue, thick, domain=-1.8:1.8, samples=50] plot (\x,{-\x*\x+2.8});
+      \draw[dashed] (0,-1) -- (0,2.8); \fill (0,2.8) circle (3pt) node[above right] {\scriptsize sommet};}
+    \end{tikzpicture}
+  \end{tabular}
+\end{center}
+
+\begin{proposition}{Axe de symétrie d'une forme factorisée}{}
+  \begin{multihide}
+    La parabole de $f(x) = a\,(x - x_1)(x - x_2)$ admet pour axe de symétrie la droite d'équation $x = \dfrac{x_1 + x_2}{2}$ : elle passe \textbf{au milieu des deux racines}.
+
+    Le sommet $S$ a pour abscisse $x_S = \dfrac{x_1 + x_2}{2}$ et pour ordonnée $f(x_S)$.
+  \end{multihide}
+\end{proposition}
+
+\begin{proposition}{Variations}{}
+  \begin{multihide}
+    \begin{minipage}{0.48\linewidth}
+      \centering
+      Si $a > 0$ : minimum $f(x_S)$ en $x_S$.
+
+      \smallskip
+      \begin{tikzpicture}[scale=0.8]
+        \tkzTabInit[lgt=1.2,espcl=1.6]{$x$/0.8,$f$/1.4}{$-\infty$,$x_S$,$+\infty$}
+        \tkzTabVar{+/ ,-/$f(x_S)$,+/ }
+      \end{tikzpicture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\linewidth}
+      \centering
+      Si $a < 0$ : maximum $f(x_S)$ en $x_S$.
+
+      \smallskip
+      \begin{tikzpicture}[scale=0.8]
+        \tkzTabInit[lgt=1.2,espcl=1.6]{$x$/0.8,$f$/1.4}{$-\infty$,$x_S$,$+\infty$}
+        \tkzTabVar{-/ ,+/$f(x_S)$,-/ }
+      \end{tikzpicture}
+    \end{minipage}
+  \end{multihide}
+\end{proposition}
+
+\begin{example}
+  \begin{minipage}[t]{0.56\linewidth}
+    \vspace{0pt}
+    Étude de $f(x) = 2(x - 1)(x - 5)$.
+    \begin{multihideW}[0.5em]
+      Racines : $1$ et $5$.
+
+      Axe de symétrie : $x = \dfrac{1 + 5}{2} = 3$.
+
+      Sommet : $f(3) = 2 \times (3 - 1) \times (3 - 5) = 2 \times 2 \times (-2) = -8$, donc $S(3~;~-8)$.
+
+      $a = 2 > 0$ : la parabole est tournée vers le haut, $f$ admet un minimum $-8$ en $3$.
+
+      \smallskip
+      \begin{tikzpicture}[scale=0.8]
+        \tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$f$/1.4}{$-\infty$,$3$,$+\infty$}
+        \tkzTabVar{+/ ,-/$-8$,+/ }
+      \end{tikzpicture}
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.4\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[x=0.7cm, y=0.22cm]
+      \repereG{-1}{7}{-9}{11}{2,4,6}{-8,-4,4,8}
+      \hidetk{
+        \draw[blue, thick, domain=-0.2:6.2, samples=60] plot (\x,{2*(\x-1)*(\x-5)});
+        \draw[dashed, red] (3,-9) -- (3,11);
+        \fill (3,-8) circle (2.5pt) node[below right] {\scriptsize $S$};
+        \fill (1,0) circle (2.5pt) (5,0) circle (2.5pt);
+      }
+    \end{tikzpicture}
+  \end{minipage}
+\end{example}
+
+\newpage
+\section{Forme développée $ax^2 + bx + c$}
+
+\begin{method}{Passer de la forme factorisée à la forme développée}{}
+  On développe le produit (double distributivité), puis on réduit.
+\end{method}
+
+\begin{example}
+  Développer $f(x) = 2(x - 1)(x - 5)$.
+  \begin{multihideW}[0.5em]
+    $f(x) = 2(x^2 - 5x - x + 5) = 2(x^2 - 6x + 5) = 2x^2 - 12x + 10$.
+  \end{multihideW}
+\end{example}
+
+\begin{remark}
+  Pour $f(x) = ax^2 + bx + c$, on a $f(0) = c$ : la parabole coupe l'axe des ordonnées au point $(0~;~c)$.
+\end{remark}
+
+\begin{method}{Trouver l'axe de symétrie d'une forme développée}{}
+  \begin{enumerate}
+    \item On résout l'équation $f(x) = c$ : elle se ramène à $ax^2 + bx = 0$, que l'on factorise par $x$.
+    \item Ses deux solutions sont symétriques par rapport à l'axe : l'axe passe \textbf{au milieu} de ces deux solutions.
+    \item On calcule l'ordonnée du sommet avec l'image de son abscisse.
+  \end{enumerate}
+  Aucune formule n'est à connaître.
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.62\linewidth}
+    \vspace{0pt}
+    Étude de $g(x) = -x^2 + 4x + 5$.
+    \begin{multihideW}[0.5em]
+      $g(0) = 5$. On résout $g(x) = 5$ :
+
+      $-x^2 + 4x + 5 = 5 \iff -x^2 + 4x = 0 \iff x(-x + 4) = 0$
+
+      $\iff x = 0$ ou $x = 4$.
+
+      Axe de symétrie : $x = \dfrac{0 + 4}{2} = 2$.
+
+      Sommet : $g(2) = -2^2 + 4 \times 2 + 5 = -4 + 8 + 5 = 9$, donc $S(2~;~9)$.
+
+      $a = -1 < 0$ : la parabole est tournée vers le bas, $g$ admet un maximum $9$ en $2$.
+
+      \smallskip
+      \begin{tikzpicture}[scale=0.8]
+        \tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$g$/1.4}{$-\infty$,$2$,$+\infty$}
+        \tkzTabVar{-/ ,+/$9$,-/ }
+      \end{tikzpicture}
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \vspace{0pt}
+    \centering
+    \begin{tikzpicture}[x=0.6cm, y=0.25cm]
+      \repereG{-2}{6}{-6}{10}{-1,2,4}{-4,4,8}
+      \hidetk{
+        \draw[blue, thick, domain=-1.5:5.5, samples=60] plot (\x,{-\x*\x+4*\x+5});
+        \draw[dashed, red] (2,-6) -- (2,10);
+        \fill (2,9) circle (2.5pt) node[above right] {\scriptsize $S$};
+        \fill (0,5) circle (2.5pt) (4,5) circle (2.5pt);
+        \draw[dotted] (0,5) -- (4,5);
+      }
+    \end{tikzpicture}
+  \end{minipage}
+\end{example}
+
+\newpage
+\section{Les fonctions $x \mapsto ax^2$ et $x \mapsto ax^2 + c$}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Pour $f(x) = ax^2 + c$ (cas où $b = 0$) : l'axe de symétrie est \textbf{l'axe des ordonnées} et le sommet est le point $S(0~;~c)$. Pour $f(x) = ax^2$, le sommet est l'origine du repère.
+  \end{multihide}
+\end{proposition}
+
+\begin{method}{Associer une parabole à son expression}{}
+  \begin{enumerate}
+    \item Le signe de $a$ : parabole tournée vers le haut ($a > 0$) ou vers le bas ($a < 0$).
+    \item L'image de $0$ : point d'intersection avec l'axe des ordonnées.
+    \item Les racines : points d'intersection avec l'axe des abscisses.
+  \end{enumerate}
+\end{method}
+
+\begin{example}
+  Associer chaque parabole à son expression : $f_1(x) = x^2 - 4$, \quad $f_2(x) = -0{,}5x^2 + 2$, \quad $f_3(x) = (x - 1)(x - 3)$, \quad $f_4(x) = -(x + 1)(x - 3)$.
+
+  \medskip
+  \noindent
+  \begin{tabular}{@{}C{0.23\linewidth}C{0.23\linewidth}C{0.23\linewidth}C{0.23\linewidth}@{}}
+    \begin{tikzpicture}[scale=0.42]
+      \repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+      \draw[blue, thick, domain=-1.6:3.6, samples=50] plot (\x,{-(\x+1)*(\x-3)});
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.42]
+      \repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+      \draw[blue, thick, domain=-2.45:2.45, samples=50] plot (\x,{\x*\x-4});
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.42]
+      \repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+      \draw[blue, thick, domain=-0.3:4, samples=50] plot (\x,{(\x-1)*(\x-3)});
+    \end{tikzpicture}
+    &
+    \begin{tikzpicture}[scale=0.42]
+      \repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+      \draw[blue, thick, domain=-3:3, samples=50] plot (\x,{-0.5*\x*\x+2});
+    \end{tikzpicture}
+    \\
+    Courbe A : \hideM{f_4} & Courbe B : \hideM{f_1} & Courbe C : \hideM{f_3} & Courbe D : \hideM{f_2}
+  \end{tabular}
+\end{example}
+
+\section{Factoriser connaissant une racine}
+
+\begin{method}{Factoriser dans des cas simples}{}
+  \begin{itemize}
+    \item \textbf{Sans terme constant} ($c = 0$) : on factorise par $x$. Par exemple, $x^2 - 4x = x(x - 4)$.
+    \item \textbf{Une racine $r$ est connue} : on écrit $f(x) = a\,(x - r)(x - k)$, où $a$ est le coefficient de $x^2$. On trouve $k$ en comparant les termes constants, puis on vérifie en développant.
+  \end{itemize}
+\end{method}
+
+\begin{examples}
+  \begin{enumerate}
+    \item Factoriser $f(x) = x^2 - 5x + 6$, sachant que $2$ est une racine.
+    \begin{multihideW}[0.5em]
+      $f(x) = (x - 2)(x - k)$. Le terme constant de $(x - 2)(x - k)$ est $(-2) \times (-k) = 2k$, donc $2k = 6$ et $k = 3$.
+
+      $f(x) = (x - 2)(x - 3)$. Vérification : $(x - 2)(x - 3) = x^2 - 3x - 2x + 6 = x^2 - 5x + 6$.
+    \end{multihideW}
+
+    \item Vérifier que $3$ est une racine de $h(x) = 2x^2 - 2x - 12$, puis factoriser $h(x)$.
+    \begin{multihideW}[0.5em]
+      $h(3) = 2 \times 9 - 2 \times 3 - 12 = 18 - 6 - 12 = 0$ : $3$ est une racine.
+
+      $h(x) = 2(x - 3)(x - k)$. Terme constant : $2 \times (-3) \times (-k) = 6k$, donc $6k = -12$ et $k = -2$.
+
+      $h(x) = 2(x - 3)(x + 2)$. Vérification : $2(x^2 + 2x - 3x - 6) = 2(x^2 - x - 6) = 2x^2 - 2x - 12$.
+    \end{multihideW}
+  \end{enumerate}
+\end{examples}
+
+\section{Résolution graphique et balayage}
+
+\begin{method}{Résoudre graphiquement $f(x) = k$}{}
+  On trace la droite horizontale d'équation $y = k$ : les solutions sont les \textbf{abscisses} des points d'intersection avec la courbe (chapitre 1).
+\end{method}
+
+\begin{method}{Encadrer une solution par balayage}{}
+  Quand l'équation n'a pas de solution évidente, on calcule des images avec la table de la calculatrice : d'abord avec un pas de $1$, puis avec un pas de $0{,}1$ autour de la solution. Un solveur donne aussi une valeur approchée.
+\end{method}
+
+\begin{example}
+  Le dauphin de l'activité 1 a pour hauteur $f(t) = -0{,}3t^2 + 1{,}8t$. À quels instants est-il à $2$~m de hauteur~?
+
+  \renewcommand{\arraystretch}{1.3}
+  \begin{center}
+  \begin{tabular}{|c|*{4}{C{1.4cm}|}}
+    \hline
+    $t$ & $1$ & $2$ & $1{,}4$ & $1{,}5$ \\
+    \hline
+    $f(t)$ & $1{,}5$ & $2{,}4$ & $1{,}932$ & $2{,}025$ \\
+    \hline
+  \end{tabular}
+  \end{center}
+  \begin{multihideW}[0.5em]
+    $f(1) < 2 < f(2)$, puis $f(1{,}4) < 2 < f(1{,}5)$ : une solution est comprise entre $1{,}4$ et $1{,}5$.
+
+    Par symétrie par rapport à l'axe $t = 3$, l'autre solution est comprise entre $4{,}5$ et $4{,}6$.
+  \end{multihideW}
+\end{example}
+
+\vfill
+
+\begin{savoir}{}{}
+\begin{itemize}
+  \item Donner les racines d'une forme factorisée ; vérifier qu'un nombre est racine,
+  \item Dresser le tableau de signes d'une forme factorisée,
+  \item Déterminer l'axe de symétrie, le sommet et les variations (forme factorisée ou développée),
+  \item Développer une forme factorisée ; trouver l'axe en résolvant $f(x) = c$,
+  \item Associer une parabole à son expression,
+  \item Factoriser dans des cas simples, connaissant une racine,
+  \item Résoudre graphiquement $f(x) = k$ ; encadrer une solution par balayage.
+\end{itemize}
+\end{savoir}
+
+\end{document}

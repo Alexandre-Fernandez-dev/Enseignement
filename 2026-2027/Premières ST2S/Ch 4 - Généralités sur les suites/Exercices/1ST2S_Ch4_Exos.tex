@@ -29,11 +29,6 @@
   \par
 }
 
-% Titre de partie, en lien avec les parties du cours
-\newcommand{\partie}[1]{%
-  \Needspace{10\baselineskip}\par\bigskip\noindent{\large\textbf{#1}}\par\vspace{-0.6em}\noindent\rule{\linewidth}{0.4pt}\par
-}
-
 % Repère pour une suite : \grille{nmax}{ymax}{graduations en y}{pas de la grille en y}
 \newcommand{\grille}[4]{%
   \draw[very thin, gray!40, xstep=1, ystep=#4] (0,0) grid (#1,#2);
@@ -61,8 +56,6 @@
 \fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
 
 % =====================================================
-\partie{1. Définition, notation $u_n$, formule explicite}
-
 \begin{exercice}{1}
 Un centre de vaccination note chaque semaine le nombre de vaccins réalisés. On note $u_n$ le nombre de vaccins de la semaine $n$.
 
@@ -116,8 +109,6 @@ Une association distribue des colis alimentaires. On estime que le nombre de col
 \end{exercice}
 
 % =====================================================
-\partie{2. Relation de récurrence, comparer les deux modes}
-
 \begin{exercice}{4}
 Dans chaque cas, calculer $u_1$, $u_2$, $u_3$ et $u_4$ en détaillant les calculs.
 \begin{tasks}(2)
@@ -162,8 +153,6 @@ Dans une pharmacie hospitalière, on note $s_n$ le stock de gel hydroalcoolique,
 \end{exercice}
 
 % =====================================================
-\partie{3. Représentation graphique}
-
 \begin{exercice}{8}
 Représenter chaque suite par un nuage de points, pour $n$ allant de $0$ à $5$ (pour $v$, de $0$ à $4$).
 
@@ -258,8 +247,6 @@ Nuage C
 \end{exercice}
 
 % =====================================================
-\partie{4. Modéliser une situation par une suite}
-
 \begin{exercice}{11}
 Dans chaque cas, donner le premier terme et la relation de récurrence de la suite, puis calculer les deux termes suivants.
 \begin{enumerate}[label=\arabic*.]
@@ -281,8 +268,6 @@ Un patient reçoit une perfusion. Au départ, il a $20$~mg de médicament dans l
 \end{exercice}
 
 % =====================================================
-\partie{5. Sens de variation}
-
 \begin{exercice}{13}
 Pour chaque suite, conjecturer son sens de variation à partir du tableau de valeurs.
 
@@ -317,8 +302,6 @@ Dans chaque cas, calculer $u_{n+1} - u_n$ et en déduire le sens de variation de
 \end{exercice}
 
 % =====================================================
-\partie{6. Suites, tableur et Python}
-
 \begin{exercice}{15}
 \begin{minipage}[c]{0.42\linewidth}
 \renewcommand{\arraystretch}{1.25}
@@ -387,8 +370,6 @@ On reprend deux suites de l'exercice 11 : $b_0 = 2\,000$ et $b_{n+1} = 1{,}15 \t
 
 % =====================================================
 \newpage
-\partie{7. Synthèse}
-
 \begin{exercice}{17}
 Deux centres de soins comptaient des patients réguliers en 2026 :
 \begin{itemize}

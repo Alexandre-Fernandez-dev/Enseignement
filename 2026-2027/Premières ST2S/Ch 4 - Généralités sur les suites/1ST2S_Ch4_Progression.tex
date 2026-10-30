@@ -52,39 +52,49 @@
 
 \large
 
+Les suites sont une notion nouvelle pour les élèves de la voie technologique. Ils connaissent les fonctions (image, tableau de valeurs, courbe, sens de variation), revues aux chapitres 1 et 3, et savent appliquer un pourcentage d'évolution. En première, on présente les suites comme des modèles d'évolutions discrètes : la grandeur étudiée ne change qu'à intervalles réguliers (chaque année, chaque mois, chaque heure). Conformément au programme, on utilise la notation $u(n)$, en lien avec $f(x)$, avant la notation $u_n$.
+
 \begin{paragraph}{Pré-requis}
   \begin{itemize}
-    \item Généralités sur les fonctions (chapitre 1) : image, tableau de valeurs, courbe, sens de variation
-    \item Fonctions affines (chapitre 3) : points alignés, signe de $a$ et sens de variation
-    \item Appliquer un pourcentage d'évolution, coefficient multiplicateur (questions flash)
-    \item Python : boucle \texttt{for} (questions flash) ; tableur : lire une formule (seconde)
-    \item Comparer des nombres (questions flash)
+    \item Chapitre 1 : image, tableau de valeurs, courbe, sens de variation d'une fonction.
+    \item Chapitre 3 : fonctions affines, points alignés sur une droite.
+    \item Appliquer un pourcentage d'évolution, coefficient multiplicateur (questions flash).
+    \item Python : boucle \texttt{for} (questions flash) ; tableur : lire une formule (seconde).
   \end{itemize}
 \end{paragraph}
 
-\begin{paragraph}{Contenus}
+\begin{paragraph}{Contenu}
   \begin{itemize}
-    \item Suite numérique : liste de nombres numérotés ; terme $u(n)$ de rang $n$, premier terme $u(0)$ ou $u(1)$ ; notation $u_n$, introduite après $u(n)$
-    \item Génération par une formule explicite : $u_n$ en fonction de $n$
-    \item Génération par une relation de récurrence : premier terme et $u_{n+1}$ en fonction de $u_n$
-    \item Représentation graphique : nuage de points $(n~;~u_n)$, points non reliés
-    \item Modélisation : traduire une évolution (ajout constant, pourcentage, autre) par une relation de récurrence
-    \item Sens de variation : suite croissante, décroissante, ni l'une ni l'autre ; signe de $u_{n+1}-u_n$ dans des cas simples
-    \item Calcul de termes au tableur (démonstration au tableau : formule explicite, formule de récurrence recopiée vers le bas ; recherche d'un seuil) et en Python (boucle \texttt{for})
+    \item Les suites comme modèles mathématiques d'évolutions discrètes. Terme de rang $n$, notations $u(n)$ puis $u_n$.
+    \item Différents modes de génération d'une suite numérique : formule explicite, relation de récurrence.
+    \item Représentation graphique : nuage de points $(n~;~u(n))$.
+    \item Sens de variation : suite croissante, décroissante.
   \end{itemize}
 \end{paragraph}
 
 \begin{paragraph}{Objectifs}
   \begin{itemize}
-    \item Modéliser une situation simple par une suite (effectifs, populations, budgets, doses de médicament),
-    \item Reconnaître si une suite est donnée par une formule explicite ou par récurrence,
-    \item Calculer un terme de rang donné, dans les deux modes de génération,
-    \item Traduire une phrase (« chaque année, on ajoute\dots », « chaque mois, la population augmente de $3\,\%$\dots ») en relation de récurrence,
-    \item Représenter les premiers termes d'une suite par un nuage de points et lire un terme sur le graphique,
-    \item Conjecturer le sens de variation à partir d'un tableau de valeurs ou d'un graphique,
-    \item Étudier le signe de $u(n+1)-u(n)$ quand ce calcul est simple,
-    \item Lire et compléter une formule de tableur (sur une capture d'écran) ; écrire un programme Python qui calcule un terme,
-    \item Déterminer le rang à partir duquel un seuil est dépassé (tableau de valeurs, tableur).
+    \item Calculer un terme de rang donné d'une suite définie par une formule explicite ou par une relation de récurrence.
+    \item Modéliser une situation à l'aide d'une suite : traduire une évolution (ajout constant, pourcentage, autre) par une relation de récurrence.
+    \item Réaliser et exploiter la représentation graphique des termes d'une suite.
+    \item Conjecturer le sens de variation d'une suite ; le justifier par le signe de $u_{n+1} - u_n$ dans des cas simples.
+    \item Calculer des termes au tableur (démonstration par le professeur) et avec une fonction Python (boucle \texttt{for}).
+    \item Déterminer le rang à partir duquel les termes d'une suite dépassent un seuil (tableau de valeurs, tableur).
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Notions reportées}
+  \begin{itemize}
+    \item Suites arithmétiques et géométriques, forme explicite, sens de variation à l'aide de la raison, croissance linéaire et exponentielle : chapitre 7 \og Suites arithmétiques et géométriques \fg{} (janvier).
+    \item Recherche de seuil avec une boucle \texttt{while}, somme de termes : chapitre 7 (la boucle \texttt{while} est vue en questions flash à partir de janvier).
+    \item Listes en Python : chapitre 12 (mai).
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Histoire des mathématiques}
+  \begin{itemize}
+    \item Fibonacci (1202) et la croissance d'une population de lapins : une suite qui n'est ni arithmétique ni géométrique.
+    \item Malthus (1798) compare la croissance d'une population et celle des ressources : un débat qui annonce le chapitre 7.
   \end{itemize}
 \end{paragraph}
 
