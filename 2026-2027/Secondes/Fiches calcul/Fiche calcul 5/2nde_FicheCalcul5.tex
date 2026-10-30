@@ -163,7 +163,6 @@
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{babel,arrows, arrows.meta,calc,fit,patterns,plotmarks,shapes.geometric,shapes.misc,shapes.symbols,shapes.arrows,shapes.callouts, shapes.multipart, shapes.gates.logic.US,shapes.gates.logic.IEC, er, automata,backgrounds,chains,topaths,trees,petri,mindmap,matrix, calendar, folding,fadings,through,positioning,scopes,decorations.fractals,decorations.shapes,decorations.text,decorations.pathmorphing,decorations.pathreplacing,decorations.footprints,decorations.markings,shadows}
 
-\spaceskip=2\fontdimen2\font plus 3\fontdimen3\font minus3\fontdimen4\font\relax %Pour doubler l'espace entre les mots
 \newcommand\numb[1]{ % Dessin autour du numéro d'exercice
   \begin{tikzpicture}[overlay,scale=.8]%,yshift=-.3cm
     \draw[fill=couleur_numerotation,couleur_numerotation](-.4,-0.1)rectangle($(-0.4,.8)+(2em,0)$);
@@ -380,9 +379,10 @@
 
 % Enclos le long d'un mur (largeur x, longueur 24 - 2x)
 \newcommand{\enclos}{%
-  \begin{tikzpicture}[scale=0.45]
+  \begin{tikzpicture}[scale=0.55]
     \fill[pattern=north east lines] (-0.5,3) rectangle (8.5,3.5);
-    \draw[thick] (-0.5,3) -- (8.5,3) node[right] {\small mur};
+    \draw[thick] (-0.5,3) -- (8.5,3);
+    \node[above] at (4,3.5) {mur};
     \draw[very thick, dashed] (0,3) -- (0,0) -- (8,0) -- (8,3);
     \node[left] at (0,1.5) {$x$};
     \node[right] at (8,1.5) {$x$};
@@ -396,54 +396,81 @@
 \tcbset{mathaleaexo/.style={breakable}}
 
 \begin{EXO}{}{}
-On choisit un nombre $x$.
+On choisit un nombre $x$ et on lui applique les deux programmes de calcul suivants.
 
-\textbf{Programme A} : multiplier le nombre par $3$, puis soustraire $7$.
-
-\textbf{Programme B} : ajouter $1$ au nombre, puis multiplier le résultat par $2$.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{9cm}|}
+	\hline
+	\textbf{Programme A} & \textbf{Programme B} \\ \hline
+	Multiplier le nombre par $3$. & Ajouter $1$ au nombre. \\
+	Soustraire $7$ au résultat. & Multiplier le résultat par $2$. \\ \hline
+\end{tabular}
+\end{center}
 
 \begin{enumerate}[itemsep=0.8em]
 	\item Calculer le résultat de chaque programme si on choisit $4$, puis si on choisit $-1$.
 	\item Exprimer en fonction de $x$ le résultat de chaque programme.
 	\item Quel nombre faut-il choisir pour obtenir le même résultat avec les deux programmes~?
-	\item Pour quels nombres le programme A donne-t-il un résultat strictement plus grand que le programme B~?
+	\item Pour quels nombres le résultat du programme A est-il strictement supérieur à celui de B~?
 \end{enumerate}
 \end{EXO}
 \vfill
 \begin{EXO}{}{}
-Une boutique loue des vélos électriques pour une durée de $x$ heures, avec $0 \leqslant x \leqslant 10$.
+Une boutique loue des vélos électriques pour $x$ heures, avec $0 \leqslant x \leqslant 10$, selon deux tarifs.
 
-\textbf{Tarif A} : $5$~€ par heure. \qquad \textbf{Tarif B} : $15$~€ de frais fixes, puis $2$~€ par heure.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{9cm}|}
+	\hline
+	\textbf{Tarif A} & \textbf{Tarif B} \\ \hline
+	$5$~€ par heure. & $15$~€ de frais fixes, puis $2$~€ par heure. \\ \hline
+\end{tabular}
+\end{center}
 
 \begin{enumerate}[itemsep=0.8em]
 	\item Compléter le tableau.
 
-	\begin{tabular}{|c|p{1.8cm}|p{1.8cm}|p{1.8cm}|}
+	\medskip
+	{\renewcommand{\arraystretch}{1.8}
+	\begin{tabular}{|l|*{3}{>{\centering\arraybackslash}p{2.6cm}|}}
 		\hline
-		Durée (en heures) & \centering $2$ & \centering $4$ & \centering\arraybackslash $6$ \\ \hline
+		Durée (en heures) & $2$ & $4$ & $6$ \\ \hline
 		Prix avec le tarif A (en €) & & & \\ \hline
 		Prix avec le tarif B (en €) & & & \\ \hline
-	\end{tabular}
+	\end{tabular}}
 	\item Exprimer en fonction de $x$ le prix payé avec le tarif A, puis avec le tarif B.
 	\item Pour quelle durée les deux tarifs sont-ils égaux~?
-	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Donner la réponse sous la forme d'un intervalle, en tenant compte de la condition $0 \leqslant x \leqslant 10$.
-	\item Léa choisit le tarif B et ne veut pas dépenser plus de $25$~€. Combien de temps peut-elle louer le vélo~?
+	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Répondre par un intervalle, sans oublier que $0 \leqslant x \leqslant 10$.
+	\item Avec le tarif B et $25$~€ au plus, combien de temps peut-on louer un vélo~?
 \end{enumerate}
 \end{EXO}
 \vfill
+\clearpage
 \tcbset{mathaleaexo/.style={unbreakable}}
 \begin{EXO}{}{}
-\begin{minipage}{0.62\linewidth}
-On construit un enclos rectangulaire le long d'un mur avec $24$~m de grillage. Le grillage ne sert que sur les trois côtés en pointillés. On note $x$ la largeur de l'enclos, en mètres.
+\begin{minipage}{0.56\linewidth}
+On construit un enclos rectangulaire le long d'un mur.
+
+\medskip
+On dispose de $24$~m de grillage.
+
+\medskip
+Le grillage ne sert que sur les trois côtés en pointillés.
+
+\medskip
+On note $x$ la largeur de l'enclos, en mètres.
 \end{minipage}
 \hfill
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.4\linewidth}
+\begin{center}
 \enclos
+\end{center}
 \end{minipage}
 
 \begin{enumerate}[itemsep=0.8em]
-	\item Si $x = 5$, quelle est la longueur de l'enclos~? Montrer que, dans le cas général, la longueur vaut $24 - 2x$.
-	\item La largeur et la longueur doivent être strictement positives. Montrer que $x$ appartient à l'intervalle $]0\,;\,12[$.
+	\item Si $x = 5$, quelle est la longueur de l'enclos~? Montrer qu'en général, elle vaut $24 - 2x$.
+	\item La largeur et la longueur doivent être strictement positives. Montrer que $x \in \mathopen{]}0\,;\,12\mathclose{[}$.
 	\item Pour quelles valeurs de $x$ la longueur est-elle d'au moins $10$~m~?
 	\item Pour quelles valeurs de $x$ la longueur est-elle supérieure ou égale à la largeur~?
 	\item Calculer l'aire de l'enclos pour $x = 2$, pour $x = 6$ et pour $x = 10$. L'aire dépend-elle de $x$~?
@@ -452,11 +479,15 @@ On construit un enclos rectangulaire le long d'un mur avec $24$~m de grillage. L
 \tcbset{mathaleaexo/.style={breakable}}
 \vfill
 \begin{EXO}{}{}
-\textbf{Pour aller plus loin.} Pour convertir une température $C$ en degrés Celsius en une température $F$ en degrés Fahrenheit, on utilise la formule $F = 1{,}8\,C + 32$.
+\textbf{Pour aller plus loin.} Pour convertir des degrés Celsius en degrés Fahrenheit, on utilise :
+\[
+  F = 1{,}8\,C + 32
+\]
+où $C$ est la température en °C et $F$ la température en °F.
 \begin{enumerate}[itemsep=0.8em]
 	\item Convertir $0$~°C, puis $100$~°C, en degrés Fahrenheit.
 	\item Une recette demande un four à $356$~°F. Quelle est cette température en degrés Celsius~?
-	\item Pour quelles températures $C$ a-t-on $50 \leqslant F \leqslant 77$~? Donner la réponse sous la forme d'un intervalle.
+	\item Pour quelles températures $C$ a-t-on $50 \leqslant F \leqslant 77$~? Répondre par un intervalle.
 \end{enumerate}
 \end{EXO}
 \vfill
@@ -470,12 +501,11 @@ On construit un enclos rectangulaire le long d'un mur avec $24$~m de grillage. L
 \begin{Correction}
 \begin{EXO}{}{}
 \begin{enumerate}
-	\item Avec $4$ : A donne $3\times 4-7=5$ et B donne $(4+1)\times 2=10$.
-
+	\item Avec $4$ : A donne $3\times 4-7=5$ et B donne $(4+1)\times 2=10$.\\
 	Avec $-1$ : A donne $3\times(-1)-7=-10$ et B donne $(-1+1)\times 2=0$.
 	\item A : \res{3x-7}. \qquad B : \res{2(x+1)=2x+2}.
 	\item $3x-7=2x+2 \iff x=9$. Il faut choisir \res{9} (les deux programmes donnent alors $20$).
-	\item $3x-7>2x+2 \iff x>9$. $S=\res{]9\,;\,+\infty[}$
+	\item $3x-7>2x+2 \iff x>9$. $S=\res{\mathopen{]}9\,;\,+\infty\mathclose{[}}$
 \end{enumerate}
 \end{EXO}
 
@@ -484,7 +514,7 @@ On construit un enclos rectangulaire le long d'un mur avec $24$~m de grillage. L
 	\item Tarif A : $10$~€, $20$~€, $30$~€. \qquad Tarif B : $15+4=19$~€, $15+8=23$~€, $15+12=27$~€.
 	\item Tarif A : \res{5x}. \qquad Tarif B : \res{15+2x}.
 	\item $5x=15+2x \iff 3x=15 \iff x=5$. Les tarifs sont égaux pour \res{5 \text{ heures}} (ils coûtent alors $25$~€).
-	\item $15+2x<5x \iff 15<3x \iff 5<x$. Avec $0\leqslant x\leqslant 10$ : $S=\res{]5\,;\,10]}$.
+	\item $15+2x<5x \iff 15<3x \iff 5<x$. Avec $0\leqslant x\leqslant 10$ : $S=\res{\mathopen{]}5\,;\,10\mathclose{]}}$.
 	\item $15+2x\leqslant 25 \iff 2x\leqslant 10 \iff x\leqslant 5$. Avec $x\geqslant 0$ : $x\in\res{[0\,;\,5]}$, soit au plus $5$ heures.
 \end{enumerate}
 \end{EXO}
@@ -492,9 +522,9 @@ On construit un enclos rectangulaire le long d'un mur avec $24$~m de grillage. L
 \begin{EXO}{}{}
 \begin{enumerate}
 	\item Si $x=5$, les deux largeurs utilisent $10$~m, il reste $24-10=14$~m. En général, il reste $24-x-x=\res{24-2x}$.
-	\item $x>0$ et $24-2x>0 \iff 24>2x \iff x<12$. Donc $x\in\res{]0\,;\,12[}$.
-	\item $24-2x\geqslant 10 \iff 14\geqslant 2x \iff x\leqslant 7$. Avec $x\in]0\,;\,12[$ : $x\in\res{]0\,;\,7]}$.
-	\item $24-2x\geqslant x \iff 24\geqslant 3x \iff x\leqslant 8$. Avec $x\in]0\,;\,12[$ : $x\in\res{]0\,;\,8]}$.
+	\item $x>0$ et $24-2x>0 \iff 24>2x \iff x<12$. Donc $x\in\res{\mathopen{]}0\,;\,12\mathclose{[}}$.
+	\item $24-2x\geqslant 10 \iff 14\geqslant 2x \iff x\leqslant 7$. Avec $x\in\mathopen{]}0\,;\,12\mathclose{[}$ : $x\in\res{\mathopen{]}0\,;\,7\mathclose{]}}$.
+	\item $24-2x\geqslant x \iff 24\geqslant 3x \iff x\leqslant 8$. Avec $x\in\mathopen{]}0\,;\,12\mathclose{[}$ : $x\in\res{\mathopen{]}0\,;\,8\mathclose{]}}$.
 	\item $x=2$ : $2\times 20=40$~m$^2$. \quad $x=6$ : $6\times 12=72$~m$^2$. \quad $x=10$ : $10\times 4=40$~m$^2$.
 
 	\res{\text{L'aire dépend de } x} : elle vaut $x(24-2x)$. On cherchera au chapitre suivant la valeur de $x$ qui la rend la plus grande.
