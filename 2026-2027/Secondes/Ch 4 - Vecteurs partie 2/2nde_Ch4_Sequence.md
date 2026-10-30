@@ -30,7 +30,7 @@ Les racines carrées du 16/11 préparent directement le calcul des distances.
 
 - **Semaines du 09/11 et du 16/11** : racine carrée (calculs, simplifications). Elles préparent les distances.
 - **Semaine du 23/11** : calculs en repère (distances avec racines carrées à simplifier, coordonnées de milieux). Elle applique les parties 3 et 4 du cours.
-- **Semaine du 30/11** : fonction carrée, équations $x^2 = a$. Elle prépare le chapitre suivant.
+- **Semaine du 30/11** : révisions du devoir commun (semaine du 07/12).
 
 ## Séances
 

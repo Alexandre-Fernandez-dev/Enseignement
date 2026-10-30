@@ -1,6 +1,7 @@
 # Progression annuelle — Seconde (2026-2027)
 
 Fichier source : `progression.xlsx`. Ce fichier est un résumé ; en cas de doute, c'est le fichier Excel qui fait foi.
+Mise à jour du 30/10/2026 : progression décalée après la Toussaint, d'après le tableur de travail `progression_edit.xlsx` ; `progression.xlsx` reste à mettre à jour.
 L'onglet `Feuil1` sert aussi de **cahier de textes** : colonnes Lundi / Jeudi / Vendredi, avec le détail des séances, les numéros d'exercices et les liens MathALÉA / Coopmaths des questions flash. Le consulter pour savoir ce qui a déjà été fait en classe.
 
 Organisation hebdomadaire :
@@ -18,7 +19,7 @@ Dates = lundi de la semaine.
 | Ensembles de nombres | 28/09 → 06/11 | 3 sem. (à cheval sur la Toussaint) |
 | Fonctions : généralités, résolution graphique | 09/11 → 19/11 | 5 séances (sommatif le 19/11) |
 | Vecteurs (partie 2) : vecteurs dans un repère | 20/11 → 04/12 | 6 à 7 séances |
-| Fonctions : variations et signes | 07/12 → 18/12 | 2 sem. (+ devoir commun) |
+| Fonctions : variations et signes | 07/12 → 18/12 | 2 sem. (devoir commun la semaine du 07/12) |
 | Évolutions et tableaux croisés | 04/01 → 15/01 | 2 sem. |
 | Fonctions affines | 18/01 → 05/02 | 3 sem. |
 | Colinéarité | 22/02 → 26/02 | 1 sem. |
@@ -34,7 +35,7 @@ Dates = lundi de la semaine.
 
 ## Fiches calcul (demi-groupe) et AP, semaine par semaine
 
-Le développement et la factorisation avec les identités remarquables ont déjà été traités dans la fiche calcul 3 (factorisation). Les trois séances prévues sur ce thème (23/11, 30/11, 07/12) sont donc remplacées ; il n'en reste qu'une séance de réinvestissement le 14/12.
+Le développement et la factorisation avec les identités remarquables ont déjà été traités dans la fiche calcul 3 (factorisation). Les trois séances prévues sur ce thème (23/11, 30/11, 07/12) sont donc remplacées.
 
 | Semaine | Fiche calcul | AP |
 |---|---|---|
@@ -49,12 +50,12 @@ Le développement et la factorisation avec les identités remarquables ont déj�
 | 09/11 | Racine carrée (calculs, simplifications) | G3 : proportions niv. 3 |
 | 16/11 | Racine carrée (calculs, simplifications) | G2 : proportions niv. 2 |
 | 23/11 | Calculs en repère (distances avec racines carrées, coordonnées de milieux) | G2 : proportions niv. 2 |
-| 30/11 | Fonction carrée, équations $x^2=a$ | Révisions du DC (volontaires) |
-| 07/12 | Fonction carrée, équations $x^2=a$, ou révisions du DC | G1 : proportions niv. 1 |
-| 14/12 | Identités remarquables : réinvestissement (calcul mental, expressions avec racines carrées) | G1 : proportions niv. 1 |
-| 04/01 | Fonction carrée, équations $x^2=a$ (à réduire ou réaffecter) | G2 : calculs en géométrie |
-| 11/01 | Fonction carrée, équations $x^2=a$ (à réduire ou réaffecter) | *(ski)* |
-| 18/01 | Fonction carrée, équations $x^2=a$ (à réduire ou réaffecter) | G2 : calculs en géométrie |
+| 30/11 | Révisions du devoir commun | Révisions du DC (volontaires) |
+| 07/12 | Fonction carrée, équations $x^2=a$ | G1 : proportions niv. 1 |
+| 14/12 | Fonction carrée, équations $x^2=a$ | G1 : proportions niv. 1 |
+| 04/01 | Fonction carrée, équations $x^2=a$ | G2 : calculs en géométrie |
+| 11/01 | Fonction carrée, équations $x^2=a$ | *(ski)* |
+| 18/01 | — | G2 : calculs en géométrie |
 | 25/01 | Tracer une droite | G3 : calculs en géométrie |
 | 01/02 | Problèmes de modélisation (équations, inéquations) | G3 : calculs en géométrie |
 | 22/02 | Équations produit nul / quotient | G1 : calculs en géométrie |
