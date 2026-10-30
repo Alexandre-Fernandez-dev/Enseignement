@@ -1,8 +1,11 @@
 # Progression annuelle — Première ST2S (2026-2027)
 
-Fichier source : `progression.xlsx`. Ce fichier est un résumé ; en cas de doute, c'est le fichier Excel qui fait foi.
-Mise à jour du 30/10/2026 : chapitres décalés d'une semaine après la Toussaint (chapitre 3 inachevé) ; le fichier Excel reste à mettre à jour.
-Horaire : 3 h/semaine en classe entière. Dates = lundi de la semaine.
+Deux classeurs :
+- `progression_initiale.xlsx` : la progression de départ, fournie en début d'année. Elle est figée et sert de référence.
+- `progression.xlsx` : la progression adaptée au fil de l'année, avec le cahier de textes. C'est elle qui fait foi ; ce fichier-ci en est un résumé.
+
+Mise à jour du 30/10/2026 : chapitres décalés d'une semaine après la Toussaint (chapitre 3 inachevé).
+Horaire : 3 h/semaine en classe entière (jeudi 1 h, vendredi 2 h). Dates = lundi de la semaine.
 
 ## Chapitres
 

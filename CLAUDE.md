@@ -17,6 +17,14 @@ Auteur : Alexandre Fernandez (pied de page : « A. Fernandez »).
 - `2024-2025/` : archive d'un autre établissement (Lycée Lucie Aubrac), **à ne jamais modifier**. On peut y reprendre des contenus, mais en adaptant l'en-tête et les conventions à l'année en cours (le `\Structure` n'est pas le même).
 - Les images d'un chapitre sont dans `Images/` (via `\graphicspath{ {../Images/} }` ou `{../../Images/}`, selon la profondeur).
 
+## Progression annuelle (par niveau)
+
+Dans chaque dossier de niveau :
+- `progression_initiale.xlsx` : la progression de départ, fournie en début d'année. **Figée, ne jamais la modifier** ; elle sert de référence.
+- `progression.xlsx` : la progression adaptée au fil de l'année, avec le cahier de textes. **C'est elle qui fait foi.** Séances faites en bleu, séances prévues en violet italique (légende en N1).
+- `progression.md` : résumé lisible de `progression.xlsx`, à tenir à jour en même temps que le classeur.
+- `<Niveau>_ChN_Sequence.md` dans chaque chapitre : déroulement séance par séance.
+
 ## Nommage des fichiers (partage Pronote)
 
 Le nom du `.tex` détermine celui du PDF ; il doit être unique et explicite :

@@ -1,7 +1,10 @@
 # Progression annuelle — Seconde (2026-2027)
 
-Fichier source : `progression.xlsx`. Ce fichier est un résumé ; en cas de doute, c'est le fichier Excel qui fait foi.
-Mise à jour du 30/10/2026 : progression décalée après la Toussaint, d'après le tableur de travail `progression_edit.xlsx` ; `progression.xlsx` reste à mettre à jour.
+Deux classeurs :
+- `progression_initiale.xlsx` : la progression de départ, fournie en début d'année. Elle est figée et sert de référence.
+- `progression.xlsx` : la progression adaptée au fil de l'année, avec le cahier de textes. C'est elle qui fait foi ; ce fichier-ci en est un résumé.
+
+Mise à jour du 30/10/2026 : progression décalée après la Toussaint. `progression.xlsx` est à jour jusqu'aux vacances de Noël : cahier de textes de la semaine du 12/10, puis séances prévues (en violet italique dans le classeur).
 L'onglet `Feuil1` sert aussi de **cahier de textes** : colonnes Lundi / Jeudi / Vendredi, avec le détail des séances, les numéros d'exercices et les liens MathALÉA / Coopmaths des questions flash. Le consulter pour savoir ce qui a déjà été fait en classe.
 
 Organisation hebdomadaire :
@@ -32,6 +35,21 @@ Dates = lundi de la semaine.
 - **Devoirs communs** : semaines du 07/12/2026 et du 03/05/2027.
 - **Vacances** : Toussaint 19/10 → 30/10, Noël 21/12 → 01/01, hiver 08/02 → 19/02, Pâques 05/04 → 16/04.
 - **Fin des cours** : semaine du 07/06/2027.
+
+## Séances jusqu'aux vacances de Noël
+
+Détail dans les fichiers `2nde_ChN_Sequence.md` de chaque chapitre et dans `progression.xlsx`.
+
+| Semaine | Lundi | Jeudi | Vendredi |
+|---|---|---|---|
+| 12/10 (fait) | Questions flash (détail non renseigné) | Correction du DM et de l'ex. 7, révisions | Contrôle sommatif Ch2 |
+| 02/11 | Ch2 : sous-ensembles de $\mathbb{R}$ | Ch2 : $\frac{1}{3}$ non décimal, encadrement | Ch2 : arrondi |
+| 09/11 | Ch3 : activité, notion de fonction | Ch3 : courbe représentative | Ch3 : résolution graphique $f(x)=k$ |
+| 16/11 | Ch3 : formatif, $f(x)=g(x)$ | Ch3 : contrôle sommatif | Ch4 : activité, coordonnées |
+| 23/11 | Ch4 : $\overrightarrow{AB}$, parallélogramme | Ch4 : distance | Ch4 : milieu |
+| 30/11 | Ch4 : formatif, somme | Ch4 : produit par un réel | Ch4 : synthèse |
+| 07/12 | Variations et signes (devoir commun cette semaine) | Variations et signes | Variations et signes |
+| 14/12 | Variations et signes | Variations et signes | Variations et signes |
 
 ## Fiches calcul (demi-groupe) et AP, semaine par semaine
 
