@@ -1,7 +1,7 @@
 # Déroulement de la séquence — Seconde, Ch. 4 : Vecteurs dans un repère
 
-Période : du 20/11 au 04/12/2026, soit 7 séances d'1 h (lundi, jeudi, vendredi).
-Le chapitre « Fonctions : variations et signes » est décalé à la semaine du 07/12 (semaine du devoir commun).
+Période : du 23/11 au 07/12/2026, soit 7 séances d'1 h (lundi, jeudi, vendredi).
+Le cours du lundi 02/11 n'ayant pas eu lieu, le chapitre commence le lundi 23/11. « Fonctions : variations et signes » commence le jeudi 10/12 (semaine du devoir commun).
 
 Ce chapitre prolonge le chapitre 1 (vecteurs sans repère). Au chapitre 1, la translation, l'égalité de vecteurs, le parallélogramme, la somme et la relation de Chasles ont été traités. Le produit par un réel n'a été que défini, rapidement : il est repris ici depuis la construction géométrique. La colinéarité n'a pas été abordée.
 
@@ -29,47 +29,47 @@ Les racines carrées du 16/11 préparent directement le calcul des distances.
 ## Fiches calcul
 
 - **Semaines du 09/11 et du 16/11** : racine carrée (calculs, simplifications). Elles préparent les distances.
-- **Semaine du 23/11** : calculs en repère (distances avec racines carrées à simplifier, coordonnées de milieux). Elle applique les parties 3 et 4 du cours.
-- **Semaine du 30/11** : révisions du devoir commun (semaine du 07/12).
+- **Semaine du 23/11** : révisions du devoir commun (semaine du 07/12). Échangée avec la fiche suivante, pour que les calculs en repère viennent après le cours.
+- **Semaine du 30/11** : calculs en repère (distances avec racines carrées à simplifier, coordonnées de milieux). Elle applique les parties 3 et 4 du cours (distance le 27/11, milieu le 30/11). La fiche commence par un encadré de rappel des formules : coordonnées de $\overrightarrow{AB}$, distance $AB$, coordonnées du milieu.
 
 ## Séances
 
 Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde les exercices qui installent la notion. La suite d'un exercice commencé, ou un exercice du même type, est donnée en devoir pour la séance suivante (environ 15 min de travail).
 Les numéros d'exercices renvoient pour l'instant à l'ancienne feuille (2GT) : ils seront mis à jour avec la nouvelle feuille.
 
-### Séance 1 — Découverte (vendredi 20/11)
+### Séance 1 — Découverte (lundi 23/11)
 - **Activité 1** (environ 30 min) : la carte au trésor. Partie A : suivre des déplacements codés en colonne. Partie B : retrouver le déplacement entre deux points, puis par le calcul ($x_B - x_A$, $y_B - y_A$). Partie C : même déplacement depuis deux points différents (même vecteur, lien avec le chapitre 1).
 - **Cours** : 1. Repère du plan (orthogonal, normé, orthonormé, quelconque), 2. Coordonnées d'un vecteur (lecture et tracé).
 - **Devoir** : ancien exercice 1 (question 1, lecture des coordonnées).
 
-### Séance 2 — Coordonnées de $\overrightarrow{AB}$ (lundi 23/11)
+### Séance 2 — Coordonnées de $\overrightarrow{AB}$ (jeudi 26/11)
 - **Cours** : coordonnées de $\overrightarrow{AB}$, égalité de vecteurs, parallélogramme et quatrième sommet.
 - **En classe** : ancien exercice 1 (question 2, par le calcul), ancien exercice 2 (questions 1 et 2a-b).
 - **Devoir** : ancien exercice 2 (questions 2c-d, point $E$ tel que $ADCE$ soit un parallélogramme).
 
-### Séance 3 — Distance entre deux points (jeudi 26/11)
+### Séance 3 — Distance entre deux points (vendredi 27/11)
 - **Cours** : 3. Norme d'un vecteur ($\sqrt{x^2 + y^2}$, justifiée par Pythagore), puis distance $AB = \|\overrightarrow{AB}\|$.
 - **En classe** : ancien exercice 3 (questions 1 à 3 : triangle isocèle, puis rectangle par la réciproque de Pythagore).
 - **Devoir** : calculs de distances avec des racines à simplifier (à prévoir dans la nouvelle feuille).
-- La fiche calcul de la semaine (calculs en repère) entraîne les mêmes calculs.
+- La fiche calcul « calculs en repère » (semaine du 30/11) entraîne les mêmes calculs.
 
-### Séance 4 — Milieu d'un segment (vendredi 27/11)
+### Séance 4 — Milieu d'un segment (lundi 30/11)
 - **Cours** : 4. Caractérisation vectorielle ($I$ milieu de $[AB]$ si et seulement si $\overrightarrow{AI} = \overrightarrow{IB}$), formule des coordonnées du milieu. La démonstration de la formule est un approfondissement.
 - **En classe** : ancien exercice 3 (question 4 : milieu et cercle), ancien exercice 4 (parallélogramme par les diagonales).
 - **Devoir** : anciens exercices 5 (symétrique d'un point) et 6 (quatrième sommet par les diagonales).
 
-### Séance 5 — Somme de vecteurs (lundi 30/11)
+### Séance 5 — Somme de vecteurs (jeudi 03/12)
 - **Contrôle formatif A/B** en début de séance (15 min) : lecture graphique des coordonnées, coordonnées de $\overrightarrow{AB}$ par le calcul, distance, milieu.
 - **Cours** : 5. Coordonnées de $\vec u + \vec v$, vérification sur un graphique, lien avec la relation de Chasles.
 - **En classe** : ancien exercice 7 (question 1, $\overrightarrow{AB} + \overrightarrow{CD}$).
 - **Devoir** : exercice de somme à prévoir dans la nouvelle feuille.
 
-### Séance 6 — Produit par un réel (jeudi 03/12)
+### Séance 6 — Produit par un réel (vendredi 04/12)
 - **Cours** : 6. Reprise de la construction géométrique de $k\vec u$ sur quadrillage ($2\vec u$, $-\vec u$, $\tfrac12\vec u$ : direction, sens selon le signe de $k$, longueur multipliée par $|k|$). Puis coordonnées de $k\vec u$, combinaisons, point défini par une égalité vectorielle.
 - **En classe** : ancien exercice 7 (question 2, $4\overrightarrow{AB} - 3\overrightarrow{CD}$), ancien exercice 9 (questions 1 et 3, point $E$ tel que $\overrightarrow{BE} = \overrightarrow{AD} + \tfrac12\overrightarrow{BC}$).
 - **Devoir** : réviser le savoir-faire du chapitre (fin du cours).
 
-### Séance 7 — Synthèse (vendredi 04/12)
+### Séance 7 — Synthèse (lundi 07/12)
 - **Activité 2** : ancienne activité « géométrie dans le plan », exercice 1. Coordonnées des points, triangle isocèle puis rectangle, milieu de l'hypoténuse, cercle de centre $G$ et de rayon $\sqrt{13}$, symétrique de $B$ par rapport à $G$.
 - Selon la décision prise : préparation du sommatif ou révision pour le devoir commun.
 

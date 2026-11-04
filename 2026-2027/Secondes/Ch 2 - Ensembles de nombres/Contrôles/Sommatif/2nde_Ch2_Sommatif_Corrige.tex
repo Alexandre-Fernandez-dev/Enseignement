@@ -38,8 +38,15 @@
 \setlength{\parskip}{2pt}
 \setlength{\parindent}{0pt}
 
-% Barème détaillé indiqué entre crochets
+% Barème détaillé indiqué entre crochets (version prof).
+% La version élève (compile.sh, suffixe _ELEVE) retire le barème par question.
+\ifdefined\ELEVE
+\newcommand{\pts}[1]{}
+\newcommand{\bareme}[1]{}
+\else
 \newcommand{\pts}[1]{\hfill\textcolor{titrebleu}{\small[#1]}}
+\newcommand{\bareme}[1]{#1}
+\fi
 
 \colorlet{sol}{blue!70!black}
 \colorlet{solJ}{red!70!black}
@@ -81,13 +88,13 @@
 % ================= Exercice 2 =================
 \exercice{2}{Intervalles}{5}
 \begin{enumerate}
-  \item $1$ point par réponse. \pts{3}
+  \item \bareme{$1$ point par réponse.} \pts{3}
   \begin{tasks}(2)
     \task $4\notin[-1\,;\,4[$ \quad ($4$ est exclu)
     \task $-3\in\,]-5\,;\,-3]$
     \task $\dfrac{2}{3}\in[0{,}5\,;\,1]$ \quad ($0{,}5<\dfrac{2}{3}<1$)
   \end{tasks}
-  \item $0{,}5$ point par case. \pts{2}
+  \item \bareme{$0{,}5$ point par case.} \pts{2}
   \begin{center}
   \renewcommand{\arraystretch}{1.4}
   \begin{tabular}{|c|c|c|c|c|}

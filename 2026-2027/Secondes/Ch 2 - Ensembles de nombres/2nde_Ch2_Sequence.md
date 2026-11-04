@@ -1,7 +1,7 @@
 # Déroulement de la fin de séquence — Seconde, Ch. 2 : Ensembles de nombres
 
-Reprise après la Toussaint : semaine du 02/11/2026, soit 3 séances d'1 h (lundi 02/11, jeudi 05/11, vendredi 06/11).
-Le chapitre 3 (fonctions) commence le lundi 09/11.
+Reprise après la Toussaint. Le cours du lundi 02/11 n'a pas eu lieu (professeur absent). La fin du chapitre garde ses 3 séances d'1 h : jeudi 05/11, vendredi 06/11 et lundi 09/11.
+Le chapitre 3 (fonctions) commence le jeudi 12/11.
 
 ## Où on en est (cahier de textes)
 
@@ -31,14 +31,15 @@ Les fractions accompagnent bien la partie 3 (nombres rationnels, $\frac{12}{3} =
 ## Séances
 
 Une séance d'1 h compte environ 10 min de questions flash. Reprise en douceur après les vacances : peu d'exercices en classe, la suite est donnée en devoir (environ 15 min de travail).
+La séance du lundi 02/11 n'ayant pas eu lieu, les trois séances prévues sont décalées d'une séance.
 
-### Séance 1 — Reprise et sous-ensembles de $\mathbb{R}$ (lundi 02/11)
+### Séance 1 — Reprise et sous-ensembles de $\mathbb{R}$ (jeudi 05/11)
 - Retour rapide sur le contrôle du 16/10 (erreurs fréquentes sur les intervalles), si les copies sont rendues.
 - **Cours** : 3. Les sous-ensembles particuliers de $\mathbb{R}$ (pages 5 et 6) : définition d'un sous-ensemble, $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$, $\mathbb{R}$, schéma des inclusions.
 - **En classe** : exercice 9 (première ligne : $15$, $\frac{2}{3}$, $4{,}8$, $-17$).
 - **Devoir** : exercice 9 (deux dernières lignes).
 
-### Séance 2 — $\frac{1}{3}$ n'est pas décimal, encadrement décimal (jeudi 05/11)
+### Séance 2 — $\frac{1}{3}$ n'est pas décimal, encadrement décimal (vendredi 06/11)
 - **Cours** : fin de la partie 3 (pages 6 et 7) :
   - démonstration par l'absurde que $\frac{1}{3}$ n'est pas décimal (démonstration exigible du BO), avec la remarque sur le raisonnement par l'absurde ;
   - $\sqrt{2}$ n'est pas rationnel : propriété **admise**. La démonstration est reportée au chapitre d'arithmétique (fin d'année).
@@ -46,16 +47,16 @@ Une séance d'1 h compte environ 10 min de questions flash. Reprise en douceur a
 - **En classe** : correction de l'exercice 9, exercice 10 (encadrements seulement).
 - **Devoir** : terminer les encadrements de l'exercice 10.
 
-### Séance 3 — Arrondi (vendredi 06/11)
+### Séance 3 — Arrondi (lundi 09/11)
 - **Cours** : fin de la partie 4 (page 8) : arrondi. Savoir-faire du chapitre.
 - **En classe** : exercice 10 (arrondis), exercice 11.
-- **Devoir** : relire le savoir-faire du chapitre. Exercice 12 (vrai ou faux) pour ceux qui veulent s'entraîner, ou en début de séance du 09/11 s'il reste du temps. Sa question 8 se traite avec $\sqrt{2} \times \sqrt{2} = 2$.
+- **Devoir** : relire le savoir-faire du chapitre. Exercice 12 (vrai ou faux) pour ceux qui veulent s'entraîner. Sa question 8 se traite avec $\sqrt{2} \times \sqrt{2} = 2$.
 
 ## Évaluation
 
 Les parties 3 et 4 ne font pas l'objet d'un contrôle séparé. Elles sont évaluées :
 - dans le contrôle formatif du vendredi 13/11 (début de séance, 15 min) ;
-- dans le **contrôle mixte du jeudi 19/11**, avec les automatismes des fiches calcul et le chapitre 3 (voir `../Ch 3 - Généralités sur les fonctions/2nde_Ch3_Sequence.md`).
+- dans le **contrôle mixte du vendredi 20/11**, avec les automatismes des fiches calcul et le chapitre 3 (voir `../Ch 3 - Généralités sur les fonctions/2nde_Ch3_Sequence.md`).
 
 ## Points de vigilance
 
