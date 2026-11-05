@@ -18,6 +18,7 @@ Le chapitre 3 (fonctions) commence le jeudi 12/11.
 | Fiche d'exercices | `Exercices/2nde_Ch2_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch2_Exos_Corrige.tex` |
 | Contrôle sommatif et corrigé (fait le 16/10) | `Contrôles/Sommatif/2nde_Ch2_Sommatif.tex`, `2nde_Ch2_Sommatif_Corrige.tex` |
+| Rattrapage du contrôle sommatif et corrigé (même structure, autres valeurs) | `Contrôles/Rattrapage/2nde_Ch2_Rattrapage.tex`, `2nde_Ch2_Rattrapage_Corrige.tex` |
 | Fiche calcul 5 (semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
 ## Questions flash de la période
