@@ -76,7 +76,7 @@ Le développement et la factorisation avec les identités remarquables ont déj�
 | 11/01 | Fonction carrée, équations $x^2=a$ | *(ski)* |
 | 18/01 | — | G2 : calculs en géométrie |
 | 25/01 | Tracer une droite | G3 : calculs en géométrie |
-| 01/02 | Problèmes de modélisation (équations, inéquations) | G3 : calculs en géométrie |
+| 01/02 | Problèmes de modélisation (équations, inéquations) ; reprendre l'exercice Fahrenheit retiré de la fiche 5, avec $F=\frac95C+32$ (isoler une variable, température où °C = °F) | G3 : calculs en géométrie |
 | 22/02 | Équations produit nul / quotient | G1 : calculs en géométrie |
 | 01/03 | Équations produit nul / quotient | G1 : calculs en géométrie |
 | 08/03 | Fonction inverse | G3 : systèmes |

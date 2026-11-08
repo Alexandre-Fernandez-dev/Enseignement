@@ -395,29 +395,18 @@
 
 \tcbset{mathaleaexo/.style={breakable}}
 
-\begin{EXO}{}{}
-On choisit un nombre $x$ et on lui applique les deux programmes de calcul suivants.
-
-\begin{center}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{5cm}|p{9cm}|}
-	\hline
-	\textbf{Programme A} & \textbf{Programme B} \\ \hline
-	Multiplier le nombre par $3$. & Ajouter $1$ au nombre. \\
-	Soustraire $7$ au résultat. & Multiplier le résultat par $2$. \\ \hline
-\end{tabular}
-\end{center}
-
-\begin{enumerate}[itemsep=0.8em]
-	\item Calculer le résultat de chaque programme si on choisit $4$, puis si on choisit $-1$.
-	\item Exprimer en fonction de $x$ le résultat de chaque programme.
-	\item Quel nombre faut-il choisir pour obtenir le même résultat avec les deux programmes~?
-	\item Pour quels nombres le résultat du programme A est-il strictement supérieur à celui de B~?
+\begin{tcolorbox}[colback=white, colframe=black, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt]
+\textbf{Pour résoudre un problème}
+\begin{enumerate}[itemsep=0pt, topsep=2pt]
+	\item Choisir l'inconnue et écrire ce qu'elle représente, avec son unité.
+	\item Traduire l'énoncé par une équation ou une inéquation.
+	\item Résoudre.
+	\item Conclure par une phrase, en tenant compte du contexte (valeurs possibles de l'inconnue).
 \end{enumerate}
-\end{EXO}
-\vfill
+\end{tcolorbox}
+
 \begin{EXO}{}{}
-Une boutique loue des vélos électriques pour $x$ heures, avec $0 \leqslant x \leqslant 10$, selon deux tarifs.
+Une boutique loue des vélos électriques pour $10$~heures au plus, selon deux tarifs.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
@@ -439,14 +428,12 @@ Une boutique loue des vélos électriques pour $x$ heures, avec $0 \leqslant x \
 		Prix avec le tarif A (en €) & & & \\ \hline
 		Prix avec le tarif B (en €) & & & \\ \hline
 	\end{tabular}}
-	\item Exprimer en fonction de $x$ le prix payé avec le tarif A, puis avec le tarif B.
-	\item Pour quelle durée les deux tarifs sont-ils égaux~?
-	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Répondre par un intervalle, sans oublier que $0 \leqslant x \leqslant 10$.
-	\item Avec le tarif B et $25$~€ au plus, combien de temps peut-on louer un vélo~?
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue le prix payé avec le tarif A, puis avec le tarif B.
+	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Répondre par un intervalle.
+	\item Avec le tarif B et $30$~€ au plus, combien de temps peut-on louer un vélo~?
 \end{enumerate}
 \end{EXO}
 \vfill
-\clearpage
 \tcbset{mathaleaexo/.style={unbreakable}}
 \begin{EXO}{}{}
 \begin{minipage}{0.56\linewidth}
@@ -478,16 +465,40 @@ On note $x$ la largeur de l'enclos, en mètres.
 \end{EXO}
 \tcbset{mathaleaexo/.style={breakable}}
 \vfill
+\clearpage
 \begin{EXO}{}{}
-\textbf{Pour aller plus loin.} Pour convertir des degrés Celsius en degrés Fahrenheit, on utilise :
-\[
-  F = 1{,}8\,C + 32
-\]
-où $C$ est la température en °C et $F$ la température en °F.
+On augmente de $3$~cm le côté d'un carré.
+
+Pour quelles longueurs du côté l'aire du carré augmente-t-elle de plus de $45$~cm$^2$~?
 \begin{enumerate}[itemsep=0.8em]
-	\item Convertir $0$~°C, puis $100$~°C, en degrés Fahrenheit.
-	\item Une recette demande un four à $356$~°F. Quelle est cette température en degrés Celsius~?
-	\item Pour quelles températures $C$ a-t-on $50 \leqslant F \leqslant 77$~? Répondre par un intervalle.
+	\item Le côté mesure $4$~cm. Calculer l'aire avant et après l'augmentation. De combien l'aire a-t-elle augmenté~? Même question si le côté mesure $10$~cm.
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue l'augmentation de l'aire.
+	\item Développer et réduire l'expression obtenue.
+	\item Répondre au problème.
+\end{enumerate}
+\end{EXO}
+\vfill
+\begin{EXO}{}{}
+Une citerne contient $500$~L d'eau. Chaque jour, on en prélève $30$~L pour arroser un jardin.
+
+On veut qu'il reste toujours au moins $150$~L dans la citerne (réserve en cas d'incendie).
+
+Pendant combien de jours peut-on arroser le jardin~?
+\begin{enumerate}[itemsep=0.8em]
+	\item Quelle quantité d'eau reste-t-il au bout de $2$~jours~? au bout de $5$~jours~?
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue la quantité d'eau qui reste dans la citerne.
+	\item Traduire la contrainte de la réserve par une inéquation, puis la résoudre.
+	\item Répondre au problème. Attention : l'inconnue est un nombre entier.
+\end{enumerate}
+\end{EXO}
+\vfill
+\begin{EXO}{}{}
+\textbf{Pour aller plus loin.} Deux bougies sont allumées en même temps. La première mesure $30$~cm et raccourcit de $2$~cm par heure. La seconde mesure $20$~cm et raccourcit de $1$~cm par heure.
+\begin{enumerate}[itemsep=0.8em]
+	\item Quelle est la hauteur de chaque bougie au bout de $4$~heures~?
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue la hauteur de chaque bougie.
+	\item Au bout de combien d'heures la première bougie est-elle entièrement consumée~?
+	\item Tant que la première bougie brûle, pendant quelle période est-elle plus courte que la seconde~? Répondre par un intervalle.
 \end{enumerate}
 \end{EXO}
 \vfill
@@ -501,30 +512,23 @@ où $C$ est la température en °C et $F$ la température en °F.
 \begin{Correction}
 \begin{EXO}{}{}
 \begin{enumerate}
-	\item Avec $4$ : A donne $3\times 4-7=5$ et B donne $(4+1)\times 2=10$.\\
-	Avec $-1$ : A donne $3\times(-1)-7=-10$ et B donne $(-1+1)\times 2=0$.
-	\item A : \res{3x-7}. \qquad B : \res{2(x+1)=2x+2}.
-	\item $3x-7=2x+2 \iff x=9$. Il faut choisir \res{9} (les deux programmes donnent alors $20$).
-	\item $3x-7>2x+2 \iff x>9$. $S=\res{\mathopen{]}9\,;\,+\infty\mathclose{[}}$
-\end{enumerate}
-\end{EXO}
-
-\begin{EXO}{}{}
-\begin{enumerate}
 	\item Tarif A : $10$~€, $20$~€, $30$~€. \qquad Tarif B : $15+4=19$~€, $15+8=23$~€, $15+12=27$~€.
-	\item Tarif A : \res{5x}. \qquad Tarif B : \res{15+2x}.
-	\item $5x=15+2x \iff 3x=15 \iff x=5$. Les tarifs sont égaux pour \res{5 \text{ heures}} (ils coûtent alors $25$~€).
-	\item $15+2x<5x \iff 15<3x \iff 5<x$. Avec $0\leqslant x\leqslant 10$ : $S=\res{\mathopen{]}5\,;\,10\mathclose{]}}$.
-	\item $15+2x\leqslant 25 \iff 2x\leqslant 10 \iff x\leqslant 5$. Avec $x\geqslant 0$ : $x\in\res{[0\,;\,5]}$, soit au plus $5$ heures.
+	\item On note $x$ la durée de location, en heures, avec $x\in[0\,;\,10]$. \quad Tarif A : \res{5x}. \quad Tarif B : \res{15+2x}.
+	\item $15+2x<5x \iff 15<3x \iff 5<x$. Avec $x\in[0\,;\,10]$ : $x\in\res{\mathopen{]}5\,;\,10]}$.
+
+	Le tarif B est moins cher pour une location de plus de $5$~heures.
+	\item $15+2x\leqslant 30 \iff 2x\leqslant 15 \iff x\leqslant 7{,}5$. Avec $x\geqslant 0$ : $x\in\res{[0\,;\,7{,}5]}$.
+
+	On peut louer un vélo pendant $7$~h~$30$~min au plus.
 \end{enumerate}
 \end{EXO}
 
 \begin{EXO}{}{}
 \begin{enumerate}
-	\item Si $x=5$, les deux largeurs utilisent $10$~m, il reste $24-10=14$~m. En général, il reste $24-x-x=\res{24-2x}$.
+	\item Si $x=5$ : $24-10=14$~m. En général, il reste $24-x-x=\res{24-2x}$.
 	\item $x>0$ et $24-2x>0 \iff 24>2x \iff x<12$. Donc $x\in\res{\mathopen{]}0\,;\,12\mathclose{[}}$.
-	\item $24-2x\geqslant 10 \iff 14\geqslant 2x \iff x\leqslant 7$. Avec $x\in\mathopen{]}0\,;\,12\mathclose{[}$ : $x\in\res{\mathopen{]}0\,;\,7\mathclose{]}}$.
-	\item $24-2x\geqslant x \iff 24\geqslant 3x \iff x\leqslant 8$. Avec $x\in\mathopen{]}0\,;\,12\mathclose{[}$ : $x\in\res{\mathopen{]}0\,;\,8\mathclose{]}}$.
+	\item $24-2x\geqslant 10 \iff 14\geqslant 2x \iff x\leqslant 7$. Avec $x\in\mathopen{]}0\,;\,12\mathclose{[}$ : $x\in\res{\mathopen{]}0\,;\,7]}$.
+	\item $24-2x\geqslant x \iff 24\geqslant 3x \iff x\leqslant 8$. Avec $x\in\mathopen{]}0\,;\,12\mathclose{[}$ : $x\in\res{\mathopen{]}0\,;\,8]}$.
 	\item $x=2$ : $2\times 20=40$~m$^2$. \quad $x=6$ : $6\times 12=72$~m$^2$. \quad $x=10$ : $10\times 4=40$~m$^2$.
 
 	\res{\text{L'aire dépend de } x} : elle vaut $x(24-2x)$. On cherchera au chapitre suivant la valeur de $x$ qui la rend la plus grande.
@@ -533,9 +537,38 @@ où $C$ est la température en °C et $F$ la température en °F.
 
 \begin{EXO}{}{}
 \begin{enumerate}
-	\item $1{,}8\times 0+32=\res{32}$~°F. \qquad $1{,}8\times 100+32=180+32=\res{212}$~°F.
-	\item $1{,}8\,C+32=356 \iff 1{,}8\,C=324 \iff C=\dfrac{324}{1{,}8}=\dfrac{3240}{18}=180$. Le four est à \res{180}~°C.
-	\item $50\leqslant 1{,}8\,C+32\leqslant 77 \iff 18\leqslant 1{,}8\,C\leqslant 45 \iff 10\leqslant C\leqslant 25$. $C\in\res{[10\,;\,25]}$
+	\item Côté $4$~cm : l'aire passe de $4^2=16$~cm$^2$ à $7^2=49$~cm$^2$. Elle augmente de $33$~cm$^2$.
+
+	Côté $10$~cm : l'aire passe de $100$~cm$^2$ à $13^2=169$~cm$^2$. Elle augmente de $69$~cm$^2$.
+	\item On note $x$ le côté du carré, en cm, avec $x>0$. L'augmentation de l'aire vaut \res{(x+3)^2-x^2}.
+	\item $(x+3)^2-x^2=x^2+6x+9-x^2=\res{6x+9}$. \quad (Vérification : pour $x=4$, $6\times 4+9=33$.)
+	\item $6x+9>45 \iff 6x>36 \iff x>6$. Avec $x>0$ : $x\in\res{\mathopen{]}6\,;\,+\infty\mathclose{[}}$.
+
+	L'aire augmente de plus de $45$~cm$^2$ si le côté mesure plus de $6$~cm.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}
+	\item Au bout de $2$~jours : $500-2\times 30=440$~L. \quad Au bout de $5$~jours : $500-5\times 30=350$~L.
+	\item On note $n$ le nombre de jours d'arrosage ; $n$ est un entier naturel. Il reste \res{500-30n} litres.
+	\item $500-30n\geqslant 150 \iff -30n\geqslant -350 \iff n\leqslant \dfrac{350}{30}=\dfrac{35}{3}$.
+
+	On a divisé par $-30<0$ : le sens de l'inégalité change.
+	\item $\dfrac{35}{3}=11+\dfrac{2}{3}$, donc $11<\dfrac{35}{3}<12$. Comme $n$ est entier, $n\leqslant 11$  : \res{11 \text{ jours}} au plus.
+
+	Vérification : il reste $170$~L au bout de $11$~jours, mais $140$~L au bout de $12$~jours.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{enumerate}
+	\item Première bougie : $30-4\times 2=22$~cm. \quad Seconde bougie : $20-4\times 1=16$~cm.
+	\item On note $t$ le temps écoulé, en heures. Hauteurs : \res{30-2t} et \res{20-t} (en cm).
+	\item $30-2t=0 \iff t=15$. La première bougie brûle pendant \res{15} heures : $t\in[0\,;\,15]$.
+	\item $30-2t<20-t \iff -t<-10 \iff t>10$. Avec $t\in[0\,;\,15]$ : $t\in\res{\mathopen{]}10\,;\,15]}$.
+
+	Après $10$~heures, la première bougie est plus courte (pour $t=12$ : $6<8$).
 \end{enumerate}
 \end{EXO}
 
