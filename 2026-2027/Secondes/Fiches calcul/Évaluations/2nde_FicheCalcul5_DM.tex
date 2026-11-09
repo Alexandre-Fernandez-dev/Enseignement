@@ -1,0 +1,180 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[french]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exercice{numéro} : même numérotation que la fiche calcul 5
+\newcommand{\exercice}[1]{%
+  \vspace{0.5em}
+  \noindent\exobox{Exercice #1}\par
+  \vspace{0.6em}
+}
+
+% Résultat mis en valeur dans la correction
+\newcommand{\res}[1]{\ensuremath{\mathbf{#1}}}
+
+\pagestyle{empty}
+\setlist{topsep=2pt, itemsep=4pt, parsep=0pt}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+
+% Enclos le long d'un mur (largeur x, longueur 24 - 2x)
+\newcommand{\enclos}{%
+  \begin{tikzpicture}[scale=0.55]
+    \fill[pattern=north east lines] (-0.5,3) rectangle (8.5,3.5);
+    \draw[thick] (-0.5,3) -- (8.5,3);
+    \node[above] at (4,3.5) {mur};
+    \draw[very thick, dashed] (0,3) -- (0,0) -- (8,0) -- (8,3);
+    \node[left] at (0,1.5) {$x$};
+    \node[right] at (8,1.5) {$x$};
+    \node[below] at (4,0) {longueur};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Devoir maison --- Problèmes de modélisation}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Fiche calcul 5}
+\end{center}
+
+\vspace{0.4em}
+\noindent Nom et prénom~: \dotfill
+
+\vspace{0.8em}
+\noindent\textit{Sur une copie, rédiger \textbf{entièrement} les deux exercices, y compris les questions corrigées en classe. Une réponse seule, sans justification, ne rapporte pas de point.}
+
+\vspace{1em}
+
+% ================= Exercice 1 =================
+\exercice{1}
+Une boutique loue des vélos électriques pour $10$~heures au plus, selon deux tarifs.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{9cm}|}
+	\hline
+	\textbf{Tarif A} & \textbf{Tarif B} \\ \hline
+	$5$~€ par heure. & $15$~€ de frais fixes, puis $2$~€ par heure. \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[itemsep=1em, topsep=0.8em]
+	\item Calculer le prix payé avec chaque tarif pour une location de $2$, $4$ puis $6$~heures.
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue le prix payé avec le tarif A, puis avec le tarif B.
+	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Répondre par un intervalle.
+	\item Avec le tarif B et $30$~€ au plus, combien de temps peut-on louer un vélo~?
+\end{enumerate}
+
+\vfill
+% ================= Exercice 2 =================
+\exercice{2}
+\begin{minipage}{0.56\linewidth}
+On construit un enclos rectangulaire le long d'un mur.
+
+\medskip
+On dispose de $24$~m de grillage, qui ne sert que sur les trois côtés en pointillés.
+
+\medskip
+On note $x$ la largeur de l'enclos, en mètres.
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{center}
+\enclos
+\end{center}
+\end{minipage}
+
+\begin{enumerate}[itemsep=1em, topsep=0.8em]
+	\item Si $x = 5$, quelle est la longueur de l'enclos~? Montrer qu'en général, elle vaut $24 - 2x$.
+	\item La largeur et la longueur doivent être strictement positives. Montrer que $x \in \mathopen{]}0\,;\,12\mathclose{[}$.
+	\item Pour quelles valeurs de $x$ la longueur est-elle d'au moins $10$~m~?
+	\item Pour quelles valeurs de $x$ la longueur est-elle supérieure ou égale à la largeur~?
+	\item Calculer l'aire de l'enclos pour $x = 2$, pour $x = 6$ et pour $x = 10$. L'aire dépend-elle de $x$~?
+\end{enumerate}
+
+\vfill
+
+% Corrigé rédigé : version prof uniquement (compile.sh produit aussi la version _ELEVE)
+\ifdefined\ELEVE\else
+\clearpage
+
+\begin{center}
+  {\Large\bfseries Corrigé --- Devoir maison~: problèmes de modélisation}
+\end{center}
+
+\exercice{1}
+\begin{enumerate}
+	\item Tarif A : $5\times 2=10$~€, $5\times 4=20$~€, $5\times 6=30$~€.
+
+	Tarif B : $15+2\times 2=19$~€, $15+2\times 4=23$~€, $15+2\times 6=27$~€.
+	\item On note $x$ la durée de location, en heures. La location dure $10$~heures au plus, donc $x\in[0\,;\,10]$.
+
+	Avec le tarif A, on paie $5$~€ par heure : le prix est \res{5x}~€.
+
+	Avec le tarif B, on paie $15$~€ plus $2$~€ par heure : le prix est \res{15+2x}~€.
+	\item Le tarif B est strictement moins cher que le tarif A lorsque $15+2x<5x$.
+
+	$15+2x<5x \iff 15<3x \iff 5<x$ \quad (on divise par $3>0$ : le sens ne change pas).
+
+	Comme $x\in[0\,;\,10]$, on obtient $x\in\res{\mathopen{]}5\,;\,10]}$.
+
+	Le tarif B est strictement moins cher pour une location de plus de $5$~heures.
+	\item Avec le tarif B, on paie $15+2x$~€. On veut payer $30$~€ au plus : $15+2x\leqslant 30$.
+
+	$15+2x\leqslant 30 \iff 2x\leqslant 15 \iff x\leqslant 7{,}5$ \quad (on divise par $2>0$ : le sens ne change pas).
+
+	Comme $x\in[0\,;\,10]$, on obtient $x\in\res{[0\,;\,7{,}5]}$.
+
+	Avec $30$~€, on peut louer un vélo pendant $7{,}5$~heures au plus, soit $7$~h~$30$~min.
+\end{enumerate}
+
+\exercice{2}
+\begin{enumerate}
+	\item Si $x=5$, les deux largeurs utilisent $2\times 5=10$~m. Il reste $24-10=14$~m de longueur.
+
+	En général, les deux largeurs utilisent $2x$~m. Il reste $24-2x$~m : la longueur vaut \res{24-2x}.
+	\item La largeur est strictement positive : $x>0$. La longueur est strictement positive : $24-2x>0$.
+
+	$24-2x>0 \iff -2x>-24 \iff x<12$ \quad (on divise par $-2<0$ : le sens change).
+
+	Donc $0<x<12$, c'est-à-dire $x\in\res{\mathopen{]}0\,;\,12\mathclose{[}}$.
+	\item La longueur est d'au moins $10$~m lorsque $24-2x\geqslant 10$.
+
+	$24-2x\geqslant 10 \iff -2x\geqslant -14 \iff x\leqslant 7$ \quad (on divise par $-2<0$ : le sens change).
+
+	Comme $x\in\mathopen{]}0\,;\,12\mathclose{[}$, on obtient $x\in\res{\mathopen{]}0\,;\,7]}$.
+
+	La longueur est d'au moins $10$~m lorsque la largeur est inférieure ou égale à $7$~m.
+	\item La longueur est supérieure ou égale à la largeur lorsque $24-2x\geqslant x$.
+
+	$24-2x\geqslant x \iff 24\geqslant 3x \iff 8\geqslant x$ \quad (on divise par $3>0$ : le sens ne change pas).
+
+	Comme $x\in\mathopen{]}0\,;\,12\mathclose{[}$, on obtient $x\in\res{\mathopen{]}0\,;\,8]}$.
+
+	La longueur est supérieure ou égale à la largeur lorsque la largeur est inférieure ou égale à $8$~m.
+	\item L'aire d'un rectangle est largeur $\times$ longueur, donc l'aire de l'enclos vaut $x(24-2x)$~m$^2$.
+
+	$x=2$ : $2\times 20=40$~m$^2$. \quad $x=6$ : $6\times 12=72$~m$^2$. \quad $x=10$ : $10\times 4=40$~m$^2$.
+
+	Pour $x=2$ et $x=6$, on obtient deux aires différentes ($40\neq 72$) : \res{\text{l'aire dépend de } x}.
+\end{enumerate}
+\fi
+\end{document}
