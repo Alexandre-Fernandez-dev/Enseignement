@@ -1,7 +1,7 @@
 # Déroulement de la séquence — Seconde, Ch. 4 : Vecteurs dans un repère
 
 Période : du 23/11 au 07/12/2026, soit 7 séances d'1 h (lundi, jeudi, vendredi).
-Le cours du lundi 02/11 n'ayant pas eu lieu, le chapitre commence le lundi 23/11. « Fonctions : variations et signes » commence le jeudi 10/12 (semaine du devoir commun).
+Le cours du lundi 02/11 n'ayant pas eu lieu, le chapitre commence le lundi 23/11. « Fonctions : variations et signes » commence le jeudi 10/12. Le devoir commun a lieu la semaine du 14/12.
 
 Ce chapitre prolonge le chapitre 1 (vecteurs sans repère). Au chapitre 1, la translation, l'égalité de vecteurs, le parallélogramme, la somme et la relation de Chasles ont été traités. Le produit par un réel n'a été que défini, rapidement : il est repris ici depuis la construction géométrique. La colinéarité n'a pas été abordée.
 
@@ -29,7 +29,7 @@ Les racines carrées du 16/11 préparent directement le calcul des distances.
 ## Fiches calcul
 
 - **Semaines du 09/11 et du 16/11** : racine carrée (calculs, simplifications). Elles préparent les distances.
-- **Semaine du 23/11** : révisions du devoir commun (semaine du 07/12). Échangée avec la fiche suivante, pour que les calculs en repère viennent après le cours.
+- **Semaine du 23/11** : fonction carrée, équations $x^2=a$ (échangée avec les révisions du devoir commun, qui passent au 07/12 avec le décalage du DC).
 - **Semaine du 30/11** : calculs en repère (distances avec racines carrées à simplifier, coordonnées de milieux). Elle applique les parties 3 et 4 du cours (distance le 27/11, milieu le 30/11). La fiche commence par un encadré de rappel des formules : coordonnées de $\overrightarrow{AB}$, distance $AB$, coordonnées du milieu.
 
 ## Séances

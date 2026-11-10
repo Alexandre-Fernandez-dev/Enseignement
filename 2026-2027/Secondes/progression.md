@@ -22,7 +22,7 @@ Dates = lundi de la semaine.
 | Ensembles de nombres | 28/09 → 09/11 | 3 sem. (à cheval sur la Toussaint) |
 | Fonctions : généralités, résolution graphique | 12/11 → 20/11 | 5 séances (contrôle mixte le 20/11 : automatismes, fin du Ch2, Ch3) |
 | Vecteurs (partie 2) : vecteurs dans un repère | 23/11 → 07/12 | 7 séances |
-| Fonctions : variations et signes | 10/12 → 18/12 | 5 séances (devoir commun la semaine du 07/12) |
+| Fonctions : variations et signes | 10/12 → 18/12 | 5 séances (devoir commun la semaine du 14/12) |
 | Évolutions et tableaux croisés | 04/01 → 15/01 | 2 sem. |
 | Fonctions affines | 18/01 → 05/02 | 3 sem. |
 | Colinéarité | 22/02 → 26/02 | 1 sem. |
@@ -33,7 +33,8 @@ Dates = lundi de la semaine.
 
 - **Révision du 29/10/2026** : le chapitre « Ensembles de nombres » a pris une semaine de plus. Les chapitres suivants sont décalés jusqu'aux vacances de Noël ; la suite de l'année est inchangée.
 - **Révision du 04/11/2026** : pas de cours le lundi 02/11 (professeur absent). Tout est décalé d'une séance jusqu'à Noël ; « Variations et signes » passe de 6 à 5 séances.
-- **Devoirs communs** : semaines du 07/12/2026 et du 03/05/2027.
+- **Révision du 10/11/2026** : le devoir commun passe à la semaine du 14/12. La fiche calcul « révisions du DC » (23/11) et la fiche « fonction carrée » (07/12) sont échangées ; de même pour l'AP « révisions du DC » (30/11) et « G1 : proportions niv. 1 » (07/12).
+- **Devoirs communs** : semaines du 14/12/2026 et du 03/05/2027.
 - **Vacances** : Toussaint 19/10 → 30/10, Noël 21/12 → 01/01, hiver 08/02 → 19/02, Pâques 05/04 → 16/04.
 - **Fin des cours** : semaine du 07/06/2027.
 
@@ -49,8 +50,8 @@ Détail dans les fichiers `2nde_ChN_Sequence.md` de chaque chapitre et dans `pro
 | 16/11 | Ch3 : résolution graphique $f(x)=k$ | Ch3 : $f(x)=g(x)$, révisions | Contrôle mixte (automatismes, Ch2, Ch3) |
 | 23/11 | Ch4 : activité, coordonnées | Ch4 : $\overrightarrow{AB}$, parallélogramme | Ch4 : distance |
 | 30/11 | Ch4 : milieu | Ch4 : formatif, somme | Ch4 : produit par un réel |
-| 07/12 | Ch4 : synthèse (devoir commun cette semaine) | Variations et signes | Variations et signes |
-| 14/12 | Variations et signes | Variations et signes | Variations et signes |
+| 07/12 | Ch4 : synthèse | Variations et signes | Variations et signes |
+| 14/12 | Variations et signes (devoir commun cette semaine) | Variations et signes | Variations et signes |
 
 ## Fiches calcul (demi-groupe) et AP, semaine par semaine
 
@@ -68,9 +69,9 @@ Le développement et la factorisation avec les identités remarquables ont déj�
 | 02/11 | Problèmes de modélisation (équations, inéquations) | G1 + une partie de G2 : distributivité |
 | 09/11 | Racine carrée (calculs, simplifications) | G3 : proportions niv. 3 |
 | 16/11 | Racine carrée (calculs, simplifications) | G2 : proportions niv. 2 |
-| 23/11 | Révisions du devoir commun | G2 : proportions niv. 2 |
-| 30/11 | Calculs en repère (distances avec racines carrées, coordonnées de milieux ; formules rappelées en début de fiche) | Révisions du DC (volontaires) |
-| 07/12 | Fonction carrée, équations $x^2=a$ | G1 : proportions niv. 1 |
+| 23/11 | Fonction carrée, équations $x^2=a$ | G2 : proportions niv. 2 |
+| 30/11 | Calculs en repère (distances avec racines carrées, coordonnées de milieux ; formules rappelées en début de fiche) | G1 : proportions niv. 1 |
+| 07/12 | Révisions du devoir commun | Révisions du DC (volontaires) |
 | 14/12 | Fonction carrée, équations $x^2=a$ | G1 : proportions niv. 1 |
 | 04/01 | Fonction carrée, équations $x^2=a$ | G2 : calculs en géométrie |
 | 11/01 | Fonction carrée, équations $x^2=a$ | *(ski)* |
