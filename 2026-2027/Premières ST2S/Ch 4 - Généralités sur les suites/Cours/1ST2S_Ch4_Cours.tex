@@ -124,7 +124,7 @@
 %\setmainfont{CMU Serif}name
 
 \title{
-  \vspace{4em}
+  \vspace{0em}
   \centering
   \tcbset{colframe=BlackSav,colback=GrayBG}
   \tcbox[tikznode]{
@@ -174,6 +174,20 @@
 \thispagestyle{firststyle}
 
 \tableofcontents
+
+\vspace{1.5cm plus 1fill}
+\begin{savoir}{}{}
+\begin{itemize}[label=--]
+  \item Utiliser les notations $u(n)$ et $u_n$,
+  \item Calculer un terme avec une formule explicite ou une relation de récurrence,
+  \item Reconnaître le mode de génération d'une suite,
+  \item Représenter une suite par un nuage de points ; lire un terme sur un graphique,
+  \item Traduire une situation par une relation de récurrence,
+  \item Conjecturer le sens de variation ; le démontrer avec le signe de $u_{n+1} - u_n$,
+  \item Compléter une formule de tableur ; trouver le rang où un seuil est dépassé,
+  \item Compléter un programme Python qui calcule un terme d'une suite.
+\end{itemize}
+\end{savoir}
 
 % \newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{#1}}}}}
 %\newcommand{\multihide}[1]{\mbox{\vphantom{#1}\colorbox{gray!50}{\parbox{\textwidth}{{\phantom{#1}}}}}}
@@ -474,6 +488,7 @@
   \end{multihide}
 \end{definition}
 
+\vfill
 \begin{method}{Représenter une suite}{}
   \begin{enumerate}
     \item On calcule les premiers termes et on les range dans un tableau.
@@ -481,6 +496,7 @@
   \end{enumerate}
 \end{method}
 
+\vfill
 \begin{example}
   \begin{minipage}[t]{0.5\linewidth}
     \vspace{0pt}
@@ -506,7 +522,7 @@
   \begin{minipage}[t]{0.45\linewidth}
     \vspace{0pt}
     \centering
-    \begin{tikzpicture}[x=0.8cm, y=0.34cm]
+    \begin{tikzpicture}[x=0.8cm, y=0.4cm]
       \repere{0}{6}{0}{11}
       \hidetk{
         \foreach \n/\u in {0/5, 1/2, 2/1, 3/2, 4/5, 5/10} \fill[red] (\n,\u) circle (3pt);
@@ -515,15 +531,17 @@
   \end{minipage}
 \end{example}
 
+\vfill
 \begin{method}{Lire un terme sur un graphique}{}
   Pour lire $u_n$, on part de l'abscisse $n$, on monte jusqu'au point, puis on lit son ordonnée.
 \end{method}
 
+\vfill
 \begin{example}
   \begin{minipage}[t]{0.45\linewidth}
     \vspace{0pt}
     \centering
-    \begin{tikzpicture}[x=0.8cm, y=0.25cm]
+    \begin{tikzpicture}[x=0.8cm, y=0.3cm]
       \repere{0}{6}{0}{16}
       \foreach \n/\u in {0/15, 1/12, 2/10, 3/9, 4/8.5, 5/8} \fill[blue] (\n,\u) circle (3pt);
     \end{tikzpicture}
@@ -540,6 +558,7 @@
   \end{minipage}
 \end{example}
 
+\vfill
 \newpage
 \section{Modéliser une situation par une suite}
 
@@ -556,39 +575,49 @@
   \end{tabularx}
 \end{method}
 
+\bigskip
 \begin{examples}
   \begin{enumerate}
-    \setlength{\itemsep}{0.7em}
+    \setlength{\itemsep}{1.5em}
     \item Un EHPAD compte $80$ résidents en 2026. Chaque année, il accueille $5$ résidents de plus.
     On note $r_n$ le nombre de résidents en $2026 + n$.
 
     \smallskip
-    \begin{multihideW}[1em]
+    \begin{multihideW}[3em]
       $r_0 = 80$ et $r_{n+1} = r_n + 5$.
     \end{multihideW}
 
+    \vfill
     \item Une colonie de $500$ bactéries augmente de $20\,\%$ chaque heure.
     On note $b_n$ le nombre de bactéries au bout de $n$ heures. Calculer $b_1$ et $b_2$.
 
     \smallskip
-    \begin{multihideW}[1em]
+    \begin{multihideW}[4em]
       Augmenter de $20\,\%$, c'est multiplier par $1{,}2$. Donc $b_0 = 500$ et $b_{n+1} = 1{,}2 \times b_n$.
 
-      $b_1 = 1{,}2 \times 500 = 600$ et $b_2 = 1{,}2 \times 600 = 720$.
+      $b_1 = 1{,}2 \times 500 = 600$
+
+      $b_2 = 1{,}2 \times 600 = 720$
     \end{multihideW}
 
+    \vfill
     \item Un patient reçoit $10$~mL d'un médicament. Chaque jour, son organisme en élimine $30\,\%$, puis on lui injecte $2$~mL.
     On note $q_n$ la quantité de médicament, en mL, au bout de $n$ jours. Calculer $q_1$, $q_2$ et $q_3$.
 
     \smallskip
-    \begin{multihideW}[1em]
+    \begin{multihideW}[4em]
       Éliminer $30\,\%$, c'est multiplier par $0{,}7$ ; puis on ajoute $2$. Donc $q_0 = 10$ et $q_{n+1} = 0{,}7 \times q_n + 2$.
 
-      $q_1 = 0{,}7 \times 10 + 2 = 9$ \qquad $q_2 = 0{,}7 \times 9 + 2 = 8{,}3$ \qquad $q_3 = 0{,}7 \times 8{,}3 + 2 = 7{,}81$
+      $q_1 = 0{,}7 \times 10 + 2 = 9$
+
+      $q_2 = 0{,}7 \times 9 + 2 = 8{,}3$
+
+      $q_3 = 0{,}7 \times 8{,}3 + 2 = 7{,}81$
     \end{multihideW}
   \end{enumerate}
 \end{examples}
 
+\vfill
 \newpage
 \section{Sens de variation}
 
@@ -790,19 +819,6 @@
   \end{minipage}
 \end{example}
 
-\vfill
 
-\begin{savoir}{}{}
-\begin{itemize}[label=--]
-  \item Utiliser les notations $u(n)$ et $u_n$,
-  \item Calculer un terme avec une formule explicite ou une relation de récurrence,
-  \item Reconnaître le mode de génération d'une suite,
-  \item Représenter une suite par un nuage de points ; lire un terme sur un graphique,
-  \item Traduire une situation par une relation de récurrence,
-  \item Conjecturer le sens de variation ; le démontrer avec le signe de $u_{n+1} - u_n$,
-  \item Compléter une formule de tableur ; trouver le rang où un seuil est dépassé,
-  \item Compléter un programme Python qui calcule un terme d'une suite.
-\end{itemize}
-\end{savoir}
 
 \end{document}

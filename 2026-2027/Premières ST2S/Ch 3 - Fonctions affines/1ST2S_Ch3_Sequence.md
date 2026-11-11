@@ -19,7 +19,7 @@
 |---|---|---|---|
 | 02/11 | Comparaison de nombres | Signe des fonctions affines | Tableaux de signes (graphiquement) |
 
-Le calcul littéral « signe des fonctions affines » tombe en même temps que la partie 5 du cours : on peut s'en servir pour la mise en route de la séance 4.
+Le calcul littéral « signe des fonctions affines » tombe en même temps que la partie 5 du cours : on peut s'en servir pour la mise en route de la séance 5.
 
 ## Séances
 
@@ -40,11 +40,17 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 - **En classe** : exercice 5, exercice 6 (questions 1 et 2).
 - **Devoir** : exercice 6 (question 3), exercice 9.
 
-### Séance 4 — Sens de variation et signe (jeudi 12/11)
-- **Cours** : partie 4, sens de variation selon le signe de $a$ (page 5) ; partie 5, signe de $ax + b$ et tableau de signes (page 6) ; bilan avec le savoir-faire du chapitre.
-- **En classe** : correction rapide de l'exercice 9, exercice 7, exercice 8.
-- **Devoir maison** : exercices 10 et 11 (problèmes), corrigés au début du chapitre 4.
-- Le chapitre 4 (suites) commence le vendredi 13/11.
+### Séance 4 — Retour sur le coefficient directeur, sens de variation (jeudi 12/11)
+- L'exercice 9 n'a pas été abordé le vendredi 06/11 : on le fait en classe.
+- **En classe** : questions flash ; exercice 9 en entier (déterminer $P(x)$ à partir de deux points, interpréter $a$ et $b$, calculer un prix et une distance : réinvestit la partie 3) ; cours partie 4, sens de variation selon le signe de $a$ (page 5) ; exercice 7.
+- **Devoir** : finir l'exercice 7 si besoin.
+
+### Séance 5 — Signe d'une fonction affine, bilan (vendredi 13/11, 1re heure)
+- **Cours** : partie 5, signe de $ax + b$ et tableau de signes (page 6) ; bilan avec le savoir-faire du chapitre. Les questions flash de la période portent déjà sur ce signe.
+- **En classe** : exercice 8.
+- **Devoir** : exercice 10 pour le jeudi 19/11.
+- **Devoir maison facultatif** : exercice 11 (deux tarifs), à rendre le jeudi 26/11 ; il prépare la comparaison de deux évolutions du chapitre 4.
+- Le chapitre 4 (suites) commence le vendredi 13/11, 2e heure.
 
 ## Points de vigilance
 

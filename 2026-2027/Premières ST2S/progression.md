@@ -13,10 +13,10 @@ Horaire : 3 h/semaine en classe entière (jeudi 1 h, vendredi 2 h). Dates = lund
 |---|---|---|---|---|
 | 1 | Généralités sur les fonctions | 31/08 → 11/09 | 2 sem. | |
 | 2 | Tableaux croisés et probabilités conditionnelles (dans un tableau) | 14/09 → 02/10 | 3 sem. | |
-| 3 | Fonctions affines | 05/10 → 16/10 puis 02/11 → 09/11 | 2 sem. + 4 séances | Commencé le 16/10 (parties 1 et 2, exercices 1 et 2). Reprise après la Toussaint : semaine du 02/11 et 1re séance de la semaine du 09/11 |
+| 3 | Fonctions affines | 05/10 → 16/10 puis 05/11 → 13/11 | 2 sem. + 5 séances | Commencé le 16/10 (parties 1 et 2, exercices 1 et 2). Reprise après la Toussaint, étalée sur 5 séances (jusqu'au vendredi 13/11, 1re heure) ; exercice 11 en devoir maison facultatif |
 | — | *Vacances de la Toussaint* | 19/10 → 30/10 | | |
-| 4 | Généralités sur les suites | 09/11 → 27/11 | 8 séances | Commence à la 2e séance de la semaine du 09/11 ; synthèse en devoir. Faire du tableur et du Python |
-| 5 | Fonctions du second degré | 30/11 → 18/12 | 3 sem. | Second degré uniquement : les fonctions de degré 3 ont été retirées du programme (aménagement 2025) ; le degré 3 ne revient qu'avec la dérivation |
+| 4 | Généralités sur les suites | 13/11 → 03/12 | 8 séances | Du vendredi 13/11 (2e heure) au jeudi 03/12 ; synthèse en devoir. Faire du tableur et du Python |
+| 5 | Fonctions du second degré | 04/12 → 18/12 | 8 séances | Synthèse en devoir. Second degré uniquement : les fonctions de degré 3 ont été retirées du programme (aménagement 2025) ; le degré 3 ne revient qu'avec la dérivation |
 | — | *Vacances de Noël* | 21/12 → 01/01 | | |
 | 6 | Arbres de probabilités, épreuve de Bernoulli | 04/01 → 22/01 | 3 sem. | Ajouter l'indépendance et la formule des probabilités totales |
 | 7 | Suites arithmétiques et géométriques | 25/01 → 26/02 | 3 sem. (à cheval sur les vacances d'hiver) | Ajouter la forme explicite ; tableur et Python |
