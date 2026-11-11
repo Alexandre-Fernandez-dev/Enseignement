@@ -1,0 +1,142 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{exam}
+\usepackage{amsmath,amssymb}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+\setlength{\parindent}{0cm}
+\pagestyle{empty}
+\input{def.tex}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand{\st}{\rule[-1.1em]{0pt}{3.1em}}
+\newcolumntype{T}[1]{>{\centering\arraybackslash\st}p{#1}}
+\newcommand{\pt}[1][2.5cm]{\makebox[#1]{\dotfill}}
+\colorlet{sol}{blue!70!black}
+
+% En-tête : #1 = sujet, #2 = texte à droite
+\newcommand{\entete}[2]{\setcounter{exercice}{0}%
+\noindent{%
+\textbf{\Niveau}\hfill\textbf{\Chapitre}\hfill\textbf{Corrigé (#1)}%
+}\par
+}
+
+\begin{document}
+\entete{A}{Correction}
+\vspace{3mm}
+\begin{exercice}
+Compléter le tableau avec le plus petit ensemble auquel appartient chaque nombre, parmi $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$ et $\mathbb{R}$.
+\begin{center}
+\begin{tabular}{|T{4cm}|*{5}{T{2cm}|}}
+\hline
+Nombre & $\dfrac{-12}{4}$ & $\dfrac{7}{2}$ & $\sqrt{25}$ & $\dfrac{5}{3}$ & $\sqrt{3}$ \\ \hline
+Plus petit ensemble & \textcolor{sol}{$\mathbb{Z}$} & \textcolor{sol}{$\mathbb{D}$} & \textcolor{sol}{$\mathbb{N}$} & \textcolor{sol}{$\mathbb{Q}$} & \textcolor{sol}{$\mathbb{R}$} \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\textcolor{sol}{\small On simplifie d'abord : $\dfrac{-12}{4}=-3$, $\dfrac{7}{2}=3{,}5$, $\sqrt{25}=5$ ; $\dfrac{5}{3}$ n'est pas décimal ; $\sqrt{3}$ est irrationnel.}
+\vfill
+\begin{exercice}
+Donner un encadrement d'amplitude $10^{-2}$ de chaque nombre, puis son arrondi au centième.
+\par\smallskip\noindent\hspace*{1.2em}{\renewcommand{\arraystretch}{2.6}
+\begin{tabular}{@{}l@{\enspace}l@{\quad}r@{\enspace}c@{\enspace}l@{\qquad}l@{}}
+a) & $2{,}6438$ : & \textcolor{sol}{$2{,}64$} & $\leqslant 2{,}6438 <$ & \textcolor{sol}{$2{,}65$} & Arrondi au centième : \textcolor{sol}{$2{,}64$} \\
+b) & $\dfrac{2}{3}$ : & \textcolor{sol}{$0{,}66$} & $< \dfrac{2}{3} <$ & \textcolor{sol}{$0{,}67$} & Arrondi au centième : \textcolor{sol}{$0{,}67$} \\
+\end{tabular}}\par
+\end{exercice}
+
+\textcolor{sol}{\small Pour b), on pose la division : $\dfrac{2}{3}=0{,}666\,6\ldots$. Pour l'arrondi, on regarde le chiffre des millièmes.}
+\vfill
+\begin{exercice}
+Voici un tableau de valeurs d'une fonction $f$ définie sur $[-2\,;\,4]$.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|*{7}{C{1.2cm}|}}
+\hline
+$x$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ \\ \hline
+$f(x)$ & $3$ & $-1$ & $4$ & $2$ & $-1$ & $5$ & $2$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*), itemsep=1.2em, topsep=0.6em]
+\item \makebox[0.5\linewidth][l]{L'image de $0$ par $f$ est \textcolor{sol}{$4$}.}b)~$f(3) = $ \textcolor{sol}{$5$}
+\item[c)] Le nombre $-1$ a pour antécédent(s) par $f$ : \textcolor{sol}{$-1$ et $2$}
+\item[d)] $f($\textcolor{sol}{$-2$}$) = 3$
+\item[e)] Peut-on calculer $f(5)$~? Justifier. \textcolor{sol}{Non : $5\notin[-2\,;\,4]$, donc $5$ n'a pas d'image par $f$.}
+\end{enumerate}
+\end{exercice}
+
+\vfill
+\begin{exercice}
+Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = 2x+3$.
+\begin{enumerate}[label=\arabic*., itemsep=1.2em, topsep=0.6em]
+\item Calculer $g(4)$ et $g(-2)$. \hfill \textcolor{sol}{$g(4)=2\times 4+3=11$ \quad $g(-2)=2\times(-2)+3=-1$} \hspace*{1cm}
+\item Déterminer l'antécédent de $9$ par $g$. \textcolor{sol}{On résout $g(x)=9$ : $2x+3=9 \iff 2x=6 \iff x=3$. L'antécédent de $9$ est $3$.}
+\end{enumerate}
+\end{exercice}
+
+\vfill
+\newpage
+\entete{B}{Correction}
+\vspace{3mm}
+\begin{exercice}
+Compléter le tableau avec le plus petit ensemble auquel appartient chaque nombre, parmi $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$ et $\mathbb{R}$.
+\begin{center}
+\begin{tabular}{|T{4cm}|*{5}{T{2cm}|}}
+\hline
+Nombre & $\dfrac{-15}{5}$ & $\dfrac{9}{4}$ & $\sqrt{36}$ & $\dfrac{1}{6}$ & $\sqrt{5}$ \\ \hline
+Plus petit ensemble & \textcolor{sol}{$\mathbb{Z}$} & \textcolor{sol}{$\mathbb{D}$} & \textcolor{sol}{$\mathbb{N}$} & \textcolor{sol}{$\mathbb{Q}$} & \textcolor{sol}{$\mathbb{R}$} \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\textcolor{sol}{\small On simplifie d'abord : $\dfrac{-15}{5}=-3$, $\dfrac{9}{4}=2{,}25$, $\sqrt{36}=6$ ; $\dfrac{1}{6}$ n'est pas décimal ; $\sqrt{5}$ est irrationnel.}
+\vfill
+\begin{exercice}
+Donner un encadrement d'amplitude $10^{-2}$ de chaque nombre, puis son arrondi au centième.
+\par\smallskip\noindent\hspace*{1.2em}{\renewcommand{\arraystretch}{2.6}
+\begin{tabular}{@{}l@{\enspace}l@{\quad}r@{\enspace}c@{\enspace}l@{\qquad}l@{}}
+a) & $5{,}8371$ : & \textcolor{sol}{$5{,}83$} & $\leqslant 5{,}8371 <$ & \textcolor{sol}{$5{,}84$} & Arrondi au centième : \textcolor{sol}{$5{,}84$} \\
+b) & $\dfrac{5}{6}$ : & \textcolor{sol}{$0{,}83$} & $< \dfrac{5}{6} <$ & \textcolor{sol}{$0{,}84$} & Arrondi au centième : \textcolor{sol}{$0{,}83$} \\
+\end{tabular}}\par
+\end{exercice}
+
+\textcolor{sol}{\small Pour b), on pose la division : $\dfrac{5}{6}=0{,}833\,3\ldots$. Pour l'arrondi, on regarde le chiffre des millièmes.}
+\vfill
+\begin{exercice}
+Voici un tableau de valeurs d'une fonction $f$ définie sur $[-3\,;\,3]$.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|*{7}{C{1.2cm}|}}
+\hline
+$x$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ \\ \hline
+$f(x)$ & $4$ & $1$ & $-2$ & $1$ & $0$ & $4$ & $-1$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*), itemsep=1.2em, topsep=0.6em]
+\item \makebox[0.5\linewidth][l]{L'image de $0$ par $f$ est \textcolor{sol}{$1$}.}b)~$f(2) = $ \textcolor{sol}{$4$}
+\item[c)] Le nombre $4$ a pour antécédent(s) par $f$ : \textcolor{sol}{$-3$ et $2$}
+\item[d)] $f($\textcolor{sol}{$-1$}$) = -2$
+\item[e)] Peut-on calculer $f(6)$~? Justifier. \textcolor{sol}{Non : $6\notin[-3\,;\,3]$, donc $6$ n'a pas d'image par $f$.}
+\end{enumerate}
+\end{exercice}
+
+\vfill
+\begin{exercice}
+Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = 3x-4$.
+\begin{enumerate}[label=\arabic*., itemsep=1.2em, topsep=0.6em]
+\item Calculer $g(2)$ et $g(-1)$. \hfill \textcolor{sol}{$g(2)=3\times 2-4=2$ \quad $g(-1)=3\times(-1)-4=-7$} \hspace*{1cm}
+\item Déterminer l'antécédent de $11$ par $g$. \textcolor{sol}{On résout $g(x)=11$ : $3x-4=11 \iff 3x=15 \iff x=5$. L'antécédent de $11$ est $5$.}
+\end{enumerate}
+\end{exercice}
+
+\vfill
+\end{document}

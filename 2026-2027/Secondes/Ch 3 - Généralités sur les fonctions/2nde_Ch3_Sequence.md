@@ -13,7 +13,7 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Cours (prof et élève) | `Cours/2nde_Ch3_Cours.tex` |
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
-| Contrôle formatif A/B (13/11) | à faire : `Contrôles/Form 1/` |
+| Évaluation courte A/B et corrigé (13/11, 15 min) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `Corrige.tex` |
 | Contrôle mixte A/B et corrigé (20/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
@@ -36,8 +36,18 @@ Les inéquations du 16/11 accompagnent la résolution graphique : on peut compar
 Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde les exercices qui installent la notion. La suite d'un exercice commencé, ou un exercice du même type, est donnée en devoir pour la séance suivante (environ 15 min de travail).
 
 ### Séance 1 — Découverte (jeudi 12/11)
-- **Activité 1** (environ 30 min). Partie A : courbe de la température sur une journée, lecture d'images et d'antécédents, ensemble de définition $[0\,;\,24]$, première lecture d'une inéquation ($T(x) \geqslant 10$). Partie B : club de sport, tableau de valeurs, formule $f(x) = 4x + 10$, antécédent de $50$.
-- **Cours** : I. Notion de fonction (définition, image et antécédent, ensemble de définition fixé par le contexte, tableau de valeurs, formule).
+L'activité et le cours alternent : la partie A amène la définition, la partie B amène le tableau de valeurs et la formule.
+
+| Durée | Contenu |
+|---|---|
+| 10 min | Questions flash |
+| 15 min | **Activité 1, partie A** (recto) : courbe de la température, images et antécédents, ensemble de définition $[0\,;\,24]$, encadré Vocabulaire |
+| 10 min | **Cours** I, jusqu'à l'exemple de $T$ : définition, image et antécédent, ensemble de définition fixé par le contexte |
+| 10 min | **Activité 1, partie B** (verso), en autonomie : club de sport, tableau de valeurs, formule $f(x) = 4x + 10$, antécédent de $50$ en résolvant $f(x) = 50$ |
+| 10 min | **Cours** : fin du I : tableau de valeurs, formule, méthode « trouver un antécédent avec une formule » (exemple de Léa) |
+
+- La partie B est la seule de la séance où l'on cherche un antécédent avec une formule. Le devoir (exercice 2, question 1) et le formatif du 13/11 (exercice 4) en ont besoin. Si le temps manque, traiter seulement la question 9 (Léa), à l'oral.
+- « Pour aller plus loin » (questions 10 et 11) : pour les élèves rapides. La question 10 (Tom, $52$ €) montre un nombre sans antécédent, car le contexte impose un nombre entier de séances. La question 11 ($T(x) \geqslant 10$) est reprise le lundi 16/11.
 - **Devoir** : exercice 2 (question 1), et revoir le chapitre 2 pour le formatif.
 
 ### Séance 2 — Formatif, courbe représentative (vendredi 13/11)
@@ -48,6 +58,7 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 
 ### Séance 3 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (lundi 16/11)
 - Retour rapide sur le formatif du 13/11.
+- **Introduction du III.2** : question 11 de l'activité 1 (période où $T(x) \geqslant 10$, réponse $[10\,;\,18]$).
 - **Cours** : III.1 Équation $f(x) = k$ (exemple $f(x) = 4$ en 4 étapes), III.2 Inéquations ($<$, $\leqslant$, $>$, $\geqslant$).
 - **En classe** : exercice 6 (questions 1 et 2).
 - **Devoir** : exercice 5 (questions 1 à 3), exercice 4.

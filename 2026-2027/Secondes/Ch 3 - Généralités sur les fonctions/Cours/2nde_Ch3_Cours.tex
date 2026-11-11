@@ -429,6 +429,18 @@ De la même manière :
 \]
 \end{example}
 
+\begin{method}{Trouver un antécédent avec une formule}{}
+  Pour trouver les antécédents d'un nombre $b$ par $f$, on \hide{résout l'équation $f(x) = b$}.
+\end{method}
+
+\begin{example}
+  Dans l'activité d'introduction (partie B), $f(x) = 4x + 10$ est le prix payé pour $x$ séances.
+
+  Pour trouver l'antécédent de $50$, on résout l'équation $\hideM{4x + 10 = 50}$, donc $\hideM{4x = 40}$, puis $x = \hideM{10}$.
+
+  L'antécédent de $50$ par $f$ est \hide{$10$} : Léa a fait $10$ séances.
+\end{example}
+
 \section{Représentation graphique}
 
 \begin{definition}{Courbe représentative}{}
@@ -689,17 +701,17 @@ Avec la même fonction, on veut résoudre $f(x)>2$ et $f(x)\geqslant 2$.
 On a représenté deux fonctions $f$ et $g$ définies sur $\intff{-4}{4}$.
 
 \begin{center}
-\begin{tikzpicture}[x=1cm, y=0.5cm]
-    \draw[step=0.5, very thin, gray!25] (-4.3,-3.5) grid (4.3,7.5);
-    \draw[step=1, thin, gray!50] (-4.3,-3.5) grid (4.3,7.5);
-    \draw[->] (-4.3,0) -- (4.5,0) node[right] {$x$};
-    \draw[->] (0,-3.5) -- (0,7.8) node[above] {$y$};
-    \foreach \x in {-4,-3,-2,-1,1,2,3,4} \node[below] at (\x,0) {\small $\x$};
-    \foreach \y in {-3,-2,-1,1,2,3,4,5,6,7} \node[left] at (0,\y) {\small $\y$};
-    \node[below left] at (0,0) {\small $0$};
-    \draw[very thick, blue!70!black, domain=-4:4, samples=80, smooth] plot (\x, {0.5*\x*\x-2});
+\begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \draw[step=0.5, very thin, gray!25] (-4.3,-1.5) grid (4.3,5.5);
+    \draw[step=1, thin, gray!50] (-4.3,-1.5) grid (4.3,5.5);
+    \draw[->] (-4.3,0) -- (4.6,0) node[right] {$x$};
+    \draw[->] (0,-1.5) -- (0,5.8) node[above] {$y$};
+    \foreach \x in {-4,-3,-2,-1,1,2,3,4} \node[below, fill=white, inner sep=1pt] at (\x,-0.1) {\small $\x$};
+    \foreach \y in {-1,1,2,3,4,5} \node[left, fill=white, inner sep=1pt] at (-0.08,\y) {\small $\y$};
+    \node[below left, inner sep=1.5pt] at (0,0) {\small $0$};
+    \draw[very thick, blue!70!black, domain=-4:4, samples=80, smooth] plot (\x, {0.25*\x*\x+0.25*\x-0.5});
     \draw[very thick, red!70!black, dashed] (-4,-1) -- (4,3);
-    \node[blue!70!black] at (-3.6,5.2) {$\mathcal{C}_f$};
+    \node[blue!70!black] at (-3.3,2.6) {$\mathcal{C}_f$};
     \node[red!70!black] at (3.8,2.2) {$\mathcal{C}_g$};
     \hidetk{
       \fill (-2,0) circle (2pt) (3,2.5) circle (2pt) (-2,0) circle (2pt);
@@ -720,7 +732,7 @@ On a représenté deux fonctions $f$ et $g$ définies sur $\intff{-4}{4}$.
 \begin{savoir}{}{}
 \begin{itemize}[label=--]
   \item Déterminer l'ensemble de définition d'une fonction dans un problème.
-  \item Calculer une image avec une formule.
+  \item Calculer une image avec une formule, et trouver un antécédent en résolvant une équation.
   \item Lire une image et des antécédents dans un tableau ou sur une courbe.
   \item Tracer une courbe à partir d'un tableau de valeurs.
   \item Montrer par un calcul qu'un point appartient ou non à une courbe.

@@ -1,0 +1,89 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{exam}
+\usepackage{amsmath,amssymb}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
+\setlength{\parindent}{0cm}
+\pagestyle{empty}
+\input{def.tex}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand{\st}{\rule[-1.1em]{0pt}{3.1em}}
+\newcolumntype{T}[1]{>{\centering\arraybackslash\st}p{#1}}
+\newcommand{\pt}[1][2.5cm]{\makebox[#1]{\dotfill}}
+\colorlet{sol}{blue!70!black}
+
+% En-tête : #1 = sujet, #2 = texte à droite
+\newcommand{\entete}[2]{%
+\noindent{%
+\textbf{\Niveau}\hfill\textbf{\Chapitre}\hfill\textbf{\Document\ (#1) -- #2}%
+}\par
+}
+
+\begin{document}
+\entete{B}{15 min}
+\vspace{2mm}
+\noindent{\makebox[\textwidth]{Nom et prénom~:\enspace\hrulefill}}
+\vspace{3mm}
+\begin{exercice}
+Compléter le tableau avec le plus petit ensemble auquel appartient chaque nombre, parmi $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$ et $\mathbb{R}$.
+\begin{center}
+\begin{tabular}{|T{4cm}|*{5}{T{2cm}|}}
+\hline
+Nombre & $\dfrac{-15}{5}$ & $\dfrac{9}{4}$ & $\sqrt{36}$ & $\dfrac{1}{6}$ & $\sqrt{5}$ \\ \hline
+Plus petit ensemble &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\vfill
+\begin{exercice}
+Donner un encadrement d'amplitude $10^{-2}$ de chaque nombre, puis son arrondi au centième.
+\par\smallskip\noindent\hspace*{1.2em}{\renewcommand{\arraystretch}{2.6}
+\begin{tabular}{@{}l@{\enspace}l@{\quad}r@{\,}c@{\,}l@{\qquad}l@{}}
+a) & $5{,}8371$ : & \pt[2.2cm] & $\leqslant 5{,}8371 <$ & \pt[2.2cm] & Arrondi au centième : \pt \\
+b) & $\dfrac{5}{6}$ : & \pt[2.2cm] & $< \dfrac{5}{6} <$ & \pt[2.2cm] & Arrondi au centième : \pt \\
+\end{tabular}}\par
+\end{exercice}
+
+\vfill
+\begin{exercice}
+Voici un tableau de valeurs d'une fonction $f$ définie sur $[-3\,;\,3]$.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|*{7}{C{1.2cm}|}}
+\hline
+$x$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ \\ \hline
+$f(x)$ & $4$ & $1$ & $-2$ & $1$ & $0$ & $4$ & $-1$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*), itemsep=1.2em, topsep=0.6em]
+\item \makebox[0.5\linewidth][l]{L'image de $0$ par $f$ est \pt.}b)~$f(2) = $ \pt
+\item[c)] Le nombre $4$ a pour antécédent(s) par $f$ : \pt[5cm]
+\item[d)] $f($\pt[1.5cm]$) = -2$
+\item[e)] Peut-on calculer $f(6)$~? Justifier. \pt[9cm]
+\end{enumerate}
+\end{exercice}
+
+\vfill
+\begin{exercice}
+Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = 3x-4$.
+\begin{enumerate}[label=\arabic*., itemsep=1.2em, topsep=0.6em]
+\item Calculer $g(2)$ et $g(-1)$. \hfill $g(2)=$ \pt[2cm] \quad $g(-1)=$ \pt[2cm] \hspace*{1cm}
+\item Déterminer l'antécédent de $11$ par $g$.
+
+\framebox[\linewidth]{\parbox{0.97\linewidth}{\vspace{6em}}}
+\end{enumerate}
+\end{exercice}
+
+\vfill
+\end{document}
