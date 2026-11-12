@@ -34,6 +34,7 @@ Dates = lundi de la semaine.
 - **Révision du 29/10/2026** : le chapitre « Ensembles de nombres » a pris une semaine de plus. Les chapitres suivants sont décalés jusqu'aux vacances de Noël ; la suite de l'année est inchangée.
 - **Révision du 04/11/2026** : pas de cours le lundi 02/11 (professeur absent). Tout est décalé d'une séance jusqu'à Noël ; « Variations et signes » passe de 6 à 5 séances.
 - **Révision du 10/11/2026** : le devoir commun passe à la semaine du 14/12. La fiche calcul « révisions du DC » (23/11) et la fiche « fonction carrée » (07/12) sont échangées ; de même pour l'AP « révisions du DC » (30/11) et « G1 : proportions niv. 1 » (07/12).
+- **À prévoir** : revoir comment obtenir l'écriture décimale d'une fraction en posant la division (ex. $\frac{2}{3}=0{,}666\ldots$), en question flash ou en AP. Les élèves ne savent pas le faire sans calculatrice : la question a été retirée de l'évaluation courte du 13/11.
 - **Devoirs communs** : semaines du 14/12/2026 et du 03/05/2027.
 - **Vacances** : Toussaint 19/10 → 30/10, Noël 21/12 → 01/01, hiver 08/02 → 19/02, Pâques 05/04 → 16/04.
 - **Fin des cours** : semaine du 07/06/2027.
