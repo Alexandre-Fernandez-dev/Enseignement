@@ -22,7 +22,7 @@ Ce chapitre prolonge le chapitre 1 (vecteurs sans repère). Au chapitre 1, la tr
 | À partir du | Calcul numérique | Calcul littéral | Autre |
 |---|---|---|---|
 | 16/11 | Racines carrées | Inéquations | Proportions |
-| 30/11 | Ordres de grandeur | Identités remarquables | Exploiter une courbe |
+| 30/11 | Ordres de grandeur, puis écriture décimale d'une fraction par division posée | Identités remarquables | Exploiter une courbe |
 
 Les racines carrées du 16/11 préparent directement le calcul des distances.
 
