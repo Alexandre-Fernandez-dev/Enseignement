@@ -1,7 +1,8 @@
 # Déroulement de la séquence — Seconde, Ch. 3 : Généralités sur les fonctions
 
-Période : du 12/11 au 20/11/2026, soit 5 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
-Le chapitre 2 se termine le lundi 09/11 : le cours du lundi 02/11 n'a pas eu lieu (professeur absent), ce qui décale tout d'une séance. Vecteurs (partie 2) commence le lundi 23/11.
+Période : du 12/11 au 26/11/2026, soit 6 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
+Révision du 16/11 : le chapitre avance moins vite que prévu, et il n'y a pas cours le vendredi 20/11 (sortie de la classe). La partie IV passe au lundi 23/11, le contrôle mixte au jeudi 26/11 ; le Ch4 commence le vendredi 27/11.
+Le chapitre 2 se termine le lundi 09/11 : le cours du lundi 02/11 n'a pas eu lieu (professeur absent), ce qui décale tout d'une séance. Vecteurs (partie 2) commence le vendredi 27/11.
 Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour-là.
 
 ## Documents
@@ -14,7 +15,7 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
 | Évaluation courte A/B et corrigé (13/11, 15 min) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `Corrige.tex` |
-| Contrôle mixte A/B et corrigé (20/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
+| Contrôle mixte A/B et corrigé (26/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
 ## Questions flash de la période
@@ -29,7 +30,8 @@ Les inéquations du 16/11 accompagnent la résolution graphique : on peut compar
 ## Fiches calcul et AP
 
 - **Semaine du 02/11** : fiche calcul 5, problèmes de modélisation. Elle fait le lien entre les deux chapitres : solutions d'inéquations écrites sous forme d'intervalle, prise en compte du contexte (comme un ensemble de définition), expression d'une quantité « en fonction de $x$ ». Le contexte des tarifs de vélo est repris dans l'exercice 8.
-- **Semaines du 09/11 et du 16/11** : racine carrée (calculs, simplifications). Pas de lien direct avec le chapitre.
+- **Semaines du 09/11 et du 16/11** : fiche calcul 5 (modélisation), sur deux séances (ex. 1 et 2, puis ex. 3 à 5), avec un DM de rédaction des ex. 1 et 2.
+- **Semaine du 23/11** : racine carrée (calculs, simplifications).
 
 ## Séances
 
@@ -47,7 +49,7 @@ L'activité et le cours alternent : la partie A amène la définition, la partie
 | 10 min | **Cours** : fin du I : tableau de valeurs, formule, méthode « trouver un antécédent avec une formule » (exemple de Léa) |
 
 - La partie B est la seule de la séance où l'on cherche un antécédent avec une formule. Le devoir (exercice 2, question 1) et le formatif du 13/11 (exercice 4) en ont besoin. Si le temps manque, traiter seulement la question 9 (Léa), à l'oral.
-- « Pour aller plus loin » (questions 10 et 11) : pour les élèves rapides. La question 10 (Tom, $52$ €) montre un nombre sans antécédent, car le contexte impose un nombre entier de séances. La question 11 ($T(x) \geqslant 10$) est reprise le lundi 16/11.
+- « Pour aller plus loin » (questions 10 et 11) : pour les élèves rapides. La question 10 (Tom, $52$ €) montre un nombre sans antécédent, car le contexte impose un nombre entier de séances. La question 11 ($T(x) \geqslant 10$) est reprise le jeudi 19/11 (introduction du III.2).
 - **Devoir** : exercice 2 (question 1), et revoir le chapitre 2 pour le formatif.
 
 ### Séance 2 — Formatif, courbe représentative (vendredi 13/11)
@@ -56,24 +58,32 @@ L'activité et le cours alternent : la partie A amène la définition, la partie
 - **En classe** : exercice 1.
 - **Devoir** : exercice 2 (question 2), exercice 3.
 
-### Séance 3 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (lundi 16/11)
-- Retour rapide sur le formatif du 13/11.
+### Séance 3 — Exercices sur la courbe représentative (lundi 16/11, fait)
+- Questions flash et retour sur le cours précédent.
+- **En classe** : exercice 1, exercice 2 (question 1), exercice 3 en partie (colonne $x = -3$ du tableau et point correspondant sur le repère).
+- **Cours** : II, proposition 1 page 4 (appartenance d'un point à une courbe) et l'exemple qui suit.
+- **Devoir** (pour le 19/11) : exercice 3 (finir les questions 1 et 2), exercice 2 (question 2), rédiger l'exemple sous la proposition 1 page 4.
+
+### Séance 4 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (jeudi 19/11)
+- Retour rapide sur le formatif du 13/11 et correction des devoirs (exercice 3, exercice 2 question 2).
 - **Introduction du III.2** : question 11 de l'activité 1 (période où $T(x) \geqslant 10$, réponse $[10\,;\,18]$).
 - **Cours** : III.1 Équation $f(x) = k$ (exemple $f(x) = 4$ en 4 étapes), III.2 Inéquations ($<$, $\leqslant$, $>$, $\geqslant$).
 - **En classe** : exercice 6 (questions 1 et 2).
 - **Devoir** : exercice 5 (questions 1 à 3), exercice 4.
 - La question 3 de l'exercice 6 ($f(x) \geqslant 3$, solution $[-5\,;\,-2] \cup \{2\}$) est réservée aux élèves les plus rapides.
 
-### Séance 4 — Comparer deux fonctions, révisions (jeudi 19/11)
+Vendredi 20/11 : pas de cours (sortie de la classe).
+
+### Séance 5 — Comparer deux fonctions, révisions (lundi 23/11)
 - **Cours** : IV. Équations et inéquations $f(x) = g(x)$, $f(x) < g(x)$.
 - **En classe** : exercice 7, puis exercice 8 s'il reste du temps.
-- **Devoir** : réviser pour le contrôle mixte : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, racines carrées), exercice 5 (questions 4 et 5).
+- **Devoir** : réviser pour le contrôle mixte de jeudi : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation), exercice 5 (questions 4 et 5).
 
-### Séance 5 — Contrôle mixte (vendredi 20/11)
+### Séance 6 — Contrôle mixte (jeudi 26/11)
 - Sujets A et B, même structure et même difficulté, sans calculatrice (1 h). Barème à fixer.
 - Contenu :
-  1. **Automatismes** (fiches calcul et questions flash) : fraction, factorisation, inéquation avec la réponse en intervalle, racine carrée à simplifier, application numérique d'une formule, proportion.
-  2. **Ensembles de nombres** (fin du chapitre 2) : plus petit ensemble auquel appartient un nombre, encadrement et arrondi, vrai ou faux avec contre-exemple.
+  1. **Automatismes** (fiches calcul et questions flash) : fraction, factorisation, inéquation avec la réponse en intervalle, application numérique d'une formule, proportion. Racine carrée seulement en calcul simple : la fiche calcul sur ce thème a lieu le 23/11, trois jours avant.
+  2. **Ensembles de nombres** (fin du chapitre 2) : plus petit ensemble auquel appartient un nombre, encadrement et arrondi d'un nombre décimal (pas de fraction à convertir), vrai ou faux avec contre-exemple.
   3. **Lecture graphique** : ensemble de définition, images, antécédents, $f(x) = k$, $f(x) < k$, $f(x) \geqslant k$.
   4. **Problème** : fonction donnée par une formule (images, appartenance d'un point), puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ dans un contexte.
 - Pas de tableau de signes ni de tableau de variations.
