@@ -14,7 +14,7 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Cours (prof et élève) | `Cours/2nde_Ch3_Cours.tex` |
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
-| Évaluation courte A/B et corrigé (13/11, 15 min) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `Corrige.tex` |
+| Évaluation courte A/B et corrigé (13/11, 15 min), sujet C de rattrapage (exercices et questions dans un autre ordre) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `SujetC.tex`, `Corrige.tex` |
 | Contrôle mixte A/B et corrigé (26/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
