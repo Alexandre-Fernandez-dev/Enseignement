@@ -1,6 +1,7 @@
 # Déroulement de la séquence — Seconde, Ch. 3 : Généralités sur les fonctions
 
-Période : du 12/11 au 26/11/2026, soit 6 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
+Période : du 12/11 au 27/11/2026, soit 7 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
+Révision du 19/11 : le jeudi 26/11 devient une séance d'exercices (exercices 10 et 11) ; le contrôle mixte passe au vendredi 27/11 et le Ch4 commence le lundi 30/11.
 Révision du 16/11 : le chapitre avance moins vite que prévu, et il n'y a pas cours le vendredi 20/11 (sortie de la classe). La partie IV passe au lundi 23/11, le contrôle mixte au jeudi 26/11 ; le Ch4 commence le vendredi 27/11.
 Le chapitre 2 se termine le lundi 09/11 : le cours du lundi 02/11 n'a pas eu lieu (professeur absent), ce qui décale tout d'une séance. Vecteurs (partie 2) commence le vendredi 27/11.
 Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour-là.
@@ -15,7 +16,7 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
 | Évaluation courte A/B et corrigé (13/11, 15 min), sujet C de rattrapage (exercices et questions dans un autre ordre) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `SujetC.tex`, `Corrige.tex` |
-| Contrôle mixte A/B et corrigé (26/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
+| Contrôle mixte A/B et corrigé (27/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
 ## Questions flash de la période
@@ -31,7 +32,7 @@ Les inéquations du 16/11 accompagnent la résolution graphique : on peut compar
 
 - **Semaine du 02/11** : fiche calcul 5, problèmes de modélisation. Elle fait le lien entre les deux chapitres : solutions d'inéquations écrites sous forme d'intervalle, prise en compte du contexte (comme un ensemble de définition), expression d'une quantité « en fonction de $x$ ». Le contexte des tarifs de vélo est repris dans l'exercice 8.
 - **Semaines du 09/11 et du 16/11** : fiche calcul 5 (modélisation), sur deux séances (ex. 1 et 2, puis ex. 3 à 5), avec un DM de rédaction des ex. 1 et 2.
-- **Semaine du 23/11** : racine carrée (calculs, simplifications).
+- **Semaine du 23/11** : racine carrée, fiche calcul 6 (`../Fiches calcul/Fiche calcul 6/2nde_FicheCalcul6.tex` : calculs, simplifications).
 
 ## Séances
 
@@ -64,7 +65,7 @@ L'activité et le cours alternent : la partie A amène la définition, la partie
 - **Cours** : II, proposition 1 page 4 (appartenance d'un point à une courbe) et l'exemple qui suit.
 - **Devoir** (pour le 19/11) : exercice 3 (finir les questions 1 et 2), exercice 2 (question 2), rédiger l'exemple sous la proposition 1 page 4.
 
-### Séance 4 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (jeudi 19/11)
+### Séance 4 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (jeudi 19/11, fait)
 - Retour rapide sur le formatif du 13/11 et correction des devoirs (exercice 3, exercice 2 question 2).
 - **Introduction du III.2** : question 11 de l'activité 1 (période où $T(x) \geqslant 10$, réponse $[10\,;\,18]$).
 - **Cours** : III.1 Équation $f(x) = k$ (exemple $f(x) = 4$ en 4 étapes), III.2 Inéquations ($<$, $\leqslant$, $>$, $\geqslant$).
@@ -77,19 +78,23 @@ Vendredi 20/11 : pas de cours (sortie de la classe).
 ### Séance 5 — Comparer deux fonctions, révisions (lundi 23/11)
 - **Cours** : IV. Équations et inéquations $f(x) = g(x)$, $f(x) < g(x)$.
 - **En classe** : exercice 7, puis exercice 8 s'il reste du temps.
-- **Devoir** : réviser pour le contrôle mixte de jeudi : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation), exercice 5 (questions 4 et 5).
+- **Devoir** : commencer à réviser le contrôle mixte du vendredi 27/11 : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation), exercice 5 (questions 4 et 5).
 
-### Séance 6 — Contrôle mixte (jeudi 26/11)
+### Séance 6 — Problèmes de modélisation (jeudi 26/11)
+- **En classe** : exercices 10 (aires hachurées dans un rectangle) et 11 (ballons de football).
+- **Devoir** : réviser le contrôle mixte de vendredi.
+
+### Séance 7 — Contrôle mixte (vendredi 27/11)
 - Sujets A et B, même structure et même difficulté, sans calculatrice (1 h). Barème à fixer.
 - Contenu :
-  1. **Automatismes** (fiches calcul et questions flash) : fraction, factorisation, inéquation avec la réponse en intervalle, application numérique d'une formule, proportion. Racine carrée seulement en calcul simple : la fiche calcul sur ce thème a lieu le 23/11, trois jours avant.
+  1. **Automatismes** (fiches calcul et questions flash) : fraction, factorisation, inéquation avec la réponse en intervalle, application numérique d'une formule, proportion. Racine carrée seulement en calcul simple : la fiche calcul sur ce thème a lieu le 23/11, quatre jours avant.
   2. **Ensembles de nombres** (fin du chapitre 2) : plus petit ensemble auquel appartient un nombre, encadrement et arrondi d'un nombre décimal (pas de fraction à convertir), vrai ou faux avec contre-exemple.
   3. **Lecture graphique** : ensemble de définition, images, antécédents, $f(x) = k$, $f(x) < k$, $f(x) \geqslant k$.
   4. **Problème** : fonction donnée par une formule (images, appartenance d'un point), puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ dans un contexte.
 - Pas de tableau de signes ni de tableau de variations.
 
 ### Exercices hors séance
-- Exercice 9 (rectangle dans un triangle), exercice 10 (aires hachurées dans un rectangle) et exercice 11 (ballons de football) : problèmes de modélisation, pour les élèves qui veulent s'entraîner avant le contrôle, ou en AP. Ils pourront servir d'introduction au chapitre « Fonctions : variations et signes » (décembre), car ils font lire un minimum ou un maximum sur une courbe.
+- Exercice 9 (rectangle dans un triangle) : problème de modélisation, pour les élèves qui veulent s'entraîner avant le contrôle, ou en AP. Les exercices 10 et 11 sont traités en classe le 26/11. Les exercices 9 à 11 pourront aussi servir d'introduction au chapitre « Fonctions : variations et signes » (décembre), car ils font lire un minimum ou un maximum sur une courbe.
 
 ## Points de vigilance
 
@@ -99,4 +104,4 @@ Vendredi 20/11 : pas de cours (sortie de la classe).
 - **Appartenance d'un point** : seul un calcul prouve qu'un point est sur la courbe ; la lecture graphique ne suffit pas.
 - **Intervalles** (lien avec le chapitre 2) : crochets ouverts pour $<$ et $>$, fermés pour $\leqslant$ et $\geqslant$ ; réunion d'intervalles ; ensemble vide $\varnothing$ quand il n'y a pas de solution.
 - **Notions reportées** au chapitre « Fonctions : variations et signes » : signe d'une fonction, tableau de signes, sens de variation, extremums. Les questions « l'aire la plus grande » (exercice 9) ou « le plus grand bénéfice » (exercice 11) restent des lectures graphiques intuitives, sans vocabulaire de variations.
-- **Calendrier serré** : le cours IV et les révisions tiennent dans la seule séance du jeudi 19/11. Si le temps manque, l'exercice 8 passe en devoir.
+- **Calendrier** : le cours IV tient dans la séance du lundi 23/11 ; si le temps manque, l'exercice 8 passe en devoir. La séance du jeudi 26/11 (exercices 10 et 11) laisse un peu de marge.
