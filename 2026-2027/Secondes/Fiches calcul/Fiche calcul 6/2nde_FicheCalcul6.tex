@@ -376,80 +376,186 @@
 \newcommand{\res}[1]{\ensuremath{{\color[HTML]{F15929}\boldsymbol{#1}}}}
 
 
-\Theme[Classique]{nombres}{}{Fiche calcul 6}{Racine carrée}
+% Encadré de propriété
+\newtcolorbox{prop}[1]{colback=white, colframe=couleur_theme, title=\textbf{#1}, fonttitle=\bfseries, left=6pt, right=6pt, top=4pt, bottom=3pt, before skip=6pt, after skip=3pt}
+% Rubrique dans un encadré : Définition, Propriété, Méthode, Exemples, Démonstration
+\newcommand{\rub}[1]{\par\vspace{0.3em}\noindent{\color{couleur_theme}\bfseries #1.}\enspace}
+% Exemple ou démonstration à faire en classe : espace blanc en version élève, solution en version prof
+\newcommand{\afaire}[2][2.4em]{\par\smallskip\noindent\parbox[t][#1][t]{\linewidth}{\ifdefined\ELEVE\else\color{blue!70!black}#2\fi}\par}
+
+\usepackage{lastpage}
+% Liste à puces dans les encadrés
+\newenvironment{liste}{\begin{itemize}[label=\textbullet, itemsep=1pt, topsep=1pt, leftmargin=1.6em]}{\end{itemize}}
+
+\Theme[Classique]{nombres}{}{}{}
 \begin{document}
+\pagestyle{fancy}
+\setlength{\headwidth}{\textwidth}
+\fancyhf{}
+\fancyhead[L]{\textbf{Fiche calcul 6}}
+\fancyhead[C]{Racines carrées}
+\fancyhead[R]{Seconde}
+\fancyfoot[L]{A. Fernandez}
+\fancyfoot[R]{\thepage\ / \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+	{\Large\bfseries Fiche calcul 6 -- Racines carrées}
+\end{center}
+\vspace{-0.6cm}
 
 \tcbset{mathaleaexo/.style={breakable}}
 
-\begin{tcolorbox}[colback=white, colframe=couleur_theme, title=\textbf{Rappel}, fonttitle=\bfseries]
-Pour $a \geqslant 0$, $\sqrt{a}$ est le nombre \textbf{positif} dont le carré est $a$. \quad Exemple : $\sqrt{49} = 7$ car $7^2 = 49$ et $7 \geqslant 0$.
+\begin{prop}{1. Définition}
+\rub{Définition}Pour $a \geqslant 0$, $\sqrt{a}$ est le nombre \textbf{positif} dont le carré est $a$.
 
-\smallskip
-\textbf{Carrés parfaits} : $1$, $4$, $9$, $16$, $25$, $36$, $49$, $64$, $81$, $100$, $121$, $144$.
+\rub{Propriétés}
+\begin{liste}
+	\item Pour $a \geqslant 0$ : \quad $\left(\sqrt{a}\right)^2 = a$.
+	\item Pour $a \geqslant 0$ : \quad $\sqrt{a^2} = a$.
+\end{liste}
 
-\smallskip
-\textbf{Règles} (pour $a \geqslant 0$ et $b > 0$) : \quad $\left(\sqrt{a}\right)^2 = a$ \qquad $\sqrt{a \times b} = \sqrt{a} \times \sqrt{b}$ \qquad $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$
+\rub{À connaître}Carrés parfaits : $1$, $4$, $9$, $16$, $25$, $36$, $49$, $64$, $81$, $100$, $121$, $144$.
 
-\smallskip
-\textbf{Attention} : en général, $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$.
-
-\smallskip
-\textbf{Simplifier} $\sqrt{12}$ : on cherche le plus grand carré parfait qui divise $12$. \quad $\sqrt{12} = \sqrt{4 \times 3} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}$.
-\end{tcolorbox}
+\rub{Exemples}
+\begin{liste}
+	\item Calculer $\sqrt{49}$. \afaire[1.2em]{$\sqrt{49} = 7$ car $7^2 = 49$ et $7 \geqslant 0$.}
+	\item Calculer $\sqrt{(-5)^2}$. \afaire[1.2em]{$\sqrt{(-5)^2} = \sqrt{25} = 5$ (et non $-5$ : une racine carrée est positive).}
+\end{liste}
+\end{prop}
 
 \begin{EXO}{}{}
 Calculer sans calculatrice.
 
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.8em](4)
-	\task $\sqrt{121}$
-	\task $\sqrt{\dfrac{4}{25}}$
-	\task $\left(\sqrt{7}\right)^2$
-	\task $\sqrt{(-5)^2}$
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em](4)
+	\task $\sqrt{0{,}09}$
+	\task $\sqrt{10^6}$
+	\task $\left(-\sqrt{3}\right)^2$
+	\task $\sqrt{(-8)^2}$
 \end{tasks}
 \end{EXO}
-\begin{EXO}{}{}
-Calculer, en utilisant les règles du rappel. Le résultat est un nombre entier.
 
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.8em](3)
-	\task $\sqrt{3} \times \sqrt{12}$
-	\task $\dfrac{\sqrt{50}}{\sqrt{2}}$
-	\task $\left(2\sqrt{3}\right)^2$
-\end{tasks}
-\end{EXO}
-\begin{EXO}{}{}
-Écrire sous la forme $a\sqrt{b}$, avec $a$ et $b$ entiers et $b$ le plus petit possible.
+\begin{prop}{2. Produit}
+\rub{Propriété}Pour $a \geqslant 0$ et $b \geqslant 0$ : \quad $\sqrt{a \times b} = \sqrt{a} \times \sqrt{b}$.
 
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.8em](4)
-	\task $\sqrt{8}$
-	\task $\sqrt{20}$
-	\task $\sqrt{50}$
-	\task $\sqrt{72}$
-\end{tasks}
-\end{EXO}
-\begin{EXO}{}{}
-Réduire, après avoir simplifié si besoin.
+\rub{Démonstration}
+\afaire[4.6em]{$\sqrt{a}$ et $\sqrt{b}$ sont positifs, donc $\sqrt{a} \times \sqrt{b}$ est positif.
 
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.8em](2)
-	\task $A = 3\sqrt{2} + 5\sqrt{2}$
-	\task $B = \sqrt{12} + \sqrt{27}$
-	\task $C = \sqrt{50} - \sqrt{8}$
-	\task $D = \sqrt{3} + \sqrt{75} - \sqrt{48}$
+De plus, $\left(\sqrt{a} \times \sqrt{b}\right)^2 = \left(\sqrt{a}\right)^2 \times \left(\sqrt{b}\right)^2 = a \times b$.
+
+Donc $\sqrt{a} \times \sqrt{b}$ est le nombre positif dont le carré est $ab$ : c'est $\sqrt{ab}$.}
+
+\rub{Définition}\textbf{Simplifier} $\sqrt{n}$, c'est l'écrire $a\sqrt{b}$, avec $a$ et $b$ entiers et $b$ le plus petit possible.
+
+\rub{Méthodes}
+\begin{liste}
+	\item \textbf{Simplifier} : on fait apparaître le plus grand carré parfait qui divise $n$.
+	\item \textbf{Réduire} une somme : on simplifie chaque racine, puis on regroupe (comme $2x + 3x = 5x$).
+\end{liste}
+
+\rub{Exemples}
+\begin{liste}
+	\item Calculer $\sqrt{3} \times \sqrt{12}$. \afaire[1.2em]{$\sqrt{3} \times \sqrt{12} = \sqrt{36} = 6$.}
+	\item Simplifier $\sqrt{12}$. \afaire[1.2em]{$\sqrt{12} = \sqrt{4 \times 3} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}$.}
+	\item Réduire $\sqrt{12} + \sqrt{27}$. \afaire[1.2em]{$\sqrt{12} + \sqrt{27} = 2\sqrt{3} + 3\sqrt{3} = 5\sqrt{3}$.}
+\end{liste}
+\end{prop}
+
+\begin{EXO}{}{}
+Calculer.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em](4)
+	\task $\sqrt{2} \times \sqrt{18}$
+	\task $\sqrt{5} \times \sqrt{45}$
+	\task $\left(3\sqrt{2}\right)^2$
+	\task $2\sqrt{3} \times 5\sqrt{6}$
 \end{tasks}
 \end{EXO}
+
+\begin{EXO}{}{}
+Simplifier.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em](5)
+	\task $\sqrt{48}$
+	\task $\sqrt{75}$
+	\task $\sqrt{98}$
+	\task $\sqrt{500}$
+	\task $\sqrt{288}$
+\end{tasks}
+\end{EXO}
+
+\tcbset{mathaleaexo/.style={unbreakable}}
+\begin{EXO}{}{}
+Réduire.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em](2)
+	\task $A = 2\sqrt{50} - 3\sqrt{8} + \sqrt{18}$
+	\task $B = \sqrt{75} - 2\sqrt{12} + \sqrt{3}$
+	\task $C = 3\sqrt{20} - \sqrt{45} + \sqrt{80}$
+	\task $D = \sqrt{2} \times \sqrt{6} + \sqrt{27}$
+\end{tasks}
+\end{EXO}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{prop}{3. Quotient}
+\rub{Propriété}Pour $a \geqslant 0$ et $b > 0$ : \quad $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$.
+
+\rub{Méthode}\textbf{Rendre le dénominateur entier} : multiplier en haut et en bas par cette racine.
+
+\rub{Exemples}Écrire le plus simplement possible :
+\begin{liste}
+	\item $\sqrt{\dfrac{9}{16}}$ \afaire[2.6em]{$\sqrt{\dfrac{9}{16}} = \dfrac{\sqrt{9}}{\sqrt{16}} = \dfrac{3}{4}$}
+	\item $\dfrac{\sqrt{50}}{\sqrt{2}}$ \afaire[2.6em]{$\dfrac{\sqrt{50}}{\sqrt{2}} = \sqrt{\dfrac{50}{2}} = \sqrt{25} = 5$}
+	\item $\dfrac{6}{\sqrt{3}}$ \afaire[2.6em]{$\dfrac{6}{\sqrt{3}} = \dfrac{6 \times \sqrt{3}}{\sqrt{3} \times \sqrt{3}} = \dfrac{6\sqrt{3}}{3} = 2\sqrt{3}$}
+\end{liste}
+\end{prop}
+
+\begin{EXO}{}{}
+Écrire le plus simplement possible (pour e à g, simplifier d'abord chaque racine).
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em](4)
+	\task $\sqrt{\dfrac{25}{49}}$
+	\task $\dfrac{\sqrt{72}}{\sqrt{8}}$
+	\task $\sqrt{\dfrac{12}{27}}$
+	\task $\sqrt{\dfrac{8}{50}}$
+\end{tasks}
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em, resume](3)
+	\task $\dfrac{\sqrt{50} + \sqrt{8}}{\sqrt{2}}$
+	\task $\dfrac{\sqrt{12} - \sqrt{3}}{\sqrt{27}}$
+	\task $\dfrac{2\sqrt{20}}{\sqrt{45}}$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Écrire sans racine carrée au dénominateur, puis simplifier.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.6em](4)
+	\task $\dfrac{1}{\sqrt{5}}$
+	\task $\dfrac{10}{\sqrt{2}}$
+	\task $\dfrac{3}{2\sqrt{3}}$
+	\task $\dfrac{15}{\sqrt{45}}$
+\end{tasks}
+\end{EXO}
+
+\begin{prop}{4. Racine d'une somme}
+\rub{Propriété}Si $a > 0$ et $b > 0$ : \ $\sqrt{a + b} < \sqrt{a} + \sqrt{b}$. \ On ne « coupe » \textbf{jamais} la racine d'une somme.
+
+\rub{Exemple}Comparer $\sqrt{9 + 16}$ et $\sqrt{9} + \sqrt{16}$.
+\afaire[1.6em]{$\sqrt{9 + 16} = \sqrt{25} = 5$, \ mais \ $\sqrt{9} + \sqrt{16} = 3 + 4 = 7$.}
+
+\rub{Démonstration}De deux nombres positifs, le plus grand a le plus grand carré.
+\afaire[5.4em]{$\left(\sqrt{a} + \sqrt{b}\right)^2 = \left(\sqrt{a}\right)^2 + 2\sqrt{a}\sqrt{b} + \left(\sqrt{b}\right)^2 = a + b + 2\sqrt{a}\sqrt{b}$ \quad (identité remarquable).
+
+$\left(\sqrt{a + b}\right)^2 = a + b$. \quad Comme $2\sqrt{a}\sqrt{b} > 0$, on a $\left(\sqrt{a} + \sqrt{b}\right)^2 > \left(\sqrt{a + b}\right)^2$.
+
+Les deux nombres sont positifs, donc $\sqrt{a} + \sqrt{b} > \sqrt{a + b}$.}
+\end{prop}
+
 \begin{EXO}{}{}
 \begin{enumerate}
-	\item Calculer $\sqrt{9} + \sqrt{16}$, puis $\sqrt{9 + 16}$. Que remarque-t-on~?
 	\item Léo écrit : $\sqrt{36 + 64} = 6 + 8 = 14$. Trouver son erreur et donner le bon résultat.
+	\item Comparer, sans calculatrice : \quad \textbf{a.} $\sqrt{2} + \sqrt{8}$ et $\sqrt{10}$ \qquad \textbf{b.} $\sqrt{18} + \sqrt{32}$ et $\sqrt{98}$.
 \end{enumerate}
-\end{EXO}
-\begin{EXO}{}{}
-Un triangle $ABC$ est rectangle en $A$. Calculer la longueur $BC$ et la donner sous la forme $a\sqrt{b}$.
-
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.8em](3)
-	\task $AB = 2$ et $AC = 4$
-	\task $AB = AC = 3$
-	\task $AB = 4$ et $AC = 8$
-\end{tasks}
 \end{EXO}
 
 % Corrigé : version prof uniquement (compile.sh produit aussi la version _ELEVE)
@@ -457,57 +563,78 @@ Un triangle $ABC$ est rectangle en $A$. Calculer la longueur $BC$ et la donner s
 \clearpage
 
 \begin{Correction}
+\small
 \begin{EXO}{}{}
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](4)
-	\task $\res{11}$
-	\task $\dfrac{\sqrt4}{\sqrt{25}} = \res{\dfrac{2}{5}}$
-	\task $\res{7}$
-	\task $\sqrt{25} = \res{5}$
-\end{tasks}
-\end{EXO}
-
-\begin{EXO}{}{}
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](3)
-	\task $\sqrt{36} = \res{6}$
-	\task $\sqrt{25} = \res{5}$
-	\task $4 \times 3 = \res{12}$
-\end{tasks}
-\end{EXO}
-
-\begin{EXO}{}{}
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](4)
-	\task $\sqrt{4\times2} = \res{2\sqrt{2}}$
-	\task $\sqrt{4\times5} = \res{2\sqrt{5}}$
-	\task $\sqrt{25\times2} = \res{5\sqrt{2}}$
-	\task $\sqrt{36\times2} = \res{6\sqrt{2}}$
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](2)
+	\task $\res{0{,}3}$ \enspace ($0{,}3^2 = 0{,}09$)
+	\task $\res{1\,000}$ \enspace ($\left(10^3\right)^2 = 10^6$)
+	\task $\res{3}$
+	\task $\sqrt{64} = \res{8}$
 \end{tasks}
 \end{EXO}
 
 \begin{EXO}{}{}
 \begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](2)
-	\task $A = \res{8\sqrt{2}}$
-	\task $B = 2\sqrt{3} + 3\sqrt{3} = \res{5\sqrt{3}}$
-	\task $C = 5\sqrt{2} - 2\sqrt{2} = \res{3\sqrt{2}}$
-	\task $D = \sqrt{3} + 5\sqrt{3} - 4\sqrt{3} = \res{2\sqrt{3}}$
+	\task $\sqrt{36} = \res{6}$
+	\task $\sqrt{225} = \res{15}$
+	\task $9 \times 2 = \res{18}$
+	\task $10\sqrt{18} = 10 \times 3\sqrt{2} = \res{30\sqrt{2}}$
 \end{tasks}
 \end{EXO}
+
+\begin{EXO}{}{}
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](3)
+	\task $\sqrt{16\times3} = \res{4\sqrt{3}}$
+	\task $\sqrt{25\times3} = \res{5\sqrt{3}}$
+	\task $\sqrt{49\times2} = \res{7\sqrt{2}}$
+	\task $\sqrt{100\times5} = \res{10\sqrt{5}}$
+	\task $\sqrt{144\times2} = \res{12\sqrt{2}}$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](2)
+	\task $A = 10\sqrt{2} - 6\sqrt{2} + 3\sqrt{2} = \res{7\sqrt{2}}$
+	\task $B = 5\sqrt{3} - 4\sqrt{3} + \sqrt{3} = \res{2\sqrt{3}}$
+	\task $C = 6\sqrt{5} - 3\sqrt{5} + 4\sqrt{5} = \res{7\sqrt{5}}$
+	\task $D = \sqrt{12} + \sqrt{27} = 2\sqrt{3} + 3\sqrt{3} = \res{5\sqrt{3}}$
+\end{tasks}
+\end{EXO}
+
+
+\begin{EXO}{}{}
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](4)
+	\task $\res{\dfrac{5}{7}}$
+	\task $\sqrt{9} = \res{3}$
+	\task $\sqrt{\dfrac{4}{9}} = \res{\dfrac{2}{3}}$
+	\task $\sqrt{\dfrac{4}{25}} = \res{\dfrac{2}{5}}$
+\end{tasks}
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, resume](3)
+	\task $\dfrac{5\sqrt{2} + 2\sqrt{2}}{\sqrt{2}} = \dfrac{7\sqrt{2}}{\sqrt{2}} = \res{7}$
+	\task $\dfrac{2\sqrt{3} - \sqrt{3}}{3\sqrt{3}} = \dfrac{\sqrt{3}}{3\sqrt{3}} = \res{\dfrac{1}{3}}$
+	\task $\dfrac{2 \times 2\sqrt{5}}{3\sqrt{5}} = \res{\dfrac{4}{3}}$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](4)
+	\task $\res{\dfrac{\sqrt{5}}{5}}$
+	\task $\dfrac{10\sqrt{2}}{2} = \res{5\sqrt{2}}$
+	\task $\dfrac{3\sqrt{3}}{6} = \res{\dfrac{\sqrt{3}}{2}}$
+	\task $\dfrac{15}{3\sqrt{5}} = \dfrac{5}{\sqrt{5}} = \res{\sqrt{5}}$
+\end{tasks}
+\end{EXO}
+
+
 
 \begin{EXO}{}{}
 \begin{enumerate}
-	\item $\sqrt{9} + \sqrt{16} = 3 + 4 = 7$, mais $\sqrt{9 + 16} = \sqrt{25} = 5$ : \res{\sqrt{a+b} \neq \sqrt{a} + \sqrt{b}}.
-	\item Léo a « coupé » la racine d'une somme. $\sqrt{36 + 64} = \sqrt{100} = \res{10}$.
+	\item Il a « coupé » la racine d'une somme : $\sqrt{36 + 64} = \sqrt{100} = \res{10}$.
+	\item \textbf{a.} D'après la propriété, \res{\sqrt{2} + \sqrt{8} > \sqrt{10}} \enspace (vérification : $\sqrt{2} + \sqrt{8} = 3\sqrt{2} = \sqrt{18}$).
+
+	\textbf{b.} $\sqrt{18} + \sqrt{32} = 3\sqrt{2} + 4\sqrt{2} = 7\sqrt{2} = \sqrt{98}$ : \res{\text{les deux nombres sont égaux}}.
 \end{enumerate}
 \end{EXO}
-
-\begin{EXO}{}{}
-D'après le théorème de Pythagore, $BC^2 = AB^2 + AC^2$.
-\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em](1)
-	\task $BC = \sqrt{4 + 16} = \sqrt{20} = \res{2\sqrt{5}}$
-	\task $BC = \sqrt{9 + 9} = \sqrt{18} = \res{3\sqrt{2}}$
-	\task $BC = \sqrt{16 + 64} = \sqrt{80} = \res{4\sqrt{5}}$
-\end{tasks}
-\end{EXO}
-
 
 \clearpage
 \end{Correction}
