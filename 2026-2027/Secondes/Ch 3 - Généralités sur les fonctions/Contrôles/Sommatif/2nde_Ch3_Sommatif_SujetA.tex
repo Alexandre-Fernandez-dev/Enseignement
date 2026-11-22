@@ -1,0 +1,171 @@
+%LTeX: language=fr-FR
+\documentclass[12pt]{article}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage{amsmath,amssymb}
+\usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{currfile}
+\usepackage{xcolor}
+\usepackage{tasks}
+\usepackage{pifont}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,patterns}
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{2pt}
+\pagestyle{empty}
+\input{def.tex}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\definecolor{bandeau}{HTML}{E8EEF7}
+% Bandeau de titre de chaque exercice (même style que les contrôles de 1re ST2S)
+\newtcbox{\exobox}{colback=bandeau, colframe=bandeau, boxrule=0pt, arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt, fontupper=\bfseries}
+\newcounter{exo}
+% Espace avant chaque exercice (élastique dans les sujets, pour répartir les exercices sur la page)
+\newcommand{\exoskip}{\vspace{1.4em}}
+% \begin{exercice}{titre}{barème}
+\newenvironment{exercice}[2]{%
+  \stepcounter{exo}\par\ifnum\value{exo}=1 \vspace{0.8em}\else\exoskip\fi
+  \noindent\exobox{Exercice \theexo{} --- #1 (#2 points)}\par\vspace{0.3em}
+}{\par}
+\setlist[enumerate]{label=\arabic*., itemsep=2pt, topsep=3pt}
+\colorlet{sol}{blue!70!black}
+\newcommand{\sol}[1]{\textcolor{sol}{#1}}
+\newcommand{\bareme}[1]{\par\vspace{6pt}\noindent\textcolor{sol}{\small #1}}
+
+\begin{document}
+\renewcommand{\exoskip}{\vspace{1.4em plus 1fill}}
+\setlist[enumerate]{label=\arabic*., itemsep=9pt, topsep=6pt}
+\begin{center}
+  {\large\bfseries Contrôle (A) --- Nombres et fonctions}\\[0.3em]
+  {\itshape Seconde \quad $\bullet$ \quad Durée~: 55 minutes}
+\end{center}
+\noindent\textit{Toutes les réponses doivent être justifiées.}
+\begin{exercice}{Automatismes}{5}
+Les questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $\dfrac{4}{9}\times\dfrac{15}{8}$. Donner le résultat sous forme irréductible.
+  \item Résoudre l'inéquation $-3x+12\geqslant 0$. Donner les solutions sous forme d'intervalle.
+  \item Calculer $75\,\%$ de $120$.
+  \item Justifier chaque appartenance.
+  \begin{tasks}[label=\alph*), label-width=1.4em, item-indent=1.8em](4)
+    \task $\dfrac{-18}{6}\in\mathbb{Z}$
+    \task $\dfrac{7}{4}\in\mathbb{D}$
+    \task $-2{,}35\in\mathbb{Q}$
+    \task $\sqrt{49}\in\mathbb{N}$
+  \end{tasks}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{Lecture graphique}{5}
+La courbe $\mathcal{C}_f$ ci-contre représente une fonction $f$. Répondre par lecture graphique.
+\par\smallskip
+\begin{minipage}[t]{0.46\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Quel est l'ensemble de définition de $f$~?
+  \item Donner $f(2)$ et l'image de $-4$ par $f$.
+  \item Déterminer les antécédents de $1$ par $f$.
+  \item Résoudre l'inéquation $f(x) \geqslant 1$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.52\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[x=0.98cm, y=0.9cm, lab/.style={fill=white, fill opacity=0.75, text opacity=1, inner sep=0.6pt}]
+  \draw[gray!55, thin, xstep=1, ystep=1] (-4,-3) grid (5,3);
+  \draw[-{Latex[length=2mm]}, thick] (-4,0) -- (5+0.5,0);
+  \draw[-{Latex[length=2mm]}, thick] (0,-3) -- (0,3+0.5);
+  \draw[thick, blue!60!black] plot coordinates {(-4.00,-3.000) (-3.95,-2.797) (-3.90,-2.588) (-3.85,-2.375) (-3.80,-2.157) (-3.75,-1.938) (-3.70,-1.716) (-3.65,-1.494) (-3.60,-1.272) (-3.55,-1.052) (-3.50,-0.833) (-3.45,-0.618) (-3.40,-0.408) (-3.35,-0.203) (-3.30,-0.004) (-3.25,0.188) (-3.20,0.371) (-3.15,0.544) (-3.10,0.708) (-3.05,0.860) (-3.00,1.000) (-2.95,1.135) (-2.90,1.272) (-2.85,1.411) (-2.80,1.549) (-2.75,1.688) (-2.70,1.824) (-2.65,1.958) (-2.60,2.088) (-2.55,2.213) (-2.50,2.333) (-2.45,2.447) (-2.40,2.552) (-2.35,2.649) (-2.30,2.736) (-2.25,2.812) (-2.20,2.877) (-2.15,2.929) (-2.10,2.968) (-2.05,2.992) (-2.00,3.000) (-1.95,2.998) (-1.90,2.991) (-1.85,2.980) (-1.80,2.966) (-1.75,2.947) (-1.70,2.924) (-1.65,2.898) (-1.60,2.869) (-1.55,2.836) (-1.50,2.800) (-1.45,2.761) (-1.40,2.719) (-1.35,2.675) (-1.30,2.628) (-1.25,2.578) (-1.20,2.526) (-1.15,2.473) (-1.10,2.417) (-1.05,2.359) (-1.00,2.300) (-0.95,2.239) (-0.90,2.177) (-0.85,2.114) (-0.80,2.050) (-0.75,1.984) (-0.70,1.918) (-0.65,1.852) (-0.60,1.785) (-0.55,1.717) (-0.50,1.650) (-0.45,1.583) (-0.40,1.515) (-0.35,1.448) (-0.30,1.382) (-0.25,1.316) (-0.20,1.250) (-0.15,1.186) (-0.10,1.123) (-0.05,1.061) (0.00,1.000) (0.05,0.937) (0.10,0.870) (0.15,0.798) (0.20,0.722) (0.25,0.641) (0.30,0.558) (0.35,0.471) (0.40,0.381) (0.45,0.288) (0.50,0.194) (0.55,0.097) (0.60,-0.001) (0.65,-0.100) (0.70,-0.200) (0.75,-0.301) (0.80,-0.402) (0.85,-0.502) (0.90,-0.602) (0.95,-0.702) (1.00,-0.800) (1.05,-0.897) (1.10,-0.992) (1.15,-1.084) (1.20,-1.174) (1.25,-1.262) (1.30,-1.346) (1.35,-1.426) (1.40,-1.503) (1.45,-1.576) (1.50,-1.644) (1.55,-1.707) (1.60,-1.765) (1.65,-1.817) (1.70,-1.864) (1.75,-1.904) (1.80,-1.938) (1.85,-1.964) (1.90,-1.984) (1.95,-1.996) (2.00,-2.000) (2.05,-1.996) (2.10,-1.984) (2.15,-1.964) (2.20,-1.937) (2.25,-1.903) (2.30,-1.863) (2.35,-1.816) (2.40,-1.763) (2.45,-1.705) (2.50,-1.641) (2.55,-1.573) (2.60,-1.500) (2.65,-1.423) (2.70,-1.342) (2.75,-1.257) (2.80,-1.169) (2.85,-1.079) (2.90,-0.986) (2.95,-0.891) (3.00,-0.793) (3.05,-0.695) (3.10,-0.595) (3.15,-0.495) (3.20,-0.394) (3.25,-0.293) (3.30,-0.192) (3.35,-0.092) (3.40,0.007) (3.45,0.105) (3.50,0.201) (3.55,0.295) (3.60,0.387) (3.65,0.477) (3.70,0.563) (3.75,0.646) (3.80,0.726) (3.85,0.801) (3.90,0.872) (3.95,0.939) (4.00,1.000) (4.05,1.058) (4.10,1.114) (4.15,1.169) (4.20,1.222) (4.25,1.274) (4.30,1.326) (4.35,1.376) (4.40,1.425) (4.45,1.474) (4.50,1.522) (4.55,1.569) (4.60,1.617) (4.65,1.664) (4.70,1.711) (4.75,1.758) (4.80,1.806) (4.85,1.853) (4.90,1.902) (4.95,1.950) (5.00,2.000)};
+  \fill[blue!60!black] (-4, -3) circle (2.2pt) (5, 2) circle (2.2pt);
+  \foreach \x in {-4,...,-1,1,2,...,5} {\draw[thick] (\x,0.08) -- (\x,-0.08); \node[below, lab, yshift=-1.5pt] at (\x,0) {\footnotesize $\x$};}
+  \foreach \y in {-3,...,-1,1,2,...,3} {\draw[thick] (0.08,\y) -- (-0.08,\y); \node[left, lab, xshift=-1.5pt] at (0,\y) {\footnotesize $\y$};}
+  \node[below left, lab, xshift=-1pt, yshift=-1pt] at (0,0) {\footnotesize $0$};
+  \node[lab, text=blue!60!black] at (-3.2, 2.6) {$\mathcal{C}_f$};
+\end{tikzpicture}
+\end{minipage}
+
+\end{exercice}
+
+\vfill
+\noindent\hfill\textbf{Tournez la page}\enspace{\Large\ding{228}}
+\newpage
+\begin{exercice}{Problème}{6}
+Une salle d'escalade propose deux formules :
+\begin{itemize}[label=\textbullet, itemsep=1pt, topsep=2pt]
+  \item \textbf{Formule A} : $4$~€ par séance ;
+  \item \textbf{Formule B} : un abonnement de $20$~€, puis $2$~€ par séance.
+\end{itemize}
+On note $x$ le nombre de séances, avec $0 \leqslant x \leqslant 15$. Le prix payé est $f(x) = 4x$ avec la formule A, et $g(x) = 20 + 2x$ avec la formule B.
+
+\begin{minipage}[t]{0.5\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Calculer $f(5)$ et $g(5)$. Quelle formule est la moins chère pour $5$ séances~?
+  \item Le point $M(12\,;\,44)$ appartient-il à la courbe $\mathcal{C}_g$~? Justifier par un calcul.
+  \item Les courbes de $f$ et $g$ sont tracées ci-contre. Résoudre graphiquement $f(x) = g(x)$. Interpréter le résultat.
+  \item Résoudre graphiquement $f(x) < g(x)$. Interpréter le résultat.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[x=0.52cm, y=0.09cm]
+  \draw[gray!35, very thin, xstep=1, ystep=5] (0,0) grid (15,60);
+  \draw[-{Latex[length=2mm]}] (0,0) -- (15+0.6,0) node[below=9pt, anchor=north east] {\scriptsize séances};
+  \draw[-{Latex[length=2mm]}] (0,0) -- (0,63) node[above] {\scriptsize prix (€)};
+  \foreach \x in {2,4,...,15} \node[below] at (\x,0) {\scriptsize $\x$};
+  \foreach \y in {10,20,...,60} \node[left] at (0,\y) {\scriptsize $\y$};
+  \node[below left] at (0,0) {\scriptsize $0$};
+  \begin{scope}
+    \clip (0,0) rectangle (15,60);
+    \draw[very thick] plot[domain=0:15, samples=2] (\x, {4*\x});
+    \draw[very thick, dashed] plot[domain=0:15, samples=2] (\x, {20+2*\x});
+  \end{scope}
+  \node at (13.4, 57) {$\mathcal{C}_f$};
+  \node at (13.8, 41.5) {$\mathcal{C}_g$};
+\end{tikzpicture}
+\end{minipage}
+
+\end{exercice}
+
+\begin{exercice}{Fonction et géométrie}{4}
+\begin{minipage}[t]{0.6\linewidth}
+\vspace{0pt}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+$ABCD$ est un carré de côté $6$~cm.
+
+$M$ est un point du segment $[AB]$.
+
+On note $x$ la longueur $AM$, en cm.
+
+$AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
+
+On note $\mathcal{A}(x)$ l'aire de la partie hachurée, en cm$^2$.
+\begin{enumerate}
+  \item Dans quel intervalle le nombre $x$ peut-il varier~?
+  \item Justifier que $\mathcal{A}(x) = 36 - x^2$.
+  \item Calculer $\mathcal{A}(2)$. Interpréter le résultat.
+  \item Montrer que $3$ est un antécédent de $27$ par $\mathcal{A}$. Interpréter le résultat.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[scale=0.62]
+  \fill[pattern=north east lines] (0,0) rectangle (6,6);
+  \fill[white] (0,0) rectangle (2,2);
+  \draw[very thick] (0,0) -- (6,0) -- (6,6) -- (0,6) -- cycle;
+  \draw[thick] (2,0) -- (2,2) -- (0,2);
+  \node[below left] at (0,0) {$A$};
+  \node[below right] at (6,0) {$B$};
+  \node[above right] at (6,6) {$C$};
+  \node[above left] at (0,6) {$D$};
+  \node[below right] at (2,0) {$M$};
+  \node[left] at (0,2) {$P$};
+  \node[fill=white, inner sep=1pt, above right] at (2,2) {$N$};
+  \draw[densely dashed, gray] (0,-0.2) -- (0,-1.7) (2,-0.2) -- (2,-1.7);
+  \draw[{Bar[width=2.5mm]Latex[length=2mm]}-{Latex[length=2mm]Bar[width=2.5mm]}, thick] (0,-1.5) -- node[below=1pt] {$x$} (2,-1.5);
+\end{tikzpicture}
+\end{minipage}
+
+\end{exercice}
+\vfill
+\end{document}

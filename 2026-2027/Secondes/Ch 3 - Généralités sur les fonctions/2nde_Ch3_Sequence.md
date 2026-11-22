@@ -16,7 +16,7 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
 | Évaluation courte A/B et corrigé (13/11, 15 min), sujet C de rattrapage (exercices et questions dans un autre ordre) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `SujetC.tex`, `Corrige.tex` |
-| Contrôle mixte A/B et corrigé (27/11) : automatismes, fin du Ch2, Ch3 | à faire : `Contrôles/Sommatif/` |
+| Contrôle mixte A/B et corrigé (27/11, 1 h, sur 20) : automatismes, ensembles de nombres, Ch3 | `Contrôles/Sommatif/2nde_Ch3_Sommatif_SujetA.tex`, `SujetB.tex`, `Corrige.tex` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
 ## Questions flash de la période
@@ -32,7 +32,7 @@ Les inéquations du 16/11 accompagnent la résolution graphique : on peut compar
 
 - **Semaine du 02/11** : fiche calcul 5, problèmes de modélisation. Elle fait le lien entre les deux chapitres : solutions d'inéquations écrites sous forme d'intervalle, prise en compte du contexte (comme un ensemble de définition), expression d'une quantité « en fonction de $x$ ». Le contexte des tarifs de vélo est repris dans l'exercice 8.
 - **Semaines du 09/11 et du 16/11** : fiche calcul 5 (modélisation), sur deux séances (ex. 1 et 2, puis ex. 3 à 5), avec un DM de rédaction des ex. 1 et 2.
-- **Semaine du 23/11** : racine carrée, fiche calcul 6 (`../Fiches calcul/Fiche calcul 6/2nde_FicheCalcul6.tex` : calculs, simplifications).
+- **Semaines du 23/11 et du 30/11** : racines carrées, fiche calcul 6 en deux séances (`../Fiches calcul/Fiche calcul 6/2nde_FicheCalcul6.tex`).
 
 ## Séances
 
@@ -66,7 +66,7 @@ L'activité et le cours alternent : la partie A amène la définition, la partie
 - **Devoir** (pour le 19/11) : exercice 3 (finir les questions 1 et 2), exercice 2 (question 2), rédiger l'exemple sous la proposition 1 page 4.
 
 ### Séance 4 — Résolution graphique de $f(x) = k$ et $f(x) < k$ (jeudi 19/11, fait)
-- Retour rapide sur le formatif du 13/11 et correction des devoirs (exercice 3, exercice 2 question 2).
+- Retour rapide sur le formatif du 13/11 et correction des devoirs (exercice 3). La question 2 de l'exercice 2 (antécédents par $g(x) = x^2 - 4$) n'a pas été corrigée en classe.
 - **Introduction du III.2** : question 11 de l'activité 1 (période où $T(x) \geqslant 10$, réponse $[10\,;\,18]$).
 - **Cours** : III.1 Équation $f(x) = k$ (exemple $f(x) = 4$ en 4 étapes), III.2 Inéquations ($<$, $\leqslant$, $>$, $\geqslant$).
 - **En classe** : exercice 6 (questions 1 et 2).
@@ -76,21 +76,23 @@ L'activité et le cours alternent : la partie A amène la définition, la partie
 Vendredi 20/11 : pas de cours (sortie de la classe).
 
 ### Séance 5 — Comparer deux fonctions, révisions (lundi 23/11)
+- **Correction** des exercices 6 et 5 (devoirs du 19/11).
 - **Cours** : IV. Équations et inéquations $f(x) = g(x)$, $f(x) < g(x)$.
 - **En classe** : exercice 7, puis exercice 8 s'il reste du temps.
-- **Devoir** : commencer à réviser le contrôle mixte du vendredi 27/11 : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation), exercice 5 (questions 4 et 5).
+- **Devoir** : commencer à réviser le contrôle mixte du vendredi 27/11 : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation).
 
 ### Séance 6 — Problèmes de modélisation (jeudi 26/11)
 - **En classe** : exercices 10 (aires hachurées dans un rectangle) et 11 (ballons de football).
 - **Devoir** : réviser le contrôle mixte de vendredi.
 
 ### Séance 7 — Contrôle mixte (vendredi 27/11)
-- Sujets A et B, même structure et même difficulté, sans calculatrice (1 h). Barème à fixer.
+- Sujets A et B, même structure et même difficulté, sans calculatrice (1 h), sur 20 points. Quatre exercices, sujet de deux pages (exercices 1-2, puis 3-4), mise en page à bandeaux comme les contrôles de 1re ST2S. Réponses sur la copie ; le sujet n'est pas rendu (pas de traits de lecture exigés).
 - Contenu :
-  1. **Automatismes** (fiches calcul et questions flash) : fraction, factorisation, inéquation avec la réponse en intervalle, application numérique d'une formule, proportion. Racine carrée seulement en calcul simple : la fiche calcul sur ce thème a lieu le 23/11, quatre jours avant.
-  2. **Ensembles de nombres** (fin du chapitre 2) : plus petit ensemble auquel appartient un nombre, encadrement et arrondi d'un nombre décimal (pas de fraction à convertir), vrai ou faux avec contre-exemple.
-  3. **Lecture graphique** : ensemble de définition, images, antécédents, $f(x) = k$, $f(x) < k$, $f(x) \geqslant k$.
-  4. **Problème** : fonction donnée par une formule (images, appartenance d'un point), puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ dans un contexte.
+  1. **Automatismes** (5 points) : produit de fractions, inéquation avec la réponse en intervalle, pourcentage (questions reprises des diaporamas de questions flash) ; puis justifier quatre appartenances à $\mathbb{Z}$, $\mathbb{D}$ (écriture $\frac{a}{10^n}$), $\mathbb{Q}$ (fraction), $\mathbb{N}$. Pas d'encadrement ni d'arrondi : le formatif du 13/11 a été bien réussi.
+  2. **Lecture graphique** (5 points) : ensemble de définition, images, antécédents, $f(x) \geqslant k$ (réunion d'intervalles).
+  3. **Problème** (6 points) : deux formules de prix données par une formule : images, appartenance d'un point, puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ avec interprétation.
+  4. **Fonction et géométrie** (4 points) : carré $ABCD$ de côté $6$ (B : $8$), $M$ sur $[AB]$ avec $AM = x$, carré $AMNP$ ; la partie hachurée est le grand carré privé du petit, $\mathcal{A}(x) = 36 - x^2$ (B : $64 - x^2$). Intervalle de $x$, justifier la formule (une seule idée : différence de deux aires), calculer une image (priorité du carré) et l'interpréter, montrer qu'un nombre est un antécédent en calculant son image ($\mathcal{A}(3) = 27$ ; B : $\mathcal{A}(5) = 39$). Pas de résolution d'équation $x^2 = a$ : la question 2 de l'exercice 2 ($x^2 - 4 = 0$) n'a pas été corrigée en classe, et la méthode n'est prévue qu'en fiche calcul à partir du 14/12. Choix du 22/11 : la formule du triangle ($18 - 3x$) était trop difficile à trouver, celle du rectangle ($6x$) trop simple.
+- Version allégée le 22/11 : factorisation, $f(x) = k$ et antécédent par le calcul dans le problème retirés, pour un contrôle plus court et moins difficile.
 - Pas de tableau de signes ni de tableau de variations.
 
 ### Exercices hors séance

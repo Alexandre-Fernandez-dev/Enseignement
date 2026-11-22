@@ -97,5 +97,6 @@ Dans `BO/` : les PDF, plus une version texte à consulter avec `grep` et `Read`.
 ## Consignes générales
 
 - Rédaction adaptée au niveau : phrases courtes, vocabulaire du programme officiel, pas de notion hors programme.
+- Dans un document élève (tous niveaux), ne jamais renvoyer à un autre document (« la situation de la fiche calcul », « comme dans l'activité ») : chaque énoncé redonne lui-même tout son contexte et ses données. Exception : un cours peut citer l'activité qui l'introduit (« Dans l'activité 1… »), à condition de redonner les données utiles, comme c'est déjà fait. Les renvois restent possibles dans les fichiers prof (`*_Sequence.md`, progression).
 - Ne pas committer sans demande explicite.
 - Les consignes propres à chaque niveau sont dans `CLAUDE.md` de chaque dossier de niveau.

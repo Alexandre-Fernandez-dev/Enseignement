@@ -13,7 +13,8 @@ Les élèves de Seconde n'ont droit à **aucune calculatrice**, en cours, en exe
 - choisir des valeurs qui donnent des calculs simples : entiers, fractions simples, racines carrées « tombant juste » ou simplifiables, puissances de 10 ;
 - ne jamais demander d'arrondi ni de valeur approchée qui exige une calculatrice. Si un décimal est nécessaire, il doit se calculer de tête ou à la main ;
 - éviter les données « réelles » avec des nombres compliqués : les simplifier ou les arrondir dans l'énoncé ;
-- vérifier chaque calcul de la correction avec cette contrainte (pas d'étape que seule une calculatrice permet).
+- vérifier chaque calcul de la correction avec cette contrainte (pas d'étape que seule une calculatrice permet) ;
+- ne pas l'écrire dans les documents (« sans calculatrice », « calculatrice interdite ») : les élèves n'en ont jamais, la mention est inutile.
 
 ## Points de programme à respecter (BO)
 

@@ -29,8 +29,8 @@ Les racines carrées du 16/11 préparent directement le calcul des distances.
 
 ## Fiches calcul
 
-- **Semaine du 23/11** : racine carrée, fiche calcul 6 (`../Fiches calcul/Fiche calcul 6/2nde_FicheCalcul6.tex` : calculs, simplifications). Elle prépare les distances.
-- **Semaine du 30/11** : calculs en repère (distances avec racines carrées à simplifier, coordonnées de milieux). Elle a lieu le lundi 30/11, le jour de la séance 1, donc **avant** les cours sur la distance (vendredi 04/12) et le milieu (lundi 07/12). La fiche doit donc être autonome : elle commence par un encadré qui donne les formules (coordonnées de $\overrightarrow{AB}$, distance $AB$, coordonnées du milieu) avec un exemple, et les cours suivants s'appuieront dessus.
+- **Semaines du 23/11 et du 30/11** : racines carrées, fiche calcul 6 en deux séances qui se suivent (`../Fiches calcul/Fiche calcul 6/2nde_FicheCalcul6.tex` : séance 1 définition et produit, séance 2 quotient et racine d'une somme). Elle prépare les distances.
+- **Calculs en repère** (distances avec racines carrées à simplifier, coordonnées de milieux) : fiche prévue le 30/11, déplacée par la deuxième séance de la fiche calcul 6. Date à décider ; la fiche devra commencer par un encadré qui donne les formules (coordonnées de $\overrightarrow{AB}$, distance $AB$, coordonnées du milieu).
 - **Semaine du 07/12** : révisions du devoir commun.
 - **Semaine du 14/12** : fonction carrée, équations $x^2=a$.
 
@@ -54,7 +54,7 @@ Les numéros d'exercices renvoient pour l'instant à l'ancienne feuille (2GT) : 
 - **Cours** : 3. Norme d'un vecteur ($\sqrt{x^2 + y^2}$, justifiée par Pythagore), puis distance $AB = \|\overrightarrow{AB}\|$.
 - **En classe** : ancien exercice 3 (questions 1 à 3 : triangle isocèle, puis rectangle par la réciproque de Pythagore).
 - **Devoir** : calculs de distances avec des racines à simplifier (à prévoir dans la nouvelle feuille).
-- La fiche calcul « calculs en repère » (lundi 30/11) a déjà fait pratiquer ces calculs : on s'appuie dessus.
+- Les simplifications de racines de la fiche calcul 6 (23/11 et 30/11) servent directement ici.
 
 ### Séance 4 — Milieu d'un segment (lundi 07/12)
 - **Cours** : 4. Caractérisation vectorielle ($I$ milieu de $[AB]$ si et seulement si $\overrightarrow{AI} = \overrightarrow{IB}$), formule des coordonnées du milieu. La démonstration de la formule est un approfondissement.

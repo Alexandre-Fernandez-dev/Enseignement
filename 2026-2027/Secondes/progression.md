@@ -38,6 +38,7 @@ Dates = lundi de la semaine.
 - **Révision du 16/11/2026 (2)** : pas de cours le vendredi 20/11 (sortie de la classe). La partie IV passe au lundi 23/11, le contrôle mixte au jeudi 26/11. Le Ch4 est décalé d'une séance de plus (27/11 → 11/12) ; « Variations et signes » passe à 3 séances, toutes dans la semaine du devoir commun.
 - **Fiches calcul (révision du 16/11)** : la modélisation (fiche 5) a pris deux séances (09/11 et 16/11) et un DM. Racine carrée le 23/11 (une seule séance), révisions du devoir commun le 30/11, calculs en repère le 07/12 (après les cours sur la distance et le milieu), puis fonction carrée les 14/12, 04/01 et 11/01.
 - **Révision du 19/11/2026** : le jeudi 26/11 devient une séance d'exercices (Ch3, exercices 10 et 11) et le contrôle mixte passe au vendredi 27/11. Le Ch4 commence le lundi 30/11 (6 séances) ; la séance de synthèse (activité 2) est supprimée. Fiches calcul : « calculs en repère » le 30/11 (avant les cours sur la distance et le milieu : la fiche donne les formules) et « révisions du devoir commun » le 07/12.
+- **Révision du 22/11/2026** : la fiche calcul 6 (racines carrées) se fait en deux séances qui se suivent, le 23/11 et le 30/11. La fiche « calculs en repère » prévue le 30/11 est à replacer (date à décider).
 - **À prévoir** : revoir comment obtenir l'écriture décimale d'une fraction en posant la division (ex. $\frac{2}{3}=0{,}666\ldots$), en question flash (calcul numérique, le jeudi 03/12). Les élèves ne savent pas le faire sans calculatrice : la question a été retirée de l'évaluation courte du 13/11.
 - **AP (révision du 18/11)** : le groupe 2 passe avant le groupe 3 pour les proportions : G2 le 19/11 et la semaine du 23/11 (fiches `AP/Niveau 2/Proportions 2/`, une par séance), puis G3 la semaine du 30/11.
 - **Devoirs communs** : lundi 14/12 et jeudi 17/12/2026, puis semaine du 03/05/2027.
@@ -54,7 +55,7 @@ Détail dans les fichiers `2nde_ChN_Sequence.md` de chaque chapitre et dans `pro
 | 02/11 | Pas de cours (professeur absent) | Ch2 : sous-ensembles de $\mathbb{R}$ | Ch2 : $\frac{1}{3}$ non décimal, encadrement |
 | 09/11 (fait) | Ch2 : arrondi | Ch3 : activité, notion de fonction | Ch3 : formatif, courbe représentative |
 | 16/11 (fait) | Ch3 : exercices 1 à 3, appartenance d'un point | Ch3 : résolution graphique $f(x)=k$, $f(x)<k$ | Pas de cours (sortie) |
-| 23/11 | Ch3 : $f(x)=g(x)$ | Ch3 : exercices 10 et 11 | Contrôle mixte (automatismes, Ch2, Ch3) |
+| 23/11 | Ch3 : correction des ex. 5 et 6, $f(x)=g(x)$ | Ch3 : exercices 10 et 11 | Contrôle mixte (automatismes, Ch2, Ch3) |
 | 30/11 | Ch4 : activité, coordonnées | Ch4 : $\overrightarrow{AB}$, parallélogramme | Ch4 : distance |
 | 07/12 | Ch4 : milieu | Ch4 : formatif, somme | Ch4 : produit par un réel |
 | 14/12 | Variations et signes ; devoir commun | Variations et signes ; devoir commun | Variations et signes |
@@ -75,8 +76,8 @@ Le développement et la factorisation avec les identités remarquables ont déj�
 | 02/11 | Problèmes de modélisation (équations, inéquations) | G3 : relatifs et puissances niv. 3 |
 | 09/11 | Modélisation : fiche calcul 5, ex. 1 et 2 (DM : les rédiger) | G1 : distributivité |
 | 16/11 | Modélisation : fiche calcul 5, ex. 3 à 5 | G2 : proportions niv. 2, séance 1 |
-| 23/11 | Racine carrée : fiche calcul 6 (calculs, simplifications) | G2 : proportions niv. 2, séance 2 |
-| 30/11 | Calculs en repère (distances avec racines carrées, coordonnées de milieux ; formules rappelées en début de fiche) | G3 : proportions niv. 3 |
+| 23/11 | Racines carrées : fiche calcul 6, séance 1 (définition, produit, simplifier, réduire) | G2 : proportions niv. 2, séance 2 |
+| 30/11 | Racines carrées : fiche calcul 6, séance 2 (quotient, racine d'une somme) | G3 : proportions niv. 3 |
 | 07/12 | Révisions du devoir commun | Révisions du DC (volontaires) |
 | 14/12 | Fonction carrée, équations $x^2=a$ | G1 : proportions niv. 1 |
 | 04/01 | Fonction carrée, équations $x^2=a$ | G1 : proportions niv. 1 |
