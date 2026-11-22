@@ -25,6 +25,15 @@ Dans chaque dossier de niveau :
 - `progression.md` : résumé lisible de `progression.xlsx`, à tenir à jour en même temps que le classeur.
 - `<Niveau>_ChN_Sequence.md` dans chaque chapitre : déroulement séance par séance.
 
+### Classeurs du Drive (lecture seule)
+
+L'enseignant remplit au fil des séances un classeur sur le Drive (cahier de textes, liens des questions flash) :
+`Enseignement/2026-2027/2GT/progression seconde 2026-2027 AF.xlsx` et `Enseignement/2026-2027/1ST2S/progression 1 ST2S 2026-2027.xlsx`. Il a les mêmes colonnes que `progression.xlsx`. La colonne B « Chapitre » doit y rester : si elle manque, la lecture s'adapte, mais il faut le signaler.
+- **Lecture seule, toujours.** Ne jamais écrire, déplacer ni partager quoi que ce soit sur le Drive : ni avec `rclone` (le remote `Drive:` ne sert qu'au hook post-commit pour les PDF), ni dans le montage `~/Drive`. Pour un changement de progression, modifier le dépôt et dire à l'enseignant quoi reporter sur le Drive.
+- Lecture : `scripts/progressions.py`, avec un compte de service Google qui n'a que le droit de lecture sur ces deux classeurs. Mise en place décrite en tête du script ; `python3 scripts/progressions.py verifier` teste l'accès.
+- Quand l'enseignant dit avoir mis à jour sa progression (plus besoin de snapshot) : `python3 scripts/progressions.py comparer [date]` liste ce que le Drive dit de différent du dépôt. Reporter ces changements dans `progression.xlsx`, `progression.md` et les `*_Sequence.md`. Si le Drive contredit une décision prise avec Claude, demander à l'enseignant laquelle garder. Pour travailler sur les fichiers eux-mêmes (mise en forme, liens), `telecharger DOSSIER` en fait une copie locale.
+- Les dossiers du Drive contiennent aussi des documents personnels d'élèves : ne jamais les partager avec le compte de service ni les lire.
+
 ## Nommage des fichiers (partage Pronote)
 
 Le nom du `.tex` détermine celui du PDF ; il doit être unique et explicite :
@@ -93,6 +102,14 @@ Dans `BO/` : les PDF, plus une version texte à consulter avec `grep` et `Read`.
 - `programme-1ere-techno.txt` : Première voie technologique, tronc commun (valable pour la ST2S ; ignorer les parties « STD2A »)
 
 À consulter **avant** de rédiger un cours, un contrôle ou un nouveau chapitre, pour vérifier les capacités attendues, les limites du programme, les notations et les automatismes officiels. Ne pas les charger en entier sans raison.
+
+## Trame du jour (aussi depuis le téléphone ou une session cloud)
+
+Quand on demande « la trame du jour », « les cours d'aujourd'hui » ou ceux d'une autre date :
+1. Lancer `python3 scripts/trame_du_jour.py [date]` depuis la racine (sans argument : aujourd'hui, heure de Paris ; sinon `demain`, `26/11` ou `2026-11-26`). Il lit les progressions du Drive (lecture seule) et du dépôt. Il affiche pour ce jour : les séances, la fiche calcul (lundi) et l'AP (jeudi), les thèmes de questions flash, et les passages des `*_Sequence.md` qui mentionnent la date. Quand le Drive et le dépôt diffèrent, il donne les deux : le Drive est la saisie la plus récente, le dépôt contient les décisions prises avec Claude. Dans la trame, signaler l'écart en une ligne.
+2. Compléter si besoin avec le reste du `*_Sequence.md` (points de vigilance) et retrouver les fichiers des documents cités (cours, exercices, contrôles) pour donner leurs chemins.
+3. Rédiger une trame courte et lisible sur téléphone, classe par classe et heure par heure : objectif de la séance ; déroulé avec durées (questions flash, correction, cours, exercices) ; documents à ouvrir au tableau ; devoirs à donner ; points de vigilance et rappels (élèves absents, contrôle à venir, choses à ramasser) ; ce qui reste à préparer.
+4. Une session cloud ne voit du dépôt que ce qui a été poussé sur GitHub. Elle lit le Drive si l'environnement cloud a la variable `GOOGLE_COMPTE_SERVICE`. Si le script affiche « dépôt seulement », le dire en tête de la trame : la progression peut être en retard.
 
 ## Consignes générales
 
