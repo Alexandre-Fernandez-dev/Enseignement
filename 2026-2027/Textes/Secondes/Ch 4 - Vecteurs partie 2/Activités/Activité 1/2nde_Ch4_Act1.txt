@@ -1,4 +1,33 @@
 % Source : 2026-2027/Secondes/Ch 4 - Vecteurs partie 2/Activités/Activité 1/2nde_Ch4_Act1.tex
+% --- Figures définies dans le préambule ---
+\newcommand{\croix}[1]{\draw[red!75!black, line width=1.6pt] ($(#1)+(-0.22,-0.22)$) -- ($(#1)+(0.22,0.22)$) ($(#1)+(-0.22,0.22)$) -- ($(#1)+(0.22,-0.22)$);}
+
+% Carte de l'île, avec un dessin en argument
+\newcommand{\carte}[1]{
+\begin{tikzpicture}[x=0.95cm, y=0.95cm]
+\fill[blue!7] (-7.5,-5.5) rectangle (7.5,5.5);
+\foreach \p in {(-6.6,4.9),(6.6,4.9),(-6.6,-5),(6.6,-5),(-3.6,5.2),(3.6,-5.25),(7,0.6),(-7.1,-1.6)} \node[blue!60!black] at \p {$\sim\!\sim$};
+\fill[yellow!22, draw=black, line width=1.2pt] plot[smooth cycle] coordinates
+{(-6.6,-3.4) (-5.2,-4.7) (-1,-4.9) (3,-4.8) (5.6,-3.6) (6.7,-1) (6.2,2.2) (4.6,4.3) (1,4.8) (-2.6,4.5) (-5.6,3.1) (-6.8,0)};
+\draw[gray!45, very thin, step=1] (-7.5,-5.5) grid (7.5,5.5);
+\draw[-{Latex[length=2mm]}] (-7.5,0) -- (7.7,0);
+\draw[-{Latex[length=2mm]}] (0,-5.5) -- (0,5.7);
+\foreach \x in {-7,...,-1,1,2,...,7} \node[below, font=\scriptsize, fill=white, fill opacity=0.6, text opacity=1, inner sep=1pt] at (\x,-0.12) {$\x$};
+\foreach \y in {-5,...,-1,1,2,...,5} \node[left, font=\scriptsize, fill=white, fill opacity=0.6, text opacity=1, inner sep=1pt] at (-0.1,\y) {$\y$};
+\node[below left, font=\scriptsize] at (0,0) {$0$};
+\lieu{-5,-3}{below left}{Ponton $P$}
+\lieu{-4,1}{left}{Rocher $R$}
+\lieu{3,4}{above}{Phare $F$}
+\lieu{-1,2}{above left}{Cocotier $C$}
+\lieu{4,0}{above right}{Grotte $G$}
+\lieu{-4,-1}{left}{Puits $J$}
+\lieu{1,1}{above right}{Cabane $K$}
+\croix{2,-4} \croix{-2,-4} \croix{5,-2} \croix{2,3}
+#1
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \fancyhf{}
 \fancyhead[L]{\textbf{\Niveau}}
 \fancyhead[C]{\textbf{\ChapitreCourt}}

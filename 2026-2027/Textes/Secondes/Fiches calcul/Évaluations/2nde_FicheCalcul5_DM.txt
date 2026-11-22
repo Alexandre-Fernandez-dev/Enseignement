@@ -1,4 +1,19 @@
 % Source : 2026-2027/Secondes/Fiches calcul/Évaluations/2nde_FicheCalcul5_DM.tex
+% --- Figures définies dans le préambule ---
+% Enclos le long d'un mur (largeur x, longueur 24 - 2x)
+\newcommand{\enclos}{
+\begin{tikzpicture}[scale=0.55]
+\fill[pattern=north east lines] (-0.5,3) rectangle (8.5,3.5);
+\draw[thick] (-0.5,3) -- (8.5,3);
+\node[above] at (4,3.5) {mur};
+\draw[very thick, dashed] (0,3) -- (0,0) -- (8,0) -- (8,3);
+\node[left] at (0,1.5) {$x$};
+\node[right] at (8,1.5) {$x$};
+\node[below] at (4,0) {longueur};
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \begin{center}
   {\Large\bfseries Devoir maison --- Problèmes de modélisation}\\[0.4em]
   {\itshape Seconde \quad $\bullet$ \quad Fiche calcul 5}

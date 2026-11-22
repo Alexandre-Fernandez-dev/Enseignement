@@ -268,7 +268,12 @@
   \hfill
   \begin{minipage}[t]{0.45\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[x=0.8cm, y=0.4cm]
+\repere{0}{6}{0}{11}
+\hidetk{
+\foreach \n/\u in {0/5, 1/2, 2/1, 3/2, 4/5, 5/10} \fill[red] (\n,\u) circle (3pt);
+}
+\end{tikzpicture}
   \end{minipage}
 \end{example}
 
@@ -279,7 +284,10 @@
 \begin{example}
   \begin{minipage}[t]{0.45\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[x=0.8cm, y=0.3cm]
+\repere{0}{6}{0}{16}
+\foreach \n/\u in {0/15, 1/12, 2/10, 3/9, 4/8.5, 5/8} \fill[blue] (\n,\u) circle (3pt);
+\end{tikzpicture}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.5\linewidth}
@@ -358,11 +366,20 @@
 \begin{center}
   \begin{tabular}{C{0.31\linewidth}C{0.31\linewidth}C{0.31\linewidth}}
     \hide{croissante} & \hide{décroissante} & \hide{ni l'une ni l'autre} \\[0.3em]
-    [figure]
+    \begin{tikzpicture}[scale=0.45]
+\draw[->] (-0.3,0) -- (5.5,0); \draw[->] (0,-0.3) -- (0,5);
+\foreach \n/\u in {0/0.5, 1/1, 2/1.8, 3/2.8, 4/4.2} \fill[blue] (\n,\u) circle (4pt);
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.45]
+\draw[->] (-0.3,0) -- (5.5,0); \draw[->] (0,-0.3) -- (0,5);
+\foreach \n/\u in {0/4.5, 1/3.2, 2/2.4, 3/1.9, 4/1.6} \fill[blue] (\n,\u) circle (4pt);
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.45]
+\draw[->] (-0.3,0) -- (5.5,0); \draw[->] (0,-0.3) -- (0,5);
+\foreach \n/\u in {0/2, 1/3.5, 2/1.5, 3/4, 4/2.5} \fill[blue] (\n,\u) circle (4pt);
+\end{tikzpicture}
   \end{tabular}
 \end{center}
 

@@ -1,4 +1,17 @@
 % Source : 2026-2027/Secondes/Ch 2 - Ensembles de nombres/Contrôles/Rattrapage/2nde_Ch2_Rattrapage.tex
+% --- Figures définies dans le préambule ---
+% Droite graduée de -10 à 10 (même droite que l'exercice 6 de la feuille d'exercices)
+\newcommand{\droitecinq}{
+\begin{tikzpicture}[x=0.7cm,baseline=-0.5ex]
+\draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-10.6,0) -- (10.6,0);
+\foreach \i in {-10,...,10} {
+\draw (\i,0.08) -- (\i,-0.08);
+\node[below] at (\i,-0.08) {\scriptsize$\i$};
+}
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \begin{center}
   {\Large\bfseries Rattrapage --- Ensembles de nombres (1)~: intervalles}\\[0.4em]
   {\itshape Seconde \quad $\bullet$ \quad Durée~: 50 minutes \quad $\bullet$ \quad Calculatrice interdite}

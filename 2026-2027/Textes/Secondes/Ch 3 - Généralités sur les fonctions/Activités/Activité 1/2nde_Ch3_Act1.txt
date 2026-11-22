@@ -1,4 +1,22 @@
 % Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Activités/Activité 1/2nde_Ch3_Act1.tex
+% --- Figures définies dans le préambule ---
+% Courbe de la température au cours de la journée, avec un dessin en argument
+\newcommand{\courbeT}[1]{
+\begin{tikzpicture}[x=0.64cm, y=0.4cm]
+\draw[gray!25, very thin, xstep=1, ystep=1] (0,0) grid (24.5,16.5);
+\draw[gray!60, thin, xstep=2, ystep=2] (0,0) grid (24.5,16.5);
+\draw[-{Latex[length=2mm]}] (0,0) -- (25.3,0) node[right] {heure (h)};
+\draw[-{Latex[length=2mm]}] (0,0) -- (0,17.3) node[above] {température (°C)};
+\foreach \x in {2,4,...,24} \node[below] at (\x,0) {\small $\x$};
+\foreach \y in {2,4,...,16} \node[left] at (0,\y) {\small $\y$};
+\node[below left] at (0,0) {\small $0$};
+\draw[very thick] plot[smooth, tension=0.6] coordinates
+{(0,6) (3,4) (6,2) (8,6) (10,10) (12,13) (14,14) (16,13) (18,10) (21,8) (24,6)};
+#1
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \fancyhf{}
 \fancyhead[L]{\textbf{\Niveau}}
 \fancyhead[C]{\textbf{\ChapitreCourt}}

@@ -1,4 +1,25 @@
 % Source : 2026-2027/Secondes/Ch 2 - Ensembles de nombres/Contrôles/Sommatif/2nde_Ch2_Sommatif_Corrige.tex
+% --- Figures définies dans le préambule ---
+% Droite graduée de -10 à 10 ; #1 : tracé des intervalles
+\newcommand{\droitecinq}[1]{
+\begin{tikzpicture}[x=0.7cm,baseline=-0.5ex]
+\draw[{Latex[length=2mm]}-{Latex[length=2mm]}] (-10.6,0) -- (10.6,0);
+\foreach \i in {-10,...,10} {
+\draw (\i,0.08) -- (\i,-0.08);
+\node[below] at (\i,-0.08) {\scriptsize$\i$};
+}
+#1
+\end{tikzpicture}
+}
+
+% \seg{couleur}{hauteur}{début}{fin}{crochet gauche}{crochet droit} (crochet vide : vers l'infini)
+\newcommand{\seg}[6]{
+\draw[#1, very thick] (#3,#2) -- (#4,#2);
+\node[#1, inner sep=0pt] at (#3,#2) {#5};
+\node[#1, inner sep=0pt] at (#4,#2) {#6};
+}
+% --- Fin des figures ---
+
 \begin{center}
   {\Large\bfseries Corrigé --- Ensembles de nombres (1)~: intervalles}\\[0.4em]
   {\itshape Seconde \quad $\bullet$ \quad Contrôle de 50 minutes}

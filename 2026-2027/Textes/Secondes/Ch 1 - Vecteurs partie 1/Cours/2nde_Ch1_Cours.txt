@@ -37,7 +37,16 @@
 \begin{figure}[h]
 
   \Large
-[figure]
+\begin{tikzpicture}[scale=0.6]
+\draw[ultra thin, color=gray!40] (0, 0) grid (8, 8);
+\node["$A$" left] (A) at (0,3) {};
+\fill (A) circle[radius=2pt];
+\node["$B$" above] (B) at (4,7) {};
+\fill (B) circle[radius=2pt];
+\node["$C$" above right] (C) at (4,1) {};
+\fill (C) circle[radius=2pt];
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (0,3) -- (4, 7);
+\end{tikzpicture}
 \end{figure}
 
 \begin{proposition}{Translations et parallélogrammes}{}
@@ -120,7 +129,9 @@
 \end{remark}
 
 \begin{center}
-  [figure]
+  \begin{tikzpicture}[scale=0.6]
+\draw[ultra thin, color=gray!40] (0, 0) grid (14,8);
+\end{tikzpicture}
 \end{center}
 
 \begin{definition}{Vecteurs opposés}{}
@@ -133,7 +144,14 @@
 \begin{figure}[h]
 
   \large
-[figure]
+\begin{tikzpicture}[scale=0.6]
+\node["$A$" left] (A) at (1,1) {};
+\fill (A) circle[radius=2pt];
+\node["$B$" above] (B) at (7,5) {};
+\fill (B) circle[radius=2pt];
+\draw[->, transform canvas={yshift=1mm}, very thick, arrows = {-Stealth[length=3mm]}] (1,1) -- (7,5) node[midway,above left] {$\vec{u} = \wvec{AB}$};
+\draw[->, transform canvas={yshift=-1mm}, very thick, arrows = {-Stealth[length=3mm]}] (7,5) -- (1,1) node[midway,below right] {$-\vec{u} = \wvec{BA}$};
+\end{tikzpicture}
 \end{figure}
 
 \section{Somme de vecteurs}
@@ -151,7 +169,13 @@
 
 \begin{center}
   \Large
-  [figure]
+  \begin{tikzpicture}[scale=0.6]
+\draw[ultra thin, color=gray!40] (0, 0) grid (12, 8);
+\node["$A$" left] (A) at (3,1) {};
+\fill (A) circle[radius=2pt];
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (0,2) -- (4,6) node[midway,above left] {$\vec{u}$};
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (2,7) -- (5,7) node[midway,above] {$\vec{v}$};
+\end{tikzpicture}
 \end{center}
 
 \begin{remarks}
@@ -217,11 +241,21 @@
 
 \begin{center}
   \large
-  [figure]
+  \begin{tikzpicture}[scale=0.8]
+\draw[ultra thin, color=gray!40] (0, 0) grid (8,3);
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (0,0) -- (2,1) node[midway,above left] {$\vec{u}$};
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (3,0) -- (7,2) node[midway,above left] {$2\vec{u}$};
+\end{tikzpicture}
   \vrule
-  [figure]
+  \begin{tikzpicture}[scale=0.8]
+\draw[ultra thin, color=gray!40] (0, 0) grid (6,3);
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (1,2) -- (2,1) node[midway,above right] {$\vec{v}$};
+\end{tikzpicture}
   \vrule
-  [figure]
+  \begin{tikzpicture}[scale=0.8]
+\draw[ultra thin, color=gray!40] (0, 0) grid (5,3);
+\draw[->,ultra thick, arrows = {-Stealth[length=4mm]}] (1,0) -- (3,3) node[midway,below right] {$\vec{w}$};
+\end{tikzpicture}
 \end{center}
 \end{example}
 

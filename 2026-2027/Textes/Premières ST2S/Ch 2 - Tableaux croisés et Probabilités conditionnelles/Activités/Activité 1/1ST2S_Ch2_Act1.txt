@@ -12,7 +12,32 @@ Compléter un tableau à double entrée à partir de proportions en pourcentages
 \end{objectif}
 
 \begin{center}
-[figure]
+\begin{tikzpicture}
+\begin{axis}[
+xbar stacked,
+width=0.74\textwidth, height=7.2cm,
+xmin=0, xmax=100,
+xlabel={\%},
+bar width=6.5mm,
+symbolic y coords={Agricoles, Non qual.\ artisanal, Non qual.\ industriel, Manut.\ / magasinage / transport, Chauffeurs, Qual.\ artisanal, Qual.\ industriel},
+ytick=data,
+y tick label style={font=\footnotesize, align=right},
+axis y line*=none, axis x line*=bottom, tickwidth=0pt,
+nodes near coords, nodes near coords align={center},
+every node near coord/.append style={font=\scriptsize, white},
+legend style={at={(0.5,-0.20)}, anchor=north, legend columns=-1, draw=none, font=\small},
+]
+\addplot[fill=bleuF] coordinates {
+(10,Qual.\ industriel) (20,Qual.\ artisanal) (10,Chauffeurs)
+(20,Manut.\ / magasinage / transport) (20,Non qual.\ industriel)
+(30,Non qual.\ artisanal) (40,Agricoles)};
+\addplot[fill=orH] coordinates {
+(90,Qual.\ industriel) (80,Qual.\ artisanal) (90,Chauffeurs)
+(80,Manut.\ / magasinage / transport) (80,Non qual.\ industriel)
+(70,Non qual.\ artisanal) (60,Agricoles)};
+\legend{Femmes, Hommes}
+\end{axis}
+\end{tikzpicture}
 
 \end{center}
 

@@ -1,4 +1,24 @@
 % Source : 2026-2027/Premières ST2S/Ch 3 - Fonctions affines/Exercices/Corrigés/1ST2S_Ch3_Exos_Corrige.tex
+% --- Figures définies dans le préambule ---
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{
+\draw[very thin, gray!40] (#1,#3) grid (#2,#4);
+\draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+\draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+\foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+\foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+\node[below left] at (0,0) {\scriptsize $0$};
+}
+
+% Tableau de signes : \tabsignes{f}{valeur qui annule}{signes}
+\newcommand{\tabsignes}[3]{
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+\tkzTabInit[lgt=1.2,espcl=1.6]{$x$/0.8,$#1(x)$/0.8}{$-\infty$,$#2$,$+\infty$}
+\tkzTabLine{,#3,}
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \fancyhf{}
 \fancyhead[L]{\Niveau}
 \fancyhead[C]{\ChapitreCourt}
@@ -49,7 +69,13 @@ Points $(0~;~2)$ et $(4~;~0)$.
 \hfill
 \begin{minipage}[c]{0.46\linewidth}
 
-[figure]
+\begin{tikzpicture}[scale=0.5]
+\repere{-5}{6}{-4}{5}
+\draw[thick, blue, domain=-0.5:4] plot (\x,{2*\x-3}) node[right] {$f_1$};
+\draw[thick, red, domain=-5:6] plot (\x,{-0.5*\x+2}) node[below] {$f_2$};
+\draw[thick, green!50!black] (-5,3) -- (6,3) node[above left] {$f_3$};
+\foreach \p in {(0,-3),(3,3),(0,2),(4,0)} \fill \p circle[radius=3pt];
+\end{tikzpicture}
 \end{minipage}
 \end{exercice}
 
@@ -71,7 +97,20 @@ $d_4$ : $y=-4$.
 \hfill
 \begin{minipage}[c]{0.46\linewidth}
 
-[figure]
+\begin{tikzpicture}[scale=0.5]
+\repere{-5}{5}{-5}{6}
+\draw[thick, domain=-3:2.5] plot (\x,{2*\x+1}) node[right] {$d_1$};
+\draw[thick, domain=-3:5] plot (\x,{-\x+3});
+\node[above right] at (-3,6) {$d_2$};
+\draw[thick, domain=-5:5] plot (\x,{0.5*\x-2}) node[above] {$d_3$};
+\draw[thick] (-5,-4) -- (5,-4) node[above left] {$d_4$};
+\draw[blue, thick, ->] (-2,-3) -- (-1,-3);
+\draw[blue, thick, ->] (-1,-3) -- (-1,-1) node[midway, right] {\scriptsize $+2$};
+\draw[red, thick, ->] (0,3) -- (1,3);
+\draw[red, thick, ->] (1,3) -- (1,2) node[midway, right] {\scriptsize $-1$};
+\draw[green!50!black, thick, ->] (0,-2) -- (2,-2);
+\draw[green!50!black, thick, ->] (2,-2) -- (2,-1) node[midway, right] {\scriptsize $+1$};
+\end{tikzpicture}
 \end{minipage}
 \end{exercice}
 
@@ -189,7 +228,20 @@ Pour $g$ : $g(0)=60$ et $g(20)=200$.
 \hfill
 \begin{minipage}[c]{0.44\linewidth}
 
-[figure]
+\begin{tikzpicture}[x=0.25cm, y=0.017cm]
+\draw[very thin, gray!40, xstep=1, ystep=20] (0,0) grid (24,300);
+\draw[thin, gray!70, xstep=4, ystep=100] (0,0) grid (24,300);
+\draw[->] (0,0) -- (25.5,0);
+\node[below=14pt] at (12,0) {\small nombre d'entrées};
+\draw[->] (0,0) -- (0,315) node[above] {\small prix (€)};
+\foreach \x in {4,8,...,24} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {100,200,300} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[thick, blue] (0,0) -- (24,288) node[above left] {$f$};
+\draw[thick, red] (0,60) -- (24,228) node[below left] {$g$};
+\draw[dashed] (12,0) -- (12,144) -- (0,144);
+\fill (12,144) circle[radius=2pt];
+\end{tikzpicture}
 \end{minipage}
 
 \begin{enumerate}[label=\arabic*., start=4]

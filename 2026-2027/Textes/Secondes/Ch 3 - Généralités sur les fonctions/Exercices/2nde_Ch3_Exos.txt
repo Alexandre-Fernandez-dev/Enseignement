@@ -1,4 +1,157 @@
 % Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Exercices/2nde_Ch3_Exos.tex
+% --- Figures définies dans le préambule ---
+% ---------- Repères et courbes ----------
+% Quadrillage + axes : \axes{xmin}{xmax}{ymin}{ymax}
+\newcommand{\axes}[4]{
+\draw[gray!35, very thin, step=1] (#1,#3) grid (#2,#4);
+\draw[-{Latex[length=2mm]}] (#1,0) -- (#2+0.4,0);
+\draw[-{Latex[length=2mm]}] (0,#3) -- (0,#4+0.4);
+}
+
+% Exercices 1 et 6 : fonction f définie sur [-7 ; 7]
+\newcommand{\repereUn}[1]{
+\begin{tikzpicture}[x=0.55cm, y=0.55cm]
+\axes{-7}{7}{-5}{5}
+\foreach \x in {-7,...,-1,1,2,...,7} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {-5,...,-1,1,2,...,5} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[very thick] plot coordinates {(-7,-2) (-6,0) (-5,3) (-4,4.55) (-3,5) (-2,3) (-1,2) (0,2.259) (1,2.741) (2,3) (3,2) (4,0) (5,-2) (6,-3) (7,-1)  [points clés]};
+\node at (-6.3,3) {$\mathcal{C}_f$};
+#1
+\end{tikzpicture}
+}
+
+% Exercice 3 : repère vide de -4 à 5
+\newcommand{\repereVide}[1]{
+\begin{tikzpicture}[x=0.6cm, y=0.6cm]
+\axes{-4}{5}{-4}{5}
+\foreach \x in {-4,...,-1,1,2,...,5} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {-4,...,-1,1,2,...,5} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+#1
+\end{tikzpicture}
+}
+
+% Exercice 5 : solde du compte (unité en ordonnée : 100 €)
+\newcommand{\repereBanque}[1]{
+\begin{tikzpicture}[x=1cm, y=0.5cm]
+\draw[gray!35, very thin, step=1] (0,-2) grid (12,6);
+\draw[-{Latex[length=2mm]}] (0,0) -- (12.5,0) node[above left] {\scriptsize mois};
+\draw[-{Latex[length=2mm]}] (0,-2) -- (0,6.4) node[above] {solde (€)};
+\foreach \x in {1,...,12} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y/\l in {-2/-200,-1/-100,1/100,2/200,3/300,4/400,5/500,6/600} \node[left] at (0,\y) {\scriptsize $\l$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[very thick] plot coordinates {(0,1) (1,2.375) (2,3) (3,1) (4,0) (5,-1) (6,0) (7,1) (8,2) (9,3.8) (10,5) (11,3.625) (12,1)  [points clés]};
+#1
+\end{tikzpicture}
+}
+
+% Exercice 7 : f(x) = -x^2 + 2x + 8 et g(x) = 3(x-3)^2 - 3 sur [-3 ; 5]
+\newcommand{\repereFG}[1]{
+\begin{tikzpicture}[x=0.9cm, y=0.4cm]
+\axes{-3}{5}{-7}{10}
+\foreach \x in {-3,...,-1,1,2,...,5} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {-6,-4,-2,2,4,...,10} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\begin{scope}
+\clip (-3,-7) rectangle (5,10);
+\draw[very thick, domain=-3:5, samples=80, smooth] plot (\x, {-\x*\x+2*\x+8});
+\draw[very thick, dashed, domain=0.8:5, samples=80, smooth] plot (\x, {3*(\x-3)*(\x-3)-3});
+\end{scope}
+\node at (-1.3,4.5) {$\mathcal{C}_f$};
+\node at (4.6,7) {$\mathcal{C}_g$};
+#1
+\end{tikzpicture}
+}
+
+% Exercice 8 : tarifs de location (A : 5x ; B : 15 + 2x)
+\newcommand{\repereVelo}[1]{
+\begin{tikzpicture}[x=0.8cm, y=0.1cm]
+\draw[gray!20, very thin, xstep=0.5, ystep=2.5] (0,0) grid (10,50);
+\draw[gray!45, very thin, xstep=1, ystep=5] (0,0) grid (10,50);
+\draw[-{Latex[length=2mm]}] (0,0) -- (10.5,0) node[above left] {\scriptsize durée (h)};
+\draw[-{Latex[length=2mm]}] (0,0) -- (0,53) node[above] {prix (€)};
+\foreach \x in {1,...,10} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {5,10,...,50} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[very thick] (0,0) -- (10,50) node[pos=0.85, left] {A};
+\draw[very thick, dashed] (0,15) -- (10,35) node[pos=0.95, below] {B};
+#1
+\end{tikzpicture}
+}
+
+% Exercice 9 : triangle ABC (AB = 4, AC = 8) et rectangle AMNP
+\newcommand{\triangleABC}{
+\begin{tikzpicture}[scale=0.6]
+\fill[gray!25] (0,0) rectangle (5,1.5);
+\draw[thick] (0,0) node[below left] {$A$} -- (8,0) node[below right] {$C$} -- (0,4) node[above left] {$B$} -- cycle;
+\draw[thick] (0,1.5) node[left] {$M$} -- (5,1.5) node[above right] {$N$} -- (5,0) node[below] {$P$};
+\draw[{Latex[length=1.5mm]}-{Latex[length=1.5mm]}] (-1,0) -- node[left] {$x$} (-1,1.5);
+\end{tikzpicture}
+}
+
+\newcommand{\repereRect}[1]{
+\begin{tikzpicture}[x=1.7cm, y=0.42cm]
+\draw[gray!20, very thin, xstep=0.25, ystep=0.5] (0,0) grid (4,9);
+\draw[gray!45, very thin, xstep=0.5, ystep=1] (0,0) grid (4,9);
+\draw[-{Latex[length=2mm]}] (0,0) -- (4.2,0) node[right] {$x$};
+\draw[-{Latex[length=2mm]}] (0,0) -- (0,9.5) node[above] {aire (cm$^2$)};
+\foreach \x/\l in {0.5/0{,}5,1/1,1.5/1{,}5,2/2,2.5/2{,}5,3/3,3.5/3{,}5,4/4} \node[below] at (\x,0) {\scriptsize $\l$};
+\foreach \y in {1,...,9} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[very thick, domain=0:4, samples=60, smooth] plot (\x, {\x*(8-2*\x)});
+#1
+\end{tikzpicture}
+}
+
+% Exercice 10 : rectangle ABCD (AB = 6, AD = 14), x = 2
+\newcommand{\rectABCD}{
+\begin{tikzpicture}[scale=0.42]
+\fill[pattern=north east lines] (0,0) rectangle (2,2);
+\fill[pattern=north east lines] (2,2) rectangle (14,6);
+\draw[very thick] (0,0) node[below left] {$A$} rectangle (14,6);
+\node[above left] at (0,6) {$B$};
+\node[above right] at (14,6) {$C$};
+\node[below right] at (14,0) {$D$};
+\draw[thick] (0,2) node[left] {$M$} -- (2,2) node[above left] {$N$} -- (2,0) node[below] {$P$};
+\draw[thick] (2,2) -- (2,6) node[above] {$J$};
+\draw[thick] (2,2) -- (14,2) node[right] {$I$};
+\node[left] at (0,1) {$x$};
+\node[below] at (1,0) {$x$};
+\end{tikzpicture}
+}
+
+\newcommand{\repereABCD}[1]{
+\begin{tikzpicture}[x=1.25cm, y=0.05cm]
+\draw[gray!20, very thin, xstep=0.25, ystep=2] (0,0) grid (6,90);
+\draw[gray!45, very thin, xstep=0.5, ystep=10] (0,0) grid (6,90);
+\draw[-{Latex[length=2mm]}] (0,0) -- (6.3,0) node[right] {$x$};
+\draw[-{Latex[length=2mm]}] (0,0) -- (0,95);
+\foreach \x in {1,...,6} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {10,20,...,90} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[very thick, domain=0:6, samples=60, smooth] plot (\x, {2*\x*\x-20*\x+84});
+\draw[very thick, domain=0:6, samples=60, smooth] plot (\x, {-2*\x*\x+20*\x});
+#1
+\end{tikzpicture}
+}
+
+% Exercice 11 : bénéfice B(x) = -2x^2 + 26x - 60 sur [3 ; 10]
+\newcommand{\repereBallon}[1]{
+\begin{tikzpicture}[x=0.72cm, y=0.15cm]
+\draw[gray!20, very thin, xstep=0.5, ystep=1] (0,0) grid (11,30);
+\draw[gray!45, very thin, xstep=1, ystep=5] (0,0) grid (11,30);
+\draw[-{Latex[length=2mm]}] (0,0) -- (11.4,0) node[above left] {\scriptsize prix (€)};
+\draw[-{Latex[length=2mm]}] (0,0) -- (0,31.5) node[above right] {\scriptsize bénéfice (milliers d'€)};
+\foreach \x in {1,...,11} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {5,10,...,30} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[very thick, domain=3:10, samples=60, smooth] plot (\x, {-2*\x*\x+26*\x-60});
+#1
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \fancyhf{} 
 \fancyhead[L]{ {\Niveau}}
 \fancyhead[C]{ {\Chapitre}}

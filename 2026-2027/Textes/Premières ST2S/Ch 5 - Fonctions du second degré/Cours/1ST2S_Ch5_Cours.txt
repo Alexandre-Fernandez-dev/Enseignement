@@ -100,7 +100,15 @@
   Dresser le tableau de signes de $f(x) = 2(x - 1)(x - 5)$.
 
   \begin{center}
-    [figure]
+    \begin{tikzpicture}
+\tkzTabInit[lgt=2,espcl=2.2]{$x$/0.8,$2$/0.8,$x - 1$/0.8,$x - 5$/0.8,$f(x)$/0.8}{$-\infty$,$1$,$5$,$+\infty$}
+\hidetk{
+\tkzTabLine{,+,t,+,t,+,}
+\tkzTabLine{,-,z,+,t,+,}
+\tkzTabLine{,-,t,-,z,+,}
+\tkzTabLine{,+,z,-,z,+,}
+}
+\end{tikzpicture}
   \end{center}
 \end{example}
 
@@ -126,9 +134,17 @@
 \begin{center}
   \begin{tabular}{C{0.4\linewidth}C{0.4\linewidth}}
     $a > 0$ & $a < 0$ \\[0.3em]
-    [figure]
+    \begin{tikzpicture}[scale=0.5]
+\draw[->] (-3,0) -- (3.3,0); \draw[->] (0,-1.2) -- (0,3.5);
+\hidetk{\draw[blue, thick, domain=-1.8:1.8, samples=50] plot (\x,{\x*\x-0.5});
+\draw[dashed] (0,-0.5) -- (0,3.2); \fill (0,-0.5) circle (3pt) node[below right] {\scriptsize sommet};}
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.5]
+\draw[->] (-3,0) -- (3.3,0); \draw[->] (0,-1.2) -- (0,3.5);
+\hidetk{\draw[blue, thick, domain=-1.8:1.8, samples=50] plot (\x,{-\x*\x+2.8});
+\draw[dashed] (0,-1) -- (0,2.8); \fill (0,2.8) circle (3pt) node[above right] {\scriptsize sommet};}
+\end{tikzpicture}
   \end{tabular}
 \end{center}
 
@@ -146,14 +162,20 @@
 
       Si $a > 0$ : minimum $f(x_S)$ en $x_S$.
 
-      [figure]
+      \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1.2,espcl=1.6]{$x$/0.8,$f$/1.4}{$-\infty$,$x_S$,$+\infty$}
+\tkzTabVar{+/ ,-/$f(x_S)$,+/ }
+\end{tikzpicture}
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\linewidth}
 
       Si $a < 0$ : maximum $f(x_S)$ en $x_S$.
 
-      [figure]
+      \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1.2,espcl=1.6]{$x$/0.8,$f$/1.4}{$-\infty$,$x_S$,$+\infty$}
+\tkzTabVar{-/ ,+/$f(x_S)$,-/ }
+\end{tikzpicture}
     \end{minipage}
   \end{multihide}
 \end{proposition}
@@ -171,13 +193,24 @@
 
       $a = 2 > 0$ : la parabole est tournée vers le haut, $f$ admet un minimum $-8$ en $3$.
 
-      [figure]
+      \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$f$/1.4}{$-\infty$,$3$,$+\infty$}
+\tkzTabVar{+/ ,-/$-8$,+/ }
+\end{tikzpicture}
     \end{multihideW}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.4\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[x=0.7cm, y=0.22cm]
+\repereG{-1}{7}{-9}{11}{2,4,6}{-8,-4,4,8}
+\hidetk{
+\draw[blue, thick, domain=-0.2:6.2, samples=60] plot (\x,{2*(\x-1)*(\x-5)});
+\draw[dashed, red] (3,-9) -- (3,11);
+\fill (3,-8) circle (2.5pt) node[below right] {\scriptsize $S$};
+\fill (1,0) circle (2.5pt) (5,0) circle (2.5pt);
+}
+\end{tikzpicture}
   \end{minipage}
 \end{example}
 
@@ -224,13 +257,25 @@
 
       $a = -1 < 0$ : la parabole est tournée vers le bas, $g$ admet un maximum $9$ en $2$.
 
-      [figure]
+      \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1.2,espcl=1.8]{$x$/0.8,$g$/1.4}{$-\infty$,$2$,$+\infty$}
+\tkzTabVar{-/ ,+/$9$,-/ }
+\end{tikzpicture}
     \end{multihideW}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.35\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[x=0.6cm, y=0.25cm]
+\repereG{-2}{6}{-6}{10}{-1,2,4}{-4,4,8}
+\hidetk{
+\draw[blue, thick, domain=-1.5:5.5, samples=60] plot (\x,{-\x*\x+4*\x+5});
+\draw[dashed, red] (2,-6) -- (2,10);
+\fill (2,9) circle (2.5pt) node[above right] {\scriptsize $S$};
+\fill (0,5) circle (2.5pt) (4,5) circle (2.5pt);
+\draw[dotted] (0,5) -- (4,5);
+}
+\end{tikzpicture}
   \end{minipage}
 \end{example}
 
@@ -254,13 +299,25 @@
   Associer chaque parabole à son expression : $f_1(x) = x^2 - 4$, \quad $f_2(x) = -0{,}5x^2 + 2$, \quad $f_3(x) = (x - 1)(x - 3)$, \quad $f_4(x) = -(x + 1)(x - 3)$.
 
   \begin{tabular}{@{}C{0.23\linewidth}C{0.23\linewidth}C{0.23\linewidth}C{0.23\linewidth}@{}}
-    [figure]
+    \begin{tikzpicture}[scale=0.42]
+\repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+\draw[blue, thick, domain=-1.6:3.6, samples=50] plot (\x,{-(\x+1)*(\x-3)});
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.42]
+\repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+\draw[blue, thick, domain=-2.45:2.45, samples=50] plot (\x,{\x*\x-4});
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.42]
+\repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+\draw[blue, thick, domain=-0.3:4, samples=50] plot (\x,{(\x-1)*(\x-3)});
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.42]
+\repereG{-3}{4}{-4}{4}{-2,2}{-4,2}
+\draw[blue, thick, domain=-3:3, samples=50] plot (\x,{-0.5*\x*\x+2});
+\end{tikzpicture}
     \\
     Courbe A : \hideM{f_4} & Courbe B : \hideM{f_1} & Courbe C : \hideM{f_3} & Courbe D : \hideM{f_2}
   \end{tabular}

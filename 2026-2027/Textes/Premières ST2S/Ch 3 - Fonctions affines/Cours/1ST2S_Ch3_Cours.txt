@@ -42,7 +42,18 @@
 \hfill
 \begin{minipage}[t]{0.4\linewidth}
 
-  [figure]
+  \begin{tikzpicture}[x=0.75cm, y=0.16cm]
+\draw[very thin, gray!40, xstep=1, ystep=5] (0,0) grid (7,30);
+\draw[->] (0,0) -- (7.6,0) node[right] {\small h};
+\draw[->] (0,0) -- (0,32) node[left] {\small prix (€)};
+\foreach \x in {1,...,7} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {5,10,...,30} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\draw[thick, domain=0:7] plot (\x,{3*\x+5});
+\draw[dashed] (1,0) -- (1,8) -- (0,8);
+\draw[dashed] (4,0) -- (4,17) -- (0,17);
+\fill (1,8) circle (2pt) (4,17) circle (2pt) (0,5) circle (2pt);
+\end{tikzpicture}
 \end{minipage}
 
 \begin{definition}{Fonction affine}{}
@@ -136,7 +147,13 @@
   \hfill
   \begin{minipage}[t]{0.5\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[scale=0.6]
+\repere{-2}{5}{-2}{6}
+\hidetk{
+\draw[red, thick, domain=-0.5:3.5] plot (\x,{2*\x-1}) node[right] {$d_1$};
+\fill (0,-1) circle (4pt) (3,5) circle (4pt);
+}
+\end{tikzpicture}
   \end{minipage}
 
   \begin{minipage}[t]{0.55\linewidth}
@@ -152,7 +169,15 @@
   \hfill
   \begin{minipage}[t]{0.5\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[scale=0.6]
+\repere{-2}{5}{-2}{6}
+\hidetk{
+\draw[blue, thick, domain=-2:5] plot (\x,{-0.5*\x+3}) node[above] {$d_2$};
+\fill (0,3) circle (4pt) (2,2) circle (4pt);
+\draw[dashed, thick, ->] (0,3) -- (2,3);
+\draw[dashed, thick, ->] (2,3) -- (2,2);
+}
+\end{tikzpicture}
   \end{minipage}
 \end{example}
 
@@ -170,7 +195,12 @@
 \begin{example}
   \begin{minipage}[t]{0.45\linewidth}
 
-    [figure]
+    \begin{tikzpicture}[scale=0.55]
+\repere{-4}{6}{-4}{6}
+\draw[blue, thick, domain=-4:4] plot (\x,{\x+2}) node[above left] {$d_1$};
+\draw[red, thick, domain=-1:4] plot (\x,{-2*\x+4}) node[right] {$d_2$};
+\draw[green!50!black, thick, domain=-3:6] plot (\x,{2/3*\x-2}) node[above] {$d_3$};
+\end{tikzpicture}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.5\linewidth}
@@ -253,17 +283,35 @@
 \begin{center}
   \begin{tabular}{C{0.31\linewidth}C{0.31\linewidth}C{0.31\linewidth}}
     $a > 0$ & $a < 0$ & $a = 0$ \\[0.3em]
-    [figure]
+    \begin{tikzpicture}[scale=0.45]
+\draw[->] (-2.5,0) -- (2.7,0); \draw[->] (0,-2) -- (0,2.7);
+\hidetk{\draw[blue, line width=1.8pt] (-2.2,-1.6) -- (2.2,2.2);}
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.45]
+\draw[->] (-2.5,0) -- (2.7,0); \draw[->] (0,-2) -- (0,2.7);
+\hidetk{\draw[blue, line width=1.8pt] (-2.2,2.2) -- (2.2,-1.6);}
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.45]
+\draw[->] (-2.5,0) -- (2.7,0); \draw[->] (0,-2) -- (0,2.7);
+\hidetk{\draw[blue, line width=1.8pt] (-2.2,1.2) -- (2.2,1.2);}
+\end{tikzpicture}
     \\
-    [figure]
+    \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1,espcl=2.2]{$x$/1,$f$/1.5}{$-\infty$,$+\infty$}
+\hidetk{\tkzTabVar{-/ ,+/ }}
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1,espcl=2.2]{$x$/1,$f$/1.5}{$-\infty$,$+\infty$}
+\hidetk{\tkzTabVar{+/ ,-/ }}
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=0.8]
+\tkzTabInit[lgt=1,espcl=2.2]{$x$/1,$f$/1.5}{$-\infty$,$+\infty$}
+\hidetk{\tkzTabVar{+/ $b$,+/ $b$}}
+\end{tikzpicture}
   \end{tabular}
 \end{center}
 
@@ -308,14 +356,22 @@
       Tableau de signes de $f$ :
 
       \begin{center}
-        [figure]
+        \begin{tikzpicture}
+\tkzTabInit[lgt=1.5,espcl=2]{$x$/1,$f(x)$/1}{$-\infty$,$\hideM{3}$,$+\infty$}
+\hidetk{\tkzTabLine{,-,z,+,}}
+\end{tikzpicture}
       \end{center}
   \end{example*}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.4\linewidth}
 
-  [figure]
+  \begin{tikzpicture}[scale=0.8]
+\repere{-1}{5}{-3}{3}
+\draw[very thick, red, domain=1.5:3] plot (\x,{2*\x-6});
+\draw[very thick, green!50!black, domain=3:4.5] plot (\x,{2*\x-6});
+\fill (3,0) circle (3pt);
+\end{tikzpicture}
 \end{minipage}
 
 \begin{proposition}{}{}
@@ -326,14 +382,20 @@
 
       Si $a > 0$ :
 
-      [figure]
+      \begin{tikzpicture}[scale=0.85]
+\tkzTabInit[lgt=2,espcl=1.8]{$x$/1,$ax+b$/1}{$-\infty$,$-\frac{b}{a}$,$+\infty$}
+\tkzTabLine{,-,z,+,}
+\end{tikzpicture}
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\linewidth}
 
       Si $a < 0$ :
 
-      [figure]
+      \begin{tikzpicture}[scale=0.85]
+\tkzTabInit[lgt=2,espcl=1.8]{$x$/1,$ax+b$/1}{$-\infty$,$-\frac{b}{a}$,$+\infty$}
+\tkzTabLine{,+,z,-,}
+\end{tikzpicture}
     \end{minipage}
 
   \end{multihide}
@@ -357,7 +419,10 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.45\linewidth}
-      [figure]
+      \begin{tikzpicture}
+\tkzTabInit[lgt=1.5,espcl=1.8]{$x$/1,$g(x)$/1}{$-\infty$,$4$,$+\infty$}
+\tkzTabLine{,+,z,-,}
+\end{tikzpicture}
     \end{minipage}
   \end{multihideW}
 \end{example*}

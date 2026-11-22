@@ -60,11 +60,30 @@
 
   \begin{center}
   \begin{tabular}{ccc}
-    [figure]
+    \begin{tikzpicture}[scale=1.2]
+\draw[gray!35, very thin, xstep=1, ystep=0.5] (-1,-1) grid (3,1.5);
+\draw[vec] (0,0) -- (1,0) node[midway, below] {$\vec\imath$};
+\draw[vec] (0,0) -- (0,0.5) node[midway, left] {$\vec\jmath$};
+\node[below left] at (0,0) {$O$};
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=1.2]
+\begin{scope}
+\clip (-1.5,-1) rectangle (2.5,1.5);
+\foreach \k in {-4,...,4} \draw[gray!35, very thin] ({\k-2*0.6},-2*0.8) -- ({\k+2*0.6},2*0.8);
+\foreach \k in {-2,...,2} \draw[gray!35, very thin] ({-3+\k*0.6},\k*0.8) -- ({4+\k*0.6},\k*0.8);
+\end{scope}
+\draw[vec] (0,0) -- (1,0) node[midway, below] {$\vec\imath$};
+\draw[vec] (0,0) -- (0.6,0.8) node[midway, left] {$\vec\jmath$};
+\node[below left] at (0,0) {$O$};
+\end{tikzpicture}
     &
-    [figure]
+    \begin{tikzpicture}[scale=1.2]
+\draw[gray!35, very thin, step=1] (-1,-1) grid (2,1.5);
+\draw[vec] (0,0) -- (1,0) node[midway, below] {$\vec\imath$};
+\draw[vec] (0,0) -- (0,1) node[midway, left] {$\vec\jmath$};
+\node[below left] at (0,0) {$O$};
+\end{tikzpicture}
     \\[0.5em]
     Repère \hide{orthogonal} & Repère \hide{quelconque} & Repère \hide{orthonormé}
   \end{tabular}
@@ -107,7 +126,14 @@
   \hfill
   \begin{minipage}{0.52\linewidth}
     \begin{center}
-    [figure]
+    \begin{tikzpicture}[x=0.65cm, y=0.65cm]
+\axesG{-4}{4}{-4}{4}
+\draw[vec] (-3,4) -- (1,2) node[midway, above right] {$\vec u$};
+\draw[vec] (3,2) -- (1,-2) node[midway, right] {$\vec v$};
+\draw[vec] (-2,-1) -- (-2,-4) node[midway, left] {$\vec w$};
+\pt{-3,1}{left}{D}
+\hidetk{\draw[vec, blue!70!black] (-3,1) -- (0,2) node[midway, above left] {$\vec t$};}
+\end{tikzpicture}
     \end{center}
   \end{minipage}
 \end{example}
@@ -138,7 +164,11 @@
   \hfill
   \begin{minipage}{0.42\linewidth}
     \begin{center}
-    [figure]
+    \begin{tikzpicture}[x=0.55cm, y=0.55cm]
+\axesG{-4}{5}{-3}{4}
+\pt{-2,3}{above left}{A} \pt{4,-1}{right}{B} \pt{-3,-2}{below left}{C}
+\hidetk{\draw[vec, blue!70!black] (-2,3) -- (4,-1);}
+\end{tikzpicture}
     \end{center}
   \end{minipage}
 \end{example}
@@ -197,7 +227,12 @@
   \hfill
   \begin{minipage}{0.4\linewidth}
     \begin{center}
-    [figure]
+    \begin{tikzpicture}[scale=0.7]
+\draw[gray!35, very thin, step=1] (-0.5,-0.5) grid (4.5,3.5);
+\draw[thick, dashed] (0,0) -- (4,0) node[midway, below] {$4$} -- (4,3) node[midway, right] {$3$};
+\draw (3.7,0) -- (3.7,0.3) -- (4,0.3);
+\draw[vec] (0,0) -- (4,3) node[midway, above left] {$\vec u$};
+\end{tikzpicture}
     \end{center}
   \end{minipage}
 \end{example}
@@ -309,7 +344,15 @@
   \hfill
   \begin{minipage}{0.45\linewidth}
     \begin{center}
-    [figure]
+    \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+\draw[gray!35, very thin, step=1] (-1,-1) grid (7,4);
+\draw[vec] (0,2) -- (4,3) node[midway, above] {$\vec u$};
+\draw[vec] (6,3) -- (5,0) node[midway, right] {$\vec v$};
+\hidetk{
+\draw[vec, dashed] (4,3) -- (3,0);
+\draw[vec, blue!70!black] (0,2) -- (3,0) node[midway, below left] {$\vec u + \vec v$};
+}
+\end{tikzpicture}
     \end{center}
   \end{minipage}
 \end{example}
@@ -340,7 +383,15 @@
   À partir du vecteur $\vec u$, construire les vecteurs $2\vec u$, $-\vec u$ et $\dfrac{1}{2}\vec u$.
 
   \begin{center}
-  [figure]
+  \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+\draw[gray!35, very thin, step=1] (0,0) grid (22,5);
+\draw[vec] (1,1) -- (5,3) node[midway, above left] {$\vec u$};
+\hidetk{
+\draw[vec, blue!70!black] (6,1) -- (14,5) node[midway, above left] {$2\vec u$};
+\draw[vec, blue!70!black] (19,3) -- (15,1) node[midway, above left] {$-\vec u$};
+\draw[vec, blue!70!black] (19,4) -- (21,5) node[midway, above left] {$\tfrac12\vec u$};
+}
+\end{tikzpicture}
   \end{center}
 \end{example}
 

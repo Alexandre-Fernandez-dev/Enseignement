@@ -1,4 +1,23 @@
 % Source : 2026-2027/Premières ST2S/Ch 3 - Fonctions affines/Exercices/1ST2S_Ch3_Exos.tex
+% --- Figures définies dans le préambule ---
+% Repère quadrillé : \repere{xmin}{xmax}{ymin}{ymax}
+\newcommand{\repere}[4]{
+\draw[very thin, gray!40] (#1,#3) grid (#2,#4);
+\draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+\draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+\foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+\foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+\node[below left] at (0,0) {\scriptsize $0$};
+}
+
+% Tableau de signes vide : \tabsignes{f}
+\newcommand{\tabsignes}[1]{
+\begin{tikzpicture}
+\tkzTabInit[lgt=1.2,espcl=2.2]{$x$/0.8,$#1(x)$/0.8}{$-\infty$,$+\infty$}
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \fancyhf{} 
 \fancyhead[L]{ {\Niveau}}
 \fancyhead[C]{ {\Chapitre}}
@@ -39,7 +58,9 @@ Dans le repère ci-contre, tracer les droites représentant les fonctions suivan
 \hfill
 \begin{minipage}[c]{0.46\linewidth}
 
-[figure]
+\begin{tikzpicture}[scale=0.5]
+\repere{-5}{6}{-4}{5}
+\end{tikzpicture}
 \end{minipage}
 \end{exercice}
 
@@ -59,7 +80,14 @@ $d_4$ : $y=\dots\dots\dots\dots$
 \hfill
 \begin{minipage}[c]{0.46\linewidth}
 
-[figure]
+\begin{tikzpicture}[scale=0.5]
+\repere{-5}{5}{-5}{6}
+\draw[thick, domain=-3:2.5] plot (\x,{2*\x+1}) node[right] {$d_1$};
+\draw[thick, domain=-3:5] plot (\x,{-\x+3});
+\node[above right] at (-3,6) {$d_2$};
+\draw[thick, domain=-5:5] plot (\x,{0.5*\x-2}) node[above] {$d_3$};
+\draw[thick] (-5,-4) -- (5,-4) node[above left] {$d_4$};
+\end{tikzpicture}
 \end{minipage}
 \end{exercice}
 
@@ -139,6 +167,15 @@ On note $x$ le nombre d'entrées dans l'année, $f(x)$ le prix payé avec la for
 \hfill
 \begin{minipage}[c]{0.44\linewidth}
 
-[figure]
+\begin{tikzpicture}[x=0.25cm, y=0.017cm]
+\draw[very thin, gray!40, xstep=1, ystep=20] (0,0) grid (24,300);
+\draw[thin, gray!70, xstep=4, ystep=100] (0,0) grid (24,300);
+\draw[->] (0,0) -- (25.5,0);
+\node[below=14pt] at (12,0) {\small nombre d'entrées};
+\draw[->] (0,0) -- (0,315) node[above] {\small prix (€)};
+\foreach \x in {4,8,...,24} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {100,200,300} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\end{tikzpicture}
 \end{minipage}
 \end{exercice}

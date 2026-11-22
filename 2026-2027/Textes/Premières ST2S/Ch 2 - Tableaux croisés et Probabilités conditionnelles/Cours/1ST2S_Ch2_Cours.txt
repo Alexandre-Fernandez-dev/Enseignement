@@ -196,7 +196,19 @@ On vérifie que $\P(\text{rouge})+\P(\text{vert})+\P(\text{bleu})=1$, conformém
 \end{definition}
 
 \begin{center}
-[figure]
+\begin{tikzpicture}[scale=1]
+\draw (-0.3,-2.1) rectangle (6.3,2.3);
+\node at (-0.05,2) {$\Omega$};
+\begin{scope}[opacity=0.55]
+\fill[blue!40] (2,0) circle (1.6);
+\fill[red!40] (4,0) circle (1.6);
+\end{scope}
+\draw (2,0) circle (1.6);
+\draw (4,0) circle (1.6);
+\node at (1.1,0) {$\A$};
+\node at (4.9,0) {$\B$};
+\node[font=\small] at (3,0) {$\A\cap \B$};
+\end{tikzpicture}
 \end{center}
 
 \begin{proposition}{}{}
@@ -229,7 +241,14 @@ Si $\A$ et $\B$ n'ont aucune issue commune, on dit qu'ils sont \emph{incompatibl
 \begin{minipage}{0.37\linewidth}
 
 \begin{center}
-[figure]
+\begin{tikzpicture}[scale=1]
+\draw[fill=gray!20] (-0.3,-1.8) rectangle (5,1.8);
+\fill[white] (2,0) circle (1.4);
+\draw (2,0) circle (1.4);
+\node at (-0.05,1.6) {$\Omega$};
+\node at (2,0) {$\A$};
+\node[font=\small] at (3.75,1.4) {$\overline{\A}$};
+\end{tikzpicture}
 \end{center}
 
 \end{minipage}

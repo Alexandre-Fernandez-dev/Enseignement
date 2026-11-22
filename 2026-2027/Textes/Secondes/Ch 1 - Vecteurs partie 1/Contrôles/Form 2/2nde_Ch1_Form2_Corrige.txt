@@ -1,4 +1,56 @@
 % Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/Contrôles/Form 2/2nde_Ch1_Form2_Corrige.tex
+% --- Figures définies dans le préambule ---
+% Exercice 3 : construction de T + u + v
+% #1 : T ; #2 : origine de u ; #3 : u ; #4 : origine de v ; #5 : v ; #6 : nom du point
+\newcommand{\construction}[6]{
+\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.32]
+\tkzInit[xmin=-9.9, xmax=9.9, ymin=-9.9, ymax=9.9]
+\tkzGrid[thin,color=lightgray]
+\draw[line width=1, ->, >=stealth] #2 -- ++#3 node[midway, above right] {$\vec{u}$};
+\draw[line width=1, ->, >=stealth] #4 -- ++#5 node[midway, left] {$\vec{v}$};
+\draw[sol, line width=1, dashed, ->, >=stealth] #1 -- ++#3 node[midway, sloped, above] {\small$\vec{u}$};
+\draw[sol, line width=1, dashed, ->, >=stealth] ($#1+#3$) -- ++#5 node[midway, sloped, above] {\small$\vec{v}$};
+\draw[sol, line width=1.5, ->, >=stealth] #1 -- ($#1+#3+#5$);
+\draw[line width=1] plot[mark=x, mark size=0.2cm] coordinates{#1};
+\node[above right] at #1 {$T$};
+\draw[sol, line width=1] plot[mark=x, mark size=0.2cm] coordinates{($#1+#3+#5$)};
+\node[sol, below right] at ($#1+#3+#5$) {$#6$};
+\end{tikzpicture}
+}
+
+% Exercice 4 : figure corrigée
+% #1 : u ; #2 : v ; #3 : coefficient k (BP = k u, QR = -k u) ; #4 : texte de k
+\newcommand{\figureABC}[4]{
+\begin{tikzpicture}[scale=0.8]
+\draw[gray!30,very thin,step=0.5] (0,0) grid (14,9);
+\coordinate (u) at #1;
+\coordinate (v) at #2;
+\coordinate (A) at (8,8);
+\coordinate (B) at ($(A)+(u)+(v)$);
+\coordinate (C) at ($(A)+(u)-(v)$);
+\coordinate (P) at ($(B)+#3*(u)$);
+\coordinate (Q) at ($(P)-2*(v)$);
+\coordinate (R) at ($(Q)-#3*(u)$);
+\draw[-{Latex[length=2.5mm]},thick] (4,7) -- ++(u) node[above left] {$\vec u$};
+\draw[-{Latex[length=2.5mm]},thick] (1,8) -- ++(v) node[above,midway] {$\vec v$};
+\draw[-{Latex[length=2.5mm]},sol,dashed] (A) -- ++(u);
+\draw[-{Latex[length=2.5mm]},sol,dashed] ($(A)+(u)$) -- ++(v);
+\draw[-{Latex[length=2.5mm]},sol,dashed] ($(A)+(u)$) -- ++($-1*(v)$);
+\draw[-{Latex[length=2.5mm]},sol,very thick] (A) -- (B);
+\draw[-{Latex[length=2.5mm]},sol,very thick] (A) -- (C);
+\draw[-{Latex[length=2.5mm]},red!70!black,very thick] (B) -- (P) node[midway, right] {$#4\vec u$};
+\draw[-{Latex[length=2.5mm]},red!70!black,very thick] (P) -- (Q) node[midway, below] {$-2\vec v$};
+\draw[-{Latex[length=2.5mm]},red!70!black,very thick] (Q) -- (R) node[midway, below right] {$-#4\vec u$};
+\foreach \p/\pos in {A/right, B/right, P/below right, Q/below left} {
+\node at (\p) {$\times$};
+\node[\pos] at (\p) {$\p$};
+}
+\node at (C) {$\times$};
+\node[above left] at (C) {$C = R$};
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
 \large
 
 \entete{A}

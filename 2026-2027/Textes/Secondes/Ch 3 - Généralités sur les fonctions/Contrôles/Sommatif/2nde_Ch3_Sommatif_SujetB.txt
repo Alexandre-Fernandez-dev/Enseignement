@@ -36,7 +36,17 @@ La courbe $\mathcal{C}_f$ ci-contre représente une fonction $f$. Répondre par 
 \end{minipage}\hfill
 \begin{minipage}[t]{0.52\linewidth}
 \centering
-[figure]
+\begin{tikzpicture}[x=0.98cm, y=0.9cm, lab/.style={fill=white, fill opacity=0.75, text opacity=1, inner sep=0.6pt}]
+\draw[gray!55, thin, xstep=1, ystep=1] (-4,-4) grid (5,2);
+\draw[-{Latex[length=2mm]}, thick] (-4,0) -- (5+0.5,0);
+\draw[-{Latex[length=2mm]}, thick] (0,-4) -- (0,2+0.5);
+\draw[thick, blue!60!black] plot coordinates {(-4,1) (-3,0) (-2,-1.793) (-1,-3) (0,-1.8) (1,0) (2,1.3) (3,2) (4,0) (5,-4)  [points clés]};
+\fill[blue!60!black] (-4, 1) circle (2.2pt) (5, -4) circle (2.2pt);
+\foreach \x in {-4,...,-1,1,2,...,5} {\draw[thick] (\x,0.08) -- (\x,-0.08); \node[below, lab, yshift=-1.5pt] at (\x,0) {\footnotesize $\x$};}
+\foreach \y in {-4,...,-1,1,2,...,2} {\draw[thick] (0.08,\y) -- (-0.08,\y); \node[left, lab, xshift=-1.5pt] at (0,\y) {\footnotesize $\y$};}
+\node[below left, lab, xshift=-1pt, yshift=-1pt] at (0,0) {\footnotesize $0$};
+\node[lab, text=blue!60!black] at (2.2, 2.6) {$\mathcal{C}_f$};
+\end{tikzpicture}
 \end{minipage}
 
 \end{exercice}
@@ -59,7 +69,21 @@ On note $x$ la durée de location en heures, avec $0 \leqslant x \leqslant 12$. 
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\linewidth}
 \centering
-[figure]
+\begin{tikzpicture}[x=0.52cm, y=0.09cm]
+\draw[gray!35, very thin, xstep=1, ystep=5] (0,0) grid (12,60);
+\draw[-{Latex[length=2mm]}] (0,0) -- (12+0.6,0) node[below=9pt, anchor=north east] {\scriptsize heures};
+\draw[-{Latex[length=2mm]}] (0,0) -- (0,63) node[above] {\scriptsize prix (€)};
+\foreach \x in {2,4,...,12} \node[below] at (\x,0) {\scriptsize $\x$};
+\foreach \y in {10,20,...,60} \node[left] at (0,\y) {\scriptsize $\y$};
+\node[below left] at (0,0) {\scriptsize $0$};
+\begin{scope}
+\clip (0,0) rectangle (12,60);
+\draw[very thick] plot[domain=0:12, samples=2] (\x, {5*\x});
+\draw[very thick, dashed] plot[domain=0:12, samples=2] (\x, {12+3*\x});
+\end{scope}
+\node at (10.6, 57) {$\mathcal{C}_f$};
+\node at (11.5, 39.5) {$\mathcal{C}_g$};
+\end{tikzpicture}
 \end{minipage}
 
 \end{exercice}
@@ -85,7 +109,21 @@ On note $\mathcal{A}(x)$ l'aire de la partie hachurée, en cm$^2$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
 \centering
-[figure]
+\begin{tikzpicture}[scale=0.47]
+\fill[pattern=north east lines] (0,0) rectangle (8,8);
+\fill[white] (0,0) rectangle (3,3);
+\draw[very thick] (0,0) -- (8,0) -- (8,8) -- (0,8) -- cycle;
+\draw[thick] (3,0) -- (3,3) -- (0,3);
+\node[below left] at (0,0) {$A$};
+\node[below right] at (8,0) {$B$};
+\node[above right] at (8,8) {$C$};
+\node[above left] at (0,8) {$D$};
+\node[below right] at (3,0) {$M$};
+\node[left] at (0,3) {$P$};
+\node[fill=white, inner sep=1pt, above right] at (3,3) {$N$};
+\draw[densely dashed, gray] (0,-0.2) -- (0,-1.7) (3,-0.2) -- (3,-1.7);
+\draw[{Bar[width=2.5mm]Latex[length=2mm]}-{Latex[length=2mm]Bar[width=2.5mm]}, thick] (0,-1.5) -- node[below=1pt] {$x$} (3,-1.5);
+\end{tikzpicture}
 \end{minipage}
 
 \end{exercice}

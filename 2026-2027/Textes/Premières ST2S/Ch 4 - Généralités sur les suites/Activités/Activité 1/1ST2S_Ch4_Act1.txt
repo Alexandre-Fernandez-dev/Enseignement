@@ -9,7 +9,17 @@
 
 \newcommand{\repere}[2]{
 \begin{center}
-[figure]
+\begin{tikzpicture}
+\begin{axis}[
+width=0.8\textwidth, height=7.5cm,
+xmin=-0.5, xmax=7.5, ymin=0, ymax=#2,
+xtick={0,...,7}, ytick distance=10, minor y tick num=1,
+grid=both, major grid style={gray!45}, minor grid style={gray!20},
+axis lines=left, xlabel={$n$}, ylabel={#1},
+ylabel style={font=\small}, xlabel style={at={(1,0)}, anchor=west},
+]
+\end{axis}
+\end{tikzpicture}
 \end{center}}
 
 \setlength{\parindent}{0pt}

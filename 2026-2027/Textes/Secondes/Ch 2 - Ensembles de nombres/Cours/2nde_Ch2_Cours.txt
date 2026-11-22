@@ -51,7 +51,19 @@
 \end{example}
 
 \begin{center}
-  [figure]
+  \begin{tikzpicture}[x=1.7cm]
+\draw[<->, >=Stealth, thick] (-5.4,0) -- (4.4,0);
+\foreach \i in {-5,...,4} {
+\draw (\i,0.1) -- (\i,-0.1);
+\node[below] at (\i,-0.1) {\small$\i$};
+}
+\hidetk{
+\foreach \x/\l in {2.5/2{,}5, -1.5/-1{,}5, -4.5/-4{,}5, 0.3333/\frac{1}{3}, 3.3333/\frac{10}{3}, -0.3333/-\frac{1}{3}, -2.4/-\frac{12}{5}, 1.41421/\sqrt{2}} {
+\fill (\x,0) circle[radius=2pt];
+\node[above=3pt] at (\x,0) {\small$\l$};
+}
+}
+\end{tikzpicture}
 \end{center}
 
 \section{Intervalles}
@@ -77,31 +89,67 @@ Pour être plus précis, voici la définition rigoureuse des intervalles :
       \hline
       Intervalle & Représentation graphique & Inégalités \\ \hline
       $[a\,;\,b]$ &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \draw[very thick] (1.5,0) -- (4.5,0);
+\brGF{1.5} \brDF{4.5} \etiq{1.5}{a} \etiq{4.5}{b}
+\end{tikzpicture}
       & \hideM{a \leq x \leq b} \\ \hline
       $]a\,;\,b[$ &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \draw[very thick] (1.5,0) -- (4.5,0);
+\brGO{1.5} \brDO{4.5} \etiq{1.5}{a} \etiq{4.5}{b}
+\end{tikzpicture}
       & \hideM{a < x < b} \\ \hline
       $[a\,;\,b[$ &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \hidetk{\draw[very thick] (1.5,0) -- (4.5,0);
+\brGF{1.5} \brDO{4.5}} \etiq{1.5}{a} \etiq{4.5}{b}
+\end{tikzpicture}
       & $a \leq x < b$ \\ \hline
       \hideM{]a\,;\,b]} &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \draw[very thick] (1.5,0) -- (4.5,0);
+\brGO{1.5} \brDF{4.5} \etiq{1.5}{a} \etiq{4.5}{b}
+\end{tikzpicture}
       & $a < x \leq b$ \\ \hline
       $[a\,;\,+\infty[$ &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \draw[very thick] (1.5,0) -- (5.9,0);
+\brGF{1.5} \etiq{1.5}{a}
+\end{tikzpicture}
       & \hideM{x \geq a} \\ \hline
       $]a\,;\,+\infty[$ &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \hidetk{\draw[very thick] (1.5,0) -- (5.9,0);
+\brGO{1.5}} \etiq{1.5}{a}
+\end{tikzpicture}
       & $x > a$ \\ \hline
       \hideM{]-\infty\,;\,b]} &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \draw[very thick] (0.1,0) -- (4.5,0);
+\brDF{4.5} \etiq{4.5}{b}
+\end{tikzpicture}
       & $x \leq b$ \\ \hline
       $]-\infty\,;\,b[$ &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \hidetk{\draw[very thick] (0.1,0) -- (4.5,0);
+\brDO{4.5}} \etiq{4.5}{b}
+\end{tikzpicture}
       & $x < b$ \\ \hline
       \hideM{]-\infty\,;\,+\infty[} &
-      [figure]
+      \begin{tikzpicture}
+\node at (0, 0.5) {$ $};
+\droite \draw[very thick] (0.1,0) -- (5.9,0);
+\etiq{4.5}{}
+\end{tikzpicture}
       & \\ \hline
     \end{tabular}
   \end{center}
@@ -132,7 +180,13 @@ Pour être plus précis, voici la définition rigoureuse des intervalles :
 \begin{exampleil}
   On se donne deux intervalles : $I = [1\,;\,7]$ et $J = [5\,;\,9]$.
 
-  [figure]
+  \begin{tikzpicture}[x=1.4cm]
+\draw[<->, >=Stealth, thick] (-1,0) -- (11.5,0);
+\foreach \i in {0,...,11} {
+\draw (\i,0.1) -- (\i,-0.1);
+}
+\node[below] at (0,-0.1) {$0$};
+\end{tikzpicture}
 
 \begin{tasks}[label=\textbullet](2)
   \task $I \cap J = \hideM{[5\,;\,7].}$
@@ -236,7 +290,33 @@ Pour savoir à quel intervalle appartient une expression comme $2x+1$ lorsque $x
     \item Le schéma ci-dessous représente les inclusions des différents sous-ensembles de $\mathbb{R}$, les uns dans les autres. Cela montre que les entiers naturels font partie des entiers relatifs, qui font eux-mêmes partie des décimaux, faisant eux-mêmes partie des rationnels, faisant eux-mêmes partie des réels.
 
 \begin{center}
-  [figure]
+  \begin{tikzpicture}[scale=1]
+\draw[blue!60!black, thick, rounded corners=12pt] (0,0) rectangle (11.5,7);
+\draw[magenta!70!black, thick, rounded corners=12pt] (0.3,0.3) rectangle (9.6,6);
+\draw[magenta!70!black, thick, rounded corners=10pt] (0.6,0.6) rectangle (7.6,4.9);
+\draw[magenta!70!black, thick, rounded corners=8pt] (0.9,0.9) rectangle (6,3.6);
+\draw[magenta!70!black, thick, rounded corners=6pt] (1.2,1.2) rectangle (3.2,2.7);
+\node[fill=white, inner sep=2pt] at (1.5,7)   {\textcolor{blue!60!black}{$\mathbb{R}$}};
+\node[fill=white, inner sep=2pt] at (1.5,6)   {\textcolor{magenta!70!black}{$\mathbb{Q}$}};
+\node[fill=white, inner sep=2pt] at (1.5,4.9) {\textcolor{magenta!70!black}{$\mathbb{D}$}};
+\node[fill=white, inner sep=2pt] at (1.5,3.6) {\textcolor{magenta!70!black}{$\mathbb{Z}$}};
+\node[fill=white, inner sep=2pt] at (1.7,2.7) {\textcolor{magenta!70!black}{$\mathbb{N}$}};
+\node at (1.7,1.7) {\hide{$0$}};
+\node at (2.6,2.2) {\hide{$15$}};
+\node at (2.5,1.5) {\hide{$2^3$}};
+\node at (1.6,3.1) {\hide{$-1$}};
+\node at (3.6,3.1) {\hide{$-12$}};
+\node at (4.7,1.8) {\hide{$-3^4$}};
+\node at (2.4,4.3) {\hide{$-0{,}475$}};
+\node at (5.5,4.3) {\hide{$10^{-3}$}};
+\node at (6.8,2.4) {\hide{$-\frac{3}{4}$}};
+\node at (8.6,5.2) {\hide{$\frac{22}{7}$}};
+\node at (8.6,2.4) {\hide{$-\frac{4}{3}$}};
+\node at (4.5,6.5) {\hide{$\sqrt{2}$}};
+\node at (8,6.5)    {\hide{$\cos 30^\circ$}};
+\node at (10.6,5.2) {\hide{$\pi$}};
+\node at (10.6,1.5) {\hide{$-\sqrt{\frac{3}{4}}$}};
+\end{tikzpicture}
 \end{center}
   \item Le fait que tout nombre décimal puisse s'écrire sous la forme $\dfrac{a}{10^n}$ prouve que tout nombre décimal est un nombre rationnel. On a donc bien $\mathbb{D} \subset \mathbb{Q}$. L'inverse est-il vrai ? Tout nombre rationnel est-il un nombre décimal ? Autrement dit, a-t-on $\mathbb{Q} \subset \mathbb{D}$ ? La propriété suivante répond à cette question.
 \end{itemize}
