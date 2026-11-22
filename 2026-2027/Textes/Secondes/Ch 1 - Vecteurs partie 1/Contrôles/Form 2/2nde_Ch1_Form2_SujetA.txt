@@ -1,0 +1,79 @@
+% Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/Contrôles/Form 2/2nde_Ch1_Form2_SujetA.tex
+\large
+
+\makebox[0pt][l]{\textbf{\Niveau}}
+\makebox[\textwidth][c]{\textbf{\Chapitre}}
+\makebox[0pt][r]{\textbf{\Document\ (A) -- 30min}}
+}
+
+\begin{exercice}~\\
+	\begin{minipage}[t]{0.5\textwidth}
+
+        À l'aide de la figure ci-contre, donner un vecteur égal aux sommes de vecteurs suivantes :
+        \begin{enumerate}
+            \item \makebox[3.5cm]{$\overrightarrow{OC} + \overrightarrow{BA}$} $= {\makebox[5em]{\enspace\hrulefill}}$
+
+            \item \makebox[3.5cm]{$\overrightarrow{ED} - \overrightarrow{FD} + \overrightarrow{AE}$} $= {\makebox[5em]{\enspace\hrulefill}}$
+
+        \end{enumerate}
+	\end{minipage}
+	\begin{minipage}[t]{0.5\textwidth}
+
+        \begin{center}
+            [image]
+        \end{center}
+	\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+    Simplifier, à l'aide de la relation de Chasles, les expressions suivantes :
+    \begin{tasks}[style=enumerate](2)
+        \task $\overrightarrow{IP} + \overrightarrow{MI}$
+        \task $\overrightarrow{JI} - \overrightarrow{JK} + \overrightarrow{IK}$
+
+    \end{tasks}
+    \framebox[1\textwidth]{\parbox{1\textwidth}{
+        \begin{tasks}[style=enumerate](2)
+            \task
+            \task
+
+        \end{tasks}
+    }}
+\end{exercice}
+
+\begin{exercice}{}{}
+
+~\\
+ \begin{minipage}[t]{0.5\linewidth} Construire le point $R$ tel que $\overrightarrow{TR} = \vec{u} + \vec{v}$.
+
+[figure] \end{minipage}
+
+\begin{minipage}[t]{0.5\linewidth} Construire le point $D$ tel que $\overrightarrow{TD} = \vec{u} + \vec{v}$.
+
+[figure]
+\end{minipage}
+\end{exercice}
+
+\begin{center}
+[figure]
+\end{center}
+
+\begin{exercice}{}{}
+On considère deux vecteurs $\vec u$ et $\vec v$. $A$ est un point donné.
+\begin{enumerate}[label=\arabic*.]
+\item Construire les points $B$ et $C$ tels que :
+  \begin{tasks}[label=\textbullet](2)
+  \task $\overrightarrow{AB}=\vec u+\vec v$
+  \task $\overrightarrow{AC}=\vec u-\vec v$.
+  \end{tasks}
+\item Construire les points $P$, $Q$ et $R$ tels que :
+  \begin{tasks}[label=\textbullet](3)
+  \task $\overrightarrow{BP}=\dfrac13\vec u$
+  \task $\overrightarrow{PQ}=-2\vec v$
+  \task $\overrightarrow{QR}=\dfrac{-1}{3}\vec u$.
+  \end{tasks}
+\item Que constate-t-on à propos des points $C$ et $R$ ? Le justifier par un calcul vectoriel.
+\end{enumerate}
+    \framebox[1\textwidth]{\parbox{1\textwidth}{
+    }}
+\end{exercice}

@@ -1,0 +1,49 @@
+% Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex
+\entete{A}{15 min}
+
+\begin{exercice}
+Compléter le tableau avec le plus petit ensemble auquel appartient chaque nombre, parmi $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$ et $\mathbb{R}$.
+\begin{center}
+\begin{tabular}{|T{4cm}|*{5}{T{2cm}|}}
+\hline
+Nombre & $\dfrac{-12}{4}$ & $\dfrac{7}{2}$ & $\sqrt{25}$ & $\dfrac{5}{3}$ & $\sqrt{3}$ \\ \hline
+Plus petit ensemble &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Donner un encadrement d'amplitude $10^{-2}$ du nombre suivant, puis son arrondi au centième.
+\par\smallskip\noindent{\renewcommand{\arraystretch}{2.6}
+\begin{tabular}{@{}l@{\enspace}l@{\quad}r@{\,}c@{\,}l@{\qquad}l@{}}
+ & $2{,}6438$ : & \pt[2.2cm] & $\leqslant 2{,}6438 <$ & \pt[2.2cm] & Arrondi au centième : \pt \\
+\end{tabular}}\par
+\end{exercice}
+
+\begin{exercice}
+Voici un tableau de valeurs d'une fonction $f$ définie sur $[-2\,;\,4]$.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|*{7}{C{1.2cm}|}}
+\hline
+$x$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ \\ \hline
+$f(x)$ & $3$ & $-1$ & $4$ & $2$ & $-1$ & $5$ & $2$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*), itemsep=1.2em, topsep=0.6em]
+\item \makebox[0.5\linewidth][l]{L'image de $0$ par $f$ est \pt.}b)~$f(3) = $ \pt
+\item[c)] Le nombre $-1$ a pour antécédent(s) par $f$ : \pt[5cm]
+\item[d)] $f($\pt[1.5cm]$) = 3$
+\item[e)] Peut-on calculer $f(5)$~? Justifier. \pt[9cm]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = 2x+3$.
+\begin{enumerate}[label=\arabic*., itemsep=1.2em, topsep=0.6em]
+\item Calculer l'image de $-2$ par $g$. \hfill $g(-2)=$ \pt[4cm] 
+\item Déterminer l'antécédent de $9$ par $g$.
+
+\framebox[\linewidth]{\parbox{0.97\linewidth}{}}
+\end{enumerate}
+\end{exercice}

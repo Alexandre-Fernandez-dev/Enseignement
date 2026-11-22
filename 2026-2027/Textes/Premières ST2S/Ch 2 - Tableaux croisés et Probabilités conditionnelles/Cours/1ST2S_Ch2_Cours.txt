@@ -1,0 +1,421 @@
+% Source : 2026-2027/Premières ST2S/Ch 2 - Tableaux croisés et Probabilités conditionnelles/Cours/1ST2S_Ch2_Cours.tex
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\renewcommand{\P}{\mathrm{P}}
+\newcommand{\A}{\mathrm{A}}
+\newcommand{\B}{\mathrm{B}}
+
+\fancyhf{} 
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+\section{Tableaux croisés}
+
+Lors d'une campagne de prévention, on interroge $160$ personnes~; pour chacune, on relève son sexe et si elle est fumeuse ou non. Les résultats sont résumés dans le tableau suivant, appelé \emph{tableau croisé d'effectifs} : il croise deux caractères observés sur une même population.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \textbf{Fume} & \textbf{Ne fume pas} & \textbf{Total} \\
+\hline
+\textbf{Hommes} & 24 & 56 & 80 \\
+\hline
+\textbf{Femmes} & 16 & 64 & 80 \\
+\hline
+\textbf{Total} & 40 & 120 & 160 \\
+\hline
+\end{tabular}
+\end{center}
+
+Pour comparer plus facilement des groupes de tailles différentes, on transforme ce tableau d'effectifs en \emph{tableau de fréquences}, en divisant chaque effectif par l'effectif total de la population ($160$) :
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \textbf{Fume} & \textbf{Ne fume pas} & \textbf{Total} \\
+\hline
+\textbf{Hommes} & \hideW{0,15} & \hideW{0,35} & \hideW{0,5} \\
+\hline
+\textbf{Femmes} & \hideW{0,1} & \hideW{0,4} & \hideW{0,5} \\
+\hline
+\textbf{Total} & \hideW{0,25} & \hideW{0,75} & \hideW{1} \\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{Lecture par ligne ou par colonne.} Les totaux donnent la répartition de chaque caractère pris isolément.
+
+\begin{example}
+   $\hideM{50}\%$ des personnes interrogées sont des hommes, et $\hideM{25}\%$ fument, indépendamment de l'autre caractère.
+\end{example}
+
+\paragraph{Lecture à l'intérieur d'un groupe.} On peut aussi s'intéresser à un sous-groupe précis.
+\begin{example}
+Par exemple, parmi les $80$ hommes interrogés, combien fument~? Le tableau d'effectifs indique que $24$ hommes fument, donc la proportion d'hommes fumeurs \emph{parmi les hommes} vaut
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  \[
+  \hideMW{\frac{24}{80} = 0{,}3 \quad \text{soit } 30\%.}
+  \]
+
+  }}
+\end{example}
+
+\begin{remarks}
+  \begin{itemize}
+    \item Ce nombre est très différent de la fréquence des hommes fumeurs \emph{dans l'ensemble de la population}, qui est 
+
+    \framebox[1\linewidth]{\parbox{5.5in}{
+    $$\hideMW{\dfrac{24}{160}=0{,}15\quad \text{soit } 15\%,}$$
+
+    }}
+
+    dans un cas, on rapporte l'effectif à $160$, dans l'autre on le rapporte à $80$.
+
+    \item On peut faire le même calcul dans l'autre sens : parmi les $40$ fumeurs, quelle proportion sont des hommes~?
+
+    \framebox[1\linewidth]{\parbox{5.5in}{
+    \[
+    \hideMW{\frac{24}{40} = 0{,}6 \quad \text{soit } 60\%.}
+    \]
+
+    }}
+
+    On obtient un nombre différent du précédent : « la proportion d'hommes parmi les fumeurs » n'est pas la même chose que « la proportion de fumeurs parmi les hommes ». 
+    \item On obtient les mêmes résultats en utilisant le tableau de fréquences.
+  \end{itemize}
+
+\end{remarks}
+
+\section{Rappels sur les probabilités}
+
+\begin{definition}{Vocabulaire}{}
+  \begin{multihide}
+  Une \textbf{expérience aléatoire} est une expérience dont on ne peut pas prévoir le résultat, mais dont on connaît à l'avance l'ensemble des résultats possibles, appelés \textbf{issues}. L'ensemble de toutes les issues est appelé \textbf{univers} de l'expérience, noté $\Omega$.
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+  \begin{itemize}
+    \item[]
+    \item On lance un dé à six faces : $\Omega = \{1,2,3,4,5,6\}$.
+    \item On tire une carte au hasard dans un jeu de $32$ cartes : $\Omega$ est l'ensemble des $32$ cartes.
+  \end{itemize}
+\end{example}
+
+\begin{definition}{Évènement}{}
+  \begin{multihide}
+  Un \textbf{événement} est un sous-ensemble de $\Omega$. Les issues le constituant \emph{réalisent} cet évènement.
+  \end{multihide}
+\end{definition}
+\begin{example}
+  Par exemple, pour le lancer de dé, l'événement « obtenir un nombre pair » est le sous-ensemble $\{2,4,6\}$ de $\Omega$.
+\end{example}
+
+\begin{definition}{Probabilité}{}
+  \begin{multihide}
+Définir une probabilité sur $\Omega=\{e_1,\dots,e_n\}$, c'est associer à chaque issue $e_i$ un nombre $p_i\in[0,1]$ tel que
+\[
+p_1+p_2+\cdots+p_n = 1.
+\]
+  Pour un événement $\A$, on note $P(\A)$ la somme des probabilités des issues qui composent $\A$.
+  \end{multihide}
+\end{definition}
+
+\begin{example}(Sans équiprobabilité)
+On lance un dé cubique dont les faces ne sont pas numérotées, mais colorées : trois faces rouges, deux faces vertes, et une face bleue. On s'intéresse à la couleur obtenue : $\Omega = \{\text{rouge}, \text{vert}, \text{bleu}\}$. Le dé lui-même est équilibré (chacune de ses six faces a la même probabilité $\frac16$ de sortir), mais les couleurs ne sont pas réparties également sur les faces, donc les issues de $\Omega$ n'ont pas toutes la même probabilité :
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  \[
+  \hideMW{\P(\text{rouge}) = \frac{3}{6} = 0{,}5, \qquad \P(\text{vert}) = \frac{2}{6} = \frac13, \qquad P(\text{bleu}) = \frac{1}{6}.}
+  \]
+
+  }}
+\begin{center}
+\end{center}
+
+On vérifie que $\P(\text{rouge})+\P(\text{vert})+\P(\text{bleu})=1$, conformément à la définition. Pour l'événement $\A$ « obtenir rouge ou bleu » (rouge et bleu sont incompatibles), on somme directement les probabilités des issues concernées :
+\begin{center}
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  \[
+  \hideMW{\P(\A) = \P(\text{rouge})+\ \P(\text{bleu}) = 0{,}5+\frac16 = \frac23.}
+  \]
+
+  }}
+\end{center}
+
+\end{example}
+
+\begin{definition}{Cardinal d'un ensemble}{}
+  \begin{multihide}
+  Pour un ensemble fini $\A$, on note $\mathrm{Card}(\A)$ (ou $|\A|$) le nombre d'éléments de $\A$.
+  \end{multihide}
+\end{definition}
+
+\begin{remark}
+  Lorsque toutes les issues ont la même probabilité, on dit qu'il y a \emph{équiprobabilité}~; chaque issue a alors pour probabilité $\dfrac{1}{\mathrm{Card}(\Omega)}$, et pour tout événement $\A$ :
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  \[
+  \hideMW{\P(\A) = \frac{\mathrm{Card}(\A)}{\mathrm{Card}(\Omega)} = \frac{\text{nombre d'issues favorables à } \A}{\text{nombre d'issues possibles}}.}
+  \]
+
+  }}
+  Un dé non truqué, une pièce équilibrée ou un paquet de carte bien mélangé sont des situations d'équiprobabilité.
+\end{remark}
+
+\begin{example}
+  On lance un dé équilibré. La probabilité d'obtenir un nombre pair est :
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  \[
+  \hideMW{\P(\text{« pair »}) = \frac{\mathrm{Card}(\{2,4,6\})}{\mathrm{Card}(\Omega)} = \frac{3}{6} = 0{,}5.}
+  \]
+
+  }}
+\end{example}
+
+\subsection{Union, intersection, évènement contraire}
+
+\begin{definition}{Union, Intersection}{}
+\begin{multihide}
+Étant donné deux événements $\A$ et $\B$ de $\Omega$, on définit les évènements suivants :
+\begin{itemize}
+  \item $\A\cap \B$ (\textbf{« $\A$ \emph{et} $\B$ »}) est réalisé lorsque \underline{$\A$ et $\B$} sont réalisés simultanément~;
+  \item $\A\cup \B$ (\textbf{« $\A$ \emph{ou} $\B$ »}) est réalisé lorsque \underline{au moins un des événements} est réalisé.
+\end{itemize}
+\end{multihide}
+\end{definition}
+
+\begin{center}
+[figure]
+\end{center}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+  Dans le cas général (les deux événements peuvent avoir des issues communes) :
+  \[
+  P(\A\cup \B) = P(\A) + P(\B) - P(\A\cap \B).
+  \]
+  \end{multihide}
+\end{proposition}
+
+\begin{remark}
+Si $\A$ et $\B$ n'ont aucune issue commune, on dit qu'ils sont \emph{incompatibles} : $\A\cap \B=\varnothing$ et
+\[
+\hideM{P(\A\cup \B) = P(\A)+P(\B).}
+\]
+\end{remark}
+
+\begin{minipage}{0.6\linewidth}
+\begin{definition}{Évènement contraire}{}
+  \begin{multihide}
+  L'\textbf{événement contraire} de $\A$, noté $\overline{\A}$, est réalisé lorsque $\A$ ne l'est pas. On a :
+  \[
+  P(\overline{\A}) = 1 - P(\A).
+  \]
+  \end{multihide}
+\end{definition}
+\end{minipage}
+\hfill
+\begin{minipage}{0.37\linewidth}
+
+\begin{center}
+[figure]
+\end{center}
+
+\end{minipage}
+
+\begin{example}
+On tire une carte dans un jeu de $52$ cartes. Soit $\A$ « tirer un as » et $\B$ « tirer un c\oe ur ». On a $P(\A)=\frac{4}{52}$, $P(\B)=\frac{13}{52}$, et $P(\A\cap \B)=\frac{1}{52}$ (l'as de c\oe ur). Donc :
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  \[
+  \hideMW{\P(\A\cup \B) = \frac{4}{52}+\frac{13}{52}-\frac{1}{52} = \frac{16}{52} = \frac{4}{13}.}
+  \]
+
+  }}
+\end{example} 
+
+\section{Probabilités conditionnelles}
+
+\begin{definition}{Probabilité conditionnelle}{}
+  \begin{multihide}
+  On appelle \textbf{probabilité conditionnelle de ${\mathrm B}$ sachant ${\mathrm A}$}, la probabilité qu'un évènement ${\mathrm B}$ se réalise sachant que l'évènement ${\mathrm A}$ est réalisé. On la note ${\mathrm P}_{\mathrm A}({\mathrm B})$.
+  \end{multihide}
+\end{definition}
+
+\begin{remark}
+  Comme pour les probabilités simples, on a $\hideM{0 \le {\mathrm P}_{\mathrm A}(\mathrm B) \le 1}.$
+\end{remark}
+
+\begin{example}(\underline{Activité 2})
+  Un laboratoire pharmaceutique a réalisé des tests sur 200 patients atteints d'une maladie.
+  Certains sont traités avec le médicament A, d'autres avec le médicament B.
+  Le tableau présente les résultats de l'étude :
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    & Médicament A & Médicament B & Total \\
+    \hline
+    Guéri & 30 & 45 & 75 \\
+    \hline
+    Non guéri & 70 & 55 & 125 \\
+    \hline
+    Total & 100 & 100 & 200 \\
+    \hline
+    \end{tabular}
+  \end{center}
+
+  La probabilité que le patient ait pris le médicament A \textbf{sachant qu'il est guéri}
+  se note $\mathrm{P}_\mathrm{G}(\mathrm{A})$ :
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  $$
+  \hideMW{\mathrm{P}_\mathrm{G}(\mathrm{A}) = \frac{30}{75} = 0{,}4 = 40\,\%.}
+  $$
+
+  }}
+\end{example}
+
+\begin{remarks}
+\begin{itemize}
+  \item[]
+  \item En général, les mots ``parmi'' ou ``sachant que'' traduisent des probabilités conditionnelles.
+  \item Attention ! Les probabilités $\mathrm{P}_{\mathrm{A}}(\mathrm{B})$ et $\mathrm{P}_{\mathrm{B}}(\mathrm{A})$ ne sont en général pas égales, ici on a :
+
+  \framebox[1\linewidth]{\parbox{5.5in}{
+  $$
+  \hideMW{\mathrm{P}_\mathrm{A}(\mathrm{G}) = \frac{30}{100} = 0{,}3 = 30\,\%.}
+  $$
+
+  }}
+\end{itemize}
+\end{remarks}
+
+\begin{proposition}{(Admise)}{}~\label{prop:formule_cond}
+\begin{multihide}
+Soient A et B deux événements avec $\mathrm{P}(\mathrm{A}) \neq 0$.
+
+La probabilité de B sachant A est :
+
+$$
+\mathrm{P}_{\mathrm{A}}(\mathrm{~B})=\frac{\mathrm{P}(\mathrm{~A} \cap \mathrm{~B})}{\mathrm{P}(\mathrm{~A})}
+$$
+
+\end{multihide}
+\end{proposition}
+
+\begin{example}
+
+  \framebox[1\linewidth]{
+  \begin{multihideW}
+
+  Dans le tableau précédent, on lit l'\emph{effectif} des patients guéris qui ont pris le médicament A à l'intersection de la ligne Guéri'' et de la colonne Médicament A'' : 30 patients.
+    \begin{itemize}
+    \item On trouve, $\mathrm{P}(\mathrm{A} \cap \mathrm{G}) = \dfrac{30}{200} = 0,15$ avec 200 le nombre total de patients.
+    \item De manière similaire, on calcule $\mathrm{P}(\mathrm{G}) = \dfrac{75}{200} = 0,375$.
+    \end{itemize}
+    Avec la formule, on retrouve :
+    $$
+    \mathrm{P}_{\mathrm{G}}(\mathrm{~A})={\frac{\mathrm{P}(\mathrm{~G} \cap \mathrm{~A})}{\mathrm{P}(\mathrm{G})}}
+    = \dfrac{\dfrac{30}{200}}{\dfrac{75}{200}}
+    = \dfrac{30}{75}
+    = 0{,}4.
+    $$
+
+  \end{multihideW}
+
+  }
+\end{example}
+\begin{proposition}{}{}
+\begin{multihide}
+Soient A et B deux événements avec $\mathrm{P}(\mathrm{A}) \neq 0$. Alors,
+
+$$
+\mathrm{P}(\mathrm{A} \cap \mathrm{B})=\mathrm{P}_{\mathrm{A}}(\mathrm{B}) \times \mathrm{P}(\mathrm{A})
+$$
+\end{multihide}
+\end{proposition}
+
+\subsection{Utilisation des tableaux}
+
+Un tableau à double entrée permet souvent de présenter de façon claire une expérience probabiliste et de calculer facilement des probabilités conditionnelles.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\cline { 2 - 4 }
+\multicolumn{1}{c|}{} & $\mathrm{B}$ & $\overline{\mathrm{B}}$ & Total \\
+\hline
+$\mathrm{A}$ & $\hideMW{\P(\mathrm{A} \cap \mathrm{B})}$ & $\hideMW{\P(\mathrm{A} \cap \overline{\mathrm{B}})}$ & $\hideMW{\P(\mathrm{A})}$ \\
+\hline
+$\overline{\mathrm{A}}$ & $\hideMW{\P(\overline{\mathrm{A}} \cap \mathrm{B})}$ & $\hideMW{\P(\overline{\mathrm{A}} \cap \overline{\mathrm{B}})}$ & $\hideMW{\P(\overline{\mathrm{A}})}$ \\
+\hline
+Total & $\hideMW{\P(\mathrm{B})}$ & $\hideMW{\P(\overline{\mathrm{B}})}$ & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{remark}
+Dans le tableau ci-dessus $\mathrm{P}(\mathrm{A} \cap \mathrm{B})$ se lit à l'intersection des lignes A et B .
+
+\end{remark}
+
+\begin{example}
+Dans une entreprise de 450 salariés, il y a 270 hommes et 180 femmes.
+Par ailleurs, les salariés se répartissent en deux catégories : les cadres et les ouvriers.
+On sait plus précisément qu'il y a 80 cadres et que le nombre de femmes cadres est de 45.
+Quel est le pourcentage d'ouvriers parmi les hommes de l'entreprise ?
+
+Solution :
+
+On réalise le tableau suivant donnant la proportion de salariés pour chaque catégorie (hommes/ femmes et cadres/ouvriers).
+
+\begin{center}
+\renewcommand{\arraystretch}{2.5}
+\begin{tabular}{|c|c|c|c|}
+\cline { 2 - 4 }
+\multicolumn{1}{c|}{} & cadres & ouvriers & Total \\
+\hline
+femmes & $\hideMW{\dfrac{45}{450}}$ & $\hideMW{\dfrac{135}{450}}$ & $\hideMW{\dfrac{180}{450}}$ \\
+\hline
+hommes & $\hideMW{\dfrac{35}{450}}$ & $\hideMW{\dfrac{235}{450}}$ & $\hideMW{\dfrac{270}{450}}$ \\
+\hline
+Total & $\hideMW{\dfrac{80}{450}}$ & $\hideMW{\dfrac{370}{450}}$ & $\hideMW{1}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+On choisit un salarié au hasard et on considère les événements suivants :\\
+H : «Le salarié est un homme»;\\
+O : «Le salarié est un ouvrier».\\
+Avec ces notations, la proportion cherchée est $\mathrm{P}_{\mathrm{H}}(\mathrm{O})$ :
+
+\framebox[1\linewidth]{\parbox{5.5in}{
+$$
+\hideMW{\mathrm{P}_{\mathrm{H}}(\mathrm{O})=\frac{\mathrm{P}(\mathrm{O} \cap H)}{\mathrm{P}(\mathrm{O})}=\dfrac{\frac{235}{450}}{\frac{270}{450}}=\dfrac{235}{270} \simeq 87 \%}
+$$
+
+}}
+
+\end{example}
+
+\begin{savoir}{}{}
+\begin{itemize}[label=--]
+  \item Passer du registre de la langue naturelle au registre symbolique et inversement.
+  \item Calculer une probabilité conditionnelle.
+
+  \item Construire et utiliser ou un tableau pour résoudre un problème.
+
+\end{itemize}
+\end{savoir}

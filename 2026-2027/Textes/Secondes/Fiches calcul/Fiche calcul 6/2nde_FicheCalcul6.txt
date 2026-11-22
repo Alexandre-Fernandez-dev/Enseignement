@@ -1,0 +1,165 @@
+% Source : 2026-2027/Secondes/Fiches calcul/Fiche calcul 6/2nde_FicheCalcul6.tex
+\flushbottom
+
+\setlength{\headwidth}{\textwidth}
+\fancyhf{}
+\fancyhead[L]{\textbf{Fiche calcul 6}}
+\fancyhead[C]{Racines carrées}
+\fancyhead[R]{Seconde}
+\fancyfoot[L]{A. Fernandez}
+\fancyfoot[R]{\thepage\ / \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+{\centering\Large\bfseries Fiche calcul 6 -- Racines carrées\par}
+
+\tcbset{mathaleaexo/.style={unbreakable, top=1pt, bottom=0pt, before skip=6pt plus 12pt, after skip=1pt plus 6pt}}
+
+\begin{prop}{1. Définition}
+\rub{Définition}Pour $a \geqslant 0$, $\sqrt{a}$ est le nombre \textbf{positif} dont le carré est $a$.
+
+\rub{Propriétés}Pour $a \geqslant 0$ :
+\begin{tasks}[label=\textbullet, label-width=0.8em, item-indent=1.4em, after-item-skip=0pt](2)
+	\task $\left(\sqrt{a}\right)^2 = a$
+	\task $\sqrt{a^2} = a$
+\end{tasks}
+
+\rub{À connaître}Carrés parfaits : $1$, $4$, $9$, $16$, $25$, $36$, $49$, $64$, $81$, $100$, $121$, $144$.
+
+\rub{Exemples}
+\begin{tasks}[label=\textbullet, label-width=0.8em, item-indent=1.4em, after-item-skip=0pt](2)
+	\task Calculer $\sqrt{49}$. \afaire[1.7em]{$\sqrt{49} = 7$ car $7^2 = 49$ et $7 \geqslant 0$.}
+	\task Calculer $\sqrt{(-5)^2}$. \afaire[1.7em]{$\sqrt{(-5)^2} = \sqrt{25} = 5$ (et non $-5$).}
+\end{tasks}
+\end{prop}
+
+\begin{EXO}{}{}
+Calculer.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.5em plus 0.5em](4)
+	\task $\sqrt{81}$
+	\task $\sqrt{0{,}0049}$
+	\task $\left(-2\sqrt{3}\right)^2$
+	\task $\sqrt{(-7)^2} - \left(\sqrt{7}\right)^2$
+\end{tasks}
+\end{EXO}
+
+\begin{prop}{2. Produit}
+\rub{Propriété}Pour $a \geqslant 0$ et $b \geqslant 0$ : \quad $\sqrt{a \times b} = \sqrt{a} \times \sqrt{b}$.
+
+\rub{Démonstration}On pose $x = \sqrt{a} \times \sqrt{b}$, et on montre que $x \geqslant 0$ et que $x^2 = ab$.
+\afaire[5em]{$x$ est positif, car c'est le produit de deux nombres positifs.
+
+$x^2 = \left(\sqrt{a} \times \sqrt{b}\right)^2 = \left(\sqrt{a}\right)^2 \times \left(\sqrt{b}\right)^2 = a \times b$.
+
+Donc $x$ est le nombre positif dont le carré est $ab$ : $x = \sqrt{ab}$.}
+
+\rub{Définition}\textbf{Simplifier} $\sqrt{n}$, c'est l'écrire $a\sqrt{b}$, avec $a$ et $b$ entiers et $b$ le plus petit possible.
+
+\rub{Méthodes}
+\begin{liste}
+	\item \textbf{Simplifier} : on fait apparaître le plus grand carré parfait qui divise $n$.
+	\item \textbf{Réduire} une somme : on simplifie chaque racine, puis on regroupe.
+\end{liste}
+
+\rub{Exemples}
+\begin{tasks}[label=\textbullet, label-width=0.8em, item-indent=1.4em, after-item-skip=0pt](3)
+	\task Calculer $\sqrt{3} \times \sqrt{12}$. \afaire[1.7em]{$\sqrt{3} \times \sqrt{12} = \sqrt{36} = 6$}
+	\task Simplifier $\sqrt{12}$. \afaire[1.7em]{$\sqrt{12} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}$}
+	\task Réduire $\sqrt{12} + \sqrt{27}$. \afaire[1.7em]{$2\sqrt{3} + 3\sqrt{3} = 5\sqrt{3}$}
+\end{tasks}
+\end{prop}
+
+\begin{EXO}{}{}
+Calculer.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.5em plus 0.5em](3)
+	\task $\sqrt{2} \times \sqrt{8}$
+	\task $2\sqrt{3} \times \sqrt{12}$
+	\task $\left(2\sqrt{5}\right)^2 - \left(3\sqrt{2}\right)^2$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Simplifier.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.5em plus 0.5em](3)
+	\task $\sqrt{18}$
+	\task $\sqrt{72}$
+	\task $2\sqrt{3} \times 5\sqrt{6}$
+\end{tasks}
+\end{EXO}
+
+\tcbset{mathaleaexo/.style={unbreakable, top=1pt, bottom=0pt, before skip=6pt plus 12pt, after skip=1pt plus 6pt}}
+\begin{EXO}{}{}
+Réduire. Pour $C$, développer d'abord.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.5em plus 0.5em](3)
+	\task $A = \sqrt{8} + \sqrt{18}$
+	\task $B = 2\sqrt{50} - 3\sqrt{8} + \sqrt{18}$
+	\task $C = \left(2 + \sqrt{3}\right)^2$
+\end{tasks}
+\end{EXO}
+\tcbset{mathaleaexo/.style={unbreakable, top=1pt, bottom=0pt, before skip=6pt plus 12pt, after skip=1pt plus 6pt}}
+
+\tcbset{mathaleaexo/.style={unbreakable, top=1pt, bottom=0pt, before skip=6pt plus 12pt, after skip=1pt plus 6pt}}
+
+\pagebreak
+\begin{prop}{3. Quotient}
+\rub{Propriété}Pour $a \geqslant 0$ et $b > 0$ : \quad $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$.
+
+\rub{Méthode}\textbf{Rendre le dénominateur entier} : multiplier le numérateur et le dénominateur par la racine carrée du dénominateur.
+
+\rub{Exemples}
+\begin{tasks}[label=\textbullet, label-width=0.8em, item-indent=1.4em, after-item-skip=0pt](3)
+	\task Calculer $\sqrt{\dfrac{9}{16}}$. \afaire[3.4em]{$\sqrt{\dfrac{9}{16}} = \dfrac{\sqrt{9}}{\sqrt{16}} = \dfrac{3}{4}$}
+	\task Calculer $\dfrac{\sqrt{50}}{\sqrt{2}}$. \afaire[3.4em]{$\dfrac{\sqrt{50}}{\sqrt{2}} = \sqrt{\dfrac{50}{2}} = \sqrt{25} = 5$}
+	\task Simplifier $\dfrac{6}{\sqrt{3}}$. \afaire[3.4em]{$\dfrac{6 \times \sqrt{3}}{\sqrt{3} \times \sqrt{3}} = \dfrac{6\sqrt{3}}{3} = 2\sqrt{3}$}
+\end{tasks}
+\end{prop}
+
+\begin{EXO}{}{}
+Calculer. Donner le résultat sous forme d'un entier ou d'une fraction irréductible.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.5em plus 0.5em](4)
+	\task $\sqrt{\dfrac{25}{49}}$
+	\task $\sqrt{\dfrac{18}{50}}$
+	\task $\dfrac{\sqrt{50} + \sqrt{8}}{\sqrt{2}}$
+	\task $\sqrt{1 + \dfrac{9}{16}}$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Écrire sans racine carrée au dénominateur, puis simplifier.
+
+\begin{tasks}[label=\textbf{\alph*.}, item-indent=2em, after-item-skip=0.5em plus 0.5em](3)
+	\task $\dfrac{1}{\sqrt{2}}$
+	\task $\dfrac{3}{2\sqrt{3}}$
+	\task $\dfrac{2 + \sqrt{2}}{\sqrt{2}}$
+\end{tasks}
+\end{EXO}
+
+\begin{prop}{4. Racine d'une somme}
+\rub{Propriété}Si $a > 0$ et $b > 0$ : \ $\sqrt{a + b} < \sqrt{a} + \sqrt{b}$. \ On ne « coupe » \textbf{jamais} la racine d'une somme.
+
+\rub{Exemple}Comparer $\sqrt{9 + 16}$ et $\sqrt{9} + \sqrt{16}$.
+\afaire[2em]{$\sqrt{9 + 16} = \sqrt{25} = 5$, \ mais \ $\sqrt{9} + \sqrt{16} = 3 + 4 = 7$.}
+
+\rub{Démonstration}On compare les carrés des deux nombres, qui sont positifs.
+\afaire[6.6em]{$\left(\sqrt{a} + \sqrt{b}\right)^2 = \left(\sqrt{a}\right)^2 + 2\sqrt{a}\sqrt{b} + \left(\sqrt{b}\right)^2 = a + b + 2\sqrt{a}\sqrt{b}$ \quad (identité remarquable).
+
+$\left(\sqrt{a + b}\right)^2 = a + b$. \quad Comme $2\sqrt{a}\sqrt{b} > 0$, on a $\left(\sqrt{a} + \sqrt{b}\right)^2 > \left(\sqrt{a + b}\right)^2$.
+
+Pour deux nombres positifs, le plus grand est celui qui a le plus grand carré : donc $\sqrt{a} + \sqrt{b} > \sqrt{a + b}$.}
+\end{prop}
+
+\begin{EXO}{}{}
+\begin{enumerate}[itemsep=2pt]
+	\item Léo écrit : $\sqrt{4 + 9} = 2 + 3 = 5$. Trouver son erreur et donner le bon résultat.
+	\item Ranger dans l'ordre croissant : \quad $\sqrt{36 + 64}$ \ ; \ $\sqrt{36} + \sqrt{64}$ \ ; \ $\sqrt{36 \times 64}$.
+	\item Comparer $\sqrt{18} + \sqrt{32}$ et $\sqrt{98}$.
+	\item Vrai ou faux~? « Pour tous nombres $a$ et $b$ positifs, $\sqrt{a^2 + b^2} = a + b$. » Justifier.
+\end{enumerate}
+\end{EXO}
+
+\pagebreak
+\raggedbottom

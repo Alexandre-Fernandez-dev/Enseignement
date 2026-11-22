@@ -1,0 +1,104 @@
+% Source : 2026-2027/Secondes/Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{tcolorbox}[colback=white, colframe=black, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt]
+\textbf{Pour résoudre un problème}
+\begin{enumerate}[itemsep=0pt, topsep=2pt]
+	\item Choisir l'inconnue et écrire ce qu'elle représente, avec son unité.
+	\item Traduire l'énoncé par une équation ou une inéquation.
+	\item Résoudre.
+	\item Conclure par une phrase, en tenant compte du contexte (valeurs possibles de l'inconnue).
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{EXO}{}{}
+Une boutique loue des vélos électriques pour $10$~heures au plus, selon deux tarifs.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{9cm}|}
+	\hline
+	\textbf{Tarif A} & \textbf{Tarif B} \\ \hline
+	$5$~€ par heure. & $15$~€ de frais fixes, puis $2$~€ par heure. \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[itemsep=0.8em]
+	\item Compléter le tableau.
+
+	{\renewcommand{\arraystretch}{1.8}
+	\begin{tabular}{|l|*{3}{>{\centering\arraybackslash}p{2.6cm}|}}
+		\hline
+		Durée (en heures) & $2$ & $4$ & $6$ \\ \hline
+		Prix avec le tarif A (en €) & & & \\ \hline
+		Prix avec le tarif B (en €) & & & \\ \hline
+	\end{tabular}}
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue le prix payé avec le tarif A, puis avec le tarif B.
+	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Répondre par un intervalle.
+	\item Avec le tarif B et $30$~€ au plus, combien de temps peut-on louer un vélo~?
+\end{enumerate}
+\end{EXO}
+
+\tcbset{mathaleaexo/.style={unbreakable}}
+\begin{EXO}{}{}
+\begin{minipage}{0.56\linewidth}
+On construit un enclos rectangulaire le long d'un mur.
+
+On dispose de $24$~m de grillage.
+
+Le grillage ne sert que sur les trois côtés en pointillés.
+
+On note $x$ la largeur de l'enclos, en mètres.
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{center}
+\enclos
+\end{center}
+\end{minipage}
+
+\begin{enumerate}[itemsep=0.8em]
+	\item Si $x = 5$, quelle est la longueur de l'enclos~? Montrer qu'en général, elle vaut $24 - 2x$.
+	\item La largeur et la longueur doivent être strictement positives. Montrer que $x \in \mathopen{]}0\,;\,12\mathclose{[}$.
+	\item Pour quelles valeurs de $x$ la longueur est-elle d'au moins $10$~m~?
+	\item Pour quelles valeurs de $x$ la longueur est-elle supérieure ou égale à la largeur~?
+	\item Calculer l'aire de l'enclos pour $x = 2$, pour $x = 6$ et pour $x = 10$. L'aire dépend-elle de $x$~?
+\end{enumerate}
+\end{EXO}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{EXO}{}{}
+On augmente de $3$~cm le côté d'un carré.
+
+Pour quelles longueurs du côté l'aire du carré augmente-t-elle de plus de $45$~cm$^2$~?
+\begin{enumerate}[itemsep=0.8em]
+	\item Le côté mesure $4$~cm. Calculer l'aire avant et après l'augmentation. De combien l'aire a-t-elle augmenté~? Même question si le côté mesure $10$~cm.
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue l'augmentation de l'aire.
+	\item Développer et réduire l'expression obtenue.
+	\item Répondre au problème.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+Une citerne contient $500$~L d'eau. Chaque jour, on en prélève $30$~L pour arroser un jardin.
+
+On veut qu'il reste toujours au moins $150$~L dans la citerne (réserve en cas d'incendie).
+
+Pendant combien de jours peut-on arroser le jardin~?
+\begin{enumerate}[itemsep=0.8em]
+	\item Quelle quantité d'eau reste-t-il au bout de $2$~jours~? au bout de $5$~jours~?
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue la quantité d'eau qui reste dans la citerne.
+	\item Traduire la contrainte de la réserve par une inéquation, puis la résoudre.
+	\item Répondre au problème. Attention : l'inconnue est un nombre entier.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+\textbf{Pour aller plus loin.} Deux bougies sont allumées en même temps. La première mesure $30$~cm et raccourcit de $2$~cm par heure. La seconde mesure $20$~cm et raccourcit de $1$~cm par heure.
+\begin{enumerate}[itemsep=0.8em]
+	\item Quelle est la hauteur de chaque bougie au bout de $4$~heures~?
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue la hauteur de chaque bougie.
+	\item Au bout de combien d'heures la première bougie est-elle entièrement consumée~?
+	\item Tant que la première bougie brûle, pendant quelle période est-elle plus courte que la seconde~? Répondre par un intervalle.
+\end{enumerate}
+\end{EXO}

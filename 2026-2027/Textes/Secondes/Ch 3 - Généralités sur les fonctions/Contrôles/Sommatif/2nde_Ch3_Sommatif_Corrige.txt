@@ -1,0 +1,177 @@
+% Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Contrôles/Sommatif/2nde_Ch3_Sommatif_Corrige.tex
+\begin{center}
+  {\large\bfseries Corrigé du contrôle (A) --- Nombres et fonctions}\\[0.3em]
+  {\itshape Seconde \quad $\bullet$ \quad Barème sur 20 points}
+\end{center}
+\begin{exercice}{Automatismes}{5}
+Les questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $\dfrac{4}{9}\times\dfrac{15}{8}$. Donner le résultat sous forme irréductible. \sol{$\dfrac{4}{9}\times\dfrac{15}{8} = \dfrac{4 \times 3 \times 5}{3 \times 3 \times 4 \times 2} = \dfrac{5}{6}$}
+  \item Résoudre l'inéquation $-3x+12\geqslant 0$. Donner les solutions sous forme d'intervalle. \sol{$-3x \geqslant -12 \iff x \leqslant \dfrac{-12}{-3} \iff x \leqslant 4$ (on divise par $-3 < 0$ : le sens de l'inégalité change), donc $S = \left]-\infty\,;\,4\right]$.}
+  \item Calculer $75\,\%$ de $120$. \sol{$120 \div 4 = 30$, donc $75\,\% = 3 \times 30 = 90$.}
+  \item Justifier chaque appartenance.
+  \begin{tasks}[label=\alph*), label-width=1.4em, item-indent=1.8em](4)
+    \task $\dfrac{-18}{6}\in\mathbb{Z}$\\[2pt]\sol{\small $\dfrac{-18}{6} = -3$, entier relatif.}
+    \task $\dfrac{7}{4}\in\mathbb{D}$\\[2pt]\sol{\small $\dfrac{7}{4} = \dfrac{175}{100} = \dfrac{175}{10^2}$.}
+    \task $-2{,}35\in\mathbb{Q}$\\[2pt]\sol{\small $-2{,}35 = \dfrac{-235}{100}$, quotient d'entiers.}
+    \task $\sqrt{49}\in\mathbb{N}$\\[2pt]\sol{\small $\sqrt{49} = 7$, entier naturel.}
+  \end{tasks}
+\end{enumerate}
+\bareme{Questions 1 à 3 : 1 point chacune (question 2 : $0{,}5$ pour la résolution avec le changement de sens, $0{,}5$ pour l'intervalle). Question 4 : $0{,}5$ par nombre, l'écriture qui justifie (entier, $\dfrac{a}{10^n}$, $\dfrac{a}{b}$) est attendue.}
+\end{exercice}
+
+\begin{exercice}{Lecture graphique}{5}
+La courbe $\mathcal{C}_f$ ci-contre représente une fonction $f$. Répondre par lecture graphique.
+\par\smallskip
+\begin{minipage}[t]{0.46\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Quel est l'ensemble de définition de $f$~? \sol{$[-4\,;\,5]$}
+  \item Donner $f(2)$ et l'image de $-4$ par $f$. \sol{$f(2) = -2$ \quad et \quad $f(-4) = -3$.}
+  \item Déterminer les antécédents de $1$ par $f$. \sol{Les antécédents de $1$ sont $-3$, $0$ et $4$.}
+  \item Résoudre l'inéquation $f(x) \geqslant 1$. \sol{$S = [-3\,;\,0] \cup [4\,;\,5]$.}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.52\linewidth}
+\centering
+[figure]
+\end{minipage}
+\bareme{1. $1$ ; 2. $1$ ($0{,}5 + 0{,}5$) ; 3. $1{,}5$ (tous les antécédents) ; 4. $1{,}5$ (crochets et réunion).}
+\end{exercice}
+
+\begin{exercice}{Problème}{6}
+Une salle d'escalade propose deux formules :
+\begin{itemize}[label=\textbullet, itemsep=1pt, topsep=2pt]
+  \item \textbf{Formule A} : $4$~€ par séance ;
+  \item \textbf{Formule B} : un abonnement de $20$~€, puis $2$~€ par séance.
+\end{itemize}
+On note $x$ le nombre de séances, avec $0 \leqslant x \leqslant 15$. Le prix payé est $f(x) = 4x$ avec la formule A, et $g(x) = 20 + 2x$ avec la formule B.
+
+\begin{minipage}[t]{0.5\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Calculer $f(5)$ et $g(5)$. Quelle formule est la moins chère pour $5$ séances~? \sol{$f(5) = 4 \times 5 = 20$ et $g(5) = 20 + 2 \times 5 = 30$. Pour $5$ séances, la formule A est la moins chère.}
+  \item Le point $M(12\,;\,44)$ appartient-il à la courbe $\mathcal{C}_g$~? Justifier par un calcul. \sol{$g(12) = 20 + 2 \times 12 = 44$ : c'est l'ordonnée de $M$, donc $M \in \mathcal{C}_g$.}
+  \item Les courbes de $f$ et $g$ sont tracées ci-contre. Résoudre graphiquement $f(x) = g(x)$. Interpréter le résultat. \sol{Les droites se coupent au point d'abscisse $10$ : $S = \{10\}$. Pour $10$ séances, les deux formules coûtent le même prix ($40$~€).}
+  \item Résoudre graphiquement $f(x) < g(x)$. Interpréter le résultat. \sol{$\mathcal{C}_f$ est en dessous de $\mathcal{C}_g$ pour $x \in [0\,;\,10[$. La formule A est moins chère pour moins de $10$ séances.}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+[figure]
+\end{minipage}
+\bareme{$1{,}5$ point par question. Question 1 : $0{,}5 + 0{,}5$ pour les calculs, $0{,}5$ pour la conclusion. Questions 3 et 4 : lecture $1$, interprétation $0{,}5$.}
+\end{exercice}
+
+\begin{exercice}{Fonction et géométrie}{4}
+\begin{minipage}[t]{0.6\linewidth}
+\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+$ABCD$ est un carré de côté $6$~cm.
+
+$M$ est un point du segment $[AB]$.
+
+On note $x$ la longueur $AM$, en cm.
+
+$AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
+
+On note $\mathcal{A}(x)$ l'aire de la partie hachurée, en cm$^2$.
+\begin{enumerate}
+  \item Dans quel intervalle le nombre $x$ peut-il varier~? \sol{$M$ est sur $[AB]$ et $AB = 6$, donc $x \in [0\,;\,6]$.}
+  \item Justifier que $\mathcal{A}(x) = 36 - x^2$. \sol{L'aire du carré $ABCD$ est $6^2 = 36$ et celle du carré $AMNP$ est $x^2$. La partie hachurée est le carré $ABCD$ privé du carré $AMNP$, donc $\mathcal{A}(x) = 36 - x^2$.}
+  \item Calculer $\mathcal{A}(2)$. Interpréter le résultat. \sol{$\mathcal{A}(2) = 36 - 2^2 = 36 - 4 = 32$. Pour $AM = 2$~cm, l'aire hachurée est $32$~cm$^2$.}
+  \item Montrer que $3$ est un antécédent de $27$ par $\mathcal{A}$. Interpréter le résultat. \sol{$\mathcal{A}(3) = 36 - 3^2 = 36 - 9 = 27$ : l'image de $3$ est $27$, donc $3$ est un antécédent de $27$. Pour $AM = 3$~cm, l'aire hachurée est $27$~cm$^2$.}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\centering
+[figure]
+\end{minipage}
+\bareme{1 point par question. Question 2 : $0{,}5$ pour les deux aires, $0{,}5$ pour la différence. Question 3 : calcul $0{,}5$ (le carré se calcule avant la soustraction), interprétation $0{,}5$. Question 4 : calcul de l'image $0{,}5$ ; conclusion avec le mot « antécédent » et interprétation $0{,}5$.}
+\end{exercice}
+
+\setcounter{exo}{0}
+\begin{center}
+  {\large\bfseries Corrigé du contrôle (B) --- Nombres et fonctions}\\[0.3em]
+  {\itshape Seconde \quad $\bullet$ \quad Barème sur 20 points}
+\end{center}
+\begin{exercice}{Automatismes}{5}
+Les questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $\dfrac{6}{25}\times\dfrac{10}{9}$. Donner le résultat sous forme irréductible. \sol{$\dfrac{6}{25}\times\dfrac{10}{9} = \dfrac{2 \times 3 \times 2 \times 5}{5 \times 5 \times 3 \times 3} = \dfrac{4}{15}$}
+  \item Résoudre l'inéquation $-2x+10<0$. Donner les solutions sous forme d'intervalle. \sol{$-2x < -10 \iff x > \dfrac{-10}{-2} \iff x > 5$ (on divise par $-2 < 0$ : le sens de l'inégalité change), donc $S = \left]5\,;\,+\infty\right[$.}
+  \item Calculer $75\,\%$ de $160$. \sol{$160 \div 4 = 40$, donc $75\,\% = 3 \times 40 = 120$.}
+  \item Justifier chaque appartenance.
+  \begin{tasks}[label=\alph*), label-width=1.4em, item-indent=1.8em](4)
+    \task $\dfrac{-21}{7}\in\mathbb{Z}$\\[2pt]\sol{\small $\dfrac{-21}{7} = -3$, entier relatif.}
+    \task $\dfrac{9}{20}\in\mathbb{D}$\\[2pt]\sol{\small $\dfrac{9}{20} = \dfrac{45}{100} = \dfrac{45}{10^2}$.}
+    \task $-1{,}8\in\mathbb{Q}$\\[2pt]\sol{\small $-1{,}8 = \dfrac{-18}{10}$, quotient d'entiers.}
+    \task $\sqrt{64}\in\mathbb{N}$\\[2pt]\sol{\small $\sqrt{64} = 8$, entier naturel.}
+  \end{tasks}
+\end{enumerate}
+\bareme{Questions 1 à 3 : 1 point chacune (question 2 : $0{,}5$ pour la résolution avec le changement de sens, $0{,}5$ pour l'intervalle). Question 4 : $0{,}5$ par nombre, l'écriture qui justifie (entier, $\dfrac{a}{10^n}$, $\dfrac{a}{b}$) est attendue.}
+\end{exercice}
+
+\begin{exercice}{Lecture graphique}{5}
+La courbe $\mathcal{C}_f$ ci-contre représente une fonction $f$. Répondre par lecture graphique.
+\par\smallskip
+\begin{minipage}[t]{0.46\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Quel est l'ensemble de définition de $f$~? \sol{$[-4\,;\,5]$}
+  \item Donner $f(-1)$ et l'image de $5$ par $f$. \sol{$f(-1) = -3$ \quad et \quad $f(5) = -4$.}
+  \item Déterminer les antécédents de $0$ par $f$. \sol{Les antécédents de $0$ sont $-3$, $1$ et $4$.}
+  \item Résoudre l'inéquation $f(x) \geqslant 0$. \sol{$S = [-4\,;\,-3] \cup [1\,;\,4]$.}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.52\linewidth}
+\centering
+[figure]
+\end{minipage}
+\bareme{1. $1$ ; 2. $1$ ($0{,}5 + 0{,}5$) ; 3. $1{,}5$ (tous les antécédents) ; 4. $1{,}5$ (crochets et réunion).}
+\end{exercice}
+
+\begin{exercice}{Problème}{6}
+Un loueur de trottinettes propose deux formules :
+\begin{itemize}[label=\textbullet, itemsep=1pt, topsep=2pt]
+  \item \textbf{Formule A} : $5$~€ par heure ;
+  \item \textbf{Formule B} : $12$~€ de frais de dossier, puis $3$~€ par heure.
+\end{itemize}
+On note $x$ la durée de location en heures, avec $0 \leqslant x \leqslant 12$. Le prix payé est $f(x) = 5x$ avec la formule A, et $g(x) = 12 + 3x$ avec la formule B.
+
+\begin{minipage}[t]{0.5\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Calculer $f(4)$ et $g(4)$. Quelle formule est la moins chère pour $4$ heures~? \sol{$f(4) = 5 \times 4 = 20$ et $g(4) = 12 + 3 \times 4 = 24$. Pour $4$ heures, la formule A est la moins chère.}
+  \item Le point $M(10\,;\,40)$ appartient-il à la courbe $\mathcal{C}_g$~? Justifier par un calcul. \sol{$g(10) = 12 + 3 \times 10 = 42 \neq 40$, donc $M \notin \mathcal{C}_g$.}
+  \item Les courbes de $f$ et $g$ sont tracées ci-contre. Résoudre graphiquement $f(x) = g(x)$. Interpréter le résultat. \sol{Les droites se coupent au point d'abscisse $6$ : $S = \{6\}$. Pour $6$ heures, les deux formules coûtent le même prix ($30$~€).}
+  \item Résoudre graphiquement $f(x) < g(x)$. Interpréter le résultat. \sol{$\mathcal{C}_f$ est en dessous de $\mathcal{C}_g$ pour $x \in [0\,;\,6[$. La formule A est moins chère pour moins de $6$ heures.}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+[figure]
+\end{minipage}
+\bareme{$1{,}5$ point par question. Question 1 : $0{,}5 + 0{,}5$ pour les calculs, $0{,}5$ pour la conclusion. Questions 3 et 4 : lecture $1$, interprétation $0{,}5$.}
+\end{exercice}
+
+\begin{exercice}{Fonction et géométrie}{4}
+\begin{minipage}[t]{0.6\linewidth}
+\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+$ABCD$ est un carré de côté $8$~cm.
+
+$M$ est un point du segment $[AB]$.
+
+On note $x$ la longueur $AM$, en cm.
+
+$AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
+
+On note $\mathcal{A}(x)$ l'aire de la partie hachurée, en cm$^2$.
+\begin{enumerate}
+  \item Dans quel intervalle le nombre $x$ peut-il varier~? \sol{$M$ est sur $[AB]$ et $AB = 8$, donc $x \in [0\,;\,8]$.}
+  \item Justifier que $\mathcal{A}(x) = 64 - x^2$. \sol{L'aire du carré $ABCD$ est $8^2 = 64$ et celle du carré $AMNP$ est $x^2$. La partie hachurée est le carré $ABCD$ privé du carré $AMNP$, donc $\mathcal{A}(x) = 64 - x^2$.}
+  \item Calculer $\mathcal{A}(3)$. Interpréter le résultat. \sol{$\mathcal{A}(3) = 64 - 3^2 = 64 - 9 = 55$. Pour $AM = 3$~cm, l'aire hachurée est $55$~cm$^2$.}
+  \item Montrer que $5$ est un antécédent de $39$ par $\mathcal{A}$. Interpréter le résultat. \sol{$\mathcal{A}(5) = 64 - 5^2 = 64 - 25 = 39$ : l'image de $5$ est $39$, donc $5$ est un antécédent de $39$. Pour $AM = 5$~cm, l'aire hachurée est $39$~cm$^2$.}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\centering
+[figure]
+\end{minipage}
+\bareme{1 point par question. Question 2 : $0{,}5$ pour les deux aires, $0{,}5$ pour la différence. Question 3 : calcul $0{,}5$ (le carré se calcule avant la soustraction), interprétation $0{,}5$. Question 4 : calcul de l'image $0{,}5$ ; conclusion avec le mot « antécédent » et interprétation $0{,}5$.}
+\end{exercice}

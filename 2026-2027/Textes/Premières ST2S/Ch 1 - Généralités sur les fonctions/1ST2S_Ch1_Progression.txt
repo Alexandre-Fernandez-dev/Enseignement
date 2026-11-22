@@ -1,0 +1,32 @@
+% Source : 2026-2027/Premières ST2S/Ch 1 - Généralités sur les fonctions/1ST2S_Ch1_Progression.tex
+\fancyhf{} 
+
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Fonctions de seconde (revoir)
+    \item calcul littéral
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Contenus}
+  \begin{itemize}
+    \item Modes de représentations : littérale, graphique
+    \item notations $y = f(x)$ et $x \mapsto f(x)$.
+
+    \item Monotonie et variations
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Modéliser à l'aide de fonctions,
+    \item Résoudre graphiquement f(x) = k ou inéquation,
+    \item Construire et exploiter un tableau de variations.
+
+  \end{itemize} 
+\end{paragraph}

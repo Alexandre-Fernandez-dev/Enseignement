@@ -1,0 +1,46 @@
+% Source : 2026-2027/Secondes/Ch 2 - Ensembles de nombres/Contrôles/Rattrapage/2nde_Ch2_Rattrapage.tex
+\begin{center}
+  {\Large\bfseries Rattrapage --- Ensembles de nombres (1)~: intervalles}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Durée~: 50 minutes \quad $\bullet$ \quad Calculatrice interdite}
+\end{center}
+
+\exercice{1}{Automatismes}{5}
+\underline{Sur la copie.} Les questions sont indépendantes. Justifier chaque réponse.
+\begin{enumerate}[itemsep=6pt]
+  \item Calculer $3^{4}\times 3^{-2}$.
+  \item On sait que $\dfrac{14}{15}-\dfrac{15}{16}<0$. Compléter avec le symbole $<$ ou $>$ : \quad $\dfrac{15}{16}\ \dots\ \dfrac{14}{15}$.
+  \item On considère l'expression $P=k(3+b)$. Calculer la valeur de $P$ pour $k=6$ et $b=\dfrac{2}{3}$.
+  \item Factoriser à l'aide d'une identité remarquable : \quad $A=x^2+8x+16$
+\end{enumerate}
+
+\exercice{2}{Intervalles}{5}
+\underline{Sur le sujet.}
+\begin{enumerate}
+  \item Compléter les pointillés par $\in$ ou $\notin$.
+
+  \quad a) $-2\ \dots\ \mathopen{]}-2\,;\,5]$ \hfill b) $6\ \dots\ [1\,;\,6]$ \hfill c) $\dfrac{3}{4}\ \dots\ [0{,}8\,;\,2]$ 
+  \item Compléter le tableau.
+  \begin{center}
+  \renewcommand{\arraystretch}{1.8}
+  \begin{tabular}{|c|c|c|c|c|}
+  \hline
+  Inégalité & $-1<x\leqslant 6$ & $x\leqslant -2$ & \makebox[3cm]{\dotfill} & \makebox[3cm]{\dotfill} \\ \hline
+  Intervalle & $x\in\dots\dots\dots\dots$ & $x\in\dots\dots\dots\dots$ & $x\in[-4\,;\,3[$ & $x\in\,]1{,}5\,;\,+\infty[$ \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\exercice{3}{Intersection et union}{4}
+\underline{Sur le sujet.} Représenter $I$ et $J$ sur la droite en deux couleurs, puis donner $I\cap J$ et $I\cup J$.
+
+\casinter{1}{I=[-3\,;\,+\infty[\ ;\ J=\,\mathopen{]}-6\,;\,2]}
+\casinter{2}{I=\,\mathopen{]}-\infty\,;\,-2]\ ;\ J=\,]1\,;\,5]}
+
+\exercice{4}{Inégalités et inéquations}{6}
+\underline{Sur la copie.}
+\begin{enumerate}
+  \item Résoudre les inéquations. Donner les solutions sous forme d'intervalle.
+
+  \quad a) $-3x+2\geqslant 14$ \qquad\qquad b) $8-3x<x-4$
+  \item Compléter en justifiant par une suite d'inégalités : \quad $x\in[-2\,;\,1[ \iff -3x+5\in\ \dots\dots$
+\end{enumerate}

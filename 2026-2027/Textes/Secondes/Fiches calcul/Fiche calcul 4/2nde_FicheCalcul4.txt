@@ -1,0 +1,51 @@
+% Source : 2026-2027/Secondes/Fiches calcul/Fiche calcul 4/2nde_FicheCalcul4.tex
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{EXO}{}{}
+Dire si le nombre proposé est solution de l'inéquation. Justifier.
+
+\begin{enumerate}[itemsep=1em]
+	\item $3x-5<2x+1~$ pour $~x=4$, pour $~x=6~$ puis pour $~x=-2$.
+	\item $x^2\geqslant 4x-3~$ pour $~x=0$, pour $~x=2~$ puis pour $~x=3$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+Écrire sous la forme d'un intervalle l'ensemble des réels $x$ qui vérifient l'inégalité, puis le représenter sur une droite graduée.
+
+\begin{tasks}[after-item-skip=1em](4)
+	\task $x\geqslant 3$
+	\task $x<-1$
+	\task $x\leqslant \dfrac{1}{2}$
+	\task $x>0$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les inéquations suivantes. Donner l'ensemble des solutions sous la forme d'un intervalle.
+
+\begin{tasks}[after-item-skip=1em](3)
+	\task $-x>25$
+	\task $\dfrac{x}{2}\leqslant -3$
+	\task $7-2x<0$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les inéquations suivantes. Donner l'ensemble des solutions sous la forme d'un intervalle.
+
+\begin{tasks}[after-item-skip=1em](3)
+	\task $5x-2\geqslant 3x+6$
+	\task $2x+9<5x-3$
+	\task $6x+1\geqslant 2x-1$
+\end{tasks}
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les inéquations suivantes (on pourra commencer par développer ou par multiplier par un nombre bien choisi).
+
+\begin{tasks}[after-item-skip=1em](2)
+	\task $3(x-2)\leqslant 5x+4$
+	\task $\dfrac{x}{2}+1\geqslant \dfrac{x}{3}$
+\end{tasks}
+\end{EXO}

@@ -1,0 +1,401 @@
+% Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Cours/2nde_Ch3_Cours.tex
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+
+\newcommand{\droite}{\draw[<->, >=Stealth] (0,0) -- (6,0);}
+\newcommand{\brGF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\brGO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDF}[1]{\node[inner sep=0pt] at (#1,0) {\Large$]$};}
+\newcommand{\brDO}[1]{\node[inner sep=0pt] at (#1,0) {\Large$[$};}
+\newcommand{\etiq}[2]{\node[below=10pt,inner sep=0pt] at (#1,0) {\scriptsize$#2$};}
+
+\newcommand{\axesG}[4]{
+  \draw[gray!35, very thin, step=1] (#1,#3) grid (#2,#4);
+  \draw[-{Latex[length=2mm]}] (#1,0) -- (#2+0.3,0);
+  \draw[-{Latex[length=2mm]}] (0,#3) -- (0,#4+0.3);
+  \foreach \x in {#1,...,#2} {\ifnum\x=0 \else \node[below, fill=white, fill opacity=0.7, text opacity=1, inner sep=1pt] at (\x,-0.18) {\small $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0 \else \node[left, fill=white, fill opacity=0.7, text opacity=1, inner sep=1pt] at (-0.1,\y) {\small $\y$};\fi}
+  \node[below left, inner sep=1pt] at (-0.05,-0.18) {\small $0$};
+}
+\newcommand{\croix}[1]{\node[inner sep=0pt] at (#1) {$\times$};}
+
+\newcommand{\grapheF}{
+  [figure]
+}
+
+\newcommand{\grapheA}{
+  [figure]
+}
+
+\newcommand{\grapheEq}[1]{
+  [figure]
+}
+
+\newcommand{\solseg}[1]{\draw[line width=3pt, blue!70!black, opacity=0.6] #1;}
+\newcommand{\grapheIneq}[1]{
+  [figure]
+}
+
+\newcommand{\txt}[1]{\multicolumn{1}{@{}p{0.48\linewidth}@{}}{\raggedright #1}}
+
+\newcommand{\intff}[2]{\mathopen{[}#1\,;\,#2\mathclose{]}}
+\newcommand{\intfo}[2]{\mathopen{[}#1\,;\,#2\mathclose{[}}
+\newcommand{\intof}[2]{\mathopen{]}#1\,;\,#2\mathclose{]}}
+\newcommand{\intoo}[2]{\mathopen{]}#1\,;\,#2\mathclose{[}}
+
+\tcbset{before skip=8pt, after skip=8pt}
+
+\NewEnviron{reponse}{
+  \par\smallskip\noindent
+  \begin{lrbox}{\hidebox}\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}\BODY\end{minipage}\end{lrbox}
+  \fbox{}
+  \par\smallskip
+}
+
+\fancyhf{} 
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+\section{Notion de fonction}
+
+\begin{definition}{Fonction}{}
+  \begin{multihide}
+  Une \textbf{fonction} $f$ est la donnée de deux choses :
+  \begin{itemize}
+    \item un \textbf{ensemble de définition} $D_f$, en général un intervalle ou une réunion d'intervalles ;
+    \item pour chaque nombre $x$ de $D_f$, un \textbf{unique} nombre $f(x)$, appelé \textbf{image} de $x$ par $f$.
+  \end{itemize}
+  On dit alors que $x$ est \textbf{un antécédent} de $f(x)$ par $f$.
+  \end{multihide}
+\end{definition}
+
+\begin{remark}
+  La notation $f : x \mapsto f(x)$ se lit \og la fonction $f$ qui à $x$ associe $f(x)$ \fg{}.
+\end{remark}
+
+\begin{example}
+  Dire que $f(\textcolor{orange}{2})=\textcolor{green!50!black}{5}$ signifie que :
+
+\begin{center}
+[figure]
+\end{center}
+
+\textcolor{green!50!black}{$5$} est \textbf{\hide{l'image}} de \textcolor{orange}{$2$} par $f$, et \textcolor{orange}{$2$} est \textbf{\hide{un antécédent}} de \textcolor{green!50!black}{$5$} par $f$.
+\end{example}
+
+\begin{remark}
+  Un nombre de $D_f$ a \textbf{une seule} image. Un nombre hors de $D_f$ n'a pas d'image.
+
+  En revanche, un nombre peut avoir aucun, un seul ou plusieurs antécédents.
+\end{remark}
+
+\begin{example}
+  Dans l'activité d'introduction, la fonction $T$ donne la température à l'heure $x$.
+
+  Son ensemble de définition est $D_T = \hide{$\intff{0}{24}$}$ : on ne peut pas calculer $T(26)$.
+
+  Dans un problème, c'est souvent le \textbf{contexte} qui fixe l'ensemble de définition.
+\end{example}
+
+\begin{example}
+Voici un \textbf{tableau de valeurs} d'une fonction $f$ définie sur $\intff{1{,}5}{6}$ :
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|Y|Y|Y|Y|Y|}
+\hline
+$x$ & $1{,}5$ & $2$ & $2{,}5$ & $3$ & $3{,}5$ & $4$ & $5$ & $6$ \\
+\hline
+$f(x)$ & $5{,}25$ & $3$ & $1{,}25$ & $0$ & $-0{,}75$ & $-1$ & $0$ & $\hideM{3}$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+On lit dans ce tableau :
+
+\begin{tasks}[label=\textbullet](3)
+    \task $f(1{,}5) = \hideM{5{,}25}$
+    \task $f(3) = \hideM{0}$
+    \task $f(4) = \hideM{-1}$
+    \task $f(\hideM{4}) = -1$
+    \task $f(\hideM{2{,}5}) = 1{,}25$
+    \task $f(\hideM{3}) = f(\hideM{5}) = 0$
+\end{tasks}
+
+$5{,}25$ est \hide{l'image} de $1{,}5$ par $f$, et $1{,}5$ est \hide{un antécédent} de $5{,}25$ par $f$.
+
+Le nombre $0$ a deux antécédents : \hide{$3$} et \hide{$5$}.
+
+Un tableau ne donne que \textbf{quelques} images. Pour obtenir l'image de n'importe quel nombre de $D_f$, on utilise une \textbf{formule}. Ici :
+\[
+  f(x) = x^2 - 8x + 15.
+\]
+Pour calculer une image, on remplace $x$ par le nombre choisi :
+\[
+  f(2) = 2^2 - 8 \times 2 + 15 = 4 - 16 + 15 = 3.
+\]
+De la même manière :
+\[
+  f(6) = \hideM{6^2 - 8 \times 6 + 15 = 36 - 48 + 15 = 3.}
+\]
+\end{example}
+
+\begin{method}{Trouver un antécédent avec une formule}{}
+  Pour trouver les antécédents d'un nombre $b$ par $f$, on \hide{résout l'équation $f(x) = b$}.
+\end{method}
+
+\begin{example}
+  Dans l'activité d'introduction (partie B), $f(x) = 4x + 10$ est le prix payé pour $x$ séances.
+
+  Pour trouver l'antécédent de $50$, on résout l'équation $\hideM{4x + 10 = 50}$, donc $\hideM{4x = 40}$, puis $x = \hideM{10}$.
+
+  L'antécédent de $50$ par $f$ est \hide{$10$} : Léa a fait $10$ séances.
+\end{example}
+
+\section{Représentation graphique}
+
+\begin{definition}{Courbe représentative}{}
+  \begin{multihide}
+    Dans un repère, la \textbf{courbe représentative} $\mathcal{C}_f$ d'une fonction $f$ est l'ensemble des points de coordonnées $\big(x\,;\,f(x)\big)$, pour $x$ dans $D_f$.
+
+    On dit que $\mathcal{C}_f$ a pour \textbf{équation} $y = f(x)$.
+  \end{multihide}
+\end{definition}
+
+\begin{method}{Lire une image ou des antécédents sur une courbe}{}
+  \begin{itemize}
+    \item \textbf{Image de $a$} : on part de $a$ sur l'axe des \textbf{abscisses}, on rejoint la courbe verticalement, puis on lit l'ordonnée.
+    \item \textbf{Antécédents de $b$} : on part de $b$ sur l'axe des \textbf{ordonnées}, on rejoint la courbe horizontalement, autant de fois que possible, puis on lit les abscisses.
+  \end{itemize}
+  Une lecture graphique donne en général des valeurs \textbf{approchées}.
+\end{method}
+
+\begin{example}
+    \begin{minipage}{0.5\linewidth}
+    \begin{center}
+      \grapheF
+    \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.46\linewidth}\raggedright
+    On a représenté ci-contre une fonction $f$.
+
+    Ensemble de définition : $D_f = \hide{$\intff{-5}{5}$}$.
+
+    On lit sur le graphique :
+    \begin{tasks}[label=\textbullet](2)
+      \task $f(-3)=\hideM{3}$
+      \task $f(-4)=\hideM{0}$
+      \task $f(3)=\hideM{4}$
+      \task $f(0)=\hideM{-1}$
+      \task $f(\hideM{-5})=-4$
+      \task $f(\hideM{3{,}5})=5$
+    \end{tasks}
+
+    Les antécédents de $1$ par $f$ sont :
+
+    \hide{environ $-3{,}7$ ; $-1$ ; $2$ et environ $4{,}6$.}
+    \end{minipage}
+\end{example}
+
+\Needspace{12\baselineskip}
+\begin{example}
+    On veut tracer la courbe de la fonction $f$ du I, définie sur $\intff{1{,}5}{6}$ par $f(x)=x^2-8x+15$.
+
+    On place les points du tableau de valeurs, puis on les relie \textbf{à main levée}, sans règle.
+
+\begin{minipage}{0.55\linewidth}
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $x$ & $1{,}5$ & $2$ & $2{,}5$ & $3$ & $3{,}5$ & $4$ & $5$ & $6$ \\
+    \hline
+    $f(x)$ & $5{,}25$ & $3$ & $1{,}25$ & $0$ & $-0{,}75$ & $-1$ & $0$ & $3$ \\
+    \hline
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.42\linewidth}
+\begin{center}
+[figure]
+\end{center}
+\end{minipage}
+\end{example}
+
+\begin{proposition}{Appartenance d'un point à une courbe}{}
+  \begin{multihide}
+    Un point $A(x_A\,;\,y_A)$ appartient à la courbe $\mathcal{C}_f$ si et seulement si $x_A \in D_f$ et $f(x_A) = y_A$.
+  \end{multihide}
+\end{proposition}
+
+\begin{example}
+  On donne la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=x^3+3x^2+0{,}5x+1$.
+
+  \begin{minipage}{0.5\linewidth}\raggedright
+  Le point $A(-1\,;\,2{,}5)$ semble appartenir à la courbe de $f$. Seul un \textbf{calcul} peut le prouver.
+
+  \begin{reponse}
+  On calcule l'image de $x_A = -1$ :
+  \begin{align*}
+    f(-1) &= (-1)^3 + 3 \times (-1)^2 + 0{,}5 \times (-1) + 1 \\
+          &= -1 + 3 - 0{,}5 + 1 \\
+          &= 2{,}5
+  \end{align*}
+  On a $f(x_A) = y_A$, donc $A \in \mathcal{C}_f$.
+  \end{reponse}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\linewidth}
+    \begin{center}
+      \grapheA
+    \end{center}
+  \end{minipage}
+\end{example}
+
+\begin{remark}
+  Si on trouve $f(x_A) \neq y_A$, le point $A$ n'appartient pas à la courbe de $f$.
+\end{remark}
+
+\Needspace{7\baselineskip}
+\begin{example}
+  On donne la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=x^2+1$.
+
+  \begin{tabular}{@{}p{0.48\linewidth}@{}p{0.48\linewidth}@{}}
+    Le point $B(-4\,;\,15)$ appartient-il à $\mathcal{C}_f$~? &
+    Le point $C$ de $\mathcal{C}_f$ a pour abscisse $-2$. Quelle est son ordonnée~? \\
+    \begin{reponse}
+      $f(-4) = (-4)^2 + 1 = 17 \neq 15$, donc $B \notin \mathcal{C}_f$.
+    \end{reponse} &
+    \begin{reponse}
+      $f(-2) = (-2)^2 + 1 = 5$, donc $C(-2\,;\,5)$.
+    \end{reponse}
+  \end{tabular}
+\end{example}
+
+\section{Équations et inéquations du type $f(x)=k$, $f(x)<k$}
+
+\subsection{Équation $f(x)=k$}
+
+Résoudre l'équation $f(x)=k$, c'est trouver tous les nombres $x$ de $D_f$ tels que $f(x)=k$.
+
+Ce sont les \hide{antécédents de $k$ par $f$}.
+
+\begin{method}{Résoudre graphiquement $f(x)=k$}{}
+  \begin{enumerate}
+    \item On place $k$ sur l'axe des ordonnées.
+    \item On trace la droite horizontale d'équation $y=k$.
+    \item On repère les points où cette droite coupe la courbe : il peut y en avoir aucun, un ou plusieurs.
+    \item Les solutions sont les \textbf{abscisses} de ces points.
+  \end{enumerate}
+\end{method}
+
+\begin{example}
+On a représenté une fonction $f$ définie sur $\intff{0}{6}$. On résout graphiquement $f(x)=4$.
+
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+  \txt{\textbf{1.} On place $k=4$ sur l'axe des ordonnées.} &
+  \txt{\textbf{2.} On trace la droite d'équation $y=4$.} \\[0.3em]
+  \grapheEq{1} & \grapheEq{2} \\[1em]
+  \txt{\textbf{3.} Depuis chaque point d'intersection, on descend jusqu'à l'axe des abscisses.} &
+  \txt{\textbf{4.} On lit les solutions sur l'axe des abscisses.} \\[0.3em]
+  \grapheEq{3} & \grapheEq{4}
+\end{tabular}
+
+L'équation $f(x)=4$ a deux solutions : $S = \hide{$\{2\,;\,4\}$}$.
+\end{example}
+\end{minipage}
+
+\subsection{Inéquations $f(x)<k$, $f(x)\leqslant k$, $f(x)>k$, $f(x)\geqslant k$}
+
+\begin{method}{Résoudre graphiquement une inéquation}{}
+  On trace la droite d'équation $y=k$, puis on repère les points de la courbe :
+  \begin{itemize}
+    \item pour $f(x) < k$, ceux situés \textbf{strictement sous} la droite ;
+    \item pour $f(x) > k$, ceux situés \textbf{strictement au-dessus} de la droite ;
+    \item avec $\leqslant$ ou $\geqslant$, on garde aussi les points \textbf{sur} la droite : les crochets sont fermés.
+  \end{itemize}
+  Les solutions sont les abscisses de ces points. On les écrit sous forme d'intervalle ou de réunion d'intervalles.
+\end{method}
+
+\begin{example}
+On a représenté une fonction $f$ définie sur $\intff{-6}{6}$. On veut résoudre $f(x)<2$ et $f(x)\leqslant 2$.
+
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+  \txt{\textbf{1.} On résout d'abord $f(x)=2$.} &
+  \txt{\textbf{2.} On reporte sur l'axe des abscisses les morceaux de courbe situés \textbf{sous} la droite.} \\[0.3em]
+  \grapheIneq{} & \grapheIneq{\solseg{(-6,0) -- (-5,0) (-2,0) -- (2,0) (4,0) -- (6,0)}}
+\end{tabular}
+
+\begin{itemize}
+  \item $f(x)<2$ : \quad $S = \hideM{\intfo{-6}{-5} \cup \intoo{-2}{2} \cup \intof{4}{6}}$
+
+  On exclut $-5$, $-2$, $2$ et $4$, car leur image vaut exactement $2$.
+  \item $f(x)\leqslant 2$ : \quad $S = \hideM{\intff{-6}{-5} \cup \intff{-2}{2} \cup \intff{4}{6}}$
+
+  On inclut $-5$, $-2$, $2$ et $4$.
+\end{itemize}
+\end{example}
+\end{minipage}
+
+\begin{example}
+Avec la même fonction, on veut résoudre $f(x)>2$ et $f(x)\geqslant 2$.
+
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+  \begin{minipage}{0.9\linewidth}\raggedright
+  \textbf{1.} On résout d'abord $f(x)=2$, comme dans l'exemple précédent.
+
+  \textbf{2.} On reporte sur l'axe des abscisses les morceaux de courbe situés \textbf{au-dessus} de la droite.
+  \end{minipage} &
+  \raisebox{-0.5\height}{\grapheIneq{\solseg{(-5,0) -- (-2,0) (2,0) -- (4,0)}}}
+\end{tabular}
+
+\begin{itemize}
+  \item $f(x)>2$ : \quad $S = \hideM{\intoo{-5}{-2} \cup \intoo{2}{4}}$
+  \item $f(x)\geqslant 2$ : \quad $S = \hideM{\intff{-5}{-2} \cup \intff{2}{4}}$
+\end{itemize}
+\end{example}
+\end{minipage}
+
+\section{Équations et inéquations du type $f(x)=g(x)$, $f(x)<g(x)$}
+
+\begin{method}{Comparer deux fonctions graphiquement}{}
+  On trace les courbes $\mathcal{C}_f$ et $\mathcal{C}_g$ dans le même repère, puis on repère :
+  \begin{itemize}
+    \item pour $f(x)=g(x)$, les \textbf{points d'intersection} des deux courbes ;
+    \item pour $f(x)<g(x)$, les points où $\mathcal{C}_f$ est \textbf{strictement sous} $\mathcal{C}_g$ ;
+    \item pour $f(x)>g(x)$, les points où $\mathcal{C}_f$ est \textbf{strictement au-dessus} de $\mathcal{C}_g$ ;
+    \item avec $\leqslant$ ou $\geqslant$, on garde aussi les points d'intersection.
+  \end{itemize}
+  Les solutions sont les abscisses de ces points.
+\end{method}
+
+\begin{example}
+On a représenté deux fonctions $f$ et $g$ définies sur $\intff{-4}{4}$.
+
+\begin{center}
+[figure]
+\end{center}
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}l@{\qquad\qquad}l@{}}
+  $f(x)=g(x)$ : \quad $S = \hideM{\{-2\,;\,3\}}$ & \\
+  $f(x)<g(x)$ : \quad $S = \hideM{\intoo{-2}{3}}$ & $f(x)\leqslant g(x)$ : \quad $S = \hideM{\intff{-2}{3}}$ \\
+  $f(x)>g(x)$ : \quad $S = \hideM{\intfo{-4}{-2} \cup \intof{3}{4}}$ & $f(x)\geqslant g(x)$ : \quad $S = \hideM{\intff{-4}{-2} \cup \intff{3}{4}}$
+\end{tabular}}
+\end{example}
+
+\begin{savoir}{}{}
+\begin{itemize}[label=--]
+  \item Déterminer l'ensemble de définition d'une fonction dans un problème.
+  \item Calculer une image avec une formule, et trouver un antécédent en résolvant une équation.
+  \item Lire une image et des antécédents dans un tableau ou sur une courbe.
+  \item Tracer une courbe à partir d'un tableau de valeurs.
+  \item Montrer par un calcul qu'un point appartient ou non à une courbe.
+  \item Résoudre graphiquement $f(x)=k$, $f(x)<k$, $f(x)\geqslant k$\dots
+  \item Résoudre graphiquement $f(x)=g(x)$, $f(x)<g(x)$, $f(x)\geqslant g(x)$\dots
+\end{itemize}
+\end{savoir}

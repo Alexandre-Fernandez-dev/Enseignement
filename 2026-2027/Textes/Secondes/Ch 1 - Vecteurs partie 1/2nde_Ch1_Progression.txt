@@ -1,0 +1,26 @@
+% Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/2nde_Ch1_Progression.tex
+\fancyhf{} 
+
+\fancyhead[L]{\large \textbf{\Niveau}}
+\fancyhead[C]{\large \textbf{\Chapitre}}
+
+\large
+
+\begin{paragraph}{Pré-requis}
+  \begin{itemize}
+    \item Géométrie du cycle 4 : transformation du plan, translations.
+    \item Parallélogramme.
+  \end{itemize}
+\end{paragraph}
+
+\begin{paragraph}{Objectifs}
+  \begin{itemize}
+    \item Vecteur $\overrightarrow{A,B}$ : translation d'un point $A$ à un point $B$, sens, direction, norme.
+    \item Représentation graphique.
+    \item Égalité de deux vecteurs, lien avec parallélogramme.
+    \item Notation $\overrightarrow{u}$, vecteur nul.
+    \item Somme de deux vecteurs, enchaînement de translations. Relation de Chasles.
+    \item Représentation d'un vecteur.
+    \item Produit par un réel. Colinéarité de deux vecteurs (graphiquement).
+  \end{itemize} 
+\end{paragraph}

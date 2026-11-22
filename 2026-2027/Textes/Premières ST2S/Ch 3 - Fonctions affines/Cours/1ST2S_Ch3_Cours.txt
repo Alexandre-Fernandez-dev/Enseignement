@@ -1,0 +1,375 @@
+% Source : 2026-2027/Premières ST2S/Ch 3 - Fonctions affines/Cours/1ST2S_Ch3_Cours.tex
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\fancyhf{} 
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+\newcommand{\repere}[4]{
+  \draw[very thin, gray!40] (#1,#3) grid (#2,#4);
+  \draw[->] (#1,0) -- ({#2+0.4},0) node[below right] {\small $x$};
+  \draw[->] (0,#3) -- (0,{#4+0.4}) node[above left] {\small $y$};
+  \foreach \x in {#1,...,#2} {\ifnum\x=0\else\draw (\x,0.08) -- (\x,-0.08) node[below] {\scriptsize $\x$};\fi}
+  \foreach \y in {#3,...,#4} {\ifnum\y=0\else\draw (0.08,\y) -- (-0.08,\y) node[left] {\scriptsize $\y$};\fi}
+  \node[below left] at (0,0) {\scriptsize $0$};
+}
+
+\section{Fonctions affines}
+
+\begin{minipage}[t]{0.55\linewidth}
+  \begin{example}
+  Une base de loisirs loue des vélos.
+  Elle facture $5$~€ de frais d'inscription, puis $3$~€ par heure de location.
+  On note $x$ le nombre d'heures de location et $f(x)$ le prix payé, en euros.
+
+    \begin{itemize}
+      \item Pour $1$ heure, on paie : \hideM{3 \times 1 + 5 = 8} €.
+      \item Pour $4$ heures, on paie : \hideM{3 \times 4 + 5 = 17} €.
+      \item Pour $x$ heures, on paie : $f(x) = \hideM{3x + 5}$.
+    \end{itemize}
+
+    Le prix est la somme d'une partie qui \emph{dépend} du nombre d'heures ($3x$) et d'une partie \emph{fixe} ($5$).
+    On dit que $f$ est une fonction affine.
+
+    Sa représentation graphique est ci-contre.
+  \end{example}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+
+  [figure]
+\end{minipage}
+
+\begin{definition}{Fonction affine}{}
+  \begin{multihide}
+    Une fonction $f$ définie sur $\mathbb{R}$ est \textbf{affine} s'il existe deux nombres réels $a$ et $b$ tels que, pour tout réel $x$ :
+    \[
+      f(x) = ax + b.
+    \]
+    Cas particuliers :
+    \begin{itemize}
+      \item si $b = 0$, alors $f(x) = ax$ : on dit que $f$ est \textbf{linéaire}.
+      \item si $a = 0$, alors $f(x) = b$ : on dit que $f$ est \textbf{constante}.
+    \end{itemize}
+  \end{multihide}
+\end{definition}
+
+\begin{examples}
+  Compléter le tableau.
+
+  \renewcommand{\arraystretch}{1.6}
+  \begin{center}
+  \begin{tabularx}{\linewidth}{|c|Y|Y|Y|}
+    \hline
+    Fonction & Affine ? & $a$ & $b$ \\
+    \hline
+    $f_1(x) = 2x - 3$ & \hide{oui} & \hideM{2} & \hideM{-3} \\
+    \hline
+    $f_2(x) = -x + 4$ & \hide{oui} & \hideM{-1} & \hideM{4} \\
+    \hline
+    $f_3(x) = 5x$ & \hide{oui, linéaire} & \hideM{5} & \hideM{0} \\
+    \hline
+    $f_4(x) = 7$ & \hide{oui, constante} & \hideM{0} & \hideM{7} \\
+    \hline
+    $f_5(x) = x^2 + 1$ & \hide{non} & & \\
+    \hline
+  \end{tabularx}
+  \end{center}
+\end{examples}
+
+\begin{remark}
+  Attention à l'ordre d'écriture : dans $f(x) = 4 - 0{,}5x$, on a $b = 4$ et le coefficient $a$ est le nombre qui multiplie $x$, c'est-à-dire $-0{,}5$.
+\end{remark}
+
+\section{Représentation graphique}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Dans un repère, la représentation graphique d'une fonction affine $f(x) = ax + b$ est une \textbf{droite}.
+    On dit que cette droite a pour \textbf{équation réduite} $y = ax + b$.
+    \begin{itemize}
+      \item $a$ est le \textbf{coefficient directeur} (ou \emph{pente}) de la droite ;
+      \item $b$ est l'\textbf{ordonnée à l'origine} : la droite coupe l'axe des ordonnées au point $(0~;~b)$.
+    \end{itemize}
+  \end{multihide}
+\end{proposition}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item La droite d'une fonction linéaire ($b = 0$) passe par l'\hide{origine du repère}.
+    \item La droite d'une fonction constante ($a = 0$) est \hide{horizontale}.
+  \end{itemize}
+\end{remarks}
+
+\begin{method}{Tracer une droite}{}
+  Pour tracer la droite d'équation $y = ax + b$, il suffit de connaître \textbf{deux points}.
+  \begin{itemize}
+    \item \textbf{Avec deux images :} on calcule les images de deux nombres, on place les deux points et on trace la droite.
+    \item \textbf{Avec $a$ et $b$ :} on place le point $(0~;~b)$. À partir de ce point, on avance de $1$ vers la droite et on monte de $a$ (ou on descend si $a < 0$). On obtient un deuxième point.
+  \end{itemize}
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.55\linewidth}
+
+    \textbf{1.} Tracer la droite $d_1$ de la fonction $f(x) = 2x - 1$.
+
+    \renewcommand{\arraystretch}{1.4}
+    \begin{center}
+    \begin{tabular}{|c|C{1.5cm}|C{1.5cm}|}
+      \hline
+      $x$ & $0$ & $3$ \\
+      \hline
+      $f(x)$ & \hideM{-1} & \hideM{5} \\
+      \hline
+    \end{tabular}
+    \end{center}
+
+    Calcul : $f(3) = \hideM{2 \times 3 - 1 = 5}$.
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+
+    [figure]
+  \end{minipage}
+
+  \begin{minipage}[t]{0.55\linewidth}
+
+    \textbf{2.} Tracer la droite $d_2$ de la fonction $g(x) = -0{,}5x + 3$.
+
+    \begin{multihideW}[2em]
+      On a $b = 3$ : on place le point $(0~;~3)$.
+
+      On a $a = -0{,}5$ : on avance de $2$ et on descend de $1$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+
+    [figure]
+  \end{minipage}
+\end{example}
+
+\begin{method}{Lire graphiquement l'équation réduite d'une droite}{}
+  \begin{enumerate}
+    \item On lit $b$ : c'est l'ordonnée du point où la droite coupe l'axe des ordonnées.
+    \item On lit $a$ : à partir d'un point de la droite, on avance de $1$ vers la droite et on compte de combien on monte ($a > 0$) ou on descend ($a < 0$) pour revenir sur la droite.
+  \end{enumerate}
+  Si la lecture n'est pas précise, on avance de plusieurs carreaux :
+  \[
+    a = \frac{\text{déplacement vertical}}{\text{déplacement horizontal}}.
+  \]
+\end{method}
+
+\begin{example}
+  \begin{minipage}[t]{0.45\linewidth}
+
+    [figure]
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\linewidth}
+
+    Lire l'équation réduite de chaque droite.
+
+    \begin{multihideW}[1.5em]
+      $d_1$ : $b = 2$, $a = 1$, donc $y = x + 2$.
+
+      $d_2$ : $b = 4$, $a = -2$, donc $y = -2x + 4$.
+
+      $d_3$ : $b = -2$. On avance de $3$, on monte de $2$ :
+
+      $a = \dfrac{2}{3}$, donc $y = \dfrac{2}{3}x - 2$.
+    \end{multihideW}
+  \end{minipage}
+\end{example}
+
+\section{Calcul du coefficient directeur}
+
+\begin{example}
+  On reprend la location de vélos : $f(x) = 3x + 5$.
+
+  Pour $2$ heures, on paie $f(2) = \hideM{11}$ €. Pour $5$ heures, on paie $f(5) = \hideM{20}$ €.
+
+  Quand on passe de $2$ à $5$ heures, le prix augmente de \hideM{20 - 11 = 9} € pour \hideM{5 - 2 = 3} heures de plus,
+  soit $\dfrac{9}{3} = \hideM{3}$ € par heure supplémentaire. On retrouve le coefficient $a$.
+\end{example}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $A(x_A~;~y_A)$ et $B(x_B~;~y_B)$ deux points de la droite d'une fonction affine.
+
+    Le coefficient directeur de cette droite est :
+    \[
+      a = \frac{y_B - y_A}{x_B - x_A}.
+    \]
+  \end{multihide}
+\end{proposition}
+
+\begin{remark}
+  Le coefficient directeur $a$ indique de combien augmente $f(x)$ quand $x$ augmente de $1$.
+  Pour la location de vélos, $a = 3$ : le prix augmente de $3$~€ par heure.
+\end{remark}
+
+\begin{method}{Déterminer une fonction affine à partir de deux points}{}
+  \begin{enumerate}
+    \item On calcule $a$ avec la formule $a = \dfrac{y_B - y_A}{x_B - x_A}$.
+    \item On calcule $b$ : on remplace $x$ et $y$ par les coordonnées d'un des points dans $y = ax + b$, puis on résout l'équation.
+    \item On vérifie avec l'autre point.
+  \end{enumerate}
+\end{method}
+
+\begin{example}
+  Déterminer l'équation réduite de la droite passant par $A(1~;~3)$ et $B(4~;~9)$.
+
+  \begin{multihideW}[1.5em]
+    \begin{enumerate}
+      \item $a = \dfrac{y_B - y_A}{x_B - x_A} = \dfrac{9 - 3}{4 - 1} = \dfrac{6}{3} = 2$.
+      \item Le point $A(1~;~3)$ est sur la droite, donc $3 = 2 \times 1 + b$, soit $3 = 2 + b$, d'où $b = 3 - 2 = 1$.
+      \item Vérification avec $B$ : $2 \times 4 + 1 = 9$. \checkmark
+    \end{enumerate}
+    La droite $(AB)$ a pour équation $y = 2x + 1$.
+  \end{multihideW}
+\end{example}
+
+\section{Sens de variation}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $f$ une fonction affine définie par $f(x) = ax + b$.
+    \begin{itemize}
+      \item Si $a > 0$, alors $f$ est \textbf{croissante} sur $\mathbb{R}$ : la droite « monte ».
+      \item Si $a < 0$, alors $f$ est \textbf{décroissante} sur $\mathbb{R}$ : la droite « descend ».
+      \item Si $a = 0$, alors $f$ est \textbf{constante} sur $\mathbb{R}$ : la droite est horizontale.
+    \end{itemize}
+  \end{multihide}
+\end{proposition}
+
+\begin{center}
+  \begin{tabular}{C{0.31\linewidth}C{0.31\linewidth}C{0.31\linewidth}}
+    $a > 0$ & $a < 0$ & $a = 0$ \\[0.3em]
+    [figure]
+    &
+    [figure]
+    &
+    [figure]
+    \\
+    [figure]
+    &
+    [figure]
+    &
+    [figure]
+  \end{tabular}
+\end{center}
+
+\begin{examples}
+  Donner le sens de variation de chaque fonction.
+
+  \begin{minipage}[t]{0.31\linewidth}
+    $f(x) = 3x - 7$
+    \begin{multihideW}[1.5em]
+      $a = 3 > 0$, donc $f$ est croissante sur $\mathbb{R}$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $g(x) = -2x + 5$
+    \begin{multihideW}[1.5em]
+      $a = -2 < 0$, donc $g$ est décroissante sur $\mathbb{R}$.
+    \end{multihideW}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.31\linewidth}
+    $h(x) = 4 - x$
+    \begin{multihideW}[1.5em]
+      $a = -1 < 0$, donc $h$ est décroissante sur $\mathbb{R}$.
+    \end{multihideW}
+  \end{minipage}
+\end{examples}
+
+\section{Signe d'une fonction affine}
+
+\begin{minipage}[c]{0.56\linewidth}
+  \begin{example*}
+    Soit $f(x) = 2x - 6$.
+
+      \begin{itemize}
+        \item On cherche quand $f(x) = 0$ :
+
+        $2x - 6 = 0 \iff \hideM{2x = 6} \iff \hideM{x = 3}$.
+        \item $a = 2 > 0$, donc $f$ est \hide{croissante} : $f(x)$ est \hide{négatif} avant $3$ et \hide{positif} après $3$.
+      \end{itemize}
+
+      Tableau de signes de $f$ :
+
+      \begin{center}
+        [figure]
+      \end{center}
+  \end{example*}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\linewidth}
+
+  [figure]
+\end{minipage}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Soit $f(x) = ax + b$ avec $a \neq 0$. La fonction $f$ s'annule en $x = -\dfrac{b}{a}$, et :
+
+    \begin{minipage}{0.48\linewidth}
+
+      Si $a > 0$ :
+
+      [figure]
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\linewidth}
+
+      Si $a < 0$ :
+
+      [figure]
+    \end{minipage}
+
+  \end{multihide}
+\end{proposition}
+
+\begin{method}{Dresser le tableau de signes de $ax + b$}{}
+  \begin{enumerate}
+    \item On résout l'équation $ax + b = 0$.
+    \item On regarde le signe de $a$.
+    \item On remplit le tableau : $0$ sous la solution, signe de $a$ à droite, signe contraire à gauche.
+  \end{enumerate}
+\end{method}
+
+\begin{example*}
+  Dresser le tableau de signes de $g(x) = -3x + 12$.
+  \begin{multihideW}
+    \begin{minipage}{0.5\linewidth}
+      $-3x + 12 = 0 \iff -3x = -12 \iff x = 4$.
+
+      $a = -3 < 0$, donc $a$ est négatif.
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\linewidth}
+      [figure]
+    \end{minipage}
+  \end{multihideW}
+\end{example*}
+
+\begin{savoir}{}{}
+\begin{itemize}[label=--]
+  \item Reconnaître une fonction affine et identifier $a$ et $b$,
+  \item Modéliser une situation par une fonction affine,
+  \item Tracer une droite à partir de son équation réduite,
+  \item Lire graphiquement l'équation réduite d'une droite,
+  \item Calculer le coefficient directeur à partir de deux points,
+  \item Donner le sens de variation selon le signe de $a$,
+  \item Dresser le tableau de signes de $ax + b$.
+\end{itemize}
+\end{savoir}

@@ -1,0 +1,49 @@
+% Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Contrôles/Form 1/2nde_Ch3_Form1_SujetC.tex
+\entete{C}{15 min}
+
+\begin{exercice}
+Voici un tableau de valeurs d'une fonction $f$ définie sur $[-1\,;\,5]$.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|*{7}{C{1.2cm}|}}
+\hline
+$x$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\ \hline
+$f(x)$ & $2$ & $-3$ & $5$ & $0$ & $2$ & $4$ & $-1$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*), itemsep=1.2em, topsep=0.6em]
+\item Le nombre $2$ a pour antécédent(s) par $f$ : \pt[5cm]
+\item[b)] Peut-on calculer $f(-2)$~? Justifier. \pt[9cm]
+\item[c)] $f($\pt[1.5cm]$) = 5$
+\item[d)] \makebox[0.5\linewidth][l]{$f(0) = $ \pt}e)~L'image de $4$ par $f$ est \pt.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Compléter le tableau avec le plus petit ensemble auquel appartient chaque nombre, parmi $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{D}$, $\mathbb{Q}$ et $\mathbb{R}$.
+\begin{center}
+\begin{tabular}{|T{4cm}|*{5}{T{2cm}|}}
+\hline
+Nombre & $\sqrt{7}$ & $\dfrac{13}{4}$ & $\dfrac{11}{3}$ & $\dfrac{-20}{5}$ & $\sqrt{49}$ \\ \hline
+Plus petit ensemble &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = 5x-2$.
+\begin{enumerate}[label=\arabic*., itemsep=1.2em, topsep=0.6em]
+\item Déterminer l'antécédent de $13$ par $g$.
+
+\framebox[\linewidth]{\parbox{0.97\linewidth}{}}
+\item Calculer l'image de $-2$ par $g$. \hfill $g(-2)=$ \pt[4cm] 
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Donner un encadrement d'amplitude $10^{-2}$ du nombre suivant, puis son arrondi au centième.
+\par\smallskip\noindent{\renewcommand{\arraystretch}{2.6}
+\begin{tabular}{@{}l@{\enspace}l@{\quad}r@{\,}c@{\,}l@{\qquad}l@{}}
+ & $3{,}7268$ : & \pt[2.2cm] & $\leqslant 3{,}7268 <$ & \pt[2.2cm] & Arrondi au centième : \pt \\
+\end{tabular}}\par
+\end{exercice}

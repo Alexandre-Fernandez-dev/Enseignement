@@ -1,0 +1,73 @@
+% Source : 2026-2027/Premières ST2S/Ch 2 - Tableaux croisés et Probabilités conditionnelles/Activités/Activité 1/1ST2S_Ch2_Act1.tex
+\fancyhf{} 
+\fancyhead[R]{ {\small \Niveau}}
+\fancyhead[L]{ {\small \ChapitreCourt}}
+\fancyhead[C]{ {\small \Document}}
+
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\small \thepage\  / \pageref{LastPage}}}
+
+\begin{objectif}
+Compléter un tableau à double entrée à partir de proportions en pourcentages.
+\end{objectif}
+
+\begin{center}
+[figure]
+
+\end{center}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{Catégorie socioprofessionnelle} & \textbf{\%} \\
+\midrule
+Ouvriers qualifiés de type industriel & 20 \\
+Ouvriers qualifiés de type artisanal & 25 \\
+Chauffeurs & 10 \\
+Ouvriers qualifiés de la manutention, du magasinage et du transport & 5 \\
+Ouvriers non qualifiés de type industriel & 15 \\
+Ouvriers non qualifiés de type artisanal & 20 \\
+Ouvriers agricoles & 5 \\
+
+\midrule
+\textbf{Ensemble des ouvriers} & \textbf{100} \\
+\bottomrule
+\end{tabular}
+
+\end{center}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item Laquelle des affirmations suivantes est juste~? Cocher la bonne réponse.
+\begin{itemize}[label=$\square$]
+  \item « 40~\% des ouvriers sont des femmes ouvrières agricoles. »
+  \item « 40~\% des ouvriers agricoles sont des femmes. »
+\end{itemize}
+Expliquer la différence entre ces deux affirmations.
+\reponse{3}
+
+\item Interpréter le nombre 10 qui apparaît dans la troisième ligne du second tableau.
+\reponse{3}
+
+\item À partir de ces tableaux, déterminer la proportion de femmes chauffeurs parmi l'ensemble des ouvriers, en pourcentage.
+\reponse{3}
+\end{enumerate}
+
+\begin{bilan}
+À l'aide des tableaux exposés dans cette activité, compléter le tableau ci-dessous avec des pourcentages calculés par rapport à l'ensemble des ouvriers de France. On arrondira au besoin les résultats à 0,1~\%.
+
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+ & \makecell{Qual.\\industriel} & \makecell{Qual.\\artisanal} & Chauffeurs & \makecell{Manut. /\\magasinage /\\transport} & \makecell{Non qual.\\industriel} & \makecell{Non qual.\\artisanal} & Agricoles & \textbf{Ensemble} \\
+\hline
+\textbf{Femmes} & & & & & & & & \\
+\hline
+\textbf{Hommes} & & & & & & & & \\
+\hline
+\textbf{Ensemble} & & & & & & & & \\
+\hline
+\end{tabular}}
+\end{center}
+\end{bilan}

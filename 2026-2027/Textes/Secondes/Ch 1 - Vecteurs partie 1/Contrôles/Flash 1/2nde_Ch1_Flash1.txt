@@ -1,0 +1,67 @@
+% Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/Contrôles/Flash 1/2nde_Ch1_Flash1.tex
+{
+  \normalsize
+  \textbf{Seconde} \hfill \textbf{Contrôle Flash 1 (10 min)} \hfill \textbf{Sujet A}
+}
+\hrule
+
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{EXO}{}{}
+Résoudre l'équation suivante.
+
+ $-9y+13=3$
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Effectuer le calcul suivant en donnant le résultat sous forme d'une fraction.
+
+\begin{multicols}{4}
+ \begin{minipage}[t]{\linewidth} $A = \dfrac{4}{2} + \dfrac{9}{2} \times \dfrac{4}{8}$  \end{minipage}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Développer et réduire l'expression suivante.
+
+ $A = (7k-3)(4k-7)$
+\end{EXO}
+
+\hrule
+
+\setcounter{ExoMA}{0}
+{
+  \normalsize
+  \textbf{Seconde} \hfill \textbf{Contrôle Flash 1 (10 min)} \hfill \textbf{Sujet B}
+}
+\hrule
+
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{EXO}{}{}
+Résoudre l'équation suivante.
+
+ $8y-8=-10$
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Effectuer le calcul suivant en donnant le résultat sous forme d'une fraction.
+
+\begin{multicols}{4}
+ \begin{minipage}[t]{\linewidth} $A = \dfrac{1}{4} - \dfrac{3}{4} \times \dfrac{2}{9}$ \end{minipage}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Développer et réduire l'expression suivante.
+
+ $A = (-5x-8)(x-6)$
+\end{EXO}

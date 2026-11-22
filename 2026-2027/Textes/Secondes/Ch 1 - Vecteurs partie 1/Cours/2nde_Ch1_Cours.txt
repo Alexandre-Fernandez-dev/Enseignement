@@ -1,0 +1,235 @@
+% Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/Cours/2nde_Ch1_Cours.tex
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+
+\fancyhf{} 
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+\section{Vecteurs et translations}
+
+\begin{definition}{Translation}{}
+  \begin{multihide}
+    On se place dans un plan où sont placés deux points $M$ et $M'$.
+    On appelle \textbf{translation de vecteur} $\wvec{MM'}$ la transformation consistant à faire glisser $M$ sur $M'$
+    et à faire glisser tous les autres points du plan selon ce même déplacement.
+  \end{multihide}
+\end{definition}
+
+\begin{example}~\\
+
+  \begin{center}
+    [image]
+  \end{center}
+\end{example}
+
+\begin{remark}
+  On appelle \hide{\emph{image}} de $N$ par $\wvec{MM'}$ le point $N'$ obtenu par la translation de vecteur $\wvec{MM'}$.
+\end{remark}
+
+\begin{example}
+  Dans la figure ci-dessous, construire le point $D$ image de $C$ par la translation $\wvec{AB}$.
+\end{example}
+
+\begin{figure}[h]
+
+  \Large
+[figure]
+\end{figure}
+
+\begin{proposition}{Translations et parallélogrammes}{}
+  \begin{multihide}
+    La translation de vecteur $\wvec{AB}$ est la transformation qui associe à tout point $C$ l'unique point tel que $ABCD$ est un parallélogramme.
+  \end{multihide}
+\end{proposition}
+
+\begin{definition}{Vecteur}{}
+  Un \emph{vecteur} $\wvec{AB}$ est déterminé par :
+  \begin{itemize}
+    \item \hide{sa \textbf{direction} (celle de la droite $(AB)$)}
+    \item \hide{son \textbf{sens} (de $A$ vers $B$)}
+    \item \hide{sa \textbf{norme} (ou longueur), notée $||\wvec{AB}||$ qui est la longueur $AB$.}
+  \end{itemize}
+\end{definition}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item Un vecteur $\wvec{AB}$ est représenté par une flèche d'origine $A$ et d'extrémité $B$.
+    \item Un vecteur est parfois simplement noté $\vec{u}$.
+    \item \underline{Attention :} $\wvec{AB}$ et $\wvec{BA}$ \textbf{sont différents} car ils n'ont pas le même sens !
+  \end{itemize}
+\end{remarks}
+
+\begin{remark}
+  Lorsque $A$ et $B$ sont confondus, $\wvec{AB}$ s'écrit alors $\wvec{AA}$ : on dit que c'est le \hide{\textbf{vecteur nul}}, noté $\vec{0}$.
+\end{remark}
+
+\subsection{Égalité de vecteurs}
+
+\begin{definition}{Vecteurs égaux}{}
+  \begin{multihide}
+    Deux vecteurs sont \textbf{égaux} s'ils ont la \textbf{même direction}, le \textbf{même sens} et la \textbf{même norme}.
+  \end{multihide}
+\end{definition}
+
+\begin{example} En reprenant la figure précédente, on a les égalités de vecteurs suivantes :
+  $$ \wvec{MM'} = \wvec{NN'} = \wvec{PP'} = \vec{u} $$
+  \begin{center}
+    [image]
+  \end{center}
+\end{example}
+
+\begin{proposition}{Égalités et parallélogrammes}{}
+  \begin{multihide}
+    Soient $A, B, C, D$ quatre points distincts du plan, on a :
+    \begin{center}
+    $\wvec{AB} = \wvec{DC}$ \ssi $ABCD$ est un parallélogramme.
+    \end{center}
+  \end{multihide}
+\end{proposition}
+
+\begin{proof}
+  $\wvec{AB} = \wvec{DC}$ \ssi les vecteurs $\wvec{AB}$ et $\wvec{CD}$ ont la même direction, le même sens et la même norme. Autrement dit, les droites $(AB)$ et $(CD)$ sont parallèles, le quadrilatère $ABCD$ est non croisé et $AB = CD$. C'est-à dire, \ssi $ABCD$ est un parallélogramme.
+\end{proof}
+
+\begin{center}
+  [image]
+\end{center}
+
+\begin{remark}
+  Le parallélogramme $ABCD$ peut être éventuellement aplati.
+\end{remark}
+
+\begin{proposition}{Égalités et milieux}{}
+  \begin{multihide}
+    $\wvec{AB} = \wvec{BC}$ \ssi $B$ est le milieu de $[AC]$.
+  \end{multihide}
+\end{proposition}
+
+\begin{center}
+  [image]
+\end{center}
+
+\begin{remark}
+  On peut noter un vecteur d'une seule lettre : par exemple $\vec{u}$ sans préciser l'origine et l'extrémité. Ainsi on a $\vec{u} = \wvec{AB}$.
+  On peut dire que $\vec{u}$ désignera tous les vecteurs égaux à $\wvec{AB}$, on dit que $\vec{u}$ est un représentant de $\wvec{AB}$. Il en existe une infinité.
+\end{remark}
+
+\begin{center}
+  [figure]
+\end{center}
+
+\begin{definition}{Vecteurs opposés}{}
+  \begin{multihide}
+    Deux vecteurs sont \textbf{opposés} s'ils ont la même norme et la même direction, mais sont de sens contraire.
+    Le vecteur opposé à $\wvec{AB}$ est $\wvec{BA} = -\wvec{AB}$.
+  \end{multihide}
+\end{definition}
+
+\begin{figure}[h]
+
+  \large
+[figure]
+\end{figure}
+
+\section{Somme de vecteurs}
+
+\subsection{Addition de vecteurs}
+\begin{definition}{Somme de vecteurs}{}
+  \begin{multihide}
+  Soit $\vec{u}$ et $\vec{v}$ deux vecteurs. La somme des vecteurs $\vec{u}$ et $\vec{v}$ est le vecteur $\vec{w}$ associé la translation résultant de l'enchaînement des translations de vecteurs $\vec{u}$ et $\vec{v}$, et on écrit : $\vec{w} = \vec{u} + \vec{v}$.
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+  Construire le point $B$ tel que $\wvec{AB} = \vec{u} + \vec{v}$.
+\end{example}
+
+\begin{center}
+  \Large
+  [figure]
+\end{center}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item Enchainer les translations de vecteurs $\vec{v}$ puis $\vec{u}$ donne le même résultat, on a $\vec{u} + \vec{v} = \vec{v} + \vec{u}$.
+    \item On définit $\vec{u} - \vec{v}$ par l'égalité $\vec{u} - \vec{v} = \vec{u} + (-\vec{v})$ où $-\vec{v}$ est le vecteur opposé du vecteur $\vec{v}$ vu précédemment.
+  \end{itemize}
+\end{remarks}
+
+\begin{proposition}{Propriétés algébriques}{}
+  Pour tous vecteur $\vec{u}, \vec{v}$ et $\vec{w}$, on a :
+  \begin{tasks}[label=\textbullet](3)
+    \task \hide{$\vec{u} + \vec{v} = \vec{v} + \vec{u}$}
+    \task \hide{$\vec{u} + \vec{0} = \vec{0} + \vec{u} = \vec{u}$}
+    \task \hide{$\vec{u} + (\vec{v} + \vec{w}) = (\vec{u} + \vec{v}) + \vec{w}$}
+  \end{tasks}
+\end{proposition}
+
+\begin{proposition}{}{}
+  \begin{minipage}{0.5\linewidth}
+    Soit $ABCD$ un quadrilatère.
+    $ABCD$ est un parallélogramme $\ssi$ :
+    $$\hideM{\wvec{AB} + \wvec{AD} = \wvec{AC}}$$
+  \end{minipage}
+  \begin{minipage}{0.5\linewidth}
+    \begin{center}
+      [image]
+    \end{center}
+  \end{minipage}
+\end{proposition}
+
+\subsection{Relation de Chasles}
+
+\begin{proposition}{Relation de Chasles}{}
+  \begin{multihide}
+    Soient $A$, $B$ et $C$ trois points. On appelle relation de Chasles la formule :
+    $$ \wvec{AB} + \wvec{BC} = \wvec{AC} $$
+  \end{multihide}
+\end{proposition}
+
+\begin{example}~\\
+  \begin{center}
+      [image]
+  \end{center}
+\end{example}
+
+\section{Produit d'un vecteur par un réel}
+
+\begin{definition}{Produit par un réel}{}
+  Soit $\vec{u}$ un vecteur non nul et $\lambda$ un nombre réel non nul.
+
+  Le \textbf{produit du vecteur $\vec{u}$ par le nombre réel $\lambda$} est le vecteur $\lambda \vec{u}$ qui a :
+  \begin{itemize}
+    \item \hide{la même direction que le vecteur $\vec{u}$,}
+    \item \hide{le même sens que $\vec{u}$ si $\lambda > 0$, ou bien de sens contraire sinon,}
+    \item \hide{a pour norme $\lvert \lambda \rvert \times \lVert \vec{u} \rVert$.}
+  \end{itemize}
+\end{definition}
+
+\begin{example}
+  Représenter les vecteurs $2 \vec{u}$, $3\vec{v}$ et $\dfrac{-1}{2}\vec{w}$.
+
+\begin{center}
+  \large
+  [figure]
+  \vrule
+  [figure]
+  \vrule
+  [figure]
+\end{center}
+\end{example}
+
+\begin{savoir}{}{}
+  \begin{itemize}[label=--]
+    \item Représenter géométriquement des vecteurs.
+    \item Représenter la somme de deux vecteurs.
+
+    \item Résoudre des problèmes avec des méthodes géométriques.
+  \end{itemize}
+\end{savoir}

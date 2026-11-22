@@ -1,0 +1,394 @@
+% Source : 2026-2027/Premières ST2S/Ch 1 - Généralités sur les fonctions/Cours/1ST2S_Ch1_Cours.tex
+\newcommand{\wvec}[1]{\overrightarrow{#1}}
+\newcommand{\ssi}[0]{\emph{ssi}\ }
+\newcommand{\setR}[0]{$\mathbb{R}$}
+
+\fancyhf{} 
+\fancyhead[R]{ {\Niveau}}
+\fancyhead[L]{ {\Chapitre}}
+
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+\section{Définition et notations}
+
+\begin{definition}{}{}
+  \begin{multihide}
+  Une \textbf{fonction} $f$ est la donnée de deux choses 
+  \begin{itemize}
+    \item Un \textbf{ensemble de définition} $D_f$. $D_f$ est le plus souvent un intervalle ou une union d'intervalles de \setR.
+    \item pour chaque nombre $x$ de $D_f$, un nombre $f(x)$ appelé $\textbf{image}$ de x. $x$ est alors appelée l'\textbf{antécédent} de $f(x)$.
+  \end{itemize}
+ \end{multihide}
+\end{definition}
+
+\begin{example}
+  Dire que : $f(\textcolor{orange}{2})=\textcolor{green!50!black}{5}$ signifie que :
+
+\begin{center}
+[figure]
+
+\end{center}
+
+On dit que l'\textbf{\hide{image} de \textcolor{orange}{2}} par la fonction $f$ est \textcolor{green!50!black}{5} et un \textbf{\hide{antécédent} de \textcolor{green!50!black}{5}} par $f$ est \textcolor{orange}{2}.
+\end{example}
+
+\begin{remark}
+  Un nombre peut avoir aucun, un seul ou plusieurs antécédents.
+  En revanche, un nombre de l'ensemble de définition $D_f$ \underline{n'a qu'une seule image}.
+  Un nombre hors de $D_f$ n'en a pas.
+\end{remark}
+
+\begin{example}
+Soit $f$ une fonction d'ensemble de définition $D_f = [1,5\,;\,6]$.
+
+On souhaite donner des images aux nombres de l'intervalle $[1,5\,;\,6]$.
+
+On peut définir en partie $f$ à l'aide d'un tableau comme celui-ci :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|Y|Y|Y|Y|Y|}
+\hline
+$x$ & $1,5$ & $2$ & $2,5$ & $3$ & $3,5$ & $4$ & $5$ & $6$ \\
+\hline
+$f(x)$ & $5,25$ & $3$ & $1,25$ & $0$ & $-0,75$ & $-1$ & $0$ & $\dots$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+On peut voir grâce à ce tableau que :
+
+\begin{tasks}[label=\textbullet](3)
+    \task $f(1,5) = \dots$
+    \task $f(3) = \dots$
+    \task $f(4) = \dots$
+    \task $f(\dots) = -1$
+    \task $f(\dots) = 1,25$
+    \task $f(\dots) = 0$
+\end{tasks}
+
+On dit par exemple que $5,25$ est $\dots \dots \dots$ de $\dots$ par $f$ et que $1,5$ est $\dots \dots \dots$ de $\dots$ par $f$. $0$ a plusieurs antécédents qui sont $\dots$ et $\dots$.
+
+Avec un tableau, on ne peut pas donner toutes des images à tous les nombres de l'intervalle $[1,5\,;\,6]$.
+
+Lorsque c'est possible, on peut aussi donner une formule.
+
+Ici, on donne la formule suivante :
+
+$$f(x) = x^2 - 8x + 15$$
+
+On peut alors calculer l'image d'un nombre de $[1,5\,;\,6]$ en remplaçant $x$ par ce nombre dans la formule.
+
+Par exemple, si on veut calculer l'image de $2$ par $f$, on écrit :
+\[
+f(2) = 2^2 - 8 \times 2 + 15 = 4 - 16 + 15 = 3
+\]
+et on retrouve bien que l'image de $2$ par $f$ est $3$.
+De la même manière :
+$$f(6) = \dots$$
+\end{example}
+
+\begin{remark}
+  La notation $f: x \mapsto f(x)$ se lit ``la fonction qui a $x$ associe $f(x)$''.
+\end{remark}
+
+\section{Représentation graphique}
+
+\begin{definition}{Représentation $C_f$ de $f$}{}
+  \begin{multihide}
+    La représentation graphique (ou courbe) $C_f$ d'une fonction $f$ dans un repère est l'ensemble des points du repère de coordonnées $(x ; f(x))$ pour les $x$ de l'ensemble de définition $D_f$. 
+  \end{multihide}
+\end{definition}
+
+\begin{example}
+    On a représenté ci-dessous une fonction $f$. 
+    \begin{center}
+      [image]
+    \end{center}
+    Son ensemble de définition est
+    $D_f = \dots \dots \dots$ et on peut voir sur le graphique que :
+
+      \begin{tasks}[label=\textbullet](3)
+        \task $f(-3)=\dots$
+        \task $f(-4)=\dots$
+
+        \task $f(3)=\dots$
+        \task $f(\dots)=-4$
+
+        \task $f(0)=$
+        \task $f(\dots) \approx 4,9$
+    \end{tasks}
+
+    Les antécédents de $1$ par $f$ sont : $\dots \dots \dots$
+
+  \end{example}
+
+  \begin{example}
+    On souhaite désormais tracer la courbe de la fonction $f$ vue au
+    I. définie sur $[1,5\,;\,6]$ par :
+
+    \[
+        f(x)=x^2-8x+15.
+    \]
+
+\begin{minipage}{0.5\textwidth}
+On rappelle son tableau de valeurs :
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $x$ & $1,5$ & $2$ & $2,5$ & $3$ & $3,5$ & $4$ & $5$ & $6$ \\
+    \hline
+    $f(x)$ & $5,25$ & $3$ & $1,25$ & $0$ & $-0,75$ & $-1$ & $0$ & $3$ \\
+    \hline
+\end{tabular}
+\end{center}
+
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+[figure]
+
+\end{center}
+\end{minipage}
+\end{example}
+
+\begin{proposition}{}{}
+  \begin{multihide}
+    Un point $A$ de coordonnées $(x_A; y_A)$ appartient à la courbe de $f$ si et seulement si $x_A \in D_f$ et $f(x_A) = y_A$.
+  \end{multihide}
+\end{proposition}
+
+\begin{example}
+
+  On donne la fonction $f$ définie sur $\mathbb{R}$ par
+  \[
+      f(x)=x^3+3x^2+0,5x+1.
+  \]
+  On souhaite s'assurer que le point $A(-1\,;\,2,5)$ appartient à la courbe représentative de cette fonction $f$. 
+  Cela semble être le cas sur le graphique, mais seul un calcul peut servir de preuve.
+
+  \begin{center}
+      [image]
+
+      (Graphe de la fonction $f$)
+  \end{center}
+
+  \begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{
+    }}
+  \end{center}
+
+  Ainsi, on a prouvé que $f(x_A)=y_A$ ce qui prouve que $A\in C_f$.
+  \end{example}
+
+  \begin{remark}
+    Si en faisant le calcul, on trouve $f(x_A)$ a une valeur différente de $y_A$, cela aurait prouvé que $A$ n'appartient pas à la courbe de $f$.
+  \end{remark}
+
+  \begin{example}
+
+  On donne la fonction $f$ définie sur $\mathbb{R}$ par
+  \[
+      f(x)=x^2+1.
+  \]
+
+  Le point $A(3\,;\,10)$ appartient-il à la courbe de $f$ ?
+
+  \begin{center}
+    \framebox[1\textwidth]{\parbox{5.5in}{
+    }}
+  \end{center}
+
+\end{example}
+
+\subsection{Équations et inéquations du type $f(x)=k$, $f(x)<k$, $f(x)\leq k$}
+
+\begin{remark}
+  Cette partie va donner des méthodes concrètes pour déterminer graphiquement des solutions d'équations et d'inéquations.
+\end{remark}
+
+\subsubsection{Équation du type $f(x)=k$}
+
+On a représenté ci-dessous une fonction $f$. On cherche à résoudre l'équation $f(x)=3$ ce qui est exactement la même chose que de rechercher les antécédents de $3$ par $f$.
+
+\begin{tasks}[style=enumerate](2)
+    \task On se place sur $k$ dans l'axe des ordonnées. Ici $3$.
+    ~\\
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task On trace un trait horizontal qui peut couper la courbe une fois, plusieurs fois, ou même jamais.
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task On trace des traits verticaux jusqu'à l'axe des abscisses à chaque fois que le trait horizontal coupe la courbe.
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task Les solutions de l'équation sont obtenues sur l'axe des abscisses.
+    ~\\
+    \begin{center}
+    [image]
+    \end{center}
+\end{tasks}
+
+Ainsi, $f(x)=3$ a deux solutions qui sont $\dots$ et $\dots$. Ou encore, $3$ a deux antécédents : $\dots$ et $\dots$.
+
+\subsubsection{Inéquation du type $f(x)<k$ ou $f(x)\leq k$}
+
+On a représenté une fonction $f$. On veut résoudre l'inéquation
+$f(x)<2$ ou $f(x)\leq 2$.
+
+\begin{tasks}[style=enumerate](2)
+    \task On effectue la même méthode que si on cherchait les solutions de
+    $f(x)=2$.
+    ~\\
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task On reporte sur l'axe des abscisses les morceaux de courbe qui sont
+    sous le trait horizontal.
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task Si l'inéquation est $f(x)<2$, alors l'ensemble des solutions est :
+
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{
+      \[
+      \hideMW{S=[-6\,;\,-5[ \cup ]-2\,;\,2[ \cup ]4\,;\,6]}
+      \]
+      }}
+    \end{center}
+
+    On exclut les nombres dont l'image vaut
+    exactement $2$, le signe $<$ ne l'accepte pas.
+
+    \task Si l'inéquation est $f(x)\leq 2$, alors l'ensemble des solutions est :
+
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{
+    \[
+    \hideMW{S=[-6\,;\,-5] \cup [-2\,;\,2] \cup [4\,;\,6]}
+    \]
+      }}
+    \end{center}
+
+    On inclut les nombres dont l'image vaut exactement $2$.
+
+\end{tasks}
+
+\subsubsection{Inéquation du type $f(x)>k$ ou $f(x)\geq k$}
+
+Toujours avec $f$, on veut cette fois résoudre l'inéquation
+$f(x)>2$ ou $f(x)\geq2$.
+
+\begin{tasks}[style=enumerate](2)
+    \task On effectue la même méthode que si on cherchait les solutions de
+    $f(x)=2$.
+    ~\\
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task On reporte sur l'axe des abscisses les morceaux de courbe qui sont au-dessus du trait horizontal.
+    \begin{center}
+    [image]
+    \end{center}
+
+    \task Si l'inéquation est $f(x)>2$, alors l'ensemble des solutions est :
+
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{
+    \[
+    \hideMW{S=]-5\,;\,-2[ \cup ]2\,;\,4[}
+    \]
+      }}
+    \end{center}
+
+    On exclut les nombres dont l'image vaut
+    exactement $2$, le signe $>$ ne l'accepte pas.
+
+    \task Si l'inéquation est $f(x)\geq2$, alors l'ensemble des solutions est :
+
+    \begin{center}
+      \framebox[1\linewidth]{\parbox{5.5in}{
+    \[
+    \hideMW{S=[-5\,;\,-2] \cup [2\,;\,4]}
+    \]
+      }}
+    \end{center}
+
+    On inclut les nombres dont l'image vaut exactement $2$.
+\end{tasks}
+
+\section{Variations d'une fonction}
+
+\begin{definition}{Sens de variation d'une fonction}{}
+  \begin{multihide}
+  Soit $f$ définie sur un intervalle $I$, $f$ est 
+  \begin{itemize}
+    \item \textbf{croissante}, si pour tout réels $a$ et $b$ de $I$ tels que $a < b$ alors $f(a) \le f(b)$,
+    \item \textbf{décroissante}, si pour tout réels $a$ et $b$ de $I$ tels que $a < b$ alors $f(a) \ge f(b)$,
+    \item \textbf{constante}, si on a toujours $f(a) = f(b)$.
+  \end{itemize}
+  \end{multihide}
+\end{definition}
+
+\begin{center}
+[figure]
+\end{center}
+
+\begin{remarks}
+  \begin{itemize}
+    \item[]
+    \item Une fonction est \textbf{strictement} croissante (respectivement décroissante) sur $I$ si, pour tous nombres $a$ et $b$ de $I$ tels que $a < b$, alors \hide{$f(a) < f(b)$} (respectivement \hide{$f(a) > f(b)$}).
+    \item Une fonction est \textbf{monotone} sur $I$ si elle garde le même sens de variation sur $I$.
+  \end{itemize}
+\end{remarks}
+
+  On peut présenter les variations d'une fonction $f$ par un \textbf{tableau de variations}.
+
+\begin{example}
+
+\definecolor{courbe}{RGB}{214,39,86}
+\definecolor{grille}{RGB}{200,225,240}
+
+  \begin{minipage}[t]{0.45\textwidth}
+
+    Soit $f$ une fonction dont on donne ci-dessous la représentation graphique $\mathcal{C}_f$.
+    [figure]
+
+  \end{minipage}
+\hfill
+  \begin{minipage}[t]{0.45\linewidth}
+
+  Tableau de variations de $f$ sur $[-4\,;3]$ :
+
+  [figure]
+
+  \end{minipage}
+
+  À l'aide du tableau de variations de $f$, on peut identifier sur $[-4\,;3]$ :
+  \begin{itemize}
+    \item les variations de $f$,
+    \item le minimum de $f$ : \hide{$-2$ atteint pour $x = 3$,}
+    \item le maximum de $f$ : \hide{$2$ atteint pour $x = -2$.}
+  \end{itemize}
+
+\end{example}
+
+\begin{savoir}{}{}
+\begin{itemize}[label=--]
+  \item Modéliser et résoudre des problèmes à l'aide de fonctions,
+  \item Résoudre graphiquement les (in)équation de la forme $f(x) = k$,
+  \item Construire et exploiter un tableau de variations.
+\end{itemize}
+\end{savoir}

@@ -1,0 +1,91 @@
+% Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Contrôles/Sommatif/2nde_Ch3_Sommatif_SujetA.tex
+\renewcommand{\exoskip}{}
+\setlist[enumerate]{label=\arabic*., itemsep=9pt, topsep=6pt}
+\begin{center}
+  {\large\bfseries Contrôle (A) --- Nombres et fonctions}\\[0.3em]
+  {\itshape Seconde \quad $\bullet$ \quad Durée~: 55 minutes}
+\end{center}
+
+\begin{exercice}{Automatismes}{5}
+Les questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $\dfrac{4}{9}\times\dfrac{15}{8}$. Donner le résultat sous forme irréductible.
+  \item Résoudre l'inéquation $-3x+12\geqslant 0$. Donner les solutions sous forme d'intervalle.
+  \item Calculer $75\,\%$ de $120$.
+  \item Justifier chaque appartenance.
+  \begin{tasks}[label=\alph*), label-width=1.4em, item-indent=1.8em](4)
+    \task $\dfrac{-18}{6}\in\mathbb{Z}$
+    \task $\dfrac{7}{4}\in\mathbb{D}$
+    \task $-2{,}35\in\mathbb{Q}$
+    \task $\sqrt{49}\in\mathbb{N}$
+  \end{tasks}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}{Lecture graphique}{5}
+La courbe $\mathcal{C}_f$ ci-contre représente une fonction $f$. Répondre par lecture graphique.
+\par\smallskip
+\begin{minipage}[t]{0.46\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Quel est l'ensemble de définition de $f$~?
+  \item Donner $f(2)$ et l'image de $-4$ par $f$.
+  \item Déterminer les antécédents de $1$ par $f$.
+  \item Résoudre l'inéquation $f(x) \geqslant 1$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.52\linewidth}
+\centering
+[figure]
+\end{minipage}
+
+\end{exercice}
+
+\begin{exercice}{Problème}{6}
+Une salle d'escalade propose deux formules :
+\begin{itemize}[label=\textbullet, itemsep=1pt, topsep=2pt]
+  \item \textbf{Formule A} : $4$~€ par séance ;
+  \item \textbf{Formule B} : un abonnement de $20$~€, puis $2$~€ par séance.
+\end{itemize}
+On note $x$ le nombre de séances, avec $0 \leqslant x \leqslant 15$. Le prix payé est $f(x) = 4x$ avec la formule A, et $g(x) = 20 + 2x$ avec la formule B.
+
+\begin{minipage}[t]{0.5\linewidth}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}
+  \item Calculer $f(5)$ et $g(5)$. Quelle formule est la moins chère pour $5$ séances~?
+  \item Le point $M(12\,;\,44)$ appartient-il à la courbe $\mathcal{C}_g$~? Justifier par un calcul.
+  \item Les courbes de $f$ et $g$ sont tracées ci-contre. Résoudre graphiquement $f(x) = g(x)$. Interpréter le résultat.
+  \item Résoudre graphiquement $f(x) < g(x)$. Interpréter le résultat.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+[figure]
+\end{minipage}
+
+\end{exercice}
+
+\begin{exercice}{Fonction et géométrie}{4}
+\begin{minipage}[t]{0.6\linewidth}
+\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
+$ABCD$ est un carré de côté $6$~cm.
+
+$M$ est un point du segment $[AB]$.
+
+On note $x$ la longueur $AM$, en cm.
+
+$AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
+
+On note $\mathcal{A}(x)$ l'aire de la partie hachurée, en cm$^2$.
+\begin{enumerate}
+  \item Dans quel intervalle le nombre $x$ peut-il varier~?
+  \item Justifier que $\mathcal{A}(x) = 36 - x^2$.
+  \item Calculer $\mathcal{A}(2)$. Interpréter le résultat.
+  \item Montrer que $3$ est un antécédent de $27$ par $\mathcal{A}$. Interpréter le résultat.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\centering
+[figure]
+\end{minipage}
+
+\end{exercice}

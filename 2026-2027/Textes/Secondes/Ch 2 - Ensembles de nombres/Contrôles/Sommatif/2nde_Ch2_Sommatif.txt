@@ -1,0 +1,46 @@
+% Source : 2026-2027/Secondes/Ch 2 - Ensembles de nombres/Contrôles/Sommatif/2nde_Ch2_Sommatif.tex
+\begin{center}
+  {\Large\bfseries Contrôle --- Ensembles de nombres (1)~: intervalles}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Durée~: 50 minutes \quad $\bullet$ \quad Calculatrice interdite}
+\end{center}
+
+\exercice{1}{Automatismes}{5}
+\underline{Sur la copie.} Les questions sont indépendantes. Justifier chaque réponse.
+\begin{enumerate}[itemsep=6pt]
+  \item Calculer $2^{5}\times 2^{-3}$.
+  \item On sait que $\dfrac{32}{33}-\dfrac{31}{32}>0$. Compléter avec le symbole $<$ ou $>$ : \quad $\dfrac{31}{32}\ \dots\ \dfrac{32}{33}$.
+  \item On considère l'expression $T=M(5+a)$. Calculer la valeur de $T$ pour $M=4$ et $a=\dfrac{3}{4}$.
+  \item Factoriser à l'aide d'une identité remarquable : \quad $A=x^2-6x+9$
+\end{enumerate}
+
+\exercice{2}{Intervalles}{5}
+\underline{Sur le sujet.}
+\begin{enumerate}
+  \item Compléter les pointillés par $\in$ ou $\notin$.
+
+  \quad a) $4\ \dots\ [-1\,;\,4[$ \hfill b) $-3\ \dots\ ]-5\,;\,-3]$ \hfill c) $\dfrac{2}{3}\ \dots\ [0{,}5\,;\,1]$ 
+  \item Compléter le tableau.
+  \begin{center}
+  \renewcommand{\arraystretch}{1.8}
+  \begin{tabular}{|c|c|c|c|c|}
+  \hline
+  Inégalité & $-3\leqslant x<4$ & $x>7$ & \makebox[3cm]{\dotfill} & \makebox[3cm]{\dotfill} \\ \hline
+  Intervalle & $x\in\dots\dots\dots\dots$ & $x\in\dots\dots\dots\dots$ & $x\in\,]-2\,;\,5]$ & $x\in\,]-\infty\,;\,2{,}5[$ \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\exercice{3}{Intersection et union}{4}
+\underline{Sur le sujet.} Représenter $I$ et $J$ sur la droite en deux couleurs, puis donner $I\cap J$ et $I\cup J$.
+
+\casinter{1}{I=\,]-\infty\,;\,1]\ ;\ J=[-4\,;\,4[}
+\casinter{2}{I=[-5\,;\,-1[\ ;\ J=[2\,;\,+\infty[}
+
+\exercice{4}{Inégalités et inéquations}{6}
+\underline{Sur la copie.}
+\begin{enumerate}
+  \item Résoudre les inéquations. Donner les solutions sous forme d'intervalle.
+
+  \quad a) $-4x+1>13$ \qquad\qquad b) $7-2x<x+1$
+  \item Compléter en justifiant par une suite d'inégalités : \quad $x\in\,]-1\,;\,3] \iff -2x+4\in\ \dots\dots$
+\end{enumerate}

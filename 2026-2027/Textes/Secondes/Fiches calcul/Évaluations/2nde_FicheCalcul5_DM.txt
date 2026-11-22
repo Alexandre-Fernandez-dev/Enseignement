@@ -1,0 +1,45 @@
+% Source : 2026-2027/Secondes/Fiches calcul/Évaluations/2nde_FicheCalcul5_DM.tex
+\begin{center}
+  {\Large\bfseries Devoir maison --- Problèmes de modélisation}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Fiche calcul 5}
+\end{center}
+
+\exercice{1}
+Une boutique loue des vélos électriques pour $10$~heures au plus, selon deux tarifs.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{9cm}|}
+	\hline
+	\textbf{Tarif A} & \textbf{Tarif B} \\ \hline
+	$5$~€ par heure. & $15$~€ de frais fixes, puis $2$~€ par heure. \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[itemsep=1em, topsep=0.8em]
+	\item Calculer le prix payé avec chaque tarif pour une location de $2$, $4$ puis $6$~heures.
+	\item Choisir une inconnue. Exprimer en fonction de cette inconnue le prix payé avec le tarif A, puis avec le tarif B.
+	\item Pour quelles durées le tarif B est-il strictement moins cher que le tarif A~? Répondre par un intervalle.
+	\item Avec le tarif B et $30$~€ au plus, combien de temps peut-on louer un vélo~?
+\end{enumerate}
+
+\exercice{2}
+\begin{minipage}{0.56\linewidth}
+On construit un enclos rectangulaire le long d'un mur.
+
+On dispose de $24$~m de grillage, qui ne sert que sur les trois côtés en pointillés.
+
+On note $x$ la largeur de l'enclos, en mètres.
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{center}
+\enclos
+\end{center}
+\end{minipage}
+
+\begin{enumerate}[itemsep=1em, topsep=0.8em]
+	\item Si $x = 5$, quelle est la longueur de l'enclos~? Montrer qu'en général, elle vaut $24 - 2x$.
+	\item La largeur et la longueur doivent être strictement positives. Montrer que $x \in \mathopen{]}0\,;\,12\mathclose{[}$.
+	\item Pour quelles valeurs de $x$ la longueur est-elle d'au moins $10$~m~?
+	\item Pour quelles valeurs de $x$ la longueur est-elle supérieure ou égale à la largeur~?
+	\item Calculer l'aire de l'enclos pour $x = 2$, pour $x = 6$ et pour $x = 10$. L'aire dépend-elle de $x$~?
+\end{enumerate}

@@ -1,0 +1,129 @@
+% Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/Exercices/2nde_Ch1_Exos2.tex
+{
+  \normalsize
+  \textbf{Seconde} \hfill \textbf{Vecteurs 1} \hfill \textbf{Fiche exos 2}
+}
+
+\begin{exercice}{1}
+Simplifier les expressions suivantes en utilisant la relation de Chasles.
+\begin{tasks}(3)
+\task $\overrightarrow{AD}+\overrightarrow{DE}$
+\task $\overrightarrow{BC}+\overrightarrow{AB}$
+\task $\overrightarrow{AB}-\overrightarrow{AC}$
+\task $\overrightarrow{AD}+\overrightarrow{DE}+\overrightarrow{EI}$
+\task $\overrightarrow{AB}-\overrightarrow{AC}-\overrightarrow{CB}$
+\task $\overrightarrow{AB}-\overrightarrow{AC}+\overrightarrow{BA}-\overrightarrow{AC}$
+\end{tasks}
+\end{exercice}
+
+\begin{exercice}{2}
+Représenter à chaque fois le vecteur demandé.
+
+\begin{center}
+[figure]
+\end{center}
+\end{exercice}
+
+\begin{exercice}{3}
+On considère deux vecteurs $\vec u$ et $\vec v$. $A$ est un point donné.
+\begin{enumerate}[label=\arabic*.]
+\item Construire les points $B$ et $C$ tels que :
+  \begin{tasks}[label=\textbullet](2)
+  \task $\overrightarrow{AB}=\vec u+\vec v$
+  \task $\overrightarrow{AC}=\vec u-\vec v$.
+  \end{tasks}
+\item Construire les points $P$, $Q$ et $R$ tels que :
+  \begin{tasks}[label=\textbullet](3)
+  \task $\overrightarrow{BP}=\dfrac23\vec u$
+  \task $\overrightarrow{PQ}=-2\vec v$
+  \task $\overrightarrow{QR}=\dfrac{-2}{3}\vec u$.
+  \end{tasks}
+\item Que constate-t-on ? Le justifier par un calcul vectoriel.
+\end{enumerate}
+
+\begin{center}
+[figure]
+\end{center}
+\end{exercice}
+
+\begin{exercice}{4}
+$ABCD$ est un parallélogramme.
+\begin{enumerate}[label=\arabic*.]
+\item Placer les points $E$ et $F$ tels que :
+  \begin{itemize}[label=\textbullet]
+  \item $\overrightarrow{AE}=2\overrightarrow{AB}$
+  \item $\overrightarrow{BF}=\dfrac32\overrightarrow{AD}-\dfrac12\overrightarrow{AB}$.
+  \end{itemize}
+\item Montrer que $\overrightarrow{CE}=\overrightarrow{AB}-\overrightarrow{AD}$.
+\item Montrer que $\overrightarrow{CF}=\dfrac{-1}{2}\overrightarrow{AB}+\dfrac12\overrightarrow{AD}$.
+\item En déduire le réel $\lambda$ tel que $\overrightarrow{CE}=\lambda\overrightarrow{CF}$.
+\end{enumerate}
+
+\begin{center}
+[figure]
+\end{center}
+\end{exercice}
+
+\begin{exercice}{5}
+$ABC$ est un triangle.
+\begin{enumerate}[label=\arabic*.]
+\item Placer les points $M$ et $N$ définis par $\overrightarrow{BM}=2\overrightarrow{AC}$ et $\overrightarrow{AN}=\dfrac12\overrightarrow{BC}$.
+\item Démontrer que $\overrightarrow{MC}=2\overrightarrow{CN}$.
+\item Soient $I$ et $J$ les milieux respectifs des segments $[AB]$ et $[AC]$. Montrer que $\overrightarrow{BC}=2\overrightarrow{IJ}$.
+\item Montrer que $ANJI$ est un parallélogramme.
+\end{enumerate}
+
+\begin{center}
+[figure]
+\end{center}
+\end{exercice}
+
+\begin{exercice}{6}
+Sur la figure ci-dessous, $ABCD$ est un parallélogramme.
+
+\begin{center}
+[figure]
+\end{center}
+
+\begin{enumerate}[label=\arabic*.]
+\item Donner deux égalités de vecteurs de votre choix données par cette figure.
+\item Placer les points $E$ et $F$ définis par :
+  \begin{enumerate}[label=(\roman*)]
+  \item $\overrightarrow{CF}=2\overrightarrow{CB}$
+  \item $\overrightarrow{AE}=2\overrightarrow{AB}-\overrightarrow{BC}$
+  \end{enumerate}
+\item
+  \begin{enumerate}[label=\alph*.]
+  \item Exprimer $\overrightarrow{CF}$ en fonction de $\overrightarrow{CB}$ et $\overrightarrow{BF}$ puis montrer que $\overrightarrow{CB}=\overrightarrow{BF}$ en utilisant l'égalité (i).
+  \item Que peut-on en déduire ?
+  \end{enumerate}
+\item
+  \begin{enumerate}[label=\alph*.]
+  \item À partir de l'égalité (ii), montrer que $\overrightarrow{AE}=\overrightarrow{AB}+\overrightarrow{AF}$ puis que $\overrightarrow{AB}=\overrightarrow{FE}$.
+  \item Que peut-on en déduire ?
+  \end{enumerate}
+\item Montrer que le quadrilatère $CDFE$ est un parallélogramme.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{7}
+Soit $ABC$ un triangle non aplati ($A$, $B$ et $C$ non alignés) et les points $D$ et $E$ tels que :
+\[
+\overrightarrow{AD}=\dfrac52\overrightarrow{AC}+\dfrac32\overrightarrow{CB}
+\qquad\text{et}\qquad
+\overrightarrow{CE}=-2\overrightarrow{AC}+\dfrac12\overrightarrow{AB}.
+\]
+\begin{enumerate}[label=\arabic*.]
+\item Faire un dessin. Conjecturer le lien entre les points $B$, $D$ et $E$.
+\item Nous allons démontrer la conjecture du point précédent.
+  \begin{enumerate}[label=\alph*.]
+  \item Exprimer $\overrightarrow{ED}$ en fonction des vecteurs $\overrightarrow{DA}$, $\overrightarrow{AC}$ et $\overrightarrow{CE}$, puis en fonction des seuls vecteurs $\overrightarrow{AB}$ et $\overrightarrow{AC}$.
+  \item Exprimer $\overrightarrow{BD}$ en fonction des seuls vecteurs $\overrightarrow{AB}$ et $\overrightarrow{AC}$.
+  \item On admet la propriété suivante :
+  \begin{quote}
+  \og Trois points $M$, $N$ et $P$ sont alignés ssi il existe un réel $\lambda$ tel que $\overrightarrow{MN}=\lambda\overrightarrow{MP}$. \fg{}
+  \end{quote}
+  Conclure.
+  \end{enumerate}
+\end{enumerate}
+\end{exercice}

@@ -1,0 +1,135 @@
+% Source : 2026-2027/Secondes/Ch 1 - Vecteurs partie 1/Contrôles/Form 2/2nde_Ch1_Form2_Corrige.tex
+\large
+
+\entete{A}
+
+\begin{exercice}~\\
+\begin{minipage}[t]{0.66\textwidth}
+
+\begin{enumerate}
+    \item $ABCD$ est un parallélogramme, donc $\overrightarrow{BA} = \overrightarrow{CD}$.
+    \[
+    \overrightarrow{OC} + \overrightarrow{BA} = \overrightarrow{OC} + \overrightarrow{CD} = \overrightarrow{OD}.
+    \]
+    (On accepte aussi $\overrightarrow{BO}$, $\overrightarrow{EA}$ ou $\overrightarrow{CF}$.)
+    \item Soustraire un vecteur, c'est ajouter son opposé : $-\overrightarrow{FD} = \overrightarrow{DF}$.
+    \[
+    \overrightarrow{ED} - \overrightarrow{FD} + \overrightarrow{AE}
+    = \overrightarrow{AE} + \overrightarrow{ED} + \overrightarrow{DF}
+    = \overrightarrow{AF}.
+    \]
+    (On accepte aussi $\overrightarrow{EC}$.)
+\end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{0.34\textwidth}
+
+\begin{center}
+    [image]
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}~
+\begin{enumerate}
+    \item $\overrightarrow{IP} + \overrightarrow{MI} = \overrightarrow{MI} + \overrightarrow{IP} = \overrightarrow{MP}$.
+    \item $\overrightarrow{JI} - \overrightarrow{JK} + \overrightarrow{IK}
+    = \overrightarrow{JI} + \overrightarrow{IK} - \overrightarrow{JK}
+    = \overrightarrow{JK} - \overrightarrow{JK}
+    = \vec{0}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}~\\
+On trace $\vec u$ à partir de $T$, puis $\vec v$ à partir de l'extrémité de $\vec u$.
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+\construction{(-5,5)}{(-5,5)}{(7,-5)}{(-5,5)}{(4,-9)}{R}
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+\construction{(-2,0)}{(0,3)}{(4,-9)}{(3,1)}{(0,5)}{D}
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}~
+\begin{center}
+\figureABC{(-3,-3)}{(2.5,0)}{1/3}{\frac{1}{3}}
+\end{center}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Pour $B$ : on trace $\vec u$ à partir de $A$, puis $\vec v$. Pour $C$ : on trace $\vec u$ à partir de $A$, puis $-\vec v$ (même direction que $\vec v$, sens contraire).
+    \item $\dfrac{1}{3}\vec u$ a la même direction et le même sens que $\vec u$, et une longueur trois fois plus petite. $-2\vec v$ a la même direction que $\vec v$, le sens contraire et une longueur deux fois plus grande.
+    \item \questionCR{\frac{1}{3}}
+\end{enumerate}
+\end{exercice}
+
+\setcounter{exercice}{0}
+\entete{B}
+
+\begin{exercice}~\\
+\begin{minipage}[t]{0.66\textwidth}
+
+\begin{enumerate}
+    \item $ABCD$ est un parallélogramme, donc $\overrightarrow{CD} = \overrightarrow{BA}$.
+    \[
+    \overrightarrow{OB} + \overrightarrow{CD} = \overrightarrow{OB} + \overrightarrow{BA} = \overrightarrow{OA}.
+    \]
+    (On accepte aussi $\overrightarrow{CO}$, $\overrightarrow{BE}$ ou $\overrightarrow{FD}$.)
+    \item Soustraire un vecteur, c'est ajouter son opposé : $-\overrightarrow{FC} = \overrightarrow{CF}$.
+    \[
+    \overrightarrow{EC} - \overrightarrow{FC} + \overrightarrow{BE}
+    = \overrightarrow{BE} + \overrightarrow{EC} + \overrightarrow{CF}
+    = \overrightarrow{BF}.
+    \]
+    (On accepte aussi $\overrightarrow{ED}$.)
+\end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{0.34\textwidth}
+
+\begin{center}
+    [image]
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}~
+\begin{enumerate}
+    \item $\overrightarrow{MN} + \overrightarrow{OM} = \overrightarrow{OM} + \overrightarrow{MN} = \overrightarrow{ON}$.
+    \item Soustraire un vecteur, c'est ajouter son opposé : $-\overrightarrow{SU} = \overrightarrow{US}$.
+    \[
+    \overrightarrow{RU} + \overrightarrow{ST} - \overrightarrow{SU}
+    = \overrightarrow{RU} + \overrightarrow{US} + \overrightarrow{ST}
+    = \overrightarrow{RT}.
+    \]
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}~\\
+On trace $\vec u$ à partir de $T$, puis $\vec v$ à partir de l'extrémité de $\vec u$.
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+\construction{(5,-5)}{(5,-5)}{(-3,5)}{(5,-5)}{(-6,1)}{R}
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+\construction{(-2,0)}{(0,3)}{(4,-9)}{(-3,1)}{(0,5)}{D}
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}~
+\begin{center}
+\figureABC{(-3,-3)}{(2.5,0)}{1/3}{\frac{1}{3}}
+\end{center}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Pour $B$ : on trace $\vec u$ à partir de $A$, puis $\vec v$. Pour $C$ : on trace $\vec u$ à partir de $A$, puis $-\vec v$ (même direction que $\vec v$, sens contraire).
+    \item $\dfrac{1}{3}\vec u$ a la même direction et le même sens que $\vec u$, et une longueur trois fois plus petite. $-2\vec v$ a la même direction que $\vec v$, le sens contraire et une longueur deux fois plus grande.
+    \item \questionCR{\frac{1}{3}}
+\end{enumerate}
+\end{exercice}

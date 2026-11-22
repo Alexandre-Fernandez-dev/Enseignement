@@ -1,0 +1,295 @@
+% Source : 2026-2027/Secondes/Ch 3 - Généralités sur les fonctions/Exercices/2nde_Ch3_Exos.tex
+\fancyhf{} 
+\fancyhead[L]{ {\Niveau}}
+\fancyhead[C]{ {\Chapitre}}
+\fancyhead[R]{ {\Document}}
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\thepage\  / \pageref{LastPage}}}
+
+\begin{exercice}{1}
+\begin{minipage}{0.47\linewidth}
+On a représenté ci-contre une fonction $f$.
+\begin{enumerate}[label=\arabic*.]
+  \item Quel est l'ensemble de définition de $f$~?
+  \item Déterminer $f(-5)$, $f(2)$ et $f(6)$.
+  \item Déterminer les antécédents de $0$, $5$ et $-3$.
+  \item Le nombre $-4$ a-t-il des antécédents~?
+  \item Compléter le tableau de valeurs.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+\begin{center}
+\repereUn{}
+\end{center}
+\end{minipage}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|*{6}{C{1.5cm}|}}
+  \hline
+  $x$ & $-7$ & $-3$ & $-1$ & $7$ & & \\ \hline
+  $f(x)$ & & & & & $3$ & $0$ \\ \hline
+\end{tabular}
+\end{center}
+\end{exercice}
+
+\begin{exercice}{2}
+\begin{enumerate}[label=\arabic*.]
+  \item Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = 3x - 5$.
+  \begin{tasks}(2)
+    \task Calculer $f(2)$, $f(-1)$, $f(0)$ et $f\left(\dfrac{1}{3}\right)$.
+    \task Trouver l'antécédent de $7$, puis celui de $0$.
+  \end{tasks}
+  \item Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = x^2 - 4$.
+  \begin{tasks}(2)
+    \task Calculer $g(-3)$, $g(0)$ et $g\left(\dfrac{1}{2}\right)$.
+    \task Déterminer les antécédents de $0$ par $g$.
+    \task Le nombre $-5$ a-t-il des antécédents~? Justifier.
+  \end{tasks}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{3}
+On étudie la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = 0{,}5x^2 - 0{,}5x - 3$.
+\begin{enumerate}[label=\arabic*.]
+  \item Compléter le tableau de valeurs.
+
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|c|*{8}{C{1.2cm}|}}
+    \hline
+    $x$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ \\ \hline
+    $f(x)$ & & & & & & & & \\ \hline
+  \end{tabular}
+\end{enumerate}
+
+\begin{minipage}{0.53\linewidth}
+\begin{enumerate}[label=\arabic*., start=2]
+  \item Placer les points dans le repère ci-contre, puis tracer la courbe de $f$ à main levée.
+  \item $A(1\,;\,-3)$ appartient-il à la courbe de $f$~?
+  \item Même question pour $B(5\,;\,6)$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{center}
+\repereVide{}
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}{4}
+Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = 2x^2 - 3x + 1$, et $\mathcal{C}_f$ sa courbe représentative.
+\begin{enumerate}[label=\arabic*.]
+  \item Les points $A(2\,;\,3)$, $B(-1\,;\,5)$ et $C\left(\dfrac{1}{2}\,;\,0\right)$ appartiennent-ils à $\mathcal{C}_f$~?
+  \item Déterminer l'ordonnée du point $D$ de $\mathcal{C}_f$ d'abscisse $-2$.
+  \item Déterminer les coordonnées du point où $\mathcal{C}_f$ coupe l'axe des ordonnées.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{5}
+Elias consulte son compte bancaire. Le graphique représente le solde de son compte au cours de l'année.
+
+Ici, $x$ est le nombre de mois écoulés depuis le 1\textsuperscript{er} janvier.
+
+\begin{center}
+\repereBanque{}
+\end{center}
+
+\begin{enumerate}[label=\arabic*.]
+  \item Quel était le solde du compte le 1\textsuperscript{er} janvier~? Au bout de 10 mois~?
+  \item À quels moments le solde était-il de $100$~€~?
+  \item Pendant quelle période Elias était-il \og à découvert \fg{} (solde strictement négatif)~?
+  \item Pendant quelle(s) période(s) le solde était-il supérieur ou égal à $100$~€~?
+  \item Quel a été le solde le plus élevé de l'année~? À quel moment~?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{6}
+On reprend la fonction $f$ de l'exercice 1.
+\begin{enumerate}[label=\arabic*.]
+  \item Résoudre graphiquement les équations suivantes.
+  \begin{tasks}(4)
+    \task $f(x) = 0$
+    \task $f(x) = 3$
+    \task $f(x) = 5$
+    \task $f(x) = -4$
+  \end{tasks}
+  \item Résoudre graphiquement les inéquations suivantes (réponses sous forme d'intervalles).
+  \begin{tasks}(4)
+    \task $f(x) < 0$
+    \task $f(x) \geqslant 0$
+    \task $f(x) > 3$
+    \task $f(x) \leqslant 5$
+  \end{tasks}
+  \item (Pour aller plus loin) Résoudre $f(x) \geqslant 3$. Que remarque-t-on~?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{7}
+\begin{minipage}{0.45\linewidth}
+Voici les courbes de deux fonctions $f$ et $g$.
+
+Elles sont définies sur $[-3\,;\,5]$.
+
+Résoudre graphiquement :
+\begin{enumerate}[label=\arabic*.]
+  \item $f(x) = g(x)$
+  \item $f(x) > 8$
+  \item $g(x) \leqslant 0$
+  \item $f(x) > g(x)$
+  \item $f(x) \geqslant g(x)$
+  \item $f(x) < g(x)$
+  \item $f(x) \leqslant g(x)$
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.52\linewidth}
+\begin{center}
+\repereFG{}
+\end{center}
+\end{minipage}
+\end{exercice}
+
+\begin{exercice}{8}
+Un magasin loue des vélos selon deux tarifs. Tarif A : $5$~€ par heure. Tarif B : un forfait de $15$~€, puis $2$~€ par heure. On loue un vélo pendant $x$ heures ($0 \leqslant x \leqslant 10$).
+
+Le prix est de $5x$ euros avec le tarif A, et de $15 + 2x$ euros avec le tarif B.
+
+\begin{center}
+\repereVelo{}
+\end{center}
+
+Répondre aux questions \textbf{à l'aide du graphique}.
+\begin{tasks}[label=\arabic*.](2)
+  \task Prix de 4 heures avec chaque tarif~?
+  \task Durée pour laquelle les tarifs sont égaux~?
+  \task Durées où B est strictement moins cher~?
+  \task Avec $30$~€, durée maximale avec chaque tarif~?
+\end{tasks}
+\end{exercice}
+
+\begin{exercice}{9}
+\begin{minipage}{0.6\linewidth}
+$ABC$ est rectangle en $A$, avec $AB = 4$~cm et $AC = 8$~cm.
+
+On place $M$ sur $[AB]$, $N$ sur $[BC]$ et $P$ sur $[AC]$.
+
+Le quadrilatère $AMNP$ est un rectangle.
+
+On note $x = AM$ et $f(x)$ l'aire du rectangle $AMNP$, en cm$^2$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.36\linewidth}
+\begin{center}
+\triangleABC
+\end{center}
+\end{minipage}
+
+\begin{enumerate}[label=\arabic*.]
+  \item Quel est l'ensemble de définition de $f$~?
+  \item On admet que $MN = 8 - 2x$. Montrer que $f(x) = x(8 - 2x)$.
+  \item Calculer $f(1)$ et $f(1{,}5)$.
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=4]
+  \item On a tracé ci-dessous la courbe de $f$. Répondre à l'aide du graphique.
+
+  \begin{center}
+  \repereRect{}
+  \end{center}
+
+  \begin{enumerate}[label=\alph*.]
+    \item Pour quelles valeurs de $x$ l'aire vaut-elle $6$~cm$^2$~?
+    \item Pour quelles valeurs de $x$ l'aire est-elle d'au moins $6$~cm$^2$~?
+    \item Où placer $M$ pour que l'aire soit la plus grande possible~? Que vaut-elle alors~?
+  \end{enumerate}
+  \item (Pour aller plus loin) Démontrer que $MN = 8 - 2x$ à l'aide du théorème de Thalès.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{10}
+\begin{minipage}{0.57\linewidth}
+$ABCD$ est un rectangle tel que $AB = 6$ et $AD = 14$.
+
+$M$ est un point du segment $[AB]$.
+
+On construit le carré $AMNP$ et le rectangle $NICJ$.
+
+On pose $AM = x$ et on note :
+\begin{itemize}
+  \item $f(x)$ l'aire de la partie hachurée ;
+  \item $g(x)$ l'aire de la partie non hachurée.
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{center}
+\rectABCD
+\end{center}
+\end{minipage}
+
+\begin{enumerate}[label=\arabic*.]
+  \item Dans quel intervalle varie $x$~?
+  \item \begin{enumerate}[label=\alph*.]
+    \item Exprimer $NI$ et $NJ$ en fonction de $x$, puis montrer que $f(x) = 2x^2 - 20x + 84$.
+    \item En déduire que $g(x) = -2x^2 + 20x$.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=3]
+  \item On a tracé ci-dessous les courbes de $f$ et de $g$. Laquelle représente $f$~? Justifier.
+
+  \begin{center}
+  \repereABCD{}
+  \end{center}
+  \item Où placer $M$ pour que l'aire hachurée soit égale à l'aire non hachurée~? Vérifier par le calcul.
+  \item Pour quelle valeur de $x$ l'aire hachurée semble-t-elle la plus petite possible~?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{11}
+Une entreprise veut vendre des ballons de football. On note $x$ le prix d'un ballon, en euros.
+
+Plus le prix est élevé, moins elle en vend. On cherche le prix qui donne le plus grand bénéfice.
+
+\textbf{Partie A.} Selon une étude, l'entreprise vend \mbox{$f(x) = 20 - 2x$} milliers de ballons, avec $x \in [0\,;\,10]$.
+\begin{enumerate}[label=\arabic*.]
+  \item Combien de ballons sont vendus si le prix est de $5$~€~? De $9$~€~?
+  \item Quel prix faut-il choisir pour vendre $6$ milliers de ballons~? $12$ milliers~?
+\end{enumerate}
+
+\textbf{Partie B.} Fabriquer un ballon coûte $3$~€. On note $B(x)$ le bénéfice, en milliers d'euros.
+\begin{enumerate}[label=\arabic*.]
+  \item \begin{enumerate}[label=\alph*.]
+    \item Expliquer pourquoi $B(x) = (20 - 2x)(x - 3)$.
+    \item Montrer que $B(x) = -2x^2 + 26x - 60$.
+  \end{enumerate}
+  \item \begin{enumerate}[label=\alph*.]
+    \item Calculer le bénéfice pour un prix de $6$~€.
+    \item Que se passe-t-il si le prix est de $2$~€~?
+  \end{enumerate}
+  \item Compléter le tableau de valeurs par le calcul.
+
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|c|*{9}{C{1cm}|}}
+    \hline
+    $x$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\ \hline
+    $B(x)$ & & & & & & & & & \\ \hline
+  \end{tabular}
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=4]
+  \item On a représenté $B$ sur l'intervalle $[3\,;\,10]$. Répondre à l'aide du graphique.
+
+  \begin{center}
+  \repereBallon{}
+  \end{center}
+
+  \begin{enumerate}[label=\alph*.]
+    \item Pour quels prix le bénéfice est-il supérieur ou égal à $20$ milliers d'euros~?
+    \item Pour quels prix le bénéfice est-il strictement inférieur à $12$ milliers d'euros~?
+    \item Quel prix donne le plus grand bénéfice~? Quel est ce bénéfice~?
+  \end{enumerate}
+\end{enumerate}
+\end{exercice}

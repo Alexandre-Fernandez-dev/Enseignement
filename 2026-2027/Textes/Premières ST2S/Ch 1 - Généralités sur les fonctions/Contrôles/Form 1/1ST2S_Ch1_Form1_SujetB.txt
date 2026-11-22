@@ -1,0 +1,42 @@
+% Source : 2026-2027/Premières ST2S/Ch 1 - Généralités sur les fonctions/Contrôles/Form 1/1ST2S_Ch1_Form1_SujetB.tex
+\begin{center}
+  {\LARGE\bfseries Contrôle --- Généralités sur les fonctions}\\[0.4em]
+  {\itshape 1\textsuperscript{ère} ST2S \quad $\bullet$ \quad Durée~: 30 minutes \quad $\bullet$ \quad Calculatrice autorisée \quad $\bullet$ \quad \textbf{Sujet B}}
+\end{center}
+
+\exercice{1}{Fonction affine}{4}
+Soit $h$ la fonction définie sur $\mathbb{R}$ par $h(x) = -2x + 3$.
+\begin{enumerate}[label=\alph*)]
+  \item Calculer $h(2)$.
+  \item Déterminer, par le calcul, l'antécédent de $-5$ par $h$.
+\end{enumerate}
+
+\exercice{2}{Inéquation}{3}
+Résoudre dans $\mathbb{R}$ l'inéquation suivante~:
+\[ 2x - 5 < 0 \]
+
+\exercice{3}{Appartenance à une courbe}{4}
+Soit $k$ la fonction définie sur $\mathbb{R}$ par $k(x) = -x^2+7$, et $\mathscr{C}_k$ sa courbe représentative dans un repère du plan.
+
+Le point $G(-2~;~3)$ appartient-il à $\mathscr{C}_k$~? Justifier la réponse par le calcul.
+
+\exercice{4}{Lecture graphique}{9}
+Soit $f$ la fonction représentée par la courbe $\mathscr{C}_f$ ci-dessous, définie sur l'intervalle $[-3~;~4]$.
+
+\begin{center}
+
+  [image]
+
+\end{center}
+
+\begin{enumerate}
+  \item Donner l'image de $0$ par $f$, puis traduire cela par une égalité.
+  \item Donner l'image de chacun des réels suivants~: $-1$~; $2$~; $4$.
+  \item Donner un antécédent par $f$ de chacun des réels suivants~: $1$~; $2$.
+  \item Résoudre graphiquement les équations suivantes~:
+  \begin{enumerate}[label=\alph*.]
+    \item $f(x) = -2$
+    \item $f(x) = -1$
+  \end{enumerate}
+  \item Résoudre graphiquement l'inéquation~: $f(x) \geqslant 1$
+\end{enumerate}

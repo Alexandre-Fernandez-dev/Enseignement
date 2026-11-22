@@ -1,0 +1,437 @@
+% Source : 2026-2027/Secondes/Fiches calcul/Fiche calcul 2/2nde_FicheCalcul2.tex
+\tcbset{mathaleaexo/.style={breakable}}
+
+\begin{EXO}{}{}
+Justifier si les nombres proposés sont des solutions de l'équation donnée ou non.
+
+\begin{enumerate}
+	\item $x^2-14x+45=0~$ pour $~x=5~$, pour $~x=9~$ puis pour $~x=8$
+	\item $4x+9=5x-1~$ pour $~x=10~$ puis pour $~x=2$
+\end{enumerate}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre les équations suivantes.
+
+\begin{multicols}{4}
+\begin{enumerate}[itemsep=1em]
+	\item \begin{minipage}[t]{\linewidth} $8-(2x+8)=2x-4$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $-x-1=-2x+8$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $5(-2x+4)=3x+7$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $x^2+1=(x-8)^2$
+
+ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+
+  Résoudre l'équation $\dfrac{4x+10}{-6}=\dfrac{1}{4}$.
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Résoudre dans $\mathbb{R}$ :
+
+\begin{multicols}{3}
+\begin{enumerate}[itemsep=1em]
+	\item \begin{minipage}[t]{\linewidth} $x^{2}-25=0$ 
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $x^{2}-32=0$
+
+ \end{minipage}
+	\item \begin{minipage}[t]{\linewidth} $4x^{2}-40=0$
+
+ \end{minipage}
+\end{enumerate}
+\end{multicols}
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Préciser les valeurs interdites éventuelles, puis résoudre l'équation : $\dfrac{6+4x}{5x-4}=-1$.
+
+Ensemble des valeurs interdites : 
+Ensemble des solutions : 
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+Exprimer le prix total de l'achat, en fonction des lettres introduites dans l'énoncé.
+
+ Nassim veut acheter $2$ poireaux et $3$ navets.
+
+On note $p$ le prix d'un poireau et $n$ le prix d'un navet.
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Ursule et Nicolas choisissent un même nombre.
+
+ Ursule lui ajoute $1$ puis multiplie le résultat par $6$ alors que Nicolas lui ajoute $7$ puis multiplie le résultat par $15$.
+
+Ursule et Nicolas obtiennent le même résultat.
+
+Quel nombre commun ont choisi Ursule et Nicolas ?
+\tcbset{mathaleaexo/.style={breakable}}
+
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth}  En augmentant le côté d'un carré de $5\text{ cm}$, son aire augmente de $76\text{ cm}^2$.
+
+      Quelle est la longueur du côté de ce carré ? 
+
+      On donnera le résultat sous la forme d'une fraction irréductible ou d'un nombre entier le cas échéant. \end{minipage}
+\end{multicols}
+\end{EXO}
+
+\begin{Correction}
+\begin{EXO}{}{}
+
+\begin{enumerate}
+	\item Pour $x=5$ : 
+
+$x^2-14\times  x+45=
+        5^2-14\times 5+45=
+        25-70+45=0$
+
+On trouve bien $0$ pour le membre de gauche donc l'égalité est vraie.
+
+{\color[HTML]{F15929}$x=5$ est donc solution de l'équation $x^2-14x+45=0~$}\medskip
+
+Pour $x=9$ : 
+
+$x^2-14\times  x+45=
+        9^2-14\times 9+45=
+        81-126+45=0$
+
+On trouve bien $0$ pour le membre de gauche donc l'égalité est vraie.
+
+{\color[HTML]{F15929}$x=9$ est donc solution de l'équation $x^2-14x+45=0~$}\medskip
+
+Pour $x=8$ : 
+
+$x^2-14\times  x+45=
+        8^2-14\times 8+45=
+        64-112+45=-3$
+
+$-3\not=0$ donc l'égalité n'est pas vraie.
+
+{\color[HTML]{F15929}$x=8$ n'est donc pas solution de l'équation $x^2-14x+45=0~$}\medskip
+
+	\item Pour $x=10$ : 
+
+$4x+9=4\times 10+9=40+9=49$ 
+
+           $5x-1=5\times 10-1=50-1=49$
+
+On trouve le même résultat pour le membre de gauche et pour le membre de droite donc l'égalité est vraie.
+
+{\color[HTML]{F15929}$x=10$ est donc solution de l'équation $4x+9=5x-1~$}\medskip
+
+Pour $x=2$ : 
+
+$4x+9=4\times 2+9=8+9=17$ 
+
+           $5x-1=5\times 2-1=10-1=9$
+
+$17\not=9$ donc l'égalité n'est pas vraie.
+
+{\color[HTML]{F15929}$x=2$ n'est donc pas solution de l'équation $4x+9=5x-1~$}\medskip
+
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{enumerate}[itemsep=1em]
+	\item $8-(2x+8)=2x-4$
+
+On développe le membre de gauche.
+
+$8-2x-8=2x-4$
+
+$-2x+0=2x-4$
+
+On soustrait $2x$ aux deux membres.
+
+$-2x+0{\color[HTML]{216D9A}\boldsymbol{-2x}}=2x-4{\color[HTML]{216D9A}\boldsymbol{-2x}}$
+
+$-4x+0=-4$
+
+On ajoute $0$ aux deux membres.
+
+$-4x+0{\color[HTML]{216D9A}\boldsymbol{+0}}=-4{\color[HTML]{216D9A}\boldsymbol{+0}}$
+
+$-4x=-4$
+
+On divise les deux membres par $-4$.
+
+$-4x{\color[HTML]{216D9A}\boldsymbol{\div(-4)}}=-4{\color[HTML]{216D9A}\boldsymbol{\div(-4)}}$
+
+$x=\dfrac{4}{4}$
+
+Par simplification, $x=1$.
+
+La solution de l'équation $8-(2x+8)=2x-4$ est ${\color[HTML]{F15929}\boldsymbol{1}}$.
+	\item $-x-1=-2x+8$
+
+On ajoute $2x$ aux deux membres.
+
+$-x-1{\color[HTML]{216D9A}\boldsymbol{+2x}}=-2x+8{\color[HTML]{216D9A}\boldsymbol{+2x}}$
+
+$x-1=8$
+
+On ajoute $1$ aux deux membres.
+
+$x-1{\color[HTML]{216D9A}\boldsymbol{+1}}=8{\color[HTML]{216D9A}\boldsymbol{+1}}$
+
+$x=9$
+
+La solution de l'équation $-x-1=-2x+8$ est ${\color[HTML]{F15929}\boldsymbol{9}}$.
+	\item $5(-2x+4)=3x+7$
+
+On développe le membre de gauche.
+
+$-10x+20=3x+7$
+
+On soustrait $3x$ aux deux membres.
+
+$-10x+20{\color[HTML]{216D9A}\boldsymbol{-3x}}=3x+7{\color[HTML]{216D9A}\boldsymbol{-3x}}$
+
+$-13x+20=7$
+
+On soustrait $20$ aux deux membres.
+
+$-13x+20{\color[HTML]{216D9A}\boldsymbol{-20}}=7{\color[HTML]{216D9A}\boldsymbol{-20}}$
+
+$-13x=-13$
+
+On divise les deux membres par $-13$.
+
+$-13x{\color[HTML]{216D9A}\boldsymbol{\div(-13)}}=-13{\color[HTML]{216D9A}\boldsymbol{\div(-13)}}$
+
+$x=\dfrac{13}{13}$
+
+Par simplification, $x=1$.
+
+La solution de l'équation $5(-2x+4)=3x+7$ est ${\color[HTML]{F15929}\boldsymbol{1}}$.
+	\item $x^2+1=(x-8)^2$
+
+On développe le membre de droite à l'aide de l'identité remarquable $(a-b)^2=a^2-2ab+b^2$, avec $a=x$ et $b=8$.
+
+$x^2+1=x^2-2\times x\times 8+8^2$
+
+$x^2+1=x^2-16x+64$
+
+On soustrait $x^2$ aux deux membres.
+
+$x^2+1{\color[HTML]{216D9A}\boldsymbol{-x^2}}=x^2-16x+64{\color[HTML]{216D9A}\boldsymbol{-x^2}}$
+
+$1=-16x+64$
+
+On soustrait $64$ aux deux membres.
+
+$1{\color[HTML]{216D9A}\boldsymbol{-64}}=-16x+64{\color[HTML]{216D9A}\boldsymbol{-64}}$
+
+$-63=-16x$
+
+On divise les deux membres par $-16$.
+
+$-63{\color[HTML]{216D9A}\boldsymbol{\div(-16)}}=-16x{\color[HTML]{216D9A}\boldsymbol{\div(-16)}}$
+
+$x=\dfrac{63}{16}$
+
+La solution de l'équation $x^2+1=(x-8)^2$ est ${\color[HTML]{F15929}\boldsymbol{\dfrac{63}{16}}}$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+    \begin{bclogo}[couleurBarre=nombres,couleurBord=nombres,epBord=2,couleur=gray!10,logo=\bclampe,arrondi=0.1]{\bf Rappel}
+      Pour tout réels $a$, $b$, $c$, $d$ tels que $b$ et $d$ soient non nuls : $\dfrac{a}{b}=\dfrac{c}{d}$ si et seulement si $ad=bc$.
+    \end{bclogo}
+    \[
+\begin{aligned}
+\dfrac{4x+10}{-6}&=\dfrac{1}{4}\\
+4( 4x+10 )&=-6 \times 1\\
+16x+40&=-6\\
+16x&=-6-40\\
+16x&=-46\\x&=-\dfrac{46}{16}=-\dfrac{23}{8}
+\end{aligned}
+\]L'équation a donc pour unique solution : ${\color[HTML]{F15929}\boldsymbol{-\dfrac{23}{8}}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+\begin{enumerate}[itemsep=1em]
+	\item \textbf{Méthode 1 :}
+
+On reconnaît l'identité remarquable $a^2-b^2$ qui se factorise en $(a-b)(a+b)$.
+
+          On l'applique avec $a=x$ et $b=5$.
+
+         Résoudre l'équation revient à résoudre $(x-5)(x+5)=0$ (on reconnaît une équation produit nul).
+
+        $x-5=0$ ou $x+5=0$
+
+        $x=5$ ou $x=-5$
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-5;5\}}}$.
+
+\textbf{Méthode 2 :}
+
+On isole le carré pour se ramener à une équation du type $x^2=k$.
+
+        Résoudre l'équation revient à résoudre  $x^2=25$.
+
+        Puisque $25$ est strictement positif, l'équation a deux solutions : $-\sqrt{25}=-5$ et $\sqrt{25}=5$.
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-5\,;\,5\}}}$.
+	\item \textbf{Méthode 1 :}
+
+On reconnaît l'identité remarquable $a^2-b^2$ qui se factorise en $(a-b)(a+b)$.
+
+          On l'applique avec  $ a=x$ et $b=\sqrt{32}$.
+
+         Résoudre l'équation revient à résoudre $(x-\sqrt{32})(x+\sqrt{32})=0$ (on reconnaît une équation produit nul).
+
+        $x-\sqrt{32}=0$ ou $x+\sqrt{32}=0$
+
+        $x=\sqrt{32}$ ou $x=-\sqrt{32}$
+
+        Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-\sqrt{32}\,;\,\sqrt{32}\}}}$\medskip
+
+\textbf{Méthode 2 :}
+
+On isole le carré pour se ramener à une équation du type $x^2=k$.
+
+        Résoudre l'équation revient à résoudre  $x^2=32$.
+
+        Puisque $32$ est strictement positif, l'équation a deux solutions :  $-\sqrt{32}$ et $\sqrt{32}$.
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-\sqrt{32}\,;\,\sqrt{32}\}}}$.
+	\item On isole le carré pour se ramener à une équation du type $x^2=k$.
+
+        Résoudre l'équation revient à résoudre  $x^2=10$.
+
+  Puisque $10$  est strictement positif, l'équation a deux solutions :  $-\sqrt{10}$ et $\sqrt{10}$.
+
+Ainsi, $S={\color[HTML]{F15929}\boldsymbol{\{-\sqrt{10}\,;\,\sqrt{10}\}}}$.
+\end{enumerate}
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Déterminer les valeurs interdites revient à déterminer les valeurs qui annulent le dénominateur du quotient, puisque la division par $0$ n'existe pas.
+
+Or $5x-4=0$ si et seulement si  $x=\dfrac{4}{5}$. 
+
+          Donc l'ensemble des valeurs interdites est  ${\color[HTML]{F15929}\boldsymbol{\left\{\dfrac{4}{5}\right\}}}$. 
+
+          Pour tout $x\in \mathbb{R}\smallsetminus\left\{\dfrac{4}{5}\right\}$,
+
+            $\begin{aligned}
+           \dfrac{6+4x}{5x-4}&=-1\\
+            6+4x&=-1\times(5x-4)\,\,\,\,\,\,\,\text{ car les produits en croix sont égaux.}\\
+            4x+6&= -5x+4\\
+            9x&= -2\\
+           x&=-\dfrac{2}{9}
+           \end{aligned}$
+
+$-\dfrac{2}{9}$ n'est pas une valeur interdite, donc l'ensemble des solutions de cette équation est  ${\color[HTML]{F15929}\boldsymbol{\mathscr{S}=\left\{-\dfrac{2}{9}\right\}}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+
+        Nassim va payer $2$ fois le prix d'un poireau et $3$ fois le prix d'un navet.
+
+ C'est-à-dire $2\times p + 3\times n = 2p + 3n$.
+
+Donc le prix total de l'achat est ${\color[HTML]{F15929}\boldsymbol{2p + 3n}}$.
+
+\end{EXO}
+
+\begin{EXO}{}{}
+
+ Posons $x$ le nombre choisi au départ.
+
+Le programme de calcul effectué par Ursule se traduit par : $(x+1)\times 6$.
+
+Le programme de calcul effectué par Nicolas se traduit par : $(x+7)\times 15$.
+
+L'égalité des résultats se traduit par l'équation suivante :
+
+$(x+1)\times 6=(x+7)\times 15$
+
+{\bfseries \color{black}Résolvons cette équation :}
+
+  Commençons par développer et réduire les deux membres :
+
+  $\begin{aligned}(x + 1)\times 6 &= 6x + 6\\
+  (x + 7)\times 15 &= 15x + 105\\
+  \end{aligned}$
+
+  Ainsi, l'équation devient : $6x + 6 = 15x + 105$.
+
+  Soustrayons $15x$ des deux membres et soustrayons $6$ des deux membres :
+
+  $\begin{aligned}6x - 15x &= 105 - 6\\
+  -9\times x &= 99\\
+  \end{aligned}$.
+
+  Divisons les deux membres par $-9$ :
+
+  $x = \dfrac{99}{-9} = -11$.
+
+{\bfseries \color{black}Vérification :}
+
+ $(-11 + 1)\times 6 = -10\times 6 = -60$
+
+  $(-11 + 7)\times 15 = -4\times 15 = -60$\medskip
+
+Ursule et Nicolas ont donc choisi au départ le nombre ${\color[HTML]{F15929}\boldsymbol{-11}}$.
+\end{EXO}
+
+\begin{EXO}{}{}
+\begin{multicols}{2}
+ \begin{minipage}[t]{\linewidth} On note $x$ la longueur du côté du carré que l'on cherche.
+
+      La différence des aires entre les deux carrés est  $76$, on cherche $x$ tel que :   
+
+      $\begin{aligned}
+      (x+5)^2-x^2&=76\\
+      \cancel{x^2}+ 10x+5^2-\cancel{x^2}&=76\\
+       10x+25&=76\\
+        10x+25{\color[HTML]{F15929}\boldsymbol{-25}}&=76{\color[HTML]{F15929}\boldsymbol{-25}}\\
+         10x&=51\\
+         \dfrac{10x}{{\color[HTML]{F15929}\boldsymbol{10}}}&=\dfrac{51}{{\color[HTML]{F15929}\boldsymbol{10}}}\\
+         x&=\dfrac{51}{10}\end{aligned}$
+
+           La longueur du côté du carré est  $\dfrac{51}{10}\text{ cm}$.
+  \end{minipage}
+\end{multicols}
+\end{EXO}
+
+\end{Correction}

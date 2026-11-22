@@ -1,0 +1,62 @@
+% Source : 2026-2027/Secondes/Ch 2 - Ensembles de nombres/Contrôles/Rattrapage/2nde_Ch2_Rattrapage_Corrige.tex
+\begin{center}
+  {\Large\bfseries Corrigé du rattrapage --- Intervalles}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Contrôle de 50 minutes}
+\end{center}
+
+\exercice{1}{Automatismes}{5}
+\begin{enumerate}
+  \item On additionne les exposants : $3^{4}\times 3^{-2}=3^{4+(-2)}=3^{2}=\mathbf{9}$. \pts{1}
+  \item $\dfrac{14}{15}-\dfrac{15}{16}<0$, donc $\dfrac{14}{15}<\dfrac{15}{16}$, c'est-à-dire $\mathbf{\dfrac{15}{16}>\dfrac{14}{15}}$. \pts{1}
+  \item $P=6\times\left(3+\dfrac{2}{3}\right)=6\times 3+6\times\dfrac{2}{3}=18+4=\mathbf{22}$. \pts{1}
+  \item On reconnaît $a^2+2ab+b^2$ avec $a=x$ et $b=4$ : $A=x^2+2\times x\times 4+4^2=\mathbf{(x+4)^2}$. \pts{2}
+\end{enumerate}
+
+\exercice{2}{Intervalles}{5}
+\begin{enumerate}
+  \item Appartenance. \bareme{$1$ point par réponse.} \pts{3}
+  \begin{tasks}(2)
+    \task $-2\notin\,\mathopen{]}-2\,;\,5]$ \quad ($-2$ est exclu)
+    \task $6\in[1\,;\,6]$
+    \task $\dfrac{3}{4}\notin[0{,}8\,;\,2]$ \quad ($\dfrac{3}{4}=0{,}75<0{,}8$)
+  \end{tasks}
+  \item Tableau. \bareme{$0{,}5$ point par case.} \pts{2}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{|c|c|c|c|c|}
+  \hline
+  Inégalité & $-1<x\leqslant 6$ & $x\leqslant -2$ & $\mathbf{-4\leqslant x<3}$ & $\mathbf{x>1{,}5}$ \\ \hline
+  Intervalle & $x\in\mathbf{\mathopen{]}-1\,;\,6]}$ & $x\in\mathbf{\mathopen{]}-\infty\,;\,-2]}$ & $x\in[-4\,;\,3[$ & $x\in\,]1{,}5\,;\,+\infty[$ \\ \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\exercice{3}{Intersection et union}{4}
+$I$ en bleu, $J$ en rouge.
+
+1. $I=[-3\,;\,+\infty[$ et $J=\,\mathopen{]}-6\,;\,2]$ : \quad $I\cap J=\mathbf{[-3\,;\,2]}$ \quad et \quad $I\cup J=\mathbf{\mathopen{]}-6\,;\,+\infty[}$. \pts{2}
+\begin{center}
+\droitecinq{\seg{sol}{0.3}{-3}{10.5}{$[$}{}\seg{solJ}{0.6}{-6}{2}{$]$}{$]$}}
+\end{center}
+
+2. $I=\,\mathopen{]}-\infty\,;\,-2]$ et $J=\,]1\,;\,5]$ : \quad $I\cap J=\mathbf{\varnothing}$ \quad et \quad $I\cup J=\mathbf{\mathopen{]}-\infty\,;\,-2]\,\cup\,]1\,;\,5]}$. \pts{2}
+
+L'union n'est pas un intervalle.
+\begin{center}
+\droitecinq{\seg{sol}{0.3}{-10.5}{-2}{}{$]$}\seg{solJ}{0.6}{1}{5}{$]$}{$]$}}
+\end{center}
+
+\exercice{4}{Inégalités et inéquations}{6}
+\begin{enumerate}
+  \item \begin{enumerate}[label=\alph*)]
+    \item $-3x+2\geqslant 14 \iff -3x\geqslant 12 \iff x\leqslant -4$ \quad (division par $-3<0$ : le sens change).
+
+    $S=\mathbf{\mathopen{]}-\infty\,;\,-4]}$ \pts{2}
+    \item $8-3x<x-4 \iff -4x<-12 \iff x>3$ \quad (division par $-4<0$ : le sens change).
+
+    $S=\mathbf{]3\,;\,+\infty[}$ \pts{2}
+  \end{enumerate}
+  \item On multiplie par $-3<0$ : le sens des inégalités change. \pts{2}
+
+  $x\in[-2\,;\,1[ \iff -2\leqslant x<1 \iff 6\geqslant -3x>-3 \iff 11\geqslant -3x+5>2$.\par Donc $x\in[-2\,;\,1[ \iff -3x+5\in\mathbf{]2\,;\,11]}$.
+\end{enumerate}
