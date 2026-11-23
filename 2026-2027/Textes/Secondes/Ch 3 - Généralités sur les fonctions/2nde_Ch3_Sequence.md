@@ -1,6 +1,7 @@
 # Déroulement de la séquence — Seconde, Ch. 3 : Généralités sur les fonctions
 
 Période : du 12/11 au 27/11/2026, soit 7 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
+Révision du 23/11 (progression du Drive) : le 23/11, pas le temps de faire les exercices 7 et 8 ; l'exercice 7 passe en devoir. Le jeudi 26/11 : correction de l'exercice 7, exercice 8, puis un seul des exercices 10 et 11.
 Révision du 19/11 : le jeudi 26/11 devient une séance d'exercices (exercices 10 et 11) ; le contrôle mixte passe au vendredi 27/11 et le Ch4 commence le lundi 30/11.
 Révision du 16/11 : le chapitre avance moins vite que prévu, et il n'y a pas cours le vendredi 20/11 (sortie de la classe). La partie IV passe au lundi 23/11, le contrôle mixte au jeudi 26/11 ; le Ch4 commence le vendredi 27/11.
 Le chapitre 2 se termine le lundi 09/11 : le cours du lundi 02/11 n'a pas eu lieu (professeur absent), ce qui décale tout d'une séance. Vecteurs (partie 2) commence le vendredi 27/11.
@@ -75,14 +76,15 @@ L'activité et le cours alternent : la partie A amène la définition, la partie
 
 Vendredi 20/11 : pas de cours (sortie de la classe).
 
-### Séance 5 — Comparer deux fonctions, révisions (lundi 23/11)
+### Séance 5 — Comparer deux fonctions, révisions (lundi 23/11, faite)
 - **Correction** des exercices 6 et 5 (devoirs du 19/11).
 - **Cours** : IV. Équations et inéquations $f(x) = g(x)$, $f(x) < g(x)$.
-- **En classe** : exercice 7, puis exercice 8 s'il reste du temps.
-- **Devoir** : commencer à réviser le contrôle mixte du vendredi 27/11 : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation).
+- Pas le temps de traiter les exercices 7 et 8.
+- **Devoir** : exercice 7 ; réviser le contrôle mixte du vendredi 27/11 : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation).
 
 ### Séance 6 — Problèmes de modélisation (jeudi 26/11)
-- **En classe** : exercices 10 (aires hachurées dans un rectangle) et 11 (ballons de football).
+- **Correction** de l'exercice 7 (devoir).
+- **En classe** : exercice 8 (vélos), puis un problème qui prépare le contrôle : exercice 10 (aires hachurées dans un rectangle) ou 11 (ballons de football), à choisir.
 - **Devoir** : réviser le contrôle mixte de vendredi.
 
 ### Séance 7 — Contrôle mixte (vendredi 27/11)
@@ -96,7 +98,7 @@ Vendredi 20/11 : pas de cours (sortie de la classe).
 - Pas de tableau de signes ni de tableau de variations.
 
 ### Exercices hors séance
-- Exercice 9 (rectangle dans un triangle) : problème de modélisation, pour les élèves qui veulent s'entraîner avant le contrôle, ou en AP. Les exercices 10 et 11 sont traités en classe le 26/11. Les exercices 9 à 11 pourront aussi servir d'introduction au chapitre « Fonctions : variations et signes » (décembre), car ils font lire un minimum ou un maximum sur une courbe.
+- Exercice 9 (rectangle dans un triangle) : problème de modélisation, pour les élèves qui veulent s'entraîner avant le contrôle, ou en AP. Un des exercices 10 et 11 est traité en classe le 26/11 ; l'autre peut servir d'entraînement avant le contrôle. Les exercices 9 à 11 pourront aussi servir d'introduction au chapitre « Fonctions : variations et signes » (décembre), car ils font lire un minimum ou un maximum sur une courbe.
 
 ## Points de vigilance
 
@@ -106,4 +108,4 @@ Vendredi 20/11 : pas de cours (sortie de la classe).
 - **Appartenance d'un point** : seul un calcul prouve qu'un point est sur la courbe ; la lecture graphique ne suffit pas.
 - **Intervalles** (lien avec le chapitre 2) : crochets ouverts pour $<$ et $>$, fermés pour $\leqslant$ et $\geqslant$ ; réunion d'intervalles ; ensemble vide $\varnothing$ quand il n'y a pas de solution.
 - **Notions reportées** au chapitre « Fonctions : variations et signes » : signe d'une fonction, tableau de signes, sens de variation, extremums. Les questions « l'aire la plus grande » (exercice 9) ou « le plus grand bénéfice » (exercice 11) restent des lectures graphiques intuitives, sans vocabulaire de variations.
-- **Calendrier** : le cours IV tient dans la séance du lundi 23/11 ; si le temps manque, l'exercice 8 passe en devoir. La séance du jeudi 26/11 (exercices 10 et 11) laisse un peu de marge.
+- **Calendrier** : le cours IV a pris toute la séance du lundi 23/11 ; les exercices 7 et 8 passent au jeudi 26/11 (l'exercice 7 en devoir avant), qui ne garde qu'un des exercices 10 et 11.

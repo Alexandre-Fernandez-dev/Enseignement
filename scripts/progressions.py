@@ -4,8 +4,9 @@
 Pour chaque niveau, deux classeurs :
 - dans le dépôt, <niveau>/progression.xlsx : la copie tenue à jour avec Claude (chapitres,
   décisions de progression) ;
-- sur le Drive : le classeur que l'enseignant remplit au fil des séances (cahier de textes,
-  liens des questions flash). Il a normalement les mêmes colonnes que le dépôt ; si une colonne
+- sur le Drive : le classeur Google Sheets que l'enseignant remplit au fil des séances (cahier de
+  textes, liens des questions flash) ; c'est lui qui fait foi pour les séances. Les anciens .xlsx
+  du même nom, rangés dans old/, sont des archives et ne sont pas lus. Il a normalement les mêmes colonnes que le dépôt ; si une colonne
   manque ou a été ajoutée, le décalage est repéré grâce aux en-têtes de la ligne 1 et signalé.
 
 Accès au Drive en lecture seule : un compte de service Google, avec qui seuls ces deux classeurs
@@ -22,7 +23,7 @@ Mise en place (une fois), sur console.cloud.google.com, avec le compte Google du
 2. IAM et administration > Comptes de service > Créer un compte de service, sans aucun rôle ;
 3. sur ce compte : Clés > Ajouter une clé > Créer une clé > JSON ; ranger le fichier téléchargé
    dans ~/.config/lycee/compte-service.json (chmod 600) ;
-4. dans Google Drive, partager les deux classeurs (pas leurs dossiers) avec l'adresse du compte
+4. dans Google Drive, partager les deux classeurs Google Sheets (pas leurs dossiers) avec l'adresse du compte
    (…@….iam.gserviceaccount.com), en « Lecteur », sans envoyer de notification ;
 5. vérifier : python3 scripts/progressions.py verifier ;
 6. pour le cloud : base64 -w0 ~/.config/lycee/compte-service.json | wl-copy, puis coller la
@@ -74,7 +75,7 @@ NIVEAUX = [
     {
         "nom": "Seconde",
         "depot": f"{ANNEE}/Secondes/progression.xlsx",
-        "drive": "progression seconde 2026-2027 AF.xlsx",
+        "drive": "progression seconde 2026-2027 AF",  # Google Sheets (les .xlsx de old/ : archives)
         "sequences": f"{ANNEE}/Secondes/Ch */2nde_Ch*_Sequence.md",
         "champs": [
             Champ("chapitre", "Chapitre", None, "B", "cours", True),
@@ -93,7 +94,7 @@ NIVEAUX = [
     {
         "nom": "1re ST2S",
         "depot": f"{ANNEE}/Premières ST2S/progression.xlsx",
-        "drive": "progression 1 ST2S 2026-2027.xlsx",
+        "drive": "progression 1 ST2S 2026-2027",  # Google Sheets
         "sequences": f"{ANNEE}/Premières ST2S/Ch */1ST2S_Ch*_Sequence.md",
         "champs": [
             Champ("chapitre", "Chapitre", None, "B", "cours", True),
@@ -412,22 +413,19 @@ def lire_sur_drive(nom):
     """(octets du classeur au format xlsx, date de modification) d'un classeur du Drive."""
     dossier = os.environ.get("PROGRESSIONS_DRIVE_DOSSIER")
     if dossier:
-        chemin = os.path.join(dossier, nom)
+        chemin = os.path.join(dossier, nom + ".xlsx")
         if not os.path.exists(chemin):
             raise DriveIndisponible(f"{chemin} introuvable (PROGRESSIONS_DRIVE_DOSSIER)")
         with open(chemin, "rb") as f:
             return f.read(), dt.datetime.fromtimestamp(os.path.getmtime(chemin), dt.timezone.utc)
     jeton = jeton_acces()
     nom_q = nom.replace("\\", "\\\\").replace("'", "\\'")
-    fichiers = lister(jeton, f"name = '{nom_q}' and trashed = false")
+    fichiers = lister(jeton, f"name = '{nom_q}' and mimeType = '{SHEETS}' and trashed = false")
     if not fichiers:
-        raise DriveIndisponible(f"« {nom} » introuvable sur le Drive : le classeur est-il partagé avec le "
-                                "compte de service, et porte-t-il toujours ce nom ?")
-    fichier = fichiers[0]
-    if fichier["mimeType"] == SHEETS:  # converti en Google Sheets : on l'exporte en xlsx
-        url = f"{URL_DRIVE}/{fichier['id']}/export?" + urllib.parse.urlencode({"mimeType": XLSX})
-    else:
-        url = f"{URL_DRIVE}/{fichier['id']}?alt=media"
+        raise DriveIndisponible(f"classeur Google Sheets « {nom} » introuvable : est-il partagé avec le "
+                                "compte de service (en Lecteur), et porte-t-il toujours ce nom ?")
+    fichier = fichiers[0]  # exporté au format xlsx pour la lecture
+    url = f"{URL_DRIVE}/{fichier['id']}/export?" + urllib.parse.urlencode({"mimeType": XLSX})
     return _requete(url, jeton=jeton), moment_drive(fichier)
 
 
@@ -532,7 +530,7 @@ def telecharger(dossier):
     os.makedirs(dossier, exist_ok=True)
     for niv in NIVEAUX:
         contenu, modifie = lire_sur_drive(niv["drive"])
-        chemin = os.path.join(dossier, niv["drive"])
+        chemin = os.path.join(dossier, niv["drive"] + ".xlsx")
         with open(chemin, "wb") as f:
             f.write(contenu)
         print(f"{chemin} (modifié sur le Drive le {format_moment(modifie)})")

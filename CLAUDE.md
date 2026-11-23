@@ -21,16 +21,15 @@ Auteur : Alexandre Fernandez (pied de page : « A. Fernandez »).
 
 Dans chaque dossier de niveau :
 - `progression_initiale.xlsx` : la progression de départ, fournie en début d'année. **Figée, ne jamais la modifier** ; elle sert de référence.
-- `progression.xlsx` : la progression adaptée au fil de l'année, avec le cahier de textes. **C'est elle qui fait foi.** Séances faites en bleu, séances prévues en violet italique (légende en N1).
+- `progression.xlsx` : la copie dans le dépôt du classeur du Drive (ci-dessous), complétée avec Claude (colonne chapitre, décisions de progression). Séances faites en bleu, séances prévues en violet italique (légende en N1).
 - `progression.md` : résumé lisible de `progression.xlsx`, à tenir à jour en même temps que le classeur.
 - `<Niveau>_ChN_Sequence.md` dans chaque chapitre : déroulement séance par séance.
 
 ### Classeurs du Drive (lecture seule)
 
-L'enseignant remplit au fil des séances un classeur sur le Drive (cahier de textes, liens des questions flash) :
-`Enseignement/2026-2027/2GT/progression seconde 2026-2027 AF.xlsx` et `Enseignement/2026-2027/1ST2S/progression 1 ST2S 2026-2027.xlsx`. Il a les mêmes colonnes que `progression.xlsx`. La colonne B « Chapitre » doit y rester : si elle manque, la lecture s'adapte, mais il faut le signaler.
+L'enseignant remplit au fil des séances un classeur **Google Sheets** sur le Drive (cahier de textes, liens des questions flash) : `Enseignement/2026-2027/2GT/progression seconde 2026-2027 AF` et `Enseignement/2026-2027/1ST2S/progression 1 ST2S 2026-2027`. **Pour les séances, ce sont eux qui font foi** ; les `.xlsx` du même nom rangés dans `old/` sont des archives, à ne pas lire. Ils ont les mêmes colonnes que `progression.xlsx`. La colonne B « Chapitre » doit y rester : si elle manque, la lecture s'adapte, mais il faut le signaler.
 - **Lecture seule, toujours.** Ne jamais écrire, déplacer ni partager quoi que ce soit sur le Drive : ni avec `rclone` (le remote `Drive:` ne sert qu'au hook `post-commit` pour les PDF), ni dans le montage `~/Drive`. Pour un changement de progression, modifier le dépôt et dire à l'enseignant quoi reporter sur le Drive.
-- Lecture : `scripts/progressions.py`, avec un compte de service Google qui n'a que le droit de lecture sur ces deux classeurs. Mise en place décrite en tête du script ; `python3 scripts/progressions.py verifier` teste l'accès.
+- Lecture : `scripts/progressions.py` (export xlsx des Google Sheets), avec un compte de service Google qui n'a que le droit de lecture sur ces deux classeurs. Mise en place décrite en tête du script ; `python3 scripts/progressions.py verifier` teste l'accès.
 - Quand l'enseignant dit avoir mis à jour sa progression (plus besoin de snapshot) : `python3 scripts/progressions.py comparer [date]` liste ce que le Drive dit de différent du dépôt. Reporter ces changements dans `progression.xlsx`, `progression.md` et les `*_Sequence.md`. Si le Drive contredit une décision prise avec Claude, demander à l'enseignant laquelle garder. Pour travailler sur les fichiers eux-mêmes (mise en forme, liens), `telecharger DOSSIER` en fait une copie locale.
 - Les dossiers du Drive contiennent aussi des documents personnels d'élèves : ne jamais les partager avec le compte de service ni les lire.
 
