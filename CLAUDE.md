@@ -112,9 +112,8 @@ Quand on demande « la trame du jour », « les cours d'aujourd'hui » ou ceux d
 
 ## Projet Claude « Cours » (claude.ai)
 
-Le Projet Claude lit le dépôt GitHub (branche `main`) : le dossier `2026-2027/Textes/`, versions texte allégées des documents produites par `scripts/textes_projet.py`, et les `CLAUDE.md` s'ils sont sélectionnés. Il ne modifie rien ; il se met à jour seulement quand on clique « Sync now » dans le projet.
+Le Projet Claude utilise le dossier `2026-2027/Textes/` : versions texte allégées des documents, produites par `scripts/textes_projet.py`. Il ne modifie rien. Le dépôt GitHub n'est pas relié au projet (trop de fichiers) : ne pas demander à l'enseignant de cliquer sur « Sync now ».
 - Après toute modification d'un `.tex`, d'un `*_Sequence.md` ou d'un `progression.md` de `2026-2027/`, relancer `python3 scripts/textes_projet.py` et committer `2026-2027/Textes/` **avec** les fichiers sources concernés (jamais les textes d'un travail qu'on ne committe pas).
-- Après le push, rappeler à l'enseignant de cliquer « Sync now » dans le projet.
 
 ## Nouvel ordinateur
 
