@@ -157,7 +157,7 @@
 \subsection{Relation de récurrence}
 
 \begin{example}
-  Dans l'activité 1, le budget des repas vérifie $v_0 = 40\,000$ et $v_{n+1} = 1{,}1 \times v_n$.
+  Dans l'activité 2, le budget des repas vérifie $v_0 = 40\,000$ et $v_{n+1} = 1{,}1 \times v_n$.
 
   Pour calculer $v_2$, on calcule d'abord $v_1 = \hideM{1{,}1 \times 40\,000 = 44\,000}$, puis $v_2 = \hideM{1{,}1 \times 44\,000 = 48\,400}$.
 \end{example}
@@ -465,7 +465,7 @@
   \hfill
   \begin{minipage}[t]{0.57\linewidth}
 
-    On reprend les suites de l'activité 1 : $u_n = 20 + 6n$, et $v_0 = 40\,000$, $v_{n+1} = 1{,}1 \times v_n$.
+    On reprend les suites des activités 1 et 2 : $u_n = 20 + 6n$, et $v_0 = 40\,000$, $v_{n+1} = 1{,}1 \times v_n$.
 
     \begin{itemize}
       \item Formule explicite : en B2, on saisit \hide{\texttt{=20+6*A2}}, puis on recopie vers le bas.

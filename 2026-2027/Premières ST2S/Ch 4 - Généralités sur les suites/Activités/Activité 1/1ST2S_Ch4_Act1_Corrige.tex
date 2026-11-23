@@ -93,7 +93,7 @@
 \setlength{\parindent}{0pt}
 \newcommand{\rep}[1]{\textcolor{cadre}{\textbf{#1}}}
 
-\section*{Partie A -- Le nombre d'enfants inscrits}
+\section*{Le nombre d'enfants inscrits}
 
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
 \item On ajoute $6$ enfants à chaque rentrée.
@@ -117,11 +117,6 @@ $u(4) = 44$ : à la rentrée $2026 + 4 = 2030$, la crèche accueillera $44$ enfa
 
 \item
 \begin{correctionbox}
-Chaque année, on ajoute $6$ enfants : $u(n+1) = u(n) + 6$.
-\end{correctionbox}
-
-\item
-\begin{correctionbox}
 De 2026 à 2036, il y a $10$ rentrées. On part de $20$ enfants et on ajoute $10$ fois $6$ enfants :
 \[ u(10) = 20 + 6 \times 10 = 20 + 60 = 80. \]
 De la même façon, après $n$ rentrées : $u(n) = 20 + 6 \times n$.
@@ -136,52 +131,10 @@ On ne relie pas les points : $n$ est un nombre entier ($0$, $1$, $2$\dots). Par 
 \end{correctionbox}
 \end{enumerate}
 
-\newpage
-\section*{Partie B -- Le budget des repas}
-
-\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
-\item
-\begin{correctionbox}
-$10\,\%$ de $100$~€, c'est $10$~€. Le nouveau prix est $100 + 10 = 110$~€, et $110 = 1{,}1 \times 100$.
-
-Augmenter une quantité de $10\,\%$, c'est la multiplier par \rep{$1{,}1$} $\left(= 1 + \dfrac{10}{100}\right)$.
-\end{correctionbox}
-
-\item
-\begin{correctionbox}
-$v(1) = 1{,}1 \times v(0) = 1{,}1 \times 40\,000 = 44\,000$.
-
-$v(2) = 1{,}1 \times v(1) = 1{,}1 \times 44\,000 = 48\,400$.
-
-$v(3) = 1{,}1 \times v(2) = 1{,}1 \times 48\,400 = 53\,240$.
-
-$v(4) = 1{,}1 \times v(3) = 1{,}1 \times 53\,240 = 58\,564$.
-\end{correctionbox}
-\begin{center}
-\renewcommand{\arraystretch}{1.8}
-\begin{tabular}{|c|*{5}{>{\centering\arraybackslash}p{1.6cm}|}}
-\hline
-$n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
-\hline
-$v(n)$ & $40\,000$ & \rep{44\,000} & \rep{48\,400} & \rep{53\,240} & \rep{58\,564} \\
-\hline
-\end{tabular}
-\end{center}
-Chaque année, le budget est multiplié par $1{,}1$ : $v(n+1) = \rep{1{,}1} \times v(n)$.
-
-\item
-\begin{correctionbox}
-Non. Pour calculer $v(10)$, il faut connaître $v(9)$ ; pour calculer $v(9)$, il faut connaître $v(8)$, etc. Il faut donc calculer tous les termes un par un, de $v(1)$ jusqu'à $v(10)$.
-
-Pour $u(10)$, la formule $u(n) = 20 + 6n$ donne le résultat directement.
-\end{correctionbox}
-\end{enumerate}
-
 \begin{bilan}
 \begin{itemize}[leftmargin=1.2em]
 \item Une \textbf{suite} est une liste de nombres numérotés par les entiers $0$, $1$, $2$, \dots{} Le nombre $u(n)$ est le \textbf{terme de rang} \rep{$n$}.
 \item \textbf{Formule explicite} : on calcule un terme directement à partir de son rang $n$. Exemple : $u(n) = \rep{$20 + 6n$}$.
-\item \textbf{Relation de récurrence} : on calcule un terme à partir du terme \rep{précédent}. Il faut connaître le premier terme. Exemple : $v(0) = \rep{$40\,000$}$ et $v(n+1) = \rep{$1{,}1 \times v(n)$}$.
 \item On représente une suite par un \textbf{nuage de points} $(n~;~u(n))$. On ne \rep{relie} pas les points.
 \end{itemize}
 \end{bilan}

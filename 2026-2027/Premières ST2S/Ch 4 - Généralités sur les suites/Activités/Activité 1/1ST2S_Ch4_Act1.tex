@@ -7,7 +7,7 @@
 %\usepackage[utf8]{inputenc}
 
 % ---------- Mise en page ----------
-\usepackage[margin=2.2cm]{geometry}
+\usepackage[margin=1.8cm]{geometry}
 \usepackage{array,booktabs,tabularx}
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
@@ -78,7 +78,7 @@
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-  width=0.8\textwidth, height=7.5cm,
+  width=\linewidth, height=5.8cm,
   xmin=-0.5, xmax=7.5, ymin=0, ymax=#2,
   xtick={0,...,7}, ytick distance=10, minor y tick num=1,
   grid=both, major grid style={gray!45}, minor grid style={gray!20},
@@ -93,11 +93,10 @@
 \newcommand{\trou}[1]{\underline{\hspace{#1}}}
 
 \begin{objectif}
-Découvrir la notion de suite : calculer des termes, passer d'un terme au suivant, représenter les termes dans un repère.
+Découvrir la notion de suite : calculer des termes, trouver une formule, représenter les termes dans un repère.
 \end{objectif}
 
-\section*{Partie A -- Le nombre d'enfants inscrits}
-
+\section*{Le nombre d'enfants inscrits}
 Une crèche municipale ouvre à la rentrée 2026 avec $20$ enfants inscrits. La mairie prévoit d'accueillir $6$ enfants de plus à chaque rentrée.
 
 On note $u(n)$ le nombre d'enfants inscrits à la rentrée de l'année $2026+n$. Ainsi $u(0)=20$.
@@ -105,7 +104,7 @@ On note $u(n)$ le nombre d'enfants inscrits à la rentrée de l'année $2026+n$.
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
 \item Compléter le tableau suivant.
 \begin{center}
-\renewcommand{\arraystretch}{1.8}
+\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|*{7}{>{\centering\arraybackslash}p{1.2cm}|}}
 \hline
 Année & 2026 & 2027 & 2028 & & & & \\
@@ -120,50 +119,29 @@ $u(n)$ & $20$ & & & & & & \\
 \item Que représente le nombre $u(4)$~?
 \reponse{1}
 
-\item Compléter : $u(n+1) = u(n) + \trou{1.5cm}$.
-
 \item Sans compléter le tableau plus loin, calculer $u(10)$.\\
 En déduire une formule : $u(n) = 20 + \trou{1.5cm} \times n$.
 \reponse{2}
 
-\item Placer les points de coordonnées $(n~;~u(n))$ pour $n$ allant de $0$ à $6$. A-t-on le droit de relier les points~? Pourquoi~?
+\item \begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+Placer les points de coordonnées $(n~;~u(n))$ pour $n$ allant de $0$ à $6$.
+
+\medskip
+A-t-on le droit de relier les points~? Pourquoi~?
+\reponse{4}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.6\linewidth}
+\vspace{0pt}
 \repere{Nombre d'enfants}{80}
-\reponse{1}
-\end{enumerate}
-
-\section*{Partie B -- Le budget des repas}
-
-En 2026, la crèche dépense $40\,000$~€ pour les repas. Ce budget augmente de $10\,\%$ chaque année.
-
-On note $v(n)$ le budget des repas, en euros, pour l'année $2026+n$. Ainsi $v(0)=40\,000$.
-
-\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
-\item Un prix de $100$~€ augmente de $10\,\%$. Quel est le nouveau prix~? Par quel nombre a-t-on multiplié $100$~?
-
-En déduire : augmenter une quantité de $10\,\%$, c'est la multiplier par \trou{1.5cm}.
-\reponse{2}
-
-\item Compléter le tableau suivant, puis compléter : $v(n+1) = \trou{1.5cm} \times v(n)$.
-\begin{center}
-\renewcommand{\arraystretch}{1.8}
-\begin{tabular}{|c|*{5}{>{\centering\arraybackslash}p{1.6cm}|}}
-\hline
-$n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
-\hline
-$v(n)$ & $40\,000$ & & & & \\
-\hline
-\end{tabular}
-\end{center}
-
-\item Peut-on calculer $v(10)$ aussi rapidement que $u(10)$~? Pourquoi~?
-\reponse{2}
+\end{minipage}
 \end{enumerate}
 
 \begin{bilan}
 \begin{itemize}[leftmargin=1.2em]
 \item Une \textbf{suite} est une liste de nombres numérotés par les entiers $0$, $1$, $2$, \dots{} Le nombre $u(n)$ est le \textbf{terme de rang} \trou{1.2cm}.
 \item \textbf{Formule explicite} : on calcule un terme directement à partir de son rang $n$. Exemple : $u(n) = \trou{3cm}$.
-\item \textbf{Relation de récurrence} : on calcule un terme à partir du terme \trou{3cm}. Il faut connaître le premier terme. Exemple : $v(0) = \trou{2cm}$ et $v(n+1) = \trou{3cm}$.
 \item On représente une suite par un \textbf{nuage de points} $(n~;~u(n))$. On ne \trou{2cm} pas les points.
 \end{itemize}
 \end{bilan}

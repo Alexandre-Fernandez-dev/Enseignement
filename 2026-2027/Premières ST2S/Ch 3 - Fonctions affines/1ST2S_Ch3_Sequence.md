@@ -40,17 +40,19 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 - **En classe** : exercice 5, exercice 6 (questions 1 et 2).
 - **Devoir** : exercice 6 (question 3), exercice 9.
 
-### Séance 4 — Retour sur le coefficient directeur, sens de variation (jeudi 12/11)
-- L'exercice 9 n'a pas été abordé le vendredi 06/11 : on le fait en classe.
-- **En classe** : questions flash ; exercice 9 en entier (déterminer $P(x)$ à partir de deux points, interpréter $a$ et $b$, calculer un prix et une distance : réinvestit la partie 3) ; cours partie 4, sens de variation selon le signe de $a$ (page 5) ; exercice 7.
+### Jeudi 12/11 — Séance d'exercices (raccourcie)
+- Séance raccourcie par une intervention de l'administration : exercices 4, 5 et 6.
+
+### Séance 4 — Sens de variation (vendredi 13/11, 1re heure)
+- **En classe** : fin de l'exercice 9 ; cours partie 4, sens de variation selon le signe de $a$ (page 5) ; exercice 7.
 - **Devoir** : finir l'exercice 7 si besoin.
 
-### Séance 5 — Signe d'une fonction affine, bilan (vendredi 13/11, 1re heure)
-- **Cours** : partie 5, signe de $ax + b$ et tableau de signes (page 6) ; bilan avec le savoir-faire du chapitre. Les questions flash de la période portent déjà sur ce signe.
+### Séance 5 — Signe d'une fonction affine, bilan (vendredi 13/11, 2e heure)
+- **Cours** : partie 5, signe de $ax + b$ et tableau de signes (page 6) ; bilan avec le savoir-faire du chapitre.
 - **En classe** : exercice 8.
 - **Devoir** : exercice 10 pour le jeudi 19/11.
-- **Devoir maison facultatif** : exercice 11 (deux tarifs), à rendre le jeudi 26/11 ; il prépare la comparaison de deux évolutions du chapitre 4.
-- Le chapitre 4 (suites) commence le vendredi 13/11, 2e heure.
+- **Devoir maison** : exercice 11 (deux tarifs), à rendre le jeudi 26/11.
+- Le chapitre 4 (suites) commence le jeudi 19/11.
 
 ## Points de vigilance
 

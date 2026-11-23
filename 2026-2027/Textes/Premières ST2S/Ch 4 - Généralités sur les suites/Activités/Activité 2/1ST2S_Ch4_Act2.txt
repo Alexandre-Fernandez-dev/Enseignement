@@ -1,0 +1,56 @@
+% Source : 2026-2027/Premières ST2S/Ch 4 - Généralités sur les suites/Activités/Activité 2/1ST2S_Ch4_Act2.tex
+\fancyhf{} 
+\fancyhead[R]{ {\small \Niveau}}
+\fancyhead[L]{ {\small \ChapitreCourt}}
+\fancyhead[C]{ {\small \Document}}
+
+\fancyfoot[L]{ A. Fernandez }
+\fancyfoot[R]{{\small \thepage\  / \pageref{LastPage}}}
+
+\setlength{\parindent}{0pt}
+\newcommand{\trou}[1]{\underline{}}
+
+\begin{objectif}
+Découvrir la relation de récurrence : passer d'un terme de la suite au suivant.
+\end{objectif}
+
+\section*{Le budget des repas}
+
+Dans l'activité 1, le nombre d'enfants inscrits à la crèche est la suite $u$ définie par $u(n) = 20 + 6n$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em]
+\item Chaque année, la crèche accueille $6$ enfants de plus que l'année précédente. Compléter : $u(n+1) = u(n) + \trou{1.5cm}$.
+\end{enumerate}
+
+En 2026, la crèche dépense $40\,000$~€ pour les repas. Ce budget augmente de $10\,\%$ chaque année.
+
+On note $v(n)$ le budget des repas, en euros, pour l'année $2026+n$. Ainsi $v(0)=40\,000$.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.3em, resume]
+\item Un prix de $100$~€ augmente de $10\,\%$. Quel est le nouveau prix~? Par quel nombre a-t-on multiplié $100$~?
+
+En déduire : augmenter une quantité de $10\,\%$, c'est la multiplier par \trou{1.5cm}.
+\reponse{2}
+
+\item Compléter le tableau suivant, puis compléter : $v(n+1) = \trou{1.5cm} \times v(n)$.
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|c|*{5}{>{\centering\arraybackslash}p{1.6cm}|}}
+\hline
+$n$ & $0$ & $1$ & $2$ & $3$ & $4$ \\
+\hline
+$v(n)$ & $40\,000$ & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\item Peut-on calculer $v(10)$ aussi rapidement que $u(10)$~? Pourquoi~?
+\reponse{2}
+\end{enumerate}
+
+\begin{bilan}
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{Relation de récurrence} : on calcule un terme à partir du terme \trou{3cm}. Il faut connaître le premier terme. Exemples : $u(0) = 20$ et $u(n+1) = \trou{3cm}$ ; $v(0) = \trou{2cm}$ et $v(n+1) = \trou{3cm}$.
+\item Avec une formule explicite, on calcule directement n'importe quel terme. Avec une relation de récurrence, il faut calculer \trou{4cm} les termes précédents.
+\end{itemize}
+\end{bilan}
