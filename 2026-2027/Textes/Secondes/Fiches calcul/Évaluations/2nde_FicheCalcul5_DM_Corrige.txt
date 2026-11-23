@@ -1,0 +1,88 @@
+% Source : 2026-2027/Secondes/Fiches calcul/Évaluations/2nde_FicheCalcul5_DM_Corrige.tex
+% --- Figures définies dans le préambule ---
+% Enclos le long d'un mur (largeur x, longueur 24 - 2x)
+\newcommand{\enclos}{
+\begin{tikzpicture}[scale=0.55]
+\fill[pattern=north east lines] (-0.5,3) rectangle (8.5,3.5);
+\draw[thick] (-0.5,3) -- (8.5,3);
+\node[above] at (4,3.5) {mur};
+\draw[very thick, dashed] (0,3) -- (0,0) -- (8,0) -- (8,3);
+\node[left] at (0,1.5) {$x$};
+\node[right] at (8,1.5) {$x$};
+\node[below] at (4,0) {longueur};
+\end{tikzpicture}
+}
+% --- Fin des figures ---
+
+\begin{center}
+  {\Large\bfseries Corrigé et barème du DM --- Problèmes de modélisation}\\[0.4em]
+  {\itshape Seconde \quad $\bullet$ \quad Fiche calcul 5 \quad $\bullet$ \quad noté sur 5}
+\end{center}
+
+\begin{tcolorbox}[colback=bandeau, colframe=bandeau, boxrule=0pt, arc=0pt, left=6pt, right=6pt]
+\textbf{Barème sur 5.} Pour chaque ligne : tout, la moitié ou rien.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{6.3cm}|c|p{8.6cm}|}
+  \hline
+  \textbf{Partie} & \textbf{Points} & \textbf{Comment noter} \\ \hline
+  Questions corrigées en classe (ex.~1 q.~1 à 3, ex.~2 q.~1 à 3) & $1$ & $1$ : tout est rédigé (calculs ou inéquations, puis une phrase) ; $0{,}5$ : rédaction partielle ; $0$ : réponses recopiées seules. \\ \hline
+  Ex.~1, question 4 & $1{,}5$ & $1{,}5$ : juste et conclu ; $0{,}5$ : inéquation $15+2x\leqslant 30$ posée mais mal résolue ; $0$ sinon. \\ \hline
+  Ex.~2, question 4 & $1{,}5$ & $1{,}5$ : juste et conclu ; $0{,}5$ : inéquation $24-2x\geqslant x$ posée mais mal résolue ; $0$ sinon. \\ \hline
+  Ex.~2, question 5 & $1$ & $1$ : les trois aires et la conclusion ; $0{,}5$ : il manque la conclusion ou une aire. \\ \hline
+  \multicolumn{1}{|r|}{\textbf{Total}} & $\mathbf{5}$ & \\ \hline
+\end{tabular}
+\end{tcolorbox}
+
+\exercice{1}
+Tarif A : $5$~€ par heure. Tarif B : $15$~€ de frais fixes, puis $2$~€ par heure. Location de $10$~heures au plus.
+
+\textit{Questions 1 à 3 (corrigées en classe) : comptent dans la ligne « rédaction », $1$~point avec l'exercice~2.}
+\begin{enumerate}
+	\item Tarif A : $5\times 2=10$~€, $5\times 4=20$~€, $5\times 6=30$~€.
+
+	Tarif B : $15+2\times 2=19$~€, $15+2\times 4=23$~€, $15+2\times 6=27$~€.
+	\item On note $x$ la durée de location, en heures. La location dure $10$~heures au plus, donc $x\in[0\,;\,10]$.
+
+	Avec le tarif A, le prix est \res{5x}~€. Avec le tarif B, le prix est \res{15+2x}~€.
+	\item Le tarif B est strictement moins cher que le tarif A lorsque $15+2x<5x$.
+
+	$15+2x<5x \iff 15<3x \iff 5<x$ \quad (on divise par $3>0$ : le sens ne change pas).
+
+	Comme $x\in[0\,;\,10]$, on obtient $x\in\res{\mathopen{]}5\,;\,10]}$ : le tarif B est moins cher au-delà de $5$~heures.
+	\item {\color{titrebleu}\bfseries Question nouvelle, 1,5 pt.} Avec le tarif B, on paie $15+2x$~€. On veut payer $30$~€ au plus : $15+2x\leqslant 30$.
+
+	$15+2x\leqslant 30 \iff 2x\leqslant 15 \iff x\leqslant 7{,}5$ \quad (on divise par $2>0$ : le sens ne change pas).
+
+	Comme $x\in[0\,;\,10]$, on obtient $x\in\res{[0\,;\,7{,}5]}$ : on peut louer un vélo pendant $7$~h~$30$~min au plus.
+\end{enumerate}
+
+\exercice{2}
+Enclos rectangulaire le long d'un mur, avec $24$~m de grillage sur trois côtés ; $x$ est la largeur, en mètres.
+
+\textit{Questions 1 à 3 (corrigées en classe) : comptent dans la ligne « rédaction ».}
+\begin{enumerate}
+	\item Si $x=5$, les deux largeurs utilisent $2\times 5=10$~m : il reste $24-10=14$~m de longueur.
+
+	En général, les deux largeurs utilisent $2x$~m : la longueur vaut \res{24-2x}.
+	\item La largeur est strictement positive : $x>0$. La longueur aussi : $24-2x>0$.
+
+	$24-2x>0 \iff -2x>-24 \iff x<12$ \quad (on divise par $-2<0$ : le sens change).
+
+	Donc $x\in\res{\mathopen{]}0\,;\,12\mathclose{[}}$.
+	\item La longueur est d'au moins $10$~m lorsque $24-2x\geqslant 10$.
+
+	$24-2x\geqslant 10 \iff -2x\geqslant -14 \iff x\leqslant 7$ \quad (on divise par $-2<0$ : le sens change).
+
+	Comme $x\in\mathopen{]}0\,;\,12\mathclose{[}$, on obtient $x\in\res{\mathopen{]}0\,;\,7]}$.
+	\item {\color{titrebleu}\bfseries Question nouvelle, 1,5 pt.} La longueur est supérieure ou égale à la largeur lorsque $24-2x\geqslant x$.
+
+	$24-2x\geqslant x \iff 24\geqslant 3x \iff 8\geqslant x$ \quad (on divise par $3>0$ : le sens ne change pas).
+
+	Comme $x\in\mathopen{]}0\,;\,12\mathclose{[}$, on obtient $x\in\res{\mathopen{]}0\,;\,8]}$ : la largeur doit être d'au plus $8$~m.
+	\item {\color{titrebleu}\bfseries Question nouvelle, 1 pt.} L'aire d'un rectangle est largeur $\times$ longueur : l'aire de l'enclos vaut $x(24-2x)$~m$^2$.
+
+	$x=2$ : $2\times 20=40$~m$^2$. \quad $x=6$ : $6\times 12=72$~m$^2$. \quad $x=10$ : $10\times 4=40$~m$^2$.
+
+	On obtient deux aires différentes ($40\neq 72$) : \res{\text{l'aire dépend de } x}.
+\end{enumerate}
