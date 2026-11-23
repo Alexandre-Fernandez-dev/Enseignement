@@ -29,7 +29,7 @@ Dans chaque dossier de niveau :
 
 L'enseignant remplit au fil des séances un classeur sur le Drive (cahier de textes, liens des questions flash) :
 `Enseignement/2026-2027/2GT/progression seconde 2026-2027 AF.xlsx` et `Enseignement/2026-2027/1ST2S/progression 1 ST2S 2026-2027.xlsx`. Il a les mêmes colonnes que `progression.xlsx`. La colonne B « Chapitre » doit y rester : si elle manque, la lecture s'adapte, mais il faut le signaler.
-- **Lecture seule, toujours.** Ne jamais écrire, déplacer ni partager quoi que ce soit sur le Drive : ni avec `rclone` (le remote `Drive:` ne sert qu'au hook post-commit pour les PDF), ni dans le montage `~/Drive`. Pour un changement de progression, modifier le dépôt et dire à l'enseignant quoi reporter sur le Drive.
+- **Lecture seule, toujours.** Ne jamais écrire, déplacer ni partager quoi que ce soit sur le Drive : ni avec `rclone` (le remote `Drive:` ne sert qu'au hook `post-commit` pour les PDF), ni dans le montage `~/Drive`. Pour un changement de progression, modifier le dépôt et dire à l'enseignant quoi reporter sur le Drive.
 - Lecture : `scripts/progressions.py`, avec un compte de service Google qui n'a que le droit de lecture sur ces deux classeurs. Mise en place décrite en tête du script ; `python3 scripts/progressions.py verifier` teste l'accès.
 - Quand l'enseignant dit avoir mis à jour sa progression (plus besoin de snapshot) : `python3 scripts/progressions.py comparer [date]` liste ce que le Drive dit de différent du dépôt. Reporter ces changements dans `progression.xlsx`, `progression.md` et les `*_Sequence.md`. Si le Drive contredit une décision prise avec Claude, demander à l'enseignant laquelle garder. Pour travailler sur les fichiers eux-mêmes (mise en forme, liens), `telecharger DOSSIER` en fait une copie locale.
 - Les dossiers du Drive contiennent aussi des documents personnels d'élèves : ne jamais les partager avec le compte de service ni les lire.
@@ -65,7 +65,7 @@ Pour un nouveau dossier de document, il faut créer ce `def.tex`. Le document lu
 
 ## Diffusion des PDF (Drive, clé USB, tableau)
 
-- **Drive** : le hook `.git/hooks/post-commit` copie les PDF de `2026-2027/` vers `Drive:Enseignement/2026-2027/PDF Lycée` (rclone, en arrière-plan) à chaque commit.
+- **Drive** : le hook `scripts/hooks/post-commit` (versionné, installé par `git config core.hooksPath scripts/hooks`) met à chaque commit `Drive:Enseignement/2026-2027/PDF Lycée` en **miroir** des PDF de `2026-2027/` (`rclone sync`, en arrière-plan, une synchronisation à la fois) : un PDF supprimé ou renommé dans le dépôt disparaît aussi du Drive. Journal : `.git/rclone-sync.log`. Un fichier en double sur le Drive (« Duplicate object found » dans le journal) n'est plus mis à jour : le signaler à l'enseignant.
 - **Clé USB** (pour l'écran Vivitek NovoTouch de la classe) : lancer à la main `scripts/sync-cle.sh` quand la clé `AFERNANDEZ` est branchée, ou la tâche VS Code « Synchroniser la clé ». L'option `--dry-run` (tâche « simulation ») montre ce qui serait fait.
   - La clé reçoit un miroir exact des PDF de `2026-2027/` dans `PDF Lycée/` à la racine de la clé (mêmes sous-dossiers que le Drive). Puis chaque PDF reçoit un `.iwb` à côté de lui, généré s'il manque ou s'il est plus ancien que le PDF.
   - Fichiers jamais supprimés par le miroir : `*.iwb` (sauf ceux dont le PDF a disparu), `*.enb` (annotations créées par le tableau), `*_Annote.pdf`. Tout le reste (ex. `.ubz`) est supprimé.
@@ -75,7 +75,7 @@ Pour un nouveau dossier de document, il faut créer ce `def.tex`. Le document lu
   Format `.enb` : ZIP avec `Slides/Slide_N.xml` (une diapositive par page : une `Picture` `p-N.png` placée par une `Transform`, et des traits `Ink`), plus des vignettes `Slide_N.png`.
 - Dépendances : `rsync`, `poppler` (`pdftoppm`, `pdfinfo`), `imagemagick` (`identify`), `zip`, `qpdf`, `python-cairo`.
 - Sur la clé, le script n'écrit que dans `PDF Lycée/` et s'arrête si ce dossier manque. Les documents personnels (plans de classe, listes d'élèves) sont dans `Documents/`, à côté, avec les mêmes sous-dossiers par niveau : hors du miroir, sans `.iwb`, jamais modifiés par le script.
-- Changement d'année : mettre à jour `ANNEE` dans `scripts/sync-cle.sh` et le chemin du hook `post-commit`.
+- Changement d'année : mettre à jour `ANNEE` dans `scripts/sync-cle.sh` et dans `scripts/hooks/post-commit`.
 
 ## Conventions LaTeX
 
@@ -110,6 +110,21 @@ Quand on demande « la trame du jour », « les cours d'aujourd'hui » ou ceux d
 2. Compléter si besoin avec le reste du `*_Sequence.md` (points de vigilance) et retrouver les fichiers des documents cités (cours, exercices, contrôles) pour donner leurs chemins.
 3. Rédiger une trame courte et lisible sur téléphone, classe par classe et heure par heure : objectif de la séance ; déroulé avec durées (questions flash, correction, cours, exercices) ; documents à ouvrir au tableau ; devoirs à donner ; points de vigilance et rappels (élèves absents, contrôle à venir, choses à ramasser) ; ce qui reste à préparer.
 4. Une session cloud ne voit du dépôt que ce qui a été poussé sur GitHub. Elle lit le Drive si l'environnement cloud a la variable `GOOGLE_COMPTE_SERVICE`. Si le script affiche « dépôt seulement », le dire en tête de la trame : la progression peut être en retard.
+
+## Projet Claude « Cours » (claude.ai)
+
+Le Projet Claude lit le dépôt GitHub (branche `main`) : le dossier `2026-2027/Textes/`, versions texte allégées des documents produites par `scripts/textes_projet.py`, et les `CLAUDE.md` s'ils sont sélectionnés. Il ne modifie rien ; il se met à jour seulement quand on clique « Sync now » dans le projet.
+- Après toute modification d'un `.tex`, d'un `*_Sequence.md` ou d'un `progression.md` de `2026-2027/`, relancer `python3 scripts/textes_projet.py` et committer `2026-2027/Textes/` **avec** les fichiers sources concernés (jamais les textes d'un travail qu'on ne committe pas).
+- Après le push, rappeler à l'enseignant de cliquer « Sync now » dans le projet.
+
+## Nouvel ordinateur
+
+Le dépôt GitHub contient tout le contexte (documents, PDF, scripts, CLAUDE.md, progressions). À refaire sur la machine :
+1. `git clone git@github.com:Alexandre-Fernandez-dev/Enseignement.git`, puis, à la racine : `git config core.hooksPath scripts/hooks` (sans cela, les PDF n'arrivent plus sur le Drive, sans message d'erreur).
+2. Logiciels : TeX Live (XeLaTeX, `latexmk`), `rclone`, `python3`, et les dépendances de la clé USB listées plus haut.
+3. `rclone config` : recréer le remote `Drive:` (type drive, compte Google du Drive), utilisé par le hook.
+4. Clé du compte de service : console.cloud.google.com, projet du compte de service > Clés > Ajouter une clé > JSON, ranger le fichier dans `~/.config/lycee/compte-service.json` (`chmod 600`), puis `python3 scripts/progressions.py verifier`. Les partages du Drive restent valables ; la variable de l'environnement cloud aussi.
+Ne restent que sur l'ancienne machine : le travail non committé ou non poussé, la mémoire locale de Claude Code et l'historique des conversations locales (les sessions cloud restent sur claude.ai).
 
 ## Consignes générales
 

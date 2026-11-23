@@ -1,0 +1,20 @@
+#!/bin/sh
+# Hook git post-commit : après chaque commit, met le dossier « PDF Lycée » du Drive en miroir des
+# PDF de 2026-2027/ (rclone sync, en arrière-plan) : PDF ajoutés ou modifiés envoyés, PDF absents du
+# dépôt supprimés du Drive. Seuls les *.pdf sont concernés ; rien d'autre n'est touché sur le Drive.
+# Une seule synchronisation à la fois (verrou flock) : deux envois simultanés créaient des doublons
+# sur le Drive, que rclone refuse ensuite de mettre à jour.
+# Installation (une fois par ordinateur, depuis la racine du dépôt) :
+#     git config core.hooksPath scripts/hooks
+# Nécessite rclone avec un remote « Drive: » (rclone config). Journal : .git/rclone-sync.log
+# Changement d'année : mettre à jour ANNEE.
+ANNEE="2026-2027"
+ROOT="$(git rev-parse --show-toplevel)"
+GITDIR="$(git rev-parse --absolute-git-dir)"
+command -v rclone >/dev/null 2>&1 || exit 0
+(
+  flock 9
+  rclone sync "$ROOT/$ANNEE" "Drive:Enseignement/$ANNEE/PDF Lycée" \
+    --include "*.pdf" \
+    --log-file "$GITDIR/rclone-sync.log" --log-level NOTICE
+) 9>"$GITDIR/rclone-sync.lock" >/dev/null 2>&1 &
