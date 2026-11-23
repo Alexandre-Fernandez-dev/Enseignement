@@ -5,13 +5,12 @@ Pour chaque niveau, deux classeurs :
 - dans le dépôt, <niveau>/progression.xlsx : la copie tenue à jour avec Claude (chapitres,
   décisions de progression) ;
 - sur le Drive : le classeur Google Sheets que l'enseignant remplit au fil des séances (cahier de
-  textes, liens des questions flash) ; c'est lui qui fait foi pour les séances. Les anciens .xlsx
-  du même nom, rangés dans old/, sont des archives et ne sont pas lus. Il a normalement les mêmes colonnes que le dépôt ; si une colonne
+  textes, liens des questions flash) ; c'est lui qui fait foi pour les séances. Il a normalement les mêmes colonnes que le dépôt ; si une colonne
   manque ou a été ajoutée, le décalage est repéré grâce aux en-têtes de la ligne 1 et signalé.
 
-Accès au Drive en lecture seule : un compte de service Google, avec qui seuls ces deux classeurs
-sont partagés, en « Lecteur ». Il ne voit rien d'autre du Drive et Google lui refuse toute
-modification ; le script ne demande d'ailleurs que la portée drive.readonly.
+Accès au Drive : un compte de service Google, avec qui seuls ces deux classeurs sont partagés.
+Il ne voit rien d'autre du Drive. Il y est « Éditeur » (choix de l'enseignant, pour plus tard),
+mais ce script ne fait que lire : il ne demande que la portée drive.readonly.
 Clé du compte de service (fichier JSON), cherchée dans cet ordre :
 1. variable d'environnement GOOGLE_COMPTE_SERVICE : le contenu du JSON, brut ou en base64
    (session cloud : variables d'environnement de l'environnement cloud, sur claude.ai/code) ;
@@ -24,7 +23,7 @@ Mise en place (une fois), sur console.cloud.google.com, avec le compte Google du
 3. sur ce compte : Clés > Ajouter une clé > Créer une clé > JSON ; ranger le fichier téléchargé
    dans ~/.config/lycee/compte-service.json (chmod 600) ;
 4. dans Google Drive, partager les deux classeurs Google Sheets (pas leurs dossiers) avec l'adresse du compte
-   (…@….iam.gserviceaccount.com), en « Lecteur », sans envoyer de notification ;
+   (…@….iam.gserviceaccount.com), sans envoyer de notification ;
 5. vérifier : python3 scripts/progressions.py verifier ;
 6. pour le cloud : base64 -w0 ~/.config/lycee/compte-service.json | wl-copy, puis coller la
    valeur dans une variable GOOGLE_COMPTE_SERVICE de l'environnement cloud.
@@ -75,7 +74,7 @@ NIVEAUX = [
     {
         "nom": "Seconde",
         "depot": f"{ANNEE}/Secondes/progression.xlsx",
-        "drive": "progression seconde 2026-2027 AF",  # Google Sheets (les .xlsx de old/ : archives)
+        "drive": "progression seconde 2026-2027 AF",  # Google Sheets
         "sequences": f"{ANNEE}/Secondes/Ch */2nde_Ch*_Sequence.md",
         "champs": [
             Champ("chapitre", "Chapitre", None, "B", "cours", True),
@@ -423,7 +422,7 @@ def lire_sur_drive(nom):
     fichiers = lister(jeton, f"name = '{nom_q}' and mimeType = '{SHEETS}' and trashed = false")
     if not fichiers:
         raise DriveIndisponible(f"classeur Google Sheets « {nom} » introuvable : est-il partagé avec le "
-                                "compte de service (en Lecteur), et porte-t-il toujours ce nom ?")
+                                "compte de service, et porte-t-il toujours ce nom ?")
     fichier = fichiers[0]  # exporté au format xlsx pour la lecture
     url = f"{URL_DRIVE}/{fichier['id']}/export?" + urllib.parse.urlencode({"mimeType": XLSX})
     return _requete(url, jeton=jeton), moment_drive(fichier)
@@ -474,11 +473,8 @@ def verifier():
     print("Fichiers qu'il voit :" if fichiers else "Il ne voit aucun fichier : partager les classeurs avec lui.")
     code = 0
     for f in fichiers:
-        droit = "PEUT MODIFIER" if f.get("capabilities", {}).get("canEdit") else "lecture seule"
-        print(f"- {f['name']} ({droit}, modifié le {format_moment(moment_drive(f))})")
-        if droit != "lecture seule":
-            print("  Attention : repartager ce classeur en « Lecteur ».")
-            code = 1
+        droit = "Éditeur" if f.get("capabilities", {}).get("canEdit") else "Lecteur"
+        print(f"- {f['name']} (partagé en {droit}, modifié le {format_moment(moment_drive(f))})")
     autres = [f["name"] for f in fichiers if f["name"] not in attendus]
     if autres:
         print("Attention : partages en trop, à retirer s'ils ne sont pas voulus : " + ", ".join(autres))
