@@ -71,15 +71,15 @@ S = {
   c=6, gex='18-3x', gfun='18-3*\\x', f2='f(2) = 2^2 = 4', g2='g(2) = 18 - 3 \\times 2 = 12',
   g2i="Pour $x = 2$, le carré a une aire de $4$~cm$^2$ et le triangle une aire de $12$~cm$^2$.",
   gk='6', gkc='18 - 3x = 6 \\iff -3x = -12 \\iff x = 4', gki="L'aire du triangle vaut $6$~cm$^2$ pour $AM = 4$~cm.",
-  r_ex='6x', r_2='\\mathcal{A}(2) = 6 \\times 2 = 12', r_2v='12', r_k='24', r_kc='6x = 24 \\iff x = \\dfrac{24}{6} = 4', r_kr='4',
-  sq_ex='36 - x^2', sq_ix='2', sq_ic='\\mathcal{A}(2) = 36 - 2^2 = 36 - 4 = 32', sq_iv='32', sq_ax='4', sq_ay='20', sq_ac='\\mathcal{A}(4) = 36 - 4^2 = 36 - 16 = 20', sq_k='27', sq_kc='36 - x^2 = 27 \\iff x^2 = 9', sq_ksq='9', sq_kx='3',
+  r_ex='6x', r_2='f(2) = 6 \\times 2 = 12', r_2v='12', r_k='24', r_kc='6x = 24 \\iff x = \\dfrac{24}{6} = 4', r_kr='4',
+  sq_ex='36 - x^2', sq_ix='2', sq_ic='f(2) = 36 - 2^2 = 36 - 4 = 32', sq_iv='32', sq_ax='4', sq_ay='20', sq_ac='f(4) = 36 - 4^2 = 36 - 16 = 20', sq_k='27', sq_kc='36 - x^2 = 27 \\iff x^2 = 9', sq_ksq='9', sq_kx='3',
   xi=3, yi=9, Y=36, ystep=2, ylab=6, ysc2=0.2, xsc2=1.15, flab2=(5.4,33), glab2=(1.1,17.5),
   gv='36', gc='20 + 2x = 36 \\iff 2x = 16 \\iff x = 8', gi="Avec $36$~€, on peut faire $8$ séances avec la formule B.",
   vf='« $20$ est un antécédent de $5$ par $f$. »', vfc="Faux : $f(5) = 20$, donc $20$ est l'image de $5$ par $f$, et $5$ est un antécédent de $20$.",
   h='x^2-2x-3', hx='-1', hc='h(-1) = (-1)^2 - 2 \\times (-1) - 3 = 1 + 2 - 3 = 0',
   kf='3x-5', kv='7', kc='3x - 5 = 7 \\iff 3x = 12 \\iff x = 4', kr='4',
   hz='3', hzc='h(3) = 9 - 6 - 3 = 0', autre='-1',
-  P=12, demi=6, aire='x(6-x)', a2='\\mathcal{A}(2) = 2 \\times (6-2) = 8', a2i="Un rectangle de côté $2$~cm a une aire de $8$~cm$^2$.",
+  P=12, demi=6, aire='x(6-x)', a2='f(2) = 2 \\times (6-2) = 8', a2i="Un rectangle de côté $2$~cm a une aire de $8$~cm$^2$.",
   k=8, sk="x = 2 \\text{ ou } x = 4", ski="L'aire vaut $8$~cm$^2$ quand un côté mesure $2$~cm ou $4$~cm.",
   m=5, sm="[1\\,;\\,5]", smi="L'aire est au moins $5$~cm$^2$ quand $x$ est entre $1$ et $5$~cm.",
   amax=9, xmax_=3, ymaxA=10, ystepA=1, ysc=0.55, xsc=1.2, hfun='\\x*(6-\\x)', hlab=(4.9,7.6)),
@@ -112,15 +112,15 @@ S = {
   c=8, gex='32-4x', gfun='32-4*\\x', f2='f(2) = 2^2 = 4', g2='g(2) = 32 - 4 \\times 2 = 24',
   g2i="Pour $x = 2$, le carré a une aire de $4$~cm$^2$ et le triangle une aire de $24$~cm$^2$.",
   gk='8', gkc='32 - 4x = 8 \\iff -4x = -24 \\iff x = 6', gki="L'aire du triangle vaut $8$~cm$^2$ pour $AM = 6$~cm.",
-  r_ex='8x', r_2='\\mathcal{A}(2) = 8 \\times 2 = 16', r_2v='16', r_k='40', r_kc='8x = 40 \\iff x = \\dfrac{40}{8} = 5', r_kr='5',
-  sq_ex='64 - x^2', sq_ix='3', sq_ic='\\mathcal{A}(3) = 64 - 3^2 = 64 - 9 = 55', sq_iv='55', sq_ax='6', sq_ay='28', sq_ac='\\mathcal{A}(6) = 64 - 6^2 = 64 - 36 = 28', sq_k='39', sq_kc='64 - x^2 = 39 \\iff x^2 = 25', sq_ksq='25', sq_kx='5',
+  r_ex='8x', r_2='f(2) = 8 \\times 2 = 16', r_2v='16', r_k='40', r_kc='8x = 40 \\iff x = \\dfrac{40}{8} = 5', r_kr='5',
+  sq_ex='64 - x^2', sq_ix='3', sq_ic='f(3) = 64 - 3^2 = 64 - 9 = 55', sq_iv='55', sq_ax='6', sq_ay='28', sq_ac='f(6) = 64 - 6^2 = 64 - 36 = 28', sq_k='39', sq_kc='64 - x^2 = 39 \\iff x^2 = 25', sq_ksq='25', sq_kx='5',
   xi=4, yi=16, Y=64, ystep=4, ylab=8, ysc2=0.112, xsc2=0.86, flab2=(7.3,58), glab2=(1.3,30),
   gv='33', gc='12 + 3x = 33 \\iff 3x = 21 \\iff x = 7', gi="Avec $33$~€, on peut louer $7$ heures avec la formule B.",
   vf='« $20$ est un antécédent de $4$ par $f$. »', vfc="Faux : $f(4) = 20$, donc $20$ est l'image de $4$ par $f$, et $4$ est un antécédent de $20$.",
   h='x^2+2x-8', hx='-4', hc='h(-4) = (-4)^2 + 2 \\times (-4) - 8 = 16 - 8 - 8 = 0',
   kf='2x+7', kv='1', kc='2x + 7 = 1 \\iff 2x = -6 \\iff x = -3', kr='-3',
   hz='2', hzc='h(2) = 4 + 4 - 8 = 0', autre='-4',
-  P=16, demi=8, aire='x(8-x)', a2='\\mathcal{A}(2) = 2 \\times (8-2) = 12', a2i="Un rectangle de côté $2$~cm a une aire de $12$~cm$^2$.",
+  P=16, demi=8, aire='x(8-x)', a2='f(2) = 2 \\times (8-2) = 12', a2i="Un rectangle de côté $2$~cm a une aire de $12$~cm$^2$.",
   k=12, sk="x = 2 \\text{ ou } x = 6", ski="L'aire vaut $12$~cm$^2$ quand un côté mesure $2$~cm ou $6$~cm.",
   m=7, sm="[1\\,;\\,7]", smi="L'aire est au moins $7$~cm$^2$ quand $x$ est entre $1$ et $7$~cm.",
   amax=16, xmax_=4, ymaxA=16, ystepA=2, ysc=0.34, xsc=0.9, hfun='\\x*(8-\\x)', hlab=(6.6,12.8)),
@@ -334,12 +334,12 @@ On note $x$ la longueur $AM$, en cm.
 
 $AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
 
-On note $\mathcal{{A}}(x)$ l'aire de la partie hachurée, en cm$^2$.
+On note $f(x)$ l'aire de la partie hachurée, en cm$^2$.
 \begin{{enumerate}}
   \item Dans quel intervalle le nombre $x$ peut-il varier~?{s('$M$ est sur $[AB]$ et $AB = ' + str(c) + '$, donc $x \\in [0\\,;\\,' + str(c) + ']$.')}
-  \item Justifier que $\mathcal{{A}}(x) = {d['sq_ex']}$.{s('L\'aire du carré $ABCD$ est $' + str(c) + '^2 = ' + str(c*c) + '$ et celle du carré $AMNP$ est $x^2$. La partie hachurée est le carré $ABCD$ privé du carré $AMNP$, donc $\\mathcal{A}(x) = ' + d['sq_ex'] + '$.')}
-  \item Calculer $\mathcal{{A}}({d['sq_ix']})$. Interpréter le résultat.{s('$' + d['sq_ic'] + '$. Pour $AM = ' + d['sq_ix'] + '$~cm, l\'aire hachurée est $' + d['sq_iv'] + '$~cm$^2$.')}
-  \item Montrer que ${d['sq_kx']}$ est un antécédent de ${d['sq_k']}$ par $\mathcal{{A}}$. Interpréter le résultat.{s('$\\mathcal{A}(' + d['sq_kx'] + ') = ' + str(d['c']*d['c']) + ' - ' + d['sq_kx'] + '^2 = ' + str(d['c']*d['c']) + ' - ' + d['sq_ksq'] + ' = ' + d['sq_k'] + '$ : l\'image de $' + d['sq_kx'] + '$ est $' + d['sq_k'] + '$, donc $' + d['sq_kx'] + '$ est un antécédent de $' + d['sq_k'] + '$. Pour $AM = ' + d['sq_kx'] + '$~cm, l\'aire hachurée est $' + d['sq_k'] + '$~cm$^2$.')}
+  \item Justifier que $f(x) = {d['sq_ex']}$.{s('L\'aire du carré $ABCD$ est $' + str(c) + '^2 = ' + str(c*c) + '$ et celle du carré $AMNP$ est $x^2$. La partie hachurée est le carré $ABCD$ privé du carré $AMNP$, donc $f(x) = ' + d['sq_ex'] + '$.')}
+  \item Calculer $f({d['sq_ix']})$. Interpréter le résultat.{s('$' + d['sq_ic'] + '$. Pour $AM = ' + d['sq_ix'] + '$~cm, l\'aire hachurée est $' + d['sq_iv'] + '$~cm$^2$.')}
+  \item Montrer que ${d['sq_kx']}$ est un antécédent de ${d['sq_k']}$ par $f$. Interpréter le résultat.{s('$f(' + d['sq_kx'] + ') = ' + str(d['c']*d['c']) + ' - ' + d['sq_kx'] + '^2 = ' + str(d['c']*d['c']) + ' - ' + d['sq_ksq'] + ' = ' + d['sq_k'] + '$ : l\'image de $' + d['sq_kx'] + '$ est $' + d['sq_k'] + '$, donc $' + d['sq_kx'] + '$ est un antécédent de $' + d['sq_k'] + '$. Pour $AM = ' + d['sq_kx'] + '$~cm, l\'aire hachurée est $' + d['sq_k'] + '$~cm$^2$.')}
 \end{{enumerate}}
 \end{{minipage}}\hfill
 \begin{{minipage}}[t]{{0.36\linewidth}}

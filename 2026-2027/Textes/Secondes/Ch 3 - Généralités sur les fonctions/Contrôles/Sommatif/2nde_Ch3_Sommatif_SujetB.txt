@@ -99,12 +99,12 @@ On note $x$ la longueur $AM$, en cm.
 
 $AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
 
-On note $\mathcal{A}(x)$ l'aire de la partie hachurée, en cm$^2$.
+On note $f(x)$ l'aire de la partie hachurée, en cm$^2$.
 \begin{enumerate}
   \item Dans quel intervalle le nombre $x$ peut-il varier~?
-  \item Justifier que $\mathcal{A}(x) = 64 - x^2$.
-  \item Calculer $\mathcal{A}(3)$. Interpréter le résultat.
-  \item Montrer que $5$ est un antécédent de $39$ par $\mathcal{A}$. Interpréter le résultat.
+  \item Justifier que $f(x) = 64 - x^2$.
+  \item Calculer $f(3)$. Interpréter le résultat.
+  \item Montrer que $5$ est un antécédent de $39$ par $f$. Interpréter le résultat.
 \end{enumerate}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
