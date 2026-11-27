@@ -1,0 +1,135 @@
+%LTeX: language=fr-FR
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[hmargin=1.6cm, vmargin=1.1cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{makecell}
+\usepackage{tasks}
+\usepackage{tikz}
+
+\tcbuselibrary{skins}
+
+\definecolor{bandeau}{HTML}{E8EEF7}
+\definecolor{titrebleu}{HTML}{1A4FA0}
+
+% Bandeau de titre pour chaque exercice
+\newtcbox{\exobox}{
+  colback=bandeau, colframe=bandeau, boxrule=0pt,
+  arc=0pt, left=4pt, right=4pt, top=3pt, bottom=3pt,
+  fontupper=\bfseries, width=\linewidth, halign=left
+}
+
+% \exotitre{numéro}{titre}{barème} : bandeau seul (utilisable dans une minipage)
+\newcommand{\exotitre}[3]{%
+  \noindent\exobox{Exercice #1 --- #2 \hfill (#3 points)}\par
+  \vspace{0.4em}
+}
+% \exercice{numéro}{titre}{barème} : espace + bandeau
+\newcommand{\exercice}[3]{%
+  \vspace{0.35em plus 0.5fill}
+  \exotitre{#1}{#2}{#3}
+}
+% Exercice avec figure : bandeau et questions dans une minipage à gauche, figure à droite alignée en haut
+\newcommand{\exoespace}{\vspace{0.35em plus 0.5fill}}
+
+\pagestyle{empty}
+\setlist{topsep=2pt, itemsep=2pt, parsep=0pt}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries Contrôle --- Fonctions affines et suites}\\[0.4em]
+  {\itshape 1\textsuperscript{ère} ST2S \quad $\bullet$ \quad Durée~: 55 minutes \quad $\bullet$ \quad Calculatrice non autorisée \quad $\bullet$ \quad \textbf{Sujet B}}
+\end{center}
+
+\vspace{0.3em}
+\noindent\textit{La qualité de la rédaction et la justification des réponses seront prises en compte dans la notation.}
+
+% ================= Automatismes =================
+\exercice{1}{Automatismes}{4}
+Les trois questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $\sqrt{3} \times \sqrt{27}$.
+  \item Résoudre l'équation $(x - 5)(3x + 6) = 0$.
+  \item Un article coûte $50$~euros. Son prix augmente de $20\,\%$, puis il baisse de $20\,\%$. Calculer le prix final de l'article.
+\end{enumerate}
+
+% ================= Fonctions affines =================
+\exercice{2}{Fonction affine}{6}
+Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = -3x + 9$.
+\begin{enumerate}
+  \item Donner le coefficient directeur et l'ordonnée à l'origine de la droite qui représente $g$.
+  \item Donner le sens de variation de $g$ sur $\mathbb{R}$. Justifier.
+  \item Calculer $g(2)$.
+  \item Déterminer, par le calcul, l'antécédent de $15$ par $g$.
+  \item Dresser le tableau de signes de $g(x)$ sur $\mathbb{R}$.
+\end{enumerate}
+
+\exoespace
+\noindent\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\exotitre{3}{Droites}{4}
+\begin{enumerate}
+  \item On donne les points $A(2~;~1)$ et $B(4~;~7)$. Calculer le coefficient directeur de la droite $(AB)$, puis déterminer son équation réduite.
+  \item Lire graphiquement l'équation réduite de la droite $d$ représentée ci-contre.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.41\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  \draw[gray!40, very thin, step=1] (-2,-2) grid (7,5);
+  \draw[->, thick] (-2,0) -- (7.4,0) node[below right] {\small $x$};
+  \draw[->, thick] (0,-2) -- (0,5.4) node[above left] {\small $y$};
+  \foreach \x in {-2,-1,1,2,...,7} \node[below, font=\scriptsize] at (\x,0) {$\x$};
+  \foreach \y in {-2,-1,1,2,...,5} \node[left, font=\scriptsize] at (0,\y) {$\y$};
+  \node[below left, font=\scriptsize] at (0,0) {$0$};
+  \draw[very thick, blue!70!black, domain=-2:7] plot (\x,{-0.5*\x+2});
+  \node[above right] at (1,1.5) {$d$};
+\end{tikzpicture}
+\end{minipage}
+
+% ================= Suites =================
+\exercice{4}{Une suite en contexte}{3}
+Une crèche accueille $45$ enfants en 2026. Chaque année, elle accueille $3$ enfants de plus. On note $c_n$ le nombre d'enfants en $2026 + n$. Ainsi $c_0 = 45$.
+\begin{enumerate}
+  \item Calculer $c_1$ et $c_2$.
+  \item Compléter la relation de récurrence~: $c_{n+1} = c_n + \dots$
+  \item On admet que $c_n = 45 + 3n$. Calculer $c_{10}$, puis interpréter ce résultat.
+\end{enumerate}
+
+\exoespace
+\noindent\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\exotitre{5}{Termes et nuage de points}{3}
+\begin{enumerate}
+  \item La suite $v$ est définie par $v_0 = 2$ et $v_{n+1} = 3 \times v_n - 2$. Calculer $v_1$, $v_2$ et $v_3$ en détaillant les calculs.
+  \item On a représenté ci-contre les premiers termes d'une suite $w$. Lire $w_0$ et $w_3$, puis conjecturer le sens de variation de la suite $w$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.41\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[x=0.75cm, y=0.29cm]
+  \draw[gray!40, very thin, xstep=1, ystep=1] (0,0) grid (6,13);
+  \draw[->, thick] (0,0) -- (6.5,0) node[below right] {\small $n$};
+  \draw[->, thick] (0,0) -- (0,13.6);
+  \foreach \x in {1,...,6} \node[below, font=\scriptsize] at (\x,0) {$\x$};
+  \foreach \y in {2,4,...,12} \node[left, font=\scriptsize] at (0,\y) {$\y$};
+  \node[below left, font=\scriptsize] at (0,0) {$0$};
+  \foreach \n/\w in {0/2, 1/3, 2/5, 3/8, 4/11, 5/12.5} \fill[red] (\n,\w) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
+
+\end{document}

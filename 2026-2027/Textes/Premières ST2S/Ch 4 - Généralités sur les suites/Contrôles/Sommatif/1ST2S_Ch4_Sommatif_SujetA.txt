@@ -1,0 +1,76 @@
+% Source : 2026-2027/Premières ST2S/Ch 4 - Généralités sur les suites/Contrôles/Sommatif/1ST2S_Ch4_Sommatif_SujetA.tex
+\begin{center}
+  {\large\bfseries Contrôle --- Fonctions affines et suites}\\[0.4em]
+  {\itshape 1\textsuperscript{ère} ST2S \quad $\bullet$ \quad Durée~: 55 minutes \quad $\bullet$ \quad Calculatrice non autorisée \quad $\bullet$ \quad \textbf{Sujet A}}
+\end{center}
+
+\exercice{1}{Automatismes}{4}
+Les trois questions sont indépendantes. Détailler les calculs.
+\begin{enumerate}
+  \item Calculer $\sqrt{2} \times \sqrt{18}$.
+  \item Résoudre l'équation $(x + 3)(2x - 8) = 0$.
+  \item Un article coûte $200$~euros. Son prix augmente de $10\,\%$, puis il baisse de $10\,\%$. Calculer le prix final de l'article.
+\end{enumerate}
+
+\exercice{2}{Fonction affine}{6}
+Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = -2x + 8$.
+\begin{enumerate}
+  \item Donner le coefficient directeur et l'ordonnée à l'origine de la droite qui représente $f$.
+  \item Donner le sens de variation de $f$ sur $\mathbb{R}$. Justifier.
+  \item Calculer $f(3)$.
+  \item Déterminer, par le calcul, l'antécédent de $14$ par $f$.
+  \item Dresser le tableau de signes de $f(x)$ sur $\mathbb{R}$.
+\end{enumerate}
+
+\exoespace
+
+\exotitre{3}{Droites}{4}
+\begin{enumerate}
+  \item On donne les points $A(1~;~1)$ et $B(3~;~5)$. Calculer le coefficient directeur de la droite $(AB)$, puis déterminer son équation réduite.
+  \item Lire graphiquement l'équation réduite de la droite $d$ représentée ci-contre.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.41\linewidth}
+
+\begin{tikzpicture}[scale=0.5]
+\draw[gray!40, very thin, step=1] (-2,-2) grid (7,5);
+\draw[->, thick] (-2,0) -- (7.4,0) node[below right] {\small $x$};
+\draw[->, thick] (0,-2) -- (0,5.4) node[above left] {\small $y$};
+\foreach \x in {-2,-1,1,2,...,7} \node[below, font=\scriptsize] at (\x,0) {$\x$};
+\foreach \y in {-2,-1,1,2,...,5} \node[left, font=\scriptsize] at (0,\y) {$\y$};
+\node[below left, font=\scriptsize] at (0,0) {$0$};
+\draw[very thick, blue!70!black, domain=-2:7] plot (\x,{-0.5*\x+3});
+\node[above right] at (1,2.5) {$d$};
+\end{tikzpicture}
+\end{minipage}
+
+\exercice{4}{Une suite en contexte}{3}
+Un EHPAD accueille $60$ résidents en 2026. Chaque année, il accueille $4$ résidents de plus. On note $r_n$ le nombre de résidents en $2026 + n$. Ainsi $r_0 = 60$.
+\begin{enumerate}
+  \item Calculer $r_1$ et $r_2$.
+  \item Compléter la relation de récurrence~: $r_{n+1} = r_n + \dots$
+  \item On admet que $r_n = 60 + 4n$. Calculer $r_{10}$, puis interpréter ce résultat.
+\end{enumerate}
+
+\exoespace
+
+\exotitre{5}{Termes et nuage de points}{3}
+\begin{enumerate}
+  \item La suite $v$ est définie par $v_0 = 3$ et $v_{n+1} = 2 \times v_n - 1$. Calculer $v_1$, $v_2$ et $v_3$ en détaillant les calculs.
+  \item On a représenté ci-contre les premiers termes d'une suite $w$. Lire $w_0$ et $w_3$, puis conjecturer le sens de variation de la suite $w$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.41\linewidth}
+
+\begin{tikzpicture}[x=0.75cm, y=0.29cm]
+\draw[gray!40, very thin, xstep=1, ystep=1] (0,0) grid (6,13);
+\draw[->, thick] (0,0) -- (6.5,0) node[below right] {\small $n$};
+\draw[->, thick] (0,0) -- (0,13.6);
+\foreach \x in {1,...,6} \node[below, font=\scriptsize] at (\x,0) {$\x$};
+\foreach \y in {2,4,...,12} \node[left, font=\scriptsize] at (0,\y) {$\y$};
+\node[below left, font=\scriptsize] at (0,0) {$0$};
+\foreach \n/\w in {0/12, 1/9, 2/7, 3/6, 4/5, 5/4.5} \fill[red] (\n,\w) circle (3pt);
+\end{tikzpicture}
+\end{minipage}

@@ -15,11 +15,11 @@ Horaire : 3 h/semaine en classe entière (jeudi 1 h, vendredi 2 h). Dates = lund
 | 2 | Tableaux croisés et probabilités conditionnelles (dans un tableau) | 14/09 → 02/10 | 3 sem. | |
 | 3 | Fonctions affines | 05/10 → 16/10 puis 02/11 → 13/11 | 2 sem. + 6 séances | Commencé le 16/10 (parties 1 et 2, exercices 1 et 2). Reprise après la Toussaint jusqu'au vendredi 13/11 ; jeudi 12/11 : séance d'exercices raccourcie ; exercice 11 en devoir maison pour le 26/11 |
 | — | *Vacances de la Toussaint* | 19/10 → 30/10 | | |
-| 4 | Généralités sur les suites | 16/11 → début décembre | 7 séances + contrôle | Commencé le jeudi 19/11 ; activité coupée en deux ; une séance de retard le 20/11, fin du chapitre et contrôle à replanifier. Synthèse en devoir. Faire du tableur et du Python |
-| 5 | Fonctions du second degré | 04/12 → 18/12 | 8 séances | Synthèse en devoir. Second degré uniquement : les fonctions de degré 3 ont été retirées du programme (aménagement 2025) ; le degré 3 ne revient qu'avec la dérivation |
+| 4 | Généralités sur les suites | 16/11 → 10/12 | 7 séances + contrôle mixte | Du jeudi 19/11 au vendredi 27/11 ; révisions le vendredi 04/12 (début d'heure) ; contrôle mixte (fonctions affines et suites) le jeudi 10/12. Tableur et Python reportés au chapitre 7 |
+| 5 | Fonctions du second degré | 04/12 → 18/12 | 7 séances (contrôle en janvier) | Synthèse en devoir. Second degré uniquement : les fonctions de degré 3 ont été retirées du programme (aménagement 2025) ; le degré 3 ne revient qu'avec la dérivation |
 | — | *Vacances de Noël* | 21/12 → 01/01 | | |
 | 6 | Arbres de probabilités, épreuve de Bernoulli | 04/01 → 22/01 | 3 sem. | Ajouter l'indépendance et la formule des probabilités totales |
-| 7 | Suites arithmétiques et géométriques | 25/01 → 26/02 | 3 sem. (à cheval sur les vacances d'hiver) | Ajouter la forme explicite ; tableur et Python |
+| 7 | Suites arithmétiques et géométriques | 25/01 → 26/02 | 3 sem. (à cheval sur les vacances d'hiver) | Ajouter la forme explicite ; tableur et Python (y compris la partie 5 du cours du chapitre 4, reportée) |
 | — | *Vacances d'hiver* | 08/02 → 19/02 | | |
 | 8 | Dérivation locale, tangente, dérivées usuelles | 01/03 → 19/03 | 3 sem. | Lien avec les sécantes (GeoGebra) |
 | 9 | Variables aléatoires, loi de probabilité, loi de Bernoulli | 22/03 → 02/04 | 2 sem. | |

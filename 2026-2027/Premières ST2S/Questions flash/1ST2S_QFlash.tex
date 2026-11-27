@@ -1,0 +1,60 @@
+%LTeX: language=fr-FR
+% Questions flash de 1re ST2S : une diapositive 16:9 par série de trois questions.
+% Style des fiches calcul (Helvetica, blocs gris). compile.sh produit la version prof
+% (réponses en bleu) et la version élève _ELEVE (sans les réponses), à projeter.
+\documentclass[12pt]{article}
+\usepackage[paperwidth=33.867cm, paperheight=19.05cm, left=1.4cm, right=1.4cm, top=1.9cm, bottom=0.9cm, headsep=0.5cm]{geometry}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{anyfontsize}
+\usepackage{fontspec}
+% Police des fiches calcul : Helvetica (ici TeX Gyre Heros), formules en Latin Modern
+\setmainfont{texgyreheros}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{currfile}
+\input{def.tex}
+
+\setlength{\parindent}{0pt}
+\definecolor{nombres}{cmyk}{0,.8,.95,0}
+\colorlet{couleur_theme}{nombres}
+
+% Bloc de question, comme les encadrés « prop » des fiches calcul
+\newtcolorbox{prop}[1]{enhanced, colback=gray!7, colframe=gray!7, colbacktitle=gray!7, coltitle=black, boxrule=0pt, arc=0pt, borderline west={4pt}{0pt}{black!60}, title={#1}, fonttitle=\bfseries\Large, titlerule=0pt, toptitle=4pt, bottomtitle=0pt, lefttitle=14pt, left=14pt, right=12pt, top=4pt, bottom=8pt, before skip=0pt, after skip=12pt}
+
+% Réponse : affichée en bleu en version prof, absente en version élève
+\ifdefined\ELEVE\fi % repère pour compile.sh (version élève)
+\newcommand{\reponse}[1]{\ifdefined\ELEVE\else{\color{blue!70!black}#1}\fi}
+
+\newcommand{\qr}[3]{%
+  \begin{minipage}[t]{0.55\linewidth}\vspace{0pt}#1\end{minipage}\hfill
+  \begin{minipage}[t]{0.42\linewidth}\vspace{0pt}\reponse{#3}\end{minipage}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\Large\textbf{Questions flash}}
+\fancyhead[R]{\Large \Niveau}
+\renewcommand{\headrulewidth}{0.6pt}
+\setlength{\headheight}{20pt}
+
+\begin{document}
+\fontsize{25}{34}\selectfont
+
+% \qr{question}{(inutilisé)}{réponse} : question à gauche, réponse à droite
+\begin{prop}{1. Calcul numérique}
+\qr{Calculer $\sqrt{3} \times \sqrt{12}$.}{1.3em}{$\sqrt{3} \times \sqrt{12} = \sqrt{36} = 6$}
+\end{prop}
+
+\begin{prop}{2. Calcul littéral}
+\qr{Résoudre l'équation\\ $(x - 4)(2x + 6) = 0$.}{2.4em}{$x - 4 = 0$ ou $2x + 6 = 0$\\ donc $x = 4$ ou $x = -3$.}
+\end{prop}
+
+\begin{prop}{3. Évolutions successives}
+\qr{Un article coûte $100$ €.\\ Son prix augmente de $20\,\%$,\\ puis il baisse de $20\,\%$.\par\vspace{16pt}Calculer son prix final.\\ En déduire l'évolution du prix, en $\%$.}{3.6em}{$100 \times 1{,}2 = 120$ €\\ $120 \times 0{,}8 = 96$ €\\ Le prix a baissé de $4\,\%$.}
+\end{prop}
+
+\end{document}

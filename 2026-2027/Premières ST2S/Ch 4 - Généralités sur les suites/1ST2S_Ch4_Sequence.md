@@ -1,6 +1,6 @@
 # Déroulement de la séquence — Première ST2S, Ch. 4 : Généralités sur les suites
 
-Période : à partir du jeudi 19/11/2026. Prévu en 6 séances et un contrôle le jeudi 03/12 ; la classe a pris une séance de retard le 20/11 (voir « À replanifier »).
+Période : du jeudi 19/11 au vendredi 27/11/2026 (7 séances), révisions en début d'heure le vendredi 04/12, contrôle mixte (fonctions affines et suites) le jeudi 10/12. Le tableur et Python (partie 5 du cours) sont reportés au chapitre 7.
 L'activité est coupée en deux (activité 1 : formule explicite ; activité 2 : relation de récurrence), chacune suivie du cours et d'exercices. La séance de synthèse est supprimée : l'exercice 17 est donné en devoir avant le contrôle.
 Emploi du temps : jeudi 1 h, vendredi 2 h. Le mercredi 11/11 férié ne supprime donc aucune séance.
 
@@ -43,33 +43,31 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 - **En classe** : exercice 4 (questions 1 et 2), exercice 5.
 - **Devoir** : finir les exercices 2, 3 et 4 ; exercice 6 facultatif.
 
-### Séance 4 — Représentation graphique (jeudi 26/11)
-- **Cours** : 2. Représentation graphique : nuage de points, lecture d'un terme, points alignés si $u_n = an + b$ (lien avec le chapitre 3).
-- **En classe** : exercices 8 et 9.
-- **Devoir** : exercice 10 ; exercice 7 facultatif.
+### Séance 4 — Représentation graphique (jeudi 26/11) — faite
+- **Cours** : 2. Représentation graphique. **En classe** : exercice 8 (pas le temps de traiter l'exercice 9).
+- **Devoir** : exercice 9.
 
-> **À replanifier** : la classe a une séance de retard. Les séances suivantes (modéliser, sens de variation, tableur et Python) et le contrôle restent à placer à partir du vendredi 27/11.
+### Séance 5 — Modéliser (vendredi 27/11, 1re heure) — faite
+- Correction de l'exercice 9.
+- **Cours** : 3. Modéliser (tableau « ajout de $b$ / pourcentage de $t\,\%$ », exemples EHPAD, bactéries, médicament). La séance s'est arrêtée au cours.
 
-### Séance 5 — Modéliser (à replanifier)
-- **Cours** : 3. Modéliser : tableau « ajout de $b$ / pourcentage de $t\,\%$ », exemples EHPAD, bactéries, médicament.
-- **En classe** : exercice 11 (questions 1 à 3), exercice 12 (questions 1 et 2).
-- **Devoir** : exercice 11 (question 4), exercice 12 (question 3).
-- Ramasser le devoir maison du chapitre 3 (exercice 11, deux tarifs).
+### Séance 6 — Modéliser (suite) et sens de variation (vendredi 27/11, 2e heure) — faite
+- **En classe** : exercice 11, sauf la question 4 (pourcentage).
+- **Cours** : 4. Sens de variation (conjecture sur un tableau ou un graphique, puis signe de $u_{n+1} - u_n$ dans des cas simples). Pas d'exercice en classe.
+- **Devoir** : exercice 13 seulement (conjecturer le sens de variation), utile pour le contrôle. Les exercices 12 et 14 ne sont pas donnés.
+- Bilan de l'enseignant : beaucoup de difficultés sur la modélisation, et surtout sur le sens de variation par le calcul de $u_{n+1} - u_n$.
 
-### Séance 6 — Sens de variation (à replanifier)
-- **Cours** : 4. Sens de variation : conjecture sur un tableau ou un graphique, puis signe de $u_{n+1} - u_n$ dans des cas simples.
-- **En classe** : exercice 13, exercice 14 (questions 1 à 4).
-- **Devoir** : exercice 14 (questions 5 et 6).
+### Révisions (vendredi 04/12, début de la 1re heure)
+- Pas de cours le jeudi 03/12.
+- Correction du devoir : exercice 13. Puis début du chapitre 5.
 
-### Séance 7 — Tableur et Python (à replanifier)
-- **Cours** : 5.1 Tableur, projeté par le professeur (20 à 30 min) : formule explicite, formule de récurrence recopiée vers le bas, recherche d'un seuil. Puis 5.2 Python : fonctions avec une boucle `for`.
-- Les élèves n'ont pas d'ordinateur : ils travaillent sur des captures d'écran et sur papier.
-- **En classe** : exercice 15, exercice 16 (questions 1 et 2).
-- **Devoir** : exercice 16 (questions 3 et 4), exercice 17 (synthèse : deux centres de soins) à rendre avant le contrôle.
+### Tableur et Python — reportés au chapitre 7
+- La partie 5 du cours (tableur projeté, seuil, Python) et les exercices 15 à 17 sont reportés au chapitre 7 (suites arithmétiques et géométriques), où la progression prévoit déjà le tableur et Python.
 
-### Contrôle formatif (à replanifier)
-- Sujets A et B, même structure et même difficulté, calculatrice autorisée.
-- Contenu : calcul de termes dans les deux modes, traduction d'une phrase en relation de récurrence, nuage de points, sens de variation.
+### Contrôle mixte (jeudi 10/12)
+- Contrôle de 55 min, **calculatrice non autorisée** (choix de l'enseignant ; tous les calculs se font à la main) : automatismes, fonctions affines (chapitre 3) et suites, en version légère.
+- Suites : calcul de termes (formule explicite, relation de récurrence), relation du type $u_{n+1} = u_n + b$ en contexte, lecture d'un nuage de points et conjecture du sens de variation. **Pas** de calcul de $u_{n+1} - u_n$ ni de modélisation avec un pourcentage.
+- Sujets A et B (une page chacun) : `Contrôles/Sommatif/1ST2S_Ch4_Sommatif_SujetA.tex`, `1ST2S_Ch4_Sommatif_SujetB.tex`. Corrigé à faire.
 
 ## Points de vigilance
 
