@@ -1,4 +1,8 @@
-"""Génère les sujets A et B et le corrigé du contrôle mixte du 27/11 (Seconde, Ch2 + Ch3).
+"""Génère les sujets A et B et le corrigé du contrôle mixte du lundi 30/11 (Seconde, Ch2 + Ch3).
+
+Version du 27/11 (contrôle reporté pour réviser) : ex. 1 = factorisation a² - b², inéquation,
+25 % d'un nombre, trois appartenances ; sans
+appartenance d'un point (ex. 3) ; l'exercice 4 guide pas à pas jusqu'à l'aire en fonction de x.
 
 Les deux sujets ont la même structure : les énoncés sont écrits une seule fois
 (fonction corps) et les valeurs propres à chaque sujet sont dans le dictionnaire S.
@@ -51,7 +55,8 @@ S = {
   fi='9x^2-12x+4', fi_c='9x^2-12x+4 = (3x)^2 - 2\\times 3x \\times 2 + 2^2 = (3x-2)^2',
   ineq='-3x+12\\geqslant 0', ineq_c='-3x \\geqslant -12 \\iff x \\leqslant \\dfrac{-12}{-3} \\iff x \\leqslant 4', ineq_s='S = \\left]-\\infty\\,;\\,4\\right]',
   ineq_rem='on divise par $-3 < 0$ : le sens de l\'inégalité change',
-  pct='75\\,\\%$ de $120', pct_c='$120 \\div 4 = 30$, donc $75\\,\\% = 3 \\times 30 = 90$.',
+  pct='25\\,\\%$ de $620', pct_c='$25\\,\\% = \\dfrac{1}{4}$, donc $620 \\div 4 = 155$.',
+  fac='25-x^2', fac_c='25-x^2 = 5^2-x^2 = (5-x)(5+x)',
   rac='\\sqrt{3-7}', rac_c='$3 - 7 = -4 < 0$ : un nombre négatif n\'a pas de racine carrée, donc $\\sqrt{3-7}$ n\'existe pas.',
   vec='\\overrightarrow{AB}+\\overrightarrow{CA}', vec_c='\\overrightarrow{AB}+\\overrightarrow{CA} = \\overrightarrow{CA}+\\overrightarrow{AB} = \\overrightarrow{CB}',
   ens=['\\dfrac{-18}{6}\\in\\mathbb{Z}', '\\dfrac{7}{4}\\in\\mathbb{D}', '-2{,}35\\in\\mathbb{Q}', '\\sqrt{49}\\in\\mathbb{N}'],
@@ -92,7 +97,8 @@ S = {
   fi='4x^2-20x+25', fi_c='4x^2-20x+25 = (2x)^2 - 2\\times 2x \\times 5 + 5^2 = (2x-5)^2',
   ineq='-2x+10<0', ineq_c='-2x < -10 \\iff x > \\dfrac{-10}{-2} \\iff x > 5', ineq_s='S = \\left]5\\,;\\,+\\infty\\right[',
   ineq_rem='on divise par $-2 < 0$ : le sens de l\'inégalité change',
-  pct='75\\,\\%$ de $160', pct_c='$160 \\div 4 = 40$, donc $75\\,\\% = 3 \\times 40 = 120$.',
+  pct='25\\,\\%$ de $860', pct_c='$25\\,\\% = \\dfrac{1}{4}$, donc $860 \\div 4 = 215$.',
+  fac='49-x^2', fac_c='49-x^2 = 7^2-x^2 = (7-x)(7+x)',
   rac='\\sqrt{2-5}', rac_c='$2 - 5 = -3 < 0$ : un nombre négatif n\'a pas de racine carrée, donc $\\sqrt{2-5}$ n\'existe pas.',
   vec='\\overrightarrow{BC}+\\overrightarrow{AB}', vec_c='\\overrightarrow{BC}+\\overrightarrow{AB} = \\overrightarrow{AB}+\\overrightarrow{BC} = \\overrightarrow{AC}',
   ens=['\\dfrac{-21}{7}\\in\\mathbb{Z}', '\\dfrac{9}{20}\\in\\mathbb{D}', '-1{,}8\\in\\mathbb{Q}', '\\sqrt{64}\\in\\mathbb{N}'],
@@ -267,16 +273,16 @@ def corps(k, corrige=False):
     out.append(r"""\begin{exercice}{Automatismes}{5}
 Les questions sont indépendantes. Détailler les calculs.
 \begin{enumerate}""")
-    out.append(rf"""  \item Calculer ${d['prod']}$. Donner le résultat sous forme irréductible.{s('$' + d['prod_c'] + '$')}
+    out.append(rf"""  \item Factoriser ${d['fac']}$ à l'aide d'une identité remarquable.{s('$' + d['fac_c'] + '$')}
   \item Résoudre l'inéquation ${d['ineq']}$. Donner les solutions sous forme d'intervalle.{s('$' + d['ineq_c'] + '$ (' + d['ineq_rem'] + '), donc $' + d['ineq_s'] + '$.')}
   \item Calculer ${d['pct']}$.{s(d['pct_c'])}
   \item Justifier chaque appartenance.
-  \begin{{tasks}}[label=\alph*), label-width=1.4em, item-indent=1.8em](4)""")
-    for i in range(4):
+  \begin{{tasks}}[label=\alph*), label-width=1.4em, item-indent=1.8em](3)""")
+    for i in range(3):
         out.append(rf"""    \task ${d['ens'][i]}$""" + ((r"\\[2pt]" + r"\sol{\small " + d['ens_c'][i] + "}") if C else ""))
     out.append(r"""  \end{tasks}
 \end{enumerate}""")
-    out.append(b("Questions 1 à 3 : 1 point chacune (question 2 : $0{,}5$ pour la résolution avec le changement de sens, $0{,}5$ pour l'intervalle). Question 4 : $0{,}5$ par nombre, l'écriture qui justifie (entier, $\\dfrac{a}{10^n}$, $\\dfrac{a}{b}$) est attendue."))
+    out.append(b("Question 1 : $1$ (identité $a^2 - b^2$ reconnue $0{,}5$, forme factorisée $0{,}5$). Question 2 : $1{,}5$ (résolution avec le changement de sens $1$, intervalle $0{,}5$). Question 3 : $1$. Question 4 : $0{,}5$ par nombre, l'écriture qui justifie (entier, $\\dfrac{a}{10^n}$, $\\dfrac{a}{b}$) est attendue."))
     out.append(r"""\end{exercice}
 """)
     # Exercice 2 : lecture graphique
@@ -309,7 +315,6 @@ La courbe $\mathcal{{C}}_f$ ci-contre représente une fonction $f$. Répondre pa
 \begin{{minipage}}[t]{{0.5\linewidth}}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000
 \begin{{enumerate}}
   \item {d['q41']}{s(d['c41'])}
-  \item Le point ${d['M']}$ appartient-il à la courbe $\mathcal{{C}}_g$~? Justifier par un calcul.{s(d['c42'])}
   \item Les courbes de $f$ et $g$ sont tracées ci-contre. Résoudre graphiquement $f(x) = g(x)$. Interpréter le résultat.{s(d['c43'])}
   \item Résoudre graphiquement $f(x) < g(x)$. Interpréter le résultat.{s(d['c44'])}
 \end{{enumerate}}
@@ -318,7 +323,7 @@ La courbe $\mathcal{{C}}_f$ ci-contre représente une fonction $f$. Répondre pa
 \vspace{{0pt}}\centering
 {repere_fg(d)}
 \end{{minipage}}""")
-    out.append(b("$1{,}5$ point par question. Question 1 : $0{,}5 + 0{,}5$ pour les calculs, $0{,}5$ pour la conclusion. Questions 3 et 4 : lecture $1$, interprétation $0{,}5$."))
+    out.append(b("$2$ points par question. Question 1 : $0{,}75$ par calcul, $0{,}5$ pour la conclusion. Questions 2 et 3 : lecture $1{,}5$, interprétation $0{,}5$."))
     out.append(r"""\end{exercice}
 """)
     # Exercice 4 : aire hachurée = carré ABCD privé du carré AMNP
@@ -336,17 +341,16 @@ $AMNP$ est un carré, avec $P$ sur le segment $[AD]$.
 
 On note $f(x)$ l'aire de la partie hachurée, en cm$^2$.
 \begin{{enumerate}}
-  \item Dans quel intervalle le nombre $x$ peut-il varier~?{s('$M$ est sur $[AB]$ et $AB = ' + str(c) + '$, donc $x \\in [0\\,;\\,' + str(c) + ']$.')}
-  \item Justifier que $f(x) = {d['sq_ex']}$.{s('L\'aire du carré $ABCD$ est $' + str(c) + '^2 = ' + str(c*c) + '$ et celle du carré $AMNP$ est $x^2$. La partie hachurée est le carré $ABCD$ privé du carré $AMNP$, donc $f(x) = ' + d['sq_ex'] + '$.')}
-  \item Calculer $f({d['sq_ix']})$. Interpréter le résultat.{s('$' + d['sq_ic'] + '$. Pour $AM = ' + d['sq_ix'] + '$~cm, l\'aire hachurée est $' + d['sq_iv'] + '$~cm$^2$.')}
-  \item Montrer que ${d['sq_kx']}$ est un antécédent de ${d['sq_k']}$ par $f$. Interpréter le résultat.{s('$f(' + d['sq_kx'] + ') = ' + str(d['c']*d['c']) + ' - ' + d['sq_kx'] + '^2 = ' + str(d['c']*d['c']) + ' - ' + d['sq_ksq'] + ' = ' + d['sq_k'] + '$ : l\'image de $' + d['sq_kx'] + '$ est $' + d['sq_k'] + '$, donc $' + d['sq_kx'] + '$ est un antécédent de $' + d['sq_k'] + '$. Pour $AM = ' + d['sq_kx'] + '$~cm, l\'aire hachurée est $' + d['sq_k'] + '$~cm$^2$.')}
+  \item On prend $x = {d['sq_ix']}$. Calculer l'aire du carré $ABCD$, puis l'aire du carré $AMNP$. En déduire l'aire de la partie hachurée.{s('Aire de $ABCD$ : $' + str(c) + '^2 = ' + str(c*c) + '$~cm$^2$. Aire de $AMNP$ : $' + d['sq_ix'] + '^2 = ' + str(int(d['sq_ix'])**2) + '$~cm$^2$. Aire hachurée : $' + str(c*c) + ' - ' + str(int(d['sq_ix'])**2) + ' = ' + d['sq_iv'] + '$~cm$^2$.')}
+  \item On revient au cas général. Exprimer l'aire du carré $AMNP$ en fonction de $x$.{s('$AMNP$ est un carré de côté $AM = x$ : son aire est $x \\times x = x^2$.')}
+  \item En déduire que $f(x) = {d['sq_ex']}$.{s('La partie hachurée est le carré $ABCD$ (aire $' + str(c*c) + '$) privé du carré $AMNP$ (aire $x^2$), donc $f(x) = ' + d['sq_ex'] + '$.')}
 \end{{enumerate}}
 \end{{minipage}}\hfill
 \begin{{minipage}}[t]{{0.36\linewidth}}
 \vspace{{0pt}}\centering
 {figure_carre(d)}
 \end{{minipage}}""")
-    out.append(b("1 point par question. Question 2 : $0{,}5$ pour les deux aires, $0{,}5$ pour la différence. Question 3 : calcul $0{,}5$ (le carré se calcule avant la soustraction), interprétation $0{,}5$. Question 4 : calcul de l'image $0{,}5$ ; conclusion avec le mot « antécédent » et interprétation $0{,}5$."))
+    out.append(b("Question 1 : $1{,}5$ ($0{,}5$ par aire). Question 2 : $1$. Question 3 : $1{,}5$ (différence des deux aires, avec une phrase)."))
     out.append(r"""\end{exercice}""")
     return "\n".join(out)
 

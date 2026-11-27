@@ -1,6 +1,7 @@
 # Déroulement de la séquence — Seconde, Ch. 4 : Vecteurs dans un repère
 
-Période : du 30/11 au 11/12/2026, soit 6 séances d'1 h (lundi, jeudi, vendredi).
+Période : du 03/12 au 14/12/2026, soit 6 séances d'1 h (lundi, jeudi, vendredi).
+Révision du 27/11 (progression du Drive) : le contrôle mixte du Ch3 est reporté au lundi 30/11 ; le chapitre commence le jeudi 03/12 et sa dernière séance (produit par un réel) a lieu le lundi 14/12, semaine du devoir commun.
 Révision du 19/11 : le contrôle mixte du Ch3 passe au vendredi 27/11 ; le chapitre commence donc le lundi 30/11. La séance de synthèse (activité 2) est supprimée.
 Révision du 16/11 : sortie le vendredi 20/11. « Fonctions : variations et signes » commence le lundi 14/12. Le devoir commun a lieu le lundi 14/12 et le jeudi 17/12.
 
@@ -23,7 +24,7 @@ Ce chapitre prolonge le chapitre 1 (vecteurs sans repère). Au chapitre 1, la tr
 | À partir du | Calcul numérique | Calcul littéral | Autre |
 |---|---|---|---|
 | 16/11 | Racines carrées | Inéquations | Proportions |
-| 30/11 | Ordres de grandeur ; le jeudi 03/12 : écriture décimale d'une fraction par division posée | Identités remarquables | Exploiter une courbe |
+| 30/11 | Ordres de grandeur ; le vendredi 04/12 : écriture décimale d'une fraction par division posée | Identités remarquables | Exploiter une courbe |
 
 Les racines carrées du 16/11 préparent directement le calcul des distances.
 
@@ -39,35 +40,35 @@ Les racines carrées du 16/11 préparent directement le calcul des distances.
 Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde les exercices qui installent la notion. La suite d'un exercice commencé, ou un exercice du même type, est donnée en devoir pour la séance suivante (environ 15 min de travail).
 Les numéros d'exercices renvoient pour l'instant à l'ancienne feuille (2GT) : ils seront mis à jour avec la nouvelle feuille.
 
-### Séance 1 — Découverte (lundi 30/11)
+### Séance 1 — Découverte (jeudi 03/12)
 - **Activité 1** (environ 30 min) : la carte au trésor. Partie A : suivre des déplacements codés en colonne. Partie B : retrouver le déplacement entre deux points, puis par le calcul ($x_B - x_A$, $y_B - y_A$). Partie C : même déplacement depuis deux points différents (même vecteur, lien avec le chapitre 1).
 - **Cours** : 1. Repère du plan (orthogonal, normé, orthonormé, quelconque), 2. Coordonnées d'un vecteur (lecture et tracé).
 - **Devoir** : ancien exercice 1 (question 1, lecture des coordonnées).
 
-### Séance 2 — Coordonnées de $\overrightarrow{AB}$ (jeudi 03/12)
+### Séance 2 — Coordonnées de $\overrightarrow{AB}$ (vendredi 04/12)
 - **Question flash** : écriture décimale d'une fraction en posant la division (ex. $\frac{2}{3} = 0{,}666\ldots$).
 - **Cours** : coordonnées de $\overrightarrow{AB}$, égalité de vecteurs, parallélogramme et quatrième sommet.
 - **En classe** : ancien exercice 1 (question 2, par le calcul), ancien exercice 2 (questions 1 et 2a-b).
 - **Devoir** : ancien exercice 2 (questions 2c-d, point $E$ tel que $ADCE$ soit un parallélogramme).
 
-### Séance 3 — Distance entre deux points (vendredi 04/12)
+### Séance 3 — Distance entre deux points (lundi 07/12)
 - **Cours** : 3. Norme d'un vecteur ($\sqrt{x^2 + y^2}$, justifiée par Pythagore), puis distance $AB = \|\overrightarrow{AB}\|$.
 - **En classe** : ancien exercice 3 (questions 1 à 3 : triangle isocèle, puis rectangle par la réciproque de Pythagore).
 - **Devoir** : calculs de distances avec des racines à simplifier (à prévoir dans la nouvelle feuille).
 - Les simplifications de racines de la fiche calcul 6 (23/11 et 30/11) servent directement ici.
 
-### Séance 4 — Milieu d'un segment (lundi 07/12)
+### Séance 4 — Milieu d'un segment (jeudi 10/12)
 - **Cours** : 4. Caractérisation vectorielle ($I$ milieu de $[AB]$ si et seulement si $\overrightarrow{AI} = \overrightarrow{IB}$), formule des coordonnées du milieu. La démonstration de la formule est un approfondissement.
 - **En classe** : ancien exercice 3 (question 4 : milieu et cercle), ancien exercice 4 (parallélogramme par les diagonales).
 - **Devoir** : anciens exercices 5 (symétrique d'un point) et 6 (quatrième sommet par les diagonales).
 
-### Séance 5 — Somme de vecteurs (jeudi 10/12)
+### Séance 5 — Somme de vecteurs (vendredi 11/12)
 - **Contrôle formatif A/B** en début de séance (15 min) : lecture graphique des coordonnées, coordonnées de $\overrightarrow{AB}$ par le calcul, distance, milieu.
 - **Cours** : 5. Coordonnées de $\vec u + \vec v$, vérification sur un graphique, lien avec la relation de Chasles.
 - **En classe** : ancien exercice 7 (question 1, $\overrightarrow{AB} + \overrightarrow{CD}$).
 - **Devoir** : exercice de somme à prévoir dans la nouvelle feuille.
 
-### Séance 6 — Produit par un réel (vendredi 11/12)
+### Séance 6 — Produit par un réel (lundi 14/12)
 - **Cours** : 6. Reprise de la construction géométrique de $k\vec u$ sur quadrillage ($2\vec u$, $-\vec u$, $\tfrac12\vec u$ : direction, sens selon le signe de $k$, longueur multipliée par $|k|$). Puis coordonnées de $k\vec u$, combinaisons, point défini par une égalité vectorielle.
 - **En classe** : ancien exercice 7 (question 2, $4\overrightarrow{AB} - 3\overrightarrow{CD}$), ancien exercice 9 (questions 1 et 3, point $E$ tel que $\overrightarrow{BE} = \overrightarrow{AD} + \tfrac12\overrightarrow{BC}$).
 - **Devoir** : réviser le savoir-faire du chapitre (fin du cours).

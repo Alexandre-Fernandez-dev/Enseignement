@@ -21,8 +21,8 @@ Dates = lundi de la semaine.
 |---|---|---|
 | Vecteurs (partie 1) | 31/08 → 25/09 | 4 sem. |
 | Ensembles de nombres | 28/09 → 09/11 | 3 sem. (à cheval sur la Toussaint) |
-| Fonctions : généralités, résolution graphique | 12/11 → 27/11 | 7 séances (sortie le 20/11 ; exercices le 26/11 ; contrôle mixte le vendredi 27/11 : automatismes, fin du Ch2, Ch3) |
-| Vecteurs (partie 2) : vecteurs dans un repère | 30/11 → 11/12 | 6 séances |
+| Fonctions : généralités, résolution graphique | 12/11 → 30/11 | 8 séances (sortie le 20/11 ; exercices le 26/11, révisions le 27/11 ; contrôle mixte le lundi 30/11 : automatismes, fin du Ch2, Ch3) |
+| Vecteurs (partie 2) : vecteurs dans un repère | 03/12 → 14/12 | 6 séances (la dernière le lundi 14/12, semaine du devoir commun) |
 | Fonctions : variations et signes | 14/12 → 18/12 | 3 séances (devoir commun le lundi 14/12 et le jeudi 17/12) |
 | Évolutions et tableaux croisés | 04/01 → 15/01 | 2 sem. |
 | Fonctions affines | 18/01 → 05/02 | 3 sem. |
@@ -41,7 +41,8 @@ Dates = lundi de la semaine.
 - **Révision du 19/11/2026** : le jeudi 26/11 devient une séance d'exercices (Ch3, exercices 10 et 11) et le contrôle mixte passe au vendredi 27/11. Le Ch4 commence le lundi 30/11 (6 séances) ; la séance de synthèse (activité 2) est supprimée. Fiches calcul : « calculs en repère » le 30/11 (avant les cours sur la distance et le milieu : la fiche donne les formules) et « révisions du devoir commun » le 07/12.
 - **Révision du 22/11/2026** : la fiche calcul 6 (racines carrées) se fait en deux séances qui se suivent, le 23/11 et le 30/11. La fiche « calculs en repère » passe au 07/12 (décision du 23/11).
 - **Révision du 23/11/2026 (progression du Drive)** : lundi 23/11, le cours IV a pris toute la séance ; l'exercice 7 passe en devoir. Jeudi 26/11 : correction de l'exercice 7, exercice 8, puis un des exercices 10 et 11. Fiche calcul 6, séance 1 faite (exercices 1 à 4 ; devoir : ex. 3 c, ex. 4 B et C). Fiches calcul (Drive) : calculs en repère le 07/12, révisions du devoir commun le 14/12, fonction carrée les 04/01, 11/01 et 18/01.
-- **À prévoir** : revoir comment obtenir l'écriture décimale d'une fraction en posant la division (ex. $\frac{2}{3}=0{,}666\ldots$), en question flash (calcul numérique, le jeudi 03/12). Les élèves ne savent pas le faire sans calculatrice : la question a été retirée de l'évaluation courte du 13/11.
+- **Révision du 27/11/2026 (progression du Drive)** : contrôle mixte reporté au lundi 30/11 pour réviser (vendredi 27/11 : fin de l'exercice 10, révisions) et allégé (modélisation géométrique guidée). Le Ch4 est décalé d'une séance : du jeudi 03/12 au lundi 14/12 (cours 6, produit par un réel, le 14/12). La question flash sur la division posée passe au vendredi 04/12. AP : la fiche proportions niveau 2 s'est mal passée le 26/11 (élèves peu motivés, un peu perdus) : à retravailler.
+- **À prévoir** : revoir comment obtenir l'écriture décimale d'une fraction en posant la division (ex. $\frac{2}{3}=0{,}666\ldots$), en question flash (calcul numérique, le vendredi 04/12). Les élèves ne savent pas le faire sans calculatrice : la question a été retirée de l'évaluation courte du 13/11.
 - **AP (révision du 18/11)** : le groupe 2 passe avant le groupe 3 pour les proportions : G2 le 19/11 et la semaine du 23/11 (fiches `AP/Niveau 2/Proportions 2/`, une par séance), puis G3 la semaine du 30/11.
 - **Devoirs communs** : lundi 14/12 et jeudi 17/12/2026, puis semaine du 03/05/2027.
 - **Vacances** : Toussaint 19/10 → 30/10, Noël 21/12 → 01/01, hiver 08/02 → 19/02, Pâques 05/04 → 16/04.
@@ -57,10 +58,10 @@ Détail dans les fichiers `2nde_ChN_Sequence.md` de chaque chapitre et dans `pro
 | 02/11 | Pas de cours (professeur absent) | Ch2 : sous-ensembles de $\mathbb{R}$ | Ch2 : $\frac{1}{3}$ non décimal, encadrement |
 | 09/11 (fait) | Ch2 : arrondi | Ch3 : activité, notion de fonction | Ch3 : formatif, courbe représentative |
 | 16/11 (fait) | Ch3 : exercices 1 à 3, appartenance d'un point | Ch3 : résolution graphique $f(x)=k$, $f(x)<k$ | Pas de cours (sortie) |
-| 23/11 | Ch3 : correction des ex. 5 et 6, $f(x)=g(x)$ (fait ; ex. 7 en devoir) | Ch3 : correction de l'ex. 7, ex. 8, puis ex. 10 ou 11 | Contrôle mixte (automatismes, Ch2, Ch3) |
-| 30/11 | Ch4 : activité, coordonnées | Ch4 : $\overrightarrow{AB}$, parallélogramme | Ch4 : distance |
-| 07/12 | Ch4 : milieu | Ch4 : formatif, somme | Ch4 : produit par un réel |
-| 14/12 | Variations et signes ; devoir commun | Variations et signes ; devoir commun | Variations et signes |
+| 23/11 (fait) | Ch3 : correction des ex. 5 et 6, $f(x)=g(x)$ (ex. 7 en devoir) | Ch3 : correction de l'ex. 7, ex. 8, ex. 10 commencé | Ch3 : fin de l'ex. 10, révisions |
+| 30/11 | Contrôle mixte (automatismes, Ch2, Ch3) | Ch4 : activité, coordonnées | Ch4 : $\overrightarrow{AB}$, parallélogramme |
+| 07/12 | Ch4 : distance | Ch4 : milieu | Ch4 : formatif, somme |
+| 14/12 | Ch4 : produit par un réel ; variations et signes ; devoir commun | Variations et signes ; devoir commun | Variations et signes |
 
 ## Fiches calcul (demi-groupe) et AP, semaine par semaine
 
@@ -109,7 +110,7 @@ Trois questions par séance : 1 calcul numérique, 1 calcul littéral, 1 autre. 
 | 05/10 | Comparaison de nombres | Application numérique d'une formule | Coordonnées de points |
 | 02/11 | Fractions | Factorisation | Vecteurs |
 | 16/11 | Racines carrées | Inéquations | Proportions |
-| 30/11 | Ordres de grandeur ; le 03/12 : écriture décimale d'une fraction par division posée | Identités remarquables | Exploiter une courbe |
+| 30/11 | Ordres de grandeur ; le 04/12 : écriture décimale d'une fraction par division posée | Identités remarquables | Exploiter une courbe |
 | 14/12 | Histogrammes, diagrammes | Isoler une variable | Trigonométrie |
 | 04/01 | Histogrammes, diagrammes | Isoler une variable | Équations $\frac{a}{x}=b$ |
 | 11/01 | Puissances | Identités remarquables | Résolution graphique d'équations / inéquations |

@@ -22,9 +22,10 @@
 \newcommand{\txt}[1]{\multicolumn{1}{@{}p{0.48\linewidth}@{}}{\raggedright #1}}
 
 \NewEnviron{reponse}{
-  \par\smallskip\noindent
-  \begin{lrbox}{\hidebox}\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}\BODY\end{minipage}\end{lrbox}
-  \fbox{}
+  \par\nopagebreak[4]\smallskip\nopagebreak[4]\noindent
+  {\setlength{\fboxsep}{5pt}
+  \begin{lrbox}{\hidebox}\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}\BODY\par\end{minipage}\end{lrbox}
+  \fbox{}}
   \par\smallskip
 }
 
@@ -33,6 +34,18 @@
 
 \tikzset{vec/.style={-{Stealth[length=3mm]}, very thick}}
 \newcommand{\pt}[3]{\fill (#1) circle (2pt); \node[#2] at (#1) {$#3$};}
+
+\begin{savoir}{}{}
+\begin{itemize}[label=--]
+  \item Lire les coordonnées d'un vecteur et représenter un vecteur de coordonnées données.
+  \item Calculer les coordonnées d'un vecteur $\wvec{AB}$.
+  \item Déterminer le quatrième sommet d'un parallélogramme.
+  \item Calculer une distance et déterminer la nature d'un triangle.
+  \item Calculer les coordonnées du milieu d'un segment, d'un symétrique.
+  \item Calculer les coordonnées d'une somme de vecteurs et d'un produit par un réel.
+  \item Construire le vecteur $k\vec u$.
+\end{itemize}
+\end{savoir}
 
 \fancyhf{} 
 \fancyhead[R]{ {\Niveau}}
@@ -85,9 +98,12 @@
 \node[below left] at (0,0) {$O$};
 \end{tikzpicture}
     \\[0.5em]
-    Repère \hide{orthogonal} & Repère \hide{quelconque} & Repère \hide{orthonormé}
+    Repère 1 & Repère 2 & Repère 3
   \end{tabular}
   \end{center}
+  \begin{reponse}
+    Repère 1 : orthogonal. \qquad Repère 2 : quelconque. \qquad Repère 3 : orthonormé.
+  \end{reponse}
 \end{example}
 
 \begin{remark}
@@ -117,11 +133,13 @@
 \Needspace{8\baselineskip}
 \begin{example}
   \begin{minipage}{0.45\linewidth}
-    Lire les coordonnées des vecteurs représentés ci-contre.
-
-    $\vec u\,\hideM{\col{4}{-2}}$ \qquad $\vec v\,\hideM{\col{-2}{-4}}$ \qquad $\vec w\,\hideM{\col{0}{-3}}$
-
-    Représenter le vecteur $\vec t\col{3}{1}$ à partir du point $D$.
+    \begin{enumerate}[label=\arabic*.]
+      \item Lire les coordonnées des vecteurs $\vec u$, $\vec v$ et $\vec w$ représentés ci-contre.
+      \item Représenter le vecteur $\vec t\col{3}{1}$ à partir du point $D$.
+    \end{enumerate}
+    \begin{reponse}
+      $\vec u\col{4}{-2}$ \qquad $\vec v\col{-2}{-4}$ \qquad $\vec w\col{0}{-3}$
+    \end{reponse}
   \end{minipage}
   \hfill
   \begin{minipage}{0.52\linewidth}
@@ -153,13 +171,15 @@
 \begin{example}
   \begin{minipage}{0.55\linewidth}
     On donne $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$.
-    \begin{itemize}
-      \item $\wvec{AB}\col{x_B - x_A}{y_B - y_A} = \hideM{\col{4-(-2)}{-1-3}} = \hideM{\col{6}{-4}}$
-      \item[]
-      \item $\wvec{BC}\,\hideM{\col{-3-4}{-2-(-1)}} = \hideM{\col{-7}{-1}}$
-      \item[]
-      \item $\wvec{CA}\,\hideM{\col{-2-(-3)}{3-(-2)}} = \hideM{\col{1}{5}}$
-    \end{itemize}
+
+    Calculer les coordonnées des vecteurs $\wvec{AB}$, $\wvec{BC}$ et $\wvec{CA}$.
+    \begin{reponse}
+      $\wvec{AB}\col{x_B - x_A}{y_B - y_A} = \col{4-(-2)}{-1-3} = \col{6}{-4}$
+
+      $\wvec{BC}\col{-3-4}{-2-(-1)} = \col{-7}{-1}$
+
+      $\wvec{CA}\col{-2-(-3)}{3-(-2)} = \col{1}{5}$
+    \end{reponse}
   \end{minipage}
   \hfill
   \begin{minipage}{0.42\linewidth}
@@ -216,13 +236,12 @@
 \Needspace{8\baselineskip}
 \begin{example}
   \begin{minipage}{0.55\linewidth}
-    Pour $\vec u\col{4}{3}$, on trace un triangle rectangle dont les côtés de l'angle droit mesurent $4$ et $3$.
+    Calculer la norme du vecteur $\vec u\col{4}{3}$ représenté ci-contre.
+    \begin{reponse}
+      D'après le théorème de Pythagore dans le triangle rectangle tracé :
 
-    D'après le théorème de Pythagore :
-    \[
-      \lVert \vec u \rVert^2 = \hideM{4^2 + 3^2 = 16 + 9 = 25}
-    \]
-    donc $\lVert \vec u \rVert = \hideM{\sqrt{25} = 5}$.
+      $\lVert \vec u \rVert^2 = 4^2 + 3^2 = 25$, donc $\lVert \vec u \rVert = \sqrt{25} = 5$.
+    \end{reponse}
   \end{minipage}
   \hfill
   \begin{minipage}{0.4\linewidth}
@@ -246,13 +265,16 @@
   \end{multihide}
 \end{proposition}
 
+\Needspace{10\baselineskip}
 \begin{example}
-  On reprend $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$, avec $\wvec{AB}\col{6}{-4}$, $\wvec{BC}\col{-7}{-1}$ et $\wvec{CA}\col{1}{5}$.
-  \begin{itemize}
-    \item $AB = \sqrt{6^2 + (-4)^2} = \hideM{\sqrt{36 + 16} = \sqrt{52} = 2\sqrt{13}}$
-    \item $BC = \hideM{\sqrt{(-7)^2 + (-1)^2} = \sqrt{49 + 1} = \sqrt{50} = 5\sqrt{2}}$
-    \item $CA = \hideM{\sqrt{1^2 + 5^2} = \sqrt{1 + 25} = \sqrt{26}}$
-  \end{itemize}
+  On reprend $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$, avec $\wvec{AB}\col{6}{-4}$, $\wvec{BC}\col{-7}{-1}$ et $\wvec{CA}\col{1}{5}$. Calculer les longueurs $AB$, $BC$ et $CA$.
+  \begin{reponse}
+    $AB = \sqrt{6^2 + (-4)^2} = \sqrt{36 + 16} = \sqrt{52} = 2\sqrt{13}$
+
+    $BC = \sqrt{(-7)^2 + (-1)^2} = \sqrt{49 + 1} = \sqrt{50} = 5\sqrt{2}$
+
+    $CA = \sqrt{1^2 + 5^2} = \sqrt{1 + 25} = \sqrt{26}$
+  \end{reponse}
 \end{example}
 
 \begin{method}{Déterminer la nature d'un triangle}{}
@@ -270,9 +292,7 @@
 
     $FG = \sqrt{(-7)^2 + (-1)^2} = \sqrt{50}$.
 
-    $EF = EG$ : le triangle est isocèle en $E$. De plus $EF^2 + EG^2 = 25 + 25 = 50 = FG^2$ : il est rectangle en $E$.
-
-    Le triangle $EFG$ est donc rectangle isocèle en $E$.
+    $EF = EG$, et $EF^2 + EG^2 = 25 + 25 = 50 = FG^2$ : le triangle $EFG$ est rectangle isocèle en $E$.
   \end{reponse}
 \end{example}
 
@@ -298,12 +318,16 @@
   Donc $2x_I = x_A + x_B$, soit $x_I = \dfrac{x_A + x_B}{2}$. On procède de même pour $y_I$.
 \end{demo}
 
+\Needspace{12\baselineskip}
 \begin{example}
-  On reprend $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$. On note $I$, $J$ et $K$ les milieux de $[AB]$, $[BC]$ et $[AC]$.
-  \begin{itemize}
-    \item $x_I = \dfrac{-2 + 4}{2} = \hideM{1}$ \quad et \quad $y_I = \dfrac{3 + (-1)}{2} = \hideM{1}$, \quad donc $I\,\hideM{(1\,;\,1)}$.
-    \item $J\,\hideM{\left(\dfrac{1}{2}\,;\,-\dfrac{3}{2}\right)}$ \qquad $K\,\hideM{\left(-\dfrac{5}{2}\,;\,\dfrac{1}{2}\right)}$
-  \end{itemize}
+  On reprend $A(-2\,;\,3)$, $B(4\,;\,-1)$ et $C(-3\,;\,-2)$. On note $I$, $J$ et $K$ les milieux de $[AB]$, $[BC]$ et $[AC]$. Calculer les coordonnées de $I$, $J$ et $K$.
+  \begin{reponse}
+    $x_I = \dfrac{-2 + 4}{2} = 1$ \quad et \quad $y_I = \dfrac{3 + (-1)}{2} = 1$, \quad donc $I(1\,;\,1)$.
+
+    De même, $J\left(\dfrac{4 + (-3)}{2}\,;\,\dfrac{-1 + (-2)}{2}\right)$, soit $J\left(\dfrac{1}{2}\,;\,-\dfrac{3}{2}\right)$.
+
+    Et $K\left(\dfrac{-2 + (-3)}{2}\,;\,\dfrac{3 + (-2)}{2}\right)$, soit $K\left(-\dfrac{5}{2}\,;\,\dfrac{1}{2}\right)$.
+  \end{reponse}
 \end{example}
 
 \begin{method}{Utiliser le milieu}{}
@@ -334,12 +358,15 @@
 \begin{example}
   \begin{minipage}{0.5\linewidth}
     On a représenté deux vecteurs $\vec u$ et $\vec v$.
-    \begin{itemize}
-      \item $\vec u\,\hideM{\col{4}{1}}$ \quad et \quad $\vec v\,\hideM{\col{-1}{-3}}$
-      \item[]
-      \item $\vec u + \vec v\,\hideM{\col{4 + (-1)}{1 + (-3)} = \col{3}{-2}}$
-    \end{itemize}
-    On construit $\vec u + \vec v$ en mettant les flèches bout à bout : on retrouve les mêmes coordonnées.
+    \begin{enumerate}[label=\arabic*.]
+      \item Lire les coordonnées de $\vec u$ et $\vec v$, puis calculer celles de $\vec u + \vec v$.
+      \item Construire $\vec u + \vec v$ en mettant les flèches bout à bout, et vérifier ses coordonnées.
+    \end{enumerate}
+    \begin{reponse}
+      $\vec u\col{4}{1}$ \quad et \quad $\vec v\col{-1}{-3}$
+
+      $\vec u + \vec v\col{4 + (-1)}{1 + (-3)} = \col{3}{-2}$
+    \end{reponse}
   \end{minipage}
   \hfill
   \begin{minipage}{0.45\linewidth}
@@ -383,7 +410,7 @@
   À partir du vecteur $\vec u$, construire les vecteurs $2\vec u$, $-\vec u$ et $\dfrac{1}{2}\vec u$.
 
   \begin{center}
-  \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+  \begin{tikzpicture}[x=0.55cm, y=0.55cm]
 \draw[gray!35, very thin, step=1] (0,0) grid (22,5);
 \draw[vec] (1,1) -- (5,3) node[midway, above left] {$\vec u$};
 \hidetk{
@@ -402,13 +429,15 @@
 \end{proposition}
 
 \begin{example}
-  Avec $\vec u\col{4}{-2}$ et $\vec v\col{-1}{3}$ :
-  \begin{tasks}[label=\textbullet](2)
-    \task $3\vec u\,\hideM{\col{3 \times 4}{3 \times (-2)} = \col{12}{-6}}$
-    \task $-\dfrac{1}{2}\vec u\,\hideM{\col{-2}{1}}$
-    \task $2\vec u - 3\vec v\,\hideM{\col{8 - (-3)}{-4 - 9} = \col{11}{-13}}$
-    \task $\vec u + 4\vec v\,\hideM{\col{4 - 4}{-2 + 12} = \col{0}{10}}$
-  \end{tasks}
+  On donne $\vec u\col{4}{-2}$ et $\vec v\col{-1}{3}$. Calculer les coordonnées des vecteurs $3\vec u$, $-\dfrac{1}{2}\vec u$, $2\vec u - 3\vec v$ et $\vec u + 4\vec v$.
+  \begin{reponse}
+    \begin{tasks}[label=\textbullet](2)
+      \task $3\vec u\col{3 \times 4}{3 \times (-2)} = \col{12}{-6}$
+      \task $-\dfrac{1}{2}\vec u\col{-\frac{1}{2} \times 4}{-\frac{1}{2} \times (-2)} = \col{-2}{1}$
+      \task $2\vec u - 3\vec v\col{8 - (-3)}{-4 - 9} = \col{11}{-13}$
+      \task $\vec u + 4\vec v\col{4 + (-4)}{-2 + 12} = \col{0}{10}$
+    \end{tasks}
+  \end{reponse}
 \end{example}
 
 \begin{example}
@@ -419,15 +448,3 @@
     $x_M - 1 = 3$ et $y_M - 2 = -9$, donc $M(4\,;\,-7)$.
   \end{reponse}
 \end{example}
-
-\begin{savoir}{}{}
-\begin{itemize}[label=--]
-  \item Lire les coordonnées d'un vecteur et représenter un vecteur de coordonnées données.
-  \item Calculer les coordonnées d'un vecteur $\wvec{AB}$.
-  \item Déterminer le quatrième sommet d'un parallélogramme.
-  \item Calculer une distance et déterminer la nature d'un triangle.
-  \item Calculer les coordonnées du milieu d'un segment, d'un symétrique.
-  \item Calculer les coordonnées d'une somme de vecteurs et d'un produit par un réel.
-  \item Construire le vecteur $k\vec u$.
-\end{itemize}
-\end{savoir}

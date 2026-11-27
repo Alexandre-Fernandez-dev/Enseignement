@@ -1,6 +1,7 @@
 # Déroulement de la séquence — Seconde, Ch. 3 : Généralités sur les fonctions
 
-Période : du 12/11 au 27/11/2026, soit 7 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
+Période : du 12/11 au 30/11/2026, soit 8 séances d'1 h (lundi, jeudi, vendredi), contrôle mixte compris.
+Révision du 27/11 (progression du Drive) : le contrôle mixte est reporté au lundi 30/11 pour réviser ; les élèves ont beaucoup de mal avec les problèmes de modélisation géométrique. Le jeudi 26/11 : correction de l'exercice 7, exercice 8, exercice 10 commencé ; le vendredi 27/11 : fin de l'exercice 10 et révisions. Contrôle allégé (voir séance 8).
 Révision du 23/11 (progression du Drive) : le 23/11, pas le temps de faire les exercices 7 et 8 ; l'exercice 7 passe en devoir. Le jeudi 26/11 : correction de l'exercice 7, exercice 8, puis un seul des exercices 10 et 11.
 Révision du 19/11 : le jeudi 26/11 devient une séance d'exercices (exercices 10 et 11) ; le contrôle mixte passe au vendredi 27/11 et le Ch4 commence le lundi 30/11.
 Révision du 16/11 : le chapitre avance moins vite que prévu, et il n'y a pas cours le vendredi 20/11 (sortie de la classe). La partie IV passe au lundi 23/11, le contrôle mixte au jeudi 26/11 ; le Ch4 commence le vendredi 27/11.
@@ -17,7 +18,7 @@ Le mercredi 11/11 est férié, mais il n'y a pas cours de mathématiques ce jour
 | Fiche d'exercices | `Exercices/2nde_Ch3_Exos.tex` |
 | Corrigé des exercices | `Exercices/Corrigés/2nde_Ch3_Exos_Corrige.tex` |
 | Évaluation courte A/B et corrigé (13/11, 15 min), sujet C de rattrapage (exercices et questions dans un autre ordre) | `Contrôles/Form 1/2nde_Ch3_Form1_SujetA.tex`, `SujetB.tex`, `SujetC.tex`, `Corrige.tex` |
-| Contrôle mixte A/B et corrigé (27/11, 1 h, sur 20) : automatismes, ensembles de nombres, Ch3 | `Contrôles/Sommatif/2nde_Ch3_Sommatif_SujetA.tex`, `SujetB.tex`, `Corrige.tex` |
+| Contrôle mixte A/B et corrigé (lundi 30/11, 1 h, sur 20) : automatismes, ensembles de nombres, Ch3 | `Contrôles/Sommatif/2nde_Ch3_Sommatif_SujetA.tex`, `SujetB.tex`, `Corrige.tex` |
 | Fiche calcul 5 (modélisation, semaine du 02/11) | `../Fiches calcul/Fiche calcul 5/2nde_FicheCalcul5.tex` |
 
 ## Questions flash de la période
@@ -82,19 +83,25 @@ Vendredi 20/11 : pas de cours (sortie de la classe).
 - Pas le temps de traiter les exercices 7 et 8.
 - **Devoir** : exercice 7 ; réviser le contrôle mixte du vendredi 27/11 : savoir-faire des chapitres 2 et 3, fiches calcul (factorisation, inéquations, modélisation).
 
-### Séance 6 — Problèmes de modélisation (jeudi 26/11)
+### Séance 6 — Problèmes de modélisation (jeudi 26/11, faite)
 - **Correction** de l'exercice 7 (devoir).
-- **En classe** : exercice 8 (vélos), puis un problème qui prépare le contrôle : exercice 10 (aires hachurées dans un rectangle) ou 11 (ballons de football), à choisir.
-- **Devoir** : réviser le contrôle mixte de vendredi.
+- **En classe** : exercice 8 (vélos), puis exercice 10 (aires hachurées dans un rectangle), commencé.
+- Contrôle reporté au lundi 30/11.
+- **Devoir** : réviser le contrôle mixte de lundi (savoir-faire des chapitres 2 et 3, fiches calcul).
 
-### Séance 7 — Contrôle mixte (vendredi 27/11)
+### Séance 7 — Révisions (vendredi 27/11)
+- **En classe** : fin de l'exercice 10 ; révisions du contrôle (savoir-faire des chapitres 2 et 3, fiches calcul) ; éventuellement un autre exercice de préparation.
+- **Devoir** : réviser le contrôle mixte du lundi 30/11.
+
+### Séance 8 — Contrôle mixte (lundi 30/11)
 - Sujets A et B, même structure et même difficulté, sans calculatrice (1 h), sur 20 points. Quatre exercices, sujet de deux pages (exercices 1-2, puis 3-4), mise en page à bandeaux comme les contrôles de 1re ST2S. Réponses sur la copie ; le sujet n'est pas rendu (pas de traits de lecture exigés).
 - Contenu :
-  1. **Automatismes** (5 points) : produit de fractions, inéquation avec la réponse en intervalle, pourcentage (questions reprises des diaporamas de questions flash) ; puis justifier quatre appartenances à $\mathbb{Z}$, $\mathbb{D}$ (écriture $\frac{a}{10^n}$), $\mathbb{Q}$ (fraction), $\mathbb{N}$. Pas d'encadrement ni d'arrondi : le formatif du 13/11 a été bien réussi.
+  1. **Automatismes** (5 points) : factoriser $25 - x^2$ avec une identité remarquable (B : $49 - x^2$ ; jamais l'expression de l'aire de l'exercice 4), inéquation avec la réponse en intervalle, $25\,\%$ de $620$ (B : de $860$) ; puis justifier trois appartenances à $\mathbb{Z}$, $\mathbb{D}$ (écriture $\frac{a}{10^n}$), $\mathbb{Q}$ (fraction). Pas d'encadrement ni d'arrondi : le formatif du 13/11 a été bien réussi.
   2. **Lecture graphique** (5 points) : ensemble de définition, images, antécédents, $f(x) \geqslant k$ (réunion d'intervalles).
-  3. **Problème** (6 points) : deux formules de prix données par une formule : images, appartenance d'un point, puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ avec interprétation.
-  4. **Fonction et géométrie** (4 points) : carré $ABCD$ de côté $6$ (B : $8$), $M$ sur $[AB]$ avec $AM = x$, carré $AMNP$ ; la partie hachurée est le grand carré privé du petit, $\mathcal{A}(x) = 36 - x^2$ (B : $64 - x^2$). Intervalle de $x$, justifier la formule (une seule idée : différence de deux aires), calculer une image (priorité du carré) et l'interpréter, montrer qu'un nombre est un antécédent en calculant son image ($\mathcal{A}(3) = 27$ ; B : $\mathcal{A}(5) = 39$). Pas de résolution d'équation $x^2 = a$ : la question 2 de l'exercice 2 ($x^2 - 4 = 0$) n'a pas été corrigée en classe, et la méthode n'est prévue qu'en fiche calcul à partir du 14/12. Choix du 22/11 : la formule du triangle ($18 - 3x$) était trop difficile à trouver, celle du rectangle ($6x$) trop simple.
+  3. **Problème** (6 points) : deux formules de prix données par une formule : images, puis résolution graphique de $f(x) = g(x)$ et $f(x) < g(x)$ avec interprétation.
+  4. **Fonction et géométrie** (4 points) : carré $ABCD$ de côté $6$ (B : $8$), $M$ sur $[AB]$ avec $AM = x$, carré $AMNP$ ; la partie hachurée est le grand carré privé du petit. Exercice guidé, qui s'arrête à la formule : cas $x = 2$ (B : $x = 3$ ; aire de $ABCD$, de $AMNP$, puis aire hachurée), aire de $AMNP$ en fonction de $x$, puis en déduire $f(x) = 36 - x^2$ (B : $64 - x^2$). Pas de résolution d'équation $x^2 = a$ (méthode prévue en fiche calcul à partir du 14/12).
 - Version allégée le 22/11 : factorisation, $f(x) = k$ et antécédent par le calcul dans le problème retirés, pour un contrôle plus court et moins difficile.
+- Version allégée le 27/11 (report au 30/11) : à l'exercice 1, produit de fractions et appartenance à $\mathbb{N}$ retirés, factorisation $a^2 - b^2$ et $25\,\%$ d'un nombre ajoutés ; appartenance d'un point (ex. 3) retirée ; exercice 4 guidé jusqu'à la formule de l'aire, sans intervalle, image ni antécédent ; l'aire est notée $f(x)$.
 - Pas de tableau de signes ni de tableau de variations.
 
 ### Exercices hors séance
