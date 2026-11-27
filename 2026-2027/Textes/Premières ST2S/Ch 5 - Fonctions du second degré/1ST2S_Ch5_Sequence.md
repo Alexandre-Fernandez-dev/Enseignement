@@ -13,7 +13,7 @@ Le chapitre ne traite que du second degré : les fonctions de degré 3 ont été
   - factoriser, dans des cas simples, en connaissant au moins une racine ;
   - utiliser la forme factorisée pour trouver les racines et étudier le signe.
 - **Hors programme** : discriminant, formules des racines, forme canonique, formule $-\frac{b}{2a}$. En cas de besoin, un solveur est admis.
-- **Algorithmique** : valeur approchée d'une solution d'une équation par balayage.
+- **Algorithmique** : valeur approchée d'une solution d'une équation par balayage. Retiré du chapitre (choix de l'enseignant), ainsi que la résolution graphique.
 
 ## Reprise du chapitre 2024-2025 (Première spécialité, Ch. 1 Polynômes)
 
@@ -21,8 +21,8 @@ Le cours de spécialité est construit autour du discriminant et de la forme can
 
 | Document 2024-2025 | Utilisation en ST2S |
 |---|---|
-| Activité 1 « saut du dauphin » | **Reprise et simplifiée** comme activité d'introduction. On garde la forme générale $f(t) = a(t - t_1)(t - t_2)$ : les élèves trouvent $t_1 = 0$ et $t_2 = 6$ grâce au contexte (instants où $f(t) = 0$), puis $a = -0{,}3$ avec $f(2) = 2{,}4$ (le poisson est attrapé à $t = 2$ s). On ajoute un tableau de valeurs, la courbe, l'axe $t = 3$ et la hauteur maximale $f(3) = 2{,}7$ m. Les élèves n'ont plus à démontrer la règle du produit nul, vue en questions flash. |
-| Activité 2 « racines » (GeoGebra) | **Parties 1 à 3 seulement**, projetées par le professeur : effet de $a$ et de $c$ sur la parabole. La partie 4 (complétion du carré, $\Delta$) est supprimée. |
+| Activité 1 « saut du dauphin » | **Reprise et raccourcie** : elle n'introduit que la partie 1 du cours (forme factorisée, racines, forme développée). Le dauphin sort de l'eau à $t = 1$ et replonge à $t = 7$, d'où $f(t) = a(t - 1)(t - 7)$ : le lien avec la forme factorisée est direct. Avec $f(2) = 2{,}5$, on trouve $a = -0{,}5$ ; toutes les valeurs du tableau se calculent sans calculatrice ($0$ ; $2{,}5$ ; $4$ ; $4{,}5$ ; $4$ ; $2{,}5$ ; $0$). L'axe de symétrie et le sommet sont laissés à la séance 3. |
+| Activité 2 « racines » (GeoGebra) | Remplacée par le fichier `1ST2S_Ch5_Parabole.ggb` (curseurs $a$, $x_1$, $x_2$ ; $c$ masqué). La partie 4 (complétion du carré, $\Delta$) est supprimée. |
 | Cours, parties « Équations de degré 3 et 4 » | Non reprises : hors du chapitre. |
 | Exercices 1 à 13 | Presque tous demandent $\Delta$ : on ne garde que les équations produit nul (« $(x - 5)(x + 7) = 0$ ») et l'étude de signe de $(x - 1)(x - 4)$. |
 | Contrôles (flash, formatif, sommatif) | Non repris : ils portent sur $\Delta$ et la forme canonique. |
@@ -32,7 +32,8 @@ Le cours de spécialité est construit autour du discriminant et de la forme can
 | Document | Fichier |
 |---|---|
 | Progression du chapitre | `1ST2S_Ch5_Progression.tex` |
-| Activité 1 (dauphin) et corrigé | `Activités/Activité 1/1ST2S_Ch5_Act1.tex`, `1ST2S_Ch5_Act1_Corrige.tex` |
+| Activité 1 (dauphin) | `Activités/Activité 1/1ST2S_Ch5_Act1.tex` (corrigé à faire) |
+| Fichier GeoGebra (parabole, curseurs $a$, $x_1$, $x_2$, $c$) | `Activités/Activité 1/1ST2S_Ch5_Parabole.ggb`, généré par `genere_ggb.py` |
 | Cours (prof et élève) | `Cours/1ST2S_Ch5_Cours.tex` |
 | Fiche d'exercices et corrigé | `Exercices/1ST2S_Ch5_Exos.tex`, `Exercices/Corrigés/1ST2S_Ch5_Exos_Corrige.tex` |
 | Contrôle formatif A/B | `Contrôles/Form 1/` |
@@ -50,22 +51,23 @@ Les questions flash du 02/11 (signe des fonctions affines, tableaux de signes gr
 
 Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde les exercices qui installent la notion. La suite d'un exercice commencé, ou un exercice du même type, est donnée en devoir (environ 15 min de travail).
 
-### Séance 1 — Découverte : le saut du dauphin (vendredi 04/12, 1re heure, après les révisions sur les suites)
-- **Activité 1** : la trajectoire est modélisée par $f(t) = a(t - t_1)(t - t_2)$.
-  - À quels instants le dauphin est-il au niveau de l'eau, c'est-à-dire $f(t) = 0$ ? Le contexte donne $t_1 = 0$ et $t_2 = 6$, d'où $f(t) = a(t - 0)(t - 6) = a\,t(t - 6)$.
-  - Calcul de $a$ avec $f(2) = 2{,}4$ (le poisson est attrapé à $t = 2$ s) : $a \times 2 \times (-4) = 2{,}4$, donc $a = -0{,}3$.
-  - Tableau de valeurs, tracé de la courbe, symétrie par rapport à $t = 3$ (milieu de $0$ et $6$), hauteur maximale $f(3) = 2{,}7$ m.
-  - Développement : $f(t) = -0{,}3t^2 + 1{,}8t$.
-- Bilan : parabole, **forme factorisée** $a(t - t_1)(t - t_2)$, les **racines** $t_1$ et $t_2$ sont les solutions de $f(t) = 0$, axe de symétrie au milieu des racines, sommet.
-- **Devoir** : terminer le développement de $f(t)$ si besoin.
+### Séance 1 — Découverte : le saut du dauphin, puis cours (vendredi 04/12, 1re heure, après les révisions sur les suites)
+- **Activité 1** (environ 25 min) : la trajectoire est modélisée par $f(t) = a(t - t_1)(t - t_2)$.
+  - Questions 1 et 2 : le dauphin est au niveau de l'eau à $t = 1$ et $t = 7$, donc $f(1) = f(7) = 0$, d'où $t_1 = 1$, $t_2 = 7$ et $f(t) = a(t - 1)(t - 7)$.
+  - Question 3 : $f(2) = 2{,}5$ donne $a \times 1 \times (-5) = 2{,}5$, donc $a = -0{,}5$.
+  - Question 4 : tableau de valeurs ($0$ ; $2{,}5$ ; $4$ ; $4{,}5$ ; $4$ ; $2{,}5$ ; $0$ ; on peut répartir les calculs entre les élèves), points placés dans le repère, puis courbe projetée avec `1ST2S_Ch5_Parabole.ggb` (la liste T affiche les points du tableau) : c'est une parabole.
+  - Question 5 : $f(t) = -0{,}5(t^2 - 8t + 7) = -0{,}5t^2 + 4t - 3{,}5$.
+  - Bilan : forme factorisée, racines (solutions de $f(x) = 0$), forme développée ; $a$ est le même dans les deux formes. Avec GeoGebra, faire varier $x_1$ et $x_2$ (la courbe coupe l'axe des abscisses en $x_1$ et $x_2$) et regarder $g$ dans la vue Algèbre (coefficients de la forme développée).
+- **Cours**, dans la foulée : partie 1, exemple du dauphin, définition (forme développée, forme factorisée, racine), proposition sur les racines d'une forme factorisée et exemples.
+- **Devoir** : donner les racines de deux ou trois formes factorisées.
 
 ### Séance 2 — Forme factorisée : racines et signe (vendredi 04/12, 2e heure)
-- **Cours** : forme factorisée $a(x - x_1)(x - x_2)$, dans le prolongement de l'activité ; racines par la règle du produit nul ; vérifier qu'un nombre est racine ; tableau de signes avec un facteur par ligne (lien avec le signe de $ax + b$, chapitre 3).
+- **Cours** : fin de la partie 1 : vérifier qu'un nombre est racine ; tableau de signes avec un facteur par ligne (lien avec le signe de $ax + b$, chapitre 3).
 - **En classe** : racines et tableau de signes de deux expressions factorisées.
 - **Devoir** : une troisième étude de signe ; vérifier qu'une valeur donnée est racine.
 
 ### Séance 3 — Forme factorisée : allure, axe, sommet, variations (vendredi 11/12, 1re heure)
-- **Démonstration GeoGebra projetée** (reprise de l'activité 2024-2025) : effet du signe de $a$ sur l'ouverture de la parabole.
+- **Démonstration GeoGebra projetée** (`1ST2S_Ch5_Parabole.ggb`, curseur $a$) : effet du signe de $a$ sur l'ouverture de la parabole ; retour au dauphin pour l'axe $t = 4$ et la hauteur maximale $f(4) = 4{,}5$ m.
 - **Cours** : allure selon le signe de $a$ ; l'axe de symétrie passe par le milieu des racines, $x = \frac{x_1 + x_2}{2}$ (justifié par la symétrie, sans formule générale) ; coordonnées du sommet ; tableau de variations.
 - **En classe** : étude complète de $f(x) = 2(x - 1)(x - 5)$ : racines, signe, axe, sommet, variations, allure.
 - **Devoir** : même étude pour une parabole tournée vers le bas.
@@ -76,7 +78,7 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 - **Devoir** : développer une forme factorisée et vérifier le résultat sur un exemple numérique.
 
 ### Séance 5 — Paraboles $x \mapsto ax^2$ et $x \mapsto ax^2 + c$ ; associer une parabole à son expression (jeudi 17/12)
-- **Démonstration GeoGebra projetée** : effet de $c$ (translation verticale).
+- **Démonstration GeoGebra projetée** (`1ST2S_Ch5_Parabole.ggb` : afficher le curseur $c$ et la courbe $h$ dans la vue Algèbre) : effet de $c$ (translation verticale).
 - **Cours** : cas particuliers de la forme développée ($b = 0$) : axe de symétrie confondu avec l'axe des ordonnées, sommet $(0~;~c)$, variations selon le signe de $a$.
 - Associer une parabole à une expression $ax^2$, $ax^2 + c$ ou $a(x - x_1)(x - x_2)$ : signe de $a$, ordonnée à l'origine, racines.
 - **En classe** : un exercice d'association de quatre paraboles et quatre expressions.
@@ -87,8 +89,8 @@ Une séance d'1 h compte environ 10 min de questions flash. En classe, on garde 
 - **En classe** : deux factorisations guidées, puis l'étude de signe de l'une des deux formes obtenues.
 - **Devoir** : une factorisation connaissant une racine.
 
-### Séance 7 — Résolution graphique et problèmes (vendredi 18/12, 2e heure)
-- **Cours** : résoudre graphiquement $f(x) = k$ et $f(x) < k$ (rappel du chapitre 1) ; valeur approchée d'une solution par balayage (table de la calculatrice ou tableur projeté) ; solveur en cas de besoin.
+### Séance 7 — Problèmes et synthèse (vendredi 18/12, 2e heure)
+- Pas de résolution graphique ni de balayage (retirés du cours).
 - **En classe** : un problème de modélisation en contexte sanitaire ou social (par exemple, nombre de patients pendant une épidémie modélisé par une parabole, bénéfice d'une association selon le prix d'un ticket).
 - **Devoir** : finir le problème ; exercice de synthèse (forme factorisée et forme développée) avant le contrôle.
 

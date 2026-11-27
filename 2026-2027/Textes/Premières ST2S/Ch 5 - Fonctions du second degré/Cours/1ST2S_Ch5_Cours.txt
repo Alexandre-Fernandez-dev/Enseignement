@@ -31,7 +31,7 @@
 \section{Forme factorisée et racines}
 
 \begin{example}
-  Dans l'activité 1, la hauteur du dauphin est $f(t) = -0{,}3\,t\,(t - 6)$. Le dauphin est au niveau de l'eau quand $f(t) = 0$, c'est-à-dire pour $t = \hideM{0}$ et $t = \hideM{6}$.
+  Dans l'activité 1, la hauteur du dauphin est $f(t) = -0{,}5\,(t - 1)(t - 7)$. Le dauphin est au niveau de l'eau quand $f(t) = 0$, c'est-à-dire pour $t = \hideM{1}$ et $t = \hideM{7}$. En développant, on obtient $f(t) = \hideM{-0{,}5t^2 + 4t - 3{,}5}$.
 \end{example}
 
 \begin{definition}{Fonction du second degré}{}
@@ -352,36 +352,6 @@
   \end{enumerate}
 \end{examples}
 
-\section{Résolution graphique et balayage}
-
-\begin{method}{Résoudre graphiquement $f(x) = k$}{}
-  On trace la droite horizontale d'équation $y = k$ : les solutions sont les \textbf{abscisses} des points d'intersection avec la courbe (chapitre 1).
-\end{method}
-
-\begin{method}{Encadrer une solution par balayage}{}
-  Quand l'équation n'a pas de solution évidente, on calcule des images avec la table de la calculatrice : d'abord avec un pas de $1$, puis avec un pas de $0{,}1$ autour de la solution. Un solveur donne aussi une valeur approchée.
-\end{method}
-
-\begin{example}
-  Le dauphin de l'activité 1 a pour hauteur $f(t) = -0{,}3t^2 + 1{,}8t$. À quels instants est-il à $2$~m de hauteur~?
-
-  \renewcommand{\arraystretch}{1.3}
-  \begin{center}
-  \begin{tabular}{|c|*{4}{C{1.4cm}|}}
-    \hline
-    $t$ & $1$ & $2$ & $1{,}4$ & $1{,}5$ \\
-    \hline
-    $f(t)$ & $1{,}5$ & $2{,}4$ & $1{,}932$ & $2{,}025$ \\
-    \hline
-  \end{tabular}
-  \end{center}
-  \begin{multihideW}[0.5em]
-    $f(1) < 2 < f(2)$, puis $f(1{,}4) < 2 < f(1{,}5)$ : une solution est comprise entre $1{,}4$ et $1{,}5$.
-
-    Par symétrie par rapport à l'axe $t = 3$, l'autre solution est comprise entre $4{,}5$ et $4{,}6$.
-  \end{multihideW}
-\end{example}
-
 \begin{savoir}{}{}
 \begin{itemize}[label=--]
   \item Donner les racines d'une forme factorisée ; vérifier qu'un nombre est racine,
@@ -389,7 +359,6 @@
   \item Déterminer l'axe de symétrie, le sommet et les variations (forme factorisée ou développée),
   \item Développer une forme factorisée ; trouver l'axe en résolvant $f(x) = c$,
   \item Associer une parabole à son expression,
-  \item Factoriser dans des cas simples, connaissant une racine,
-  \item Résoudre graphiquement $f(x) = k$ ; encadrer une solution par balayage.
+  \item Factoriser dans des cas simples, connaissant une racine.
 \end{itemize}
 \end{savoir}
